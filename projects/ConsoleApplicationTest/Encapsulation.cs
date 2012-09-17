@@ -70,3 +70,21 @@ namespace ConsoleApplication1
         }
     }
 }
+/*
+ //No casting
+            BMWZ4 car1 = new BMWZ4("BMW");
+
+            //casting to interface and upper class
+            ICar   car1shadow1 = new BMWZ4("BMW");
+            BMW car1shadow2 = new BMWZ4("BMW") as BMW;
+
+            car1.start();
+            car1shadow1.start();
+            car1shadow2.start();
+
+            car1shadow1.carStappoed += new EventHandler(onCarStopped);
+            car1shadow2.carStappoed += new EventHandler(onCarStopped);
+
+            car1shadow1.Break();
+            car1shadow2.Break();
+ */

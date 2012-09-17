@@ -29,12 +29,12 @@ namespace ConsoleApplication1
      
     */
 
-    public class fundamental
+    public class Delegate
     {
         delegate void writeSomething(string msg);
 
         
-        public fundamental()
+        public Delegate()
         {
             writeSomething func1 = new writeSomething(this.logMeMain);
             func1 += this.logMe1;
