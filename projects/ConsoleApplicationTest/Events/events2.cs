@@ -5,21 +5,35 @@ using System.Text;
 
 namespace ConsoleApplication1.event2
 {
-    public delegate void customeHandler(object sender,EventArgs args);
+    //not important to define delegate for events
+    //public delegate void customeHandler(object sender,EventArgs args);
 
 
     //in this example we build new collwection instead of customizing built in collection and overrride the beahavioias
     public class customCollection <T>
     {
-        public event customeHandler addEvent;
-        public event customeHandler removeEvent;
-        public event customeHandler updateEvent;
+        public event EventHandler addEvent;
+        public event EventHandler removeEvent;
+        public event EventHandler updateEvent;
 
 
         List<T> repository;
         public customCollection(List<T> input)
         {
             repository = input;
+        }
+        //Indexer
+        public T this[int index]
+        {
+            set
+            {
+                repository[index] = value;
+                updateEvent(this,EventArgs.Empty);
+            }
+            get 
+            {
+                return repository[index];
+            }
         }
 
         public void add()
@@ -46,10 +60,13 @@ namespace ConsoleApplication1.event2
         {
             myRepo = new customCollection<string>(new List<string>() { "data1", "Data2", "data3" });
 
-            myRepo.addEvent+=new customeHandler(addedToRepo1);
-            myRepo.addEvent += new customeHandler(addedToRepo2);
-            myRepo.updateEvent+= new customeHandler(updateRepo);
-            myRepo.removeEvent+= new customeHandler(removeRepo);
+            myRepo.addEvent += new EventHandler(addedToRepo1);
+            myRepo.addEvent += new EventHandler(addedToRepo2);
+            myRepo.addEvent += delegate(object o, EventArgs e) { Console.WriteLine("anonymous add function added"); };
+            myRepo.addEvent += ((object o, EventArgs e) => { Console.WriteLine("anonymous add function added using lambda Expression");  });
+
+            myRepo.updateEvent += new EventHandler(updateRepo);
+            myRepo.removeEvent += new EventHandler(removeRepo);
 
 
 
@@ -59,7 +76,7 @@ namespace ConsoleApplication1.event2
             myRepo.remove();
 
             //based on logic change Event binding
-            myRepo.addEvent -= new customeHandler(addedToRepo2);
+            myRepo.addEvent -= new EventHandler(addedToRepo2);
             myRepo.add();
         }
 
