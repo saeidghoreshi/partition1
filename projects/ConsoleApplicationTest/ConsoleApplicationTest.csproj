@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Encapsulation.cs" />
+    <Compile Include="events1.cs" />
+    <Compile Include="events2.cs" />
+    <Compile Include="fundamental.cs" />
     <Compile Include="others\LinqXML.cs" />
     <Compile Include="others\PGConnection.cs" />
     <Compile Include="Program.cs" />

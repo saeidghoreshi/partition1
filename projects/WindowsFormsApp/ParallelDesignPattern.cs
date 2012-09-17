@@ -133,9 +133,5 @@ namespace WindowsFormsApp
         
         }
 
-        private void ParallelDesignPattern_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

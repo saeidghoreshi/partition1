@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.Name = "ParallelDesignPattern";
             this.Text = "ParallelDesignPattern";
-            this.Load += new System.EventHandler(this.ParallelDesignPattern_Load);
+            
             this.ResumeLayout(false);
 
         }
