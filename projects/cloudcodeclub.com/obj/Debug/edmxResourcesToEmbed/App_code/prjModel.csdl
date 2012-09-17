@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prjModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="prjEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="organizations" EntityType="prjModel.organization" />
+    <EntitySet Name="people" EntityType="prjModel.person" />
+    <EntitySet Name="person_org" EntityType="prjModel.person_org" />
+    <EntitySet Name="tasks" EntityType="prjModel.task" />
+    <EntitySet Name="workflows" EntityType="prjModel.workflow" />
+  </EntityContainer>
+  <EntityType Name="organization">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parent_org_id" Type="Int32" />
+    <Property Name="org_name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="street" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="postalcode" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="logo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="person_id" />
+    </Key>
+    <Property Name="person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="lname" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="person_org">
+    <Key>
+      <PropertyRef Name="person_org_id" />
+    </Key>
+    <Property Name="person_org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="person_id" Type="Int32" />
+    <Property Name="org_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="task_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="creator_id" Type="Int32" />
+    <Property Name="create_datetime" Type="DateTime" />
+    <Property Name="task_name" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="deadline" Type="DateTime" />
+    <Property Name="description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="workflow">
+    <Key>
+      <PropertyRef Name="workflow_id" />
+    </Key>
+    <Property Name="workflow_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="task_id" Type="Int32" />
+    <Property Name="person_id" Type="Int32" />
+    <Property Name="deadline" Type="DateTime" />
+    <Property Name="elapsed_time" Type="Int64" />
+    <Property Name="description" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="status_id" Type="Int32" />
+  </EntityType>
+</Schema>

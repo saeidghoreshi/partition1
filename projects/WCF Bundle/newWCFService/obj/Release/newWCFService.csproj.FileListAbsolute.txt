@@ -1,0 +1,6 @@
+D:\Projects\newWCFService\bin\Release\newWCFService.dll.config
+D:\Projects\newWCFService\bin\Release\newWCFService.dll
+D:\Projects\newWCFService\bin\Release\newWCFService.pdb
+D:\Projects\newWCFService\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\newWCFService\obj\Release\newWCFService.dll
+D:\Projects\newWCFService\obj\Release\newWCFService.pdb

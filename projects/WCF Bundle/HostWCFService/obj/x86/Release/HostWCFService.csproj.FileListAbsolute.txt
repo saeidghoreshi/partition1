@@ -1,0 +1,8 @@
+D:\Projects\HostWCFService\bin\Release\HostWCFService.exe.config
+D:\Projects\HostWCFService\bin\Release\HostWCFService.exe
+D:\Projects\HostWCFService\bin\Release\HostWCFService.pdb
+D:\Projects\HostWCFService\bin\Release\newWCFService.dll
+D:\Projects\HostWCFService\bin\Release\newWCFService.pdb
+D:\Projects\HostWCFService\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\HostWCFService\obj\x86\Release\HostWCFService.exe
+D:\Projects\HostWCFService\obj\x86\Release\HostWCFService.pdb

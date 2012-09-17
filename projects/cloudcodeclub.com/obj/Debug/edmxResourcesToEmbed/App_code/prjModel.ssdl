@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prjModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="prjModelStoreContainer">
+    <EntitySet Name="organization" EntityType="prjModel.Store.organization" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="person" EntityType="prjModel.Store.person" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="person_org" EntityType="prjModel.Store.person_org" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="task" EntityType="prjModel.Store.task" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="workflow" EntityType="prjModel.Store.workflow" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="organization">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_org_id" Type="int" />
+    <Property Name="org_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="street" Type="nvarchar" MaxLength="100" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" />
+    <Property Name="postalcode" Type="nvarchar" MaxLength="100" />
+    <Property Name="logo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="person_id" />
+    </Key>
+    <Property Name="person_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="nvarchar" MaxLength="200" />
+    <Property Name="lname" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="person_org">
+    <Key>
+      <PropertyRef Name="person_org_id" />
+    </Key>
+    <Property Name="person_org_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="person_id" Type="int" />
+    <Property Name="org_id" Type="int" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="task_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="creator_id" Type="int" />
+    <Property Name="create_datetime" Type="date" />
+    <Property Name="task_name" Type="nvarchar" />
+    <Property Name="deadline" Type="date" />
+    <Property Name="description" Type="nvarchar" />
+  </EntityType>
+  <EntityType Name="workflow">
+    <Key>
+      <PropertyRef Name="workflow_id" />
+    </Key>
+    <Property Name="workflow_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="task_id" Type="int" />
+    <Property Name="person_id" Type="int" />
+    <Property Name="deadline" Type="date" />
+    <Property Name="elapsed_time" Type="bigint" />
+    <Property Name="description" Type="nvarchar" />
+    <Property Name="status_id" Type="int" />
+  </EntityType>
+</Schema>

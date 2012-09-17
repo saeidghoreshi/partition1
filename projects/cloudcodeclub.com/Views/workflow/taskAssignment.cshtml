@@ -1,0 +1,31 @@
+﻿<form id="taskAssignment_form" name="taskAssignment_form" class="taskAssignment_form">
+
+<table cellpadding="2" cellspacing="2" border="0" class="taskAssignment_table">
+<tr>
+    <td>
+    <select id="taskAssignment_officelist" name="taskAssignment_officelist">
+    @foreach (var item in ViewBag.existingOffices)
+    {
+        <option id="taskAssignment_office_@item.org_id" value="@item.org_id" >@item.org_name</option>
+    }
+    </select>
+    </td>
+</tr>
+<tr>
+    <td>
+        <div id="taskAssignment_UserList1" class="taskAssignment_UserList1 taskAssignment_G1" ></div>
+    </td>
+
+    <td>
+        <div id="taskAssignment_UserList2" class="taskAssignment_UserList2 taskAssignment_G2" ></div>
+    </td>
+</tr>
+<tr>
+    <td>
+    <input id="taskAssignment-saveBtn" value="save" />
+    </td>
+</tr>
+</table>
+
+</form>
+

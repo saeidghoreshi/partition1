@@ -1,0 +1,121 @@
+﻿@functions {
+
+    public enum ScriptType
+    {
+        JavaScript,
+        Stylesheet
+    }
+
+    /// <summary>
+    /// Helper class to hold ScriptInfo
+    /// </summary>
+    public class ScriptInfo
+    {
+        public string LocalPath { get; set; }
+        public string ServerPath { get; set; }
+        public string CDNPath { get; set; }
+        public ScriptType ScriptType { get; set; }
+
+        public ScriptInfo(string localPath, string serverPath, string cdnPath, ScriptType scriptType)
+        {
+            LocalPath = localPath;
+            ServerPath = serverPath;
+            CDNPath = cdnPath;
+            ScriptType = scriptType;
+        }
+    }
+
+}
+@helper AddCss(string localPath, string cdnPath = null)
+    {
+        var scriptType = ScriptType.Stylesheet;
+    @AddItem(scriptType, localPath, cdnPath);	
+}
+@helper AddJavaScript(string localPath, string cdnPath = null)
+    {
+        var scriptType = ScriptType.JavaScript;
+    @AddItem(scriptType, localPath, cdnPath);
+}
+@helper AddItem(ScriptType scriptType, string localPath, string cdnPath = null)
+    {
+        //Store added items in HttContext.Items
+        var key = "__rssm__" + scriptType.ToString();
+        if (Context.Items[key] == null)
+        {
+            Context.Items[key] = new List<ScriptInfo>();
+        }
+        var scripts = Context.Items[key] as List<ScriptInfo>;
+
+        
+        ScriptInfo scriptInfo = scripts.Where(x => x.LocalPath == localPath && x.ScriptType == scriptType).FirstOrDefault();
+
+        //Only register each script once
+        if (scriptInfo == null)
+        {
+            scripts.Add(new ScriptInfo(localPath, Server.MapPath(localPath), cdnPath, scriptType));
+            Context.Items[key] = scripts;
+        }
+        else if (scriptInfo != null 
+            && string.IsNullOrEmpty(scriptInfo.CDNPath)
+            && !string.IsNullOrEmpty(cdnPath))
+        {
+            //Add CDN url to existing scripts
+            scriptInfo.CDNPath = cdnPath;
+            Context.Items[key] = scripts;
+        }
+        
+}
+@helper OutputCss()
+    {
+    @Output(ScriptType.Stylesheet)
+       
+
+}
+@helper OutputJavaScript()
+    {
+    @Output(ScriptType.JavaScript)
+
+}
+@helper Output(ScriptType scriptType)
+    {
+        string configKey = "UseCDNScripts";
+        
+        var key = "__rssm__" + scriptType.ToString();
+        if (Context.Items[key] == null) { return; }
+        IEnumerable<ScriptInfo> scripts = Context.Items[key] as List<ScriptInfo>;
+        var cdnScripts = new List<ScriptInfo>();
+        if (!string.IsNullOrEmpty(System.Configuration.ConfigurationManager.AppSettings[configKey])
+            && bool.Parse(System.Configuration.ConfigurationManager.AppSettings[configKey]))
+        {
+            var localScripts = scripts.Where(s => string.IsNullOrWhiteSpace(s.CDNPath));
+            cdnScripts = scripts.Except(localScripts).ToList();
+            scripts = localScripts;
+            Context.Items[key] = scripts;
+        }
+
+        //Print HTML tags
+        if (scriptType == ScriptType.Stylesheet)
+        {
+            foreach (var cdnScript in cdnScripts)
+            {
+<link href="@cdnScript.CDNPath" rel="stylesheet" type="text/css" />
+            }
+
+            foreach (var script in scripts)
+            {
+<link href="@System.Web.Mvc.UrlHelper.GenerateContentUrl(script.LocalPath, Context)" rel="stylesheet" type="text/css" />
+            }
+        }
+        else if (scriptType == ScriptType.JavaScript)
+        {
+            foreach (var cdnScript in cdnScripts)
+            {
+<script type="text/javascript" src="@cdnScript.CDNPath"></script>
+            }
+
+            foreach (var script in scripts)
+            {
+<script type="text/javascript" src="@System.Web.Mvc.UrlHelper.GenerateContentUrl(script.LocalPath, Context)"></script>
+            }
+        }
+}

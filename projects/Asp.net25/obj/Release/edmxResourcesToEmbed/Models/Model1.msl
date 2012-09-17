@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="model1Context">
+    <EntitySetMapping Name="people">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.person">
+        <MappingFragment StoreEntitySet="person">
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="thumbnailFile" ColumnName="thumbnailFile" />
+          <ScalarProperty Name="thumbnailExt" ColumnName="thumbnailExt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="test">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="testreviews">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.testreview">
+        <MappingFragment StoreEntitySet="testreview">
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="testid" ColumnName="testid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

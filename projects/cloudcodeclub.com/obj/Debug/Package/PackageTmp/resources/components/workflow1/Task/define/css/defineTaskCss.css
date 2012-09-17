@@ -1,0 +1,66 @@
+﻿.createNewTask_Form
+{
+    font-size:10px;
+    font-family:Verdana;    
+    width:100%;
+}
+.createNewTask_Form_input
+{
+    width:200px;
+}
+.createNewTask_table
+{
+    width:100%;
+}
+.createNewTask_table td
+{
+    padding:3px;
+}
+
+.createNewtask_fileList_Div
+{
+    overflow:auto;
+}
+
+.createNewtask_fileList_Div_items
+{
+    padding:5px;
+    float:left;    
+    
+    background-color: #FAF9DE;
+    background-image: -ms-linear-gradient(top, #FAF9DE 0%, #EFEED5 100%);
+    background-image: -moz-linear-gradient(top, #FAF9DE 0%, #EFEED5 100%);
+    background-image: -o-linear-gradient(top, #FAF9DE 0%, #EFEED5 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FAF9DE), color-stop(1, #EFEED5));
+    background-image: -webkit-linear-gradient(top, #FAF9DE 0%, #EFEED5 100%);
+    background-image: linear-gradient(top, #FAF9DE 0%, #EFEED5 100%);
+    border: solid 1px #969584;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    
+    
+    position: relative;
+}
+
+.createNewtask_fileList_Div_items_delete
+{
+    background:url('../images/delete.png') no-repeat;
+    width:20px;
+    height:20px;
+    float:left;    
+    background-position:center;
+    cursor:pointer;
+}
+.createNewtask_fileList_Div_items_parent
+{
+    float:left;    
+}
+.createNewTask_saveBtn
+{
+    width:70px;    
+}

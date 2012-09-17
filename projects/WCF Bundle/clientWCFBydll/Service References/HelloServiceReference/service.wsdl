@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HelloService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="Helloservice_wshttp_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Helloservice_tcphttp_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://test.com/Interface1/spec" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHello_addSpec_InputMessage">
+    <wsdl:part name="parameters" element="tns:addSpec" />
+  </wsdl:message>
+  <wsdl:message name="IHello_addSpec_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addSpecResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHello_getSpecs_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSpecs" />
+  </wsdl:message>
+  <wsdl:message name="IHello_getSpecs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSpecsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHello_getSpecByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSpecByName" />
+  </wsdl:message>
+  <wsdl:message name="IHello_getSpecByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSpecByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHello_deleteSpec_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSpec" />
+  </wsdl:message>
+  <wsdl:message name="IHello_deleteSpec_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteSpecResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHello">
+    <wsdl:operation name="addSpec">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHello/addSpec" message="tns:IHello_addSpec_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHello/addSpecResponse" message="tns:IHello_addSpec_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpecs">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHello/getSpecs" message="tns:IHello_getSpecs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHello/getSpecsResponse" message="tns:IHello_getSpecs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getSpecByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHello/getSpecByName" message="tns:IHello_getSpecByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHello/getSpecByNameResponse" message="tns:IHello_getSpecByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSpec">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHello/deleteSpec" message="tns:IHello_deleteSpec_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHello/deleteSpecResponse" message="tns:IHello_deleteSpec_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Helloservice_wshttp" type="tns:IHello">
+    <wsp:PolicyReference URI="#Helloservice_wshttp_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addSpec">
+      <soap12:operation soapAction="http://tempuri.org/IHello/addSpec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecs">
+      <soap12:operation soapAction="http://tempuri.org/IHello/getSpecs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecByName">
+      <soap12:operation soapAction="http://tempuri.org/IHello/getSpecByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSpec">
+      <soap12:operation soapAction="http://tempuri.org/IHello/deleteSpec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Helloservice_basichttp" type="tns:IHello">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addSpec">
+      <soap:operation soapAction="http://tempuri.org/IHello/addSpec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecs">
+      <soap:operation soapAction="http://tempuri.org/IHello/getSpecs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecByName">
+      <soap:operation soapAction="http://tempuri.org/IHello/getSpecByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSpec">
+      <soap:operation soapAction="http://tempuri.org/IHello/deleteSpec" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Helloservice_tcphttp" type="tns:IHello">
+    <wsp:PolicyReference URI="#Helloservice_tcphttp_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="addSpec">
+      <soap12:operation soapAction="http://tempuri.org/IHello/addSpec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecs">
+      <soap12:operation soapAction="http://tempuri.org/IHello/getSpecs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSpecByName">
+      <soap12:operation soapAction="http://tempuri.org/IHello/getSpecByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSpec">
+      <soap12:operation soapAction="http://tempuri.org/IHello/deleteSpec" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloService">
+    <wsdl:port name="Helloservice_wshttp" binding="tns:Helloservice_wshttp">
+      <soap12:address location="http://localhost:8080/helloservice/ws" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8080/helloservice/ws</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="Helloservice_basichttp" binding="tns:Helloservice_basichttp">
+      <soap:address location="http://localhost:8080/helloservice/basic" />
+    </wsdl:port>
+    <wsdl:port name="Helloservice_tcphttp" binding="tns:Helloservice_tcphttp">
+      <soap12:address location="net.tcp://localhost:8081/tcp" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8081/tcp</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>SAEID\saeidco</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

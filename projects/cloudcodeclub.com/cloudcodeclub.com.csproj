@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E4D5934F-FD09-49F7-A6E1-FC0488F1DBE3}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcApplication1</RootNamespace>
+    <AssemblyName>MvcApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EcmaScript.NET.modified">
+      <HintPath>packages\YUICompressor.NET.1.5.0.0\lib\NET35\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore">
+      <HintPath>packages\EventStore.3.0.11326.44\lib\net40\EventStore.dll</HintPath>
+    </Reference>
+    <Reference Include="EventStore.Serialization.Json">
+      <HintPath>packages\EventStore.Serialization.Json.3.0.11326.44\lib\net40\EventStore.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="js.net">
+      <HintPath>..\packages\js.net.0.0.2\lib\js.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.0.11\lib\Net40\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Newtonsoft.Json.4.5.7\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.0.11\lib\Net40\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Json.4.0.20126.16343\lib\net40\System.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Net.Http.Formatting.4.0.20126.16343\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebPages.Core.2.0.20126.16343\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.Core.4.0.20126.16343\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Web.Http.Common.4.0.20126.16343\lib\net40\System.Web.Http.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebApi.4.0.20126.16343\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetMvc.4.0.20126.16343\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.Web.Optimization.1.0.0-beta\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\System.Web.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetRazor.Core.2.0.20126.16343\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebPages.Core.2.0.20126.16343\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebPages.Core.2.0.20126.16343\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\AspNetWebPages.Core.2.0.20126.16343\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>packages\YUICompressor.NET.1.5.0.0\lib\NET35\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
+    <Compile Include="Controllers\facebookController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NotebookController.cs" />
+    <Compile Include="Controllers\PermissionController.cs" />
+    <Compile Include="Controllers\workflowController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\RazorScriptManager.cs" />
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="netfx\System\Guard.cs" />
+    <Compile Include="netfx\System\Reflection\Reflect.cs" />
+    <Compile Include="netfx\System\Reflection\Reflect.Overloads.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reflect.Overloads.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\prjModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>prjModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\EventStore.license.txt" />
+    <Content Include="App_Readme\SimpleRazorScriptManager.txt" />
+    <Content Include="App_Start\NHibernateProfilerBootstrapper.vb" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Documentations\1.PNG" />
+    <Content Include="Documentations\2.PNG" />
+    <Content Include="Documentations\3.PNG" />
+    <Content Include="Documentations\4.PNG" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="README.jQuery.vsdoc.txt" />
+    <Content Include="resources\components\Application.js" />
+    <Content Include="resources\components\base\css\baseCss.css" />
+    <Content Include="resources\components\base\images\1.png" />
+    <Content Include="resources\components\base\images\5.png" />
+    <Content Include="resources\components\base\images\3.png" />
+    <Content Include="resources\components\base\images\loadingAlert.gif" />
+    <Content Include="resources\components\base\images\apple_folder.png" />
+    <Content Include="resources\components\base\images\facebook.png" />
+    <Content Include="resources\components\base\images\logout.png" />
+    <Content Include="resources\components\base\images\login.png" />
+    <Content Include="resources\components\base\images\scheduled_tasks.png" />
+    <Content Include="resources\components\base\images\settings.png" />
+    <Content Include="resources\components\base\images\tasks.png" />
+    <Content Include="resources\components\base\images\taskAssignment.png" />
+    <Content Include="resources\components\base\images\permissions.png" />
+    <Content Include="resources\components\base\images\left-pointer.png" />
+    <Content Include="resources\components\base\images\loading3.gif" />
+    <Content Include="resources\components\base\images\2.png" />
+    <Content Include="resources\components\base\images\user.png" />
+    <Content Include="resources\components\base\js\baseController.js" />
+    <Content Include="resources\components\applicationResources.js" />
+    <Content Include="resources\components\moduleResources.js" />
+    <Content Include="resources\components\rightTabsComponent\images\arrow_skip_left.png" />
+    <Content Include="resources\components\rightTabsComponent\images\doc1.png" />
+    <Content Include="resources\components\rightTabsComponent\images\ExtJS4Grid.PNG" />
+    <Content Include="resources\components\rightTabsComponent\images\HTMLGoodiesTree.PNG" />
+    <Content Include="resources\components\rightTabsComponent\images\KendoUIGrid.PNG" />
+    <Content Include="resources\components\rightTabsComponent\images\Gmaps.PNG" />
+    <Content Include="resources\components\rightTabsComponent\images\ExtJS4Tree.PNG" />
+    <Content Include="resources\components\rightTabsComponent\images\slider.PNG" />
+    <Content Include="resources\components\rightTabsComponent\images\uploader.PNG" />
+    <Content Include="resources\components\testUI\css\testUICss.css" />
+    <Content Include="resources\components\testUI\js\testUIController.js" />
+    <Content Include="resources\components\facebook\css\facebookCss.css" />
+    <Content Include="resources\components\facebook\js\facebookController.js" />
+    <Content Include="resources\components\kendoGrid1\css\kendoGrid1Css.css" />
+    <Content Include="resources\components\kendoGrid1\js\kendoGrid1Controller.js" />
+    <Content Include="resources\components\rightTabsComponent\css\rightTabsCss.css" />
+    <Content Include="resources\components\rightTabsComponent\js\rightTabsController.js" />
+    <Content Include="resources\components\mainMenu\css\mainMenuCss.css" />
+    <Content Include="resources\components\mainMenu\js\mainMenuController.js" />
+    <Content Include="resources\components\archive\css\archiveCss.css" />
+    <Content Include="resources\components\menu\css\ie\csshover3.htc" />
+    <Content Include="resources\components\menu\css\ie\ie.css" />
+    <Content Include="resources\components\menu\css\ie\ie_down1.png" />
+    <Content Include="resources\components\menu\css\ie\ie_down1b.png" />
+    <Content Include="resources\components\menu\css\ie\ie_down2.png" />
+    <Content Include="resources\components\menu\css\ie\ie_left1.png" />
+    <Content Include="resources\components\menu\css\ie\ie_left2.png" />
+    <Content Include="resources\components\menu\css\ie\ie_right1.png" />
+    <Content Include="resources\components\menu\css\ie\ie_right2.png" />
+    <Content Include="resources\components\menu\css\megamenu.css" />
+    <Content Include="resources\components\menu\images\01.jpg" />
+    <Content Include="resources\components\menu\images\02.jpg" />
+    <Content Include="resources\components\menu\images\03.jpg" />
+    <Content Include="resources\components\menu\images\04.jpg" />
+    <Content Include="resources\components\menu\images\arrow_down1.png" />
+    <Content Include="resources\components\menu\images\arrow_down2.png" />
+    <Content Include="resources\components\menu\images\arrow_left1.png" />
+    <Content Include="resources\components\menu\images\arrow_left2.png" />
+    <Content Include="resources\components\menu\images\arrow_right1.png" />
+    <Content Include="resources\components\menu\images\arrow_right2.png" />
+    <Content Include="resources\components\menu\images\browsers.png" />
+    <Content Include="resources\components\menu\images\delicious.png" />
+    <Content Include="resources\components\menu\images\facebook.png" />
+    <Content Include="resources\components\menu\images\favorite.png" />
+    <Content Include="resources\components\menu\images\flickr.png" />
+    <Content Include="resources\components\menu\images\help.png" />
+    <Content Include="resources\components\menu\images\mail.png" />
+    <Content Include="resources\components\menu\images\plus.png" />
+    <Content Include="resources\components\menu\images\plus_dark.png" />
+    <Content Include="resources\components\menu\images\print.png" />
+    <Content Include="resources\components\menu\images\rss.png" />
+    <Content Include="resources\components\menu\images\technorati.png" />
+    <Content Include="resources\components\menu\images\twitter.png" />
+    <Content Include="resources\components\menu\js\form.js" />
+    <Content Include="resources\components\office\new\css\css.css" />
+    <Content Include="resources\components\office\new\js\controller.js" />
+    <Content Include="resources\components\permission\Assignment\css\permissionCss.css" />
+    <Content Include="resources\components\permission\Assignment\images\tick.png" />
+    <Content Include="resources\components\permission\Assignment\js\permissionController.js" />
+    <Content Include="resources\components\permission\Login\css\loginCss.css" />
+    <Content Include="resources\components\permission\Login\js\loginController.js" />
+    <Content Include="resources\modules\myTabs\css\mytabsCss.css" />
+    <Content Include="resources\modules\myTabs\images\tabgradient_bg.gif" />
+    <Content Include="resources\modules\myTabs\js\mytabsModule.js" />
+    <Content Include="resources\modules\extjs\css\extjscss.css" />
+    <Content Include="resources\components\testExtjs\js\gridPanel3Controller.js" />
+    <Content Include="resources\components\testExtjs\js\form3Class.js" />
+    <Content Include="resources\components\testExtjs\images\female.png" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.viewPort2.js" />
+    <Content Include="resources\components\testExtjs\js\form2Class.js" />
+    <Content Include="resources\components\testExtjs\js\form1Class.js" />
+    <Content Include="resources\components\testExtjs\js\form4Class.js" />
+    <Content Include="resources\modules\extjs\js\plugin\PreviewPlugin.js" />
+    <Content Include="resources\modules\extjs\js\plugin\ProgressBarPager.js" />
+    <Content Include="resources\modules\extjs\js\plugin\SlidingPager.js" />
+    <Content Include="resources\components\workflow1\Task\assignment\images\user.png" />
+    <Content Include="resources\modules\slider\images\icon.png" />
+    <Content Include="resources\modules\uploader\css\uploaderCss.css" />
+    <Content Include="resources\modules\uploader\images\document.png" />
+    <Content Include="resources\components\workflow1\Task\assignment\images\remove.png" />
+    <Content Include="resources\modules\uploader\images\remove.png" />
+    <Content Include="resources\modules\uploader\js\uploaderModule.js" />
+    <Content Include="resources\modules\UImask\css\jquery.loadmask.css" />
+    <Content Include="resources\modules\UImask\images\loading.gif" />
+    <Content Include="resources\modules\UImask\js\jquery.loadmask.min.js" />
+    <Content Include="resources\modules\kendoGrid\css\kendogridCss.css" />
+    <Content Include="resources\modules\kendoGrid\js\kendoGridModule.js" />
+    <Content Include="resources\modules\kendoMenu\css\kendoMenuCss.css" />
+    <Content Include="resources\modules\kendoMenu\js\kendoMenuModule.js" />
+    <Content Include="resources\modules\scroller\css\scrollerModule.css" />
+    <Content Include="resources\modules\scroller\js\slimScroll.js" />
+    <Content Include="Scripts\libraries\ext-4.0.2-ext-all.js" />
+    <Content Include="Scripts\libraries\joose.js" />
+    <Content Include="Scripts\libraries\KendoUI\examples.css" />
+    <Content Include="resources\modules\Tabs\css\tabsCss.css" />
+    <Content Include="resources\modules\Tabs\js\tabsModule.js" />
+    <Content Include="resources\modules\Gmapv3\js\gmaps.js" />
+    <Content Include="resources\components\testExtjs\js\gridPanel2Controller.js" />
+    <Content Include="resources\modules\extjs\js\plugin\RowExpander.js" />
+    <Content Include="resources\modules\extjs\js\plugin\SearchField.js" />
+    <Content Include="resources\modules\extjs\js\plugin\treeViewCellEdit.js" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.form.js" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.googlemaps-2.js" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.gridPanel.js" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.Store.js" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.treePanel.js" />
+    <Content Include="resources\modules\extjs\js\abstractClasses\Ext.viewPort1.js" />
+    <Content Include="resources\components\testExtjs\js\gridPanelController.js" />
+    <Content Include="resources\components\testExtjs\js\treePanelController.js" />
+    <Content Include="resources\components\user\new\css\css.css" />
+    <Content Include="resources\components\user\new\js\controller.js" />
+    <Content Include="resources\components\archive\js\archiveController.js" />
+    <Content Include="resources\components\workflow1\map2\images\L1-center.png" />
+    <Content Include="resources\components\workflow1\map2\images\L1-left.png" />
+    <Content Include="resources\components\workflow1\map2\images\L1-right.png" />
+    <Content Include="resources\components\workflow1\map2\images\L3-bottom.png" />
+    <Content Include="resources\components\workflow1\map2\images\L3-center.png" />
+    <Content Include="resources\components\workflow1\map2\images\L3-li-top.png" />
+    <Content Include="resources\components\workflow1\map2\images\L3-ul-top.png" />
+    <Content Include="resources\components\workflow1\map2\images\vertical-line.png" />
+    <Content Include="resources\components\workflow1\map2\images\white-highlight.png" />
+    <Content Include="resources\components\workflow1\map\css\map.css" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\1.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\10.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\11.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\12.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\13.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\14.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\15.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\2.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\3.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\4.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\5.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\6.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\7.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\8.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\9.png" />
+    <Content Include="resources\components\workflow1\map\images\roundIconsSequence\source.png" />
+    <Content Include="resources\components\workflow1\map\js\workflow1Controller.js" />
+    <Content Include="resources\components\workflow1\Task\assignment\css\taskAssignmentCss.css" />
+    <Content Include="resources\components\workflow1\Task\assignment\images\user2.png" />
+    <Content Include="resources\components\workflow1\Task\assignment\js\taskAssignmentController.js" />
+    <Content Include="resources\components\workflow1\Task\define\css\defineTaskCss.css" />
+    <Content Include="resources\components\workflow1\Task\define\images\delete.png" />
+    <Content Include="resources\components\workflow1\Task\define\js\defineTaskController.js" />
+    <Content Include="resources\components\workflow1\Task\list\css\taskListCss.css" />
+    <Content Include="resources\components\workflow1\Task\list\js\taskListController.js" />
+    <Content Include="resources\components\workflow1\Task\tracker\css\taskTrackerCss.css" />
+    <Content Include="resources\components\workflow1\Task\tracker\images\left-arrow.png" />
+    <Content Include="resources\components\workflow1\Task\tracker\images\pause.png" />
+    <Content Include="resources\components\workflow1\Task\tracker\images\play.png" />
+    <Content Include="resources\components\workflow1\Task\tracker\js\taskTrackerController.js" />
+    <Content Include="resources\modules\contextMenu\css\contextMenuCss.css" />
+    <Content Include="resources\modules\contextMenu\images\context-menu-gradient.gif" />
+    <Content Include="resources\modules\contextMenu\images\cut.png" />
+    <Content Include="resources\modules\contextMenu\images\door.png" />
+    <Content Include="resources\modules\contextMenu\images\page_white_copy.png" />
+    <Content Include="resources\modules\contextMenu\images\page_white_delete.png" />
+    <Content Include="resources\modules\contextMenu\images\page_white_edit.png" />
+    <Content Include="resources\modules\contextMenu\images\page_white_paste.png" />
+    <Content Include="resources\modules\contextMenu\js\contextMenu.js" />
+    <Content Include="resources\modules\folderTree\css\DNDFolderTreeCss.css" />
+    <Content Include="resources\modules\folderTree\images\context-menu-gradient.gif" />
+    <Content Include="resources\modules\folderTree\images\control_folder2.gif" />
+    <Content Include="resources\modules\folderTree\images\control_folder.gif" />
+    <Content Include="resources\modules\folderTree\images\control_minus.gif" />
+    <Content Include="resources\modules\folderTree\images\control_plus.gif" />
+    <Content Include="resources\modules\folderTree\images\control_sheet.gif" />
+    <Content Include="resources\modules\folderTree\images\control_ind1.gif" />
+    <Content Include="resources\modules\folderTree\images\control_ind2.gif" />
+    <Content Include="resources\modules\folderTree\images\folder_close.gif" />
+    <Content Include="resources\modules\folderTree\images\folder_dots.gif" />
+    <Content Include="resources\modules\folderTree\images\folder_folder.gif" />
+    <Content Include="resources\modules\folderTree\images\folder_lastsub.gif" />
+    <Content Include="resources\modules\folderTree\images\folder_open.gif" />
+    <Content Include="resources\modules\folderTree\images\folder_sub.gif" />
+    <Content Include="resources\modules\folderTree\js\DNDFolderTree.js" />
+    <Content Include="resources\modules\slider\css\dataViewSliderCss.css" />
+    <Content Include="resources\modules\slider\images\icon-2.png" />
+    <Content Include="resources\modules\slider\images\slider-nav-img\slider-nav-bottom.png" />
+    <Content Include="resources\modules\slider\images\slider-nav-img\slider-nav-left.png" />
+    <Content Include="resources\modules\slider\images\slider-nav-img\slider-nav-right.png" />
+    <Content Include="resources\modules\slider\images\slider-nav-img\slider-nav-top.png" />
+    <Content Include="resources\modules\slider\images\tip\arrow_left.png" />
+    <Content Include="resources\modules\slider\images\tip\bg.png" />
+    <Content Include="resources\modules\slider\images\icon-3.png" />
+    <Content Include="resources\modules\slider\js\dataViewSlider.js" />
+    <Content Include="resources\modules\workflow\css\workflowCss.css" />
+    <Content Include="resources\modules\workflow\images\logo3.png" />
+    <Content Include="resources\modules\workflow\images\logo2.png" />
+    <Content Include="resources\modules\workflow\images\logo1.png" />
+    <Content Include="resources\modules\workflow\js\ContextmenuConnection.js" />
+    <Content Include="resources\modules\workflow\js\person.js" />
+    <Content Include="resources\modules\workflow\js\MyInputPort.js" />
+    <Content Include="resources\modules\workflow\js\MyOutputPort.js" />
+    <Content Include="Scripts\libraries\draw2D\draw2d.js" />
+    <Content Include="Scripts\libraries\draw2D\moocanvas.js" />
+    <Content Include="Scripts\libraries\draw2D\mootools.js" />
+    <Content Include="Scripts\libraries\draw2D\wz_jsgraphics.js" />
+    <Content Include="Scripts\libraries\KendoUI\kendo.common.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\kendo.default.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\kendo.web.min.js" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\editor.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\imagebrowser.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\loading-image.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\loading.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\slider-h.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\slider-v.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Black\sprite.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\editor.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\imagebrowser.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\loading-image.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\loading.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\slider-h.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\slider-v.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\BlueOpal\sprite.png" />
+    <Content Include="Scripts\libraries\KendoUI\Default\editor.png" />
+    <Content Include="Scripts\libraries\KendoUI\Default\imagebrowser.png" />
+    <Content Include="Scripts\libraries\KendoUI\Default\loading-image.gif" />
+    <Content Include="Scripts\libraries\KendoUI\Default\loading.gif" />
+    <Content Include="Scripts\libraries\KendoUI\Default\slider-h.gif" />
+    <Content Include="Scripts\libraries\KendoUI\Default\slider-v.gif" />
+    <Content Include="Scripts\libraries\KendoUI\Default\sprite.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\kendo.black.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\styles\kendo.blueopal.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\styles\kendo.common.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\styles\kendo.default.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\styles\kendo.metro.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\styles\kendo.silver.min.css" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\editor.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\imagebrowser.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\loading-image.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\loading.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\slider-h.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\slider-v.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Metro\sprite.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\editor.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\imagebrowser.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\loading-image.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\loading.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\slider-h.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\slider-v.gif" />
+    <Content Include="Scripts\libraries\KendoUI\styles\Silver\sprite.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\textures\glass.png" />
+    <Content Include="Scripts\libraries\KendoUI\styles\textures\highlight.png" />
+    <Content Include="Scripts\libraries\linq\linq-vsdoc.js" />
+    <Content Include="Scripts\libraries\linq\linq.js" />
+    <Content Include="Scripts\libraries\linq\linq.min.js" />
+    <Content Include="Scripts\libraries\KendoUI\textures\glass.png" />
+    <Content Include="Scripts\libraries\KendoUI\textures\highlight.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\workflow\taskAssignment.cshtml" />
+    <Content Include="Views\Home\viewport\viewport2.cshtml" />
+    <Content Include="App_code\Script.cshtml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.WebHost.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.SelfHost.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.Data.Helpers.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.Data.EntityFramework.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.Data.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Http.Common.dll" />
+    <None Include="_bin_deployableAssemblies\System.Net.Http.WebRequest.dll" />
+    <None Include="_bin_deployableAssemblies\System.Net.Http.Formatting.dll" />
+    <None Include="_bin_deployableAssemblies\System.Net.Http.dll" />
+    <None Include="_bin_deployableAssemblies\System.Json.dll" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.Security.dll" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.Data.xml" />
+    <None Include="_bin_deployableAssemblies\WebMatrix.Data.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Deployment.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.WebPages.Administration.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Razor.dll" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.xml" />
+    <None Include="_bin_deployableAssemblies\System.Web.Helpers.dll" />
+    <None Include="_bin_deployableAssemblies\NuGet.Core.dll" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.xml" />
+    <None Include="_bin_deployableAssemblies\Microsoft.Web.Infrastructure.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="resources\components\archive\images\" />
+    <Folder Include="resources\components\facebook\images\" />
+    <Folder Include="resources\components\kendoGrid1\images\" />
+    <Folder Include="resources\components\mainMenu\images\" />
+    <Folder Include="resources\components\office\new\images\" />
+    <Folder Include="resources\components\permission\Login\images\" />
+    <Folder Include="resources\components\testExtjs\css\" />
+    <Folder Include="resources\components\testUI\images\" />
+    <Folder Include="resources\components\user\new\images\" />
+    <Folder Include="resources\components\workflow1\map2\css\" />
+    <Folder Include="resources\components\workflow1\map2\js\" />
+    <Folder Include="resources\components\workflow1\Task\define\upload\" />
+    <Folder Include="resources\components\workflow1\Task\list\images\" />
+    <Folder Include="resources\modules\extjs\images\" />
+    <Folder Include="resources\modules\Gmapv3\css\" />
+    <Folder Include="resources\modules\Gmapv3\images\" />
+    <Folder Include="resources\modules\kendoGrid\images\" />
+    <Folder Include="resources\modules\kendoMenu\images\" />
+    <Folder Include="resources\modules\scroller\images\" />
+    <Folder Include="resources\modules\Tabs\images\" />
+    <Folder Include="upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App_Readme\EventStore - Architectural Overview.docx" />
+    <None Include="App_Readme\EventStore - Transactional Integrity.docx" />
+    <None Include="netfx\System\Reflection\Reflect.Overloads.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Reflect.Overloads.cs</LastGenOutput>
+    </None>
+    <None Include="netfx\System\Reflection\TargetFramework.ttinclude" />
+    <EntityDeploy Include="Models\prjModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>prjModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="resources\components\menu\css\ie\Thumbs.db" />
+    <None Include="resources\components\menu\images\Thumbs.db" />
+    <None Include="resources\components\workflow1\map2\images\Thumbs.db" />
+    <None Include="resources\modules\contextMenu\images\Thumbs.db" />
+    <Content Include="Views\Notebook\index.cshtml" />
+    <Content Include="Views\Home\viewport\viewport.cshtml" />
+    <Content Include="Views\Home\user\newUser.cshtml" />
+    <Content Include="Views\Home\office\newOffice.cshtml" />
+    <Content Include="Views\permission\assignPermissionForm.cshtml" />
+    <Content Include="Views\permission\changeUserPasswordForm.cshtml" />
+    <Content Include="Views\Notebook\foldering\foldering.cshtml" />
+    <Content Include="Views\Notebook\foldering\folderingDetails.cshtml" />
+    <Content Include="Views\workflow\createNewTask.cshtml" />
+    <Content Include="Views\workflow\curUserTimeTrackerForm.cshtml" />
+    <Content Include="Views\workflow\userCurrentTasksForm.cshtml" />
+    <Content Include="Views\permission\loginForm.cshtml" />
+    <Content Include="Views\Notebook\foldering\enterkeyword.cshtml" />
+    <None Include="Scripts\libraries\KendoUI\textures\Thumbs.db" />
+    <Content Include="Views\facebook\index.cshtml" />
+    <Content Include="Views\facebook\login.cshtml" />
+    <Content Include="Views\facebook\registration.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4834</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1715/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:1715/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>http://localhost:1715/</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

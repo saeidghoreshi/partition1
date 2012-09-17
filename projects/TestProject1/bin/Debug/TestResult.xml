@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="D:\Projects\TestProject1\bin\Debug\TestProject1.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-09-07" time="16:01:25">
+  <environment nunit-version="2.6.1.12217" clr-version="2.0.50727.3053" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="D:\Projects\TestProject1\bin\Debug" machine-name="SAEID" user="saeidco" user-domain="SAEID" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="D:\Projects\TestProject1\bin\Debug\TestProject1.dll" executed="True" result="Success" success="True" time="0.031" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="consoleApplicationTest" executed="True" result="Success" success="True" time="0.031" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Test" executed="True" result="Success" success="True" time="0.031" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="MyTestFixture" executed="True" result="Success" success="True" time="0.000" asserts="0">
+                <results>
+                  <test-case name="consoleApplicationTest.Test.MyTestFixture.myFirstTest2" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,187 @@
+﻿<style>
+    /*Hor*/
+	 .tdh
+     {
+        padding:5px;
+        
+        border:solid #ddd;
+	    border-width:0px 1px 0px 0px;
+	    height:50px;
+	    font:10px verdana;
+	    cursor:pointer;
+	    border-top-left-radius:5px;
+	    border-bottom-left-radius:5px;
+     }
+	.tdhoff{border-width:0px 1px 0px 0px;background:transparent}
+	.tdhon{border-width:1px 1px 1px 1px;border-right-color:white; background:white;}
+	
+	.tabshBody
+	{
+	    border:1px solid #ddd;
+	    border-width:1px 1px 1px 0px;
+	    width:100%;
+	    background:white;
+	    
+	    border-top-right-radius:5px;
+	    border-bottom-right-radius:5px;
+	}
+	.spacerhtop
+	{
+	    border:solid #ddd;
+	    border-width:0px 1px 0px 0px;
+	    height:10px;    
+	}
+	.spacerhbottom
+	{
+	    border:solid #ddd;
+	    border-width:0px 1px 0px 0px;
+	    height:100%;    
+	}
+    </style>
+<script>
+
+        $(document).ready(function () {
+
+            $('.tabh').click(function () {
+
+                $('.tdhon').each(function () {
+
+                    $(this).removeClass('tdhon');
+                    $(this).addClass('tdhoff');
+                });
+
+
+                $(this).removeClass('tdhoff');
+                $(this).addClass('tdhon');
+
+            });
+        });
+	    
+
+	</script>
+
+
+<style>
+form input, form select
+{
+    margin:2px !important;    
+}
+</style>
+
+<div id="theme1_maintable" style="width:100%;">
+
+
+
+
+<table cellpadding="0" cellspacing="0" style="width:100%;height:100%" >
+    
+    <tr>
+    <td>
+    
+        <table cellpadding="0" cellspacing="0" style="width:100%;height:100%">
+    <tr>
+    <td>
+
+        <table  cellpadding="0" cellspacing="0" border="0" style="height:100%" >
+        <tr>
+            <td class="spacerhtop"><div></div></td>
+        </tr>
+        
+        <tr>
+            <td class="tabh tdh tdhon">
+                <div class="side" >
+                    <img  id="side1" width="50px" height="50px" src="../../../resources/components/base/images/2.png" />
+                </div>
+            </td>
+            </tr>
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div class="side" >
+                    <img id="side2" width="50px" height="50px" src="../../../resources/components/base/images/user.png" />
+                </div>
+            </td>
+            </tr>
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div class="side" >
+                    <img  id="side3" width="50px" height="50px" src="../../../resources/components/base/images/permissions.png" />
+                </div>
+            </td>
+            </tr>
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div class="side" >
+                    <img  id="side4" width="50px" height="50px" src="../../../resources/components/base/images/apple_folder.png" />
+                </div>
+            </td>
+            </tr>
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div class="side" >
+                    <img  id="side5" width="50px" height="50px" src="../../../resources/components/base/images/tasks.png" />
+                </div>
+            </td>
+            </tr>
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div class="side" >
+                    <img  id="side8" width="50px" height="50px" src="../../../resources/components/base/images/settings.png" />
+                </div>
+            </td>
+            </tr>
+        
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div id="theme1_loginAccess" class="side theme1_loginAccess">
+                <!--Login Section-->
+                <div id="theme1_loginRequest" class="theme1_loginRequest"></div>
+
+            <!--Logout Section-->
+                <div id="theme1_logoutSection" class="hide">
+                        <div id="theme1_logoutRequest" class="theme1_logoutRequest"></div>
+                </div>
+            </div>
+            </td>
+            </tr>
+        <tr>
+            <td class="tabh tdh tdhoff">
+                <div class="side" >
+                    <img  id="side9"  width="50px" height="50px" src="../../../resources/components/base/images/facebook.png" />
+                </div>
+            </td>
+            
+        </tr>
+        
+
+        <tr>
+            <td class="spacerhbottom"><div></div></td>
+        </tr>
+        </table>
+    </td>
+    
+    <td class="tabshBody">
+        <div class="div firstPH" id="firstPH" ></div>
+    </td>
+    <!--empty bar-->
+    <td class="theme1_div3"></td>
+    
+    <!--Right Panel-->
+    <td class="theme1_div4">
+        <div id="secondPH" style="width:220px"></div>
+    </td>
+    
+    
+    </tr>
+    </table>
+    
+    </td>
+    </tr>
+
+    <tr style="vertical-align:bottom; height:30px"><td></td></tr>
+    
+    <tr style="vertical-align:bottom; height:30px">
+    <td><div id="topContainer"></div></td>
+    </tr>
+    
+</table>
+</div>

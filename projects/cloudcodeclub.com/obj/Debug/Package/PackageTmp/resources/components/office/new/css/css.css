@@ -1,0 +1,22 @@
+﻿.newOffice_form
+{
+    font-family:Verdana;
+    font-size:10px;
+}
+.newOffice_uploadsection
+{
+    padding:5px;
+    border: 1px solid #e2e2e2;    
+    width:100%;
+    height:70px;
+    cursor:pointer;
+    float:left;
+}
+.newOffice_logos
+{
+    border: 1px solid transparent;    
+}
+.newOffice_uploadsection_selected
+{
+    border: 1px solid green;    
+}

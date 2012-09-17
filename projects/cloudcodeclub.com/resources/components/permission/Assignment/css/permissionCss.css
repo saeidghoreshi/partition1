@@ -1,0 +1,74 @@
+﻿.permission_form
+{
+    padding-left:20px;
+    
+    font-family:Verdana;
+    font-size:10px;
+}
+.permission_highlight 
+{
+    height  : 30px;
+    margin  :10px; 
+    border  :solid 1px #ccc;
+    background: #f2f2f2;
+}
+.permission_icon
+{
+    background-image: url(/resources/components/permission/images/tick.png); 
+    width           :50px !important;
+    height          :20px!important;
+    background-repeat:no-repeat;
+    padding-left    :20px ;
+    font-family     :verdana;
+    font-size       :10px;
+}
+
+.permission_section
+{
+    float:left;    
+    width:230px;
+    height:100%;
+    border:1px solid transparent;
+    
+}
+.permission_panel_header
+{
+    width:200px;
+    border:1px solid orange;
+    margin-bottom:5px;
+    text-align:left;
+    padding-top:5px;
+    padding-left:20px;
+    padding-bottom:5px;
+    
+    font-size:10px;
+    font-family:Verdana;
+    font-weight:bold;
+}
+.permission_panel
+{
+    width:200px;
+    height:200px;
+    border:1px solid orange;
+    text-align:left;
+    padding-left:20px;
+    overflow:auto;
+}
+
+.permission_panel .permission_panel_items
+{
+    border:1px solid #ccc;
+    width:150px;
+    height:25px;
+    background:#f2f2f2;
+    font-size:10px;
+    font-family:Verdana;
+    text-align:center;
+    vertical-align:middle;
+    margin:5px;
+    padding-top:5px;
+    cursor:move;
+    
+    -moz-border-radius      :3px 3px 3px 3px;
+    border-radius           :3px 3px 3px 3px;
+}

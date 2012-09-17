@@ -1,0 +1,10 @@
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\NUnitTest1.exe
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\NUnitTest1.pdb
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\nunit-console-runner.dll
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\nunit.framework.dll
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\nunit.util.dll
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\nunit.core.interfaces.dll
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\bin\Debug\nunit.core.dll
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\obj\x86\Debug\NUnitTest1.exe
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\NUnitTest1\obj\x86\Debug\NUnitTest1.pdb

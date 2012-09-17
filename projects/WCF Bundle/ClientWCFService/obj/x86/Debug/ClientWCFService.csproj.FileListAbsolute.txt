@@ -1,0 +1,13 @@
+D:\Projects\ClientWCFService\bin\Debug\ClientWCFService.exe.config
+D:\Projects\ClientWCFService\bin\Debug\ClientWCFService.exe
+D:\Projects\ClientWCFService\bin\Debug\ClientWCFService.pdb
+D:\Projects\ClientWCFService\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\ClientWCFService\obj\x86\Debug\ClientWCFService.exe
+D:\Projects\ClientWCFService\obj\x86\Debug\ClientWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Debug\ClientWCFService.exe.config
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Debug\ClientWCFService.exe
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Debug\ClientWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\obj\x86\Debug\ClientWCFService.exe
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\obj\x86\Debug\ClientWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Debug\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Debug\EntityFramework.xml

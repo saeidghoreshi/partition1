@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/Error.cshtml";
+}
+
+
+<style>
+    
+.box
+{
+    background-color:#C9341C;
+    margin-top:20px;
+    padding:5px;
+    color:White;
+}
+</style>
+
+<div id="errorbox" class="box"><b>Error: </b>@ViewBag.msg</div>
+
+@{ Html.RenderPartial("error/error_bottom");}  <!--gets direct view or ascx page-->
+
+
+

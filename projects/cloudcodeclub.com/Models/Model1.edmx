@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db1Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="db1ModelStoreContainer">
+          <EntitySet Name="movie" EntityType="db1Model.Store.movie" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="review" EntityType="db1Model.Store.review" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_review_movie" Association="db1Model.Store.FK_review_movie">
+            <End Role="movie" EntitySet="movie" />
+            <End Role="review" EntitySet="review" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="movie">
+          <Key>
+            <PropertyRef Name="movie_id" />
+          </Key>
+          <Property Name="movie_id" Type="int" Nullable="false" />
+          <Property Name="movie_name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="int" Nullable="false" />
+          <Property Name="movie_id" Type="int" />
+          <Property Name="description" Type="nvarchar" MaxLength="50" />
+          <Property Name="rating" Type="int" />
+        </EntityType>
+        <Association Name="FK_review_movie">
+          <End Role="movie" Type="db1Model.Store.movie" Multiplicity="0..1" />
+          <End Role="review" Type="db1Model.Store.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="movie">
+              <PropertyRef Name="movie_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="movie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="getAllMovies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="db1Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="movies" EntityType="db1Model.movie" />
+          <EntitySet Name="reviews" EntityType="db1Model.review" />
+          <AssociationSet Name="FK_review_movie" Association="db1Model.FK_review_movie">
+            <End Role="movie" EntitySet="movies" />
+            <End Role="review" EntitySet="reviews" />
+          </AssociationSet>
+          <FunctionImport Name="getAllMovies" />
+        </EntityContainer>
+        <EntityType Name="movie">
+          <Key>
+            <PropertyRef Name="movie_id" />
+          </Key>
+          <Property Name="movie_id" Type="Int32" Nullable="false" />
+          <Property Name="movie_name" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="reviews" Relationship="db1Model.FK_review_movie" FromRole="movie" ToRole="review" />
+        </EntityType>
+        <EntityType Name="review">
+          <Key>
+            <PropertyRef Name="review_id" />
+          </Key>
+          <Property Name="review_id" Type="Int32" Nullable="false" />
+          <Property Name="movie_id" Type="Int32" />
+          <Property Name="description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="rating" Type="Int32" />
+          <NavigationProperty Name="movie" Relationship="db1Model.FK_review_movie" FromRole="review" ToRole="movie" />
+        </EntityType>
+        <Association Name="FK_review_movie">
+          <End Role="movie" Type="db1Model.movie" Multiplicity="0..1" />
+          <End Role="review" Type="db1Model.review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="movie">
+              <PropertyRef Name="movie_id" />
+            </Principal>
+            <Dependent Role="review">
+              <PropertyRef Name="movie_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db1ModelStoreContainer" CdmEntityContainer="db1Entities1">
+          <EntitySetMapping Name="movies"><EntityTypeMapping TypeName="db1Model.movie"><MappingFragment StoreEntitySet="movie">
+            <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+            <ScalarProperty Name="movie_name" ColumnName="movie_name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="reviews"><EntityTypeMapping TypeName="db1Model.review"><MappingFragment StoreEntitySet="review">
+            <ScalarProperty Name="review_id" ColumnName="review_id" />
+            <ScalarProperty Name="movie_id" ColumnName="movie_id" />
+            <ScalarProperty Name="description" ColumnName="description" />
+            <ScalarProperty Name="rating" ColumnName="rating" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="getAllMovies" FunctionName="db1Model.Store.getAllMovies" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="db1Model.movie" Width="1.5" PointX="0.75" PointY="1.125" Height="1.427958984375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db1Model.review" Width="1.5" PointX="3" PointY="0.875" Height="1.7566536458333335" IsExpanded="true" />
+        <AssociationConnector Association="db1Model.FK_review_movie" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.8389794921875" />
+          <ConnectorPoint PointX="3" PointY="1.8389794921875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

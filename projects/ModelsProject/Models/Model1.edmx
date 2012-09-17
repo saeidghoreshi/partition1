@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_40114_codeclubModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_40114_codeclubModel1StoreContainer">
+          <EntitySet Name="test" EntityType="DB_40114_codeclubModel1.Store.test" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="testreview" EntityType="DB_40114_codeclubModel1.Store.testreview" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel1.Store.FK_testreview_test">
+            <End Role="test" EntitySet="test" />
+            <End Role="testreview" EntitySet="testreview" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="testreview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="testid" Type="int" />
+          <Property Name="rate" Type="int" />
+        </EntityType>
+        <Association Name="FK_testreview_test">
+          <End Role="test" Type="DB_40114_codeclubModel1.Store.test" Multiplicity="0..1" />
+          <End Role="testreview" Type="DB_40114_codeclubModel1.Store.testreview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="testreview">
+              <PropertyRef Name="testid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="testProc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_40114_codeclubModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="context" annotation:LazyLoadingEnabled="true" a:TypeAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="test" EntityType="DB_40114_codeclubModel1.test" />
+          <EntitySet Name="testreview" EntityType="DB_40114_codeclubModel1.testreview" />
+          <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel1.FK_testreview_test">
+            <End Role="test" EntitySet="test" />
+            <End Role="testreview" EntitySet="testreview" />
+          </AssociationSet>
+          <FunctionImport Name="TESTPROC" ReturnType="Collection(Int32)" />
+        </EntityContainer>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="testreview" Relationship="DB_40114_codeclubModel1.FK_testreview_test" FromRole="test" ToRole="testreview" />
+        </EntityType>
+        <EntityType Name="testreview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="testid" Type="Int32" />
+          <Property Name="rate" Type="Int32" />
+          <NavigationProperty Name="test" Relationship="DB_40114_codeclubModel1.FK_testreview_test" FromRole="testreview" ToRole="test" />
+        </EntityType>
+        <Association Name="FK_testreview_test">
+          <End Role="test" Type="DB_40114_codeclubModel1.test" Multiplicity="0..1" />
+          <End Role="testreview" Type="DB_40114_codeclubModel1.testreview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="testreview">
+              <PropertyRef Name="testid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModel1StoreContainer" CdmEntityContainer="context">
+          <EntitySetMapping Name="test"><EntityTypeMapping TypeName="DB_40114_codeclubModel1.test"><MappingFragment StoreEntitySet="test">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="address" ColumnName="address" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="testreview"><EntityTypeMapping TypeName="DB_40114_codeclubModel1.testreview"><MappingFragment StoreEntitySet="testreview">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="testid" ColumnName="testid" />
+            <ScalarProperty Name="rate" ColumnName="rate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TESTPROC" FunctionName="DB_40114_codeclubModel1.Store.testProc" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="DB_40114_codeclubModel1.test" Width="1.5" PointX="0.75" PointY="0.875" Height="1.592306315104167" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel1.testreview" Width="1.5" PointX="3" PointY="0.875" Height="1.5923063151041674" IsExpanded="true" />
+        <AssociationConnector Association="DB_40114_codeclubModel1.FK_testreview_test" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="1.6711531575520835" />
+          <ConnectorPoint PointX="3" PointY="1.6711531575520835" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

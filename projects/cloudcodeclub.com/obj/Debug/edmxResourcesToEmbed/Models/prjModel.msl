@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="prjModelStoreContainer" CdmEntityContainer="prjEntities">
+    <EntitySetMapping Name="organization">
+      <EntityTypeMapping TypeName="prjModel.organization">
+        <MappingFragment StoreEntitySet="organization">
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+          <ScalarProperty Name="parent_org_id" ColumnName="parent_org_id" />
+          <ScalarProperty Name="org_name" ColumnName="org_name" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="postalcode" ColumnName="postalcode" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="person">
+      <EntityTypeMapping TypeName="prjModel.person">
+        <MappingFragment StoreEntitySet="person">
+          <ScalarProperty Name="thumbnailExt" ColumnName="thumbnailExt" />
+          <ScalarProperty Name="thumbnailFile" ColumnName="thumbnailFile" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="person_org">
+      <EntityTypeMapping TypeName="prjModel.person_org">
+        <MappingFragment StoreEntitySet="person_org">
+          <ScalarProperty Name="person_org_id" ColumnName="person_org_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lu_role">
+      <EntityTypeMapping TypeName="prjModel.lu_role">
+        <MappingFragment StoreEntitySet="lu_role">
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permission">
+      <EntityTypeMapping TypeName="prjModel.permission">
+        <MappingFragment StoreEntitySet="permission">
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="prjModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="document">
+      <EntityTypeMapping TypeName="prjModel.document">
+        <MappingFragment StoreEntitySet="document">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="fileext" ColumnName="fileext" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="document_id" ColumnName="document_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="document_object">
+      <EntityTypeMapping TypeName="prjModel.document_object">
+        <MappingFragment StoreEntitySet="document_object">
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="object_id" ColumnName="object_id" />
+          <ScalarProperty Name="document_id" ColumnName="document_id" />
+          <ScalarProperty Name="doc_obj_id" ColumnName="doc_obj_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lu_task_status">
+      <EntityTypeMapping TypeName="prjModel.lu_task_status">
+        <MappingFragment StoreEntitySet="lu_task_status">
+          <ScalarProperty Name="type_name" ColumnName="type_name" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="task_person">
+      <EntityTypeMapping TypeName="prjModel.task_person">
+        <MappingFragment StoreEntitySet="task_person">
+          <ScalarProperty Name="user_task_status_id" ColumnName="user_task_status_id" />
+          <ScalarProperty Name="eta" ColumnName="eta" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="task_id" ColumnName="task_id" />
+          <ScalarProperty Name="task_person_id" ColumnName="task_person_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tp_progress">
+      <EntityTypeMapping TypeName="prjModel.tp_progress">
+        <MappingFragment StoreEntitySet="tp_progress">
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="t_p_id" ColumnName="t_p_id" />
+          <ScalarProperty Name="t_p_p_id" ColumnName="t_p_p_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tp_timer">
+      <EntityTypeMapping TypeName="prjModel.tp_timer">
+        <MappingFragment StoreEntitySet="tp_timer">
+          <ScalarProperty Name="is_commited" ColumnName="is_commited" />
+          <ScalarProperty Name="end_stamp" ColumnName="end_stamp" />
+          <ScalarProperty Name="start_stamp" ColumnName="start_stamp" />
+          <ScalarProperty Name="t_p_id" ColumnName="t_p_id" />
+          <ScalarProperty Name="t_p_t_id" ColumnName="t_p_t_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="task">
+      <EntityTypeMapping TypeName="prjModel.task">
+        <MappingFragment StoreEntitySet="task">
+          <ScalarProperty Name="stamp" ColumnName="stamp" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="task_status_id" ColumnName="task_status_id" />
+          <ScalarProperty Name="deadline" ColumnName="deadline" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="task_id" ColumnName="task_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lu_acl">
+      <EntityTypeMapping TypeName="prjModel.lu_acl">
+        <MappingFragment StoreEntitySet="lu_acl">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="acl_id" ColumnName="acl_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lu_component">
+      <EntityTypeMapping TypeName="prjModel.lu_component">
+        <MappingFragment StoreEntitySet="lu_component">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="component_id" ColumnName="component_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="prca">
+      <EntityTypeMapping TypeName="prjModel.prca">
+        <MappingFragment StoreEntitySet="prca">
+          <ScalarProperty Name="rca_id" ColumnName="rca_id" />
+          <ScalarProperty Name="person_id" ColumnName="person_id" />
+          <ScalarProperty Name="prca_id" ColumnName="prca_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rca">
+      <EntityTypeMapping TypeName="prjModel.rca">
+        <MappingFragment StoreEntitySet="rca">
+          <ScalarProperty Name="acl_id" ColumnName="acl_id" />
+          <ScalarProperty Name="component_id" ColumnName="component_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="rca_id" ColumnName="rca_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

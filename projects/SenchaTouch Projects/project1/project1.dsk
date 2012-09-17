@@ -1,0 +1,33 @@
+[Files]
+File0=D:\Projects\SenchaTouch Projects\project1\app.js
+IsActive0=0
+ZIndex6=2
+File1=D:\Projects\SenchaTouch Projects\project1\app\controller\Main.js
+IsActive1=0
+ZIndex5=3
+File2=D:\Projects\SenchaTouch Projects\project1\app\view\Main.js
+IsActive2=0
+ZIndex4=4
+File3=D:\Projects\SenchaTouch Projects\project1\app\view\Home.js
+IsActive3=0
+ZIndex3=5
+File4=D:\Projects\SenchaTouch Projects\project1\app\view\blog.js
+IsActive4=0
+ZIndex2=6
+File5=D:\Projects\SenchaTouch Projects\project1\packager.json
+IsActive5=1
+ZIndex1=0
+File6=D:\Projects\SenchaTouch Projects\project1\app\view\contact.js
+IsActive6=0
+ZIndex0=1
+Files=7
+
+[breakpoints]
+bp_count=0
+
+[parameters]
+value=LCw
+
+[watches]
+count=0
+

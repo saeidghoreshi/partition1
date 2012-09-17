@@ -1,0 +1,12 @@
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\Algorithms and Data Structures-Part 1.exe
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\Algorithms and Data Structures-Part 1.pdb
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Debug\Algorithms and Data Structures-Part 1.exe
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Debug\Algorithms and Data Structures-Part 1.pdb
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\Algorithms and Data Structures-Part 1.exe
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\Algorithms and Data Structures-Part 1.pdb
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Debug\Algorithms and Data Structures-Part 1.exe
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Debug\Algorithms and Data Structures-Part 1.pdb
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\Algorithms and Data Structures-Part 1.exe.config
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Debug\EntityFramework.xml

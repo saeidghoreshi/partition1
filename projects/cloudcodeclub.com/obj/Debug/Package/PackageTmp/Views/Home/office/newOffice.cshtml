@@ -1,0 +1,56 @@
+﻿<form id="newOffice_form" class="newOffice_form" enctype="multipart/form-data">
+
+<table>
+
+<tr>
+    <td><label for='.'>Parent Organization</label></td>
+    <td>
+    <select id="newOffice_existing" name="newOffice_existing">
+        @foreach (var item in ViewBag.existingOffices)
+        {
+            <option value=@item.org_id >  @item.org_name </option>
+        }
+    </select>
+    </td>
+</tr>
+<tr>
+    <td><label for='.'>Office Title</label></td>
+    <td><input id="newOffice_name" name="newOffice_name" type="text" /></td>
+</tr>
+<tr>
+    <td><label for='.'>Street</label></td>
+    <td><input id="newOffice_street" name="newOffice_street" type="text" /></td>
+</tr>
+
+<tr>
+    <td><label for='.'>City</label></td>
+    <td><input id="newOffice_city" name="newOffice_city" type="text" /></td>
+</tr>
+
+<tr>
+    <td><label for='.'>Postal Code</label></td>
+    <td><input id="newOffice_postalcode" name="newOffice_postalcode" type="text" /></td>
+</tr>
+
+<tr>
+    <td><label for='.'>Office Logo</label></td>
+</tr>
+<tr>
+    <td colspan=2>
+    <div class="newOffice_uploadsection">
+    
+    <img logoname="logo1" class="newOffice_logos"  src="../../../resources/modules/workflow/images/logo1.png" />
+    <img logoname="logo2"class="newOffice_logos" src="../../../resources/modules/workflow/images/logo2.png" />
+    <img logoname="logo3"class="newOffice_logos newOffice_uploadsection_selected" src="../../../resources/modules/workflow/images/logo3.png" />
+    
+    <!--input type="file" id="newOfficeuploadFile" name="newOffice_uploadFile"  /></td-->
+    </div>
+</tr>
+
+<tr>
+    <td colspan=2><input id="newOffice_submitform" type="button" value='Save'/></td>
+    
+</tr>
+</table>
+
+</form>

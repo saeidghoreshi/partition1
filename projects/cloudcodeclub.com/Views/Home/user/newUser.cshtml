@@ -1,0 +1,41 @@
+﻿<form id="newUser_form" class="newUser_form" enctype="multipart/form-data">
+
+<table>
+
+<tr>
+    <td><label for='.'>Organization</label></td>
+    <td>
+    <select id="newUser_existingOffices" name="newUser_existingOffices">
+        @foreach (var item in ViewBag.existingOffices)
+        {
+            <option value=@item.org_id>  @item.org_name </option>
+        }
+    </select>
+    </td>
+</tr>
+<tr>
+    <td><label for='.'>First Name</label></td>
+    <td><input id="newUser_fname" name="newUser_fname" type="text" /></td>
+</tr>
+<tr>
+    <td><label for='.'>Last Name</label></td>
+    <td><input id="newUser_lname" name="newUser_lname" type="text" /></td>
+</tr>
+<!--tr>
+    <td><label for='.'>User Image</label></td>
+</tr>
+<tr>
+    <td colspan=2>
+    <div class="newUser_uploadsection">
+    <input type="file" id="newUseruploadFile" name="newUser_uploadFile"  />
+    </div>
+    </td>
+</tr-->
+
+<tr>
+    <td colspan=2><input id="newUser_submitform" type="button" value='Save'/></td>
+    
+</tr>
+</table>
+
+</form>

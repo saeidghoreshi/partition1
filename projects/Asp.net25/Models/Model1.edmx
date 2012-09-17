@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
+          <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="test" EntityType="DB_40114_codeclubModel.Store.test" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="testreview" EntityType="DB_40114_codeclubModel.Store.testreview" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel.Store.FK_testreview_test">
+            <End Role="test" EntitySet="test" />
+            <End Role="testreview" EntitySet="testreview" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="nvarchar" MaxLength="200" />
+          <Property Name="lname" Type="nvarchar" MaxLength="200" />
+          <Property Name="thumbnailFile" Type="nvarchar" MaxLength="1000" />
+          <Property Name="thumbnailExt" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="testreview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="testid" Type="int" />
+          <Property Name="rate" Type="int" />
+        </EntityType>
+        <Association Name="FK_testreview_test">
+          <End Role="test" Type="DB_40114_codeclubModel.Store.test" Multiplicity="0..1" />
+          <End Role="testreview" Type="DB_40114_codeclubModel.Store.testreview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="testreview">
+              <PropertyRef Name="testid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_40114_codeclubModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="model1Context" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="people" EntityType="DB_40114_codeclubModel.person" />
+          <EntitySet Name="test" EntityType="DB_40114_codeclubModel.test" />
+          <EntitySet Name="testreviews" EntityType="DB_40114_codeclubModel.testreview" />
+          <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel.FK_testreview_test">
+            <End Role="test" EntitySet="test" />
+            <End Role="testreview" EntitySet="testreviews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="lname" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="thumbnailFile" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="thumbnailExt" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="address" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="testreviews" Relationship="DB_40114_codeclubModel.FK_testreview_test" FromRole="test" ToRole="testreview" />
+        </EntityType>
+        <EntityType Name="testreview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="testid" />
+          <Property Type="Int32" Name="rate" />
+          <NavigationProperty Name="test" Relationship="DB_40114_codeclubModel.FK_testreview_test" FromRole="testreview" ToRole="test" />
+        </EntityType>
+        <Association Name="FK_testreview_test">
+          <End Type="DB_40114_codeclubModel.test" Role="test" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.testreview" Role="testreview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="test">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="testreview">
+              <PropertyRef Name="testid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="model1Context">
+          <EntitySetMapping Name="people"><EntityTypeMapping TypeName="DB_40114_codeclubModel.person"><MappingFragment StoreEntitySet="person">
+            <ScalarProperty Name="person_id" ColumnName="person_id" />
+            <ScalarProperty Name="fname" ColumnName="fname" />
+            <ScalarProperty Name="lname" ColumnName="lname" />
+            <ScalarProperty Name="thumbnailFile" ColumnName="thumbnailFile" />
+            <ScalarProperty Name="thumbnailExt" ColumnName="thumbnailExt" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="test">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="testreviews">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.testreview">
+              <MappingFragment StoreEntitySet="testreview">
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="testid" ColumnName="testid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.person" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7566536458333331" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.test" Width="1.5" PointX="3.375" PointY="0.75" Height="1.4279589843749996" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.testreview" Width="1.5" PointX="5.625" PointY="0.75" Height="1.5923063151041663" />
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_testreview_test" >
+          <ConnectorPoint PointX="4.875" PointY="1.5461531575520833" />
+          <ConnectorPoint PointX="5.625" PointY="1.5461531575520833" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

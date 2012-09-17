@@ -1,0 +1,11 @@
+D:\Projects\WinServiceHost\bin\Release\WinServiceHost.exe.config
+D:\Projects\WinServiceHost\bin\Release\WinServiceHost.exe
+D:\Projects\WinServiceHost\bin\Release\WinServiceHost.pdb
+D:\Projects\WinServiceHost\bin\Release\newWCFService.dll
+D:\Projects\WinServiceHost\bin\Release\newWCFService.pdb
+D:\Projects\WinServiceHost\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\WinServiceHost\obj\x86\Release\WinServiceHost.ProjectInstaller.resources
+D:\Projects\WinServiceHost\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Projects\WinServiceHost\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Projects\WinServiceHost\obj\x86\Release\WinServiceHost.exe
+D:\Projects\WinServiceHost\obj\x86\Release\WinServiceHost.pdb

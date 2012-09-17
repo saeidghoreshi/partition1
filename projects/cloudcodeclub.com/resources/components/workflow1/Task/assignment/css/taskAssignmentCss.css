@@ -1,0 +1,78 @@
+﻿.taskAssignment_form
+{
+    font-family:Verdana;
+    font-size:9px;
+}
+.taskAssignment_officeList_items
+{
+    padding:5px;
+    margin:2px;
+    
+    background-color: #EBEBE4;
+    border: solid 1px #D4D2D2 ;
+    
+    
+    cursor:pointer;   
+    position: relative;  
+    vertical-align:middle; 
+    height:70px;
+}
+.taskAssignment_table
+{
+    width:100%;    
+}
+
+.taskAssignment_highlight
+{
+    border:2px dashed gray;
+    background:transparent;
+    width:95%;
+    height:20px;
+    margin:5px;
+    padding:5px;
+}
+.taskAssignment_UserList1
+{
+    height:100%;
+    width:300px;
+    border:1px solid #D4D2D2; 
+    padding:2px;
+    overflow:auto;
+    
+    
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+    
+.taskAssignment_UserList2
+{
+    height:100%;
+    width:300px;
+    border:1px solid #D4D2D2; 
+    padding:2px;
+    overflow:auto;
+    
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.taskAssignment_icon
+{
+    background-image: url(/resources/components/permission/images/tick.png); 
+    width           :50px !important;
+    height          :20px!important;
+    background-repeat:no-repeat;
+    padding-left    :20px ;
+    font-family     :verdana;
+    font-size       :10px;
+}
+.taskAssignment_itemDeleteBtn
+{   
+    width:20px;
+    height:20px;
+    position:relative;    
+    cursor:pointer;
+    background:url("../images/remove.png") no-repeat;
+    
+}

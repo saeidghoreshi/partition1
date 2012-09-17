@@ -1,0 +1,4 @@
+﻿<%@ ServiceHost  Service="newWCFService.HelloService" Factory="newWCFService.HelloServiceHostFactory"%>
+
+
+    

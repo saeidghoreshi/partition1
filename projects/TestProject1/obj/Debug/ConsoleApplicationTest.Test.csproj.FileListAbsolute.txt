@@ -1,0 +1,12 @@
+D:\Projects\TestProject1\bin\Debug\TestProject1.dll
+D:\Projects\TestProject1\bin\Debug\TestProject1.pdb
+D:\Projects\TestProject1\bin\Debug\nunit.framework.dll
+D:\Projects\TestProject1\bin\Debug\nunit.framework.xml
+D:\Projects\TestProject1\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\TestProject1\obj\Debug\TestProject1.dll
+D:\Projects\TestProject1\obj\Debug\TestProject1.pdb
+D:\Projects\TestProject1\bin\Debug\TestProject1.dll.config
+D:\Projects\TestProject1\bin\Debug\EntityFramework.dll
+D:\Projects\TestProject1\bin\Debug\EntityFramework.xml
+D:\Projects\TestProject1\bin\Debug\ModelsProject.dll
+D:\Projects\TestProject1\bin\Debug\ModelsProject.pdb

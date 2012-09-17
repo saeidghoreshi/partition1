@@ -1,0 +1,14 @@
+D:\Projects\newWCFService\bin\Debug\newWCFService.dll
+D:\Projects\newWCFService\bin\Debug\newWCFService.pdb
+D:\Projects\newWCFService\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\newWCFService\obj\Debug\newWCFService.dll
+D:\Projects\newWCFService\obj\Debug\newWCFService.pdb
+D:\Projects\newWCFService\bin\Debug\newWCFService.dll.config
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\newWCFService.dll.config
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\newWCFService.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\newWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\obj\Debug\newWCFService.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\obj\Debug\newWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\obj\Debug\newWCFService.csprojResolveAssemblyReference.cache

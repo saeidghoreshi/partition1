@@ -1,0 +1,21 @@
+﻿<!--if ajaxEnabled is off then will be loaded every time-->
+@section bottomScript
+{
+    <script>
+        //alert('view 1');
+    </script>
+
+}
+
+
+<div data-role="content" data-theme="c">
+    <div data-role="content">
+        <p> this is a new page</p>
+        <p>hit count : @ViewBag.HitCount </p>
+        <a href="#" data-rel="back" data-role="button">Back</a>
+    </div>
+</div>
+    <!--IF any script need to be loaded every time this page is loaded then put in page div    [no mater ajaxEnabled is on or off]   ????-->
+
+
+

@@ -1,0 +1,5 @@
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Release\Algorithms and Data Structures-Part 1.exe
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\bin\Release\Algorithms and Data Structures-Part 1.pdb
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Release\ResolveAssemblyReference.cache
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Release\Algorithms and Data Structures-Part 1.exe
+D:\NET\Algorithms and Data Structures-Part 1\Algorithms and Data Structures-Part 1\obj\x86\Release\Algorithms and Data Structures-Part 1.pdb

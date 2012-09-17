@@ -1,0 +1,18 @@
+D:\Projects\HostWCFService\bin\Debug\HostWCFService.exe
+D:\Projects\HostWCFService\bin\Debug\HostWCFService.pdb
+D:\Projects\HostWCFService\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\HostWCFService\obj\x86\Debug\HostWCFService.exe
+D:\Projects\HostWCFService\obj\x86\Debug\HostWCFService.pdb
+D:\Projects\HostWCFService\bin\Debug\HostWCFService.exe.config
+D:\Projects\HostWCFService\bin\Debug\newWCFService.dll
+D:\Projects\HostWCFService\bin\Debug\newWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\HostWCFService.exe.config
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\HostWCFService.exe
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\HostWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\newWCFService.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\newWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\obj\x86\Debug\HostWCFService.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\obj\x86\Debug\HostWCFService.exe
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\obj\x86\Debug\HostWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\EntityFramework.xml

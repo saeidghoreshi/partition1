@@ -1,0 +1,6 @@
+D:\Projects\ClientWCFService\bin\Release\ClientWCFService.exe.config
+D:\Projects\ClientWCFService\bin\Release\ClientWCFService.exe
+D:\Projects\ClientWCFService\bin\Release\ClientWCFService.pdb
+D:\Projects\ClientWCFService\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\ClientWCFService\obj\x86\Release\ClientWCFService.exe
+D:\Projects\ClientWCFService\obj\x86\Release\ClientWCFService.pdb

@@ -1,0 +1,7 @@
+D:\Projects\hostWebsite\bin\hostWebsite.dll
+D:\Projects\hostWebsite\bin\hostWebsite.pdb
+D:\Projects\hostWebsite\bin\newWCFService.dll
+D:\Projects\hostWebsite\bin\newWCFService.pdb
+D:\Projects\hostWebsite\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\hostWebsite\obj\Release\hostWebsite.dll
+D:\Projects\hostWebsite\obj\Release\hostWebsite.pdb

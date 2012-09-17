@@ -1,0 +1,8 @@
+D:\Projects\ModelsProject\bin\Release\ModelsProject.dll.config
+D:\Projects\ModelsProject\bin\Release\ModelsProject.dll
+D:\Projects\ModelsProject\bin\Release\ModelsProject.pdb
+D:\Projects\ModelsProject\bin\Release\EntityFramework.dll
+D:\Projects\ModelsProject\bin\Release\EntityFramework.xml
+D:\Projects\ModelsProject\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\ModelsProject\obj\Release\ModelsProject.dll
+D:\Projects\ModelsProject\obj\Release\ModelsProject.pdb

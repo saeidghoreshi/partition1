@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://test.com/Interface1/spec" elementFormDefault="qualified" targetNamespace="http://test.com/Interface1/spec" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="spec">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bamboo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="postal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="xaddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="spec" nillable="true" type="tns:spec" />
+  <xs:complexType name="ArrayOfspec">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="spec" nillable="true" type="tns:spec" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfspec" nillable="true" type="tns:ArrayOfspec" />
+</xs:schema>

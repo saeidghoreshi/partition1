@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="context">
+    <EntitySetMapping Name="test">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="testreview">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.testreview">
+        <MappingFragment StoreEntitySet="testreview">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="testid" ColumnName="testid" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TESTPROC" FunctionName="DB_40114_codeclubModel.Store.testProc" />
+  </EntityContainerMapping>
+</Mapping>

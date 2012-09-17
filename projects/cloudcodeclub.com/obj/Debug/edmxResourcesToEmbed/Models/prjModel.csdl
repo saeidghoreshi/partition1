@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="prjModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="prjEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="organization" EntityType="prjModel.organization" />
+    <EntitySet Name="person" EntityType="prjModel.person" />
+    <EntitySet Name="person_org" EntityType="prjModel.person_org" />
+    <AssociationSet Name="FK_person_org_organization" Association="prjModel.FK_person_org_organization">
+      <End Role="organization" EntitySet="organization" />
+      <End Role="person_org" EntitySet="person_org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_org_person" Association="prjModel.FK_person_org_person">
+      <End Role="person" EntitySet="person" />
+      <End Role="person_org" EntitySet="person_org" />
+    </AssociationSet>
+    <EntitySet Name="lu_role" EntityType="prjModel.lu_role" />
+    <EntitySet Name="permission" EntityType="prjModel.permission" />
+    <EntitySet Name="user" EntityType="prjModel.user" />
+    <AssociationSet Name="FK_permission_lu_role" Association="prjModel.FK_permission_lu_role">
+      <End Role="lu_role" EntitySet="lu_role" />
+      <End Role="permission" EntitySet="permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_permission_user" Association="prjModel.FK_permission_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="permission" EntitySet="permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_person" Association="prjModel.FK_user_person">
+      <End Role="person" EntitySet="person" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <EntitySet Name="document" EntityType="prjModel.document" />
+    <EntitySet Name="document_object" EntityType="prjModel.document_object" />
+    <EntitySet Name="lu_task_status" EntityType="prjModel.lu_task_status" />
+    <AssociationSet Name="FK_document_object_document_object" Association="prjModel.FK_document_object_document_object">
+      <End Role="document" EntitySet="document" />
+      <End Role="document_object" EntitySet="document_object" />
+    </AssociationSet>
+    <EntitySet Name="task_person" EntityType="prjModel.task_person" />
+    <AssociationSet Name="FK_task_user_user" Association="prjModel.FK_task_user_user">
+      <End Role="person" EntitySet="person" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_person_lu_task_status" Association="prjModel.FK_task_person_lu_task_status">
+      <End Role="lu_task_status" EntitySet="lu_task_status" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <EntitySet Name="tp_progress" EntityType="prjModel.tp_progress" />
+    <AssociationSet Name="FK_task_user_progress_task_user" Association="prjModel.FK_task_user_progress_task_user">
+      <End Role="task_person" EntitySet="task_person" />
+      <End Role="tp_progress" EntitySet="tp_progress" />
+    </AssociationSet>
+    <EntitySet Name="tp_timer" EntityType="prjModel.tp_timer" />
+    <AssociationSet Name="FK_tp_timers_task_person" Association="prjModel.FK_tp_timers_task_person">
+      <End Role="task_person" EntitySet="task_person" />
+      <End Role="tp_timer" EntitySet="tp_timer" />
+    </AssociationSet>
+    <EntitySet Name="task" EntityType="prjModel.task" />
+    <AssociationSet Name="FK_task_lu_task_status" Association="prjModel.FK_task_lu_task_status">
+      <End Role="lu_task_status" EntitySet="lu_task_status" />
+      <End Role="task" EntitySet="task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_task" Association="prjModel.FK_task_user_task">
+      <End Role="task" EntitySet="task" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <EntitySet Name="lu_acl" EntityType="prjModel.lu_acl" />
+    <EntitySet Name="lu_component" EntityType="prjModel.lu_component" />
+    <EntitySet Name="prca" EntityType="prjModel.prca" />
+    <EntitySet Name="rca" EntityType="prjModel.rca" />
+    <AssociationSet Name="FK_rca_lu_role" Association="prjModel.FK_rca_lu_role">
+      <End Role="lu_role" EntitySet="lu_role" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_acl" Association="prjModel.FK_rca_lu_acl">
+      <End Role="lu_acl" EntitySet="lu_acl" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_component" Association="prjModel.FK_rca_lu_component">
+      <End Role="lu_component" EntitySet="lu_component" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prca_rca" Association="prjModel.FK_prca_rca">
+      <End Role="rca" EntitySet="rca" />
+      <End Role="prca" EntitySet="prca" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="organization">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parent_org_id" Type="Int32" />
+    <Property Name="org_name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="street" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="city" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="postalcode" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="logo" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="person_org" Relationship="prjModel.FK_person_org_organization" FromRole="organization" ToRole="person_org" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="person_id" />
+    </Key>
+    <Property Name="person_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="lname" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="person_org" Relationship="prjModel.FK_person_org_person" FromRole="person" ToRole="person_org" />
+    <NavigationProperty Name="users" Relationship="prjModel.FK_user_person" FromRole="person" ToRole="user" />
+    <Property Type="String" Name="thumbnailFile" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="thumbnailExt" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="task_person" Relationship="prjModel.FK_task_user_user" FromRole="person" ToRole="task_person" />
+  </EntityType>
+  <EntityType Name="person_org">
+    <Key>
+      <PropertyRef Name="person_org_id" />
+    </Key>
+    <Property Name="person_org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="person_id" Type="Int32" />
+    <Property Name="org_id" Type="Int32" />
+    <NavigationProperty Name="organization" Relationship="prjModel.FK_person_org_organization" FromRole="person_org" ToRole="organization" />
+    <NavigationProperty Name="person" Relationship="prjModel.FK_person_org_person" FromRole="person_org" ToRole="person" />
+  </EntityType>
+  <Association Name="FK_person_org_organization">
+    <End Role="organization" Type="prjModel.organization" Multiplicity="0..1" />
+    <End Role="person_org" Type="prjModel.person_org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="organization">
+        <PropertyRef Name="org_id" />
+      </Principal>
+      <Dependent Role="person_org">
+        <PropertyRef Name="org_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_org_person">
+    <End Role="person" Type="prjModel.person" Multiplicity="0..1" />
+    <End Role="person_org" Type="prjModel.person_org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="person_org">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="lu_role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Type="Int32" Name="role_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="role_name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="permissions" Relationship="prjModel.FK_permission_lu_role" FromRole="lu_role" ToRole="permission" />
+    <NavigationProperty Name="rca" Relationship="prjModel.FK_rca_lu_role" FromRole="lu_role" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="permission">
+    <Key>
+      <PropertyRef Name="permission_id" />
+    </Key>
+    <Property Type="Int32" Name="permission_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="user_id" />
+    <Property Type="Int32" Name="role_id" />
+    <NavigationProperty Name="lu_role" Relationship="prjModel.FK_permission_lu_role" FromRole="permission" ToRole="lu_role" />
+    <NavigationProperty Name="user" Relationship="prjModel.FK_permission_user" FromRole="permission" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Type="Int32" Name="user_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="username" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="password" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="person_id" />
+    <NavigationProperty Name="permissions" Relationship="prjModel.FK_permission_user" FromRole="user" ToRole="permission" />
+    <NavigationProperty Name="person" Relationship="prjModel.FK_user_person" FromRole="user" ToRole="person" />
+  </EntityType>
+  <Association Name="FK_permission_lu_role">
+    <End Type="prjModel.lu_role" Role="lu_role" Multiplicity="0..1" />
+    <End Type="prjModel.permission" Role="permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_permission_user">
+    <End Type="prjModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="prjModel.permission" Role="permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_person">
+    <End Type="prjModel.person" Role="person" Multiplicity="0..1" />
+    <End Type="prjModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="document_id" />
+    </Key>
+    <Property Type="Int32" Name="document_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="filename" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fileext" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Binary" Name="timestamp" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="document_object" Relationship="prjModel.FK_document_object_document_object" FromRole="document" ToRole="document_object" />
+  </EntityType>
+  <EntityType Name="document_object">
+    <Key>
+      <PropertyRef Name="doc_obj_id" />
+    </Key>
+    <Property Type="Int32" Name="doc_obj_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="document_id" />
+    <Property Type="Int32" Name="object_id" />
+    <Property Type="Boolean" Name="is_active" />
+    <NavigationProperty Name="document" Relationship="prjModel.FK_document_object_document_object" FromRole="document_object" ToRole="document" />
+  </EntityType>
+  <EntityType Name="lu_task_status">
+    <Key>
+      <PropertyRef Name="type_id" />
+    </Key>
+    <Property Type="Int32" Name="type_id" Nullable="false" />
+    <Property Type="String" Name="type_name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="task_person" Relationship="prjModel.FK_task_person_lu_task_status" FromRole="lu_task_status" ToRole="task_person" />
+    <NavigationProperty Name="task" Relationship="prjModel.FK_task_lu_task_status" FromRole="lu_task_status" ToRole="task" />
+  </EntityType>
+  <Association Name="FK_document_object_document_object">
+    <End Type="prjModel.document" Role="document" Multiplicity="0..1" />
+    <End Type="prjModel.document_object" Role="document_object" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="document">
+        <PropertyRef Name="document_id" />
+      </Principal>
+      <Dependent Role="document_object">
+        <PropertyRef Name="document_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="task_person">
+    <Key>
+      <PropertyRef Name="task_person_id" />
+    </Key>
+    <Property Type="Int32" Name="task_person_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="task_id" />
+    <Property Type="Int32" Name="person_id" />
+    <Property Type="Double" Name="eta" />
+    <Property Type="Int32" Name="user_task_status_id" />
+    <NavigationProperty Name="person" Relationship="prjModel.FK_task_user_user" FromRole="task_person" ToRole="person" />
+    <NavigationProperty Name="lu_task_status" Relationship="prjModel.FK_task_person_lu_task_status" FromRole="task_person" ToRole="lu_task_status" />
+    <NavigationProperty Name="tp_progress" Relationship="prjModel.FK_task_user_progress_task_user" FromRole="task_person" ToRole="tp_progress" />
+    <NavigationProperty Name="tp_timer" Relationship="prjModel.FK_tp_timers_task_person" FromRole="task_person" ToRole="tp_timer" />
+    <NavigationProperty Name="task" Relationship="prjModel.FK_task_user_task" FromRole="task_person" ToRole="task" />
+  </EntityType>
+  <Association Name="FK_task_user_user">
+    <End Type="prjModel.person" Role="person" Multiplicity="0..1" />
+    <End Type="prjModel.task_person" Role="task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_person_lu_task_status">
+    <End Type="prjModel.lu_task_status" Role="lu_task_status" Multiplicity="0..1" />
+    <End Type="prjModel.task_person" Role="task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_task_status">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="user_task_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tp_progress">
+    <Key>
+      <PropertyRef Name="t_p_p_id" />
+    </Key>
+    <Property Type="Int32" Name="t_p_p_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="t_p_id" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="datetime" />
+    <NavigationProperty Name="task_person" Relationship="prjModel.FK_task_user_progress_task_user" FromRole="tp_progress" ToRole="task_person" />
+  </EntityType>
+  <Association Name="FK_task_user_progress_task_user">
+    <End Type="prjModel.task_person" Role="task_person" Multiplicity="0..1" />
+    <End Type="prjModel.tp_progress" Role="tp_progress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task_person">
+        <PropertyRef Name="task_person_id" />
+      </Principal>
+      <Dependent Role="tp_progress">
+        <PropertyRef Name="t_p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tp_timer">
+    <Key>
+      <PropertyRef Name="t_p_t_id" />
+    </Key>
+    <Property Type="Int32" Name="t_p_t_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="t_p_id" />
+    <Property Type="DateTime" Name="start_stamp" />
+    <Property Type="DateTime" Name="end_stamp" />
+    <Property Type="Boolean" Name="is_commited" />
+    <NavigationProperty Name="task_person" Relationship="prjModel.FK_tp_timers_task_person" FromRole="tp_timer" ToRole="task_person" />
+  </EntityType>
+  <Association Name="FK_tp_timers_task_person">
+    <End Type="prjModel.task_person" Role="task_person" Multiplicity="0..1" />
+    <End Type="prjModel.tp_timer" Role="tp_timer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task_person">
+        <PropertyRef Name="task_person_id" />
+      </Principal>
+      <Dependent Role="tp_timer">
+        <PropertyRef Name="t_p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Type="Int32" Name="task_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="deadline" />
+    <Property Type="Int32" Name="task_status_id" />
+    <Property Type="Boolean" Name="is_active" />
+    <Property Type="DateTime" Name="stamp" />
+    <NavigationProperty Name="lu_task_status" Relationship="prjModel.FK_task_lu_task_status" FromRole="task" ToRole="lu_task_status" />
+    <NavigationProperty Name="task_person" Relationship="prjModel.FK_task_user_task" FromRole="task" ToRole="task_person" />
+  </EntityType>
+  <Association Name="FK_task_lu_task_status">
+    <End Type="prjModel.lu_task_status" Role="lu_task_status" Multiplicity="0..1" />
+    <End Type="prjModel.task" Role="task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_task_status">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="task">
+        <PropertyRef Name="task_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_task">
+    <End Type="prjModel.task" Role="task" Multiplicity="0..1" />
+    <End Type="prjModel.task_person" Role="task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="task_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="task_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="lu_acl">
+    <Key>
+      <PropertyRef Name="acl_id" />
+    </Key>
+    <Property Type="Int32" Name="acl_id" Nullable="false" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="rca" Relationship="prjModel.FK_rca_lu_acl" FromRole="lu_acl" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="lu_component">
+    <Key>
+      <PropertyRef Name="component_id" />
+    </Key>
+    <Property Type="Int32" Name="component_id" Nullable="false" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="rca" Relationship="prjModel.FK_rca_lu_component" FromRole="lu_component" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="prca">
+    <Key>
+      <PropertyRef Name="prca_id" />
+    </Key>
+    <Property Type="Int32" Name="prca_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="person_id" />
+    <Property Type="Int32" Name="rca_id" />
+    <NavigationProperty Name="rca" Relationship="prjModel.FK_prca_rca" FromRole="prca" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="rca">
+    <Key>
+      <PropertyRef Name="rca_id" />
+    </Key>
+    <Property Type="Int32" Name="rca_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="role_id" />
+    <Property Type="Int32" Name="component_id" />
+    <Property Type="Int32" Name="acl_id" />
+    <NavigationProperty Name="lu_role" Relationship="prjModel.FK_rca_lu_role" FromRole="rca" ToRole="lu_role" />
+    <NavigationProperty Name="lu_acl" Relationship="prjModel.FK_rca_lu_acl" FromRole="rca" ToRole="lu_acl" />
+    <NavigationProperty Name="lu_component" Relationship="prjModel.FK_rca_lu_component" FromRole="rca" ToRole="lu_component" />
+    <NavigationProperty Name="prca" Relationship="prjModel.FK_prca_rca" FromRole="rca" ToRole="prca" />
+  </EntityType>
+  <Association Name="FK_rca_lu_role">
+    <End Type="prjModel.lu_role" Role="lu_role" Multiplicity="0..1" />
+    <End Type="prjModel.rca" Role="rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_acl">
+    <End Type="prjModel.lu_acl" Role="lu_acl" Multiplicity="0..1" />
+    <End Type="prjModel.rca" Role="rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_acl">
+        <PropertyRef Name="acl_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="acl_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_component">
+    <End Type="prjModel.lu_component" Role="lu_component" Multiplicity="0..1" />
+    <End Type="prjModel.rca" Role="rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_component">
+        <PropertyRef Name="component_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="component_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prca_rca">
+    <End Type="prjModel.rca" Role="rca" Multiplicity="0..1" />
+    <End Type="prjModel.prca" Role="prca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rca">
+        <PropertyRef Name="rca_id" />
+      </Principal>
+      <Dependent Role="prca">
+        <PropertyRef Name="rca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

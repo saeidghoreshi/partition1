@@ -1,0 +1,8 @@
+D:\Projects\clientWCFBydll\bin\Release\clientWCFBydll.exe.config
+D:\Projects\clientWCFBydll\bin\Release\clientWCFBydll.exe
+D:\Projects\clientWCFBydll\bin\Release\clientWCFBydll.pdb
+D:\Projects\clientWCFBydll\bin\Release\newWCFService.dll
+D:\Projects\clientWCFBydll\bin\Release\newWCFService.pdb
+D:\Projects\clientWCFBydll\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Projects\clientWCFBydll\obj\x86\Release\clientWCFBydll.exe
+D:\Projects\clientWCFBydll\obj\x86\Release\clientWCFBydll.pdb

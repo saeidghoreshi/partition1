@@ -1,0 +1,79 @@
+﻿<form id="curUserTimeTrackerForm" name="curUserTimeTrackerForm" class="curUserTimeTrackerForm">
+
+<!--HIDDEN TASK_ID-->
+<input type="hidden" id="curUserTimeTrackerForm_task_id" value="@ViewBag.taskInfo.task_id" />
+
+<table cellpadding="2px" cellspacing="2px" border="0px" >
+<tr>
+    <td>
+    <!--piece 1-->
+    <div class="curUserTimeTrackerForm_topPanel1">
+        <div  class="curUserTimeTrackerForm_image">
+            <img id="curUserTimeTrackerForm_topPanel_button" class="curUserTimeTrackerForm_topPanel_button" width="30px" height="30px" src="../../resources/components/workflow1/Task/tracker/images/@(ViewBag.getTaskPersontimerStat).png" />
+        </div>
+    </div>
+    <!--piece 2-->
+    <div class="curUserTimeTrackerForm_topPanel2">
+            <div class="curUserTimeTrackerForm_title">
+            <b>@ViewBag.taskInfo.title</b> <i>@ViewBag.taskInfo.deadline</i>
+            </div>
+    </div>
+
+    <!--piece 3-->
+    <div class="curUserTimeTrackerForm_topPanel3">
+        <div  class="curUserTimeTrackerForm_finalizeBtn">
+
+        <input id="curUserTimeTrackerForm_finalizeBtn" type="button"  value="Finalize task"/>
+
+        </div>
+    </div>
+
+    </td>
+</tr>
+<tr>
+    <td>
+    <div class="curUserTimeTrackerForm_table">
+    @foreach (var item in ViewBag.CurUserTimeTrackerHistory)
+    { 
+        <div>
+                  <table cellpadding="0" cellspacing="0" border="0" class="curUserTimeTrackerForm_innertable">
+                  <tr>
+                  <td width="70px;" style="vertical-align:top;">
+                  <div class="curUserTimeTrackerForm_person">@item.task_person.person.fname @item.task_person.person.lname</div>
+                  </td>
+                  <td>
+                        <!--tooltip-->
+                        <div class="curUserTimeTrackerForm_leftArrow">
+                        </div>
+
+                        <div class="curUserTimeTrackerForm_rightPanel">
+                            <div>@item.datetime</div>
+                            <hr />
+                            <div>@item.description</div>
+                        </div>
+                  </td>
+                  </tr>
+                  </table>
+
+       </div>
+    }
+    </div>
+    </td>
+</tr>
+<tr>
+    <td>
+    <div class="yui-skin-sam">
+    <textarea id="curUserTimeTrackerForm_description" cols="80" rows="10"></textarea>
+    </div>
+    
+    </td>
+</tr>
+<tr>
+    <td>
+    <input id="curUserTimeTrackerForm_saveBtn" type="button"  value="Send"/>
+    </td>
+</tr>
+
+</table>
+
+</form>
