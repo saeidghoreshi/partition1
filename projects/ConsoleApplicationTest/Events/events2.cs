@@ -8,6 +8,11 @@ namespace ConsoleApplication1.event2
     //not important to define delegate for events
     //public delegate void customeHandler(object sender,EventArgs args);
 
+    public class customEventArgs : EventArgs 
+    {
+        public string message{get;set;}
+    }
+
 
     //in this example we build new collwection instead of customizing built in collection and overrride the beahavioias
     public class customCollection <T>
@@ -41,10 +46,10 @@ namespace ConsoleApplication1.event2
             //Do stuff
             addEvent(this, EventArgs.Empty);
         }
-        public void update() 
+        public void update(EventArgs e) 
         {
             //Do stuff
-            updateEvent(this, EventArgs.Empty);
+            updateEvent(this, e);
         }
         public void remove() 
         {
@@ -72,7 +77,7 @@ namespace ConsoleApplication1.event2
 
             //use
             myRepo.add();
-            myRepo.update();
+            myRepo.update(new customEventArgs() { message = " 'Updated Message '" });
             myRepo.remove();
 
             //based on logic change Event binding
@@ -84,7 +89,7 @@ namespace ConsoleApplication1.event2
         //handlers Definitions
         public void addedToRepo1(object sender,EventArgs e) {Console.WriteLine("Something added to my repo firstone");}
         public void addedToRepo2(object sender, EventArgs e) { Console.WriteLine("Something added to my repo second one"); }
-        public void updateRepo(object sender, EventArgs e) { Console.WriteLine("my repo updated"); }
+        public void updateRepo(object sender, EventArgs e) { Console.WriteLine("my repo updated" + ((customEventArgs)e).message); }
         public void removeRepo(object sender, EventArgs e) { Console.WriteLine("my repo changed"); }
 
     }

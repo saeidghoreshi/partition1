@@ -7,34 +7,28 @@ using System.Threading;
 using System.Transactions;
 using System.IO;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace ConsoleApplication1.Th1
 {
     class threading1
     {
-        object Lock = new object();
-
-        private void runTestfunction(object y /*Must be Object*/)
-        {
-            lock (Lock)
-            {
-                Console.WriteLine(Thread.CurrentThread.ManagedThreadId +" Entered");
-                Thread.Sleep(2000);
-                Console.WriteLine("Tread method is running " + y +" on Thread :"+Thread.CurrentThread.ManagedThreadId);
-                Console.WriteLine(Thread.CurrentThread.ManagedThreadId + " Exited");
-            }
-        }
         public void callThreads()
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                Random r = new Random(1000);
+                string[] urls =
+                {
+                    "http://twitter.com/odetocode",
+                    "http://microsoft.com/en/us/default.aspx"
+                } ;
 
                 Thread[] threads = new Thread[10];
+                
                 for (int i = 0; i < 10; i++)
                 {
                     threads[i] = new Thread(this.runTestfunction);
-                    threads[i].Start(r.Next());
+                    threads[i].Start(urls);
                     
                 }
 
@@ -45,6 +39,42 @@ namespace ConsoleApplication1.Th1
                 Console.WriteLine( "wait ALL");
                 scope.Complete();
             }
+        }
+        class data { 
+            public int threadno;
+            public string url;
+        }
+        
+        object Lock = new object();
+        private void runTestfunction(object urls /*Must be Object*/)
+        {
+            lock (Lock) 
+            {
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId + " Running");
+                
+
+                //Async opS
+                foreach (var url in urls as string[])
+                {
+                    var client = new WebClient();
+                    client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
+                    client.DownloadStringAsync(new Uri(url.ToString()),
+                        new data()
+                        {
+                            threadno = Thread.CurrentThread.ManagedThreadId,
+                            url = url
+                        }
+                        );
+                }
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId + " Terminated");
+            }
+        }
+
+        void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            var html = e.Result;
+            var stat = e.UserState;
+            Console.WriteLine("ThreadNo= "+(stat as data).threadno + " Url=" +(stat as data).url + " "+html.Length +"Bytes" );
         }
     }
 }
