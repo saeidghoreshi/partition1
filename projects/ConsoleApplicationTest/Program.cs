@@ -13,9 +13,12 @@ namespace ConsoleApplication1
             //test Delegates
             //fundamental ins = new fundamental();
 
-            
             //user event2
-            event2.consumer cons = new event2.consumer();
+            //event2.consumer cons = new event2.consumer();
+
+            //test Traditional Thareding
+            Th1.threading1 ins= new Th1.threading1();
+            ins.callThreads();
 
 
 

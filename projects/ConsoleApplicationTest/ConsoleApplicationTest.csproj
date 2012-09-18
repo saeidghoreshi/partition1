@@ -72,7 +72,7 @@
   <ItemGroup>
     <Compile Include="Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
-    <Compile Include="Enumerator.cs" />
+    <Compile Include="others\Enumerator.cs" />
     <Compile Include="Events\events1.cs" />
     <Compile Include="Events\events2.cs" />
     <Compile Include="Events\Delegate.cs" />
@@ -87,11 +87,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Rx.cs" />
     <Compile Include="summit\Class1.cs" />
     <Compile Include="others\testEF.cs" />
-    <Compile Include="threading.cs" />
-    <Compile Include="threading1.cs" />
+    <Compile Include="Threading\threading.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
