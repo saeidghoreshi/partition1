@@ -1,0 +1,5 @@
+﻿Com InterOp
+managed-typr ddl need to be registerd in registery by regasm abd then usable by other platform like c++ or VB
+
+PInvoke Inrterop [pinvoke.net]
+if not registered then possible to load dll using DLLImport 
