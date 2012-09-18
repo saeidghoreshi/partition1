@@ -1,0 +1,10 @@
+﻿Arraylist [no-generic collection] is a collection that can containe object of any type at the same time
+generic collections [no boxing required and type-safe]
+List<>
+Dictionary<>
+Queue
+stack
+hashset
+
+Note:
+we cast for type sefty

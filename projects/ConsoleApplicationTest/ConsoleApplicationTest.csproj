@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
+    <Compile Include="Generics\Generic.cs" />
     <Compile Include="others\Enumerator.cs" />
     <Compile Include="Events\events1.cs" />
     <Compile Include="Events\events2.cs" />
@@ -122,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Encapsulation\Note.txt" />
+    <Content Include="Generics\TextFile1.txt" />
     <Content Include="Interop\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
