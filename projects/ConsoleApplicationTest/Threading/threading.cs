@@ -17,29 +17,44 @@ namespace ConsoleApplication1.Th1
         {
             using (TransactionScope scope = new TransactionScope())
             {
-                string[] urls =
-                {
-                    "http://twitter.com/odetocode",
-                    "http://microsoft.com/en/us/default.aspx"
-                } ;
+                string[] urls = {
+                                "http://www.afsd.com.au/",
+                                "http://microsoft.com/en/us/default.aspx"
+                                } ;
 
-                Thread[] threads = new Thread[10];
-                
-                for (int i = 0; i < 10; i++)
+                string WhichWay = "modern";
+                switch (WhichWay)
                 {
-                    threads[i] = new Thread(this.runTestfunction);
-                    threads[i].Start(urls);
-                    
+                    case "trad":
+                        //Traditional Way
+                        Thread[] threads = new Thread[10];
+                        for (int i = 0; i < 10; i++)
+                        {
+                            threads[i] = new Thread(this.runTestfunction);
+                            threads[i].Start(urls);
+                        }
+                        //the whole expression below acting like tasks.WaitAll();
+                        foreach (Thread t in threads)
+                            t.Join();
+                    break;
+
+                    case "modern":
+                        //Modern Way
+                        Parallel.ForEach(urls, url =>
+                        {
+                            runTestfunction(new string[]{url});
+                        });
+                        Console.WriteLine("parallel loop implicily wait for thrads to be joint and continues sequentially");
+                    break;
                 }
-
-                //the whole expression below acting like tasks.WaitAll();
-                foreach (Thread t in threads)
-                    t.Join();
+                
                 
                 Console.WriteLine( "wait ALL");
                 scope.Complete();
             }
         }
+
+
         class data { 
             public int threadno;
             public string url;
@@ -54,7 +69,7 @@ namespace ConsoleApplication1.Th1
                 
 
                 //Async opS
-                foreach (var url in urls as string[])
+                foreach (string url in urls as string[])
                 {
                     var client = new WebClient();
                     client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
@@ -62,10 +77,12 @@ namespace ConsoleApplication1.Th1
                         new data()
                         {
                             threadno = Thread.CurrentThread.ManagedThreadId,
-                            url = url
+                            url = url.ToString()
                         }
                         );
                 }
+                    
+                
                 Console.WriteLine(Thread.CurrentThread.ManagedThreadId + " Terminated");
             }
         }
