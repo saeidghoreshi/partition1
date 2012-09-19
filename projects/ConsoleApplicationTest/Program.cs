@@ -32,8 +32,6 @@ namespace ConsoleApplication1
             TraditionalAsync.asyncTradPattern1 ins = new TraditionalAsync.asyncTradPattern1();
             ins.run();
 
-
-
             
             Console.WriteLine("Enter Key to Exit");
             Console.ReadLine();
