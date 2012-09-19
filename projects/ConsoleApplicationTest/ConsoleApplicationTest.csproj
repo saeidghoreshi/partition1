@@ -96,6 +96,7 @@
     <Compile Include="summit\Class1.cs" />
     <Compile Include="others\testEF.cs" />
     <Compile Include="Threading\threading.cs" />
+    <Compile Include="TraditionalAsync\async.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -24,8 +24,13 @@ namespace ConsoleApplication1
             //Office.excel ins = new Office.excel();
 
             //test Enumarator
-            Enumerator.testIEnumerator ins= new Enumerator.testIEnumerator();
-            ins.showFilterResultExtended();
+            //Enumerator.testIEnumerator ins= new Enumerator.testIEnumerator();
+            //ins.showFilterResultExtended();
+
+
+            //traditional IAsync
+            TraditionalAsync.asyncTradPattern1 ins = new TraditionalAsync.asyncTradPattern1();
+            ins.run();
 
 
 
