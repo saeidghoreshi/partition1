@@ -5,6 +5,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp
 {
+    public class testMeReflection 
+    {
+        public string testMethod() { return "Hi from WindowsFormsApplication"; }
+    }
     static class Program
     {
         /// <summary>

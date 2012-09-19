@@ -13,10 +13,15 @@ namespace ConsoleApplication1.Office
         public excel() 
         {
             var excel = new Excel.Application();
+            //OR
+            /*
+                Type ExcelType = Type.GetTypeFromProgID("Excel.Application");
+                dynamic excel = Activator.CreateInstance(ExcelType);
+             */
+
+
             var workbook = excel.Workbooks.Add();
             var sheet = excel.ActiveSheet;
-
-
             excel.Visible = true;
 
             excel.Cells[1, 1] = "Hi from Me";

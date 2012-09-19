@@ -29,8 +29,12 @@ namespace ConsoleApplication1
 
 
             //traditional IAsync
-            TraditionalAsync.asyncTradPattern1 ins = new TraditionalAsync.asyncTradPattern1();
-            ins.run();
+            //TraditionalAsync.asyncTradPattern1 ins = new TraditionalAsync.asyncTradPattern1();
+            //ins.run();
+
+            //reflection DLR
+            DLR.reflection ins = new DLR.reflection();
+            
 
             
             Console.WriteLine("Enter Key to Exit");
