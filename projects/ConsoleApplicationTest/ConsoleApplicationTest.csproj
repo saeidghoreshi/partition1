@@ -38,6 +38,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Npgsql">
       <HintPath>..\packages\Npgsql.2.0.11\lib\Net40\Npgsql.dll</HintPath>
     </Reference>
@@ -73,6 +77,7 @@
     <Compile Include="Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
     <Compile Include="Generics\Generic.cs" />
+    <Compile Include="Office\excel.cs" />
     <Compile Include="others\Enumerator.cs" />
     <Compile Include="Events\events1.cs" />
     <Compile Include="Events\events2.cs" />

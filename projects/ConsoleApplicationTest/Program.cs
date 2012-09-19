@@ -17,8 +17,15 @@ namespace ConsoleApplication1
             //event2.consumer cons = new event2.consumer();
 
             //Test Traditional Thareding
-            Th1.threading1 ins= new Th1.threading1();
-            ins.callThreads();
+            //Th1.threading1 ins= new Th1.threading1();
+            //ins.callThreads();
+
+            //Test Excel
+            //Office.excel ins = new Office.excel();
+
+            //test Enumarator
+            Enumerator.testIEnumerator ins= new Enumerator.testIEnumerator();
+            ins.showFilterResultExtended();
 
 
 
