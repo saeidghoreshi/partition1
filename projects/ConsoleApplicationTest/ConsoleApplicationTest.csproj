@@ -75,9 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DLR\reflection.cs" />
-    <Compile Include="Encapsulation.cs" />
+    <Compile Include="others\Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
     <Compile Include="Generics\Generic.cs" />
+    <Compile Include="linqXML\LinqXml.cs" />
     <Compile Include="Office\excel.cs" />
     <Compile Include="others\Enumerator.cs" />
     <Compile Include="Events\events1.cs" />
@@ -132,6 +133,7 @@
     <Content Include="Encapsulation\Note.txt" />
     <Content Include="Generics\TextFile1.txt" />
     <Content Include="Interop\TextFile1.txt" />
+    <Content Include="linqXML\users.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

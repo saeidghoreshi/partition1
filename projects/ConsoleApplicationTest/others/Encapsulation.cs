@@ -10,9 +10,12 @@ namespace ConsoleApplication1
         void start();
         void terminate();
     }
-    public abstract class car : Icar
+    public class parts { }
+    
+    public abstract class car<T>: Icar , IEnumerable<T> where T :parts
     {
         //Fields
+        List<T> parts = new List<T>() { };
         private string name;
 
         //Properties
@@ -41,9 +44,20 @@ namespace ConsoleApplication1
         {
             Console.WriteLine(this.Name + " terminated [Call from Base]");
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return parts.GetEnumerator() as IEnumerator<T>;
+        }
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
-    public class bmw : car
+    public class bmw : car<parts>
     {
+        
         //Methods
         public bmw(string name) : base(name) { }
         public override void start()
@@ -54,9 +68,11 @@ namespace ConsoleApplication1
         {
             Console.WriteLine(this.Name + " Terminated");
         }
+
+        
     }
 
-    public class mazda : car
+    public class mazda : car<parts>
     {
         //Methods
         public mazda(string name) : base(name) { }

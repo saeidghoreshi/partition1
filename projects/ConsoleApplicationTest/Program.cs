@@ -33,7 +33,11 @@ namespace ConsoleApplication1
             //ins.run();
 
             //reflection DLR
-            DLR.reflection ins = new DLR.reflection();
+            //DLR.reflection ins = new DLR.reflection();
+
+            //test linq XML
+            linqXML.LinqXml ins = new linqXML.LinqXml();
+            ins.run();
             
 
             

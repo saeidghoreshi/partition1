@@ -7,51 +7,6 @@ using System.Collections;
 
 namespace ConsoleApplication1.Enumerator
 {
-    public class sampleClass
-    {
-        public string name;
-    }
-    //public class EnumaratorClass<T>:IEnumerable<T>
-    //{
-    //    public T[] os;
-
-    //    public EnumaratorClass(T[] os) 
-    //    {
-    //        this.os = os; 
-    //    }
-    //    public IEnumerator GetEnumerator()
-    //    {
-    //        return os.GetEnumerator();
-    //    }
-    //    IEnumerator<T> IEnumerable<T>.GetEnumerator()
-    //    {
-    //yield
-    //        return (IEnumerator<T>)os.GetEnumerator();
-    //    }
-    //}
-
-
-    //Note:
-    //IEnumerable is a repository builder and doesnt save any value
-    public class EnumaratorClass : IEnumerable
-    {
-        public sampleClass[] os;
-
-        public EnumaratorClass(sampleClass[] os)
-        {
-            this.os = os;
-        }
-        public IEnumerator GetEnumerator()
-        {
-            return os.GetEnumerator();
-        }
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return (IEnumerator<sampleClass>)os.GetEnumerator();
-        }
-    }
-
-
     public class testIEnumerator 
     {
         public void showFilterResult() 
