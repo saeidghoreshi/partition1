@@ -19,7 +19,8 @@ namespace ConsoleApplication1.TraditionalAsync
             IAsyncResult func1Result = Func1Ins.BeginInvoke("Input 1", null, Func1Ins);
             Console.WriteLine("Function1 Called");
 
-            string func1Return = Func1Ins.EndInvoke(func1Result);//Wait on Async Operation to be finished
+            string func1Return = Func1Ins.EndInvoke(func1Result);//Wait on Async Operation to be finished /*blocks the current thread*/
+            Console.WriteLine("EndInvoke Called");
             Console.WriteLine(func1Return);
         }
     }
@@ -29,7 +30,7 @@ namespace ConsoleApplication1.TraditionalAsync
         public delegate string func1Delegate(string input);
         private string func1(string input) { Thread.Sleep(4000); return "Output From Func1 " + input; }
 
-        private void callbackFunc(IAsyncResult result){Console.WriteLine(this.func1Ins.EndInvoke(result));}
+        private void callbackFunc(IAsyncResult result) { Console.WriteLine(this.func1Ins.EndInvoke(result));/*blocks the current thread*/ }
 
         func1Delegate func1Ins;
         public void run()
@@ -38,6 +39,7 @@ namespace ConsoleApplication1.TraditionalAsync
             AsyncCallback callback = new AsyncCallback(callbackFunc);
 
             this.func1Ins.BeginInvoke("input",callback,this.func1Ins);
+            
         }
     }
 }

@@ -29,15 +29,15 @@ namespace ConsoleApplication1
 
 
             //traditional IAsync
-            //TraditionalAsync.asyncTradPattern1 ins = new TraditionalAsync.asyncTradPattern1();
-            //ins.run();
+            TraditionalAsync.asyncTradPattern2 ins = new TraditionalAsync.asyncTradPattern2();
+            ins.run();
 
             //reflection DLR
             //DLR.reflection ins = new DLR.reflection();
 
             //test linq XML
-            linqXML.LinqXml ins = new linqXML.LinqXml();
-            ins.run();
+            //linqXML.LinqXml ins = new linqXML.LinqXml();
+            //ins.run();
             
 
             
