@@ -13,6 +13,7 @@ using System.Collections.Concurrent;
 
 using System.Collections;
 using System.IO;
+using System.Diagnostics;
 
 namespace WindowsFormsApp
 {
@@ -74,8 +75,9 @@ namespace WindowsFormsApp
                         try
                         {
                             string line=work.Take();
-                            //do parsing ...
+                            //do operation ...
                             //update local Dictionary
+                            localD.Add(1, 1);
                         }
                         catch(ObjectDisposedException){/*ignore*/}
                         catch(InvalidOperationException){/*ignore*/}
@@ -123,7 +125,7 @@ namespace WindowsFormsApp
             catch(Exception){}
         
         }
-        void mapReduce() 
+        void mapReduce(CancellationToken ct)
         {
             label1.Text = string.Empty;
             /*
@@ -134,49 +136,84 @@ namespace WindowsFormsApp
              * 1-fire off N task and do waitallonebyone harvest pattern
              * 2-parallel.for/foreach w/ TLS task local storage
              */
+            Task<Dictionary<string, int>> T = Task.Factory.StartNew(() =>
+            {
 
-            var sw = System.Diagnostics.Stopwatch.StartNew();
-            sw.Restart();
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                sw.Restart();
 
-            //simulation of file lines
-            List<string> source = new List<string> { "A", "AA", "AAA", "AAAA", "AAAAA", "AAAAAA", "AAAAAAA", "AAAAAAAA", "AAAAAAAAA", "AAAAAAAAAAAA" };
+                //simulation of file lines
+                List<string> source = new List<string> { "A", "AA", "AAA", "AAAA", "AAAAA", "AAAAAA", "AAAAAAA", "AAAAAAAA", "AAAAAAAAA", "AAAAAAAAAAAA" };
 
-            Dictionary<string, int> result = new Dictionary<string, int>();
-            Parallel.ForEach
-                (
-                    source,
-                    () => { return new Dictionary<string, int>(); },//localInit for local Dictionary
-                    (line,loopControl,localDic)=>
-                    {
-                        (localDic as Dictionary<string, int>).Add(line, line.Length);
-                        Thread.Sleep(3000);
-                        return localDic;
-                    },
-                    (localDic)=>
-                    {
-                        lock(result)
+                Dictionary<string, int> result = new Dictionary<string, int>();
+                Parallel.ForEach
+                    (
+                        source,
+                        () => { return new Dictionary<string, int>(); },//localInit for local Dictionary
+                        (line, loopControl, localDic) =>
                         {
-                            //merge(result,localDic)
-                            foreach(var k in localDic)
-                            {   
-                                result.Add(k.Key,k.Value);
+                            (localDic as Dictionary<string, int>).Add(line, line.Length);
+                            Thread.Sleep(3000);
+                            if (ct.IsCancellationRequested)
+                            {
+                                //cleanup
+                                ct.ThrowIfCancellationRequested();
+                            }
+                            return localDic;
+                        },
+                        (localDic) =>
+                        {
+                            lock (result)
+                            {
+                                //merge(result,localDic)
+                                foreach (var k in localDic)
+                                    result.Add(k.Key, k.Value);
                             }
                         }
+                    );
+                return result;
+
+            }, ct);
+
+            Task T2 = T.ContinueWith((lastTask) =>
+            {
+                Dictionary<string, int> result;
+                try
+                {
+                    result = lastTask.Result;
+                    foreach (var key in result.OrderBy(x => x.Key).Select(x => x.Key))
+                        label1.Text += key + " >> " + result[key].ToString() + "\n";
+                }
+                catch (AggregateException ae)
+                {
+                    ae = ae.Flatten();
+                    foreach (Exception e in ae.InnerExceptions)
+                    {
+                        Debug.WriteLine(e.Message);
+                        label1.Text += "\n" + e.Message;
                     }
-                );
-
-            foreach (var key in result.OrderBy(x => x.Key).Select(x => x.Key))
-                label1.Text += key+" >> "+result[key].ToString()+"\n";
-        }
-        void APM() 
-        {
-
-        }  
+                }
 
 
+
+
+            }, TaskScheduler.FromCurrentSynchronizationContext());
+
+        }    
+
+        public CancellationTokenSource cts ;
         private void runBtn_Click(object sender, EventArgs e)
         {
-            mapReduce();
+            cts = new CancellationTokenSource();
+            CancellationToken ct = cts.Token;
+            mapReduce(ct);
+            //concurrent();
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            cts.Cancel();
+            label1.Text = "Task Cancelled";
         }
 
     }

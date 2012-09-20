@@ -221,7 +221,8 @@ namespace WindowsFormsApp
             while(tasks.Count>0)
             {
                 int i = Task.WaitAny(tasks.ToArray());
-                results.Add(tasks[i].Result);
+                if(tasks[i].Exception==null)
+                    results.Add(tasks[i].Result);
                 tasks.RemoveAt(i);
             }
 
