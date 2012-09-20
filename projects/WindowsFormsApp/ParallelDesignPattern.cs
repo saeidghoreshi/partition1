@@ -20,6 +20,10 @@ namespace WindowsFormsApp
     public partial class ParallelDesignPattern : Form
     {
         /*
+         Note on crearting Tasks in for loop
+         * there is delay between task created and started then pass params in arg section by value
+         */
+        /*
          Patterns: as go down gets better
          * pipeline > linear
          * dataflow > dependency   using continuewhenAll<otherTasksReturnType,thisTaskReturnType>
@@ -150,7 +154,7 @@ namespace WindowsFormsApp
                     (
                         source,
                         () => { return new Dictionary<string, int>(); },//localInit for local Dictionary
-                        (line, loopControl, localDic) =>
+                        (line, loopControl, localDic) =>//WORK W/ LOCAL STORAGE
                         {
                             (localDic as Dictionary<string, int>).Add(line, line.Length);
                             Thread.Sleep(3000);
@@ -214,6 +218,7 @@ namespace WindowsFormsApp
         {
             cts.Cancel();
             label1.Text = "Task Cancelled";
+            //in this scenarion all tasks will be \cancelled but can change it to make only one be canceled
         }
 
     }
