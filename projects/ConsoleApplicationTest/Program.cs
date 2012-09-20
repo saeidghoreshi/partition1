@@ -29,8 +29,8 @@ namespace ConsoleApplication1
 
 
             //traditional IAsync
-            TraditionalAsync.asyncTradPattern2 ins = new TraditionalAsync.asyncTradPattern2();
-            ins.run();
+            //TraditionalAsync.asyncTradPattern1 ins = new TraditionalAsync.asyncTradPattern1();
+            //ins.run();
 
             //reflection DLR
             //DLR.reflection ins = new DLR.reflection();
@@ -38,6 +38,10 @@ namespace ConsoleApplication1
             //test linq XML
             //linqXML.LinqXml ins = new linqXML.LinqXml();
             //ins.run();
+            
+
+            //test Monitor
+            new _Monitor.consumer().run();
             
 
             

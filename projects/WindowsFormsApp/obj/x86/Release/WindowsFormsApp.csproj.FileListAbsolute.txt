@@ -10,3 +10,15 @@ D:\Projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.pdb
 D:\Projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.TPLAsync.resources
 D:\Projects\WindowsFormsApp\bin\Release\WindowsFormsApp.exe.config
 D:\Projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.concurrency.resources
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\WindowsFormsApp.exe.config
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\WindowsFormsApp.exe
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\WindowsFormsApp.pdb
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.concurrency.resources
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.Form1.resources
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.ParallelDesignPattern.resources
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.Properties.Resources.resources
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.csproj.GenerateResource.Cache
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.exe
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.pdb

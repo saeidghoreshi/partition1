@@ -149,7 +149,10 @@ namespace ConsoleApplication1.Th2
             for (int i = 0; i < threads.Length; i++)
             {
                 //threads[i]=new Thread(runJobs);
+                //threads[i].Name = "Thread-"+i.ToString();
+                //threads[i].Priority=ThreadPriority.AboveNormal
                 //threads[i].Start(new param{processId=i,other=1});
+                
                 Task t = Task.Factory.StartNew(() => { });
 
             }

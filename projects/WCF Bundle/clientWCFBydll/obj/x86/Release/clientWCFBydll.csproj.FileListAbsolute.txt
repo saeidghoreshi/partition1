@@ -6,3 +6,13 @@ D:\Projects\clientWCFBydll\bin\Release\newWCFService.pdb
 D:\Projects\clientWCFBydll\obj\x86\Release\ResolveAssemblyReference.cache
 D:\Projects\clientWCFBydll\obj\x86\Release\clientWCFBydll.exe
 D:\Projects\clientWCFBydll\obj\x86\Release\clientWCFBydll.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\clientWCFBydll.exe.config
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\clientWCFBydll.exe
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\clientWCFBydll.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\newWCFService.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\newWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\bin\Release\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\obj\x86\Release\clientWCFBydll.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\obj\x86\Release\clientWCFBydll.exe
+C:\projects\Partitions\partition1\projects\WCF Bundle\clientWCFBydll\obj\x86\Release\clientWCFBydll.pdb

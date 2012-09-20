@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DLR\reflection.cs" />
+    <Compile Include="Monitor\HoldWaitMonitor.cs" />
     <Compile Include="others\Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
     <Compile Include="Generics\Generic.cs" />

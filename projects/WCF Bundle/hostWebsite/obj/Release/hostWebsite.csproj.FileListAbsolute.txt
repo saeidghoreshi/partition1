@@ -5,3 +5,12 @@ D:\Projects\hostWebsite\bin\newWCFService.pdb
 D:\Projects\hostWebsite\obj\Release\ResolveAssemblyReference.cache
 D:\Projects\hostWebsite\obj\Release\hostWebsite.dll
 D:\Projects\hostWebsite\obj\Release\hostWebsite.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\hostWebsite.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\hostWebsite.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\newWCFService.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\newWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Release\hostWebsite.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Release\hostWebsite.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Release\hostWebsite.pdb
