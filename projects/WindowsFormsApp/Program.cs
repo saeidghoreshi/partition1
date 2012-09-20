@@ -21,7 +21,7 @@ namespace WindowsFormsApp
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
             //Application.Run(new TPLAsync());
-            Application.Run(new concurrency());
+            Application.Run(new ParallelDesignPattern());
         }
     }
 }

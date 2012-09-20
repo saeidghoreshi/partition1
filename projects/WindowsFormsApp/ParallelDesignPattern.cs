@@ -11,12 +11,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
+using System.Collections;
+using System.IO;
+
 namespace WindowsFormsApp
 {
     public partial class ParallelDesignPattern : Form
     {
         /*
-         Patterns:
+         Patterns: as go down gets better
          * pipeline > linear
          * dataflow > dependency   using continuewhenAll<otherTasksReturnType,thisTaskReturnType>
          * concurrent data structure >
@@ -30,6 +33,7 @@ namespace WindowsFormsApp
         public ParallelDesignPattern()
         {
             InitializeComponent();
+            
         }
         void concurrent() 
         {
@@ -121,16 +125,58 @@ namespace WindowsFormsApp
         }
         void mapReduce() 
         {
+            label1.Text = string.Empty;
             /*
              * google search engine
              * data will be mapped to parallel maps to produce set of local results
              * reduce combines to generate 1 set of result set
              * 2 stategies
              * 1-fire off N task and do waitallonebyone harvest pattern
-             * 2-parallel.for/foreach w/ TSL task local storage
-             */ 
-             
-        
+             * 2-parallel.for/foreach w/ TLS task local storage
+             */
+
+            var sw = System.Diagnostics.Stopwatch.StartNew();
+            sw.Restart();
+
+            //simulation of file lines
+            List<string> source = new List<string> { "A", "AA", "AAA", "AAAA", "AAAAA", "AAAAAA", "AAAAAAA", "AAAAAAAA", "AAAAAAAAA", "AAAAAAAAAAAA" };
+
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            Parallel.ForEach
+                (
+                    source,
+                    () => { return new Dictionary<string, int>(); },//localInit for local Dictionary
+                    (line,loopControl,localDic)=>
+                    {
+                        (localDic as Dictionary<string, int>).Add(line, line.Length);
+                        Thread.Sleep(3000);
+                        return localDic;
+                    },
+                    (localDic)=>
+                    {
+                        lock(result)
+                        {
+                            //merge(result,localDic)
+                            foreach(var k in localDic)
+                            {   
+                                result.Add(k.Key,k.Value);
+                            }
+                        }
+                    }
+                );
+
+            foreach (var key in result.OrderBy(x => x.Key).Select(x => x.Key))
+                label1.Text += key+" >> "+result[key].ToString()+"\n";
+        }
+        void APM() 
+        {
+
+        }  
+
+
+        private void runBtn_Click(object sender, EventArgs e)
+        {
+            mapReduce();
         }
 
     }
