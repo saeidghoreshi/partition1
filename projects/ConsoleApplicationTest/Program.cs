@@ -41,7 +41,11 @@ namespace ConsoleApplication1
             
 
             //test Monitor
-            new _Monitor.consumer().run();
+            //new _Monitor.consumer().run();
+
+            //test DeadLike Solution
+            new HoldWaitDeadLockSolution.Solution().runSolution();
+            //new MutexSolution.Solution().runSolution();
             
 
             
