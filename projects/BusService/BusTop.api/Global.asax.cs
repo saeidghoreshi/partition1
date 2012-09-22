@@ -16,6 +16,7 @@ namespace BusTop.api
 
     public class WebApiApplication : System.Web.HttpApplication
     {
+        public static IBus Bus { get; set; }
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -25,7 +26,8 @@ namespace BusTop.api
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            NServiceBus.Configure
+            //setup endpoint
+            Bus= NServiceBus.Configure
                 .With()//scan runtime library for any 
                 .Log4Net()
                 .DefaultBuilder()//defgault container

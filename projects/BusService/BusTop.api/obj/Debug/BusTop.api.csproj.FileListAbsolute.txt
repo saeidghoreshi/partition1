@@ -69,3 +69,7 @@ C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\BusStop.con
 C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\NServiceBus.dll
 C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\BusStop.contract.pdb
 C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\NServiceBus.xml
+C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\log4net.dll
+C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\NServiceBus.Core.dll
+C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\log4net.xml
+C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\NServiceBus.Core.xml

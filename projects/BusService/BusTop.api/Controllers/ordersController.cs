@@ -13,7 +13,6 @@ namespace BusTop.api.Controllers
 {
     public class ordersController : ApiController
     {
-        public IBus Bus { get; set; }
         public Guid Get()
         {
             var order = new PlaceOrder() 
@@ -23,7 +22,7 @@ namespace BusTop.api.Controllers
                 productId=Guid.NewGuid()
 
             };
-            Bus.Send( order); //then use config file   add message to endpoint
+            WebApiApplication.Bus.Send( order); //then use config file   add message to endpoint
             return order.orderId;
         }
 
