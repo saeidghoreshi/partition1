@@ -4,3 +4,209 @@
 2012-09-22 00:19:23,880 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
 2012-09-22 00:19:24,134 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
 2012-09-22 00:19:24,141 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 00:32:18,632 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 00:32:18,801 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 00:32:18,842 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 00:32:18,907 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 00:32:19,167 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 00:32:19,173 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 00:35:16,854 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 00:35:17,024 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 00:35:17,066 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 00:35:17,129 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 00:35:17,372 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 00:35:17,378 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 00:35:33,610 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:35:33,671 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:35:35,092 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:35:35,149 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:35:36,621 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:35:36,666 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:35:41,961 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:35:42,009 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:35:43,911 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:35:43,959 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:35:44,984 [Worker.10] ERROR NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Message has failed the maximum number of times allowed, ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171.
+2012-09-22 00:35:45,077 [Worker.14] INFO  SecondLevelRetries [(null)] <(null)> - Defer message and send it to busstop.backend3@saeid-pc using the timeout manager at busstop.backend3.timeouts@saeid-pc
+2012-09-22 00:35:58,498 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:35:58,546 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:00,578 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:00,624 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:02,081 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:02,127 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:03,954 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:03,999 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:05,907 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:05,953 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:06,783 [Worker.10] ERROR NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Message has failed the maximum number of times allowed, ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171.
+2012-09-22 00:36:06,826 [Worker.14] INFO  SecondLevelRetries [(null)] <(null)> - Defer message and send it to busstop.backend3@saeid-pc using the timeout manager at busstop.backend3.timeouts@saeid-pc
+2012-09-22 00:36:30,861 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:30,907 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:32,825 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:32,874 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:34,725 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:34,775 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:36,592 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:36,640 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:38,250 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:36:38,297 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:36:39,125 [Worker.10] ERROR NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Message has failed the maximum number of times allowed, ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171.
+2012-09-22 00:36:39,176 [Worker.14] INFO  SecondLevelRetries [(null)] <(null)> - Defer message and send it to busstop.backend3@saeid-pc using the timeout manager at busstop.backend3.timeouts@saeid-pc
+2012-09-22 00:37:11,785 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:37:11,832 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:37:13,585 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:37:13,630 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:37:16,762 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:37:16,808 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:37:18,259 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:37:18,304 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:37:20,768 [Worker.10] WARN  NServiceBus.Unicast.UnicastBus [(null)] <(null)> - PlaceOrderHandler failed handling message.
+System.Exception: Database is Down
+   at BusStop.Backend.PlaceOrderHandler.Handle(PlaceOrder message) in C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\PlaceOrderHandler.cs:line 14
+2012-09-22 00:37:20,814 [Worker.10] WARN  NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Failed raising 'transport message received' event for message with ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171
+NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception of type 'NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException' was thrown.
+   at NServiceBus.Unicast.UnicastBus.HandleTransportMessage(IBuilder childBuilder, TransportMessage msg)
+   at NServiceBus.Unicast.UnicastBus.TransportMessageReceived(Object sender, TransportMessageReceivedEventArgs e)
+   at System.EventHandler`1.Invoke(Object sender, TEventArgs e)
+   at NServiceBus.Unicast.Transport.Transactional.TransactionalTransport.OnTransportMessageReceived(TransportMessage msg)
+2012-09-22 00:37:21,642 [Worker.10] ERROR NServiceBus.Unicast.Transport.Transactional.TransactionalTransport [(null)] <(null)> - Message has failed the maximum number of times allowed, ID=88d366b9-a15f-4f62-b983-dafc8db3b7fd\171.
+2012-09-22 00:37:21,680 [Worker.14] INFO  SecondLevelRetries [(null)] <(null)> - Send message to error queue, error@saeid-pc
+2012-09-22 00:48:06,144 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 00:48:06,310 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 00:48:06,353 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 00:48:06,417 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 00:48:06,684 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 00:48:06,692 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
