@@ -31,11 +31,9 @@ C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\obj\x86\Releas
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\obj\x86\Release\ConsoleApplicationTest.pdb
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\ConsoleApplicationTest.exe
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\ConsoleApplicationTest.pdb
-C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\AsyncCtpLibrary.dll
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\ModelsProject.dll
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\Mono.Security.dll
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\ModelsProject.pdb
-C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\AsyncCtpLibrary.xml
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\Npgsql.xml
 C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\bin\Release\nunit.framework.xml
