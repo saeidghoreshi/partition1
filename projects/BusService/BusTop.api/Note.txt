@@ -31,3 +31,12 @@ setup webconfiguration file
 
 
 config bus in global.ascx file
+create Endpoint msmq box (manually) or dynamically using below
+
+
+------------------------
+create class library project for hosting
+reference to nservicebus.host
+
+Note :
+even if the server Endpoint is down after running host those messages will be grabbed

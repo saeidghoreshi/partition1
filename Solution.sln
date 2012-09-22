@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTop.api", "projects\BusS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.contract", "projects\BusService\BusStop.contract\BusStop.contract.csproj", "{E150BC24-1BFB-4DF4-BF88-4C446DC67DD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.Backend", "projects\BusService\BusStop.Backend\BusStop.Backend.csproj", "{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,16 @@ Global
 		{E150BC24-1BFB-4DF4-BF88-4C446DC67DD1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E150BC24-1BFB-4DF4-BF88-4C446DC67DD1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E150BC24-1BFB-4DF4-BF88-4C446DC67DD1}.Release|x86.ActiveCfg = Release|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -212,5 +224,6 @@ Global
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D} = {AF595E5A-89C7-41FC-9FEE-6AEDA3EFFDD6}
 		{9B49C2AD-7306-4CB7-B797-9CA8B85EACD1} = {09CF00EC-5F56-40A6-8BC5-1DD90A3B7143}
 		{E150BC24-1BFB-4DF4-BF88-4C446DC67DD1} = {09CF00EC-5F56-40A6-8BC5-1DD90A3B7143}
+		{7720A7D9-C7EE-4AB9-929D-601C0D4A9AFC} = {09CF00EC-5F56-40A6-8BC5-1DD90A3B7143}
 	EndGlobalSection
 EndGlobal

@@ -6,6 +6,7 @@ using NServiceBus;
 
 namespace BusTop.Contract
 {
+    //[TimeToBeReceived("00:00:10")]//you are free to discard it in this period
     public class PlaceOrder:IMessage
     {
         public Guid productId { get;set; }

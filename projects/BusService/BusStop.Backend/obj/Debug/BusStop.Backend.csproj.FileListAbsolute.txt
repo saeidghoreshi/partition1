@@ -1,0 +1,17 @@
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.Backend.dll.config
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.Backend.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.Backend.pdb
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\log4net.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.Core.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.Host.exe
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\log4net.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.Core.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.Host.pdb
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NServiceBus.Host.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\obj\Debug\BusStop.Backend.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\obj\Debug\BusStop.Backend.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\obj\Debug\BusStop.Backend.pdb
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.contract.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.contract.pdb
