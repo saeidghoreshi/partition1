@@ -1,2 +1,0 @@
-﻿download nservicebus extract
-in powershel run runmefirst
