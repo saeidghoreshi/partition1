@@ -18,7 +18,14 @@ namespace AWS_.NETAPI
     {
         public static void Main(string[] args)
         {
-            Console.Write(GetServiceOutput());
+            //Console.Write(GetServiceOutput());
+
+            ManageUsingDOTNET ins = new ManageUsingDOTNET();
+            //ins.CreateUser();
+            ins.AddPolicy();
+
+
+            Console.WriteLine("press Key to Exit");
             Console.Read();
         }
 
@@ -132,4 +139,47 @@ namespace AWS_.NETAPI
             return sb.ToString();
         }
     }
+
+
+    public class ManageUsingDOTNET 
+    {
+        public void CreateUser() 
+        {
+            Console.WriteLine("Create User using .NET API Progressing ...");
+            Amazon.IdentityManagement.AmazonIdentityManagementServiceClient client=new Amazon.IdentityManagement.AmazonIdentityManagementServiceClient();
+            Amazon.IdentityManagement.Model.CreateUserRequest request = new Amazon.IdentityManagement.Model.CreateUserRequest();
+
+            request.UserName = "USER"+DateTime.Now.Ticks;
+            request.Path = "/IT/Arch/";//defining path is only available with SDK
+
+            Amazon.IdentityManagement.Model.CreateUserResponse response = client.CreateUser(request);
+
+            Console.WriteLine("user Created");
+
+        }
+        public void AddPolicy()
+        {
+            Console.WriteLine("Add Policy Progressing ...");
+            Amazon.IdentityManagement.AmazonIdentityManagementServiceClient client = new Amazon.IdentityManagement.AmazonIdentityManagementServiceClient();
+            Amazon.IdentityManagement.Model.PutUserPolicyRequest policyReq = new Amazon.IdentityManagement.Model.PutUserPolicyRequest();
+
+            policyReq.PolicyName="EC2Policy";
+            policyReq.UserName = "USER634840144107689115";
+            policyReq.PolicyDocument= "{\"Statement\": [{\"Sid\": \"Stmt1348443119479\",\"Action\": [\"ec2:DescribeInstances\"],\"Effect\": \"Allow\",\"Resource\": \"*\"}]}";
+
+            Amazon.IdentityManagement.Model.PutUserPolicyResponse policyResp = client.PutUserPolicy(policyReq) ;
+
+            Console.WriteLine("Policy added to Already defined User : USER634840144107689115");
+
+        }
+    }
 }
+
+/*
+ Note
+ * s3 policy GEnerator
+ * awspolicygen.s3.amazonaws.com/policygen.html
+ * also can use view > AWS
+ * also can create web app and dep
+ *
+ */
