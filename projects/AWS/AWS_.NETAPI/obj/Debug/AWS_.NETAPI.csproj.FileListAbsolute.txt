@@ -1,0 +1,8 @@
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\bin\Debug\AWS_.NETAPI.exe.config
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\bin\Debug\AWS_.NETAPI.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\bin\Debug\AWS_.NETAPI.pdb
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\bin\Debug\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\bin\Debug\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\obj\Debug\AWS_.NETAPI.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\obj\Debug\AWS_.NETAPI.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_.NETAPI\obj\Debug\AWS_.NETAPI.pdb
