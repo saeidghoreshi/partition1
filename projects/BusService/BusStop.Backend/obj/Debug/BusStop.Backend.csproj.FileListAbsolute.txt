@@ -15,3 +15,13 @@ C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\obj\Debug\
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\obj\Debug\BusStop.Backend.pdb
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.contract.dll
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.contract.pdb
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Newtonsoft.Json.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NLog.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Abstractions.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Client.Lightweight.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Newtonsoft.Json.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\NLog.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Abstractions.pdb
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Abstractions.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Client.Lightweight.pdb
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Client.Lightweight.xml
