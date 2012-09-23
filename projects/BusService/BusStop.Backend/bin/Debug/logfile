@@ -376,3 +376,95 @@ NServiceBus.Unicast.Transport.TransportMessageHandlingFailedException: Exception
 2012-09-22 17:57:47,375 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
 2012-09-22 17:57:47,592 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
 2012-09-22 17:57:47,600 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:09:54,931 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:09:55,062 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:09:55,107 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:09:55,185 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:09:55,390 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:09:55,398 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:13:09,946 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:13:10,053 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:13:10,065 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:13:10,135 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:13:10,382 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:13:10,391 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:17:07,298 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:17:07,405 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:17:07,417 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:17:07,489 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:17:07,723 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:17:07,732 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:21:10,206 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:21:10,379 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:21:10,391 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:21:10,461 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:21:10,695 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:21:10,704 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:22:55,839 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:22:56,035 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:22:56,079 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:22:56,157 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:22:56,370 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:22:56,379 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:23:41,855 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:23:42,045 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:23:42,089 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:23:42,167 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:23:42,384 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:23:42,393 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:26:42,994 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:26:43,183 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:26:43,227 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:26:43,305 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:26:43,524 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:26:43,533 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:28:28,205 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:28:28,395 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:28:28,438 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:28:28,518 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:28:28,802 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:28:28,811 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:29:55,314 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:29:55,454 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:29:55,467 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:29:55,536 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:29:55,770 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:29:55,779 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:32:11,728 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:32:11,873 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:32:11,885 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:32:11,956 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:32:12,194 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:32:12,203 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:34:36,145 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:34:36,336 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:34:36,381 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:34:36,462 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:34:36,690 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:34:36,699 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:36:20,172 [1] FATAL NServiceBus.Hosting.GenericHost [(null)] <(null)> - System.Configuration.ConfigurationErrorsException: Unrecognized attribute 'ForwardReceivedMessagesTo'. Note that attribute names are case-sensitive. (C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.Backend.dll.config line 9)
+   at System.Configuration.BaseConfigurationRecord.EvaluateOne(String[] keys, SectionInput input, Boolean isTrusted, FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult)
+   at System.Configuration.BaseConfigurationRecord.Evaluate(FactoryRecord factoryRecord, SectionRecord sectionRecord, Object parentResult, Boolean getLkg, Boolean getRuntimeObject, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSectionRecursive(String configKey, Boolean getLkg, Boolean checkPermission, Boolean getRuntimeObject, Boolean requestIsHere, Object& result, Object& resultRuntimeObject)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey, Boolean getLkg, Boolean checkPermission)
+   at System.Configuration.BaseConfigurationRecord.GetSection(String configKey)
+   at System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection(String sectionName)
+   at System.Configuration.ConfigurationManager.GetSection(String sectionName)
+   at NServiceBus.Config.ConfigurationSource.DefaultConfigurationSource.NServiceBus.Config.ConfigurationSource.IConfigurationSource.GetConfiguration[T]()
+   at NServiceBus.Configure.GetConfigSection[T]()
+   at NServiceBus.ConfigureUnicastBus.GetTimeoutManagerAddress(Configure config)
+   at NServiceBus.ConfigureTimeoutManager.SetupTimeoutManager(Configure config)
+   at NServiceBus.ConfigureTimeoutManager.RunTimeoutManager(Configure config)
+   at NServiceBus.Hosting.Windows.Roles.Handlers.ServerRoleHandler.ConfigureRole(IConfigureThisEndpoint specifier) in c:\TeamCity\buildAgent\work\nsb.master_8\src\hosting\NServiceBus.Hosting.Windows\Roles\Handlers\ServerRoleHandler.cs:line 23
+   at NServiceBus.Hosting.Roles.RoleManager.ConfigureBusForEndpoint(IConfigureThisEndpoint specifier) in c:\TeamCity\buildAgent\work\nsb.master_8\src\hosting\NServiceBus.Hosting\Roles\RoleManager.cs:line 52
+   at NServiceBus.Hosting.GenericHost.PerformConfiguration() in c:\TeamCity\buildAgent\work\nsb.master_8\src\hosting\NServiceBus.Hosting\GenericHost.cs:line 122
+   at NServiceBus.Hosting.GenericHost.Start() in c:\TeamCity\buildAgent\work\nsb.master_8\src\hosting\NServiceBus.Hosting\GenericHost.cs:line 30
+2012-09-22 18:37:47,350 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Checking available license...
+2012-09-22 18:37:47,626 [1] INFO  NServiceBus.Licensing [(null)] <(null)> - Could not find license file: C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\License\License.xml
+2012-09-22 18:37:47,671 [1] WARN  NServiceBus.Licensing [(null)] <(null)> - No valid license file was found. The host will be limited to a throughput of 1msg/s.
+2012-09-22 18:37:47,759 [1] INFO  NServiceBus.Hosting.Roles.RoleManager [(null)] <(null)> - Role NServiceBus.AsA_Server configured
+2012-09-22 18:37:47,952 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.Production, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:37:47,961 [1] INFO  NServiceBus.Host [(null)] <(null)> - Going to activate profile: NServiceBus.PerformanceCounters, NServiceBus.Host, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c
+2012-09-22 18:37:58,193 [1] WARN  NServiceBus.Utils.MsmqUtilities [(null)] <(null)> - Queue saeid-pc\private$\audit does not exist.

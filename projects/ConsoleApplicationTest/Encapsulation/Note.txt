@@ -1,4 +1,10 @@
 ﻿interface 
+>>>>>> another reason to need interface is that the framework implementations already hooked up with interfaces
+and waiting for interface implementation to be connected 
+
+or in some cases framework scans interfaces to be implemented , can us other project class library and add reference to main project
+
+
 event
 delegate 
 class hierarch
