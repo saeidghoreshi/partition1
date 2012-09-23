@@ -72,10 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusStop.Authentication\BusStop.Authentication.csproj">
+      <Project>{A75CA69C-49A6-4F48-B871-5CF541DC7F4A}</Project>
+      <Name>BusStop.Authentication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusStop.contract\BusStop.contract.csproj">
       <Project>{E150BC24-1BFB-4DF4-BF88-4C446DC67DD1}</Project>
       <Name>BusStop.contract</Name>

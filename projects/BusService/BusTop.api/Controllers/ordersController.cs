@@ -8,6 +8,7 @@ using System.Web.Http;
 using BusTop.Contract;
 
 using NServiceBus;
+using System.Web;
 
 namespace BusTop.api.Controllers
 {
@@ -22,6 +23,7 @@ namespace BusTop.api.Controllers
                 productId=Guid.NewGuid()
 
             };
+            order.SetHeader("access_token", HttpContext.Current.Request.Params["access_token"]);
             WebApiApplication.Bus.Send( order); //then use config file   add message to endpoint
             return order.orderId;
         }

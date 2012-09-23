@@ -25,3 +25,5 @@ C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Abstractions.xml
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Client.Lightweight.pdb
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\Raven.Client.Lightweight.xml
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.Authentication.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Backend\bin\Debug\BusStop.Authentication.pdb
