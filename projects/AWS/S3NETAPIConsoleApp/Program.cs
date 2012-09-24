@@ -19,8 +19,9 @@ namespace S3NETAPIConsoleApp
         public static void Main(string[] args)
         {
             S3Management s3m = new S3Management();
-            s3m.BucketList();
-            s3m.AddToBucket();
+            //s3m.BucketList();
+            //s3m.AddToBucket();
+            s3m.DeleteFromBucket();
 
             Console.WriteLine("Press enter to exit");
             Console.Read();
@@ -53,6 +54,19 @@ namespace S3NETAPIConsoleApp
 
                 PutObjectResponse response = client.PutObject(request);
                 Console.WriteLine("S3 Object Created");
+            }
+            public void DeleteFromBucket()
+            {
+                Console.WriteLine("delete From bucket initiated ...");
+                AmazonS3Client client = new AmazonS3Client();
+                DeleteObjectRequest request = new DeleteObjectRequest()
+                    .WithBucketName("psbuket")
+                    .WithKey("testfileuploadedkey.ppt")
+                    ;
+
+                
+                DeleteObjectResponse response = client.DeleteObject(request);
+                Console.WriteLine("S3 Object Deleted");
             }
         }
     }
