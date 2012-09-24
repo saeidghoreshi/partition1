@@ -17,7 +17,8 @@ namespace S3NativeConsoleProject
         {
             S3ManagementConsole s3m = new S3ManagementConsole();
             //s3m.ListBucketREST();
-            s3m.ListBucketPropertyREST();
+            //s3m.ListBucketPropertyREST();
+            s3m.UploadToBucketREST();
 
             Console.WriteLine("Enter the key to Exit");
             Console.ReadLine();
@@ -25,6 +26,50 @@ namespace S3NativeConsoleProject
     }
     public class S3ManagementConsole
     {
+        public void UploadToBucketREST()
+        {
+            Console.WriteLine("S3 UploadToBucket REST Started ...");
+
+            byte[] fileData = File.ReadAllBytes(@"..\..\TestFile.ppt");
+            string timestamp = S3ManagementConsoleProperty.CalculateTimeStamp();
+
+            //create string to login --must be alpha ordered
+            string stringToConvert = "PUT\n" +  //HTTP verb
+                
+                "\n" +                          //content[payload]-md5
+                "application/vnd.ms-powerpoint\n" +                          //content-type
+                "\n" +                          //date
+                "x-amz-date:" +timestamp+"\n"+  //optionally AMZ header
+                "/psbuket/testfileuploaded.ppt"                             //resource
+                ;
+
+            string S3Url = "https://psbuket.s3.amazonaws.com/testfileuploaded.ppt";
+
+            HttpWebRequest req = WebRequest.Create(S3Url) as HttpWebRequest;
+            req.Method = "PUT";
+            req.Host = "psbuket.s3.amazonaws.com";
+            req.Date = DateTime.Parse(timestamp);
+            req.ContentType = "application/vnd.ms-powerpoint";
+            req.ContentLength = fileData.Length;
+            req.Headers["x-amz-date"] = timestamp;
+            req.Headers["Authorization"] = "AWS AKIAJUKCDIHVVPJHEAYQ:" + S3ManagementConsoleProperty.CreateHash(stringToConvert);
+
+            Stream reqStream = req.GetRequestStream();
+            reqStream.Write(fileData,0,fileData.Length);
+            reqStream.Close();
+
+
+            XmlDocument doc = new XmlDocument();
+            using (HttpWebResponse resp = req.GetResponse() as HttpWebResponse)
+            {
+                StreamReader reader = new StreamReader(resp.GetResponseStream());
+                string responseXml = reader.ReadToEnd();
+                Console.WriteLine(responseXml);
+            }
+
+            Console.WriteLine("S3 UploadToBucket completed");
+            
+        }
         public void ListBucketREST()
         {
             Console.WriteLine("S3 ListBucket REST Started ...");
@@ -32,11 +77,11 @@ namespace S3NativeConsoleProject
 
             //create string to login --must be alpha ordered
             string stringToConvert = "GET\n" +  //HTTP verb
-                
+
                 "\n" +                          //content[payload]-md5
                 "\n" +                          //content-type
                 "\n" +                          //date
-                "x-amz-date:" +timestamp+"\n"+  //optionally AMZ header
+                "x-amz-date:" + timestamp + "\n" +  //optionally AMZ header
                 "/"                             //resource
                 ;
 

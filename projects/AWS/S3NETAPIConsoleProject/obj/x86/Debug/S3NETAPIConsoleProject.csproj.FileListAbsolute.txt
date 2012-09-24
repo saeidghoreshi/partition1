@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\AWS\S3NETAPIConsoleProject\bin\Debug\S3NETAPIConsoleProject.exe
+C:\projects\Partitions\partition1\projects\AWS\S3NETAPIConsoleProject\bin\Debug\S3NETAPIConsoleProject.pdb
+C:\projects\Partitions\partition1\projects\AWS\S3NETAPIConsoleProject\obj\x86\Debug\S3NETAPIConsoleProject.exe
+C:\projects\Partitions\partition1\projects\AWS\S3NETAPIConsoleProject\obj\x86\Debug\S3NETAPIConsoleProject.pdb
