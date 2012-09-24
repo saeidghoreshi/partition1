@@ -73,3 +73,5 @@ C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\log4net.dll
 C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\NServiceBus.Core.dll
 C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\log4net.xml
 C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\NServiceBus.Core.xml
+C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\BusService\BusTop.api\bin\nunit.framework.xml

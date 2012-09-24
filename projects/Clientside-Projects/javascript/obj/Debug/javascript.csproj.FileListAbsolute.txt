@@ -66,3 +66,5 @@ C:\projects\Partitions\partition1\projects\Clientside-Projects\javascript\bin\Sy
 C:\projects\Partitions\partition1\projects\Clientside-Projects\javascript\bin\System.Web.WebPages.Deployment.xml
 C:\projects\Partitions\partition1\projects\Clientside-Projects\javascript\bin\System.Web.WebPages.Razor.xml
 C:\projects\Partitions\partition1\projects\Clientside-Projects\javascript\obj\Debug\javascript.pdb
+C:\projects\Partitions\partition1\projects\Clientside-Projects\javascript\bin\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\Clientside-Projects\javascript\bin\nunit.framework.xml

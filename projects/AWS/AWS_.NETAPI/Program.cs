@@ -22,7 +22,11 @@ namespace AWS_.NETAPI
 
             ManageUsingDOTNET ins = new ManageUsingDOTNET();
             //ins.CreateUser();
-            ins.AddPolicy();
+            //ins.AddPolicy();
+            //ins.addTag();
+
+            ins.AttachVolume();
+            //ins.DetachVolume();
 
 
             Console.WriteLine("press Key to Exit");
@@ -143,6 +147,36 @@ namespace AWS_.NETAPI
 
     public class ManageUsingDOTNET 
     {
+        public void AttachVolume() 
+        {
+            Console.WriteLine("Attach Volume Processing ...");
+
+            AmazonEC2Client client = new AmazonEC2Client();
+
+            AttachVolumeRequest request = new AttachVolumeRequest();
+            request.Device = "xvdl";
+            request.InstanceId = "i-6549a818";
+            request.VolumeId = "vol-9a41e5e0";
+
+            AttachVolumeResponse response = client.AttachVolume(request);
+            Console.WriteLine("Attaching Done");
+        }
+        public void DetachVolume()
+        {
+            Console.WriteLine("Detach Volume Processing ...");
+
+            AmazonEC2Client client = new AmazonEC2Client();
+
+            DetachVolumeRequest request = new DetachVolumeRequest();
+            request.Device = "xvdl";
+            request.InstanceId = "i-6549a818";
+            request.VolumeId = "vol-9a41e5e0";
+
+            request.Force = true;
+
+            DetachVolumeResponse response = client.DetachVolume(request);
+            Console.WriteLine("Attaching Done");
+        }
         public void CreateUser() 
         {
             Console.WriteLine("Create User using .NET API Progressing ...");
@@ -170,6 +204,20 @@ namespace AWS_.NETAPI
             Amazon.IdentityManagement.Model.PutUserPolicyResponse policyResp = client.PutUserPolicy(policyReq) ;
 
             Console.WriteLine("Policy added to Already defined User : USER634840144107689115");
+        }
+        
+        public void addTag()
+        {
+            Console.WriteLine("Add tag started ...");
+
+            AmazonEC2Client client = new AmazonEC2Client();
+            CreateTagsRequest request = new CreateTagsRequest();
+            request.ResourceId = new List<string>() { "i-6549a818" };
+            request.Tag=new List<Amazon.EC2.Model.Tag>(){new Amazon.EC2.Model.Tag(){Key="UpdateSource",Value=".NEt App"}};
+
+            CreateTagsResponse response = client.CreateTags(request);
+            Console.WriteLine("Tag Created on EC2 instance");
+            Console.ReadLine();
 
         }
     }
@@ -181,5 +229,5 @@ namespace AWS_.NETAPI
  * awspolicygen.s3.amazonaws.com/policygen.html
  * also can use view > AWS
  * also can create web app and dep
- *
+ *can configure  EC2
  */

@@ -47,12 +47,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusStop.Authentication", "projects\BusService\BusStop.Authentication\BusStop.Authentication.csproj", "{A75CA69C-49A6-4F48-B871-5CF541DC7F4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AWS", "AWS", "{B6B264DA-2116-4F84-AA5A-11612E762A66}"
+	ProjectSection(SolutionItems) = preProject
+		Ref.txt = Ref.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAMConsoleAppnativeAPI", "projects\AWS\IAMConsoleApp\IAMConsoleAppnativeAPI.csproj", "{5640E9AE-4A24-4A66-A233-53EDBA301068}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS_.NETAPI", "projects\AWS\AWS_.NETAPI\AWS_.NETAPI.csproj", "{61006786-9342-48E2-AF9D-77BDB9B6CAF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSMvcApp", "projects\AWS\AWSMvcApp\AWSMvcApp.csproj", "{E9A889D1-0403-4077-9FF3-4BB726B9274D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3NativeConsoleProject", "projects\AWS\S3NativeConsoleProject\S3NativeConsoleProject.csproj", "{2F268868-2B86-4290-96B5-F3EAC270BF7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -264,6 +269,16 @@ Global
 		{E9A889D1-0403-4077-9FF3-4BB726B9274D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E9A889D1-0403-4077-9FF3-4BB726B9274D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E9A889D1-0403-4077-9FF3-4BB726B9274D}.Release|x86.ActiveCfg = Release|Any CPU
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Debug|x86.ActiveCfg = Debug|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Debug|x86.Build.0 = Debug|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Release|Any CPU.ActiveCfg = Release|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Release|x86.ActiveCfg = Release|x86
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -284,5 +299,6 @@ Global
 		{5640E9AE-4A24-4A66-A233-53EDBA301068} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
 		{61006786-9342-48E2-AF9D-77BDB9B6CAF8} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
 		{E9A889D1-0403-4077-9FF3-4BB726B9274D} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
+		{2F268868-2B86-4290-96B5-F3EAC270BF7A} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
 	EndGlobalSection
 EndGlobal

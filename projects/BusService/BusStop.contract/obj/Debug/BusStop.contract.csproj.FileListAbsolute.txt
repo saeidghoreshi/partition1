@@ -5,3 +5,5 @@ C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Debug
 C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\obj\Debug\BusStop.contract.dll
 C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\obj\Debug\BusStop.contract.pdb
 C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\obj\Debug\BusStop.contract.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Debug\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Debug\nunit.framework.xml

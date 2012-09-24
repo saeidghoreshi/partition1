@@ -16,3 +16,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\obj\x86\Deb
 C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\obj\x86\Debug\HostWCFService.pdb
 C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\EntityFramework.dll
 C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\HostWCFService\bin\Debug\nunit.framework.xml

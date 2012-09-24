@@ -12,3 +12,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\obj\Debug\ne
 C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\EntityFramework.dll
 C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\obj\Debug\newWCFService.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\newWCFService\bin\Debug\nunit.framework.xml

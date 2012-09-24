@@ -21,3 +21,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\obj\x86\Deb
 C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\obj\x86\Debug\WinServiceHost.pdb
 C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\bin\Debug\EntityFramework.dll
 C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\bin\Debug\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\bin\Debug\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\bin\Debug\nunit.framework.xml

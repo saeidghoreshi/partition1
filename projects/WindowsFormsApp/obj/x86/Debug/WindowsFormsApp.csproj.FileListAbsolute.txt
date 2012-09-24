@@ -20,3 +20,5 @@ C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Debug\EntityFrame
 C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Debug\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Debug\WindowsFormsApp.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Debug\WindowsFormsApp.ParallelDesignPattern.resources
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Debug\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Debug\nunit.framework.xml

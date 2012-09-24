@@ -115,5 +115,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Training.pem" />
   </ItemGroup>
 </Project>

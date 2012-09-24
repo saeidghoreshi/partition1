@@ -14,3 +14,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Debug\host
 C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Debug\hostWebsite.pdb
 C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\EntityFramework.dll
 C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\EntityFramework.xml
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\nunit.framework.xml

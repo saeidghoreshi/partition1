@@ -9,3 +9,5 @@ C:\projects\Partitions\partition1\projects\BusService\BusStop.Authentication\bin
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Authentication\obj\Debug\BusStop.Authentication.dll
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Authentication\obj\Debug\BusStop.Authentication.pdb
 C:\projects\Partitions\partition1\projects\BusService\BusStop.Authentication\obj\Debug\BusStop.Authentication.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Authentication\bin\Debug\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\BusService\BusStop.Authentication\bin\Debug\nunit.framework.xml
