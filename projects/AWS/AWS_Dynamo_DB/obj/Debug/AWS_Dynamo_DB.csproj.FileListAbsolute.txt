@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\bin\Debug\AWS_Dynamo_DB.exe.config
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\bin\Debug\AWS_Dynamo_DB.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\bin\Debug\AWS_Dynamo_DB.pdb
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\bin\Debug\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\bin\Debug\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\obj\Debug\AWS_Dynamo_DB.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_Dynamo_DB\obj\Debug\AWS_Dynamo_DB.pdb

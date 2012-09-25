@@ -18,118 +18,91 @@ namespace AWS_RDS_NETAPI
     {
         public static void Main(string[] args)
         {
-            Console.Write(GetServiceOutput());
+            AWSRDSNETAPI ins = new AWSRDSNETAPI();
+            //ins.getIndivisualObject();
+            //ins.selectObject();
+            ins.conditionalUpdate();
+
+            Console.WriteLine("press enter to quit");
             Console.Read();
         }
-
-        public static string GetServiceOutput()
+    }
+    public class AWSRDSNETAPI 
+    {
+        public void getIndivisualObject() 
         {
-            StringBuilder sb = new StringBuilder(1024);
-            using (StringWriter sr = new StringWriter(sb))
+            Console.WriteLine("Get Indivisual Object ...");
+            AmazonSimpleDBClient client = new AmazonSimpleDBClient();
+            GetAttributesRequest request = new GetAttributesRequest();
+            request.DomainName = "SaeidDomain";
+            request.ItemName = "Course01";
+            request.AttributeName = new List<string> { "CourseName" };
+            GetAttributesResponse response = client.GetAttributes(request);
+
+            Console.WriteLine("get Indivisual Object completed");
+            Console.WriteLine(response.ToXML());
+        }
+        public void selectObject()
+        {
+            Console.WriteLine("Select Objects ...");
+            AmazonSimpleDBClient client = new AmazonSimpleDBClient();
+            SelectRequest request = new SelectRequest();
+            request.ConsistentRead = true;
+            request.SelectExpression= "select * from SaeidDomain where Coursename2='Math2'";
+
+            SelectResponse response = client.Select(request);
+
+            Console.WriteLine("Select Objects completed");
+            Console.WriteLine(response.ToXML());
+        }
+        public void conditionalUpdate()
+        {
+            Console.WriteLine("Conditional Update ...");
+            AmazonSimpleDBClient client = new AmazonSimpleDBClient();
+            GetAttributesRequest request = new GetAttributesRequest();
+            request.DomainName="SaeidDomain";
+            request.ItemName = "Course01";
+            request.AttributeName = new List<string>() { "coursename"};
+            GetAttributesResponse response = client.GetAttributes(request);
+
+            Console.WriteLine("simpleDb item returned");
+            Console.WriteLine(response.ToXML());
+            Console.WriteLine("Press enter to update the item ...");
+            Console.ReadLine();
+
+            PutAttributesRequest request2 = new PutAttributesRequest();
+            request2.DomainName = "SaeidDomain";
+            request2.ItemName = "Course01";
+
+
+            List<ReplaceableAttribute> items = new List<ReplaceableAttribute>();
+            ReplaceableAttribute attr1 = new ReplaceableAttribute();
+            attr1.Name = "Index";
+            attr1.Value = "Super cool";
+            items.Add(attr1);
+            request2.Attribute = items;
+
+
+            UpdateCondition condition = new UpdateCondition();
+            condition.Name = "Coursename1";
+            condition.Value = "Math1";
+            request2.Expected = condition;
+
+            try 
             {
-                sr.WriteLine("===========================================");
-                sr.WriteLine("Welcome to the AWS .NET SDK!");
-                sr.WriteLine("===========================================");
-
-                // Print the number of Amazon EC2 instances.
-                AmazonEC2 ec2 = AWSClientFactory.CreateAmazonEC2Client(RegionEndpoint.USWest2);
-                DescribeInstancesRequest ec2Request = new DescribeInstancesRequest();
-
-                try
-                {
-                    DescribeInstancesResponse ec2Response = ec2.DescribeInstances(ec2Request);
-                    int numInstances = 0;
-                    numInstances = ec2Response.DescribeInstancesResult.Reservation.Count;
-                    sr.WriteLine("You have " + numInstances + " Amazon EC2 instance(s) running in the US-East (Northern Virginia) region.");
-
-                }
-                catch (AmazonEC2Exception ex)
-                {
-                    if (ex.ErrorCode != null && ex.ErrorCode.Equals("AuthFailure"))
-                    {
-                        sr.WriteLine("The account you are using is not signed up for Amazon EC2.");
-                        sr.WriteLine("You can sign up for Amazon EC2 at http://aws.amazon.com/ec2");
-                    }
-                    else
-                    {
-                        sr.WriteLine("Caught Exception: " + ex.Message);
-                        sr.WriteLine("Response Status Code: " + ex.StatusCode);
-                        sr.WriteLine("Error Code: " + ex.ErrorCode);
-                        sr.WriteLine("Error Type: " + ex.ErrorType);
-                        sr.WriteLine("Request ID: " + ex.RequestId);
-                        sr.WriteLine("XML: " + ex.XML);
-                    }
-                }
-                sr.WriteLine();
-
-                // Print the number of Amazon SimpleDB domains.
-                AmazonSimpleDB sdb = AWSClientFactory.CreateAmazonSimpleDBClient(RegionEndpoint.USWest2);
-                ListDomainsRequest sdbRequest = new ListDomainsRequest();
-
-                try
-                {
-                    ListDomainsResponse sdbResponse = sdb.ListDomains(sdbRequest);
-
-                    if (sdbResponse.IsSetListDomainsResult())
-                    {
-                        int numDomains = 0;
-                        numDomains = sdbResponse.ListDomainsResult.DomainName.Count;
-                        sr.WriteLine("You have " + numDomains + " Amazon SimpleDB domain(s) in the US-East (Northern Virginia) region.");
-                    }
-                }
-                catch (AmazonSimpleDBException ex)
-                {
-                    if (ex.ErrorCode != null && ex.ErrorCode.Equals("AuthFailure"))
-                    {
-                        sr.WriteLine("The account you are using is not signed up for Amazon SimpleDB.");
-                        sr.WriteLine("You can sign up for Amazon SimpleDB at http://aws.amazon.com/simpledb");
-                    }
-                    else
-                    {
-                        sr.WriteLine("Caught Exception: " + ex.Message);
-                        sr.WriteLine("Response Status Code: " + ex.StatusCode);
-                        sr.WriteLine("Error Code: " + ex.ErrorCode);
-                        sr.WriteLine("Error Type: " + ex.ErrorType);
-                        sr.WriteLine("Request ID: " + ex.RequestId);
-                        sr.WriteLine("XML: " + ex.XML);
-                    }
-                }
-                sr.WriteLine();
-
-                // Print the number of Amazon S3 Buckets.
-                AmazonS3 s3Client = AWSClientFactory.CreateAmazonS3Client(RegionEndpoint.USWest2);
-
-                try
-                {
-                    ListBucketsResponse response = s3Client.ListBuckets();
-                    int numBuckets = 0;
-                    if (response.Buckets != null &&
-                        response.Buckets.Count > 0)
-                    {
-                        numBuckets = response.Buckets.Count;
-                    }
-                    sr.WriteLine("You have " + numBuckets + " Amazon S3 bucket(s) in the US Standard region.");
-                }
-                catch (AmazonS3Exception ex)
-                {
-                    if (ex.ErrorCode != null && (ex.ErrorCode.Equals("InvalidAccessKeyId") ||
-                        ex.ErrorCode.Equals("InvalidSecurity")))
-                    {
-                        sr.WriteLine("Please check the provided AWS Credentials.");
-                        sr.WriteLine("If you haven't signed up for Amazon S3, please visit http://aws.amazon.com/s3");
-                    }
-                    else
-                    {
-                        sr.WriteLine("Caught Exception: " + ex.Message);
-                        sr.WriteLine("Response Status Code: " + ex.StatusCode);
-                        sr.WriteLine("Error Code: " + ex.ErrorCode);
-                        sr.WriteLine("Request ID: " + ex.RequestId);
-                        sr.WriteLine("XML: " + ex.XML);
-                    }
-                }
-                sr.WriteLine("Press any key to continue...");
+                PutAttributesResponse response2 = client.PutAttributes(request2);
+                Console.WriteLine("SimpleDB Item Updated");
+                Console.WriteLine(response2.ToXML());
             }
-            return sb.ToString();
+            catch(AmazonSimpleDBException ex)
+            {
+                Console.WriteLine("Exception : "+ex.Message);
+                Console.ReadLine();
+            }
+
+
+
+            Console.WriteLine("Conditional Update completed");
         }
     }
 }
