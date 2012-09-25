@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3NativeConsoleProject", "p
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3NETAPIConsoleApp", "projects\AWS\S3NETAPIConsoleApp\S3NETAPIConsoleApp.csproj", "{AE28E545-9AB2-4D8E-87F6-112BD62E9B8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS_RDS_Native", "projects\AWS\AWS_RDS_Native\AWS_RDS_Native.csproj", "{F35F6128-6890-42DA-B498-16E11E9E9CF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -291,6 +293,16 @@ Global
 		{AE28E545-9AB2-4D8E-87F6-112BD62E9B8B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AE28E545-9AB2-4D8E-87F6-112BD62E9B8B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AE28E545-9AB2-4D8E-87F6-112BD62E9B8B}.Release|x86.ActiveCfg = Release|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -313,5 +325,6 @@ Global
 		{E9A889D1-0403-4077-9FF3-4BB726B9274D} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
 		{2F268868-2B86-4290-96B5-F3EAC270BF7A} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
 		{AE28E545-9AB2-4D8E-87F6-112BD62E9B8B} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
+		{F35F6128-6890-42DA-B498-16E11E9E9CF0} = {B6B264DA-2116-4F84-AA5A-11612E762A66}
 	EndGlobalSection
 EndGlobal

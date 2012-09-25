@@ -1,0 +1,2 @@
+﻿add mysql connector
+add IP to RDS security group console
