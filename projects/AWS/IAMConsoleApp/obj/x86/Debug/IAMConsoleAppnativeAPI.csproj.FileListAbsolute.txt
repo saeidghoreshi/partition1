@@ -1,7 +1,0 @@
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\bin\Debug\IAMConsoleApp.exe.config
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\obj\x86\Debug\IAMConsoleApp.exe
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\obj\x86\Debug\IAMConsoleApp.pdb
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\bin\Debug\IAMConsoleApp.exe
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\bin\Debug\IAMConsoleApp.pdb
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\bin\Debug\nunit.framework.dll
-C:\projects\Partitions\partition1\projects\AWS\IAMConsoleApp\bin\Debug\nunit.framework.xml

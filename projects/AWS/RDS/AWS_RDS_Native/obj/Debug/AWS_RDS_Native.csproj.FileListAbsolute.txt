@@ -1,0 +1,16 @@
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\bin\Debug\AWS_RDS_Native.exe.config
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\bin\Debug\AWS_RDS_Native.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\bin\Debug\AWS_RDS_Native.pdb
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\bin\Debug\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\bin\Debug\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\obj\Debug\AWS_RDS_Native.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\obj\Debug\AWS_RDS_Native.pdb
+C:\projects\Partitions\partition1\projects\AWS\AWS_RDS_Native\obj\Debug\AWS_RDS_Native.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Debug\AWS_RDS_Native.exe.config
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Debug\AWS_RDS_Native.exe
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Debug\AWS_RDS_Native.pdb
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Debug\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Debug\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\obj\Debug\AWS_RDS_Native.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\obj\Debug\AWS_RDS_Native.exe
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\obj\Debug\AWS_RDS_Native.pdb
