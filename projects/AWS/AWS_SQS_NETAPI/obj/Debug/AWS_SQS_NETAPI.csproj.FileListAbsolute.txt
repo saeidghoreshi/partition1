@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\bin\Debug\AWS_SQS_NETAPI.exe.config
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\bin\Debug\AWS_SQS_NETAPI.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\bin\Debug\AWS_SQS_NETAPI.pdb
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\bin\Debug\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\bin\Debug\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\obj\Debug\AWS_SQS_NETAPI.exe
+C:\projects\Partitions\partition1\projects\AWS\AWS_SQS_NETAPI\obj\Debug\AWS_SQS_NETAPI.pdb
