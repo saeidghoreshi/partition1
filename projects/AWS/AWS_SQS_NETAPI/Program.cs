@@ -23,7 +23,8 @@ namespace AWS_SQS_NETAPI
         public static void Main(string[] args)
         {
             //new AWSSQSManagement().ListQueueUrl();
-            new AWSSQSManagement().SendMessage();
+            //new AWSSQSManagement().SendMessage();
+            new AWSSQSManagement().ReadAndDelete();
 
 
             Console.WriteLine("Press enter to quit");
@@ -59,21 +60,48 @@ namespace AWS_SQS_NETAPI
 
             Console.WriteLine("Sent");
         }
-        public void ReadDelete()
+        public void ReadAndDelete()
         {
             Console.WriteLine("Read and delete...");
+
+            Console.WriteLine("Reading...");
 
             AmazonSQSClient client = new AmazonSQSClient();
             ReceiveMessageRequest request = new ReceiveMessageRequest();
             request.AttributeName = new List<string>() {"ALL" };
             request.MaxNumberOfMessages= 10;
-            request.QueueUrl = "https://queue.amazonaws.com/158683541032/saeidsqs2";
+            request.QueueUrl = "https://queue.amazonaws.com/158683541032/saeidsqs";
 
-            bool<Message> queueMessage=new List<Message>();
+            List<Message> queueMessage=new List<Message>();
+            while(true)
+            {
+                ReceiveMessageResponse response = client.ReceiveMessage(request);
+                if (response.ReceiveMessageResult.Message.Count != 0)
+                    queueMessage = response.ReceiveMessageResult.Message;
+                else
+                    break;
+            }
+            Console.WriteLine("Queue Message Received");
+            Console.WriteLine("Press Enter to delete them all");
+            Console.ReadLine();
 
-            ReceiveMessageResponse response = client.ReceiveMessage(request);
+            //Delete Message
+            DeleteMessageBatchRequest batchReq = new DeleteMessageBatchRequest();
+            batchReq.QueueUrl = "https://queue.amazonaws.com/158683541032/saeidsqs";
+            batchReq.Entries = new List<DeleteMessageBatchRequestEntry>();
+            foreach(Message m in queueMessage)
+            {
+                DeleteMessageBatchRequestEntry r = new DeleteMessageBatchRequestEntry();
+                r.ReceiptHandle = m.ReceiptHandle;
+                r.Id = m.MessageId;
+                batchReq.Entries.Add(r);
+            }
 
-            Console.WriteLine("Sent");
+
+            DeleteMessageBatchResponse batchResponse = client.DeleteMessageBatch(batchReq);
+            Console.WriteLine("All Deleted");
+            Console.ReadLine();
+
         }
     }
 }
