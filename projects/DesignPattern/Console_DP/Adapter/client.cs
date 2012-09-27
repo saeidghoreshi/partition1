@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Console_DP.AdapterDP.Interfaces;
+using Console_DP.AdapterDP.Implementations;
 
 namespace Console_DP.AdapterDP
 {
@@ -9,8 +11,11 @@ namespace Console_DP.AdapterDP
    {
         public void Run()
         {
-            var _component=new component<Iadapter>();
+            Iformatter chosenFormatter= new FormatterImplementationsV1();
+            var _component = new component<Iadapter>(chosenFormatter);
+            
             Iadapter ada = _component.passAdapter();
+            
             ada.connect();
             ada.disconnect();
         }

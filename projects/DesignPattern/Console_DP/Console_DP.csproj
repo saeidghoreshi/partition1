@@ -43,12 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adapter\Adapter.cs" />
-    <Compile Include="Adapter\AdapterImplementations.cs" />
+    <Compile Include="Adapter\Implementations\FormatterImplementations.cs" />
+    <Compile Include="Adapter\Interfaces\Adapter.cs" />
+    <Compile Include="Adapter\Implementations\AdapterImplementations.cs" />
     <Compile Include="Adapter\client.cs" />
     <Compile Include="Adapter\component.cs" />
+    <Compile Include="Adapter\Interfaces\Formatter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Note.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
