@@ -1,0 +1,1 @@
+﻿repository pattern is commonly use with adapter pattern
