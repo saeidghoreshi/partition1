@@ -1,0 +1,38 @@
+﻿define Goals to uinderstand how much progress been done 
+like:
+in wizards [purchase...]
+
+_gaq.push(
+[
+	'_trackEvent'
+	,category
+	,action
+	,label
+	,value
+	,isNonIntraction
+]);
+
+
+_gac.push(
+[
+	'_addTrans'
+	,orderID
+	,storename
+	,total
+	,tax
+	,shipping
+]
+);
+
+_gac.push(
+[
+	'_addItem'
+	,orderID
+	,SKU
+	,Name
+	,Category
+	,UnitPrivce
+	,Quantity
+]
+);
+_gac.push(['_trackTrans']);

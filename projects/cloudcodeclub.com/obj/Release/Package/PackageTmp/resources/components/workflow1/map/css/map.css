@@ -1,0 +1,15 @@
+﻿.google-visualization-orgchart-node
+  {
+        border:0px solid transparent !important;    
+        background-color:transparent !important;
+        background:url('http://cloudcodeclub.com/resources/modules/workflow/images/logo3.png') no-repeat !important;
+        -moz-border-radius: 0px !important;
+        -webkit-border-radius: 0px !important;
+        
+        -webkit-box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important;
+        -moz-box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px !important;
+  }
+  .google-visualization-orgchart-noderow-medium
+  {
+    height:45px !important;    
+  }

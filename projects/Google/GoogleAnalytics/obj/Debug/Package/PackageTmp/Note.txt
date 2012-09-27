@@ -1,0 +1,3 @@
+﻿define Goals to uinderstand how much progress been done 
+like:
+in wizards [purchase...]

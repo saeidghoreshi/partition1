@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\Google\GoogleAnalytics\bin\GoogleAnalytics.dll
+C:\projects\Partitions\partition1\projects\Google\GoogleAnalytics\bin\GoogleAnalytics.pdb
+C:\projects\Partitions\partition1\projects\Google\GoogleAnalytics\obj\Debug\GoogleAnalytics.dll
+C:\projects\Partitions\partition1\projects\Google\GoogleAnalytics\obj\Debug\GoogleAnalytics.pdb

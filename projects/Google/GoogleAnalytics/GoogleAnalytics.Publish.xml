@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="ftp://cloudcodeclub.com/GoogleAnalytics" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FTP" replaceMatchingFiles="True" userName="springra" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAlhJbCf7xJUaXV2T+7YZWPAAAAAACAAAAAAAQZgAAAAEAACAAAABiJghMv0lQ0MH5Krr39JjyVqHom49g1CY3kxIYHfYHYAAAAAAOgAAAAAIAACAAAAATDnIRM4oNQuJjEznDoYIupuBNOXxTdB21dkHcTBlDqSAAAAAE9ZNQO1dSc4VUEzxBCeJG84G7vJbZbOKHWGIYRFcgH0AAAABjIy79flH9KMK+gS4HYhNMxcBB7iqLlf5pLFEUkqkvWZ13e5ugc5henn5dN9RkWfVyO5MduJlqJMT0ZEOII5X5" SelectedForPublish="True">
+    <file relUrl="Note.txt" publishTime="09/26/2012 18:24:35" />
+    <file relUrl="bin/GoogleAnalytics.dll" publishTime="09/26/2012 19:02:24" />
+    <file relUrl="bin/GoogleAnalytics.pdb" publishTime="09/26/2012 19:02:24" />
+    <file relUrl="Web.config" publishTime="09/26/2012 18:58:52" />
+    <file relUrl="Scripts/jquery-1.8.2.min.js" publishTime="09/26/2012 18:35:50" />
+    <file relUrl="Styles/Site.css" publishTime="09/26/2012 18:16:02" />
+    <file relUrl="Default.aspx" publishTime="09/26/2012 19:02:18" />
+    <file relUrl="Site.Master" publishTime="09/26/2012 19:02:08" />
+    <file relUrl="Global.asax" publishTime="09/26/2012 18:16:02" />
+  </publishProfile>
+</publishData>
