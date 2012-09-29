@@ -1,0 +1,9 @@
+Debugging
+possible to "enable" debugging and  "save" then doenload and run in the real device then possible to debug the app on device over network "debug.phonegap.com/client/...."
+
+config
+in build.phonegap.com
+we can config.xml
+
+signing
+apple is more restrict and need to be ios registered developer to get cerificate
