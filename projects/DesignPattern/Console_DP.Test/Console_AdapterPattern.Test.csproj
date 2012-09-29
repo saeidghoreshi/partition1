@@ -49,9 +49,9 @@
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Console_DP\Console_DP.csproj">
+    <ProjectReference Include="..\Console_DP\Console_AdapterPattern.csproj">
       <Project>{3A3AD64E-36A1-487B-BBEE-EF6B958D1239}</Project>
-      <Name>Console_DP</Name>
+      <Name>Console_AdapterPattern</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

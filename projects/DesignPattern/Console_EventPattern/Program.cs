@@ -18,17 +18,22 @@ namespace Console_EventPattern
     }
     public  class management
     {
+        Func<order, double> strategy_1 ;
+        Func<order, double> strategy_2 ;
+        Func<order, double> strategy_3;
+
         public void Run()
         {
-            Func<order, double> del_1 = delegate(order o) { return 2.0d; };
-            Func<order,double> del_2=(order)=>{return 4.2d;};
-            Func<order, double> del_3 = test;
+            strategy_1 = delegate(order o) { return 2.0d; };
+            strategy_2 = (order) => { return 4.2d; };
+            strategy_3 = test;
         }
-        public double test(order o) 
+        public double test(order o){return 1.2d;}
+
+        public double CalculateBasedOnStrategy(order o,Func<order,double> strategy) 
         {
-            return 1.2d;
+            return strategy(o);
         }
-        
 
     }
 }

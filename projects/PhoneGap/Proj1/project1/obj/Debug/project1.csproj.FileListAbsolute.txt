@@ -1,0 +1,14 @@
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\ApplicationIcon.png
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\Background.png
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\project1.dll
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\project1.pdb
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\AppManifest.xaml
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\project1.xap
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\Bin\Debug\WP7CordovaClassLib.dll
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\project1.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\App.g.i.cs
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\MainPage.g.i.cs
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\project1.g.resources
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\project1.dll
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\project1.pdb
+C:\projects\Partitions\partition1\projects\PhoneGap\Proj1\project1\obj\Debug\XapCacheFile.xml

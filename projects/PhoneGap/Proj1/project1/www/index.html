@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License. 
+-->
+<html>
+  <head>
+  
+
+
+
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" href="jquery.mobile-1.1.1.css" />
+    <script type="text/javascript" src="jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.1.1.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
+    <!--link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8"/-->
+  
+
+      <script type="text/javascript">
+
+        document.addEventListener("deviceready",onDeviceReady,false);
+
+        // once the device ready event fires, you can safely do your thing! -jm
+        function onDeviceReady()
+        {
+
+            $('#devicename').html(device.name);
+            $('#devicephonegap').html(device.cordova);
+            $('#deviceplatform').html(device.platform);
+            $('#deviceuuid').html(device.uuid);
+            $('#deviceversion').html(device.version);
+
+            //Accelerometer
+            var wid = navigator.accelerometer.watchAcceleration(onSuccessAcc, onErrorAcc, { frequency: 1000 });
+            //Camera
+            //navigator.camera.getPicture(onSuccessCam, onErrorCam, { quality: 50, DestinationType: Camera.DestinationType.FILE_URI });
+            //GeoLocation
+            navigator.geolocation.watchPosition(onSuccessGeo, onErrorGeo, { frequency: 1000 });
+            //Notification
+            $('#notifybtn').click(function () {
+
+                navigator.notification.alert("You clicked me",onSuccessNotify,"Click","OK");
+            });
+
+        }
+        function onSuccessAcc(a) {
+            $('#ax').html(a.x);
+            $('#ay').html(a.y);
+            $('#az').html(a.z);
+            $('#atime').html(a.timestamp);
+        }
+        function onErrorAcc() { }
+        function onSuccessCam(fileuri) {
+            $('#imageuri').html(fileuri);
+        }
+        function onErrorCam(fileuri) { }
+        function onSuccessGeo(p) {
+            $('#lat').html(p.coords.latitude);
+            $('#lon').html(p.coords.longitude); 
+        }
+        function onErrorGeo() { }
+        function onSuccessNotify() {
+            $('#notifybtn').html("clicked");
+        }
+
+
+        $(function () {
+            $('#savebtn').click(function () {
+
+                window.localStorage.setItem("name", $('#name').val());
+
+            });
+            $('#newpage').live("pageshow", function () {
+
+                var personname = window.localStorage.getItem("name");
+                $('#name').val(personname);
+            });
+        });
+
+      </script>
+
+    <title>Cordova WP7</title>
+  </head>
+  <body>
+    <div id="home" data-role="page">
+        <div data-role="header">
+            <h1>Home Page</h1>
+        </div>
+        <div data-role="content">
+            <!--Notify me-->
+            <a id="notifybtn" href="#">Click to notify</a>
+
+
+            <a href="#newpage" data-role="button">Go to New Page</a>
+            
+            <br />
+            <!--Camera-->
+            <div id="imageuri"></div>
+            <br />
+            <!--GeoLocation-->
+            <div id="lat"></div>
+            <div id="lon"></div>
+
+            
+            <!--ListView-->
+            <ul data-role="listview" data-theme="b" data-filter="true">
+                <li><a href="">One</a></li>
+                <li><a href="">Two</a></li>
+                <li><a href="">Three</a></li>
+                <li><a href="">Four</a></li>
+            </ul>
+
+            
+        </div>
+        
+        <div data-role="footer" data-position="fixed">
+        <h4>Footer</h4>
+        </div>
+    </div>
+
+    <div id="newpage" data-role="page">
+        <div data-role="header">
+            <a href="#home" >Cancel</a>
+            <h1>New Page</h1>
+            <a href="#dialogpage" data-rel="dialog" data-icon="plus">Spec</a>
+        </div>
+        <div data-role="content">
+
+            
+            <label for="name">What is your name ? </label>
+            <input type="text" name="name" id="name" value=""/>
+            <a id="savebtn" href="" data-role="button">Save</a>
+
+        </div>
+        <div data-role="footer" data-position="fixed">
+        <h4>Footer</h4>
+        </div>+
+    </div>
+
+
+    <div id="dialogpage" data-role="page">
+        <div data-role="header">
+            <h2>Header</h2>
+        </div>
+        <div data-role="content">
+           
+           <div id="devicename"></div>
+            <div id="devicephonegap"></div>
+            <div id="deviceplatform"></div>
+            <div id="deviceuuid"></div>
+            <div id="deviceversion"></div>
+
+            <div id="ax"></div>
+            <div id="ay"></div>
+            <div id="az"></div>
+            <div id="atime"></div>
+
+        </div>
+    </div>
+
+
+  </body>
+</html>
