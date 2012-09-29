@@ -9,7 +9,8 @@ namespace Console_DP.AdapterDP.Implementations
 {
     public class adapterImplementationV1 : Iadapter
     {
-        public Iformatter selectedFormatter;
+        public Iformatter selectedFormatter { get; set; }
+
         public adapterImplementationV1(Iformatter formatter) 
         {
             this.selectedFormatter = formatter;
@@ -26,7 +27,7 @@ namespace Console_DP.AdapterDP.Implementations
     }
     public class adapterImplementationV2 : Iadapter
     {
-        public Iformatter selectedFormatter;
+        public Iformatter selectedFormatter { get; set; }
         public adapterImplementationV2(Iformatter formatter) 
         {
             this.selectedFormatter = formatter;

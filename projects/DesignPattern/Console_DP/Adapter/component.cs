@@ -12,7 +12,7 @@ namespace Console_DP.AdapterDP
     public class component<T> : IEnumerable<T> where T : Iadapter 
     {
         List<T> adapters = new List<T>() { };
-        Iformatter chosenFormatter;
+        Iformatter chosenFormatter ;
 
         public component(Iformatter formater) 
         {
