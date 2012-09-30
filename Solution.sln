@@ -107,10 +107,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console_EventPattern", "projects\DesignPattern\Console_EventPattern\Console_EventPattern.csproj", "{68B38A7D-E278-4361-8B76-2E2748F4813C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PHONEGAP", "PHONEGAP", "{7F7D7C24-2B56-424D-840C-DEDF138900F9}"
+	ProjectSection(SolutionItems) = preProject
+		Note.txt = Note.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "proj1", "proj1", "{8508C6F8-EF73-463B-A3BC-FCCCD9D69B23}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project1", "projects\PhoneGap\Proj1\project1\project1.csproj", "{ADCC02A8-466B-46D5-AAAD-7EB28942053E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "javascript", "javascript", "{BD467198-99BF-462E-9186-32EA087270EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qunitjs", "projects\javascript\qunitjs\qunitjs.csproj", "{3F2FE238-7777-4AEA-B35C-F2B374234248}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -459,6 +466,16 @@ Global
 		{ADCC02A8-466B-46D5-AAAD-7EB28942053E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{ADCC02A8-466B-46D5-AAAD-7EB28942053E}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
 		{ADCC02A8-466B-46D5-AAAD-7EB28942053E}.Release|x86.ActiveCfg = Release|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3F2FE238-7777-4AEA-B35C-F2B374234248}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -501,5 +518,6 @@ Global
 		{68B38A7D-E278-4361-8B76-2E2748F4813C} = {DAC3C8C4-764C-44B9-B3E2-42D603EBB2D4}
 		{8508C6F8-EF73-463B-A3BC-FCCCD9D69B23} = {7F7D7C24-2B56-424D-840C-DEDF138900F9}
 		{ADCC02A8-466B-46D5-AAAD-7EB28942053E} = {8508C6F8-EF73-463B-A3BC-FCCCD9D69B23}
+		{3F2FE238-7777-4AEA-B35C-F2B374234248} = {BD467198-99BF-462E-9186-32EA087270EA}
 	EndGlobalSection
 EndGlobal

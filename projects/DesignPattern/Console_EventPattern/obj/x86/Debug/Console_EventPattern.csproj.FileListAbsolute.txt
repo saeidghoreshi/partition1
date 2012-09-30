@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_EventPattern\bin\Debug\Console_EventPattern.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_EventPattern\bin\Debug\Console_EventPattern.pdb
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_EventPattern\obj\x86\Debug\Console_EventPattern.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_EventPattern\obj\x86\Debug\Console_EventPattern.pdb

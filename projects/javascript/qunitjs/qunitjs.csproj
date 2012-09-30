@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d7017c7a-fe47-4c2e-ac09-9c2e8ca73d5c</ProjectGuid>
+    <ProjectGuid>{3F2FE238-7777-4AEA-B35C-F2B374234248}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -51,17 +51,12 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
-    <Content Include="Account\ChangePassword.aspx" />
-    <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Register.aspx" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\qunit-1.10.0.css" />
+    <Content Include="Scripts\qunit-1.10.0.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -71,41 +66,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePassword.aspx.designer.cs">
-      <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
-      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,7 +89,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -140,7 +99,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>36595</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
