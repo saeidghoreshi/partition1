@@ -7,3 +7,8 @@ we can config.xml
 
 signing
 apple is more restrict and need to be ios registered developer to get cerificate
+
+
+add
+<Capability Name="ID_CAP_SENSORS"/>
+to WMAppManifest
