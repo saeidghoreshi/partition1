@@ -2,4 +2,3 @@ C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\bin\Debug\Co
 C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\bin\Debug\Console_DP.pdb
 C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\obj\x86\Debug\Console_DP.exe
 C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\obj\x86\Debug\Console_DP.pdb
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\obj\x86\Debug\Console_AdapterPattern.csprojResolveAssemblyReference.cache
