@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_VisitorPattern\bin\Debug\Console_VisitorPattern.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_VisitorPattern\bin\Debug\Console_VisitorPattern.pdb
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_VisitorPattern\obj\x86\Debug\Console_VisitorPattern.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_VisitorPattern\obj\x86\Debug\Console_VisitorPattern.pdb
