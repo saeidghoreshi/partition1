@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Dynamic;
 
 namespace ConsoleApplication1
 {
@@ -46,8 +47,11 @@ namespace ConsoleApplication1
             //test DeadLike Solution
             new HoldWaitDeadLockSolution.Solution().runSolution();
             //new MutexSolution.Solution().runSolution();
-            
 
+
+            dynamic foo = new ExpandoObject();
+            foo.name = "saeid";
+            foo.lastname = "Ghoreshi";
             
             Console.WriteLine("Enter Key to Exit");
             Console.ReadLine();

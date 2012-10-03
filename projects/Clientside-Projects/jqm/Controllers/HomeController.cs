@@ -12,8 +12,8 @@ namespace javascript.Controllers
         public ActionResult Index()
         {
             
-            Session["hits"] = ((int)Session["hits"])+1;
-            ViewBag.hitcount = Session["hits"];
+            //Session["hits"] = ((int)Session["hits"])+1;
+            //ViewBag.hitcount = Session["hits"];
             return View();
         }
 
@@ -32,6 +32,10 @@ namespace javascript.Controllers
         public ActionResult listview()
         {
             return View("listview");
+        }
+        public ActionResult formel()
+        {
+            return View("formEL");
         }
 
 

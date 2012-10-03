@@ -20,7 +20,7 @@
     <script>
         $(document).bind('mobileinit', function () {
 
-            $.mobile.ajaxEnabled = false; //false makes document.ready and all [off page] scripts in navigation to be loaded again
+            $.mobile.ajaxEnabled = true; //false makes document.ready and all [off page] scripts in navigation to be loaded again
             $.mobile.defaultPageTransition = "flip";
         });
     </script>
@@ -44,7 +44,27 @@
             $(e.target).remove();
         });
 
-        
+        $(document).bind("swipeleft", function (e, u) { alert("SwipeLeft"); })
+        $(document).bind("swiperight",
+        function (e, u) {
+            $.mobile.changePage('@Url.Action("Index","Home")');
+        }
+        );
+        $(window).bind("orientationchange", function (event) {
+            alert("Orientation change");
+        });
+        $(document).bind("pageload pagechange pageshow pagehide pagecreate pageinit", 
+        function (event) {
+            //alert(event.type);
+        });
+        //Note : in case of using back in mobile browser
+        //we want to use the cached one not a new re messedup  ajax fetch
+        //then use "one" instead of "bind"
+        /*
+        $(document).one('pageinit',function () { //happens in every navigation , no matter ajax is enabled or not
+            //Ajax call for loading next page
+        });
+        */
     </script>
      
 </head>
@@ -55,7 +75,7 @@
     <!--Header-->
     <div data-role="header" >
     <h1>Header</h1>
-    <a href="~/home" data-icon="home" >home</a>
+    <a href="~/home" data-iconpos="notext" data-inline="true" data-icon="home" data-role="button" data-theme="a" >home</a>
     <div data-role="navbar">
         <ul>
             <li><a href="~/home/link_1">Link 1</a></li>
@@ -63,6 +83,7 @@
             <li><a href="@Url.Action("collapsible", "home", new { id=1})" >Collapsible</a></li>
             <li><a href="@Url.Action("grid", "home", new { id=1})" >Grid</a></li>
             <li><a href="@Url.Action("listview", "home", new { id=1})" >LV</a></li>
+            <li><a href="@Url.Action("formel", "home", new { id=1})" >FEL</a></li>
             
         </ul>
     </div>
