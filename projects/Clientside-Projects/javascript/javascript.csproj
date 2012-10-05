@@ -307,6 +307,7 @@
     <Content Include="Scripts\libraries\linq\linq.js" />
     <Content Include="Scripts\libraries\linq\linq.min.js" />
     <Content Include="Service1.svc" />
+    <Content Include="TextFile1.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
