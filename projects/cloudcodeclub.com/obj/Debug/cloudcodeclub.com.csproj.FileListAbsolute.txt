@@ -63,7 +63,6 @@ C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\System.Web.WebP
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\System.Web.WebPages.dll
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\System.Web.WebPages.Razor.dll
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\Yahoo.Yui.Compressor.dll
-C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\Noesis.Javascript.dll
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\EventStore.pdb
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\EventStore.xml
@@ -71,7 +70,6 @@ C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\EventStore.Seri
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\Microsoft.Web.Infrastructure.xml
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\Newtonsoft.Json.xml
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\Npgsql.xml
-C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\nunit.framework.xml
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\System.Web.Helpers.xml
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\System.Web.Razor.xml
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\System.Web.WebPages.xml

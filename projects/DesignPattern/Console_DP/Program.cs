@@ -18,4 +18,11 @@ namespace Console_DP
             Console.ReadLine();
         }
     }
+    public class Sample
+    {
+        public void run()
+        {
+        
+        }
+    }
 }

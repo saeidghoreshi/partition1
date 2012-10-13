@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\bin\Release\AWS_RDS_NETAPI.exe.config
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\bin\Release\AWS_RDS_NETAPI.exe
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\bin\Release\AWS_RDS_NETAPI.pdb
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\bin\Release\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\bin\Release\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\obj\Release\AWS_RDS_NETAPI.exe
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_NETAPI\obj\Release\AWS_RDS_NETAPI.pdb

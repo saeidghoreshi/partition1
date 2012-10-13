@@ -22,3 +22,6 @@ C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\Windo
 C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.csproj.GenerateResource.Cache
 C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.exe
 C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.pdb
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\bin\Release\nunit.framework.xml
+C:\projects\Partitions\partition1\projects\WindowsFormsApp\obj\x86\Release\WindowsFormsApp.csprojResolveAssemblyReference.cache

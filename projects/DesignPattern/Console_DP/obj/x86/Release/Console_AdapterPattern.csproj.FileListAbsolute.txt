@@ -1,0 +1,5 @@
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\bin\Release\Console_DP.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\bin\Release\Console_DP.pdb
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\obj\x86\Release\Console_DP.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\obj\x86\Release\Console_DP.pdb
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\obj\x86\Release\Console_AdapterPattern.csprojResolveAssemblyReference.cache

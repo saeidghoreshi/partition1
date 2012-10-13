@@ -21,3 +21,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\obj\x86\Rel
 C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\obj\x86\Release\WinServiceHost.csproj.GenerateResource.Cache
 C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\obj\x86\Release\WinServiceHost.exe
 C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\obj\x86\Release\WinServiceHost.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\bin\Release\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\WinServiceHost\bin\Release\nunit.framework.xml

@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_Singleton\bin\Release\Console_Singleton.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_Singleton\bin\Release\Console_Singleton.pdb
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_Singleton\obj\x86\Release\Console_Singleton.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_Singleton\obj\x86\Release\Console_Singleton.pdb

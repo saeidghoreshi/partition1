@@ -11,3 +11,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Relea
 C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Release\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\obj\x86\Release\ClientWCFService.exe
 C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\obj\x86\Release\ClientWCFService.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Release\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\ClientWCFService\bin\Release\nunit.framework.xml

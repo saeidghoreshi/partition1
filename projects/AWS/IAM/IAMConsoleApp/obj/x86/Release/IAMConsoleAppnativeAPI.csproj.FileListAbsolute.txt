@@ -1,0 +1,5 @@
+C:\projects\Partitions\partition1\projects\AWS\IAM\IAMConsoleApp\bin\Release\IAMConsoleApp.exe.config
+C:\projects\Partitions\partition1\projects\AWS\IAM\IAMConsoleApp\bin\Release\IAMConsoleApp.exe
+C:\projects\Partitions\partition1\projects\AWS\IAM\IAMConsoleApp\bin\Release\IAMConsoleApp.pdb
+C:\projects\Partitions\partition1\projects\AWS\IAM\IAMConsoleApp\obj\x86\Release\IAMConsoleApp.exe
+C:\projects\Partitions\partition1\projects\AWS\IAM\IAMConsoleApp\obj\x86\Release\IAMConsoleApp.pdb

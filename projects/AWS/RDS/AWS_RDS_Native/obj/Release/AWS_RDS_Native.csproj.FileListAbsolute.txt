@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Release\AWS_RDS_Native.exe.config
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Release\AWS_RDS_Native.exe
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Release\AWS_RDS_Native.pdb
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Release\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\bin\Release\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\obj\Release\AWS_RDS_Native.exe
+C:\projects\Partitions\partition1\projects\AWS\RDS\AWS_RDS_Native\obj\Release\AWS_RDS_Native.pdb

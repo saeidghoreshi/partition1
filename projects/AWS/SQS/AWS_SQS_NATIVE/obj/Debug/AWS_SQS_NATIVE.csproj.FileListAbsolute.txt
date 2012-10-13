@@ -12,3 +12,4 @@ C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Debug\AWSS
 C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Debug\AWSSDK.xml
 C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\obj\Debug\AWS_SQS_NATIVE.exe
 C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\obj\Debug\AWS_SQS_NATIVE.pdb
+C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\obj\Debug\AWS_SQS_NATIVE.csprojResolveAssemblyReference.cache

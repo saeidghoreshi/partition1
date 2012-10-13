@@ -45,14 +45,15 @@ namespace ConsoleApplication1
             //new _Monitor.consumer().run();
 
             //test DeadLike Solution
-            new HoldWaitDeadLockSolution.Solution().runSolution();
+            //new HoldWaitDeadLockSolution.Solution().runSolution();
             //new MutexSolution.Solution().runSolution();
 
-
+            /*
             dynamic foo = new ExpandoObject();
             foo.name = "saeid";
             foo.lastname = "Ghoreshi";
-            
+            */
+
             Console.WriteLine("Enter Key to Exit");
             Console.ReadLine();
         }

@@ -1,0 +1,5 @@
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NativeConsoleProject\bin\Release\S3NativeConsoleProject.exe.config
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NativeConsoleProject\bin\Release\S3NativeConsoleProject.exe
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NativeConsoleProject\bin\Release\S3NativeConsoleProject.pdb
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NativeConsoleProject\obj\x86\Release\S3NativeConsoleProject.exe
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NativeConsoleProject\obj\x86\Release\S3NativeConsoleProject.pdb

@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\javascript\qunitjs\bin\qunitjs.dll
+C:\projects\Partitions\partition1\projects\javascript\qunitjs\bin\qunitjs.pdb
+C:\projects\Partitions\partition1\projects\javascript\qunitjs\obj\Release\qunitjs.dll
+C:\projects\Partitions\partition1\projects\javascript\qunitjs\obj\Release\qunitjs.pdb

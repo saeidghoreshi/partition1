@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\bin\Release\Console_ObserverPattern.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\bin\Release\Console_ObserverPattern.pdb
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\obj\x86\Release\Console_ObserverPattern.exe
+C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\obj\x86\Release\Console_ObserverPattern.pdb

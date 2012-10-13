@@ -43,6 +43,7 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Npgsql">
       <HintPath>..\packages\Npgsql.2.0.11\lib\Net40\Npgsql.dll</HintPath>
     </Reference>
@@ -75,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="asyncWS.cs" />
     <Compile Include="DLR\reflection.cs" />
     <Compile Include="Monitor\Account.cs" />
     <Compile Include="Monitor\HoldWaitDeadLockSolution.cs" />
@@ -139,6 +141,7 @@
     <Content Include="Generics\TextFile1.txt" />
     <Content Include="Interop\TextFile1.txt" />
     <Content Include="linqXML\users.xml" />
+    <Content Include="Note.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

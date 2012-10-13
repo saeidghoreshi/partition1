@@ -14,3 +14,5 @@ C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\EntityFram
 C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Release\hostWebsite.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Release\hostWebsite.dll
 C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\obj\Release\hostWebsite.pdb
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\WCF Bundle\hostWebsite\bin\nunit.framework.xml

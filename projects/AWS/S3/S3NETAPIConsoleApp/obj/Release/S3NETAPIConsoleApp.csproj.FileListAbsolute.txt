@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Release\S3NETAPIConsoleApp.exe.config
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Release\S3NETAPIConsoleApp.exe
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Release\S3NETAPIConsoleApp.pdb
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Release\AWSSDK.dll
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Release\AWSSDK.xml
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\obj\Release\S3NETAPIConsoleApp.exe
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\obj\Release\S3NETAPIConsoleApp.pdb

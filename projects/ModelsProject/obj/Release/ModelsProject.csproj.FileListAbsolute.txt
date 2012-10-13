@@ -13,3 +13,5 @@ C:\projects\Partitions\partition1\projects\ModelsProject\bin\Release\EntityFrame
 C:\projects\Partitions\partition1\projects\ModelsProject\obj\Release\ModelsProject.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\ModelsProject\obj\Release\ModelsProject.dll
 C:\projects\Partitions\partition1\projects\ModelsProject\obj\Release\ModelsProject.pdb
+C:\projects\Partitions\partition1\projects\ModelsProject\bin\Release\nunit.framework.dll
+C:\projects\Partitions\partition1\projects\ModelsProject\bin\Release\nunit.framework.xml
