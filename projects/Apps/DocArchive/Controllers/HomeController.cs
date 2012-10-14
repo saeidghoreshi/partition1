@@ -10,23 +10,26 @@ namespace DocArchive.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+            
             return View();
         }
 
-        public ActionResult About()
+
+        public JsonResult getdata() 
         {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
+            List<string>header=new List<string>(){"Javascript","C#"};
+            List<List<string>> content= new List<List<string>>() 
+            { 
+                new List<string>{"blah blah 1","blah blah 2","blah blah 3"}, 
+                new List<string>{"blah blah 4","blah blah 5"}
+            };
+            var data=new
+            {
+                content=content,
+                header=header
+            };
+            return Json(data,JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
     }
 }

@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DEFC830E-7552-4712-9E1C-6950E3D58482}</ProjectGuid>
+    <ProjectGuid>{FA8D26D5-836C-49C6-86F4-6E21F23C60C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DocArchive.Tests</RootNamespace>
@@ -102,6 +102,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DocArchive\DocArchive.csproj">
+      <Project>{DD322F66-0E88-4B71-B31C-C023C70FF601}</Project>
+      <Name>DocArchive</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

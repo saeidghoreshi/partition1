@@ -1,0 +1,52 @@
+﻿.panel1
+{
+    font:11px tahoma;
+}
+.panel1Header
+{   
+    height:20px;
+    border:1px solid Gray;
+    padding-top:2px;
+    padding-bottom:2px;
+    margin-bottom: 1px;
+    background: url('images/bg.png');
+    cursor: pointer;
+}
+.panel1Content
+{   
+    background: #e2e2e2;
+    border:1px solid Gray;
+    padding:15px;
+    margin-bottom: 1px;
+}
+.panel1ContentItem
+{   
+    color: teal;
+    padding-right: 10px;
+    cursor: pointer;
+	text-decoration: underline;
+}
+.panel1ContentItem:hover
+{   
+    color: red;
+    text-decoration: none;
+}
+
+.pinOpen
+{
+    background: url('images/pin_black.png') no-repeat  ;
+    background-position: left;
+    width:20px;
+    height:20px;
+    
+    float:left;
+}
+.pinClose
+{
+    background: url('images/pin_pencil.png') no-repeat  ;
+    background-position: left;
+    width:20px;
+    height:20px;
+    
+    float:left;
+}
