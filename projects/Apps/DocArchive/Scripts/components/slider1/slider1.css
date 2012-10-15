@@ -50,3 +50,32 @@
     
     float:left;
 }
+
+.bottomPanel  
+{ 
+    position:fixed; 
+    bottom:0px; 
+    left:25%;
+    width:50%;
+    height:60px;
+    border:1px solid gray;
+    background: black;
+    opacity:0.9;
+    filter:alpha(opacity=90); 
+    cursor:pointer;
+}
+.newButton
+{
+    margin-top: 20px;
+    margin-left:30px;
+    font:20px Tahoma;
+    color:White;
+}
+.newIcon
+{
+    background-image: url('images/icon-drawer-add.png');
+    float: left;
+    width:25px;
+    height:25px;
+    background-position: left;
+}

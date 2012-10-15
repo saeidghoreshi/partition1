@@ -40,6 +40,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -128,17 +130,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DA.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\base\ext-4.0.2-ext-all.js" />
     <Content Include="Scripts\base\jquery-1.8.2.js" />
     <Content Include="Scripts\base\jquery-ui-1.9.css" />
     <Content Include="Scripts\base\jquery-ui-1.9.js" />
     <Content Include="Scripts\base\require.js" />
     <Content Include="Scripts\components\App.js" />
     <Content Include="Scripts\components\slider1\images\bg.png" />
+    <Content Include="Scripts\components\slider1\images\icon-drawer-add.png" />
+    <Content Include="Scripts\components\slider1\images\pin_pencil.png" />
     <Content Include="Scripts\components\slider1\slider1.css" />
     <Content Include="Scripts\components\slider1\slider1.js" />
     <Content Include="Scripts\components\slider1\images\pin_black.png" />
@@ -155,11 +165,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="packages.config" />
+    <EntityDeploy Include="Models\DA.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DA.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Scripts\modules\" />
   </ItemGroup>
   <PropertyGroup>
@@ -178,7 +191,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>22434</DevelopmentServerPort>
+          <DevelopmentServerPort>36491</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

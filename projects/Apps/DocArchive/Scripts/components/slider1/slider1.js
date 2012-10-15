@@ -15,17 +15,17 @@
             }
         ).done(function (data) {
 
-
-            for (var i = 0; i < data.content.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 var newTabHeader = '<div class="panel1Header" id="' + me.idGenerator('tabHeader') + '">'
                 + '<div class="pinOpen"></div>'
-                + '<div>' + data.header[i] + '</div>'
+                + '<div style="float:left">' + data[i].type_name + '</div>'
+
                 + '</div>';
 
                 var newTabContent = '<div class="panel1Content" style="display:none" id="' + me.idGenerator('tabContent') + '">';
 
-                for (var j = 0; j < data.content[i].length; j++)
-                    newTabContent += '<div class="panel1ContentItem" style="float:left">' + data.content[i][j] + '</div>';
+                for (var j = 0; j < data[i].children.length; j++)
+                    newTabContent += '<div class="panel1ContentItem" style="float:left">' + data[i].children[j].type_name + '</div>';
 
                 $('#' + me.moduleName).append(newTabHeader).append(newTabContent);
             }
@@ -43,8 +43,29 @@
                     $el.next('div').slideUp(100);
                 else
                     $el.next('div').slideDown(100);
+
+                //test Opebn dialog
+                //openDialog('', {width:100,height:100});
             }
             });
+
+            //
+            $('#bottomPanel').click(function (e) {
+
+                if ($(this).height() <= 60)
+                    $("#bottomPanel").animate({
+                        height: "200px",
+                        opacity: 0.95
+                    }, 1500);
+                else
+                    $("#bottomPanel").animate({
+                        height: "60px",
+                        opacity: 0.95
+                    }, 1500);
+            });
+
+
+
         });
 
     }

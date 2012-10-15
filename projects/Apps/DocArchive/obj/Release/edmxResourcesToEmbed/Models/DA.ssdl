@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
+    <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
+  </EntityContainer>
+  <EntityType Name="topic">
+    <Key>
+      <PropertyRef Name="topic_id" />
+    </Key>
+    <Property Name="topic_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="topic_parent_id" Type="int" />
+    <Property Name="topic_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="topic_details" Type="text" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="datetime" Type="varchar" MaxLength="100" />
+  </EntityType>
+</Schema>
