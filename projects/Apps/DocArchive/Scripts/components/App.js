@@ -1,17 +1,54 @@
-﻿require(["Scripts/components/slider1/slider1"],
-    function () {
+﻿//base calss
+function baseClass() {
+    this.idGenerator = function (prefix) { return prefix + "-" + (Math.random() * 1000000000000).toFixed(0).toString(); }
+    this.elReady = function (tagId, callback) {
+        $('#' + tagId).ready(function () {
+            YAHOO.util.Event.onAvailable(tagId, callback);
+        });
+    };
+}
 
-        var x = new slider1("docarch");
-        x.build();
+
+function AppClass() {
+
+    //setup page
+    this.setupPage = function () {
+        this.elReady('theme1-table-main', function () {
+
+            $('#theme1-table-main').height(window.innerHeight-2);
+
+            //Event Resize Window
+            $(window).resize(function () {
+                $('#theme1-table-main').css('height', window.innerHeight );
+            });
+
+        });
+
     }
+    //Initiate
+    this.initiate = function () {
+        require(["Scripts/components/slider1/slider1"],
+        function () {
 
- );
-
-    function baseClass() {
-        this.idGenerator = function (prefix) { return prefix + "-" + (Math.random() * 1000000000000).toFixed(0).toString(); }
+            var x = new slider1("docarch");
+            x.build();
+        }
+     );    
     }
-    var x = new baseClass();
- function openDialog(title, size) {
+}
+
+//App Class Inheriting from base Class
+AppClass.prototype = new baseClass();
+
+var App = new AppClass();
+App.setupPage();
+App.initiate();
+
+
+
+
+
+function openDialog(title, size) {
 
                 var PH = x.idGenerator('ph');
                 var win = Ext.create('widget.window',
@@ -47,6 +84,6 @@
                 return { win: win, phId: PH };
 
             }
-            function closeDialog(dialog) {
+function closeDialog(dialog) {
                 dialog.win.destroy();
             }

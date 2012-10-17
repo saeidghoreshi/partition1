@@ -138,6 +138,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content.css" />
     <Content Include="icon.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\base\ext-4.0.2-ext-all.js" />
@@ -147,6 +148,7 @@
     <Content Include="Scripts\base\require.js" />
     <Content Include="Scripts\components\App.js" />
     <Content Include="Scripts\components\slider1\images\bg.png" />
+    <Content Include="Scripts\components\slider1\images\fxshell.drawer-controlbar-bkg.jpg" />
     <Content Include="Scripts\components\slider1\images\icon-drawer-add.png" />
     <Content Include="Scripts\components\slider1\images\pin_pencil.png" />
     <Content Include="Scripts\components\slider1\slider1.css" />
