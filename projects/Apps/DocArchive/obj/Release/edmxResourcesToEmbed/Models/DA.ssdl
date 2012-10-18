@@ -2,8 +2,25 @@
 <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
     <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
+    <EntitySet Name="topicFoldering" EntityType="DB_40114_codeclubModel.Store.topicFoldering" store:Type="Tables" Schema="saeid" />
+    <AssociationSet Name="FK_topic_topicFoldering" Association="DB_40114_codeclubModel.Store.FK_topic_topicFoldering">
+      <End Role="topicFoldering" EntitySet="topicFoldering" />
+      <End Role="topic" EntitySet="topic" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="topic">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="500" />
+    <Property Name="description" Type="text" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="datetime" Type="nvarchar" MaxLength="100" />
+    <Property Name="foldering_id" Type="int" />
+  </EntityType>
+  <EntityType Name="topicFoldering">
     <Key>
       <PropertyRef Name="topic_id" />
     </Key>
@@ -14,4 +31,16 @@
     <Property Name="is_active" Type="bit" />
     <Property Name="datetime" Type="varchar" MaxLength="100" />
   </EntityType>
+  <Association Name="FK_topic_topicFoldering">
+    <End Role="topicFoldering" Type="DB_40114_codeclubModel.Store.topicFoldering" Multiplicity="0..1" />
+    <End Role="topic" Type="DB_40114_codeclubModel.Store.topic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="topicFoldering">
+        <PropertyRef Name="topic_id" />
+      </Principal>
+      <Dependent Role="topic">
+        <PropertyRef Name="foldering_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -1,19 +1,19 @@
 ﻿.theme1-table
 {
-    border:1px solid red;
+    border:1px solid transparent;
     
 }
 .theme1-table-1st-td
 {
     width:200px;
     height:100%;
-    background: yellow;
+    
 }
 .theme1-table-1st-td > div
 {
     width:200px;
     height:100%;
-    background: yellow;
+    
 }
 .theme1-table-others-td
 {
@@ -26,4 +26,11 @@
     width:100%;
     height:100%;
     background:#f2f2f2;
+}
+
+
+/*New Topic */
+#newTopic-table-main
+{
+    margin:10px;
 }

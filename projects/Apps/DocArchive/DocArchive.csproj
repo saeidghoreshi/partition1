@@ -146,14 +146,25 @@
     <Content Include="Scripts\base\jquery-ui-1.9.css" />
     <Content Include="Scripts\base\jquery-ui-1.9.js" />
     <Content Include="Scripts\base\require.js" />
+    <Content Include="Scripts\base\yui\skin.css" />
     <Content Include="Scripts\components\App.js" />
     <Content Include="Scripts\components\slider1\images\bg.png" />
+    <Content Include="Scripts\components\slider1\images\drawer-icons.1.png" />
     <Content Include="Scripts\components\slider1\images\fxshell.drawer-controlbar-bkg.jpg" />
     <Content Include="Scripts\components\slider1\images\icon-drawer-add.png" />
     <Content Include="Scripts\components\slider1\images\pin_pencil.png" />
     <Content Include="Scripts\components\slider1\slider1.css" />
     <Content Include="Scripts\components\slider1\slider1.js" />
     <Content Include="Scripts\components\slider1\images\pin_black.png" />
+    <Content Include="Scripts\base\yui\connection-min.js" />
+    <Content Include="Scripts\base\yui\dom-min.js" />
+    <Content Include="Scripts\base\yui\element-min.js" />
+    <Content Include="Scripts\base\yui\event-min.js" />
+    <Content Include="Scripts\base\yui\json-min.js" />
+    <Content Include="Scripts\base\yui\simpleeditor-min.js" />
+    <Content Include="Scripts\base\yui\yahoo-dom-event.js" />
+    <Content Include="Scripts\base\yui\yuiloader-min.js" />
+    <Content Include="Scripts\modules\Ext.treePanel.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -172,10 +183,10 @@
       <LastGenOutput>DA.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="readme.txt" />
+    <Content Include="Views\Home\topics\newTopic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Scripts\modules\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,8 +7,25 @@
     <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
           <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
+          <EntitySet Name="topicFoldering" EntityType="DB_40114_codeclubModel.Store.topicFoldering" store:Type="Tables" Schema="saeid" />
+          <AssociationSet Name="FK_topic_topicFoldering" Association="DB_40114_codeclubModel.Store.FK_topic_topicFoldering">
+            <End Role="topicFoldering" EntitySet="topicFoldering" />
+            <End Role="topic" EntitySet="topic" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="topic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="title" Type="nvarchar" MaxLength="500" />
+          <Property Name="description" Type="text" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="datetime" Type="nvarchar" MaxLength="100" />
+          <Property Name="foldering_id" Type="int" />
+        </EntityType>
+        <EntityType Name="topicFoldering">
           <Key>
             <PropertyRef Name="topic_id" />
           </Key>
@@ -19,14 +36,31 @@
           <Property Name="is_active" Type="bit" />
           <Property Name="datetime" Type="varchar" MaxLength="100" />
         </EntityType>
+        <Association Name="FK_topic_topicFoldering">
+          <End Role="topicFoldering" Type="DB_40114_codeclubModel.Store.topicFoldering" Multiplicity="0..1" />
+          <End Role="topic" Type="DB_40114_codeclubModel.Store.topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="topicFoldering">
+              <PropertyRef Name="topic_id" />
+            </Principal>
+            <Dependent Role="topic">
+              <PropertyRef Name="foldering_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_40114_codeclubModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="DOCContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="topicFoldering" EntityType="DB_40114_codeclubModel.topicFoldering" />
           <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.topic" />
+          <AssociationSet Name="FK_topic_topicFoldering" Association="DB_40114_codeclubModel.FK_topic_topicFoldering">
+            <End Role="topicFoldering" EntitySet="topicFoldering" />
+            <End Role="topic" EntitySet="topic" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="topic">
+        <EntityType Name="topicFoldering">
           <Key>
             <PropertyRef Name="topic_id" />
           </Key>
@@ -36,22 +70,61 @@
           <Property Type="String" Name="topic_details" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="is_active" />
           <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="topic" Relationship="DB_40114_codeclubModel.FK_topic_topicFoldering" FromRole="topicFoldering" ToRole="topic" />
         </EntityType>
+        <EntityType Name="topic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="parent_id" />
+          <Property Type="String" Name="title" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="is_active" />
+          <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="foldering_id" />
+          <NavigationProperty Name="topicFoldering" Relationship="DB_40114_codeclubModel.FK_topic_topicFoldering" FromRole="topic" ToRole="topicFoldering" />
+        </EntityType>
+        <Association Name="FK_topic_topicFoldering">
+          <End Type="DB_40114_codeclubModel.topicFoldering" Role="topicFoldering" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.topic" Role="topic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="topicFoldering">
+              <PropertyRef Name="topic_id" />
+            </Principal>
+            <Dependent Role="topic">
+              <PropertyRef Name="foldering_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="DOCContext">
-          <EntitySetMapping Name="topic">
-            <EntityTypeMapping TypeName="DB_40114_codeclubModel.topic">
-              <MappingFragment StoreEntitySet="topic">
+        <EntitySetMapping Name="topicFoldering">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.topicFoldering">
+              <MappingFragment StoreEntitySet="topicFoldering">
                 <ScalarProperty Name="datetime" ColumnName="datetime" />
                 <ScalarProperty Name="is_active" ColumnName="is_active" />
                 <ScalarProperty Name="topic_details" ColumnName="topic_details" />
                 <ScalarProperty Name="topic_title" ColumnName="topic_title" />
                 <ScalarProperty Name="topic_parent_id" ColumnName="topic_parent_id" />
                 <ScalarProperty Name="topic_id" ColumnName="topic_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="topic">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.topic">
+              <MappingFragment StoreEntitySet="topic">
+                <ScalarProperty Name="foldering_id" ColumnName="foldering_id" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -76,8 +149,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="DA">
-        <EntityTypeShape EntityType="DB_40114_codeclubModel.topic" Width="1.5" PointX="0.75" PointY="0.75" Height="2.1725878906249996" />
-      </Diagram>
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.topicFoldering" Width="1.5" PointX="3.375" PointY="0.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.topic" Width="1.5" PointX="5.625" PointY="5.25" Height="2.5571907552083317" />
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_topic_topicFoldering" >
+          <ConnectorPoint PointX="4.125" PointY="3.114889322916667" />
+          <ConnectorPoint PointX="4.125" PointY="6.5285953776041659" />
+          <ConnectorPoint PointX="5.625" PointY="6.5285953776041659" />
+        </AssociationConnector>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

@@ -51,12 +51,12 @@
     float:left;
 }
 
-.bottomPanel  
+.bottomPanel-new  
 { 
     position:fixed; 
     bottom:0px; 
     left:25%;
-    width:50%;
+    width:25%;
     height:60px;
     border:1px solid gray;
     background: black;
@@ -78,4 +78,28 @@
     width:25px;
     height:25px;
     background-position: left;
+}
+
+.bottomPanel-edit  
+{ 
+    position:fixed; 
+    bottom:0px; 
+    left:50%;
+    width:25%;
+    height:60px;
+    border:1px solid gray;
+    background: black;
+    opacity:0.9;
+    filter:alpha(opacity=90); 
+    cursor:pointer;
+}
+.editIcon
+{
+    background-image: url('images/drawer-icons.1.png');
+    
+    background-position:  0 -1250;
+    float: left;
+    width:25px;
+    height:25px;
+    
 }

@@ -17,27 +17,8 @@ namespace DocArchive.Controllers
         }
 
 
-        public JsonResult getdata() 
-        {
-
-            return json_getTopics();
-            
-
-            /*
-            List<string>header=new List<string>(){"Javascript","C#"};
-            List<List<string>> content= new List<List<string>>() 
-            { 
-                new List<string>{"blah blah 1","blah blah 2","blah blah 3"}, 
-                new List<string>{"blah blah 4","blah blah 5"}
-            };
-             * var data = new
-                {
-                    content = content,
-                    header = header
-                };
-            */
-        }
-        public class _topic
+        
+        public class _topicFoldering
         {
             public int type_id;
             public string type_title;
@@ -47,6 +28,17 @@ namespace DocArchive.Controllers
             public bool? is_active;
             public string datetime;
         }
+        public class _topic
+        {
+            public int id;
+            public int? parent_id;
+            public string title;
+            public string description;
+            public bool? is_active;
+            public string datetime;
+            public int? foldering_id;
+        }
+
         public class _treeNode
         {
             public int id;
@@ -58,10 +50,10 @@ namespace DocArchive.Controllers
 
             public List<_treeNode> children;
         }
-        public JsonResult json_getTopics()
+        public JsonResult json_getTopicsFoldering()
         {   
             var context = new DOCContext();
-            List<_topic> dt = context.topic.Select(x => new _topic()
+            List<_topicFoldering> dt = context.topicFoldering.Select(x => new _topicFoldering()
                         {
                             type_id=x.topic_id,
                             type_title=x.topic_title, 
@@ -73,7 +65,7 @@ namespace DocArchive.Controllers
                         })
                         .Where(x=>x.is_active==true)
                         .OrderBy(x=>x.datetime)
-                        .ToList<_topic>();
+                        .ToList<_topicFoldering>();
 
 
             List<_treeNode> tree = new List<_treeNode> { };
@@ -97,13 +89,13 @@ namespace DocArchive.Controllers
             }
 
             for (int j = 0; j < tree.Count; j++)
-                Rec(tree[j], dt);
+                json_getTopicsFoldering_Rec(tree[j], dt);
 
             return Json(tree, JsonRequestBehavior.AllowGet);
 
         }
 
-        public void Rec(_treeNode node, List<_topic> dt)
+        public void json_getTopicsFoldering_Rec(_treeNode node, List<_topicFoldering> dt)
         {
             for (int j = 0; j < dt.Count; j++)
             {
@@ -124,7 +116,110 @@ namespace DocArchive.Controllers
                 }
             }
             for (int j = 0; j < node.children.Count; j++)
-                Rec(node.children[j], dt);
+                json_getTopicsFoldering_Rec(node.children[j], dt);
+        }
+
+
+        //Fetch 2 levels Foldering
+        public JsonResult json_get2LevelsTopics()
+        {
+            int folderId=Convert.ToInt32(Request.QueryString["folderId"]);
+
+            var context = new DOCContext();
+            List<_topic> dt = context.topic.Select(x => new _topic()
+            {
+                id = x.id,
+                parent_id = x.parent_id,
+                title = x.title,
+                description= x.description,
+                is_active = x.is_active,
+                datetime = x.datetime,
+                foldering_id=x.foldering_id
+            })
+                        .Where(x => x.is_active == true )
+                        .OrderBy(x => x.datetime)
+                        .ToList<_topic>();
+
+
+            List<_treeNode> tree = new List<_treeNode> { };
+            for (int i = 0; i < dt.Count; i++)
+            {
+                if (dt[i].parent_id.ToString() == "")
+                {
+                    var node = new _treeNode()
+                    {
+                        id = dt[i].id,
+                        iconCls = "treei",
+                        type_name = dt[i].title,
+                        parent_type_id = dt[i].parent_id,
+                        type_title = dt[i].title,
+                        type_detail = dt[i].description,
+
+                        children = new List<_treeNode>()
+                    };
+                    tree.Add(node);
+                }
+            }
+
+            for (int j = 0; j < tree.Count; j++)
+                json_get2LevelsTopics_Rec(tree[j], dt);
+
+            return Json(tree, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public void json_get2LevelsTopics_Rec(_treeNode node, List<_topic> dt)
+        {
+            for (int j = 0; j < dt.Count; j++)
+            {
+                if (Convert.ToInt32(dt[j].parent_id) == node.id)
+                {
+                    var _node = new _treeNode()
+                    {
+                        id = dt[j].id,
+                        iconCls = "treei",
+                        type_name = dt[j].title,
+                        parent_type_id = dt[j].parent_id,
+                        type_title = dt[j].title,
+                        type_detail = dt[j].description,
+
+                        children = new List<_treeNode>()
+                    };
+                    node.children.Add(_node);
+                }
+            }
+            for (int j = 0; j < node.children.Count; j++)
+                json_get2LevelsTopics_Rec(node.children[j], dt);
+        }
+        public PartialViewResult get_NewTopicPage() 
+        {
+            return PartialView("topics/newTopic");
+        }
+
+        public JsonResult saveNewTopic()
+        {
+            var pars=Request.Params;
+            int folder_id = Convert.ToInt32(pars["folder_id"]);
+            string title = Convert.ToString(pars["title"]);
+            string description= Convert.ToString(pars["description"]);
+
+            var context = new DOCContext();
+            context.topic.AddObject
+                (
+                new topic() 
+                {
+                    foldering_id=folder_id,
+                    is_active=true,
+                    title=title,
+                    description=description
+                }
+                );
+
+
+            context.SaveChanges();
+
+
+            return Json(new {result=1 },JsonRequestBehavior.AllowGet);
         }
         
     }

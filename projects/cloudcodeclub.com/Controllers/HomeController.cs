@@ -114,7 +114,7 @@ namespace MvcApplication1.Controllers
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
             DataTable dt = db.fetch(
                 "select topic_id as type_id,topic_title as type_title, topic_details as type_detail, topic_parent_id as parent_type_id,topic_title as type_name,is_active " +
-                " from saeid.topic  where is_active=1 order by datetime , type_id").Tables[0];
+                " from saeid.topicFoldering  where is_active=1 order by datetime , type_id").Tables[0];
 
             List<object> ids = new List<object>();
 
@@ -128,7 +128,7 @@ namespace MvcApplication1.Controllers
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
             DataTable dt = db.fetch( 
                 "select topic_id as type_id,topic_title as type_title, topic_details as type_detail, topic_parent_id as parent_type_id,topic_title as type_name,is_active " +
-                " from saeid.topic  where is_active=1 order by datetime , type_id").Tables[0];
+                " from saeid.topicFoldering  where is_active=1 order by datetime , type_id").Tables[0];
             
             List<treeViewNode> tree = new List<treeViewNode> { };
             for (int i = 0; i < dt.Rows.Count; i++)
