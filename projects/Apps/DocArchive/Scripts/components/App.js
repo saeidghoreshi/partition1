@@ -25,7 +25,7 @@ baseClass.openDialog=function(title, size) {
                     frame: false,
                     border: 0,
                     draggable: true,
-                    resizable: false,
+                    resizable: true,
                     closable: true,
                     closeAction: 'destroy',
                     modal: true,

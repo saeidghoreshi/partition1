@@ -195,14 +195,21 @@ namespace DocArchive.Controllers
         {
             return PartialView("topics/newTopic");
         }
+        public PartialViewResult get_NewSubTopicPage()
+        {
+            return PartialView("topics/newSubTopic");
+        }
+        public PartialViewResult get_delTopicPage()
+        {
+            return PartialView("topics/delTopic");
+        }
 
         public JsonResult saveNewTopic()
         {
             var pars=Request.Params;
             int folder_id = Convert.ToInt32(pars["folder_id"]);
             string title = Convert.ToString(pars["title"]);
-            string description= Convert.ToString(pars["description"]);
-
+            
             var context = new DOCContext();
             context.topic.AddObject
                 (
@@ -210,8 +217,7 @@ namespace DocArchive.Controllers
                 {
                     foldering_id=folder_id,
                     is_active=true,
-                    title=title,
-                    description=description
+                    title=title
                 }
                 );
 
@@ -220,6 +226,53 @@ namespace DocArchive.Controllers
 
 
             return Json(new {result=1 },JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult saveNewSubTopic()
+        {
+            var pars = Request.Params;
+            int folder_id = Convert.ToInt32(pars["folder_id"]);
+            int parent_id = Convert.ToInt32(pars["parent_id"]);
+            string title = Convert.ToString(pars["title"]);
+            string description = Convert.ToString(pars["description"]);
+
+            var context = new DOCContext();
+            context.topic.AddObject
+                (
+                new topic()
+                {
+                    foldering_id = folder_id,
+                    is_active = true,
+                    title = title,
+                    description = description,
+                    parent_id=parent_id
+                }
+                );
+
+            context.SaveChanges();
+
+            return Json(new { result = 1 }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult delTopic()
+        {
+            var pars = Request.Params;
+            int topic_id= Convert.ToInt32(pars["topic_id"]);
+            
+            var context = new DOCContext();
+            var topic=context.topic.Where(x=>x.id==topic_id).Single();
+            topic.is_active = false;
+
+            context.SaveChanges();
+
+            return Json(new { result = 1 }, JsonRequestBehavior.AllowGet);
+        }
+        public ContentResult getTopicDescription(){
+            var pars = Request.Params;
+            int topic_id = Convert.ToInt32(pars["topic_id"]);
+
+            var context = new DOCContext();
+            var topic = context.topic.Where(x => x.id == topic_id).Single();
+
+            return Content(topic.description);
         }
         
     }
