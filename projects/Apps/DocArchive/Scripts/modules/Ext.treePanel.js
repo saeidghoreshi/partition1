@@ -6,11 +6,7 @@ Ext.define('Ext.treePanelClass',
         this.callParent(arguments);
     },
 
-    getId: function () {
-        var me = this;
-        return me.config.id;
-    },
-
+    
     constructor: function (config) {
 
         var me = this;
@@ -148,6 +144,14 @@ Ext.define('Ext.treePanelClass',
 
         me.config = config;
         this.callParent(arguments);
+    },
+    getSelection: function () {
+        return this.getSelectionModel().getSelection();
+        //index >> [index].data.id
+    },
+    getSelectedNodeById: function (id) {
+        
+        return this.getStore().getNodeById(id);
     },
     afterRender: function () {
         var me = this;

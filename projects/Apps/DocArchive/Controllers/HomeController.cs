@@ -195,9 +195,9 @@ namespace DocArchive.Controllers
         {
             return PartialView("topics/newTopic");
         }
-        public PartialViewResult get_NewSubTopicPage()
+        public PartialViewResult get_SubTopicPage()
         {
-            return PartialView("topics/newSubTopic");
+            return PartialView("topics/SubTopic");
         }
         public PartialViewResult get_delTopicPage()
         {
@@ -273,6 +273,26 @@ namespace DocArchive.Controllers
             var topic = context.topic.Where(x => x.id == topic_id).Single();
 
             return Content(topic.description);
+        }
+        public ContentResult updateSubTopic() 
+        {
+            var pars = Request.Params;
+            int folder_id = Convert.ToInt32(pars["folder_id"]);
+            int topic_id = Convert.ToInt32(pars["topic_id"]);
+            string title= Convert.ToString(pars["title"]);
+            string description = Convert.ToString(pars["description"]);
+
+
+
+            var context = new DOCContext();
+            var topic = context.topic.Where(x => x.id == topic_id).Single();
+
+            topic.title = title;
+            topic.description = description;
+
+            context.SaveChanges();
+
+            return Content("Done");
         }
         
     }

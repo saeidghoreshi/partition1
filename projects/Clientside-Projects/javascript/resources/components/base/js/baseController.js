@@ -8,11 +8,11 @@
 
             init: function () {
                 var me = this;
-
+                
                 me.tagReady(me.getId(), function () {
-
+                    
                     //me.buildGUI2();
-                    me.buildUI();
+                    me.buildGUI();
 
                     //var b =new subClass({parentId:'tetst'});
                     //b.run();
@@ -21,6 +21,7 @@
 
             },
             buildGUI: function () {
+                
                 var me = this;
 
                 $.ajax(
@@ -161,9 +162,9 @@
 
                         //Note : item.toggle
                         /*(
-                            function(){},
-                            function(){},
-                            function(){}
+                        function(){},
+                        function(){},
+                        function(){}
 
                         );
                         acts like multiple click toggle
@@ -245,7 +246,7 @@
 
                     $('#redGuy').die("click").live({ click: function () {
                         startCombat();
-                    } 
+                    }
                     });
                     startCombat = function () {
                         var shot = redGuy.shootBlue();

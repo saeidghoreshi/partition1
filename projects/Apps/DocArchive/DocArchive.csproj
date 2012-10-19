@@ -160,7 +160,9 @@
     <Content Include="Scripts\components\slider1\images\add.png" />
     <Content Include="Scripts\components\slider1\images\bg.png" />
     <Content Include="Scripts\components\slider1\images\drawer-icons.1.png" />
+    <Content Include="Scripts\components\slider1\images\fullscreen.png" />
     <Content Include="Scripts\components\slider1\images\fxshell.drawer-controlbar-bkg.jpg" />
+    <Content Include="Scripts\components\slider1\images\recycle.png" />
     <Content Include="Scripts\components\slider1\images\icon-drawer-add.png" />
     <Content Include="Scripts\components\slider1\images\pin_pencil.png" />
     <Content Include="Scripts\components\slider1\slider1.css" />
@@ -194,7 +196,7 @@
     </EntityDeploy>
     <None Include="readme.txt" />
     <Content Include="Views\Home\topics\newTopic.cshtml" />
-    <Content Include="Views\Home\topics\newSubTopic.cshtml" />
+    <Content Include="Views\Home\topics\SubTopic.cshtml" />
     <Content Include="Views\Home\topics\delTopic.cshtml" />
   </ItemGroup>
   <ItemGroup>

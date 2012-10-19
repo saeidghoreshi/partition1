@@ -1,8 +1,8 @@
 ﻿function slider1(placeHolder) {
 
-    
+
     this.moduleName = baseClass.idGenerator('slider1');
-    
+
 
     this.resetPlaceHolder = function () {
         $('#' + placeHolder).html('<div class="panel1" id="' + this.moduleName + '"></div>');
@@ -22,55 +22,82 @@
             }
         ).done(function (data) {
 
-            for (var i = 0; i < data.length; i++) {
-                var newTabHeader = '<div class="panel1Header" id="' + baseClass.idGenerator('tabHeader') + '">'
+            me.data = data;
+            me.loadPage();
+        });
+
+
+    }   //build Method
+    this.setSelectedItem = function (id) {
+        
+        this.selectedItem = $('#' + id);
+    }
+    this.getSelectedItem = function () {
+        return this.selectedItem;
+    }
+    this.loadPage = function () {
+        var me = this;
+        for (var i = 0; i < me.data.length; i++) {
+            var newTabHeader = '<div class="panel1Header" id="' + baseClass.idGenerator('tabHeader') + '">'
                 + '<div class="pinOpen"></div>'
-                + '<div class="panel1-newButton" topicId="' + data[i].id + '"> <b>+</b> </div>'
-                + '<div class="panel1-delButton" topicId="' + data[i].id + '"> <b>-</b> </div>'
-                + '<div style="float:left">' + data[i].type_name + '</div>'
-
-
+                + '<div class="panel1-newButton" topicId="' + me.data[i].id + '"> <b>+</b> </div>'
+                + '<div class="panel1-delButton" topicId="' + me.data[i].id + '"> <b>-</b> </div>'
+                + '<div style="float:left">' + me.data[i].type_name + '</div>'
 
                 + '</div>';
+            $('#' + me.moduleName).append(newTabHeader)
 
-                var newTabContent = '<div class="panel1Content" style="display:none" id="' + baseClass.idGenerator('tabContent') + '">';
+            var tabContentId = baseClass.idGenerator('tabContent');
+            var newTabContent = '<div class="panel1Content" style="display:none" id="' + tabContentId + '">';
+            $('#' + me.moduleName).append(newTabContent);
 
-                for (var j = 0; j < data[i].children.length; j++)
-                    newTabContent += '<div topicId="' + data[i].children[j].id + '" class="panel1ContentItem" style="float:left">' + data[i].children[j].type_name + '</div>';
+            for (var j = 0; j < me.data[i].children.length; j++) {
 
-                $('#' + me.moduleName).append(newTabHeader).append(newTabContent);
+                var itemId = baseClass.idGenerator('item');
+                newTabContent = '<div topicId="' + me.data[i].children[j].id + '" id="' + itemId
+                    + '" class="panel1ContentItem" style="float:left">' + me.data[i].children[j].type_name + '</div>';
+
+                $('#' + tabContentId).append(newTabContent);
+                $('#' + itemId).data('data',
+                                {
+
+                                    id: me.data[i].children[j].id,
+                                    parent_id: me.data[i].id,
+                                    title: me.data[i].children[j].type_name,
+                                    description: me.data[i].children[j].type_detail
+                                });
+
             }
+            $('#' + me.moduleName).append('</div>');
 
+            //$('#' + me.moduleName).append(newTabContent);
+        }
 
+        //Events
+        $('.panel1Header').die("click").live({ click: function () {
+            $el = $('#' + $(this).attr('id'));
 
-            //Click Event
+            $('#' + $(this).attr('id') + ' > div:eq(0)').toggleClass('pinClose');
 
-            $('.panel1Header').die("click").live({ click: function () {
-                $el = $('#' + $(this).attr('id'));
+            if ($el.next('div:eq(0)').css('display') == 'block')
+                $el.next('div').slideUp(100);
+            else
+                $el.next('div').slideDown(100);
 
-                $('#' + $(this).attr('id') + ' > div:eq(0)').toggleClass('pinClose');
+        }
+        });
+        $('.bottomPanel').die("click").live({ click: function (e) {
 
-                if ($el.next('div:eq(0)').css('display') == 'block')
-                    $el.next('div').slideUp(100);
-                else
-                    $el.next('div').slideDown(100);
+            if ($(this).height() <= 60) {
+                $(this).animate({
+                    height: "200px",
+                    opacity: 0.95
+                }, 1500);
 
-            }
-            });
+                var result = baseClass.openDialog('New', { width: 400, height: 400 });
+                $('#' + result.phId).ready(function () {
 
-            //
-            $('.bottomPanel').die("click").live({ click: function (e) {
-
-                if ($(this).height() <= 60) {
-                    $(this).animate({
-                        height: "200px",
-                        opacity: 0.95
-                    }, 1500);
-
-                    var result = baseClass.openDialog('New', { width: 400, height: 400 });
-                    $('#' + result.phId).ready(function () {
-
-                        $.ajax(
+                    $.ajax(
                         {
                             url: '/home/get_NewTopicPage'
                         }).done(function (data) {
@@ -96,83 +123,88 @@
                                 });
                             });
                         });
-                    });
+                });
 
 
-                }
-
-                else
-                    $(this).animate({
-                        height: "60px",
-                        opacity: 0.95
-                    }, 1500);
             }
 
-            });
-            $(".panel1-newButton").click(function () {
+            else
+                $(this).animate({
+                    height: "60px",
+                    opacity: 0.95
+                }, 1500);
+        }
 
-                var meButton = this;
+        });
+        $(".panel1-newButton").click(function () {
 
-                var dialog = baseClass.openDialog('New Sub Topics', { width: 700, height: 500 });
-                $('#' + dialog.phId).ready(function () {
+            var meButton = this;
 
-                    $.ajax(
+            var dialog = baseClass.openDialog('New Sub Topics', { width: 700, height: 500 });
+            $('#' + dialog.phId).ready(function () {
+
+                $.ajax(
                         {
-                            url: '/home/get_NewSubTopicPage'
+                            url: '/home/get_SubTopicPage'
                         }).done(function (data) {
                             $('#' + dialog.phId).html(data);
-                            
+
 
                             //AssignEvents
-                            $('#newSubTopic-form').ready(function () {
-                                
+                            $('#SubTopic-form').ready(function () {
 
 
-                                var descriptionPanel = $('#newSubTopic-description').rte({
+
+                                var descriptionPanel = $('#SubTopic-description').rte({
                                     controls_rte: rte_toolbar,
                                     controls_html: html_toolbar,
                                     width: 650,
                                     height: 200
                                 });
 
-                                $('#newSubTopic-save').click(function () {
-                                    console.log($('#newSubTopic-description').val());
+                                $('#SubTopic-save').click(function () {
+
                                     $.ajax(
                                     {
                                         url: "/home/saveNewSubTopic",
                                         type: "POST",
                                         data:
                                         {
-                                            folder_id: 40,
+                                            folder_id: App.tree.getSelection()[0].data.id,
                                             parent_id: $(meButton).attr("topicId"),
-                                            title: $('#newSubTopic-name').val(),
-                                            description: escape(descriptionPanel['newSubTopic-description'].get_content())
+                                            title: $('#SubTopic-title').val(),
+                                            description: escape(descriptionPanel['SubTopic-description'].get_content())
                                         }
                                     }).done(function () {
                                         baseClass.closeDialog(dialog);
                                         //Update List
 
-                                        var dataId = App.tree.getSelectionModel().getSelection()[0].data.id;
-                                        var node = App.tree.getStore().getNodeById(dataId);
+                                        var dataId = App.tree.getSelection()[0].data.id;
                                         App.sliderObject.build(dataId);
                                     });
                                     return false;
-                                });
+                                }); //save event
+                                $('#SubTopic-cancel').click(function () {
+
+                                    baseClass.closeDialog(dialog);
+
+                                    return false;
+                                }); //cancel Event
                             });
 
-                            
+
 
                         });
-                });
             });
-            $(".panel1-delButton").click(function () {
+        });
+        $(".panel1-delButton").click(function () {
 
-                var meButton = this;
+            var meButton = this;
 
-                var dialog = baseClass.openDialog('Confirmation', { width: 400, height: 100 });
-                $('#' + dialog.phId).ready(function () {
+            var dialog = baseClass.openDialog('Confirmation', { width: 400, height: 100 });
+            $('#' + dialog.phId).ready(function () {
 
-                    $.ajax(
+                $.ajax(
                         {
                             url: '/home/get_delTopicPage'
                         }).done(function (data) {
@@ -196,8 +228,7 @@
                                         baseClass.closeDialog(dialog);
                                         //Update List
 
-                                        var dataId = App.tree.getSelectionModel().getSelection()[0].data.id;
-                                        var node = App.tree.getStore().getNodeById(dataId);
+                                        var dataId = App.tree.getSelection()[0].data.id;
                                         App.sliderObject.build(dataId);
                                     });
                                     return false;
@@ -210,35 +241,32 @@
                                 });
                             });
                         });
-                });
             });
-
-
-
         });
+        $(".panel1ContentItem").die("click").live({ click: function (data) {
 
-    }
-    }
-    $(".panel1ContentItem").die("click").live({ click: function (data) {
-
-        var me = this;
-        var topicId = $(me).attr("topicId");
-
-        $.ajax(
-        {
-            url: "/home/getTopicDescription",
-            type: "POST",
-            data:
-            {
-                topic_id: topicId
-            }
-        }).done(function (data) {
+            me.setSelectedItem($(this).attr("id"));
 
             var dialog = baseClass.openDialog('Description', { width: 700, height: 500 });
-            $('#' + dialog.phId).ready(function () {
+
+            me.loadDescriptionPage(dialog.phId, dialog);
+        }
+
+        });
+    }
+    this.loadDescriptionPage = function (placeHolder, dialog) {
+        var me = this;
+
+        var topic = me.getSelectedItem();
+        var topicId = topic.data('data').id;
+
+
+
+        var doneFunction = function (data) {
+            $('#' + placeHolder).ready(function () {
 
                 //load scroller
-                $('#' + dialog.phId).slimScroll({
+                $('#' + placeHolder).slimScroll({
                     position: 'right',
                     height: 450,
                     color: '#2F4F4F', //#800000  #2F4F4F  gray
@@ -247,13 +275,13 @@
                     alwaysVisible: false
                 });
 
-                $('#' + dialog.phId).html(unescape(data));
-                $('#' + dialog.phId).css({ "width": "700px", "overflow": "auto" });
+                $('#' + placeHolder).html('<div id=main>' + unescape(data) + '</div>');
+                $('#' + placeHolder).css({ "width": "700px", "overflow": "auto", margin: 10 });
 
 
                 var ItemId = baseClass.idGenerator("option");
-                var optionHtml = "<div id='" + ItemId + "'>     <div><div class='action action1'></div><div class='action action2'></div></div>   <div><div id=x></div></div>    </div>";
-                $('#' + dialog.phId).prepend(optionHtml + "<br>")
+                var optionHtml = "<div id='" + ItemId + "'>     <div><div class='action action1'></div><div class='action action2'></div></div>   <div><div id='handle'></div></div>    </div>";
+                $('#' + placeHolder).prepend(optionHtml)
                 $option = $('#' + ItemId);
 
                 $('.action').css(
@@ -263,49 +291,191 @@
                         padding: "2px",
                         margin: "2px",
 
-                        width: 20,
-                        height: 20,
+                        width: 15,
+                        height: 15,
                         background: "url('scripts/components/slider1/images/add.png') "
 
                     });
-                    $('.action1').css({ background: "url('scripts/components/slider1/images/add.png') " });
-                    $('.action2').css({ background: "url('scripts/components/slider1/images/recycle.png') " });
-                $('#x').css(
+                $('.action1').css({ background: "url('scripts/components/slider1/images/edit.png') " });
+                $('.action2').css({ background: "url('scripts/components/slider1/images/delete.png') " });
+                $('#handle').css(
                     {
                         position: "relative",
                         width: 20,
-                        height: 20,
-                        top: 20,
-                        background: "url('scripts/components/slider1/images/fullscreen.png') ",
+                        height: 25,
+                        top: 25,
+                        left: 12,
+                        background: "url('scripts/components/slider1/images/arrow_double_down.png') ",
                         cursor: "pointer"
                     });
 
                 $option.css(
                     {
                         position: "absolute",
-                        top: -23,
+                        top: -25,
+                        right: 0,
                         cursor: "pointer",
                         background: "#f2f2f2",
                         "border-right": "2px solid #fefefe",
                         "border-bottom": "2px solid #fefefe",
                         font: "10px verdana"
                     });
-                $('#x').click(function () {
-                    if ($('#' + ItemId).position().top !== 0)
-                        $('#' + ItemId).animate({ top: "0px" }, 1000);
-                    else
-                        $('#' + ItemId).animate({ top: "-23px" }, 1000);
+                $('#handle').click(function () {
+                    if ($('#' + ItemId).position().top !== 0) {
+                        $('#' + ItemId).animate({ top: "0px" }, 500);
+                        $('#handle').css({ background: "url('scripts/components/slider1/images/arrow_double_up.png') " });
+                    }
+
+                    else {
+                        $('#' + ItemId).animate({ top: "-25px" }, 500);
+                        $('#handle').css({ background: "url('scripts/components/slider1/images/arrow_double_down.png') " });
+                    }
+
 
                 });
 
+                $('.action').click(function () {
+
+                    if ($(this).hasClass('action1'))
+                        me.loaditemEditPage(placeHolder);
+                    else {
+                        var cdialog = baseClass.openDialog('Confirmation', { width: 400, height: 100 });
+                        $('#' + cdialog.phId).ready(function () {
+                            $.ajax(
+                        {
+                            url: '/home/get_delTopicPage'
+                        }).done(function (data) {
+                            $('#' + cdialog.phId).html(data);
+
+                            //AssignEvents
+                            $('#delTopic-form').ready(function () {
+
+                                $('#delTopic-ok').click(function () {
+                                    me.deleteSubTopic(dialog);
+                                    baseClass.closeDialog(cdialog);
+                                    return false;
+                                });
+                                $('#delTopic-cancel').click(function () { baseClass.closeDialog(dialog); return false; });
+                            });
+                        });
+
+                        });
+                    }
+
+                });
+
+
             });
-        });
+        }
+
+
+        $.ajax(
+        {
+            url: "/home/getTopicDescription",
+            type: "POST",
+            data:
+            {
+                topic_id: topicId
+            }
+        }).done(function (data) { doneFunction(data); });
 
     }
-    });
-    
-    
-           
+    this.deleteSubTopic = function (dialog) {
+
+        var me = this;
+        var subTopic = me.getSelectedItem();
+
+        var subTopicId = subTopic.data('data').id;
+
+        $.ajax(
+        {
+            url: "/home/delTopic",
+            type: "post",
+            data:
+            {
+                topic_id: subTopicId
+            }
+        }).done(function (data) {
+            baseClass.closeDialog(dialog);
+
+            //update UI
+            var dataId = App.tree.getSelection()[0].data.id;
+            App.sliderObject.build(dataId);
+        });
+    }
+    this.loaditemEditPage = function (placeHolder) {
+
+
+        var me = this;
+
+        $.ajax(
+                        {
+                            url: '/home/get_SubTopicPage'
+                        }
+                        ).done(function (data) {
+                            $('#' + placeHolder).html(data);
+
+
+                            //AssignEvents
+                            $('#SubTopic-form').ready(function () {
+
+
+                                var descriptionPanel = $('#SubTopic-description').rte({
+                                    controls_rte: rte_toolbar,
+                                    controls_html: html_toolbar,
+                                    width: 650,
+                                    height: 200
+                                });
+                                var selectedItem = me.getSelectedItem();
+                                descriptionPanel['SubTopic-description'].set_content(unescape(selectedItem.data('data').description));
+                                $('#SubTopic-title').val(me.getSelectedItem().data('data').title);
+
+                                $('#SubTopic-save').click(function () {
+
+                                    $.ajax(
+                                    {
+                                        url: "/home/updateSubTopic",
+                                        type: "POST",
+                                        data:
+                                        {
+                                            folder_id: App.tree.getSelection()[0].data.id,
+                                            topic_id: me.getSelectedItem().data('data').id,
+                                            title: $('#SubTopic-title').val(),
+                                            description: escape(descriptionPanel['SubTopic-description'].get_content())
+                                        }
+                                    }).done(function () {
+
+                                        //Update List
+                                        me.loadDescriptionPage(placeHolder);
+
+                                        //DONT update UI
+
+                                        //set seletec Item
+
+                                        selectedItem.data('data').description = escape(descriptionPanel['SubTopic-description'].get_content());
+                                        selectedItem.data('data').title = $('#SubTopic-title').val();
+
+                                    });
+                                    return false;
+                                });
+                                $('#SubTopic-cancel').click(function () {
+
+                                    //Update page
+                                    me.loadDescriptionPage(placeHolder);
+
+                                    
+                                    return false;
+                                }); //cancel Event
+                            });
+
+
+
+                        });
+
+    }
+
+}
+
 
             
 
