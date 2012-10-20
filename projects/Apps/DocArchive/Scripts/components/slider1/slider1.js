@@ -97,6 +97,7 @@
                 var result = baseClass.openDialog('New', { width: 400, height: 400 });
                 $('#' + result.phId).ready(function () {
 
+                    
                     $.ajax(
                         {
                             url: '/home/get_NewTopicPage'
@@ -114,7 +115,7 @@
                                         type: "POST",
                                         data:
                                         {
-                                            folder_id: 40,
+                                            folder_id: App.tree.getSelection()[0].data.id,
                                             title: $('#newTopic-name').val(),
                                             description: $('#newTopic-description').val()
                                         }
@@ -463,7 +464,6 @@
                                     //Update page
                                     me.loadDescriptionPage(placeHolder);
 
-                                    
                                     return false;
                                 }); //cancel Event
                             });

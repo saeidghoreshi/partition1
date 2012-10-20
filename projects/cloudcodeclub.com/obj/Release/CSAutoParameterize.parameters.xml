@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-MvcApplication1-2012523162738;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\cloudcodeclub\.com\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="plpgConnection-Web.config Connection String" description="plpgConnection Connection String used in web.config by the application to access the database." defaultValue="Server=204.10.38.148;Port=5432;User Id=springra_admin;Password=p0$31d0n;Database=springra_Logger1121;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\cloudcodeclub\.com\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='plpgConnection']/@connectionString" />
+  </parameter>
+  <parameter name="winhostConnection-Web.config Connection String" description="winhostConnection Connection String used in web.config by the application to access the database." defaultValue="server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\cloudcodeclub\.com\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='winhostConnection']/@connectionString" />
+  </parameter>
+  <parameter name="db1Entities-Web.config Connection String" description="db1Entities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=SAEID;initial catalog=db1;persist security info=True;user id=sa;password=22091984;multipleactiveresultsets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\cloudcodeclub\.com\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db1Entities']/@connectionString" />
+  </parameter>
+  <parameter name="prjEntities-Web.config Connection String" description="prjEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.prjModel.csdl|res://*/Models.prjModel.ssdl|res://*/Models.prjModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=s06.winhost.com;initial catalog=DB_40114_codeclub;user id=DB_40114_codeclub_user;password=p0$31d0n;multipleactiveresultsets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\cloudcodeclub\.com\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='prjEntities']/@connectionString" />
+  </parameter>
+</parameters>

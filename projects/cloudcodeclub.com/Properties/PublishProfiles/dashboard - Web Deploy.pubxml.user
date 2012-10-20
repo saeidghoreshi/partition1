@@ -12,19 +12,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_code/Script.cshtml">
-      <publishTime>08/12/2012 22:24:34</publishTime>
+      <publishTime>12/08/2012 22:24:34</publishTime>
     </File>
     <File Include="App_Readme/EventStore.license.txt">
       <publishTime>07/30/2012 12:08:48</publishTime>
     </File>
     <File Include="App_Readme/SimpleRazorScriptManager.txt">
-      <publishTime>08/12/2012 22:33:50</publishTime>
+      <publishTime>12/08/2012 22:33:50</publishTime>
     </File>
     <File Include="App_Start/NHibernateProfilerBootstrapper.vb">
       <publishTime>06/30/2012 22:32:04</publishTime>
     </File>
     <File Include="bin/EcmaScript.NET.modified.dll">
-      <publishTime>08/12/2012 22:24:18</publishTime>
+      <publishTime>12/08/2012 22:24:18</publishTime>
     </File>
     <File Include="bin/en/MvcApplication1.resources.dll">
       <publishTime>10/17/2012 17:03:50</publishTime>
@@ -45,7 +45,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/13/2011 08:49:34</publishTime>
     </File>
     <File Include="bin/Mono.Security.dll">
-      <publishTime>09/03/2012 09:01:50</publishTime>
+      <publishTime>03/09/2012 09:01:50</publishTime>
     </File>
     <File Include="bin/MvcApplication1.dll">
       <publishTime>10/17/2012 17:03:50</publishTime>
@@ -54,7 +54,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/10/2012 16:17:20</publishTime>
     </File>
     <File Include="bin/Npgsql.dll">
-      <publishTime>09/03/2012 09:01:50</publishTime>
+      <publishTime>03/09/2012 09:01:50</publishTime>
     </File>
     <File Include="bin/NuGet.Core.dll">
       <publishTime>01/17/2012 12:11:44</publishTime>
@@ -138,7 +138,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/17/2012 08:00:48</publishTime>
     </File>
     <File Include="bin/Yahoo.Yui.Compressor.dll">
-      <publishTime>08/12/2012 22:24:18</publishTime>
+      <publishTime>12/08/2012 22:24:18</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>06/30/2012 22:32:04</publishTime>
@@ -246,19 +246,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:32:04</publishTime>
     </File>
     <File Include="resources/components/Application.js">
-      <publishTime>08/10/2012 15:27:30</publishTime>
+      <publishTime>10/08/2012 15:27:30</publishTime>
     </File>
     <File Include="resources/components/applicationResources.js">
-      <publishTime>08/10/2012 14:05:34</publishTime>
+      <publishTime>10/08/2012 14:05:34</publishTime>
     </File>
     <File Include="resources/components/archive/css/archiveCss.css">
-      <publishTime>08/07/2012 22:10:36</publishTime>
+      <publishTime>07/08/2012 22:10:36</publishTime>
     </File>
     <File Include="resources/components/archive/js/archiveController.js">
-      <publishTime>08/10/2012 14:05:36</publishTime>
+      <publishTime>10/08/2012 14:05:36</publishTime>
     </File>
     <File Include="resources/components/base/css/baseCss.css">
-      <publishTime>08/07/2012 19:30:34</publishTime>
+      <publishTime>07/08/2012 19:30:34</publishTime>
     </File>
     <File Include="resources/components/base/images/1.png">
       <publishTime>06/30/2012 22:35:30</publishTime>
@@ -285,7 +285,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:30</publishTime>
     </File>
     <File Include="resources/components/base/images/loadingAlert.gif">
-      <publishTime>08/05/2012 13:13:06</publishTime>
+      <publishTime>05/08/2012 13:13:06</publishTime>
     </File>
     <File Include="resources/components/base/images/login.png">
       <publishTime>06/30/2012 22:35:30</publishTime>
@@ -300,19 +300,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:30</publishTime>
     </File>
     <File Include="resources/components/base/images/settings.png">
-      <publishTime>07/01/2012 16:29:58</publishTime>
+      <publishTime>01/07/2012 16:29:58</publishTime>
     </File>
     <File Include="resources/components/base/images/taskAssignment.png">
       <publishTime>06/30/2012 22:35:30</publishTime>
     </File>
     <File Include="resources/components/base/images/tasks.png">
-      <publishTime>08/03/2012 18:41:38</publishTime>
+      <publishTime>03/08/2012 18:41:38</publishTime>
     </File>
     <File Include="resources/components/base/images/user.png">
       <publishTime>06/30/2012 22:35:30</publishTime>
     </File>
     <File Include="resources/components/base/js/baseController.js">
-      <publishTime>08/10/2012 14:05:34</publishTime>
+      <publishTime>10/08/2012 14:05:34</publishTime>
     </File>
     <File Include="resources/components/facebook/css/facebookCss.css">
       <publishTime>07/27/2012 15:33:54</publishTime>
@@ -435,61 +435,61 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:30</publishTime>
     </File>
     <File Include="resources/components/moduleResources.js">
-      <publishTime>08/10/2012 15:28:54</publishTime>
+      <publishTime>10/08/2012 15:28:54</publishTime>
     </File>
     <File Include="resources/components/office/new/css/css.css">
       <publishTime>07/29/2012 13:05:46</publishTime>
     </File>
     <File Include="resources/components/office/new/js/controller.js">
-      <publishTime>08/04/2012 12:44:08</publishTime>
+      <publishTime>04/08/2012 12:44:08</publishTime>
     </File>
     <File Include="resources/components/permission/Assignment/css/permissionCss.css">
-      <publishTime>08/04/2012 12:16:46</publishTime>
+      <publishTime>04/08/2012 12:16:46</publishTime>
     </File>
     <File Include="resources/components/permission/Assignment/images/tick.png">
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/permission/Assignment/js/permissionController.js">
-      <publishTime>08/04/2012 12:20:48</publishTime>
+      <publishTime>04/08/2012 12:20:48</publishTime>
     </File>
     <File Include="resources/components/permission/Login/css/loginCss.css">
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/permission/Login/js/loginController.js">
-      <publishTime>08/03/2012 22:46:08</publishTime>
+      <publishTime>03/08/2012 22:46:08</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/css/rightTabsCss.css">
-      <publishTime>08/03/2012 22:39:12</publishTime>
+      <publishTime>03/08/2012 22:39:12</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/arrow_skip_left.png">
-      <publishTime>08/03/2012 21:52:16</publishTime>
+      <publishTime>03/08/2012 21:52:16</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/doc1.png">
-      <publishTime>08/03/2012 12:58:38</publishTime>
+      <publishTime>03/08/2012 12:58:38</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/ExtJS4Grid.PNG">
-      <publishTime>08/03/2012 15:48:22</publishTime>
+      <publishTime>03/08/2012 15:48:22</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/ExtJS4Tree.PNG">
-      <publishTime>08/03/2012 15:23:32</publishTime>
+      <publishTime>03/08/2012 15:23:32</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/Gmaps.PNG">
-      <publishTime>08/03/2012 15:30:22</publishTime>
+      <publishTime>03/08/2012 15:30:22</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/HTMLGoodiesTree.PNG">
-      <publishTime>08/03/2012 15:44:10</publishTime>
+      <publishTime>03/08/2012 15:44:10</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/KendoUIGrid.PNG">
-      <publishTime>08/03/2012 15:33:58</publishTime>
+      <publishTime>03/08/2012 15:33:58</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/slider.PNG">
-      <publishTime>08/03/2012 15:39:00</publishTime>
+      <publishTime>03/08/2012 15:39:00</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/images/uploader.PNG">
-      <publishTime>08/03/2012 15:40:04</publishTime>
+      <publishTime>03/08/2012 15:40:04</publishTime>
     </File>
     <File Include="resources/components/rightTabsComponent/js/rightTabsController.js">
-      <publishTime>08/06/2012 17:09:20</publishTime>
+      <publishTime>06/08/2012 17:09:20</publishTime>
     </File>
     <File Include="resources/components/testExtjs/images/female.png">
       <publishTime>07/19/2012 23:36:10</publishTime>
@@ -516,7 +516,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2012 13:22:02</publishTime>
     </File>
     <File Include="resources/components/testExtjs/js/treePanelController.js">
-      <publishTime>08/03/2012 16:00:58</publishTime>
+      <publishTime>03/08/2012 16:00:58</publishTime>
     </File>
     <File Include="resources/components/testUI/css/testUICss.css">
       <publishTime>07/30/2012 13:25:14</publishTime>
@@ -528,7 +528,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/user/new/js/controller.js">
-      <publishTime>08/04/2012 12:37:08</publishTime>
+      <publishTime>04/08/2012 12:37:08</publishTime>
     </File>
     <File Include="resources/components/workflow1/map/css/map.css">
       <publishTime>06/30/2012 22:35:32</publishTime>
@@ -624,7 +624,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/assignment/js/taskAssignmentController.js">
-      <publishTime>08/03/2012 22:46:08</publishTime>
+      <publishTime>03/08/2012 22:46:08</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/define/css/defineTaskCss.css">
       <publishTime>06/30/2012 22:35:32</publishTime>
@@ -633,13 +633,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/define/js/defineTaskController.js">
-      <publishTime>08/03/2012 22:46:08</publishTime>
+      <publishTime>03/08/2012 22:46:08</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/list/css/taskListCss.css">
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/list/js/taskListController.js">
-      <publishTime>08/03/2012 18:32:30</publishTime>
+      <publishTime>03/08/2012 18:32:30</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/tracker/css/taskTrackerCss.css">
       <publishTime>06/30/2012 22:35:32</publishTime>
@@ -654,10 +654,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/components/workflow1/Task/tracker/js/taskTrackerController.js">
-      <publishTime>08/03/2012 22:46:08</publishTime>
+      <publishTime>03/08/2012 22:46:08</publishTime>
     </File>
     <File Include="resources/modules/contextMenu/css/contextMenuCss.css">
-      <publishTime>07/08/2012 11:59:02</publishTime>
+      <publishTime>08/07/2012 11:59:02</publishTime>
     </File>
     <File Include="resources/modules/contextMenu/images/context-menu-gradient.gif">
       <publishTime>06/30/2012 22:35:32</publishTime>
@@ -681,10 +681,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/modules/contextMenu/js/contextMenu.js">
-      <publishTime>08/03/2012 22:46:08</publishTime>
+      <publishTime>03/08/2012 22:46:08</publishTime>
     </File>
     <File Include="resources/modules/extjs/css/extjscss.css">
-      <publishTime>08/03/2012 12:49:10</publishTime>
+      <publishTime>03/08/2012 12:49:10</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/abstractClasses/Ext.form.js">
       <publishTime>07/25/2012 19:01:16</publishTime>
@@ -696,10 +696,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 13:21:30</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/abstractClasses/Ext.Store.js">
-      <publishTime>07/12/2012 16:19:56</publishTime>
+      <publishTime>12/07/2012 16:19:56</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/abstractClasses/Ext.treePanel.js">
-      <publishTime>08/03/2012 13:24:06</publishTime>
+      <publishTime>03/08/2012 13:24:06</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/abstractClasses/Ext.viewPort1.js">
       <publishTime>07/25/2012 15:42:58</publishTime>
@@ -714,16 +714,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 12:19:48</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/plugin/RowExpander.js">
-      <publishTime>07/01/2012 19:16:28</publishTime>
+      <publishTime>01/07/2012 19:16:28</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/plugin/SearchField.js">
-      <publishTime>07/01/2012 19:16:28</publishTime>
+      <publishTime>01/07/2012 19:16:28</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/plugin/SlidingPager.js">
       <publishTime>07/25/2012 13:18:04</publishTime>
     </File>
     <File Include="resources/modules/extjs/js/plugin/treeViewCellEdit.js">
-      <publishTime>07/01/2012 19:16:28</publishTime>
+      <publishTime>01/07/2012 19:16:28</publishTime>
     </File>
     <File Include="resources/modules/folderTree/css/DNDFolderTreeCss.css">
       <publishTime>06/30/2012 22:35:32</publishTime>
@@ -789,19 +789,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/23/2012 18:37:02</publishTime>
     </File>
     <File Include="resources/modules/myTabs/css/mytabsCss.css">
-      <publishTime>08/05/2012 12:16:26</publishTime>
+      <publishTime>05/08/2012 12:16:26</publishTime>
     </File>
     <File Include="resources/modules/myTabs/images/tabgradient_bg.gif">
-      <publishTime>08/05/2012 12:20:54</publishTime>
+      <publishTime>05/08/2012 12:20:54</publishTime>
     </File>
     <File Include="resources/modules/myTabs/js/mytabsModule.js">
-      <publishTime>08/05/2012 12:17:46</publishTime>
+      <publishTime>05/08/2012 12:17:46</publishTime>
     </File>
     <File Include="resources/modules/scroller/css/scrollerModule.css">
       <publishTime>07/20/2012 20:11:44</publishTime>
     </File>
     <File Include="resources/modules/scroller/js/slimScroll.js">
-      <publishTime>08/06/2012 17:12:56</publishTime>
+      <publishTime>06/08/2012 17:12:56</publishTime>
     </File>
     <File Include="resources/modules/slider/css/dataViewSliderCss.css">
       <publishTime>07/29/2012 22:22:14</publishTime>
@@ -810,7 +810,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:32</publishTime>
     </File>
     <File Include="resources/modules/slider/images/icon-3.png">
-      <publishTime>07/09/2012 22:37:28</publishTime>
+      <publishTime>09/07/2012 22:37:28</publishTime>
     </File>
     <File Include="resources/modules/slider/images/icon.png">
       <publishTime>07/31/2012 13:41:28</publishTime>
@@ -852,7 +852,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/29/2012 22:42:32</publishTime>
     </File>
     <File Include="resources/modules/uploader/css/uploaderCss.css">
-      <publishTime>08/02/2012 14:29:22</publishTime>
+      <publishTime>02/08/2012 14:29:22</publishTime>
     </File>
     <File Include="resources/modules/uploader/images/document.png">
       <publishTime>07/31/2012 00:18:24</publishTime>
@@ -861,7 +861,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/31/2012 13:31:28</publishTime>
     </File>
     <File Include="resources/modules/uploader/js/uploaderModule.js">
-      <publishTime>08/02/2012 14:34:22</publishTime>
+      <publishTime>02/08/2012 14:34:22</publishTime>
     </File>
     <File Include="resources/modules/workflow/css/workflowCss.css">
       <publishTime>06/30/2012 22:35:34</publishTime>
@@ -900,10 +900,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Scripts/libraries/ext-4.0.2-ext-all.js">
-      <publishTime>08/10/2012 16:09:20</publishTime>
+      <publishTime>10/08/2012 16:09:20</publishTime>
     </File>
     <File Include="Scripts/libraries/joose.js">
-      <publishTime>08/10/2012 14:57:16</publishTime>
+      <publishTime>10/08/2012 14:57:16</publishTime>
     </File>
     <File Include="Scripts/libraries/KendoUI/Default/editor.png">
       <publishTime>07/22/2012 22:56:42</publishTime>
@@ -1074,31 +1074,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Views/Home/office/newOffice.cshtml">
-      <publishTime>08/04/2012 12:44:10</publishTime>
+      <publishTime>04/08/2012 12:44:10</publishTime>
     </File>
     <File Include="Views/Home/user/newUser.cshtml">
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Views/Home/viewport/viewport.cshtml">
-      <publishTime>08/04/2012 16:22:40</publishTime>
+      <publishTime>04/08/2012 16:22:40</publishTime>
     </File>
     <File Include="Views/Home/viewport/viewport2.cshtml">
-      <publishTime>08/07/2012 22:12:12</publishTime>
+      <publishTime>07/08/2012 22:12:12</publishTime>
     </File>
     <File Include="Views/Notebook/foldering/enterkeyword.cshtml">
-      <publishTime>07/08/2012 13:56:56</publishTime>
+      <publishTime>08/07/2012 13:56:56</publishTime>
     </File>
     <File Include="Views/Notebook/foldering/foldering.cshtml">
-      <publishTime>08/07/2012 21:56:14</publishTime>
+      <publishTime>07/08/2012 21:56:14</publishTime>
     </File>
     <File Include="Views/Notebook/foldering/folderingDetails.cshtml">
-      <publishTime>08/02/2012 23:55:30</publishTime>
+      <publishTime>02/08/2012 23:55:30</publishTime>
     </File>
     <File Include="Views/Notebook/index.cshtml">
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Views/permission/assignPermissionForm.cshtml">
-      <publishTime>09/07/2012 00:00:28</publishTime>
+      <publishTime>07/09/2012 00:00:28</publishTime>
     </File>
     <File Include="Views/permission/changeUserPasswordForm.cshtml">
       <publishTime>06/30/2012 22:35:12</publishTime>
@@ -1110,7 +1110,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>08/12/2012 23:14:04</publishTime>
+      <publishTime>12/08/2012 23:14:04</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/29/2012 17:14:50</publishTime>
@@ -1119,19 +1119,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Views/workflow/curUserTimeTrackerForm.cshtml">
-      <publishTime>07/06/2012 10:40:46</publishTime>
+      <publishTime>06/07/2012 10:40:46</publishTime>
     </File>
     <File Include="Views/workflow/taskAssignment.cshtml">
       <publishTime>07/31/2012 14:03:18</publishTime>
     </File>
     <File Include="Views/workflow/userCurrentTasksForm.cshtml">
-      <publishTime>08/03/2012 18:32:06</publishTime>
+      <publishTime>03/08/2012 18:32:06</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>06/30/2012 22:35:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/17/2012 17:03:52</publishTime>
+      <publishTime>10/19/2012 22:04:11</publishTime>
     </File>
   </ItemGroup>
 </Project>

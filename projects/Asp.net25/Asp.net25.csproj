@@ -240,6 +240,14 @@
     <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Scripts\libraries\jQuery\themes\default\jquery-ui-1.8.23.custom.css" />
     <Content Include="Areas\Admin\Views\Web.config" />
+    <None Include="Properties\PublishProfiles\docarchive - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\docarchive - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\testxx - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testxx - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testxx - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\testxx - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testxx - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\testxx - Web Deploy.pubxml" />
     <None Include="Service References\ServiceReference1\Asp.net25.ServiceReference1.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

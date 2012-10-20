@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\Accounting\bin\Release\Accounting.exe
+C:\projects\Partitions\partition1\Accounting\bin\Release\Accounting.pdb
+C:\projects\Partitions\partition1\Accounting\obj\x86\Release\Accounting.exe
+C:\projects\Partitions\partition1\Accounting\obj\x86\Release\Accounting.pdb

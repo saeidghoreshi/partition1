@@ -158,11 +158,13 @@
     <Content Include="Scripts\base\yui\skin.css" />
     <Content Include="Scripts\components\App.js" />
     <Content Include="Scripts\components\slider1\images\add.png" />
+    <Content Include="Scripts\components\slider1\images\arrow_double_down.png" />
+    <Content Include="Scripts\components\slider1\images\arrow_double_up.png" />
     <Content Include="Scripts\components\slider1\images\bg.png" />
+    <Content Include="Scripts\components\slider1\images\delete.png" />
     <Content Include="Scripts\components\slider1\images\drawer-icons.1.png" />
-    <Content Include="Scripts\components\slider1\images\fullscreen.png" />
+    <Content Include="Scripts\components\slider1\images\edit.png" />
     <Content Include="Scripts\components\slider1\images\fxshell.drawer-controlbar-bkg.jpg" />
-    <Content Include="Scripts\components\slider1\images\recycle.png" />
     <Content Include="Scripts\components\slider1\images\icon-drawer-add.png" />
     <Content Include="Scripts\components\slider1\images\pin_pencil.png" />
     <Content Include="Scripts\components\slider1\slider1.css" />

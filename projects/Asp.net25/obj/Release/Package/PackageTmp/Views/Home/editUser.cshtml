@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_simpleLayout.cshtml";
+}
+
+@{
+    using (Html.BeginForm("update", "home", FormMethod.Post))
+    {
+        <input type="hidden" name="pid" value="@ViewBag.user.id" />
+
+        <table>
+        <tr>
+            <td>
+            <label for="name">Name</label>
+            </td>
+            <td>
+            <input type="text" name="name" value="@ViewBag.user.name"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <input class="btn btn-mini btn-primary" name="back-btn" type="submit" value="Back"/>
+            <input class="btn btn-mini" type="submit" name="save-btn" value="Save"/>
+            </td>
+            
+        </tr>
+        </table>
+        
+    };
+}

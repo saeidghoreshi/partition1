@@ -136,7 +136,7 @@ namespace DocArchive.Controllers
                 datetime = x.datetime,
                 foldering_id=x.foldering_id
             })
-                        .Where(x => x.is_active == true )
+                        .Where(x => x.is_active == true && x.foldering_id==folderId )
                         .OrderBy(x => x.datetime)
                         .ToList<_topic>();
 
