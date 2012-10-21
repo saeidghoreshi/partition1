@@ -3,12 +3,53 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Accounting.Interfaces;
+using Accounting.Classes;
+using Accounting.Models;
+using Accounting.Interfaces.Service;
+using Accounting.Interfaces.subAccounts;
+
 namespace Accounting
 {
     class Program
     {
         static void Main(string[] args)
         {
+            new ServiceManagement().CreateNewService();
+
+            Console.WriteLine("Enter to Quit");
+            Console.ReadLine();
         }
+    }
+    public class ServiceManagement 
+    {
+        public void createCurrency()
+        {
+            
+        }
+        public void CreateInvoice() 
+        {
+
+            Classes.Invoice I = new Classes.Invoice();
+            //I.createNewByExistingPersons(70,71,10.55d,)
+            
+        }
+        public void CreateNewService()
+        {
+            Classes.Service s = new Classes.Service();
+            Person sender = new Person
+            {
+                firstname = "111",
+                lastName = "222"
+            };
+            Person Receiver= new Person
+            {
+                firstname = "111_",
+                lastName = "222+"
+            };
+            //s.CreateNewService(sender,Receiver,"My New Service");
+            //s.CreateNewServiceByExistingPersons(70, 71, "My Service Noew");
+            //Console.WriteLine((s.loadServiceById(1) as Models.Service).serviceName);
+        } 
     }
 }

@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
+          <EntitySet Name="Currency" EntityType="DB_40114_codeclubModel.Store.Currency" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="currencyType" EntityType="DB_40114_codeclubModel.Store.currencyType" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="Invoice" EntityType="DB_40114_codeclubModel.Store.Invoice" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="Service" EntityType="DB_40114_codeclubModel.Store.Service" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Currency_currencyType" Association="DB_40114_codeclubModel.Store.FK_Currency_currencyType">
+            <End Role="currencyType" EntitySet="currencyType" />
+            <End Role="Currency" EntitySet="Currency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Currency" Association="DB_40114_codeclubModel.Store.FK_Invoice_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_person" Association="DB_40114_codeclubModel.Store.FK_Invoice_person">
+            <End Role="person" EntitySet="person" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_person1" Association="DB_40114_codeclubModel.Store.FK_Invoice_person1">
+            <End Role="person" EntitySet="person" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="Reciever" Association="DB_40114_codeclubModel.Store.Reciever">
+            <End Role="person" EntitySet="person" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="Sender" Association="DB_40114_codeclubModel.Store.Sender">
+            <End Role="person" EntitySet="person" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="currencyType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="senderId" Type="int" />
+          <Property Name="receiverId" Type="int" />
+          <Property Name="amount" Type="decimal" />
+          <Property Name="currency" Type="int" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="senderId" Type="int" />
+          <Property Name="receiverId" Type="int" />
+          <Property Name="serviceName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Name="person_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="nvarchar" MaxLength="200" />
+          <Property Name="lname" Type="nvarchar" MaxLength="200" />
+          <Property Name="thumbnailFile" Type="nvarchar" MaxLength="1000" />
+          <Property Name="thumbnailExt" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Currency_currencyType">
+          <End Role="currencyType" Type="DB_40114_codeclubModel.Store.currencyType" Multiplicity="0..1" />
+          <End Role="Currency" Type="DB_40114_codeclubModel.Store.Currency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currencyType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Currency">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Currency">
+          <End Role="Currency" Type="DB_40114_codeclubModel.Store.Currency" Multiplicity="0..1" />
+          <End Role="Invoice" Type="DB_40114_codeclubModel.Store.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="currency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_person">
+          <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
+          <End Role="Invoice" Type="DB_40114_codeclubModel.Store.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="receiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_person1">
+          <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
+          <End Role="Invoice" Type="DB_40114_codeclubModel.Store.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="senderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Reciever">
+          <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
+          <End Role="Service" Type="DB_40114_codeclubModel.Store.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="receiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Sender">
+          <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
+          <End Role="Service" Type="DB_40114_codeclubModel.Store.Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="senderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_40114_codeclubModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AccContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Service" EntityType="DB_40114_codeclubModel.Service" />
+          <EntitySet Name="person" EntityType="DB_40114_codeclubModel.person" />
+          <AssociationSet Name="Reciever" Association="DB_40114_codeclubModel.Reciever">
+            <End Role="person" EntitySet="person" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <AssociationSet Name="Sender" Association="DB_40114_codeclubModel.Sender">
+            <End Role="person" EntitySet="person" />
+            <End Role="Service" EntitySet="Service" />
+          </AssociationSet>
+          <EntitySet Name="Currency" EntityType="DB_40114_codeclubModel.Currency" />
+          <EntitySet Name="currencyType" EntityType="DB_40114_codeclubModel.currencyType" />
+          <EntitySet Name="Invoice" EntityType="DB_40114_codeclubModel.Invoice" />
+          <AssociationSet Name="FK_Currency_currencyType" Association="DB_40114_codeclubModel.FK_Currency_currencyType">
+            <End Role="currencyType" EntitySet="currencyType" />
+            <End Role="Currency" EntitySet="Currency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_Currency" Association="DB_40114_codeclubModel.FK_Invoice_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_person" Association="DB_40114_codeclubModel.FK_Invoice_person">
+            <End Role="person" EntitySet="person" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_person1" Association="DB_40114_codeclubModel.FK_Invoice_person1">
+            <End Role="person" EntitySet="person" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="senderId" />
+          <Property Type="Int32" Name="receiverId" />
+          <Property Type="String" Name="serviceName" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="person" Relationship="DB_40114_codeclubModel.Reciever" FromRole="Service" ToRole="person" />
+          <NavigationProperty Name="person1" Relationship="DB_40114_codeclubModel.Sender" FromRole="Service" ToRole="person" />
+        </EntityType>
+        <EntityType Name="person">
+          <Key>
+            <PropertyRef Name="person_id" />
+          </Key>
+          <Property Type="Int32" Name="person_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="fname" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lname" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="thumbnailFile" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="thumbnailExt" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Service" Relationship="DB_40114_codeclubModel.Reciever" FromRole="person" ToRole="Service" />
+          <NavigationProperty Name="Service1" Relationship="DB_40114_codeclubModel.Sender" FromRole="person" ToRole="Service" />
+          <NavigationProperty Name="Invoice" Relationship="DB_40114_codeclubModel.FK_Invoice_person" FromRole="person" ToRole="Invoice" />
+          <NavigationProperty Name="Invoice1" Relationship="DB_40114_codeclubModel.FK_Invoice_person1" FromRole="person" ToRole="Invoice" />
+        </EntityType>
+        <Association Name="Reciever">
+          <End Type="DB_40114_codeclubModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="receiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Sender">
+          <End Type="DB_40114_codeclubModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.Service" Role="Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Service">
+              <PropertyRef Name="senderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="type" />
+          <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="currencyType" Relationship="DB_40114_codeclubModel.FK_Currency_currencyType" FromRole="Currency" ToRole="currencyType" />
+          <NavigationProperty Name="Invoice" Relationship="DB_40114_codeclubModel.FK_Invoice_Currency" FromRole="Currency" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="currencyType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Currency" Relationship="DB_40114_codeclubModel.FK_Currency_currencyType" FromRole="currencyType" ToRole="Currency" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="senderId" />
+          <Property Type="Int32" Name="receiverId" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="currency" />
+          <Property Type="DateTime" Name="date" />
+          <NavigationProperty Name="Currency1" Relationship="DB_40114_codeclubModel.FK_Invoice_Currency" FromRole="Invoice" ToRole="Currency" />
+          <NavigationProperty Name="person" Relationship="DB_40114_codeclubModel.FK_Invoice_person" FromRole="Invoice" ToRole="person" />
+          <NavigationProperty Name="person1" Relationship="DB_40114_codeclubModel.FK_Invoice_person1" FromRole="Invoice" ToRole="person" />
+        </EntityType>
+        <Association Name="FK_Currency_currencyType">
+          <End Type="DB_40114_codeclubModel.currencyType" Role="currencyType" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.Currency" Role="Currency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="currencyType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Currency">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_Currency">
+          <End Type="DB_40114_codeclubModel.Currency" Role="Currency" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="currency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_person">
+          <End Type="DB_40114_codeclubModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="receiverId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice_person1">
+          <End Type="DB_40114_codeclubModel.person" Role="person" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="person">
+              <PropertyRef Name="person_id" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="senderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="AccContext">
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+                <ScalarProperty Name="receiverId" ColumnName="receiverId" />
+                <ScalarProperty Name="senderId" ColumnName="senderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="person">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.person">
+              <MappingFragment StoreEntitySet="person">
+                <ScalarProperty Name="thumbnailExt" ColumnName="thumbnailExt" />
+                <ScalarProperty Name="thumbnailFile" ColumnName="thumbnailFile" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="person_id" ColumnName="person_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currency">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="currencyType">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.currencyType">
+              <MappingFragment StoreEntitySet="currencyType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="receiverId" ColumnName="receiverId" />
+                <ScalarProperty Name="senderId" ColumnName="senderId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Accounting">
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.Service" Width="1.5" PointX="3" PointY="1" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.person" Width="1.5" PointX="0.75" PointY="1" Height="2.3648893229166656" />
+        <AssociationConnector Association="DB_40114_codeclubModel.Reciever" >
+          <ConnectorPoint PointX="2.25" PointY="2.3891174316406247" />
+          <ConnectorPoint PointX="3" PointY="2.3891174316406247" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_40114_codeclubModel.Sender" >
+          <ConnectorPoint PointX="2.25" PointY="1.6320587158203124" />
+          <ConnectorPoint PointX="3" PointY="1.6320587158203124" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.Currency" Width="1.5" PointX="3.375" PointY="4.875" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.currencyType" Width="1.5" PointX="3.375" PointY="8.125" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.Invoice" Width="1.5" PointX="5.625" PointY="3.5" Height="2.7494921874999996" />
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_Currency_currencyType" >
+          <ConnectorPoint PointX="4.125" PointY="8.125" />
+          <ConnectorPoint PointX="4.125" PointY="6.8552864583333317" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_Invoice_Currency" >
+          <ConnectorPoint PointX="4.875" PointY="5.56224609375" />
+          <ConnectorPoint PointX="5.625" PointY="5.56224609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_Invoice_person" >
+          <ConnectorPoint PointX="1.5" PointY="3.7494921875" />
+          <ConnectorPoint PointX="1.5" PointY="4.28099659375" />
+          <ConnectorPoint PointX="1.8229191666666669" PointY="4.2809965937499994" />
+          <ConnectorPoint PointX="1.9895858333333334" PointY="4.28099659375" />
+          <ConnectorPoint PointX="5.625" PointY="4.28099659375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_Invoice_person1" >
+          <ConnectorPoint PointX="1.9062525000000001" PointY="3.7494921875" />
+          <ConnectorPoint PointX="1.9062525000000001" PointY="4.5780007968750009" />
+          <ConnectorPoint PointX="5.625" PointY="4.5780007968750009" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

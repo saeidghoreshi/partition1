@@ -13,12 +13,12 @@ namespace Accounting.Classes
         public string Number { get; set; }
         public DateTime expiryDate { get; set; }
     }
-
+    
     public class CreditCard : Card,ICard
     {
         public IOperationStat Initiate(string CardNumber, DateTime expiryDate)
         {
-            var cardStatus=new CardOperationStat();
+            var cardStatus=new OperationStat();
             cardStatus.setStat(Status.Approved);
             return cardStatus;
         }
@@ -30,19 +30,6 @@ namespace Accounting.Classes
         }
     }
 
-    public class CardOperationStat : OperationStatus,IOperationStat
-    {
-
-        public void setStat(Status status)
-        {
-            this.status = status;
-        }
-
-        public Status getStat()
-        {
-            return this.status;
-        }
-    }
-
+    
 
 }

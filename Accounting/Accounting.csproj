@@ -36,6 +36,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,7 +48,10 @@
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\Card.cs" />
-    <Compile Include="Classes\OperationStatus.cs" />
+    <Compile Include="Classes\Invoice.cs" />
+    <Compile Include="Classes\OperationStat.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Service.cs" />
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Interfaces\IAccount.cs" />
     <Compile Include="Interfaces\IAddress.cs" />
@@ -57,14 +63,36 @@
     <Compile Include="Interfaces\IInvoice.cs" />
     <Compile Include="Interfaces\IOperationStat.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
+    <Compile Include="Interfaces\Service\IService.cs" />
+    <Compile Include="Interfaces\Service\IServiceType.cs" />
     <Compile Include="Interfaces\ITransactionType.cs" />
+    <Compile Include="Interfaces\subAccounts\AP.cs" />
+    <Compile Include="Interfaces\subAccounts\AR.cs" />
+    <Compile Include="Interfaces\subAccounts\CCCash.cs" />
+    <Compile Include="Interfaces\subAccounts\DBCash.cs" />
+    <Compile Include="Interfaces\subAccounts\Dep.cs" />
+    <Compile Include="Interfaces\subAccounts\EE.cs" />
+    <Compile Include="Interfaces\subAccounts\Exp.cs" />
+    <Compile Include="Interfaces\subAccounts\Inc.cs" />
+    <Compile Include="Interfaces\subAccounts\PP.cs" />
+    <Compile Include="Interfaces\subAccounts\TA.cs" />
+    <Compile Include="Interfaces\subAccounts\Wal.cs" />
+    <Compile Include="Models\Accounting.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Accounting.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
+    <None Include="App.Config" />
+    <EntityDeploy Include="Models\Accounting.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Accounting.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
