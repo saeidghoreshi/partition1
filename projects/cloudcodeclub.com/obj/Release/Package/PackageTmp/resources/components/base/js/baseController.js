@@ -31,7 +31,7 @@
 
                 $(window).resize(function () {
                     me.window = { width: window.innerWidth, height: window.innerHeight }
-                    $('#theme1_maintable').css('height', me.window.height+padding + 'px');
+                    $('#theme1_maintable').css('height', me.window.height + padding + 'px');
 
 
                 });
@@ -128,8 +128,8 @@
                     //$('#side-selector').css({ "left": me.sideSelectorWidth(), "top": "80px", "display": "block" });
 
                     //Load WorkFlow
-                    //$("#" + me.getLeft()).html('');
-                    //app.loadWorkFlow();
+
+                    me.loadWorkFlow();
 
                     //building placeholder and load sub-components
                     var dialog = app.openDialog('Create New Office', { width: 300, height: 270 });
@@ -148,7 +148,7 @@
                     //$('#side-selector').css({ "left": me.sideSelectorWidth(), "top": "140px", "display": "block" });
 
                     //building placeholder and load sub-components
-
+                    me.draw1.deleteAll();
                     var dialog = app.openDialog('Create New User', { width: 250, height: 130 });
                     var Id1 = dialog.phId;
 
@@ -169,6 +169,7 @@
                     //$('#side-selector').css({ "left": me.sideSelectorWidth(), "top": "200px", "display": "block" });
                     //building placeholder and load sub-components
 
+                    me.draw1.deleteAll();
                     var dialog = app.openDialog('Manage Permissions', { width: 520, height: 400 });
                     var ph1 = dialog.phId;
 
@@ -197,8 +198,8 @@
                     //$('#side-selector').css({ "left": me.sideSelectorWidth(), "top": "310px", "display": "block" });
 
                     //building placeholder and load sub-components
-
-                    var dialog = app.openDialog('Create New Task', { width: 600, height: 300 });
+                    return;
+                    var dialog = app.openDialog('Create New Task', { width: 600, height: 350 });
                     var Id1 = dialog.phId;
 
                     app.tagReady(Id1, function () {
@@ -212,6 +213,7 @@
                 //TEST Extjs
                 $("#side8").die("click").live({ click: function () {
                     //me.loadExtJSFunction();
+                    me.draw1.deleteAll();
                     var phId = me.getLeft();
                     var callback = function (id) {
 
@@ -232,7 +234,7 @@
                 $("#theme1_loginRequest").die("click").live({ click: function () {
                     //$('#side-selector').css({ "left": me.sideSelectorWidth(), "top": "430px", "display": "block" });
 
-
+                    me.draw1.deleteAll();
                     //building placeholder and load sub-components
 
                     var dialog = app.openDialog('Login', { width: 250, height: 120 });
@@ -281,6 +283,7 @@
                 var me = this;
 
                 var phId = me.getLeft();
+                me.draw1.deleteAll();
                 var callback = function (id) {
 
                     var c = { parentId: phId }
@@ -1043,26 +1046,37 @@
                     $(this).css("display", "none");
 
                 });
-                var callback2 = function (id) {
+                var callback2 = function (input) {
 
-                    var cWorkFlow =
+                    //var dialog = app.openDialog('Organizational View', { width: 800, height: 350 });
+                    //var dialogPH = dialog.phId;
+                    var dialogPH = input.PHId;
+
+                    app.tagReady(dialogPH, function () {
+                        var cWorkFlow =
                         {
-                            id: id,
+                            id: dialogPH,
                             pos:
                             {
-                                left: $('#' + id).position().left,
-                                top: $('#' + id).position().top
+                                left: $('#' + dialogPH).position().left,
+                                top: $('#' + dialogPH).position().top
+
                             },
                             enableDetails: true,
                             task_id: task_id
                         }
 
-                    me.draw1 = new workflow1ControllerClass(cWorkFlow);
-                    me.draw1.init();
+                        me.draw1 = new workflow1ControllerClass(cWorkFlow);
+                        me.draw1.init();
 
-                }
-                app.tagReady(me.id, function () {
-                    app.loader("workflow", callback2, { PHId: me.config.baseController.getLeft() });
+
+                    });
+
+
+                } //end Callback 2
+
+                app.tagReady(me.getLeft(), function () {
+                    app.loader("workflow", callback2, { PHId: me.getLeft() });
                 });
 
             },
@@ -1106,8 +1120,28 @@
                         id: "side5",
                         menusubItems:
                         [
+
                             {
-                                id: "1", title: "Tasks", func: function (a) {
+                                id: "2", title: "New Task", func: function (a) {
+
+                                    //building placeholder and load sub-components
+                                    var dialog = app.openDialog('Create New Task', { width: 600, height: 350 });
+                                    var PH1 = dialog.phId;
+
+                                    app.tagReady(PH1, function () {
+                                        var c =
+                                        {
+                                            id: PH1,
+                                            dialog: dialog
+                                        }
+                                        var defineTaskController = new defineTaskControllerClass(c);
+                                        defineTaskController.init();
+                                    });
+
+                                }
+                            },
+                            {
+                                id: "1", title: "Tasks Map", func: function (a) {
 
                                     //(1)select from Task List
 
@@ -1128,25 +1162,6 @@
                                         };
                                         var taskListController = new taskListControllerClass(c);
                                         taskListController.init();
-                                    });
-
-                                }
-                            },
-                            {
-                                id: "2", title: "New Task", func: function (a) {
-
-                                    //building placeholder and load sub-components
-                                    var dialog = app.openDialog('Create New Task', { width: 600, height: 330 });
-                                    var PH1 = dialog.phId;
-
-                                    app.tagReady(PH1, function () {
-                                        var c =
-                                        {
-                                            id: PH1,
-                                            dialog: dialog
-                                        }
-                                        var defineTaskController = new defineTaskControllerClass(c);
-                                        defineTaskController.init();
                                     });
 
                                 }

@@ -67,7 +67,7 @@
                             data: data
                         }
                     me.menu = new kendoMenuModuleClass(c);
-                    me.menu.init();
+                    //me.menu.init();
 
 
 

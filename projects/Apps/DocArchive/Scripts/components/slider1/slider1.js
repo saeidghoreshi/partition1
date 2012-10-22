@@ -42,7 +42,7 @@
                 + '<div class="pinOpen"></div>'
                 + '<div class="panel1-newButton" topicId="' + me.data[i].id + '"> <b>+</b> </div>'
                 + '<div class="panel1-delButton" topicId="' + me.data[i].id + '"> <b>-</b> </div>'
-                + '<div style="float:left">' + me.data[i].type_name + '</div>'
+                + '<div style="float:left">' + me.data[i].title + '</div>'
 
                 + '</div>';
             $('#' + me.moduleName).append(newTabHeader)
@@ -55,22 +55,19 @@
 
                 var itemId = baseClass.idGenerator('item');
                 newTabContent = '<div topicId="' + me.data[i].children[j].id + '" id="' + itemId
-                    + '" class="panel1ContentItem" style="float:left">' + me.data[i].children[j].type_name + '</div>';
+                    + '" class="panel1ContentItem" style="float:left">' + me.data[i].children[j].title + '</div>';
 
                 $('#' + tabContentId).append(newTabContent);
                 $('#' + itemId).data('data',
-                                {
-
-                                    id: me.data[i].children[j].id,
-                                    parent_id: me.data[i].id,
-                                    title: me.data[i].children[j].type_name,
-                                    description: me.data[i].children[j].type_detail
-                                });
+                {
+                    id: me.data[i].children[j].id,
+                    parent_id: me.data[i].id,
+                    title: me.data[i].children[j].title,
+                    description: me.data[i].children[j].detail
+                });
 
             }
             $('#' + me.moduleName).append('</div>');
-
-            //$('#' + me.moduleName).append(newTabContent);
         }
 
         //Events
@@ -83,60 +80,9 @@
                 $el.next('div').slideUp(100);
             else
                 $el.next('div').slideDown(100);
-
         }
         });
-        $('.bottomPanel').die("click").live({ click: function (e) {
-
-            if ($(this).height() <= 60) {
-                $(this).animate({
-                    height: "200px",
-                    opacity: 0.95
-                }, 1500);
-
-                var result = baseClass.openDialog('New', { width: 400, height: 400 });
-                $('#' + result.phId).ready(function () {
-
-                    
-                    $.ajax(
-                        {
-                            url: '/home/get_NewTopicPage'
-                        }).done(function (data) {
-                            $('#' + result.phId).html(data);
-
-
-                            //AssignEvents
-                            $('#newTopic-form').ready(function () {
-
-                                $('#newTopic-save').click(function () {
-                                    $.ajax(
-                                    {
-                                        url: "/home/saveNewTopic",
-                                        type: "POST",
-                                        data:
-                                        {
-                                            folder_id: App.tree.getSelection()[0].data.id,
-                                            title: $('#newTopic-name').val(),
-                                            description: $('#newTopic-description').val()
-                                        }
-                                    });
-                                    return false;
-                                });
-                            });
-                        });
-                });
-
-
-            }
-
-            else
-                $(this).animate({
-                    height: "60px",
-                    opacity: 0.95
-                }, 1500);
-        }
-
-        });
+        
         $(".panel1-newButton").click(function () {
 
             var meButton = this;
@@ -171,7 +117,7 @@
                                         type: "POST",
                                         data:
                                         {
-                                            folder_id: App.tree.getSelection()[0].data.id,
+                                            folder_id: App.treeMenu.tree.getSelection()[0].data.id,
                                             parent_id: $(meButton).attr("topicId"),
                                             title: $('#SubTopic-title').val(),
                                             description: escape(descriptionPanel['SubTopic-description'].get_content())
@@ -180,7 +126,7 @@
                                         baseClass.closeDialog(dialog);
                                         //Update List
 
-                                        var dataId = App.tree.getSelection()[0].data.id;
+                                        var dataId = App.treeMenu.tree.getSelection()[0].data.id;
                                         App.sliderObject.build(dataId);
                                     });
                                     return false;
@@ -229,7 +175,7 @@
                                         baseClass.closeDialog(dialog);
                                         //Update List
 
-                                        var dataId = App.tree.getSelection()[0].data.id;
+                                        var dataId = App.treeMenu.tree.getSelection()[0].data.id;
                                         App.sliderObject.build(dataId);
                                     });
                                     return false;
@@ -400,7 +346,7 @@
             baseClass.closeDialog(dialog);
 
             //update UI
-            var dataId = App.tree.getSelection()[0].data.id;
+            var dataId = App.treeMenu.tree.getSelection()[0].data.id;
             App.sliderObject.build(dataId);
         });
     }
@@ -439,7 +385,7 @@
                                         type: "POST",
                                         data:
                                         {
-                                            folder_id: App.tree.getSelection()[0].data.id,
+                                            folder_id: App.treeMenu.tree.getSelection()[0].data.id,
                                             topic_id: me.getSelectedItem().data('data').id,
                                             title: $('#SubTopic-title').val(),
                                             description: escape(descriptionPanel['SubTopic-description'].get_content())

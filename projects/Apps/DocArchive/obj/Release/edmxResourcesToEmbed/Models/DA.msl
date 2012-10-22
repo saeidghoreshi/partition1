@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="DOCContext">
-    <EntitySetMapping Name="topicFoldering">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.topicFoldering">
-        <MappingFragment StoreEntitySet="topicFoldering">
-          <ScalarProperty Name="datetime" ColumnName="datetime" />
-          <ScalarProperty Name="is_active" ColumnName="is_active" />
-          <ScalarProperty Name="topic_details" ColumnName="topic_details" />
-          <ScalarProperty Name="topic_title" ColumnName="topic_title" />
-          <ScalarProperty Name="topic_parent_id" ColumnName="topic_parent_id" />
-          <ScalarProperty Name="topic_id" ColumnName="topic_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="topic">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.topic">
         <MappingFragment StoreEntitySet="topic">
@@ -23,6 +11,17 @@
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="parent_id" ColumnName="parent_id" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="foldering">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.foldering">
+        <MappingFragment StoreEntitySet="foldering">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

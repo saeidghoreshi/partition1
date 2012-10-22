@@ -157,6 +157,8 @@
     <Content Include="Scripts\base\scroller\slimScroll.js" />
     <Content Include="Scripts\base\yui\skin.css" />
     <Content Include="Scripts\components\App.js" />
+    <Content Include="Scripts\components\TreeMenu\treemenu.css" />
+    <Content Include="Scripts\components\TreeMenu\treemenu.js" />
     <Content Include="Scripts\components\slider1\images\add.png" />
     <Content Include="Scripts\components\slider1\images\arrow_double_down.png" />
     <Content Include="Scripts\components\slider1\images\arrow_double_up.png" />
@@ -200,6 +202,7 @@
     <Content Include="Views\Home\topics\newTopic.cshtml" />
     <Content Include="Views\Home\topics\SubTopic.cshtml" />
     <Content Include="Views\Home\topics\delTopic.cshtml" />
+    <Content Include="Views\Home\menu\newFolder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

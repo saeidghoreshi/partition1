@@ -160,8 +160,8 @@
                             height: 320,
                             color: '#2F4F4F', //#800000  #2F4F4F  gray
                             size: '8px',
-                            railVisible: true,
-                            alwaysVisible: true
+                            railVisible: false,
+                            alwaysVisible: false
                         });
 
 

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\Currency.cs" />
     <Compile Include="Classes\Invoice.cs" />
     <Compile Include="Classes\OperationStat.cs" />
     <Compile Include="Classes\Person.cs" />

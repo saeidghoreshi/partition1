@@ -56,7 +56,7 @@ namespace MvcApplication1.Controllers
             var pars = Request.Params;
             int topic_id = Convert.ToInt32(pars["topic_id"]);
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
-            DataTable dt = db.fetch("select topic_details from saeid.topicFoldering where is_active=1 and topic_id=" + topic_id + " order by datetime").Tables[0];
+            DataTable dt = db.fetch("select topic_details from saeid.topic where is_active=1 and topic_id=" + topic_id + " order by datetime").Tables[0];
             return Json(new { result = dt.Rows[0][0].ToString() });
         }
 
@@ -66,7 +66,7 @@ namespace MvcApplication1.Controllers
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
             DataTable dt = db.fetch(
                 "select topic_id as type_id,topic_title as type_title, topic_details as type_detail, topic_parent_id as parent_type_id,topic_title as type_name,is_active " +
-                " from saeid.topicFoldering  where is_active=1 order by datetime").Tables[0];
+                " from saeid.topic  where is_active=1 order by datetime").Tables[0];
 
             List<menu> tree = new List<menu> { };
             for (int i = 0; i < dt.Rows.Count; i++) 
@@ -129,7 +129,7 @@ namespace MvcApplication1.Controllers
 
 
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
-            db.exec("update saeid.topicFoldering set topic_title='" + topic_title + "' , topic_details='" + topic_details + "',datetime='" + DateTime.Now.Ticks + "' where topic_id=" + topic_id);
+            db.exec("update saeid.topic set topic_title='" + topic_title + "' , topic_details='" + topic_details + "',datetime='" + DateTime.Now.Ticks + "' where topic_id=" + topic_id);
 
             return Json(new { result = DateTime.Now.Ticks }, JsonRequestBehavior.AllowGet);
 
@@ -142,7 +142,7 @@ namespace MvcApplication1.Controllers
             string topic_id = pars["topic_id"];
 
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
-            db.exec("update saeid.topicFoldering set is_active=0 , datetime='"+DateTime.Now.Ticks+"' where topic_id=" + topic_id);
+            db.exec("update saeid.topic set is_active=0 , datetime='" + DateTime.Now.Ticks + "' where topic_id=" + topic_id);
 
             return Json(new { result = "Done" }, JsonRequestBehavior.AllowGet);
         }
@@ -158,7 +158,7 @@ namespace MvcApplication1.Controllers
             {
                 string parentId = item.Split(',')[0];
                 string id = item.Split(',')[1];
-                db.exec("update saeid.topicFoldering set topic_parent_id=" + ((parentId == "") ? null : "'" + parentId + "'") + " , datetime='" + DateTime.Now.Ticks + "' where topic_id=" + id);
+                db.exec("update saeid.topic set topic_parent_id=" + ((parentId == "") ? null : "'" + parentId + "'") + " , datetime='" + DateTime.Now.Ticks + "' where topic_id=" + id);
             }
             
             return Json(new { result = "Done" }, JsonRequestBehavior.AllowGet);
@@ -176,12 +176,12 @@ namespace MvcApplication1.Controllers
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
             if (topic_parent_id == "")
             {
-                db.exec("insert into saeid.topicFoldering (topic_title,topic_details,datetime)values("
+                db.exec("insert into saeid.topic (topic_title,topic_details,datetime)values("
                  +"'" + topic_title + "','" + topic_details + "','" + DateTime.Now.Ticks + "')");
             }
             else 
             {
-                db.exec("insert into saeid.topicFoldering (topic_parent_id,topic_title,topic_details,datetime)values("
+                db.exec("insert into saeid.topic (topic_parent_id,topic_title,topic_details,datetime)values("
                 + topic_parent_id + ",'" + topic_title + "','" + topic_details + "','" + DateTime.Now.Ticks + "')");
             }
 

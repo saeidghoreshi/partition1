@@ -330,6 +330,14 @@
     <Content Include="resources\modules\kendoMenu\js\kendoMenuModule.js" />
     <Content Include="resources\modules\scroller\css\scrollerModule.css" />
     <Content Include="resources\modules\scroller\js\slimScroll.js" />
+    <Content Include="Scripts\Editor\Guid.txt" />
+    <Content Include="Scripts\Editor\images\rte_colorpicker_gray.jpg" />
+    <Content Include="Scripts\Editor\images\rte_colorpicker_rgb.jpg" />
+    <Content Include="Scripts\Editor\images\rte_icons.gif" />
+    <Content Include="Scripts\Editor\jquery.ocupload-1.1.4.js" />
+    <Content Include="Scripts\Editor\jquery.rte.css" />
+    <Content Include="Scripts\Editor\jquery.rte.js" />
+    <Content Include="Scripts\Editor\jquery.rte.tb.js" />
     <Content Include="Scripts\libraries\ext-4.0.2-ext-all.js" />
     <Content Include="Scripts\libraries\joose.js" />
     <Content Include="Scripts\libraries\KendoUI\examples.css" />

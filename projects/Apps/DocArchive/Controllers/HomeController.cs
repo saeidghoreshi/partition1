@@ -18,13 +18,11 @@ namespace DocArchive.Controllers
 
 
         
-        public class _topicFoldering
+        public class _Foldering
         {
-            public int type_id;
-            public string type_title;
-            public string type_detail;
-            public int? parent_type_id;
-            public string type_name;
+            public int id;
+            public int? parent_id;
+            public string title;
             public bool? is_active;
             public string datetime;
         }
@@ -42,46 +40,58 @@ namespace DocArchive.Controllers
         public class _treeNode
         {
             public int id;
+            public int? parent_id;
+            public string title;
+            public string detail;
             public string iconCls;
-            public string type_name;
-            public int? parent_type_id;
-            public string type_title;
-            public string type_detail;
 
             public List<_treeNode> children;
+        }
+        public JsonResult json_getTopicsFolderingIds()
+        {
+            var context = new DOCContext();
+            List<_Foldering> dt = context.foldering.Select(x => new _Foldering()
+            {
+                id = x.ID,
+                parent_id = x.parent_id,
+                is_active=x.is_active,
+                datetime=x.timestamp
+            })
+                        .Where(x => x.is_active == true)
+                        .OrderBy(x => x.datetime)
+                        .ToList<_Foldering>();
+
+            
+            return Json(dt, JsonRequestBehavior.AllowGet);
+
         }
         public JsonResult json_getTopicsFoldering()
         {   
             var context = new DOCContext();
-            List<_topicFoldering> dt = context.topicFoldering.Select(x => new _topicFoldering()
+            List<_Foldering> dt = context.foldering.Select(x => new _Foldering()
                         {
-                            type_id=x.topic_id,
-                            type_title=x.topic_title, 
-                            type_detail=x.topic_details,
-                            parent_type_id =x.topic_parent_id,
-                            type_name=x.topic_title,
+                            id=x.ID,
+                            title=x.title, 
+                            parent_id =x.parent_id,
                             is_active = x.is_active,
-                            datetime = x.datetime 
+                            datetime = x.timestamp 
                         })
                         .Where(x=>x.is_active==true)
                         .OrderBy(x=>x.datetime)
-                        .ToList<_topicFoldering>();
+                        .ToList<_Foldering>();
 
 
             List<_treeNode> tree = new List<_treeNode> { };
             for (int i = 0; i < dt.Count; i++)
             {
-                if (dt[i].parent_type_id.ToString() == "")
+                if (dt[i].parent_id.ToString() == "")
                 {
                     var node = new _treeNode()
                     {
-                        id = dt[i].type_id,
+                        id = dt[i].id,
                         iconCls = "treei",
-                        type_name = dt[i].type_name,
-                        parent_type_id = dt[i].parent_type_id,
-                        type_title = dt[i].type_title,
-                        type_detail = dt[i].type_detail,
-
+                        parent_id = dt[i].parent_id,
+                        title = dt[i].title,
                         children = new List<_treeNode>()
                     };
                     tree.Add(node);
@@ -95,21 +105,19 @@ namespace DocArchive.Controllers
 
         }
 
-        public void json_getTopicsFoldering_Rec(_treeNode node, List<_topicFoldering> dt)
+        public void json_getTopicsFoldering_Rec(_treeNode node, List<_Foldering> dt)
         {
             for (int j = 0; j < dt.Count; j++)
             {
-                if (Convert.ToInt32(dt[j].parent_type_id)  == node.id)
+                if (Convert.ToInt32(dt[j].parent_id)  == node.id)
                 {
                     var _node = new _treeNode() 
                     {
-                        id = dt[j].type_id,
+                        id = dt[j].id,
                         iconCls = "treei",
-                        type_name = dt[j].type_name.ToString(),
-                        parent_type_id = dt[j].parent_type_id,
-                        type_title = dt[j].type_title.ToString(),
-                        type_detail = dt[j].type_detail.ToString(),
-
+                        parent_id = dt[j].parent_id,
+                        title = dt[j].title.ToString(),
+                        
                         children = new List<_treeNode>()
                     };
                     node.children.Add(_node);
@@ -150,10 +158,9 @@ namespace DocArchive.Controllers
                     {
                         id = dt[i].id,
                         iconCls = "treei",
-                        type_name = dt[i].title,
-                        parent_type_id = dt[i].parent_id,
-                        type_title = dt[i].title,
-                        type_detail = dt[i].description,
+                        parent_id = dt[i].parent_id,
+                        title = dt[i].title,
+                        detail = dt[i].description,
 
                         children = new List<_treeNode>()
                     };
@@ -178,10 +185,9 @@ namespace DocArchive.Controllers
                     {
                         id = dt[j].id,
                         iconCls = "treei",
-                        type_name = dt[j].title,
-                        parent_type_id = dt[j].parent_id,
-                        type_title = dt[j].title,
-                        type_detail = dt[j].description,
+                        parent_id = dt[j].parent_id,
+                        title = dt[j].title,
+                        detail = dt[j].description,
 
                         children = new List<_treeNode>()
                     };
@@ -191,6 +197,8 @@ namespace DocArchive.Controllers
             for (int j = 0; j < node.children.Count; j++)
                 json_get2LevelsTopics_Rec(node.children[j], dt);
         }
+
+
         public PartialViewResult get_NewTopicPage() 
         {
             return PartialView("topics/newTopic");
@@ -294,6 +302,72 @@ namespace DocArchive.Controllers
 
             return Content("Done");
         }
+        public PartialViewResult createNewPage()
+        {
+            return PartialView("menu/newFolder");
+        }
+        public ContentResult saveNewFolder() 
+        {
+            var pars = Request.Params;
+            int folder_id = Convert.ToInt32(pars["folder_id"]);
+            string title= pars["title"];
+
+            var ctx = new DOCContext();
+
+            var newFoler=new Models.foldering
+            {
+                parent_id=folder_id,
+                timestamp=DateTime.Now.ToString(),
+                title=title,
+                is_active=true
+            };
+
+            ctx.foldering.AddObject(newFoler);
+            ctx.SaveChanges();
+            
+            return Content("Saved");
+        }
+        public ContentResult updateFolderTitle() 
+        {
+            var pars = Request.Params;
+            int folder_id = Convert.ToInt32(pars["folder_id"]);
+            string title = pars["title"];
+
+            var ctx = new DOCContext();
+
+            var folder = ctx.foldering.Where(x => x.ID == folder_id).SingleOrDefault();
+            folder.title = title;
+
+            ctx.SaveChanges();
+
+            return Content("Updated");
+        }
+        public ContentResult treeMenuFolderingSaveOrdering() 
+        {
+            var pars = Request.Params;
+            string[] ids = Convert.ToString(pars["ids"]).Split('-');
+            
+
+            var ctx = new DOCContext();
+
+            var folders = ctx.foldering.Where(x => x.is_active==true)
+                .OrderBy(x=>x.ID)
+                .ToList();
+            foreach (var item in ids) 
+            {
+                int parent_id = Convert.ToInt32(item.Split(',')[0]);
+                int id = Convert.ToInt32(item.Split(',')[1]);
+
+                var folderObject = folders.First(x => x.ID == id);
+                folderObject.parent_id = parent_id;
+                folderObject.timestamp = DateTime.Now.Ticks.ToString();
+            }
+
+            ctx.SaveChanges();
+
+            return Content("Ordering Updated");
+        }
+        
         
     }
 }

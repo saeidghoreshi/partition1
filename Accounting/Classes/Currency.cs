@@ -9,7 +9,7 @@ namespace Accounting.Classes
 {
     public class Currency : ICurrency
     {
-        public void createNewCurrency(string CurrencyName, currencyType currencyType)
+        public void createNewCurrency(string CurrencyName, int currencyType)
         {
             using(var ctx=new AccContext())
             {
@@ -27,5 +27,7 @@ namespace Accounting.Classes
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

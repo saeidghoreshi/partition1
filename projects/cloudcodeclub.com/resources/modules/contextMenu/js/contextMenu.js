@@ -43,7 +43,8 @@ Class('contextMenuClass',
             rightClick: function () {
                 var me = this;
 
-                $("#" + me.config.id).die('contextmenu rightclick').live('contextmenu rightclick', function (e) {
+                //$("#" + me.config.id).die('contextmenu rightclick').live('contextmenu rightclick', function (e) {
+                $("#" + me.config.id).die('contextmenu click').live('contextmenu click', function (e) {
                     
                     e.preventDefault();
                     me.rightClickCB(e);

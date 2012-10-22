@@ -19,7 +19,7 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_topic_topicFoldering", "topicFoldering", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DocArchive.Models.topicFoldering), "topic", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DocArchive.Models.topic), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "foldering", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DocArchive.Models.foldering), "topic", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DocArchive.Models.topic), true)]
 
 #endregion
 
@@ -74,22 +74,6 @@ namespace DocArchive.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<topicFoldering> topicFoldering
-        {
-            get
-            {
-                if ((_topicFoldering == null))
-                {
-                    _topicFoldering = base.CreateObjectSet<topicFoldering>("topicFoldering");
-                }
-                return _topicFoldering;
-            }
-        }
-        private ObjectSet<topicFoldering> _topicFoldering;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<topic> topic
         {
             get
@@ -102,18 +86,26 @@ namespace DocArchive.Models
             }
         }
         private ObjectSet<topic> _topic;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<foldering> foldering
+        {
+            get
+            {
+                if ((_foldering == null))
+                {
+                    _foldering = base.CreateObjectSet<foldering>("foldering");
+                }
+                return _foldering;
+            }
+        }
+        private ObjectSet<foldering> _foldering;
 
         #endregion
 
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the topicFoldering EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotopicFoldering(topicFoldering topicFoldering)
-        {
-            base.AddObject("topicFoldering", topicFoldering);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the topic EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -121,6 +113,14 @@ namespace DocArchive.Models
         public void AddTotopic(topic topic)
         {
             base.AddObject("topic", topic);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the foldering EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTofoldering(foldering foldering)
+        {
+            base.AddObject("foldering", foldering);
         }
 
         #endregion
@@ -130,6 +130,185 @@ namespace DocArchive.Models
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="foldering")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class foldering : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new foldering object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static foldering Createfoldering(global::System.Int32 id)
+        {
+            foldering foldering = new foldering();
+            foldering.ID = id;
+            return foldering;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> parent_id
+        {
+            get
+            {
+                return _parent_id;
+            }
+            set
+            {
+                Onparent_idChanging(value);
+                ReportPropertyChanging("parent_id");
+                _parent_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("parent_id");
+                Onparent_idChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _parent_id;
+        partial void Onparent_idChanging(Nullable<global::System.Int32> value);
+        partial void Onparent_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                OntitleChanging(value);
+                ReportPropertyChanging("title");
+                _title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("title");
+                OntitleChanged();
+            }
+        }
+        private global::System.String _title;
+        partial void OntitleChanging(global::System.String value);
+        partial void OntitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> is_active
+        {
+            get
+            {
+                return _is_active;
+            }
+            set
+            {
+                Onis_activeChanging(value);
+                ReportPropertyChanging("is_active");
+                _is_active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("is_active");
+                Onis_activeChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _is_active;
+        partial void Onis_activeChanging(Nullable<global::System.Boolean> value);
+        partial void Onis_activeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String timestamp
+        {
+            get
+            {
+                return _timestamp;
+            }
+            set
+            {
+                OntimestampChanging(value);
+                ReportPropertyChanging("timestamp");
+                _timestamp = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("timestamp");
+                OntimestampChanged();
+            }
+        }
+        private global::System.String _timestamp;
+        partial void OntimestampChanging(global::System.String value);
+        partial void OntimestampChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "topic")]
+        public EntityCollection<topic> topic
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<topic>("DB_40114_codeclubModel.FK_topic_foldering", "topic");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<topic>("DB_40114_codeclubModel.FK_topic_foldering", "topic", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -338,16 +517,16 @@ namespace DocArchive.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_topic_topicFoldering", "topicFoldering")]
-        public topicFoldering topicFoldering
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "foldering")]
+        public foldering foldering
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<topicFoldering>("DB_40114_codeclubModel.FK_topic_topicFoldering", "topicFoldering").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<foldering>("DB_40114_codeclubModel.FK_topic_foldering", "foldering").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<topicFoldering>("DB_40114_codeclubModel.FK_topic_topicFoldering", "topicFoldering").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<foldering>("DB_40114_codeclubModel.FK_topic_foldering", "foldering").Value = value;
             }
         }
         /// <summary>
@@ -355,220 +534,17 @@ namespace DocArchive.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<topicFoldering> topicFolderingReference
+        public EntityReference<foldering> folderingReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<topicFoldering>("DB_40114_codeclubModel.FK_topic_topicFoldering", "topicFoldering");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<foldering>("DB_40114_codeclubModel.FK_topic_foldering", "foldering");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<topicFoldering>("DB_40114_codeclubModel.FK_topic_topicFoldering", "topicFoldering", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="topicFoldering")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class topicFoldering : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new topicFoldering object.
-        /// </summary>
-        /// <param name="topic_id">Initial value of the topic_id property.</param>
-        public static topicFoldering CreatetopicFoldering(global::System.Int32 topic_id)
-        {
-            topicFoldering topicFoldering = new topicFoldering();
-            topicFoldering.topic_id = topic_id;
-            return topicFoldering;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 topic_id
-        {
-            get
-            {
-                return _topic_id;
-            }
-            set
-            {
-                if (_topic_id != value)
-                {
-                    Ontopic_idChanging(value);
-                    ReportPropertyChanging("topic_id");
-                    _topic_id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("topic_id");
-                    Ontopic_idChanged();
-                }
-            }
-        }
-        private global::System.Int32 _topic_id;
-        partial void Ontopic_idChanging(global::System.Int32 value);
-        partial void Ontopic_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> topic_parent_id
-        {
-            get
-            {
-                return _topic_parent_id;
-            }
-            set
-            {
-                Ontopic_parent_idChanging(value);
-                ReportPropertyChanging("topic_parent_id");
-                _topic_parent_id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("topic_parent_id");
-                Ontopic_parent_idChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _topic_parent_id;
-        partial void Ontopic_parent_idChanging(Nullable<global::System.Int32> value);
-        partial void Ontopic_parent_idChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String topic_title
-        {
-            get
-            {
-                return _topic_title;
-            }
-            set
-            {
-                Ontopic_titleChanging(value);
-                ReportPropertyChanging("topic_title");
-                _topic_title = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("topic_title");
-                Ontopic_titleChanged();
-            }
-        }
-        private global::System.String _topic_title;
-        partial void Ontopic_titleChanging(global::System.String value);
-        partial void Ontopic_titleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String topic_details
-        {
-            get
-            {
-                return _topic_details;
-            }
-            set
-            {
-                Ontopic_detailsChanging(value);
-                ReportPropertyChanging("topic_details");
-                _topic_details = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("topic_details");
-                Ontopic_detailsChanged();
-            }
-        }
-        private global::System.String _topic_details;
-        partial void Ontopic_detailsChanging(global::System.String value);
-        partial void Ontopic_detailsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> is_active
-        {
-            get
-            {
-                return _is_active;
-            }
-            set
-            {
-                Onis_activeChanging(value);
-                ReportPropertyChanging("is_active");
-                _is_active = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("is_active");
-                Onis_activeChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _is_active;
-        partial void Onis_activeChanging(Nullable<global::System.Boolean> value);
-        partial void Onis_activeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String datetime
-        {
-            get
-            {
-                return _datetime;
-            }
-            set
-            {
-                OndatetimeChanging(value);
-                ReportPropertyChanging("datetime");
-                _datetime = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("datetime");
-                OndatetimeChanged();
-            }
-        }
-        private global::System.String _datetime;
-        partial void OndatetimeChanging(global::System.String value);
-        partial void OndatetimeChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_topic_topicFoldering", "topic")]
-        public EntityCollection<topic> topic
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<topic>("DB_40114_codeclubModel.FK_topic_topicFoldering", "topic");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<topic>("DB_40114_codeclubModel.FK_topic_topicFoldering", "topic", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<foldering>("DB_40114_codeclubModel.FK_topic_foldering", "foldering", value);
                 }
             }
         }

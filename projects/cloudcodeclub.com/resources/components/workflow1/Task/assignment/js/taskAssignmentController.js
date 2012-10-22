@@ -66,7 +66,7 @@
                         if (me.draw1 != null)
                             me.draw1.deleteAll();
 
-                        app.loadWorkFlow(me.config.task_id);
+                        //app.loadWorkFlow(me.config.task_id);
                     });
                 }
                 });

@@ -20,70 +20,70 @@
             },
             init: function () {
                 var me = this;
-
+                /*
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Name');
                 data.addColumn('string', 'Manager');
                 data.addColumn('string', 'ToolTip');
                 data.addRows([
-                          [{ v: 'Carol1', f: '<div class="node" myId=1 style="width:50px;height:50px"></div>' }, '', ''],
-                          [{ v: 'Carol2', f: '<div class="node" myId=2 style="width:50px;height:50px"></div>' }, 'Carol1', ''],
-                          [{ v: 'Carol3', f: '<div class="node" myId=3 style="width:50px;height:50px"></div>' }, 'Carol1', ''],
-                          [{ v: 'Carol4', f: '<div class="node" myId=4 style="width:50px;height:50px"></div>' }, 'Carol1', ''],
-                          [{ v: 'Carol5', f: '<div class="node" myId=5 style="width:50px;height:50px"></div>' }, 'Carol3', ''],
-                          [{ v: 'Carol6', f: '<div class="node" myId=6 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
-                          [{ v: 'Carol7', f: '<div class="node" myId=7 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
-                          [{ v: 'Carol8', f: '<div class="node" myId=8 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
-                          [{ v: 'Carol9', f: '<div class="node" myId=9 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
-                          [{ v: 'Carol10', f: '<div class="node" myId=10 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
-                          [{ v: 'Carol11', f: '<div class="node" myId=11 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
+                [{ v: 'Carol1', f: '<div class="node" myId=1 style="width:50px;height:50px"></div>' }, '', ''],
+                [{ v: 'Carol2', f: '<div class="node" myId=2 style="width:50px;height:50px"></div>' }, 'Carol1', ''],
+                [{ v: 'Carol3', f: '<div class="node" myId=3 style="width:50px;height:50px"></div>' }, 'Carol1', ''],
+                [{ v: 'Carol4', f: '<div class="node" myId=4 style="width:50px;height:50px"></div>' }, 'Carol1', ''],
+                [{ v: 'Carol5', f: '<div class="node" myId=5 style="width:50px;height:50px"></div>' }, 'Carol3', ''],
+                [{ v: 'Carol6', f: '<div class="node" myId=6 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
+                [{ v: 'Carol7', f: '<div class="node" myId=7 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
+                [{ v: 'Carol8', f: '<div class="node" myId=8 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
+                [{ v: 'Carol9', f: '<div class="node" myId=9 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
+                [{ v: 'Carol10', f: '<div class="node" myId=10 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
+                [{ v: 'Carol11', f: '<div class="node" myId=11 style="width:50px;height:50px"></div>' }, 'Carol5', ''],
 
-                          [{ v: 'Carol12', f: '<div class="node" myId=7 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
-                          [{ v: 'Carol13', f: '<div class="node" myId=8 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
-                          [{ v: 'Carol14', f: '<div class="node" myId=9 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
-                          [{ v: 'Carol15', f: '<div class="node" myId=10 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
-                          [{ v: 'Carol16', f: '<div class="node" myId=11 style="width:50px;height:50px"></div>' }, 'Carol6', '']
+                [{ v: 'Carol12', f: '<div class="node" myId=7 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
+                [{ v: 'Carol13', f: '<div class="node" myId=8 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
+                [{ v: 'Carol14', f: '<div class="node" myId=9 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
+                [{ v: 'Carol15', f: '<div class="node" myId=10 style="width:50px;height:50px"></div>' }, 'Carol6', ''],
+                [{ v: 'Carol16', f: '<div class="node" myId=11 style="width:50px;height:50px"></div>' }, 'Carol6', '']
 
-                        ]);
+                ]);
 
                 var chart = new google.visualization.OrgChart(document.getElementById(me.config.id));
                 chart.draw(data, { allowHtml: true });
 
                 $('.node').die("click").live({ click: function () {
 
-                    var mee = this;
-                    //alert($(this).attr("myId"));
+                var mee = this;
+                //alert($(this).attr("myId"));
 
-                    var left = mee.x + 35;
-                    var top = mee.y - 10;
-                    if (o1 != null) return;
+                var left = mee.x + 35;
+                var top = mee.y - 10;
+                if (o1 != null) return;
 
-                    //get task Assigned user
-
-
-                    var H = '';
-                    for (var i = 0; i < me.config.taskUserSequence.length; i++) {
-                        if (me.config.taskUserSequence[i].org_id == me.getNodeByGui(mee).org_id) {
-                            var node = me.config.taskUserSequence[i];
-                            H += node.fname + ' ' + node.lname + '<br/>';
-                        }
-                    }
-                    if (H == '') return;
+                //get task Assigned user
 
 
-                    var c =
-                            {
-                                pId: "wf-1",
-                                left: left,
-                                top: top,
-                                header: data.result[0].street + ', ' + data.result[0].city + ', ' + data.result[0].postalcode,
-                                content: H
-                            }
+                var H = '';
+                for (var i = 0; i < me.config.taskUserSequence.length; i++) {
+                if (me.config.taskUserSequence[i].org_id == me.getNodeByGui(mee).org_id) {
+                var node = me.config.taskUserSequence[i];
+                H += node.fname + ' ' + node.lname + '<br/>';
+                }
+                }
+                if (H == '') return;
 
-                    app.hideAllPopUpPanels();
-                    //var o1 = new tooltip1Class(c);
-                    //var o1 = new tooltip2Class(c);
-                    //var o1 = new tooltip2Class(c);
+
+                var c =
+                {
+                pId: "wf-1",
+                left: left,
+                top: top,
+                header: data.result[0].street + ', ' + data.result[0].city + ', ' + data.result[0].postalcode,
+                content: H
+                }
+
+                app.hideAllPopUpPanels();
+                //var o1 = new tooltip1Class(c);
+                //var o1 = new tooltip2Class(c);
+                //var o1 = new tooltip2Class(c);
                 }
                 });
 
@@ -93,8 +93,11 @@
                 }
                 });
 
+                */
 
-                return;
+                //DRAW 2D-------------------------------------------------------------------------------
+
+
                 //delete all layers
                 me.deleteAll();
 
@@ -110,10 +113,9 @@
 
 
 
-
-                    //                    me.buildTree(me.config.pos);
-                    //                    me.pushTaskSequenceLayer();
-                    //                    me.assignEvents();
+                    me.buildTree(me.config.pos);
+                    me.pushTaskSequenceLayer();
+                    me.assignEvents();
                 });
             }, //Function End
 
@@ -195,8 +197,9 @@
                 var basePos = me.config.pos;
 
                 draw2d.Connection.setDefaultRouter(new draw2d.FanConnectionRouter());
-                me.config.workflow = new draw2d.Workflow(me.config.id);
 
+                me.config.workflow = new draw2d.Workflow(me.config.id);
+                
 
                 var newNode = new draw2d.Person(me.config.Nodes[0].logo + '.png');
                 newNode.setDeleteable(false);
@@ -367,7 +370,7 @@
                                 var left = node.x;
                                 var top = node.y;
 
-                                var id = app.idGenerator(me.config.id );
+                                var id = app.idGenerator(me.config.id);
                                 $('body').append('<div id="' + id + '"></div>');
                                 var tag = $('#' + id);
 

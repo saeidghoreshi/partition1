@@ -63,8 +63,8 @@
                     height: "300px",
                     color: '#0B3B39',
                     size: '8px',
-                    railVisible: true,
-                    alwaysVisible: true
+                    railVisible: false,
+                    alwaysVisible: false
                 });
                 //Events
                 $('#curUserTimeTrackerForm_saveBtn').button().die("click").live({ click: function () {

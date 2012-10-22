@@ -92,12 +92,14 @@ Class('applicationClass',
 
                 var me = this;
 
+
                 YAHOO.util.Get.css(moduleLib[componentName].css, {});
                 YAHOO.util.Get.script(moduleLib[componentName].js, {
                     onSuccess: function (obj) {
 
                         //check if component is already loaded
                         if (me.moduleLibLoaded[componentName] !== undefined) {
+                            
                             initiatorCallback(pars);
                             return;
                         }
@@ -152,7 +154,7 @@ Class('applicationClass',
                     resizable: false,
                     closable: true,
                     closeAction: 'destroy',
-                    modal: true,
+                    modal: false,
                     autoScroll: true,
                     animCollapse: true,
                     animateTarget: 'body'

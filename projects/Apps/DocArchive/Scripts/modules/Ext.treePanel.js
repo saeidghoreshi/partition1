@@ -6,7 +6,7 @@ Ext.define('Ext.treePanelClass',
         this.callParent(arguments);
     },
 
-    
+
     constructor: function (config) {
 
         var me = this;
@@ -95,9 +95,9 @@ Ext.define('Ext.treePanelClass',
                     emptyText: 'Search'
                 });
 
-            }   
+            }
         }
-     
+
         // TREE EDITING PLUGIN
         if (me.config.cellEditing) {
             config.plugins =
@@ -150,8 +150,11 @@ Ext.define('Ext.treePanelClass',
         //index >> [index].data.id
     },
     getSelectedNodeById: function (id) {
-        
+
         return this.getStore().getNodeById(id);
+    },
+    refresh: function () {
+        this.getStore().load();
     },
     afterRender: function () {
         var me = this;

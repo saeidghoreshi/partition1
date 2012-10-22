@@ -10,7 +10,7 @@ namespace Accounting.Interfaces
     public enum currencyStatus { Active = 1, Inactive = 2 }
     public interface ICurrency 
     {
-        void createNewCurrency(string CurrencyName , currencyType currencyType);
+        void createNewCurrency(string CurrencyName , int currencyType);
         void setStatus(currencyStatus status);
     }
     
