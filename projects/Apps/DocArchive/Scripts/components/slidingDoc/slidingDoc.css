@@ -1,8 +1,8 @@
-﻿.panel1
+﻿﻿.slidingDoc_Panel
 {
     font:11px tahoma;
 }
-.panel1Header
+.slidingDoc_Panel_Header
 {   
     height:20px;
     border:1px solid Gray;
@@ -12,27 +12,27 @@
     background: url('images/bg.png');
     cursor: pointer;
 }
-.panel1Content
+.slidingDoc_Panel_List
 {   
     background: #e2e2e2;
     border:1px solid Gray;
     padding:15px;
     margin-bottom: 1px;
 }
-.panel1ContentItem
+.slidingDoc_Panel_List_Item
 {   
     color: teal;
     padding-right: 10px;
     cursor: pointer;
 	text-decoration: underline;
 }
-.panel1ContentItem:hover
+.slidingDoc_Panel_List_Item:hover
 {   
     color: red;
     text-decoration: none;
 }
 
-.pinOpen
+.slidingDoc_Panel_Header_PinOpen
 {
     background: url('images/pin_black.png') no-repeat  ;
     background-position: left;
@@ -41,7 +41,7 @@
     
     float:left;
 }
-.pinClose
+.slidingDoc_Panel_Header_PinClose
 {
     background: url('images/pin_pencil.png') no-repeat  ;
     background-position: left;
@@ -49,20 +49,6 @@
     height:20px;
     
     float:left;
-}
-
-.bottomPanel-new  
-{ 
-    position:fixed; 
-    bottom:0px; 
-    left:25%;
-    width:25%;
-    height:60px;
-    border:1px solid gray;
-    background: black;
-    opacity:0.9;
-    filter:alpha(opacity=90); 
-    cursor:pointer;
 }
 .newButton
 {
@@ -80,19 +66,7 @@
     background-position: left;
 }
 
-.bottomPanel-edit  
-{ 
-    position:fixed; 
-    bottom:0px; 
-    left:50%;
-    width:25%;
-    height:60px;
-    border:1px solid gray;
-    background: black;
-    opacity:0.9;
-    filter:alpha(opacity=90); 
-    cursor:pointer;
-}
+
 .editIcon
 {
     background-image: url('images/drawer-icons.1.png');
@@ -103,16 +77,17 @@
     height:25px;
     
 }
-.panel1-newButton
+.slidingDoc_Panel_Header_NewBtn
 {
     float:left;
     width:20px;
     height:20px;
-    }
-    .panel1-delButton
+}
+ 
+.slidingDoc_Panel_Header_DelBtn
 {
     float:left;
     width:20px;
     height:20px;
     
-    }
+}

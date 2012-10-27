@@ -12,3 +12,4 @@ C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Debug\A
 C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\bin\Debug\AWSSDK.xml
 C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\obj\Debug\S3NETAPIConsoleApp.exe
 C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\obj\Debug\S3NETAPIConsoleApp.pdb
+C:\projects\Partitions\partition1\projects\AWS\S3\S3NETAPIConsoleApp\obj\Debug\S3NETAPIConsoleApp.csprojResolveAssemblyReference.cache

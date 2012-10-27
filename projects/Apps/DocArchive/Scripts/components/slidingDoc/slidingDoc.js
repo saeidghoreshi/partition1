@@ -1,7 +1,7 @@
-﻿function slider1(placeHolder) {
+﻿function slidingDoc(placeHolder) {
 
 
-    this.moduleName = baseClass.idGenerator('slider1');
+    this.moduleName = baseClass.idGenerator('slidingDoc');
 
 
     this.resetPlaceHolder = function () {
@@ -38,27 +38,40 @@
     this.loadPage = function () {
         var me = this;
         for (var i = 0; i < me.data.length; i++) {
-            var newTabHeader = '<div class="panel1Header" id="' + baseClass.idGenerator('tabHeader') + '">'
-                + '<div class="pinOpen"></div>'
-                + '<div class="panel1-newButton" topicId="' + me.data[i].id + '"> <b>+</b> </div>'
-                + '<div class="panel1-delButton" topicId="' + me.data[i].id + '"> <b>-</b> </div>'
+
+            //Define Header
+            var slidingDoc_Panel_Header_NewBtn_Id = baseClass.idGenerator('NewButton');
+            var slidingDoc_Panel_Header_DelBtn_Id = baseClass.idGenerator('DelButton');
+
+            var newTabHeader = '<div class="slidingDoc_Panel_Header" id="' + baseClass.idGenerator('slidingDoc_Panel_List') + '">'
+                + '<div class="slidingDoc_Panel_Header_PinOpen"></div>'
+                + '<div class="slidingDoc_Panel_Header_NewBtn" id="' + slidingDoc_Panel_Header_NewBtn_Id + '"> <b>+</b> </div>'
+                + '<div class="slidingDoc_Panel_Header_DelBtn" id="' + slidingDoc_Panel_Header_DelBtn_Id + '"> <b>-</b> </div>'
                 + '<div style="float:left">' + me.data[i].title + '</div>'
 
                 + '</div>';
+
             $('#' + me.moduleName).append(newTabHeader)
 
-            var tabContentId = baseClass.idGenerator('tabContent');
-            var newTabContent = '<div class="panel1Content" style="display:none" id="' + tabContentId + '">';
-            $('#' + me.moduleName).append(newTabContent);
+            //Assign Data to Header components
+            $('#' + slidingDoc_Panel_Header_NewBtn_Id).data('data', { topic_id: me.data[i].id });
+            $('#' + slidingDoc_Panel_Header_DelBtn_Id).data('data', { topic_id: me.data[i].id });
+
+
+            //Define Panel
+            var slidingDoc_Panel_List_Id = baseClass.idGenerator('slidingDoc_Panel_Header');
+            var slidingDoc_Panel_List = '<div class="slidingDoc_Panel_List" style="display:none" id="' + slidingDoc_Panel_List_Id + '">';
+            $('#' + me.moduleName).append(slidingDoc_Panel_List);
 
             for (var j = 0; j < me.data[i].children.length; j++) {
 
-                var itemId = baseClass.idGenerator('item');
-                newTabContent = '<div topicId="' + me.data[i].children[j].id + '" id="' + itemId
-                    + '" class="panel1ContentItem" style="float:left">' + me.data[i].children[j].title + '</div>';
+                var slidingDoc_Panel_List_Item_Id = baseClass.idGenerator('item');
 
-                $('#' + tabContentId).append(newTabContent);
-                $('#' + itemId).data('data',
+                slidingDoc_Panel_List = '<div id="' + slidingDoc_Panel_List_Item_Id
+                    + '" class="slidingDoc_Panel_List_Item" style="float:left">' + me.data[i].children[j].title + '</div>';
+
+                $('#' + slidingDoc_Panel_List_Id).append(slidingDoc_Panel_List);
+                $('#' + slidingDoc_Panel_List_Item_Id).data('data',
                 {
                     id: me.data[i].children[j].id,
                     parent_id: me.data[i].id,
@@ -71,10 +84,10 @@
         }
 
         //Events
-        $('.panel1Header').die("click").live({ click: function () {
+        $('.slidingDoc_Panel_Header').die("click").live({ click: function () {
             $el = $('#' + $(this).attr('id'));
 
-            $('#' + $(this).attr('id') + ' > div:eq(0)').toggleClass('pinClose');
+            $('#' + $(this).attr('id') + ' > div:eq(0)').toggleClass('slidingDoc_Panel_Header_PinClose');
 
             if ($el.next('div:eq(0)').css('display') == 'block')
                 $el.next('div').slideUp(100);
@@ -82,10 +95,11 @@
                 $el.next('div').slideDown(100);
         }
         });
-        
-        $(".panel1-newButton").click(function () {
+
+        $(".slidingDoc_Panel_Header_NewBtn").click(function () {
 
             var meButton = this;
+            var id = $(this).attr("id");
 
             var dialog = baseClass.openDialog('New Sub Topics', { width: 700, height: 500 });
             $('#' + dialog.phId).ready(function () {
@@ -100,8 +114,6 @@
                             //AssignEvents
                             $('#SubTopic-form').ready(function () {
 
-
-
                                 var descriptionPanel = $('#SubTopic-description').rte({
                                     controls_rte: rte_toolbar,
                                     controls_html: html_toolbar,
@@ -110,7 +122,7 @@
                                 });
 
                                 $('#SubTopic-save').click(function () {
-
+                                    
                                     $.ajax(
                                     {
                                         url: "/home/saveNewSubTopic",
@@ -118,7 +130,7 @@
                                         data:
                                         {
                                             folder_id: App.treeMenu.tree.getSelection()[0].data.id,
-                                            parent_id: $(meButton).attr("topicId"),
+                                            parent_id: $('#' + id).data('data').topic_id,
                                             title: $('#SubTopic-title').val(),
                                             description: escape(descriptionPanel['SubTopic-description'].get_content())
                                         }
@@ -128,8 +140,11 @@
 
                                         var dataId = App.treeMenu.tree.getSelection()[0].data.id;
                                         App.sliderObject.build(dataId);
+
+
                                     });
                                     return false;
+
                                 }); //save event
                                 $('#SubTopic-cancel').click(function () {
 
@@ -144,9 +159,11 @@
                         });
             });
         });
-        $(".panel1-delButton").click(function () {
+        $(".slidingDoc_Panel_Header_DelBtn").click(function () {
 
             var meButton = this;
+
+            var id = $(this).attr("id");
 
             var dialog = baseClass.openDialog('Confirmation', { width: 400, height: 100 });
             $('#' + dialog.phId).ready(function () {
@@ -161,20 +178,19 @@
                             $('#delTopic-form').ready(function () {
 
                                 $('#delTopic-ok').click(function () {
+
+                                    var topic_id = $('#' + id).data('data').topic_id;
+
                                     $.ajax(
                                     {
                                         url: "/home/delTopic",
                                         type: "POST",
-                                        data:
-                                        {
-
-                                            topic_id: $(meButton).attr("topicId")
-
-                                        }
+                                        data: { topic_id: topic_id }
                                     }).done(function () {
-                                        baseClass.closeDialog(dialog);
-                                        //Update List
 
+                                        baseClass.closeDialog(dialog);
+
+                                        //Update List
                                         var dataId = App.treeMenu.tree.getSelection()[0].data.id;
                                         App.sliderObject.build(dataId);
                                     });
@@ -190,16 +206,12 @@
                         });
             });
         });
-        $(".panel1ContentItem").die("click").live({ click: function (data) {
+        $(".slidingDoc_Panel_List_Item").die("click").live({ click: function (data) {
 
             me.setSelectedItem($(this).attr("id"));
-
             var dialog = baseClass.openDialog('Description', { width: 700, height: 500 });
-
             me.loadDescriptionPage(dialog.phId, dialog);
-        }
-
-        });
+        }});
     }
     this.loadDescriptionPage = function (placeHolder, dialog) {
         var me = this;
@@ -240,11 +252,11 @@
 
                         width: 15,
                         height: 15,
-                        background: "url('scripts/components/slider1/images/add.png') "
+                        background: "url('scripts/components/slidingDoc/images/add.png') "
 
                     });
-                $('.action1').css({ background: "url('scripts/components/slider1/images/edit.png') " });
-                $('.action2').css({ background: "url('scripts/components/slider1/images/delete.png') " });
+                $('.action1').css({ background: "url('scripts/components/slidingDoc/images/edit.png') " });
+                $('.action2').css({ background: "url('scripts/components/slidingDoc/images/delete.png') " });
                 $('#handle').css(
                     {
                         position: "relative",
@@ -252,7 +264,7 @@
                         height: 25,
                         top: 25,
                         left: 12,
-                        background: "url('scripts/components/slider1/images/arrow_double_down.png') ",
+                        background: "url('scripts/components/slidingDoc/images/arrow_double_down.png') ",
                         cursor: "pointer"
                     });
 
@@ -270,12 +282,12 @@
                 $('#handle').click(function () {
                     if ($('#' + ItemId).position().top !== 0) {
                         $('#' + ItemId).animate({ top: "0px" }, 500);
-                        $('#handle').css({ background: "url('scripts/components/slider1/images/arrow_double_up.png') " });
+                        $('#handle').css({ background: "url('scripts/components/slidingDoc/images/arrow_double_up.png') " });
                     }
 
                     else {
                         $('#' + ItemId).animate({ top: "-25px" }, 500);
-                        $('#handle').css({ background: "url('scripts/components/slider1/images/arrow_double_down.png') " });
+                        $('#handle').css({ background: "url('scripts/components/slidingDoc/images/arrow_double_down.png') " });
                     }
 
 
@@ -298,8 +310,9 @@
                             $('#delTopic-form').ready(function () {
 
                                 $('#delTopic-ok').click(function () {
-                                    me.deleteSubTopic(dialog);
                                     baseClass.closeDialog(cdialog);
+                                    me.deleteSubTopic(dialog);
+
                                     return false;
                                 });
                                 $('#delTopic-cancel').click(function () { baseClass.closeDialog(dialog); return false; });
@@ -331,12 +344,11 @@
 
         var me = this;
         var subTopic = me.getSelectedItem();
-
         var subTopicId = subTopic.data('data').id;
 
         $.ajax(
         {
-            url: "/home/delTopic",
+            url: "/home/`",
             type: "post",
             data:
             {
@@ -396,8 +408,7 @@
                                         me.loadDescriptionPage(placeHolder);
 
                                         //DONT update UI
-
-                                        //set seletec Item
+                                        //set seleted Item
 
                                         selectedItem.data('data').description = escape(descriptionPanel['SubTopic-description'].get_content());
                                         selectedItem.data('data').title = $('#SubTopic-title').val();

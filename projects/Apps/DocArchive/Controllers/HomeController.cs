@@ -84,7 +84,7 @@ namespace DocArchive.Controllers
             List<_treeNode> tree = new List<_treeNode> { };
             for (int i = 0; i < dt.Count; i++)
             {
-                if (dt[i].parent_id.ToString() == "")
+                if (dt[i].parent_id.ToString() == "-1")
                 {
                     var node = new _treeNode()
                     {
@@ -134,7 +134,7 @@ namespace DocArchive.Controllers
             int folderId=Convert.ToInt32(Request.QueryString["folderId"]);
 
             var context = new DOCContext();
-            List<_topic> dt = context.topic.Select(x => new _topic()
+            List<_topic> dt = context.topics.Select(x => new _topic()
             {
                 id = x.id,
                 parent_id = x.parent_id,
@@ -216,12 +216,12 @@ namespace DocArchive.Controllers
         {
             var pars=Request.Params;
             int folder_id = Convert.ToInt32(pars["folder_id"]);
-            string title = Convert.ToString(pars["title"]);
+            string title = Convert.ToString(HttpUtility.HtmlEncode(pars["title"]));
             
             var context = new DOCContext();
-            context.topic.AddObject
+            context.topics.AddObject
                 (
-                new topic() 
+                new topics() 
                 {
                     foldering_id=folder_id,
                     is_active=true,
@@ -240,13 +240,13 @@ namespace DocArchive.Controllers
             var pars = Request.Params;
             int folder_id = Convert.ToInt32(pars["folder_id"]);
             int parent_id = Convert.ToInt32(pars["parent_id"]);
-            string title = Convert.ToString(pars["title"]);
-            string description = Convert.ToString(pars["description"]);
+            string title = Convert.ToString(HttpUtility.HtmlEncode(pars["title"]));
+            string description = Convert.ToString(HttpUtility.HtmlEncode(pars["description"]));
 
             var context = new DOCContext();
-            context.topic.AddObject
+            context.topics.AddObject
                 (
-                new topic()
+                new topics()
                 {
                     foldering_id = folder_id,
                     is_active = true,
@@ -266,7 +266,7 @@ namespace DocArchive.Controllers
             int topic_id= Convert.ToInt32(pars["topic_id"]);
             
             var context = new DOCContext();
-            var topic=context.topic.Where(x=>x.id==topic_id).Single();
+            var topic=context.topics.Where(x=>x.id==topic_id).Single();
             topic.is_active = false;
 
             context.SaveChanges();
@@ -278,7 +278,7 @@ namespace DocArchive.Controllers
             int topic_id = Convert.ToInt32(pars["topic_id"]);
 
             var context = new DOCContext();
-            var topic = context.topic.Where(x => x.id == topic_id).Single();
+            var topic = context.topics.Where(x => x.id == topic_id).Single();
 
             return Content(topic.description);
         }
@@ -287,13 +287,13 @@ namespace DocArchive.Controllers
             var pars = Request.Params;
             int folder_id = Convert.ToInt32(pars["folder_id"]);
             int topic_id = Convert.ToInt32(pars["topic_id"]);
-            string title= Convert.ToString(pars["title"]);
-            string description = Convert.ToString(pars["description"]);
+            string title= Convert.ToString(HttpUtility.HtmlEncode(pars["title"]));
+            string description = Convert.ToString(HttpUtility.HtmlEncode(pars["description"]));
 
 
 
             var context = new DOCContext();
-            var topic = context.topic.Where(x => x.id == topic_id).Single();
+            var topic = context.topics.Where(x => x.id == topic_id).Single();
 
             topic.title = title;
             topic.description = description;
@@ -310,7 +310,7 @@ namespace DocArchive.Controllers
         {
             var pars = Request.Params;
             int folder_id = Convert.ToInt32(pars["folder_id"]);
-            string title= pars["title"];
+            string title = Convert.ToString(HttpUtility.HtmlEncode(pars["title"]));
 
             var ctx = new DOCContext();
 
@@ -345,7 +345,7 @@ namespace DocArchive.Controllers
         public ContentResult treeMenuFolderingSaveOrdering() 
         {
             var pars = Request.Params;
-            string[] ids = Convert.ToString(pars["ids"]).Split('-');
+            string[] ids = Convert.ToString(HttpUtility.HtmlEncode(pars["ids"])).Split('-');
             
 
             var ctx = new DOCContext();

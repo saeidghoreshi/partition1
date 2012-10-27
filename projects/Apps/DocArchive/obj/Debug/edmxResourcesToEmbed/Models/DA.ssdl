@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
+    <EntitySet Name="foldering" EntityType="DB_40114_codeclubModel.Store.foldering" store:Type="Tables" Schema="saeid" />
+    <EntitySet Name="topics" EntityType="DB_40114_codeclubModel.Store.topics" store:Type="Tables" Schema="saeid" />
+    <AssociationSet Name="FK_topic_foldering" Association="DB_40114_codeclubModel.Store.FK_topic_foldering">
+      <End Role="foldering" EntitySet="foldering" />
+      <End Role="topics" EntitySet="topics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="foldering">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="400" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="timestamp" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="topics">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="500" />
+    <Property Name="description" Type="text" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="datetime" Type="nvarchar" MaxLength="100" />
+    <Property Name="foldering_id" Type="int" />
+  </EntityType>
+  <Association Name="FK_topic_foldering">
+    <End Role="foldering" Type="DB_40114_codeclubModel.Store.foldering" Multiplicity="0..1" />
+    <End Role="topics" Type="DB_40114_codeclubModel.Store.topics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foldering">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="topics">
+        <PropertyRef Name="foldering_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

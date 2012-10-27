@@ -19,7 +19,7 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "foldering", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DocArchive.Models.foldering), "topic", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DocArchive.Models.topic), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "foldering", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DocArchive.Models.foldering), "topics", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DocArchive.Models.topics), true)]
 
 #endregion
 
@@ -74,22 +74,6 @@ namespace DocArchive.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<topic> topic
-        {
-            get
-            {
-                if ((_topic == null))
-                {
-                    _topic = base.CreateObjectSet<topic>("topic");
-                }
-                return _topic;
-            }
-        }
-        private ObjectSet<topic> _topic;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<foldering> foldering
         {
             get
@@ -102,18 +86,26 @@ namespace DocArchive.Models
             }
         }
         private ObjectSet<foldering> _foldering;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<topics> topics
+        {
+            get
+            {
+                if ((_topics == null))
+                {
+                    _topics = base.CreateObjectSet<topics>("topics");
+                }
+                return _topics;
+            }
+        }
+        private ObjectSet<topics> _topics;
 
         #endregion
 
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the topic EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotopic(topic topic)
-        {
-            base.AddObject("topic", topic);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the foldering EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -121,6 +113,14 @@ namespace DocArchive.Models
         public void AddTofoldering(foldering foldering)
         {
             base.AddObject("foldering", foldering);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the topics EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotopics(topics topics)
+        {
+            base.AddObject("topics", topics);
         }
 
         #endregion
@@ -290,18 +290,18 @@ namespace DocArchive.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "topic")]
-        public EntityCollection<topic> topic
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_topic_foldering", "topics")]
+        public EntityCollection<topics> topics
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<topic>("DB_40114_codeclubModel.FK_topic_foldering", "topic");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<topics>("DB_40114_codeclubModel.FK_topic_foldering", "topics");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<topic>("DB_40114_codeclubModel.FK_topic_foldering", "topic", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<topics>("DB_40114_codeclubModel.FK_topic_foldering", "topics", value);
                 }
             }
         }
@@ -313,22 +313,22 @@ namespace DocArchive.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="topic")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="topics")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class topic : EntityObject
+    public partial class topics : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new topic object.
+        /// Create a new topics object.
         /// </summary>
         /// <param name="id">Initial value of the id property.</param>
-        public static topic Createtopic(global::System.Int32 id)
+        public static topics Createtopics(global::System.Int32 id)
         {
-            topic topic = new topic();
-            topic.id = id;
-            return topic;
+            topics topics = new topics();
+            topics.id = id;
+            return topics;
         }
 
         #endregion

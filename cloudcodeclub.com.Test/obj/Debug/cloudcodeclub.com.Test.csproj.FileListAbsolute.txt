@@ -29,3 +29,5 @@ C:\projects\Partitions\partition1\cloudcodeclub.com.Test\bin\Debug\Newtonsoft.Js
 C:\projects\Partitions\partition1\cloudcodeclub.com.Test\obj\Debug\cloudcodeclub.com.Test.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\cloudcodeclub.com.Test\obj\Debug\cloudcodeclub.com.Test.dll
 C:\projects\Partitions\partition1\cloudcodeclub.com.Test\obj\Debug\cloudcodeclub.com.Test.pdb
+C:\projects\Partitions\partition1\cloudcodeclub.com.Test\bin\Debug\en\MvcApplication1.resources.dll
+C:\projects\Partitions\partition1\cloudcodeclub.com.Test\bin\Debug\fr\MvcApplication1.resources.dll

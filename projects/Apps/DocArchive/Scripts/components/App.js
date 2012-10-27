@@ -62,10 +62,10 @@ function AppClass() {
     this.sliderObject=null;
     this.initiate = function () {
         var me = this;
-        require(["Scripts/components/slider1/slider1"],
+        require(["Scripts/components/slidingDoc/slidingDoc"],
         function () {
 
-            me.sliderObject = new slider1("docarch");
+            me.sliderObject = new slidingDoc("docarch");
 
         }
      );
@@ -77,11 +77,13 @@ AppClass.prototype = new baseClass();
 AppClass.prototype.buildMenu = function () {
 
     var me = this;
+
     var buildComponent = function (placeHolder) {
-        var me = this;
+        var buildComponent = this;
+
         require(["Scripts/components/TreeMenu/treemenu"],
         function () {
-
+            
             me.treeMenu = new treeMenu();
             me.treeMenu.initiate(placeHolder);
 

@@ -79,3 +79,10 @@ C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\cloudcode
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\MvcApplication1.dll
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\MvcApplication1.pdb
 C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\EntityFramework.dll
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\en\MvcApplication1.resources.dll
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\bin\fr\MvcApplication1.resources.dll
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\MvcApplication1.Views.permission.loginForm.en.resources
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\MvcApplication1.Views.permission.loginForm.fr.resources
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\cloudcodeclub.com.csproj.GenerateResource.Cache
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\en\MvcApplication1.resources.dll
+C:\projects\Partitions\partition1\projects\cloudcodeclub.com\obj\Debug\fr\MvcApplication1.resources.dll
