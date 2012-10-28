@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Currency.cs" />
+    <Compile Include="Classes\CurrencyException.cs" />
     <Compile Include="Classes\Invoice.cs" />
     <Compile Include="Classes\OperationStat.cs" />
     <Compile Include="Classes\Person.cs" />
@@ -58,8 +60,10 @@
     <Compile Include="Interfaces\IAddress.cs" />
     <Compile Include="Interfaces\ICard.cs" />
     <Compile Include="Interfaces\ICity.cs" />
+    <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\ICountry.cs" />
     <Compile Include="Interfaces\ICurrency.cs" />
+    <Compile Include="Interfaces\ICustomException.cs" />
     <Compile Include="Interfaces\IFee.cs" />
     <Compile Include="Interfaces\IInvoice.cs" />
     <Compile Include="Interfaces\IOperationStat.cs" />

@@ -6,7 +6,7 @@ using Accounting.Classes;
 
 namespace Accounting.Interfaces.subAccounts
 {
-    public class PPAccount : OEAccount, IAccount
+    public class PPAccount : OEAccount//, IAccount
     {
         CATEGORYTYPE CatTYPE = CATEGORYTYPE.Inc;
         CATEGORYTYPE TYPE { get { return CatTYPE; } }

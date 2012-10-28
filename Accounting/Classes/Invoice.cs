@@ -9,21 +9,46 @@ namespace Accounting.Classes
 {
     public class Invoice:IInvoice
     {
+        protected int sender_id { set; get; }
+        protected int receiver_id { set; get; }
+        protected decimal amount { set; get; }
+        protected int currency_id { set; get; }
+        protected string timestamp { set; get; }
+        protected int service_id { set; get; }
+
         public void createNewByExistingPersons(int senderId, int receiverId, int serviceId, decimal amount, int currencyId)
         {
             using (var ctx = new AccContext()) 
             {
-                var newIncoice=new Models.Invoice()
+                var newIncoice=new Models.invoice()
                 {
-                    receiverId=receiverId,
-                    senderId=senderId,
-                    date=DateTime.Now,
+                    receiver_id=receiverId,
+                    sender_id=senderId,
+                    timestamp=DateTime.Now.Ticks.ToString(),
                     amount=amount,
-                    currency=currencyId
+                    currency_id=currencyId
                 };
-                ctx.Invoice.AddObject(newIncoice);
+                ctx.invoice.AddObject(newIncoice);
                 ctx.SaveChanges();
 
+            }
+        }
+
+        public invoiceOperationStatus Create(int sender_id, int receiver_id, decimal amount, int currency_id, string timestamp, int service_id)
+        {
+            using (var ctx = new AccContext())
+            {
+                var newAPAccount = new invoice()
+                {
+                    receiver_id = receiver_id,
+                    sender_id = sender_id,
+                    amount = amount,
+                    currency_id = currency_id,
+                    timestamp = timestamp,
+                    service_id = service_id
+                };
+
+                return accountOperationStatus.Approved;
             }
         }
 

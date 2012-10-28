@@ -22,31 +22,49 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="reset_GLTypeSeed" FunctionName="DB_40114_codeclubModel.Store.reset_GLTypeSeed" />
     <EntitySetMapping Name="Currency">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.Currency">
         <MappingFragment StoreEntitySet="Currency">
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="type_id" ColumnName="type_id" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="currencyType">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.currencyType">
-        <MappingFragment StoreEntitySet="currencyType">
+    <EntitySetMapping Name="CurrencyType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.CurrencyType">
+        <MappingFragment StoreEntitySet="CurrencyType">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Invoice">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.Invoice">
-        <MappingFragment StoreEntitySet="Invoice">
-          <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="currency" ColumnName="currency" />
+    <EntitySetMapping Name="GLType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.GLType">
+        <MappingFragment StoreEntitySet="GLType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoice">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoice">
+        <MappingFragment StoreEntitySet="invoice">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="service_id" ColumnName="service_id" />
           <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="receiverId" ColumnName="receiverId" />
-          <ScalarProperty Name="senderId" ColumnName="senderId" />
+          <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+          <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.CategoryType">
+        <MappingFragment StoreEntitySet="CategoryType">
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

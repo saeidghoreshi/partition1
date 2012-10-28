@@ -1,27 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
+    <EntitySet Name="CategoryType" EntityType="DB_40114_codeclubModel.Store.CategoryType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="Currency" EntityType="DB_40114_codeclubModel.Store.Currency" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="currencyType" EntityType="DB_40114_codeclubModel.Store.currencyType" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="Invoice" EntityType="DB_40114_codeclubModel.Store.Invoice" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="CurrencyType" EntityType="DB_40114_codeclubModel.Store.CurrencyType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="GLType" EntityType="DB_40114_codeclubModel.Store.GLType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoice" EntityType="DB_40114_codeclubModel.Store.invoice" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="Service" EntityType="DB_40114_codeclubModel.Store.Service" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Currency_currencyType" Association="DB_40114_codeclubModel.Store.FK_Currency_currencyType">
-      <End Role="currencyType" EntitySet="currencyType" />
-      <End Role="Currency" EntitySet="Currency" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Invoice_Currency" Association="DB_40114_codeclubModel.Store.FK_Invoice_Currency">
-      <End Role="Currency" EntitySet="Currency" />
-      <End Role="Invoice" EntitySet="Invoice" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Invoice_person" Association="DB_40114_codeclubModel.Store.FK_Invoice_person">
-      <End Role="person" EntitySet="person" />
-      <End Role="Invoice" EntitySet="Invoice" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Invoice_person1" Association="DB_40114_codeclubModel.Store.FK_Invoice_person1">
-      <End Role="person" EntitySet="person" />
-      <End Role="Invoice" EntitySet="Invoice" />
-    </AssociationSet>
     <AssociationSet Name="Reciever" Association="DB_40114_codeclubModel.Store.Reciever">
       <End Role="person" EntitySet="person" />
       <End Role="Service" EntitySet="Service" />
@@ -31,31 +17,46 @@
       <End Role="Service" EntitySet="Service" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="CategoryType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="Currency">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="type" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="type_id" Type="int" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="currencyType">
+  <EntityType Name="CurrencyType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="GLType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="invoice">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="nvarchar" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="Invoice">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="senderId" Type="int" />
-    <Property Name="receiverId" Type="int" />
-    <Property Name="amount" Type="decimal" />
-    <Property Name="currency" Type="int" />
-    <Property Name="date" Type="datetime" />
+    <Property Name="receiver_id" Type="int" Nullable="false" />
+    <Property Name="sender_id" Type="int" Nullable="false" />
+    <Property Name="currency_id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="decimal" Nullable="false" />
+    <Property Name="service_id" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="nvarchar" Nullable="false" MaxLength="200" />
   </EntityType>
   <EntityType Name="Service">
     <Key>
@@ -76,54 +77,6 @@
     <Property Name="thumbnailFile" Type="nvarchar" MaxLength="1000" />
     <Property Name="thumbnailExt" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK_Currency_currencyType">
-    <End Role="currencyType" Type="DB_40114_codeclubModel.Store.currencyType" Multiplicity="0..1" />
-    <End Role="Currency" Type="DB_40114_codeclubModel.Store.Currency" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="currencyType">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Currency">
-        <PropertyRef Name="type" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Invoice_Currency">
-    <End Role="Currency" Type="DB_40114_codeclubModel.Store.Currency" Multiplicity="0..1" />
-    <End Role="Invoice" Type="DB_40114_codeclubModel.Store.Invoice" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Currency">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Invoice">
-        <PropertyRef Name="currency" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Invoice_person">
-    <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
-    <End Role="Invoice" Type="DB_40114_codeclubModel.Store.Invoice" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="person">
-        <PropertyRef Name="person_id" />
-      </Principal>
-      <Dependent Role="Invoice">
-        <PropertyRef Name="receiverId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Invoice_person1">
-    <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
-    <End Role="Invoice" Type="DB_40114_codeclubModel.Store.Invoice" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="person">
-        <PropertyRef Name="person_id" />
-      </Principal>
-      <Dependent Role="Invoice">
-        <PropertyRef Name="senderId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="Reciever">
     <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
     <End Role="Service" Type="DB_40114_codeclubModel.Store.Service" Multiplicity="*" />
@@ -148,4 +101,5 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="reset_GLTypeSeed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Accounting" />
 </Schema>

@@ -15,7 +15,19 @@ namespace Accounting
     {
         static void Main(string[] args)
         {
-            new ServiceManagement().CreateNewService();
+            //new ServiceManagement().CreateNewService();
+            //new CurrencyManagement().run();
+
+
+            var result1=new Controller().SetupGLTypes();
+            var result2 = new Controller().SetupCurrencyTypes();
+            var result3 = new Controller().SetupCategories();
+            
+            
+            
+            Console.WriteLine("GL Types : "+result1);
+            Console.WriteLine("Currency Types : " + result2);
+            Console.WriteLine("Category Types : " + result3);
 
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
@@ -51,5 +63,20 @@ namespace Accounting
             //s.CreateNewServiceByExistingPersons(70, 71, "My Service Noew");
             //Console.WriteLine((s.loadServiceById(1) as Models.Service).serviceName);
         } 
+    }
+    public class CurrencyManagement 
+    {
+        public void run() 
+        {
+            Accounting.Classes.Currency x = new Classes.Currency();
+            x.createNewCurrency("CAD",1);
+        }
+    }
+    public class ApplicationManagement
+    {
+        public void run()
+        {
+            
+        }
     }
 }

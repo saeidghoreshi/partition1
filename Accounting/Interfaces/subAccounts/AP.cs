@@ -3,25 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Accounting.Classes;
+using Accounting.Models;
 
 namespace Accounting.Interfaces.subAccounts
 {
-    public class APAccount : OEAccount, IAccount
+    public class APAccount : OEAccount//, IAccount
     {
         CATEGORYTYPE CatTYPE = CATEGORYTYPE.Inc;
         CATEGORYTYPE TYPE { get { return CatTYPE; } }
 
-        public IOperationStat initiate()
+
+
+        public accountOperationStatus Create()
+        {
+            using(var ctx=new  AccContext())
+            {
+
+                return accountOperationStatus.Approved;
+            }
+        }
+
+        public accountOperationStatus Suspend()
         {
             throw new NotImplementedException();
         }
 
-        public IOperationStat suspend()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IOperationStat close()
+        public accountOperationStatus Close()
         {
             throw new NotImplementedException();
         }

@@ -21,10 +21,6 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "Reciever", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "Service", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.Service), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "Sender", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "Service", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.Service), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_Currency_currencyType", "currencyType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currencyType), "Currency", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.Currency), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_Invoice_Currency", "Currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.Currency), "Invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.Invoice), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_Invoice_person", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "Invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.Invoice), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_Invoice_person1", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "Invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.Invoice), true)]
 
 #endregion
 
@@ -127,34 +123,66 @@ namespace Accounting.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<currencyType> currencyType
+        public ObjectSet<CurrencyType> CurrencyType
         {
             get
             {
-                if ((_currencyType == null))
+                if ((_CurrencyType == null))
                 {
-                    _currencyType = base.CreateObjectSet<currencyType>("currencyType");
+                    _CurrencyType = base.CreateObjectSet<CurrencyType>("CurrencyType");
                 }
-                return _currencyType;
+                return _CurrencyType;
             }
         }
-        private ObjectSet<currencyType> _currencyType;
+        private ObjectSet<CurrencyType> _CurrencyType;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Invoice> Invoice
+        public ObjectSet<GLType> GLType
         {
             get
             {
-                if ((_Invoice == null))
+                if ((_GLType == null))
                 {
-                    _Invoice = base.CreateObjectSet<Invoice>("Invoice");
+                    _GLType = base.CreateObjectSet<GLType>("GLType");
                 }
-                return _Invoice;
+                return _GLType;
             }
         }
-        private ObjectSet<Invoice> _Invoice;
+        private ObjectSet<GLType> _GLType;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<invoice> invoice
+        {
+            get
+            {
+                if ((_invoice == null))
+                {
+                    _invoice = base.CreateObjectSet<invoice>("invoice");
+                }
+                return _invoice;
+            }
+        }
+        private ObjectSet<invoice> _invoice;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CategoryType> CategoryType
+        {
+            get
+            {
+                if ((_CategoryType == null))
+                {
+                    _CategoryType = base.CreateObjectSet<CategoryType>("CategoryType");
+                }
+                return _CategoryType;
+            }
+        }
+        private ObjectSet<CategoryType> _CategoryType;
 
         #endregion
 
@@ -185,19 +213,47 @@ namespace Accounting.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the currencyType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the CurrencyType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddTocurrencyType(currencyType currencyType)
+        public void AddToCurrencyType(CurrencyType currencyType)
         {
-            base.AddObject("currencyType", currencyType);
+            base.AddObject("CurrencyType", currencyType);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Invoice EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the GLType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToInvoice(Invoice invoice)
+        public void AddToGLType(GLType gLType)
         {
-            base.AddObject("Invoice", invoice);
+            base.AddObject("GLType", gLType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the invoice EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToinvoice(invoice invoice)
+        {
+            base.AddObject("invoice", invoice);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CategoryType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCategoryType(CategoryType categoryType)
+        {
+            base.AddObject("CategoryType", categoryType);
+        }
+
+        #endregion
+
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public int reset_GLTypeSeed()
+        {
+            return base.ExecuteFunction("reset_GLTypeSeed");
         }
 
         #endregion
@@ -207,6 +263,87 @@ namespace Accounting.Models
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="CategoryType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CategoryType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CategoryType object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static CategoryType CreateCategoryType(global::System.Int32 id)
+        {
+            CategoryType categoryType = new CategoryType();
+            categoryType.ID = id;
+            return categoryType;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -265,24 +402,24 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> type
+        public Nullable<global::System.Int32> type_id
         {
             get
             {
-                return _type;
+                return _type_id;
             }
             set
             {
-                OntypeChanging(value);
-                ReportPropertyChanging("type");
-                _type = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("type");
-                OntypeChanged();
+                Ontype_idChanging(value);
+                ReportPropertyChanging("type_id");
+                _type_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("type_id");
+                Ontype_idChanged();
             }
         }
-        private Nullable<global::System.Int32> _type;
-        partial void OntypeChanging(Nullable<global::System.Int32> value);
-        partial void OntypeChanged();
+        private Nullable<global::System.Int32> _type_id;
+        partial void Ontype_idChanging(Nullable<global::System.Int32> value);
+        partial void Ontype_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -311,89 +448,25 @@ namespace Accounting.Models
         #endregion
 
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Currency_currencyType", "currencyType")]
-        public currencyType currencyType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currencyType>("DB_40114_codeclubModel.FK_Currency_currencyType", "currencyType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currencyType>("DB_40114_codeclubModel.FK_Currency_currencyType", "currencyType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<currencyType> currencyTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currencyType>("DB_40114_codeclubModel.FK_Currency_currencyType", "currencyType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currencyType>("DB_40114_codeclubModel.FK_Currency_currencyType", "currencyType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Invoice_Currency", "Invoice")]
-        public EntityCollection<Invoice> Invoice
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Invoice>("DB_40114_codeclubModel.FK_Invoice_Currency", "Invoice");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Invoice>("DB_40114_codeclubModel.FK_Invoice_Currency", "Invoice", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="currencyType")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="CurrencyType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class currencyType : EntityObject
+    public partial class CurrencyType : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new currencyType object.
+        /// Create a new CurrencyType object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        public static currencyType CreatecurrencyType(global::System.Int32 id)
+        public static CurrencyType CreateCurrencyType(global::System.Int32 id)
         {
-            currencyType currencyType = new currencyType();
+            CurrencyType currencyType = new CurrencyType();
             currencyType.ID = id;
             return currencyType;
         }
@@ -456,53 +529,27 @@ namespace Accounting.Models
         #endregion
 
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Currency_currencyType", "Currency")]
-        public EntityCollection<Currency> Currency
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Currency>("DB_40114_codeclubModel.FK_Currency_currencyType", "Currency");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Currency>("DB_40114_codeclubModel.FK_Currency_currencyType", "Currency", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="Invoice")]
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="GLType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Invoice : EntityObject
+    public partial class GLType : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new Invoice object.
+        /// Create a new GLType object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        public static Invoice CreateInvoice(global::System.Int32 id)
+        public static GLType CreateGLType(global::System.Int32 id)
         {
-            Invoice invoice = new Invoice();
-            invoice.ID = id;
-            return invoice;
+            GLType gLType = new GLType();
+            gLType.ID = id;
+            return gLType;
         }
 
         #endregion
@@ -541,55 +588,172 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> senderId
+        public global::System.String name
         {
             get
             {
-                return _senderId;
+                return _name;
             }
             set
             {
-                OnsenderIdChanging(value);
-                ReportPropertyChanging("senderId");
-                _senderId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("senderId");
-                OnsenderIdChanged();
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("name");
+                OnnameChanged();
             }
         }
-        private Nullable<global::System.Int32> _senderId;
-        partial void OnsenderIdChanging(Nullable<global::System.Int32> value);
-        partial void OnsenderIdChanged();
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="invoice")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class invoice : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new invoice object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="receiver_id">Initial value of the receiver_id property.</param>
+        /// <param name="sender_id">Initial value of the sender_id property.</param>
+        /// <param name="currency_id">Initial value of the currency_id property.</param>
+        /// <param name="amount">Initial value of the amount property.</param>
+        /// <param name="service_id">Initial value of the service_id property.</param>
+        /// <param name="timestamp">Initial value of the timestamp property.</param>
+        public static invoice Createinvoice(global::System.Int32 id, global::System.Int32 receiver_id, global::System.Int32 sender_id, global::System.Int32 currency_id, global::System.Decimal amount, global::System.Int32 service_id, global::System.String timestamp)
+        {
+            invoice invoice = new invoice();
+            invoice.ID = id;
+            invoice.receiver_id = receiver_id;
+            invoice.sender_id = sender_id;
+            invoice.currency_id = currency_id;
+            invoice.amount = amount;
+            invoice.service_id = service_id;
+            invoice.timestamp = timestamp;
+            return invoice;
+        }
+
+        #endregion
+
+        #region Primitive Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> receiverId
+        public global::System.Int32 ID
         {
             get
             {
-                return _receiverId;
+                return _ID;
             }
             set
             {
-                OnreceiverIdChanging(value);
-                ReportPropertyChanging("receiverId");
-                _receiverId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("receiverId");
-                OnreceiverIdChanged();
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
             }
         }
-        private Nullable<global::System.Int32> _receiverId;
-        partial void OnreceiverIdChanging(Nullable<global::System.Int32> value);
-        partial void OnreceiverIdChanged();
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> amount
+        public global::System.Int32 receiver_id
+        {
+            get
+            {
+                return _receiver_id;
+            }
+            set
+            {
+                Onreceiver_idChanging(value);
+                ReportPropertyChanging("receiver_id");
+                _receiver_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("receiver_id");
+                Onreceiver_idChanged();
+            }
+        }
+        private global::System.Int32 _receiver_id;
+        partial void Onreceiver_idChanging(global::System.Int32 value);
+        partial void Onreceiver_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 sender_id
+        {
+            get
+            {
+                return _sender_id;
+            }
+            set
+            {
+                Onsender_idChanging(value);
+                ReportPropertyChanging("sender_id");
+                _sender_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("sender_id");
+                Onsender_idChanged();
+            }
+        }
+        private global::System.Int32 _sender_id;
+        partial void Onsender_idChanging(global::System.Int32 value);
+        partial void Onsender_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 currency_id
+        {
+            get
+            {
+                return _currency_id;
+            }
+            set
+            {
+                Oncurrency_idChanging(value);
+                ReportPropertyChanging("currency_id");
+                _currency_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("currency_id");
+                Oncurrency_idChanged();
+            }
+        }
+        private global::System.Int32 _currency_id;
+        partial void Oncurrency_idChanging(global::System.Int32 value);
+        partial void Oncurrency_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal amount
         {
             get
             {
@@ -604,179 +768,61 @@ namespace Accounting.Models
                 OnamountChanged();
             }
         }
-        private Nullable<global::System.Decimal> _amount;
-        partial void OnamountChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _amount;
+        partial void OnamountChanging(global::System.Decimal value);
         partial void OnamountChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> currency
+        public global::System.Int32 service_id
         {
             get
             {
-                return _currency;
+                return _service_id;
             }
             set
             {
-                OncurrencyChanging(value);
-                ReportPropertyChanging("currency");
-                _currency = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("currency");
-                OncurrencyChanged();
+                Onservice_idChanging(value);
+                ReportPropertyChanging("service_id");
+                _service_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("service_id");
+                Onservice_idChanged();
             }
         }
-        private Nullable<global::System.Int32> _currency;
-        partial void OncurrencyChanging(Nullable<global::System.Int32> value);
-        partial void OncurrencyChanged();
+        private global::System.Int32 _service_id;
+        partial void Onservice_idChanging(global::System.Int32 value);
+        partial void Onservice_idChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> date
+        public global::System.String timestamp
         {
             get
             {
-                return _date;
+                return _timestamp;
             }
             set
             {
-                OndateChanging(value);
-                ReportPropertyChanging("date");
-                _date = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("date");
-                OndateChanged();
+                OntimestampChanging(value);
+                ReportPropertyChanging("timestamp");
+                _timestamp = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("timestamp");
+                OntimestampChanged();
             }
         }
-        private Nullable<global::System.DateTime> _date;
-        partial void OndateChanging(Nullable<global::System.DateTime> value);
-        partial void OndateChanged();
+        private global::System.String _timestamp;
+        partial void OntimestampChanging(global::System.String value);
+        partial void OntimestampChanged();
 
         #endregion
 
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Invoice_Currency", "Currency")]
-        public Currency Currency1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DB_40114_codeclubModel.FK_Invoice_Currency", "Currency").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DB_40114_codeclubModel.FK_Invoice_Currency", "Currency").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Currency> Currency1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DB_40114_codeclubModel.FK_Invoice_Currency", "Currency");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Currency>("DB_40114_codeclubModel.FK_Invoice_Currency", "Currency", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Invoice_person", "person")]
-        public person person
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person", "person").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person", "person").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<person> personReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person", "person");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person", "person", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Invoice_person1", "person")]
-        public person person1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person1", "person").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person1", "person").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<person> person1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person1", "person");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<person>("DB_40114_codeclubModel.FK_Invoice_person1", "person", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
     
     /// <summary>
@@ -972,50 +1018,6 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Service>("DB_40114_codeclubModel.Sender", "Service", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Invoice_person", "Invoice")]
-        public EntityCollection<Invoice> Invoice
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Invoice>("DB_40114_codeclubModel.FK_Invoice_person", "Invoice");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Invoice>("DB_40114_codeclubModel.FK_Invoice_person", "Invoice", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_Invoice_person1", "Invoice")]
-        public EntityCollection<Invoice> Invoice1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Invoice>("DB_40114_codeclubModel.FK_Invoice_person1", "Invoice");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Invoice>("DB_40114_codeclubModel.FK_Invoice_person1", "Invoice", value);
                 }
             }
         }

@@ -11,15 +11,28 @@ namespace Accounting.Classes
     {
         public void createNewCurrency(string CurrencyName, int currencyType)
         {
-            using(var ctx=new AccContext())
+            try
             {
-                var newCur=new Models.Currency
+                using (var ctx = new AccContext())
                 {
-                    type=currencyType,
-                    name=CurrencyName
-                };
-                ctx.Currency.AddObject(newCur);
-                ctx.SaveChanges();
+                    var newCur = new Models.Currency
+                    {
+                        type_id = currencyType,
+                        name = CurrencyName
+                    };
+                    var result = ctx.Currency.FirstOrDefault(x => x.name == CurrencyName);
+                    if (result == null)
+                    {
+                        ctx.Currency.AddObject(newCur);
+                        ctx.SaveChanges();
+                    }
+                    else
+                        throw new CurrencyException("Currency is duplicated");
+                }
+            }
+            catch(CurrencyException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
