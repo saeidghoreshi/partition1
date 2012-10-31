@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="95f1ac1d-30b9-41f9-b683-4589acc8e756" name="UMLClassDiagram2" linkedPackageId="077cee6a-472e-44a6-bfc0-a0cd8895acd8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="39672d01-f789-4334-915f-8db564320d3c">
+      <profileInstance Id="28f6ab78-8315-4aea-849b-03c3aa69abe8" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b7278396-5b84-4e9f-ad58-fd076fc7eb3a">
+      <profileInstance Id="43c2e4e6-40a1-4d04-ae88-0e466e12f438" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9bb10fb5-7b4a-4216-a1e0-7f56e599c4f4" name="Payment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a4bde1ce-e9a5-4728-9d1c-619c19f8caa6" />
+        <targetEnds>
+          <association Id="a6e02a47-fcca-4433-9180-cb9cfdf842c3" isDerived="false" sourceEndRoleName="Payment" targetEndRoleName="Transaction" isLeaf="false" isAbstract="false">
+            <classMoniker Id="67ca8529-250e-45f1-8ab8-5bcd7bcd0264" LastKnownName="Transaction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0f7fdc02-8997-4b53-a464-15bc56f3d512" name="Payment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e09694fa-246f-4b5c-8420-b5a49af0f7ed" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="846a7cb2-64e5-4e11-b85d-1bbc403f55a5" name="Transaction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="3656fc58-2a23-443c-8c58-6a4d9069762b" name="Lower" value="~">
+                      <elementDefinition Id="931923a3-914b-4f53-bca6-b816399fac86" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="493d4292-a721-494c-8a8a-7612f4a8708d" name="Upper" value="~">
+                      <elementDefinition Id="6acc71cd-726b-4aae-8fab-ea69a89f0c4c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="a314e4c6-d93d-409e-8c28-d16a52fbba61" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a9121fea-4e87-4f6a-bc06-e637b7265a87" />
+          </association>
+          <association Id="72aeb086-e140-4754-b66e-7679ec4effc0" isDerived="false" sourceEndRoleName="Payment" targetEndRoleName="Fee" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e9ed5c7a-2780-4c2f-92af-a5160325a09c" LastKnownName="Fee" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2e582626-5e52-4d72-a16f-ead58ca40b85" name="Payment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bd449966-e155-4cde-866b-66a679334a96" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ef8b6f97-899b-46bb-bfad-33dfa2664ce4" name="Fee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8227a036-29ac-40b7-a21d-b18d61e34b3a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="557f034e-19bf-403b-98b2-53120328220c" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4dcde008-15f5-4693-9c53-e5ac29f09a79" name="InternalPayment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b105081a-5c98-447e-9bc7-97cbdfd0b2cf" />
+        <generalsInternal>
+          <generalization Id="3368c739-7503-46ea-849b-0920eb188d3c" isSubstitutable="false">
+            <classMoniker Id="9bb10fb5-7b4a-4216-a1e0-7f56e599c4f4" LastKnownName="Payment" />
+            <elementDefinition Id="88af73fc-d091-4036-9fef-a444d6f65d38" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="67ca8529-250e-45f1-8ab8-5bcd7bcd0264" name="Transaction" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="513cbc7e-8746-4dd6-b284-f00e068c604b" />
+        <targetEnds>
+          <association Id="c7277f07-7d11-421a-81ee-6d1e873db3ae" isDerived="false" sourceEndRoleName="Transaction" targetEndRoleName="Account" isLeaf="false" isAbstract="false">
+            <classMoniker Id="5032a92a-f657-4ca9-9806-2705a56295d3" LastKnownName="Account" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82307027-8382-4fec-8d4e-7bcf13891411" name="Transaction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a162ebdd-d62d-4a6e-a5f2-930727da42be" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cd472f31-04eb-4431-bbf2-4458208f3dbe" name="Account" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="9ac0f736-b3f5-4542-b3ec-c22bc9eccc13" name="Lower" value="~">
+                      <elementDefinition Id="96b026f2-8064-482f-bb8c-83aba96aa7e0" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="00d44589-21a7-4f27-9e54-a98aec47f37f" name="Upper" value="~">
+                      <elementDefinition Id="6e6f6abc-c133-4e79-9e04-9eabe5f4e573" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="ec7b997c-188e-4c75-8a9d-bc2515fe1166" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d3ab3503-ff8a-4784-98b6-dfe43fd14862" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c7f64b36-a57a-4179-9197-3314d445173e" name="Invoice" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1fb08a2c-5795-40bd-9291-19f2f410e91b" />
+        <targetEnds>
+          <association Id="5cf1a40e-a74f-44a3-996d-9c189d514ed4" isDerived="false" sourceEndRoleName="Invoice" targetEndRoleName="Transaction" isLeaf="false" isAbstract="false">
+            <classMoniker Id="67ca8529-250e-45f1-8ab8-5bcd7bcd0264" LastKnownName="Transaction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="715706e8-3d30-4d66-860b-5927b09e333d" name="Invoice" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="690dd601-9f70-4b43-8a95-e15138ed2228" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="037c7e3c-3825-431d-ab25-83c54035379a" name="Transaction" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="d0966cad-d00b-4e14-acde-9ebf2385e365" name="Lower" value="~">
+                      <elementDefinition Id="8ff8d172-d44b-45e6-9399-050ebc4a2e94" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="448d119a-3bf6-4c1b-b33f-25f7722416cd" name="Upper" value="~">
+                      <elementDefinition Id="b9947321-1ffc-4eaf-90e2-7d79e2840f9c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="4618322e-beef-4173-8710-9040653a21f4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="fecc5bdb-136e-4728-945a-6d1639c810b5" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5150d8c1-3310-457c-bccc-3dbb44f4bc17" name="RealInvoice" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="31adfbeb-6793-4836-a460-abff0d25da18" />
+        <generalsInternal>
+          <generalization Id="dec782fb-4ca8-4227-bae3-5e2693f78e21" isSubstitutable="false">
+            <classMoniker Id="c7f64b36-a57a-4179-9197-3314d445173e" LastKnownName="Invoice" />
+            <elementDefinition Id="a16bc65a-9d76-4ba0-ae93-66498316ef81" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6e74cbe7-aba7-47b8-ba61-47f580192fc5" name="UnrealInvoice" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9984b9d7-fb6c-4807-8d67-5d1d0bc76ef1" />
+        <generalsInternal>
+          <generalization Id="31cca8ab-95d9-427d-a720-9c41e53fc117" isSubstitutable="false">
+            <classMoniker Id="c7f64b36-a57a-4179-9197-3314d445173e" LastKnownName="Invoice" />
+            <elementDefinition Id="891cb446-eaab-4335-842f-c29c1616c6d2" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="eb9e0a37-8693-42cb-b684-09ae9393479f" name="ExternalPayment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="89ac6e2d-c2f8-44e8-9ba7-e4a7e3e485cc" />
+        <generalsInternal>
+          <generalization Id="42fdb725-60e3-49c2-8d31-f7bead488cbb" isSubstitutable="false">
+            <classMoniker Id="9bb10fb5-7b4a-4216-a1e0-7f56e599c4f4" LastKnownName="Payment" />
+            <elementDefinition Id="d5935c9d-0619-4ed6-a531-2204111a8e57" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="1c9cbfd0-0f18-4209-b685-ec33fb162495" isDerived="false" sourceEndRoleName="ExternalPayment" targetEndRoleName="Card" isLeaf="false" isAbstract="false">
+            <classMoniker Id="2f07950e-60d4-48bd-a363-bd4e12e52dbe" LastKnownName="Card" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0b55d33d-d17f-4929-823f-58f18bc9589d" name="ExternalPayment" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="792158a8-f732-4d26-b027-2294f5b3bf11" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="10ff2526-c3e0-4666-90ff-e436bc2409db" name="Card" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cf9ca521-8067-4527-b951-dda323c2ae00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3b184afd-fb3c-43c9-808d-a0a5f6584e3b" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2f07950e-60d4-48bd-a363-bd4e12e52dbe" name="Card" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0574efb2-53b1-421a-aebd-2ddf37e1ec34" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5032a92a-f657-4ca9-9806-2705a56295d3" name="Account" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ed59aa32-658c-4ad1-8490-94e60a964dee" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a27afa84-49ba-40c2-bff3-57436c8d632f" name="CCPayment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b21258c9-6f86-4de5-b90f-5336801a14af" />
+        <generalsInternal>
+          <generalization Id="6713c703-256a-42a4-84b3-e8aba9f7d031" isSubstitutable="false">
+            <classMoniker Id="eb9e0a37-8693-42cb-b684-09ae9393479f" LastKnownName="ExternalPayment" />
+            <elementDefinition Id="002c22a8-57d5-4c32-8378-50d3d0f6836c" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dac00469-2257-4ca3-bf27-1d14f439c60a" name="DBPayment" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="95ae83fc-28ea-4297-a890-05b1f5707fbb" />
+        <generalsInternal>
+          <generalization Id="42319710-10f6-4929-9708-2c07017ddce1" isSubstitutable="false">
+            <classMoniker Id="eb9e0a37-8693-42cb-b684-09ae9393479f" LastKnownName="ExternalPayment" />
+            <elementDefinition Id="98776617-3e85-4c47-9c40-346cbd95bbfd" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e9ed5c7a-2780-4c2f-92af-a5160325a09c" name="Fee" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="29204954-166a-40c8-b4e9-bee37f877390" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="077cee6a-472e-44a6-bfc0-a0cd8895acd8" name="AccountingModelingProject">
+    <elementDefinition Id="66745007-e58f-4e7e-ac76-28fc5c7a4c6f" />
+  </package>
+</logicalClassDesignerModel>

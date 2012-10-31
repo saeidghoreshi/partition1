@@ -207,8 +207,8 @@
     <Content Include="resources\components\base\images\user.png" />
     <Content Include="resources\components\base\js\baseController.js" />
     <Content Include="resources\components\moduleResources.js" />
-    <Content Include="resources\dependency.js" />
-    <Content Include="resources\test.js" />
+    <Content Include="resources\dependency-read.js" />
+    <Content Include="resources\test-read.js" />
     <Content Include="Scripts\libraries\bootstrap\css\bootstrap-responsive.css" />
     <Content Include="Scripts\libraries\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="Scripts\libraries\bootstrap\css\bootstrap.css" />
@@ -307,7 +307,7 @@
     <Content Include="Scripts\libraries\linq\linq.js" />
     <Content Include="Scripts\libraries\linq\linq.min.js" />
     <Content Include="Service1.svc" />
-    <Content Include="TextFile1.txt" />
+    <Content Include="TextFile1-read.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

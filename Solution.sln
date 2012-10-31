@@ -141,6 +141,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GIS", "GIS\GIS.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounting", "Accounting\Accounting.csproj", "{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "AccountingModelingProject", "AccountingModelingProject\AccountingModelingProject.modelproj", "{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clientsideEncapsulation", "projects\clientsideEncapsulation\clientsideEncapsulation.csproj", "{063DE193-BD89-4041-83EA-68E79075ED14}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Solution.vsmdi
@@ -598,6 +602,26 @@ Global
 		{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}.Release|x86.ActiveCfg = Release|x86
 		{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}.Release|x86.Build.0 = Release|x86
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D85B27A4-4C67-443A-A5C7-710EAFAF20CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{063DE193-BD89-4041-83EA-68E79075ED14}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

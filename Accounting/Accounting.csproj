@@ -71,17 +71,17 @@
     <Compile Include="Interfaces\Service\IService.cs" />
     <Compile Include="Interfaces\Service\IServiceType.cs" />
     <Compile Include="Interfaces\ITransactionType.cs" />
-    <Compile Include="Interfaces\subAccounts\AP.cs" />
-    <Compile Include="Interfaces\subAccounts\AR.cs" />
-    <Compile Include="Interfaces\subAccounts\CCCash.cs" />
-    <Compile Include="Interfaces\subAccounts\DBCash.cs" />
-    <Compile Include="Interfaces\subAccounts\Dep.cs" />
-    <Compile Include="Interfaces\subAccounts\EE.cs" />
-    <Compile Include="Interfaces\subAccounts\Exp.cs" />
-    <Compile Include="Interfaces\subAccounts\Inc.cs" />
-    <Compile Include="Interfaces\subAccounts\PP.cs" />
-    <Compile Include="Interfaces\subAccounts\TA.cs" />
-    <Compile Include="Interfaces\subAccounts\Wal.cs" />
+    <Compile Include="Classes\subAccounts\AP.cs" />
+    <Compile Include="Classes\subAccounts\AR.cs" />
+    <Compile Include="Classes\subAccounts\CCCash.cs" />
+    <Compile Include="Classes\subAccounts\DBCash.cs" />
+    <Compile Include="Classes\subAccounts\Dep.cs" />
+    <Compile Include="Classes\subAccounts\EE.cs" />
+    <Compile Include="Classes\subAccounts\Exp.cs" />
+    <Compile Include="Classes\subAccounts\Inc.cs" />
+    <Compile Include="Classes\subAccounts\PP.cs" />
+    <Compile Include="Classes\subAccounts\TA.cs" />
+    <Compile Include="Classes\subAccounts\Wal.cs" />
     <Compile Include="Models\Accounting.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

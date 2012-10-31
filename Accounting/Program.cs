@@ -19,15 +19,22 @@ namespace Accounting
             //new CurrencyManagement().run();
 
 
-            var result1=new Controller().SetupGLTypes();
-            var result2 = new Controller().SetupCurrencyTypes();
-            var result3 = new Controller().SetupCategories();
-            
-            
-            
-            Console.WriteLine("GL Types : "+result1);
+            //var result1=new Controller().SetupGLTypes();
+            //var result2 = new Controller().SetupCurrencyTypes();
+            //var result3 = new Controller().SetupCategories();
+            /*
+             Console.WriteLine("GL Types : "+result1);
             Console.WriteLine("Currency Types : " + result2);
             Console.WriteLine("Category Types : " + result3);
+             */
+
+
+            Console.WriteLine();
+            
+            
+            
+            
+            
 
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
@@ -79,4 +86,31 @@ namespace Accounting
             
         }
     }
+
+
+
+    public class OE 
+    {
+        /// <summary>
+        /// static value
+        /// </summary>
+        public static readonly int OEvalue = 1;
+    }
+    public class ASSET
+    {
+        /// <summary>
+        /// static value
+        /// </summary>
+        public static readonly int ASSETvalue = 2;
+    }
+    public  class OEtypes:OE
+    {
+        /// <summary>
+        /// static value
+        /// </summary>
+        public static readonly int INC = 10;
+        public static readonly int EXP = 20;
+    }
+    
+    
 }

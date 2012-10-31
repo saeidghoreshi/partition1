@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="f0e19745-461f-493a-8d13-5bce4955cfb6" name="UMLUseCaseDiagram2" linkedPackageId="f6c9cad4-248c-4f74-9f78-69b08404c7b9" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="0f26e7df-af96-4ca7-99c0-11d3b85be4fb">
+      <profileInstance Id="f3424201-91b6-49f8-a60f-816dda51f7b2" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="8c8c2044-4fd7-4e65-b133-64472211df32">
+      <profileInstance Id="aa60c0e6-2787-4da5-9cc7-281a8e220f7d" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cdc2f590-f333-4581-95bc-b9d27c2360f6" name="Invoice payment" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="70969d90-f6a5-4ddd-b4c8-821581b42e24" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="434cf50b-2a76-4fb3-bc7a-bf0b8467d61c" name="PaymentCancellation" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9be8fca0-91da-48ac-9d04-d8d7d02cea70" />
+        <additions>
+          <include Id="9c584b1f-cd33-489b-9cda-f65a791197d0">
+            <useCaseMoniker Id="d77e45bd-84b0-4339-9d3e-af2c8b590c62" LastKnownName="Cancel Invoice" />
+            <elementDefinition Id="80ba361b-3aeb-4b44-baa1-c83134a4bd12" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="a33e24cf-4e5e-4667-910f-0a0024798860" name="Subscriber" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="14c06de0-517c-4077-af02-bfcd94a1773a" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="208a0de3-7d89-406e-9d7c-2843f6edc33e" name="Refund" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="994c5d40-4321-4750-b032-de5921571446" />
+        <extendedCases>
+          <extend Id="b111b2c2-e638-40fc-959b-0b7627b10210">
+            <useCaseMoniker Id="434cf50b-2a76-4fb3-bc7a-bf0b8467d61c" LastKnownName="PaymentCancellation" />
+            <elementDefinition Id="a9b77f11-2f8a-4966-994d-d607bad98df0" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="5c77991f-d347-41e2-9766-72534c591149" name="Void" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2e411e04-0d69-4892-bafe-33c48490dfa0" />
+        <extendedCases>
+          <extend Id="b8126f24-5224-4a19-aea9-1235640db36f">
+            <useCaseMoniker Id="434cf50b-2a76-4fb3-bc7a-bf0b8467d61c" LastKnownName="PaymentCancellation" />
+            <elementDefinition Id="baa39187-b2b3-4459-85f5-9f6f2536db40" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="24761993-5b1e-4f1f-8623-2508653fd019" name="New draft" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="20ce05b5-2924-4625-947d-f7ed2cc870b3" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ff7ab693-f3d8-4ea1-a236-6ceaba4a6cae" name="Delete Draft" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3f2aa8a8-69ee-4bf9-90ed-1a27364f91c6" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="cc010149-d7ff-4219-8825-c02c928c844d" name="get Paymentss" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="42d2a27c-6219-40fb-b77d-8110ecda1afb" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="dbd72f73-af93-4678-be9e-240914d7ab64" name="delete invoicee" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5c04ddf3-a57f-4124-8b0d-cdea68fa7079" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fb13c8ab-699c-43e6-804d-415ac9750dd3" name="search invoice" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a7fa60d4-085f-40d5-a6d6-8c22ffdb0922" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1d4366ec-7415-4390-b187-6369ede433c4" name="finaliz invoicee" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="74f5ad64-3f6f-4203-a4fb-630f723dbfe1" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="34f6cc50-8b4e-4b5d-a7f1-24a1d74d6d4f" name="New invoice From Draft" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8544ea2b-3bbc-4111-82e2-241b3d840a4c" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="7c0ce0bd-ff80-489e-8071-1033687e280c" name="New Invoice" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9dc97cb4-b64c-40d9-bde0-3e1ae0c87830" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d77e45bd-84b0-4339-9d3e-af2c8b590c62" name="Cancel Invoice" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cd2507bd-0e7e-4953-8691-e63ae8a167db" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c4341295-85e7-41e0-8f01-f1f65d0db302" name="create Currency" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e0d01ff4-71f2-4f16-9cd7-9a04765dd2f8" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="bec96063-41f5-4f48-8f98-ffdc9aeae1e0" name="create service" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="204944cf-c2bf-43ba-b76e-9002436bcb75" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="65438111-0a06-4a17-a484-8050532783dd" name="create card" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d571e5ba-a6b7-40ad-a8cc-5b9826e17fe0" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a4d18c05-e83c-481f-90c3-4a71fb6f3e73" name="Fresh setupésubscriber" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f288227a-e179-496c-9d53-1070e2597ebb" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="f6c9cad4-248c-4f74-9f78-69b08404c7b9" name="AccountingModelingProject">
+    <elementDefinition Id="66745007-e58f-4e7e-ac76-28fc5c7a4c6f" />
+  </package>
+</useCaseModelRoot>

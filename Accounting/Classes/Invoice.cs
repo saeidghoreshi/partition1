@@ -34,7 +34,7 @@ namespace Accounting.Classes
             }
         }
 
-        public invoiceOperationStatus Create(int sender_id, int receiver_id, decimal amount, int currency_id, string timestamp, int service_id)
+        public accountOperationStatus Create(int sender_id, int receiver_id, decimal amount, int currency_id, string timestamp, int service_id)
         {
             using (var ctx = new AccContext())
             {

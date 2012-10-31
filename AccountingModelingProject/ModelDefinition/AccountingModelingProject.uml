@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="66745007-e58f-4e7e-ac76-28fc5c7a4c6f"
   name="AccountingModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -25,6 +25,1455 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1a21602a-db33-4e48-900b-f103b4d0a100"
+        name="Entity"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c5f94707-e654-4c40-9608-1b640c5500c4"
+        name="Organization"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="36ca4abc-975a-49ca-9fda-6fd5cfe5e741"
+            isSubstitutable="false">
+            <classMoniker
+              Id="1a21602a-db33-4e48-900b-f103b4d0a100"
+              LastKnownName="Entity"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="302162f5-1974-4ea3-8f80-9822591c3b54"
+            isDerived="false"
+            sourceEndRoleName="Organization"
+            targetEndRoleName="Office"
+            isLeaf="false"
+            name="Has"
+            isAbstract="false">
+            <classMoniker
+              Id="521fcabb-234b-41ae-b0af-3a581e45d4fa"
+              LastKnownName="Office"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0a80397e-53bd-475e-872d-4f12f192b698"
+                  name="Organization"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c2b530b1-8076-43ed-971f-02fbef7a970b"
+                  name="Office"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="20e8d285-938b-4acd-b8af-acfc4876e21d"
+                      name="Lower"
+                      value="~" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8e905505-f5a0-44d6-b830-1c7c2f8c7cdb"
+                      name="Upper"
+                      value="~" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="521fcabb-234b-41ae-b0af-3a581e45d4fa"
+        name="Office"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="92eacf54-50e1-4128-9c1c-8f00918635c8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="1a21602a-db33-4e48-900b-f103b4d0a100"
+              LastKnownName="Entity"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="07ed0374-68bc-4cf1-b937-c78175aafb7a"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="1c1861b2-740f-4aea-8897-50d3d684685d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="1a21602a-db33-4e48-900b-f103b4d0a100"
+              LastKnownName="Entity"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="81643e23-3cbc-4257-b58a-476bb40de4cf"
+        name="TemporaryOffice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="9eb089cb-4834-4bec-8d70-3201d323cc53"
+            isSubstitutable="false">
+            <classMoniker
+              Id="521fcabb-234b-41ae-b0af-3a581e45d4fa"
+              LastKnownName="Office"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1e7475de-c079-4303-8e29-02456b316f6f"
+        name="HeadOffice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="87aaf76f-593c-4f65-a150-7324a2a8bda1"
+            isSubstitutable="false">
+            <classMoniker
+              Id="521fcabb-234b-41ae-b0af-3a581e45d4fa"
+              LastKnownName="Office"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bbb09c50-7486-452f-a326-3cb37981134e"
+        name="User"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8c2ce10b-d885-4037-b7a5-5ac56ce8d16e"
+        name="SysUser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="b5c14857-c75b-4965-a7e0-e4b65435fc24"
+            isSubstitutable="false">
+            <classMoniker
+              Id="bbb09c50-7486-452f-a326-3cb37981134e"
+              LastKnownName="User"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e1eb3dbb-683e-4eb9-a157-f065df2fee09"
+        name="AppUser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="40692dc0-fec9-4c64-9ebf-0121f5005836"
+            isSubstitutable="false">
+            <classMoniker
+              Id="bbb09c50-7486-452f-a326-3cb37981134e"
+              LastKnownName="User"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="af19bf49-6a05-424f-872c-c8ec29506ae5"
+        name="AdminUser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="7818980c-6f41-4785-a1fa-916bcdea3c7d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8c2ce10b-d885-4037-b7a5-5ac56ce8d16e"
+              LastKnownName="SysUser"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="410d8a16-702e-46f0-93c7-d5267cf9c571"
+        name="NormalUser"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="2db46f68-fd0c-4388-9618-24a0f558f0e8"
+            isSubstitutable="false">
+            <classMoniker
+              Id="8c2ce10b-d885-4037-b7a5-5ac56ce8d16e"
+              LastKnownName="SysUser"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="75cd15d2-a3e9-4e55-9760-dfddac237a1c"
+        name="EntityType"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="4bcc5ade-d532-40ea-98b6-be2ea2833f13"
+        name="OfficeType"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="feee0e07-5ca8-4f1c-9de7-35179a8eb95a"
+        name="UserType"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="4070c580-0d77-427f-b7bf-07f6f56f46ab"
+        name="SysUserType"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a4bde1ce-e9a5-4728-9d1c-619c19f8caa6"
+        name="Payment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="a9121fea-4e87-4f6a-bc06-e637b7265a87"
+            isDerived="false"
+            sourceEndRoleName="Payment"
+            targetEndRoleName="Transaction"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="513cbc7e-8746-4dd6-b284-f00e068c604b"
+              LastKnownName="Transaction"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e09694fa-246f-4b5c-8420-b5a49af0f7ed"
+                  name="Payment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a314e4c6-d93d-409e-8c28-d16a52fbba61"
+                  name="Transaction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="931923a3-914b-4f53-bca6-b816399fac86"
+                      name="Lower"
+                      value="~" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6acc71cd-726b-4aae-8fab-ea69a89f0c4c"
+                      name="Upper"
+                      value="~" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="557f034e-19bf-403b-98b2-53120328220c"
+            isDerived="false"
+            sourceEndRoleName="Payment"
+            targetEndRoleName="Fee"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="29204954-166a-40c8-b4e9-bee37f877390"
+              LastKnownName="Fee"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd449966-e155-4cde-866b-66a679334a96"
+                  name="Payment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8227a036-29ac-40b7-a21d-b18d61e34b3a"
+                  name="Fee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="ca884d01-6188-49b4-b565-0f06f9f57580"
+        name="EntityType1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b105081a-5c98-447e-9bc7-97cbdfd0b2cf"
+        name="InternalPayment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="88af73fc-d091-4036-9fef-a444d6f65d38"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a4bde1ce-e9a5-4728-9d1c-619c19f8caa6"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="513cbc7e-8746-4dd6-b284-f00e068c604b"
+        name="Transaction"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="d3ab3503-ff8a-4784-98b6-dfe43fd14862"
+            isDerived="false"
+            sourceEndRoleName="Transaction"
+            targetEndRoleName="Account"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ed59aa32-658c-4ad1-8490-94e60a964dee"
+              LastKnownName="Account"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a162ebdd-d62d-4a6e-a5f2-930727da42be"
+                  name="Transaction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ec7b997c-188e-4c75-8a9d-bc2515fe1166"
+                  name="Account"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="96b026f2-8064-482f-bb8c-83aba96aa7e0"
+                      name="Lower"
+                      value="~" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6e6f6abc-c133-4e79-9e04-9eabe5f4e573"
+                      name="Upper"
+                      value="~" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1fb08a2c-5795-40bd-9291-19f2f410e91b"
+        name="Invoice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="fecc5bdb-136e-4728-945a-6d1639c810b5"
+            isDerived="false"
+            sourceEndRoleName="Invoice"
+            targetEndRoleName="Transaction"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="513cbc7e-8746-4dd6-b284-f00e068c604b"
+              LastKnownName="Transaction"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="690dd601-9f70-4b43-8a95-e15138ed2228"
+                  name="Invoice"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4618322e-beef-4173-8710-9040653a21f4"
+                  name="Transaction"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8ff8d172-d44b-45e6-9399-050ebc4a2e94"
+                      name="Lower"
+                      value="~" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b9947321-1ffc-4eaf-90e2-7d79e2840f9c"
+                      name="Upper"
+                      value="~" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="31adfbeb-6793-4836-a460-abff0d25da18"
+        name="RealInvoice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="a16bc65a-9d76-4ba0-ae93-66498316ef81"
+            isSubstitutable="false">
+            <classMoniker
+              Id="1fb08a2c-5795-40bd-9291-19f2f410e91b"
+              LastKnownName="Invoice"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9984b9d7-fb6c-4807-8d67-5d1d0bc76ef1"
+        name="UnrealInvoice"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="891cb446-eaab-4335-842f-c29c1616c6d2"
+            isSubstitutable="false">
+            <classMoniker
+              Id="1fb08a2c-5795-40bd-9291-19f2f410e91b"
+              LastKnownName="Invoice"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="89ac6e2d-c2f8-44e8-9ba7-e4a7e3e485cc"
+        name="ExternalPayment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="d5935c9d-0619-4ed6-a531-2204111a8e57"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a4bde1ce-e9a5-4728-9d1c-619c19f8caa6"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="3b184afd-fb3c-43c9-808d-a0a5f6584e3b"
+            isDerived="false"
+            sourceEndRoleName="ExternalPayment"
+            targetEndRoleName="Card"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0574efb2-53b1-421a-aebd-2ddf37e1ec34"
+              LastKnownName="Card"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="792158a8-f732-4d26-b027-2294f5b3bf11"
+                  name="ExternalPayment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cf9ca521-8067-4527-b951-dda323c2ae00"
+                  name="Card"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0574efb2-53b1-421a-aebd-2ddf37e1ec34"
+        name="Card"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ed59aa32-658c-4ad1-8490-94e60a964dee"
+        name="Account"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b21258c9-6f86-4de5-b90f-5336801a14af"
+        name="CCPayment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="002c22a8-57d5-4c32-8378-50d3d0f6836c"
+            isSubstitutable="false">
+            <classMoniker
+              Id="89ac6e2d-c2f8-44e8-9ba7-e4a7e3e485cc"
+              LastKnownName="ExternalPayment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="95ae83fc-28ea-4297-a890-05b1f5707fbb"
+        name="DBPayment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="98776617-3e85-4c47-9c40-346cbd95bbfd"
+            isSubstitutable="false">
+            <classMoniker
+              Id="89ac6e2d-c2f8-44e8-9ba7-e4a7e3e485cc"
+              LastKnownName="ExternalPayment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="29204954-166a-40c8-b4e9-bee37f877390"
+        name="Fee"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="bad7ad33-c45d-435b-bc36-405bb1a36d34"
+        name="Organization"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="0f57f8f0-e4ab-4e46-9c38-0145f759efb6"
+            isDerived="false"
+            sourceEndRoleName="Organization"
+            targetEndRoleName="Activate Service"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="992ccc8a-fe69-4efa-812a-d575c3f16d12"
+              LastKnownName="Activate Service"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="980c8784-d344-478c-af23-abae2d0a3ae0"
+                  name="Organization"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a833c441-4bb6-4f0c-a81d-bcd1b9a944fc"
+                  name="Activate Service"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="072c5cf1-0ebb-42c9-a884-3d5b9c1a2187"
+            isDerived="false"
+            sourceEndRoleName="Organization"
+            targetEndRoleName="create/update/addressing"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f91caf37-85a2-4d01-b33b-b294351a6b2c"
+              LastKnownName="create/update/addressing"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="58708179-30c9-4c21-af06-9264258fcc9f"
+                  name="Organization"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="03b36df7-728b-46d0-8102-96188778b961"
+                  name="create/update/addressing"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="992ccc8a-fe69-4efa-812a-d575c3f16d12"
+        name="Activate Service"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e6b5f050-30cc-4a3d-97e7-29647d1b2953"
+        name="Accounting Subscription"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="4b4c9d1b-1aa8-480d-beb3-655be3c52dc2">
+            <subsystemMoniker
+              Id="e0c19cd1-c810-4bb5-b850-7706da5cd93d"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </dependency>
+        </suppliersInternal>
+        <extendedCases>
+          <extend
+            Id="61efad79-8379-4761-9ca1-b339ff38f619">
+            <useCaseMoniker
+              Id="992ccc8a-fe69-4efa-812a-d575c3f16d12"
+              LastKnownName="Activate Service"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0cba5b9b-2613-4e76-8802-d8a8b7b4a0b5"
+        name="Membership Check Subscription"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="d506956d-720a-4c43-bbc4-07c70241e4a1">
+            <useCaseMoniker
+              Id="992ccc8a-fe69-4efa-812a-d575c3f16d12"
+              LastKnownName="Activate Service"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f91caf37-85a2-4d01-b33b-b294351a6b2c"
+        name="create/update/addressing"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="cac45648-4c24-4379-b493-ea03859fd64e"
+        name="Office"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="5e6ae1fd-4cdf-4ed3-ac16-81982a6ad453"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="bad7ad33-c45d-435b-bc36-405bb1a36d34"
+              LastKnownName="Organization"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+          <generalization
+            Id="ff19557a-b233-4f76-847f-d9a2385c0e6d"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="5e5b3243-8ff5-457d-8351-0a38577ab14e"
+              LastKnownName="Entity"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="90cb4805-9370-461b-a545-3b19efa84e46"
+        name="Actor1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8fda58ec-c8d4-447c-96a6-ab2a759e85db"
+        name="Payment"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f2dcb277-3d45-4e8c-9789-6883d61193f2"
+        name="InvoicePayment"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="a8cab342-be91-4187-9279-fd3fc666d63d">
+            <useCaseMoniker
+              Id="8fda58ec-c8d4-447c-96a6-ab2a759e85db"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+          <extend
+            Id="eca9a8fc-2f86-491b-9439-098348f25e0f">
+            <useCaseMoniker
+              Id="02719157-1c32-4c7f-8694-93efa1e3ccf2"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3ccd1454-8401-4dc3-81ef-f4682cf91334"
+        name="Deposit Payment"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="cc0d02c7-f7c4-42e8-8cc2-71890c21df04">
+            <useCaseMoniker
+              Id="8fda58ec-c8d4-447c-96a6-ab2a759e85db"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+          <extend
+            Id="d0aef45e-8c91-426c-b983-c75b261cb63d">
+            <useCaseMoniker
+              Id="02719157-1c32-4c7f-8694-93efa1e3ccf2"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="864a5c03-ea4d-471f-862a-204d512fc68e"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="e0c19cd1-c810-4bb5-b850-7706da5cd93d"
+        name="Payment"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="c802ffba-4260-4eeb-b333-c0d9d923516d"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="f5a454fe-33ec-40fe-896a-34e9930146e0"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="cac45648-4c24-4379-b493-ea03859fd64e"
+              LastKnownName="Office"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="3f25ddbb-0184-4656-a850-fd882076a09d"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="55a48399-c48c-432b-acc6-69f2fa342782"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="c802ffba-4260-4eeb-b333-c0d9d923516d"
+              LastKnownName="User"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="1fc9fafd-938b-4b36-86a0-5f527c92b43b"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Payment"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8fda58ec-c8d4-447c-96a6-ab2a759e85db"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9bfec01d-2adc-4575-afad-024ff1c02f7d"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="40b998ea-3fa0-400d-9e33-1198a5ebc648"
+                  name="Payment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="5e5b3243-8ff5-457d-8351-0a38577ab14e"
+        name="Entity"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="59d37671-ecfe-4ace-b402-964f15f58d0b"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="3f25ddbb-0184-4656-a850-fd882076a09d"
+              LastKnownName="Person"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="f2fb30ac-725b-4782-87e7-6d41397ca59c"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="091464f5-3925-4ee9-91ee-7865b0c287bc"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="5e5b3243-8ff5-457d-8351-0a38577ab14e"
+              LastKnownName="Entity"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="eff2ecc4-e45a-4082-9418-5dc7a3c4b104"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Payment"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8fda58ec-c8d4-447c-96a6-ab2a759e85db"
+              LastKnownName="Payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="38e474f5-ed5f-4384-ba64-0177620c9fc8"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="099c7243-d33a-4c55-9d48-0de3cc443ff4"
+                  name="Payment"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3f387989-789f-4f4a-b162-8da1d48cce9e"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="create/delet/(in)activate/AccountingInfo"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="00cf5962-4b82-47cd-895d-d270db5e404b"
+              LastKnownName="create/delet/(in)activate/AccountingInfo"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="91dcf0ff-1dc8-40c8-989f-f21f43aaa66f"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3dcf40a3-fe43-4493-a9dd-cc32460ba696"
+                  name="create/delet/(in)activate/AccountingInfo"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="a16a4e48-12b2-4837-9811-fc170d5dcecb"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c012c8da-7d10-4baa-b5c2-22d973cc672b"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="f2fb30ac-725b-4782-87e7-6d41397ca59c"
+              LastKnownName="Person"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="02719157-1c32-4c7f-8694-93efa1e3ccf2"
+        name="Payment"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3d7cd11f-12b1-4b55-8790-7f89d701e04c"
+        name="PaymentCancellation"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="2911b8b2-cbe7-471c-8208-f423db399674"
+        name="Invoicing"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="0b237d38-2eaa-4d1a-900d-4a5bc50244a8"
+        name="vnmn"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="29883af9-db9d-49b4-be51-115dcfc442f6"
+        name="New/fromDraft/Cancellation/finalize/search/delete/suspend/getPayments/"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b9b32a7d-0725-4a7b-a635-00b4737fdf22"
+        name="Draft invoices"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="482ec447-29be-4a52-9ce4-a3c503c41a2e"
+            isDerived="false"
+            sourceEndRoleName="Draft invoices"
+            targetEndRoleName="Invoice basics Ops"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="29883af9-db9d-49b4-be51-115dcfc442f6"
+              LastKnownName="New/fromDraft/Cancellation/finalize/search/delete/suspend/getPayments/"
+              LastKnownLocation="AccountingModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b068f9b6-2be1-466f-9f4f-87ee02f52ced"
+                  name="Draft invoices"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f35d409b-c3d9-40c3-bac6-d2f3533be6da"
+                  name="Invoice basics Ops"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="b7e8279b-bdc7-4062-83c0-22a451ab38aa"
+        name="Invoicing1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="71bfea58-4d68-4a4c-812e-b366df13fd2a"
+        name="New/fromDraft/Cancellation/finalize/search/delete/suspend/getPayments/1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="575ee655-e4e4-438b-82d1-520ead30040f"
+        name="Payment1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2d3e8ae7-249e-4845-a2bc-5064f29f1757"
+        name="InvoicePayment1"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="a98d7d01-7037-4988-9021-b74c13e8c144">
+            <useCaseMoniker
+              Id="70969d90-f6a5-4ddd-b4c8-821581b42e24"
+              LastKnownName="Invoice payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="001045b8-f6a0-42f1-a0d3-959284920f53"
+        name="Deposit Payment1"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="2566bf44-411f-4e08-8bda-9767caf22f19">
+            <useCaseMoniker
+              Id="70969d90-f6a5-4ddd-b4c8-821581b42e24"
+              LastKnownName="Invoice payment"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="70969d90-f6a5-4ddd-b4c8-821581b42e24"
+        name="Invoice payment"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9be8fca0-91da-48ac-9d04-d8d7d02cea70"
+        name="PaymentCancellation"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="80ba361b-3aeb-4b44-baa1-c83134a4bd12">
+            <useCaseMoniker
+              Id="cd2507bd-0e7e-4953-8691-e63ae8a167db"
+              LastKnownName="Cancel Invoice"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="14c06de0-517c-4077-af02-bfcd94a1773a"
+        name="Subscriber"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="994c5d40-4321-4750-b032-de5921571446"
+        name="Refund"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="a9b77f11-2f8a-4966-994d-d607bad98df0">
+            <useCaseMoniker
+              Id="9be8fca0-91da-48ac-9d04-d8d7d02cea70"
+              LastKnownName="PaymentCancellation"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2e411e04-0d69-4892-bafe-33c48490dfa0"
+        name="Void"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="baa39187-b2b3-4459-85f5-9f6f2536db40">
+            <useCaseMoniker
+              Id="9be8fca0-91da-48ac-9d04-d8d7d02cea70"
+              LastKnownName="PaymentCancellation"
+              LastKnownLocation="AccountingModelingProject.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="20ce05b5-2924-4625-947d-f7ed2cc870b3"
+        name="New draft"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3f2aa8a8-69ee-4bf9-90ed-1a27364f91c6"
+        name="Delete Draft"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="42d2a27c-6219-40fb-b77d-8110ecda1afb"
+        name="get Paymentss"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5c04ddf3-a57f-4124-8b0d-cdea68fa7079"
+        name="delete invoicee"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a7fa60d4-085f-40d5-a6d6-8c22ffdb0922"
+        name="search invoice"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="74f5ad64-3f6f-4203-a4fb-630f723dbfe1"
+        name="finaliz invoicee"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8544ea2b-3bbc-4111-82e2-241b3d840a4c"
+        name="New invoice From Draft"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9dc97cb4-b64c-40d9-bde0-3e1ae0c87830"
+        name="New Invoice"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cd2507bd-0e7e-4953-8691-e63ae8a167db"
+        name="Cancel Invoice"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e0d01ff4-71f2-4f16-9cd7-9a04765dd2f8"
+        name="create Currency"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="204944cf-c2bf-43ba-b76e-9002436bcb75"
+        name="create service"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d571e5ba-a6b7-40ad-a8cc-5b9826e17fe0"
+        name="create card"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f288227a-e179-496c-9d53-1070e2597ebb"
+        name="Fresh setupésubscriber"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="00cf5962-4b82-47cd-895d-d270db5e404b"
+        name="create/delet/(in)activate/AccountingInfo"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

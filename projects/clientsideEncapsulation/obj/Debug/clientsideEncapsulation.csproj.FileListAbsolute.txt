@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\clientsideEncapsulation\bin\clientsideEncapsulation.dll
+C:\projects\Partitions\partition1\projects\clientsideEncapsulation\bin\clientsideEncapsulation.pdb
+C:\projects\Partitions\partition1\projects\clientsideEncapsulation\obj\Debug\clientsideEncapsulation.dll
+C:\projects\Partitions\partition1\projects\clientsideEncapsulation\obj\Debug\clientsideEncapsulation.pdb
