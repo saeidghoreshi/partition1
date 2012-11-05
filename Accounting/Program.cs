@@ -19,8 +19,8 @@ namespace Accounting
             //lookupManagement.run();
             //personManagement.createPerson();
             //currencyManagement.createCur();
-
-            serviceManagement.createService();
+            //serviceManagement.createService();
+            invoiceManagement.createInvoice();
             
 
             Console.WriteLine("Enter to Quit");
@@ -52,6 +52,20 @@ namespace Accounting
 
 
             new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService"+DateTime.Now.Ticks.ToString());
+        }
+    }
+    public class  invoiceManagement
+    {
+        public static void createInvoice()
+        {
+            var person1 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
+            var person2 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
+
+            var myInvoice=new Classes.Invoice();
+            var newInvoice=myInvoice.createInvoice((int)person1.entityID, (int)person2.entityID, 2);
+
+            var newService=new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService" + DateTime.Now.Ticks.ToString());
+            myInvoice.addService(newService.ID, newInvoice.ID, 2, 1000);
         }
     }
     public class lookupManagement

@@ -132,6 +132,14 @@ namespace Accounting.Classes.Enums
         Unknown=4,
         NULL = 4,
     }
+    public enum invoiceOperationStatus
+    {
+        Approved = 1,
+        NotApproved = 2,
+        Duplicate = 3,
+        Unknown = 4,
+        NULL = 4,
+    }
     public enum ControllerOperationStatus 
     { 
         Approved = 1, 
