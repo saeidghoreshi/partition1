@@ -14,20 +14,9 @@ namespace Accounting.Classes
         public DateTime expiryDate { get; set; }
     }
     
-    public class CreditCard : Card,ICard
+    public class CreditCard : Card
     {
-        public IOperationStat Initiate(string CardNumber, DateTime expiryDate)
-        {
-            var cardStatus=new OperationStat();
-            cardStatus.setStat(Status.Approved);
-            return cardStatus;
-        }
-
-        public IOperationStat setFee(IFee fee)
-        {
-            
-            throw new NotImplementedException();
-        }
+        
     }
 
     

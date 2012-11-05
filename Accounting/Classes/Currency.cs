@@ -4,41 +4,40 @@ using System.Linq;
 using System.Text;
 using Accounting.Interfaces;
 using Accounting.Models;
+using Accounting.Classes.Enums;
 
 namespace Accounting.Classes
 {
-    public class Currency : ICurrency
+    public class Currency 
     {
-        public void createNewCurrency(string CurrencyName, int currencyType)
+        public currencyOperationStatus createNewCurrency(string CurrencyName, int currencyTypeID)
         {
             try
             {
                 using (var ctx = new AccContext())
                 {
-                    var newCur = new Models.Currency
+                    var result = ctx.currency.FirstOrDefault(x => x.name == CurrencyName && x.currencyType.ID == currencyTypeID);
+                    if (result != null)
+                        return currencyOperationStatus.Duplicated;
+                    else
                     {
-                        type_id = currencyType,
-                        name = CurrencyName
-                    };
-                    var result = ctx.Currency.FirstOrDefault(x => x.name == CurrencyName);
-                    if (result == null)
-                    {
-                        ctx.Currency.AddObject(newCur);
+                        var newCur = new Models.currency
+                        {
+                            currencyTypeID = currencyTypeID,
+                            name = CurrencyName
+                        };
+                        ctx.currency.AddObject(newCur);
                         ctx.SaveChanges();
                     }
-                    else
-                        throw new CurrencyException("Currency is duplicated");
+                    return currencyOperationStatus.Approved;
                 }
             }
-            catch(CurrencyException ex)
+            catch (CurrencyException ex)
             {
                 Console.WriteLine(ex.Message);
+                return currencyOperationStatus.NotApproved;
             }
-        }
-
-        public void setStatus(currencyStatus status)
-        {
-            throw new NotImplementedException();
+            
         }
 
         

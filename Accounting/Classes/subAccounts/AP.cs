@@ -4,52 +4,31 @@ using System.Linq;
 using System.Text;
 using Accounting.Classes;
 using Accounting.Models;
+using Accounting.Classes.Enums;
 
 namespace Accounting.Interfaces.subAccounts
 {
-    public class APAccount : OEAccount//, IAccount
+    public class APAccount : LibAccount
     {
-        CATEGORYTYPE CatTYPE = CATEGORYTYPE.Inc;
-        CATEGORYTYPE TYPE { get { return CatTYPE; } }
+        private int catType = LIB.Value;
+        public int CATTYPE { get { return catType; } }
 
 
-
-        public accountOperationStatus Create(int sender_id,int receiver_id,decimal amount,int currency_id,string timestamp,int service_id)
+        public accountOperationStatus Create(int ownerEntityId,int currencyID,decimal balance=0)
         {
             using(var ctx=new  AccContext())
             {
-                //var newAPAccount = new APAccount()
-                //{
-                //    receiver_id = receiver_id,
-                //    sender_id = sender_id,
-                //    amount = amount,
-                //    currency_id = currency_id,
-                //    timestamp = timestamp,
-                //    service_id = service_id
-                //};
-                
+                var newAccount = new account()
+                {
+                    catTypeID=CATTYPE,
+                    ownerEntityID=ownerEntityId,
+                    currencyID=currencyID,
+                    balance=balance
+                };
+                ctx.account.AddObject(newAccount);
+                ctx.SaveChanges();
                 return accountOperationStatus.Approved;
             }
-        }
-
-        public accountOperationStatus Suspend()
-        {
-            throw new NotImplementedException();
-        }
-
-        public accountOperationStatus Close()
-        {
-            throw new NotImplementedException();
-        }
-
-        public accountStatus getStatus()
-        {
-            throw new NotImplementedException();
-        }
-
-        public dynamic getAccountInfo()
-        {
-            throw new NotImplementedException();
         }
     }
 }

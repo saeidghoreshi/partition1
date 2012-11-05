@@ -373,5 +373,10 @@ namespace WindowsFormsApp
             cts.Cancel();
         }
 
+        private void concurrency_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

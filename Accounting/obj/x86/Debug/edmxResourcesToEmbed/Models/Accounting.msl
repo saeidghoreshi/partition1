@@ -1,49 +1,152 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="AccContext">
-    <EntitySetMapping Name="Service">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.Service">
-        <MappingFragment StoreEntitySet="Service">
-          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
-          <ScalarProperty Name="receiverId" ColumnName="receiverId" />
-          <ScalarProperty Name="senderId" ColumnName="senderId" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="person">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.person">
-        <MappingFragment StoreEntitySet="person">
-          <ScalarProperty Name="thumbnailExt" ColumnName="thumbnailExt" />
-          <ScalarProperty Name="thumbnailFile" ColumnName="thumbnailFile" />
-          <ScalarProperty Name="lname" ColumnName="lname" />
-          <ScalarProperty Name="fname" ColumnName="fname" />
-          <ScalarProperty Name="person_id" ColumnName="person_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="reset_GLTypeSeed" FunctionName="DB_40114_codeclubModel.Store.reset_GLTypeSeed" />
-    <EntitySetMapping Name="Currency">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.Currency">
-        <MappingFragment StoreEntitySet="Currency">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="type_id" ColumnName="type_id" />
+    <EntitySetMapping Name="account">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="ownerEntityID" ColumnName="ownerEntityID" />
+          <ScalarProperty Name="catTypeID" ColumnName="catTypeID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CurrencyType">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.CurrencyType">
-        <MappingFragment StoreEntitySet="CurrencyType">
+    <EntitySetMapping Name="card">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.card">
+        <MappingFragment StoreEntitySet="card">
+          <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+          <ScalarProperty Name="cardNumber" ColumnName="cardNumber" />
+          <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cardType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.cardType">
+        <MappingFragment StoreEntitySet="cardType">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="GLType">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.GLType">
-        <MappingFragment StoreEntitySet="GLType">
+    <EntitySetMapping Name="categoryType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.categoryType">
+        <MappingFragment StoreEntitySet="categoryType">
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="glTypeID" ColumnName="glTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccCard">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.ccCard">
+        <MappingFragment StoreEntitySet="ccCard">
+          <ScalarProperty Name="ccCardTypeID" ColumnName="ccCardTypeID" />
+          <ScalarProperty Name="cardID" ColumnName="cardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccCardType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.ccCardType">
+        <MappingFragment StoreEntitySet="ccCardType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccPayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.ccPayment">
+        <MappingFragment StoreEntitySet="ccPayment">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="extPaymentID" ColumnName="extPaymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currency">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.currency">
+        <MappingFragment StoreEntitySet="currency">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="currencyTypeID" ColumnName="currencyTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currencyType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.currencyType">
+        <MappingFragment StoreEntitySet="currencyType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbCard">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.dbCard">
+        <MappingFragment StoreEntitySet="dbCard">
+          <ScalarProperty Name="cardID" ColumnName="cardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbPayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.dbPayment">
+        <MappingFragment StoreEntitySet="dbPayment">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="extPaymentID" ColumnName="extPaymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="entity">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.entity">
+        <MappingFragment StoreEntitySet="entity">
+          <ScalarProperty Name="entityTypeID" ColumnName="entityTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="entityType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.entityType">
+        <MappingFragment StoreEntitySet="entityType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="externalPayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.externalPayment">
+        <MappingFragment StoreEntitySet="externalPayment">
+          <ScalarProperty Name="descriptiohn" ColumnName="descriptiohn" />
+          <ScalarProperty Name="extPaymentTypeID" ColumnName="extPaymentTypeID" />
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="extPaymentType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.extPaymentType">
+        <MappingFragment StoreEntitySet="extPaymentType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="glType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.glType">
+        <MappingFragment StoreEntitySet="glType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="internalPayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.internalPayment">
+        <MappingFragment StoreEntitySet="internalPayment">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -52,19 +155,209 @@
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoice">
         <MappingFragment StoreEntitySet="invoice">
           <ScalarProperty Name="timestamp" ColumnName="timestamp" />
-          <ScalarProperty Name="service_id" ColumnName="service_id" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="currency_id" ColumnName="currency_id" />
-          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
-          <ScalarProperty Name="receiver_id" ColumnName="receiver_id" />
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="payerEntityID" ColumnName="payerEntityID" />
+          <ScalarProperty Name="payeeEntityID" ColumnName="payeeEntityID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CategoryType">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.CategoryType">
-        <MappingFragment StoreEntitySet="CategoryType">
+    <EntitySetMapping Name="invoiceAction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceAction">
+        <MappingFragment StoreEntitySet="invoiceAction">
+          <ScalarProperty Name="invoiceStatID" ColumnName="invoiceStatID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceActionTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceActionTransaction">
+        <MappingFragment StoreEntitySet="invoiceActionTransaction">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="invoiceActionID" ColumnName="invoiceActionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoicePayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoicePayment">
+        <MappingFragment StoreEntitySet="invoicePayment">
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceService">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceService">
+        <MappingFragment StoreEntitySet="invoiceService">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceStat">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceStat">
+        <MappingFragment StoreEntitySet="invoiceStat">
           <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceTransaction">
+        <MappingFragment StoreEntitySet="invoiceTransaction">
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceTransactionDef">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceTransactionDef">
+        <MappingFragment StoreEntitySet="invoiceTransactionDef">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mcCard">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.mcCard">
+        <MappingFragment StoreEntitySet="mcCard">
+          <ScalarProperty Name="ccCardID" ColumnName="ccCardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="office">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.office">
+        <MappingFragment StoreEntitySet="office">
+          <ScalarProperty Name="officeTypeID" ColumnName="officeTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="officeType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.officeType">
+        <MappingFragment StoreEntitySet="officeType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="organization">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.organization">
+        <MappingFragment StoreEntitySet="organization">
+          <ScalarProperty Name="entityID" ColumnName="entityID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orgOffice">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.orgOffice">
+        <MappingFragment StoreEntitySet="orgOffice">
+          <ScalarProperty Name="officeID" ColumnName="officeID" />
+          <ScalarProperty Name="orgID" ColumnName="orgID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="paymentTypeID" ColumnName="paymentTypeID" />
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payeeTypeID" ColumnName="payeeTypeID" />
+          <ScalarProperty Name="payerTypeID" ColumnName="payerTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentTransaction">
+        <MappingFragment StoreEntitySet="paymentTransaction">
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentType">
+        <MappingFragment StoreEntitySet="paymentType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="service">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.service">
+        <MappingFragment StoreEntitySet="service">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="receiverEntityID" ColumnName="receiverEntityID" />
+          <ScalarProperty Name="giverEntityID" ColumnName="giverEntityID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysUserType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.sysUserType">
+        <MappingFragment StoreEntitySet="sysUserType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.transaction">
+        <MappingFragment StoreEntitySet="transaction">
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="personID" ColumnName="personID" />
+          <ScalarProperty Name="userTypeID" ColumnName="userTypeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userType">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.userType">
+        <MappingFragment StoreEntitySet="userType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="visaCard">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.visaCard">
+        <MappingFragment StoreEntitySet="visaCard">
+          <ScalarProperty Name="ccCardID" ColumnName="ccCardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="person">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.person">
+        <MappingFragment StoreEntitySet="person">
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="entityID" ColumnName="entityID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

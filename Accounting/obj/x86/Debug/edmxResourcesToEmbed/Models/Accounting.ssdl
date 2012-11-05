@@ -1,103 +1,1196 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
-    <EntitySet Name="CategoryType" EntityType="DB_40114_codeclubModel.Store.CategoryType" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="Currency" EntityType="DB_40114_codeclubModel.Store.Currency" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="CurrencyType" EntityType="DB_40114_codeclubModel.Store.CurrencyType" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="GLType" EntityType="DB_40114_codeclubModel.Store.GLType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="account" EntityType="DB_40114_codeclubModel.Store.account" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="card" EntityType="DB_40114_codeclubModel.Store.card" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="cardType" EntityType="DB_40114_codeclubModel.Store.cardType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="categoryType" EntityType="DB_40114_codeclubModel.Store.categoryType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="ccCard" EntityType="DB_40114_codeclubModel.Store.ccCard" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="ccCardType" EntityType="DB_40114_codeclubModel.Store.ccCardType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="ccPayment" EntityType="DB_40114_codeclubModel.Store.ccPayment" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="currency" EntityType="DB_40114_codeclubModel.Store.currency" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="currencyType" EntityType="DB_40114_codeclubModel.Store.currencyType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="dbCard" EntityType="DB_40114_codeclubModel.Store.dbCard" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="dbPayment" EntityType="DB_40114_codeclubModel.Store.dbPayment" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="entity" EntityType="DB_40114_codeclubModel.Store.entity" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="entityType" EntityType="DB_40114_codeclubModel.Store.entityType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="externalPayment" EntityType="DB_40114_codeclubModel.Store.externalPayment" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="extPaymentType" EntityType="DB_40114_codeclubModel.Store.extPaymentType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="glType" EntityType="DB_40114_codeclubModel.Store.glType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="internalPayment" EntityType="DB_40114_codeclubModel.Store.internalPayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="invoice" EntityType="DB_40114_codeclubModel.Store.invoice" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="Service" EntityType="DB_40114_codeclubModel.Store.Service" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="Reciever" Association="DB_40114_codeclubModel.Store.Reciever">
-      <End Role="person" EntitySet="person" />
-      <End Role="Service" EntitySet="Service" />
+    <EntitySet Name="invoiceAction" EntityType="DB_40114_codeclubModel.Store.invoiceAction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoiceActionTransaction" EntityType="DB_40114_codeclubModel.Store.invoiceActionTransaction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoicePayment" EntityType="DB_40114_codeclubModel.Store.invoicePayment" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoiceService" EntityType="DB_40114_codeclubModel.Store.invoiceService" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoiceStat" EntityType="DB_40114_codeclubModel.Store.invoiceStat" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoiceTransaction" EntityType="DB_40114_codeclubModel.Store.invoiceTransaction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="invoiceTransactionDef" EntityType="DB_40114_codeclubModel.Store.invoiceTransactionDef" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="mcCard" EntityType="DB_40114_codeclubModel.Store.mcCard" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="office" EntityType="DB_40114_codeclubModel.Store.office" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="officeType" EntityType="DB_40114_codeclubModel.Store.officeType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="organization" EntityType="DB_40114_codeclubModel.Store.organization" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="orgOffice" EntityType="DB_40114_codeclubModel.Store.orgOffice" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="payment" EntityType="DB_40114_codeclubModel.Store.payment" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="paymentTransaction" EntityType="DB_40114_codeclubModel.Store.paymentTransaction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="paymentType" EntityType="DB_40114_codeclubModel.Store.paymentType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="service" EntityType="DB_40114_codeclubModel.Store.service" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="sysUserType" EntityType="DB_40114_codeclubModel.Store.sysUserType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="transaction" EntityType="DB_40114_codeclubModel.Store.transaction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="user" EntityType="DB_40114_codeclubModel.Store.user" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="userType" EntityType="DB_40114_codeclubModel.Store.userType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="visaCard" EntityType="DB_40114_codeclubModel.Store.visaCard" store:Type="Tables" Schema="Accounting" />
+    <AssociationSet Name="FK_account_categoryType" Association="DB_40114_codeclubModel.Store.FK_account_categoryType">
+      <End Role="categoryType" EntitySet="categoryType" />
+      <End Role="account" EntitySet="account" />
     </AssociationSet>
-    <AssociationSet Name="Sender" Association="DB_40114_codeclubModel.Store.Sender">
+    <AssociationSet Name="FK_account_currency" Association="DB_40114_codeclubModel.Store.FK_account_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_account_entity" Association="DB_40114_codeclubModel.Store.FK_account_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_cardType" Association="DB_40114_codeclubModel.Store.FK_card_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="card" EntitySet="card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_categoryType_glType" Association="DB_40114_codeclubModel.Store.FK_categoryType_glType">
+      <End Role="glType" EntitySet="glType" />
+      <End Role="categoryType" EntitySet="categoryType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccCard_card" Association="DB_40114_codeclubModel.Store.FK_ccCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="ccCard" EntitySet="ccCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccCard_ccCardType" Association="DB_40114_codeclubModel.Store.FK_ccCard_ccCardType">
+      <End Role="ccCardType" EntitySet="ccCardType" />
+      <End Role="ccCard" EntitySet="ccCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccPayment_externalPayment" Association="DB_40114_codeclubModel.Store.FK_ccPayment_externalPayment">
+      <End Role="externalPayment" EntitySet="externalPayment" />
+      <End Role="ccPayment" EntitySet="ccPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_currency_currencyType" Association="DB_40114_codeclubModel.Store.FK_currency_currencyType">
+      <End Role="currencyType" EntitySet="currencyType" />
+      <End Role="currency" EntitySet="currency" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbCard_card" Association="DB_40114_codeclubModel.Store.FK_dbCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="dbCard" EntitySet="dbCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbPayment_externalPayment" Association="DB_40114_codeclubModel.Store.FK_dbPayment_externalPayment">
+      <End Role="externalPayment" EntitySet="externalPayment" />
+      <End Role="dbPayment" EntitySet="dbPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entity_entityType" Association="DB_40114_codeclubModel.Store.FK_entity_entityType">
+      <End Role="entityType" EntitySet="entityType" />
+      <End Role="entity" EntitySet="entity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_externalPayment_extPaymentType" Association="DB_40114_codeclubModel.Store.FK_externalPayment_extPaymentType">
+      <End Role="extPaymentType" EntitySet="extPaymentType" />
+      <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_externalPayment_payment" Association="DB_40114_codeclubModel.Store.FK_externalPayment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_internalPayment_payment" Association="DB_40114_codeclubModel.Store.FK_internalPayment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="internalPayment" EntitySet="internalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoice_currency" Association="DB_40114_codeclubModel.Store.FK_invoice_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="invoice" EntitySet="invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoice_entitypayee" Association="DB_40114_codeclubModel.Store.FK_invoice_entitypayee">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="invoice" EntitySet="invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoice_entityPayer" Association="DB_40114_codeclubModel.Store.FK_invoice_entityPayer">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="invoice" EntitySet="invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceAction_invoice" Association="DB_40114_codeclubModel.Store.FK_invoiceAction_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoiceAction" EntitySet="invoiceAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceAction_invoiceStat" Association="DB_40114_codeclubModel.Store.FK_invoiceAction_invoiceStat">
+      <End Role="invoiceStat" EntitySet="invoiceStat" />
+      <End Role="invoiceAction" EntitySet="invoiceAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceActionTransaction_invoiceAction" Association="DB_40114_codeclubModel.Store.FK_invoiceActionTransaction_invoiceAction">
+      <End Role="invoiceAction" EntitySet="invoiceAction" />
+      <End Role="invoiceActionTransaction" EntitySet="invoiceActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceActionTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_invoiceActionTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="invoiceActionTransaction" EntitySet="invoiceActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoicePayment_invoice" Association="DB_40114_codeclubModel.Store.FK_invoicePayment_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoicePayment" EntitySet="invoicePayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoicePayment_payment" Association="DB_40114_codeclubModel.Store.FK_invoicePayment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="invoicePayment" EntitySet="invoicePayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceService_currency" Association="DB_40114_codeclubModel.Store.FK_invoiceService_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="invoiceService" EntitySet="invoiceService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceService_invoice" Association="DB_40114_codeclubModel.Store.FK_invoiceService_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoiceService" EntitySet="invoiceService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceService_service" Association="DB_40114_codeclubModel.Store.FK_invoiceService_service">
+      <End Role="service" EntitySet="service" />
+      <End Role="invoiceService" EntitySet="invoiceService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTransaction_invoice" Association="DB_40114_codeclubModel.Store.FK_invoiceTransaction_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoiceTransaction" EntitySet="invoiceTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_invoiceTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="invoiceTransaction" EntitySet="invoiceTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTransactionDef_invoice" Association="DB_40114_codeclubModel.Store.FK_invoiceTransactionDef_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoiceTransactionDef" EntitySet="invoiceTransactionDef" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTransactionDef_invoiceTransactionDef" Association="DB_40114_codeclubModel.Store.FK_invoiceTransactionDef_invoiceTransactionDef">
+      <End Role="invoiceTransactionDef" EntitySet="invoiceTransactionDef" />
+      <End Role="invoiceTransactionDef1" EntitySet="invoiceTransactionDef" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceTransactionDef_transaction" Association="DB_40114_codeclubModel.Store.FK_invoiceTransactionDef_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="invoiceTransactionDef" EntitySet="invoiceTransactionDef" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mcCard_ccCard" Association="DB_40114_codeclubModel.Store.FK_mcCard_ccCard">
+      <End Role="ccCard" EntitySet="ccCard" />
+      <End Role="mcCard" EntitySet="mcCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_office_officeType" Association="DB_40114_codeclubModel.Store.FK_office_officeType">
+      <End Role="officeType" EntitySet="officeType" />
+      <End Role="office" EntitySet="office" />
+    </AssociationSet>
+    <AssociationSet Name="FK_organization_entity" Association="DB_40114_codeclubModel.Store.FK_organization_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="organization" EntitySet="organization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orgOffice_office" Association="DB_40114_codeclubModel.Store.FK_orgOffice_office">
+      <End Role="office" EntitySet="office" />
+      <End Role="orgOffice" EntitySet="orgOffice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orgOffice_organization" Association="DB_40114_codeclubModel.Store.FK_orgOffice_organization">
+      <End Role="organization" EntitySet="organization" />
+      <End Role="orgOffice" EntitySet="orgOffice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_currency" Association="DB_40114_codeclubModel.Store.FK_payment_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_entitypayee" Association="DB_40114_codeclubModel.Store.FK_payment_entitypayee">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_entitypayer" Association="DB_40114_codeclubModel.Store.FK_payment_entitypayer">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_payment" Association="DB_40114_codeclubModel.Store.FK_payment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="payment1" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_paymentType" Association="DB_40114_codeclubModel.Store.FK_payment_paymentType">
+      <End Role="paymentType" EntitySet="paymentType" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentTransaction_payment" Association="DB_40114_codeclubModel.Store.FK_paymentTransaction_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="paymentTransaction" EntitySet="paymentTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_paymentTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="paymentTransaction" EntitySet="paymentTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_entity" Association="DB_40114_codeclubModel.Store.FK_person_entity">
+      <End Role="entity" EntitySet="entity" />
       <End Role="person" EntitySet="person" />
-      <End Role="Service" EntitySet="Service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_entitygiver" Association="DB_40114_codeclubModel.Store.FK_service_entitygiver">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="service" EntitySet="service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_entityreceiver" Association="DB_40114_codeclubModel.Store.FK_service_entityreceiver">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="service" EntitySet="service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_account" Association="DB_40114_codeclubModel.Store.FK_transaction_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="transaction" EntitySet="transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_person" Association="DB_40114_codeclubModel.Store.FK_user_person">
+      <End Role="person" EntitySet="person" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_userType" Association="DB_40114_codeclubModel.Store.FK_user_userType">
+      <End Role="userType" EntitySet="userType" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visaCard_ccCard" Association="DB_40114_codeclubModel.Store.FK_visaCard_ccCard">
+      <End Role="ccCard" EntitySet="ccCard" />
+      <End Role="visaCard" EntitySet="visaCard" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="CategoryType">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="catTypeID" Type="int" />
+    <Property Name="ownerEntityID" Type="int" />
+    <Property Name="currencyID" Type="int" />
+    <Property Name="balance" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cardTypeID" Type="int" />
+    <Property Name="cardNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="expiryDate" Type="date" />
+  </EntityType>
+  <EntityType Name="cardType">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="Currency">
+  <EntityType Name="categoryType">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="type_id" Type="int" />
+    <Property Name="glTypeID" Type="int" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="CurrencyType">
+  <EntityType Name="ccCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cardID" Type="int" />
+    <Property Name="ccCardTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="ccCardType">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="GLType">
+  <EntityType Name="ccPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="extPaymentID" Type="int" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="currency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="currencyTypeID" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="currencyType">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="dbCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cardID" Type="int" />
+  </EntityType>
+  <EntityType Name="dbPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="extPaymentID" Type="int" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="entity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="entityTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="entityType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="externalPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="paymentID" Type="int" />
+    <Property Name="extPaymentTypeID" Type="int" />
+    <Property Name="descriptiohn" Type="text" />
+  </EntityType>
+  <EntityType Name="extPaymentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="glType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="internalPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="paymentID" Type="int" />
+    <Property Name="description" Type="text" />
   </EntityType>
   <EntityType Name="invoice">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="receiver_id" Type="int" Nullable="false" />
-    <Property Name="sender_id" Type="int" Nullable="false" />
-    <Property Name="currency_id" Type="int" Nullable="false" />
-    <Property Name="amount" Type="decimal" Nullable="false" />
-    <Property Name="service_id" Type="int" Nullable="false" />
-    <Property Name="timestamp" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="payeeEntityID" Type="int" />
+    <Property Name="payerEntityID" Type="int" />
+    <Property Name="currencyID" Type="int" />
+    <Property Name="timestamp" Type="varchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="Service">
+  <EntityType Name="invoiceAction">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="senderId" Type="int" />
-    <Property Name="receiverId" Type="int" />
-    <Property Name="serviceName" Type="nvarchar" MaxLength="200" />
+    <Property Name="invoiceID" Type="int" />
+    <Property Name="invoiceStatID" Type="int" />
+  </EntityType>
+  <EntityType Name="invoiceActionTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="invoiceActionID" Type="int" />
+    <Property Name="transactionID" Type="int" />
+    <Property Name="timestamp" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="invoicePayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="invoiceID" Type="int" />
+    <Property Name="paymentID" Type="int" />
+  </EntityType>
+  <EntityType Name="invoiceService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="invoiceID" Type="int" />
+    <Property Name="serviceID" Type="int" />
+    <Property Name="currencyID" Type="int" />
+    <Property Name="amount" Type="decimal" />
+    <Property Name="timestamp" Type="varbinary" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="invoiceStat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="invoiceTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="invoiceID" Type="int" />
+    <Property Name="transactionID" Type="int" />
+  </EntityType>
+  <EntityType Name="invoiceTransactionDef">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="invoiceID" Type="int" />
+    <Property Name="transactionID" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="mcCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ccCardID" Type="int" />
+  </EntityType>
+  <EntityType Name="office">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="officeTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="officeType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="organization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="entityID" Type="int" />
+  </EntityType>
+  <EntityType Name="orgOffice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="orgID" Type="int" />
+    <Property Name="officeID" Type="int" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="payerTypeID" Type="int" />
+    <Property Name="payeeTypeID" Type="int" />
+    <Property Name="amount" Type="decimal" />
+    <Property Name="currencyID" Type="int" />
+    <Property Name="paymentTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="paymentTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="paymentID" Type="int" />
+    <Property Name="transactionID" Type="int" />
+  </EntityType>
+  <EntityType Name="paymentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="person">
     <Key>
-      <PropertyRef Name="person_id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="person_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="fname" Type="nvarchar" MaxLength="200" />
-    <Property Name="lname" Type="nvarchar" MaxLength="200" />
-    <Property Name="thumbnailFile" Type="nvarchar" MaxLength="1000" />
-    <Property Name="thumbnailExt" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="entityID" Type="int" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="200" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <Association Name="Reciever">
-    <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
-    <End Role="Service" Type="DB_40114_codeclubModel.Store.Service" Multiplicity="*" />
+  <EntityType Name="service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="giverEntityID" Type="int" />
+    <Property Name="receiverEntityID" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysUserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="accountID" Type="int" />
+    <Property Name="amount" Type="decimal" />
+    <Property Name="timestamp" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userTypeID" Type="int" />
+    <Property Name="personID" Type="int" />
+  </EntityType>
+  <EntityType Name="userType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="visaCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ccCardID" Type="int" />
+  </EntityType>
+  <Association Name="FK_account_categoryType">
+    <End Role="categoryType" Type="DB_40114_codeclubModel.Store.categoryType" Multiplicity="0..1" />
+    <End Role="account" Type="DB_40114_codeclubModel.Store.account" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="person">
-        <PropertyRef Name="person_id" />
+      <Principal Role="categoryType">
+        <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Service">
-        <PropertyRef Name="receiverId" />
+      <Dependent Role="account">
+        <PropertyRef Name="catTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Sender">
+  <Association Name="FK_account_currency">
+    <End Role="currency" Type="DB_40114_codeclubModel.Store.currency" Multiplicity="0..1" />
+    <End Role="account" Type="DB_40114_codeclubModel.Store.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_account_entity">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="account" Type="DB_40114_codeclubModel.Store.account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="ownerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_cardType">
+    <End Role="cardType" Type="DB_40114_codeclubModel.Store.cardType" Multiplicity="0..1" />
+    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="card">
+        <PropertyRef Name="cardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_categoryType_glType">
+    <End Role="glType" Type="DB_40114_codeclubModel.Store.glType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="categoryType" Type="DB_40114_codeclubModel.Store.categoryType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="glType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="categoryType">
+        <PropertyRef Name="glTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccCard_card">
+    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ccCard" Type="DB_40114_codeclubModel.Store.ccCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccCard_ccCardType">
+    <End Role="ccCardType" Type="DB_40114_codeclubModel.Store.ccCardType" Multiplicity="0..1" />
+    <End Role="ccCard" Type="DB_40114_codeclubModel.Store.ccCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccCard">
+        <PropertyRef Name="ccCardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccPayment_externalPayment">
+    <End Role="externalPayment" Type="DB_40114_codeclubModel.Store.externalPayment" Multiplicity="0..1" />
+    <End Role="ccPayment" Type="DB_40114_codeclubModel.Store.ccPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="externalPayment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccPayment">
+        <PropertyRef Name="extPaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_currency_currencyType">
+    <End Role="currencyType" Type="DB_40114_codeclubModel.Store.currencyType" Multiplicity="0..1" />
+    <End Role="currency" Type="DB_40114_codeclubModel.Store.currency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currencyType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="currency">
+        <PropertyRef Name="currencyTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbCard_card">
+    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
+    <End Role="dbCard" Type="DB_40114_codeclubModel.Store.dbCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbPayment_externalPayment">
+    <End Role="externalPayment" Type="DB_40114_codeclubModel.Store.externalPayment" Multiplicity="0..1" />
+    <End Role="dbPayment" Type="DB_40114_codeclubModel.Store.dbPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="externalPayment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbPayment">
+        <PropertyRef Name="extPaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entity_entityType">
+    <End Role="entityType" Type="DB_40114_codeclubModel.Store.entityType" Multiplicity="0..1" />
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entityType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entity">
+        <PropertyRef Name="entityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_externalPayment_extPaymentType">
+    <End Role="extPaymentType" Type="DB_40114_codeclubModel.Store.extPaymentType" Multiplicity="0..1" />
+    <End Role="externalPayment" Type="DB_40114_codeclubModel.Store.externalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extPaymentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="externalPayment">
+        <PropertyRef Name="extPaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_externalPayment_payment">
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="0..1" />
+    <End Role="externalPayment" Type="DB_40114_codeclubModel.Store.externalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="externalPayment">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_internalPayment_payment">
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="0..1" />
+    <End Role="internalPayment" Type="DB_40114_codeclubModel.Store.internalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="internalPayment">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoice_currency">
+    <End Role="currency" Type="DB_40114_codeclubModel.Store.currency" Multiplicity="0..1" />
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoice">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoice_entitypayee">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoice">
+        <PropertyRef Name="payeeEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoice_entityPayer">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoice">
+        <PropertyRef Name="payerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceAction_invoice">
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="invoiceAction" Type="DB_40114_codeclubModel.Store.invoiceAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceAction">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceAction_invoiceStat">
+    <End Role="invoiceStat" Type="DB_40114_codeclubModel.Store.invoiceStat" Multiplicity="0..1" />
+    <End Role="invoiceAction" Type="DB_40114_codeclubModel.Store.invoiceAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoiceStat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceAction">
+        <PropertyRef Name="invoiceStatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceActionTransaction_invoiceAction">
+    <End Role="invoiceAction" Type="DB_40114_codeclubModel.Store.invoiceAction" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="invoiceActionTransaction" Type="DB_40114_codeclubModel.Store.invoiceActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoiceAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceActionTransaction">
+        <PropertyRef Name="invoiceActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceActionTransaction_transaction">
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="invoiceActionTransaction" Type="DB_40114_codeclubModel.Store.invoiceActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceActionTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoicePayment_invoice">
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1" />
+    <End Role="invoicePayment" Type="DB_40114_codeclubModel.Store.invoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoicePayment">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoicePayment_payment">
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="0..1" />
+    <End Role="invoicePayment" Type="DB_40114_codeclubModel.Store.invoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoicePayment">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceService_currency">
+    <End Role="currency" Type="DB_40114_codeclubModel.Store.currency" Multiplicity="0..1" />
+    <End Role="invoiceService" Type="DB_40114_codeclubModel.Store.invoiceService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceService">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceService_invoice">
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="invoiceService" Type="DB_40114_codeclubModel.Store.invoiceService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceService">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceService_service">
+    <End Role="service" Type="DB_40114_codeclubModel.Store.service" Multiplicity="0..1" />
+    <End Role="invoiceService" Type="DB_40114_codeclubModel.Store.invoiceService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceService">
+        <PropertyRef Name="serviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTransaction_invoice">
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1" />
+    <End Role="invoiceTransaction" Type="DB_40114_codeclubModel.Store.invoiceTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceTransaction">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTransaction_transaction">
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1" />
+    <End Role="invoiceTransaction" Type="DB_40114_codeclubModel.Store.invoiceTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTransactionDef_invoice">
+    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="invoiceTransactionDef" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceTransactionDef">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTransactionDef_invoiceTransactionDef">
+    <End Role="invoiceTransactionDef" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="1" />
+    <End Role="invoiceTransactionDef1" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="invoiceTransactionDef">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceTransactionDef1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceTransactionDef_transaction">
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="invoiceTransactionDef" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceTransactionDef">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mcCard_ccCard">
+    <End Role="ccCard" Type="DB_40114_codeclubModel.Store.ccCard" Multiplicity="0..1" />
+    <End Role="mcCard" Type="DB_40114_codeclubModel.Store.mcCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="mcCard">
+        <PropertyRef Name="ccCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_office_officeType">
+    <End Role="officeType" Type="DB_40114_codeclubModel.Store.officeType" Multiplicity="0..1" />
+    <End Role="office" Type="DB_40114_codeclubModel.Store.office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="officeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="office">
+        <PropertyRef Name="officeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_organization_entity">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="organization" Type="DB_40114_codeclubModel.Store.organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="organization">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orgOffice_office">
+    <End Role="office" Type="DB_40114_codeclubModel.Store.office" Multiplicity="0..1" />
+    <End Role="orgOffice" Type="DB_40114_codeclubModel.Store.orgOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="office">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="orgOffice">
+        <PropertyRef Name="officeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orgOffice_organization">
+    <End Role="organization" Type="DB_40114_codeclubModel.Store.organization" Multiplicity="0..1" />
+    <End Role="orgOffice" Type="DB_40114_codeclubModel.Store.orgOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="orgOffice">
+        <PropertyRef Name="orgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_currency">
+    <End Role="currency" Type="DB_40114_codeclubModel.Store.currency" Multiplicity="0..1" />
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_entitypayee">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="payeeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_entitypayer">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="payerTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_payment">
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="1" />
+    <End Role="payment1" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_paymentType">
+    <End Role="paymentType" Type="DB_40114_codeclubModel.Store.paymentType" Multiplicity="0..1" />
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paymentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="paymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentTransaction_payment">
+    <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="0..1" />
+    <End Role="paymentTransaction" Type="DB_40114_codeclubModel.Store.paymentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentTransaction">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentTransaction_transaction">
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1" />
+    <End Role="paymentTransaction" Type="DB_40114_codeclubModel.Store.paymentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_entity">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="person">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_entitygiver">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="service" Type="DB_40114_codeclubModel.Store.service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="service">
+        <PropertyRef Name="giverEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_entityreceiver">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="service" Type="DB_40114_codeclubModel.Store.service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="service">
+        <PropertyRef Name="receiverEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_account">
+    <End Role="account" Type="DB_40114_codeclubModel.Store.account" Multiplicity="0..1" />
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="transaction">
+        <PropertyRef Name="accountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_person">
     <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="0..1" />
-    <End Role="Service" Type="DB_40114_codeclubModel.Store.Service" Multiplicity="*" />
+    <End Role="user" Type="DB_40114_codeclubModel.Store.user" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="person">
-        <PropertyRef Name="person_id" />
+        <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Service">
-        <PropertyRef Name="senderId" />
+      <Dependent Role="user">
+        <PropertyRef Name="personID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_userType">
+    <End Role="userType" Type="DB_40114_codeclubModel.Store.userType" Multiplicity="0..1" />
+    <End Role="user" Type="DB_40114_codeclubModel.Store.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="userTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visaCard_ccCard">
+    <End Role="ccCard" Type="DB_40114_codeclubModel.Store.ccCard" Multiplicity="0..1" />
+    <End Role="visaCard" Type="DB_40114_codeclubModel.Store.visaCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="visaCard">
+        <PropertyRef Name="ccCardID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

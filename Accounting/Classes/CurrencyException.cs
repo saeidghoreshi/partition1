@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace Accounting.Classes
 {
-    public class CurrencyException:ApplicationException,ICustomException
+    public class CurrencyException:ApplicationException
     {
         public  CurrencyException(string message)
         {

@@ -4,80 +4,343 @@ using System.Linq;
 using System.Text;
 using Accounting.Interfaces;
 using Accounting.Models;
+using Accounting.Classes.Enums;
 
 namespace Accounting.Classes
 {
-    public class Controller:IController
+    public class Controller
     {
-        public ControllerOperationStatus SetupGLTypes()
+        public static ControllerOperationStatus SetupGLTypes()
         {
             using (var ctx = new AccContext())
             {
-
-                var allgltypes = ctx.GLType.ToList();
+                //reset DB table
+                var allgltypes = ctx.glType.ToList();
                 foreach (var item in allgltypes)
-                    ctx.GLType.DeleteObject(item);
+                    ctx.glType.DeleteObject(item);
+                var allcattypes = ctx.categoryType.ToList();
+                foreach (var item in allcattypes)
+                    ctx.categoryType.DeleteObject(item);
 
-                foreach (var type in Enum.GetNames(typeof(GLTYPE)))
+                //Add fresh lookup values for GL
+                var newglType = new glType()
                 {
-                    var newone = new GLType()
+                    ID = ASSET.Value,
+                    name = "ASSET"
+                };
+                ctx.glType.AddObject(newglType);
+                newglType = new glType()
+                {
+                    ID = LIB.Value,
+                    name = "LIB"
+                };
+                ctx.glType.AddObject(newglType);
+                newglType = new glType()
+                {
+                    ID = OE.Value,
+                    name = "OE"
+                };
+                ctx.glType.AddObject(newglType);
+                ctx.SaveChanges();
+
+                foreach (var item in AssetCategories.list)
+                {
+                    //add its Categories
+                    var newCatType = new categoryType()
                     {
-                        ID = (int)Enum.Parse(typeof(GLTYPE), type),
-                        name = type
+                        ID = item.Key,
+                        name = item.Value,
+                        glTypeID = ASSET.Value
                     };
-                    ctx.GLType.AddObject(newone);
+                    ctx.categoryType.AddObject(newCatType);
+                }
+                foreach (var item in OECategories.list)
+                {
+                    //add its Categories
+                    var newCatType = new categoryType()
+                    {
+                        ID = item.Key,
+                        name = item.Value,
+                        glTypeID = OE.Value
+                    };
+                    ctx.categoryType.AddObject(newCatType);
+                }
+                foreach (var item in LibCategories.list)
+                {
+                    //add its categories
+                    var newCatType = new categoryType()
+                    {
+                        ID = item.Key,
+                        name = item.Value,
+                        glTypeID=LIB.Value
+                    };
+                    ctx.categoryType.AddObject(newCatType);
                 }
                 ctx.SaveChanges();
 
                 return ControllerOperationStatus.Approved;
             }
         }
-
-        public ControllerOperationStatus SetupCurrencyTypes()
+        public static ControllerOperationStatus SetupEntityTypes()
         {
             using (var ctx = new AccContext())
             {
-                var allCurrencies= ctx.CurrencyType.ToList();
-                foreach (var item in allCurrencies)
-                    ctx.CurrencyType.DeleteObject(item);
+                //reset DB table
+                var alltypes = ctx.entityType.ToList();
+                foreach (var item in alltypes)
+                    ctx.entityType.DeleteObject(item);
 
-                foreach (var type in Enum.GetNames(typeof(currencyType)))
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.entityType)))
                 {
-                    var newone = new Models.CurrencyType()
+                    //add its Categories
+                    var newEntityType = new Models.entityType()
                     {
-                        ID = (int)Enum.Parse(typeof(currencyType), type),
-                        name = type
+                        ID = (int)Enum.Parse(typeof(Enums.entityType), item),
+                       name=item
                     };
-                    ctx.CurrencyType.AddObject(newone);
+                    ctx.entityType.AddObject(newEntityType);
                 }
+                
                 ctx.SaveChanges();
 
                 return ControllerOperationStatus.Approved;
             }
         }
-
-        public ControllerOperationStatus SetupCategories()
+        public static ControllerOperationStatus SetupOfficeTypes()
         {
             using (var ctx = new AccContext())
             {
-                var allCategories = ctx.CategoryType.ToList();
-                foreach (var item in allCategories
-                    )
-                    ctx.CategoryType.DeleteObject(item);
+                //reset DB table
+                var alltypes = ctx.officeType.ToList();
+                foreach (var item in alltypes)
+                    ctx.officeType.DeleteObject(item);
 
-                foreach (var type in Enum.GetNames(typeof(CATEGORYTYPE)))
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.officeType)))
                 {
-                    var newone = new Models.CategoryType()
+                    //add its Categories
+                    var newType = new Models.officeType()
                     {
-                        ID = (int)Enum.Parse(typeof(CATEGORYTYPE), type),
-                        name = type
+                        ID = (int)Enum.Parse(typeof(Enums.officeType), item),
+                        name = item
                     };
-                    ctx.CategoryType.AddObject(newone);
+                    ctx.officeType.AddObject(newType);
                 }
+
                 ctx.SaveChanges();
 
                 return ControllerOperationStatus.Approved;
             }
         }
+        public static ControllerOperationStatus SetupUserTypes()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.userType.ToList();
+                foreach (var item in alltypes)
+                    ctx.userType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.userType)))
+                {
+                    //add its Categories
+                    var newType = new Models.userType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.userType), item),
+                        name = item
+                    };
+                    ctx.userType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupSysUserTypes()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.sysUserType.ToList();
+                foreach (var item in alltypes)
+                    ctx.sysUserType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.sysUserType)))
+                {
+                    //add its Categories
+                    var newType = new Models.sysUserType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.sysUserType), item),
+                        name = item
+                    };
+                    ctx.sysUserType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupPaymentTypes()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.paymentType.ToList();
+                foreach (var item in alltypes)
+                    ctx.paymentType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.paymentType)))
+                {
+                    //add its Categories
+                    var newType = new Models.paymentType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.paymentType), item),
+                        name = item
+                    };
+                    ctx.paymentType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupExtPaymentTypes()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.extPaymentType.ToList();
+                foreach (var item in alltypes)
+                    ctx.extPaymentType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.extPaymentType)))
+                {
+                    //add its Categories
+                    var newType = new Models.extPaymentType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.extPaymentType), item),
+                        name = item
+                    };
+                    ctx.extPaymentType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupccCardTypes()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.ccCardType.ToList();
+                foreach (var item in alltypes)
+                    ctx.ccCardType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.ccCardType)))
+                {
+                    //add its Categories
+                    var newType = new Models.ccCardType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.ccCardType), item),
+                        name = item
+                    };
+                    ctx.ccCardType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupCardTypes()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.cardType.ToList();
+                foreach (var item in alltypes)
+                    ctx.cardType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.cardType)))
+                {
+                    //add its Categories
+                    var newType = new Models.cardType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.cardType), item),
+                        name = item
+                    };
+                    ctx.cardType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupInvoiceStat()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.invoiceStat.ToList();
+                foreach (var item in alltypes)
+                    ctx.invoiceStat.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.invoiceStat)))
+                {
+                    //add its Categories
+                    var newType = new Models.invoiceStat()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.invoiceStat), item),
+                        name = item
+                    };
+                    ctx.invoiceStat.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+        public static ControllerOperationStatus SetupCurrencyType()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.currencyType.ToList();
+                foreach (var item in alltypes)
+                    ctx.currencyType.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(Enums.currencyType)))
+                {
+                    //add its Categories
+                    var newType = new Models.currencyType()
+                    {
+                        ID = (int)Enum.Parse(typeof(Enums.currencyType), item),
+                        name = item
+                    };
+                    ctx.currencyType.AddObject(newType);
+                }
+
+                ctx.SaveChanges();
+
+                return ControllerOperationStatus.Approved;
+            }
+        }
+
     }
 }

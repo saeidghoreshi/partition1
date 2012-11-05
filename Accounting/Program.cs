@@ -6,8 +6,8 @@ using System.Text;
 using Accounting.Interfaces;
 using Accounting.Classes;
 using Accounting.Models;
-using Accounting.Interfaces.Service;
 using Accounting.Interfaces.subAccounts;
+using Accounting.Classes.Enums;
 
 namespace Accounting
 {
@@ -15,101 +15,76 @@ namespace Accounting
     {
         static void Main(string[] args)
         {
-            //new ServiceManagement().CreateNewService();
-            //new CurrencyManagement().run();
 
+            //lookupManagement.run();
+            //personManagement.createPerson();
+            //currencyManagement.createCur();
 
-            //var result1=new Controller().SetupGLTypes();
-            //var result2 = new Controller().SetupCurrencyTypes();
-            //var result3 = new Controller().SetupCategories();
-            /*
-             Console.WriteLine("GL Types : "+result1);
-            Console.WriteLine("Currency Types : " + result2);
-            Console.WriteLine("Category Types : " + result3);
-             */
-
-
-            Console.WriteLine();
-            
-            
-            
-            
+            serviceManagement.createService();
             
 
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
         }
     }
-    public class ServiceManagement 
+    public class personManagement 
     {
-        public void createCurrency()
+        public static void createPerson() 
         {
-            
-        }
-        public void CreateInvoice() 
-        {
-
-            Classes.Invoice I = new Classes.Invoice();
-            //I.createNewByExistingPersons(70,71,10.55d,)
-            
-        }
-        public void CreateNewService()
-        {
-            Classes.Service s = new Classes.Service();
-            Person sender = new Person
-            {
-                firstname = "111",
-                lastName = "222"
-            };
-            Person Receiver= new Person
-            {
-                firstname = "111_",
-                lastName = "222+"
-            };
-            //s.CreateNewService(sender,Receiver,"My New Service");
-            //s.CreateNewServiceByExistingPersons(70, 71, "My Service Noew");
-            //Console.WriteLine((s.loadServiceById(1) as Models.Service).serviceName);
-        } 
-    }
-    public class CurrencyManagement 
-    {
-        public void run() 
-        {
-            Accounting.Classes.Currency x = new Classes.Currency();
-            x.createNewCurrency("CAD",1);
-        }
-    }
-    public class ApplicationManagement
-    {
-        public void run()
-        {
-            
+            var result=new Classes.Person().create("newFirstName",DateTime.Now.Ticks.ToString()).lastName;
+            Console.WriteLine(result);
         }
     }
 
+    public class currencyManagement
+    {
+        public static void createCur()
+        {
+            new Classes.Currency().createNewCurrency("CAD", (int)Accounting.Classes.Enums.currencyType.Real);
+        }
+    }
+    public class serviceManagement
+    {
+        public static void createService()
+        {
+            var person1 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
+            var person2 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
 
 
-    public class OE 
-    {
-        /// <summary>
-        /// static value
-        /// </summary>
-        public static readonly int OEvalue = 1;
+            new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService"+DateTime.Now.Ticks.ToString());
+        }
     }
-    public class ASSET
+    public class lookupManagement
     {
-        /// <summary>
-        /// static value
-        /// </summary>
-        public static readonly int ASSETvalue = 2;
-    }
-    public  class OEtypes:OE
-    {
-        /// <summary>
-        /// static value
-        /// </summary>
-        public static readonly int INC = 10;
-        public static readonly int EXP = 20;
+        public static void run()
+        {
+            //Setup initiatives lookups
+            var result1 = Controller.SetupGLTypes();
+            var result2 = Controller.SetupOfficeTypes();
+            var result3 = Controller.SetupCardTypes();
+            var result4 = Controller.SetupccCardTypes();
+            var result5 = Controller.SetupCurrencyType();
+            var result6 = Controller.SetupEntityTypes();
+            var result7 = Controller.SetupExtPaymentTypes();
+            var result8 = Controller.SetupInvoiceStat();
+            var result9 = Controller.SetupOfficeTypes();
+            var result10 = Controller.SetupPaymentTypes();
+            var result11 = Controller.SetupSysUserTypes();
+            var result12 = Controller.SetupUserTypes();
+
+            Console.WriteLine(result1);
+            Console.WriteLine(result2);
+            Console.WriteLine(result3);
+            Console.WriteLine(result4);
+            Console.WriteLine(result5);
+            Console.WriteLine(result6);
+            Console.WriteLine(result7);
+            Console.WriteLine(result8);
+            Console.WriteLine(result9);
+            Console.WriteLine(result10);
+            Console.WriteLine(result11);
+            Console.WriteLine(result12);
+        }
     }
     
     

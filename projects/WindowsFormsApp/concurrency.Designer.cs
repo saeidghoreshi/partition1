@@ -60,6 +60,7 @@
             this.Controls.Add(this.button1);
             this.Name = "concurrency";
             this.Text = "concurrency";
+            this.Load += new System.EventHandler(this.concurrency_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
