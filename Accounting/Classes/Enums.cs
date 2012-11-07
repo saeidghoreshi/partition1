@@ -28,6 +28,7 @@ namespace Accounting.Classes.Enums
         /// </summary>
         public static readonly int Value = 3;
     }
+    
     public class AssetCategories : ASSET
     {
         /// <summary>
@@ -53,6 +54,7 @@ namespace Accounting.Classes.Enums
         };
     }
     public class OECategories : OE
+
     {
         /// <summary>
         /// static value
@@ -67,6 +69,7 @@ namespace Accounting.Classes.Enums
         };
     }
     public class LibCategories : LIB
+
     {
         /// <summary>
         /// static value
@@ -133,6 +136,14 @@ namespace Accounting.Classes.Enums
         NULL = 4,
     }
     public enum invoiceOperationStatus
+    {
+        Approved = 1,
+        NotApproved = 2,
+        Duplicate = 3,
+        Unknown = 4,
+        NULL = 4,
+    }
+    public enum transactionOperationStatus
     {
         Approved = 1,
         NotApproved = 2,

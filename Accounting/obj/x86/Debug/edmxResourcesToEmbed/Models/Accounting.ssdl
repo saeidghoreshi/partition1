@@ -25,7 +25,6 @@
     <EntitySet Name="invoiceService" EntityType="DB_40114_codeclubModel.Store.invoiceService" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="invoiceStat" EntityType="DB_40114_codeclubModel.Store.invoiceStat" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="invoiceTransaction" EntityType="DB_40114_codeclubModel.Store.invoiceTransaction" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="invoiceTransactionDef" EntityType="DB_40114_codeclubModel.Store.invoiceTransactionDef" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="mcCard" EntityType="DB_40114_codeclubModel.Store.mcCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="office" EntityType="DB_40114_codeclubModel.Store.office" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="officeType" EntityType="DB_40114_codeclubModel.Store.officeType" store:Type="Tables" Schema="Accounting" />
@@ -156,18 +155,6 @@
     <AssociationSet Name="FK_invoiceTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_invoiceTransaction_transaction">
       <End Role="transaction" EntitySet="transaction" />
       <End Role="invoiceTransaction" EntitySet="invoiceTransaction" />
-    </AssociationSet>
-    <AssociationSet Name="FK_invoiceTransactionDef_invoice" Association="DB_40114_codeclubModel.Store.FK_invoiceTransactionDef_invoice">
-      <End Role="invoice" EntitySet="invoice" />
-      <End Role="invoiceTransactionDef" EntitySet="invoiceTransactionDef" />
-    </AssociationSet>
-    <AssociationSet Name="FK_invoiceTransactionDef_invoiceTransactionDef" Association="DB_40114_codeclubModel.Store.FK_invoiceTransactionDef_invoiceTransactionDef">
-      <End Role="invoiceTransactionDef" EntitySet="invoiceTransactionDef" />
-      <End Role="invoiceTransactionDef1" EntitySet="invoiceTransactionDef" />
-    </AssociationSet>
-    <AssociationSet Name="FK_invoiceTransactionDef_transaction" Association="DB_40114_codeclubModel.Store.FK_invoiceTransactionDef_transaction">
-      <End Role="transaction" EntitySet="transaction" />
-      <End Role="invoiceTransactionDef" EntitySet="invoiceTransactionDef" />
     </AssociationSet>
     <AssociationSet Name="FK_mcCard_ccCard" Association="DB_40114_codeclubModel.Store.FK_mcCard_ccCard">
       <End Role="ccCard" EntitySet="ccCard" />
@@ -435,18 +422,9 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="invoiceID" Type="int" />
-    <Property Name="transactionID" Type="int" />
-  </EntityType>
-  <EntityType Name="invoiceTransactionDef">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="invoiceID" Type="int" />
     <Property Name="transactionID" Type="int" />
-    <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="mcCard">
     <Key>
@@ -542,7 +520,6 @@
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="accountID" Type="int" />
     <Property Name="amount" Type="decimal" />
-    <Property Name="timestamp" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -915,53 +892,15 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_invoiceTransaction_transaction">
-    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1" />
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="invoiceTransaction" Type="DB_40114_codeclubModel.Store.invoiceTransaction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="transaction">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="invoiceTransaction">
-        <PropertyRef Name="transactionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_invoiceTransactionDef_invoice">
-    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="invoiceTransactionDef" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="invoice">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="invoiceTransactionDef">
-        <PropertyRef Name="invoiceID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_invoiceTransactionDef_invoiceTransactionDef">
-    <End Role="invoiceTransactionDef" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="1" />
-    <End Role="invoiceTransactionDef1" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="invoiceTransactionDef">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="invoiceTransactionDef1">
-        <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_invoiceTransactionDef_transaction">
-    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="invoiceTransactionDef" Type="DB_40114_codeclubModel.Store.invoiceTransactionDef" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="transaction">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="invoiceTransactionDef">
         <PropertyRef Name="transactionID" />
       </Dependent>
     </ReferentialConstraint>

@@ -8,20 +8,19 @@ using Accounting.Classes.Enums;
 
 namespace Accounting.Interfaces.subAccounts
 {
-    public class APAccount : LibAccount
+    public class INCAccount : OEAccount
     {
-        public readonly int CATTYPE = LibCategories.AP;
+        public readonly int CATTYPE = OECategories.INC;
 
         public accountOperationStatus Create(int ownerEntityId,int currencyID,decimal balance=0)
         {
             using(var ctx=new  AccContext())
             {
                 var duplicate = ctx.account
-                    .Where(x => x.ownerEntityID == ownerEntityId && x.currencyID == currencyID && x.catTypeID == CATTYPE)
-                    .SingleOrDefault();
+                     .Where(x => x.ownerEntityID == ownerEntityId && x.currencyID == currencyID && x.catTypeID == CATTYPE)
+                     .SingleOrDefault();
                 if (duplicate != null)
                     ctx.DeleteObject(duplicate);
-
                 var newAccount = new account()
                 {
                     catTypeID=CATTYPE,

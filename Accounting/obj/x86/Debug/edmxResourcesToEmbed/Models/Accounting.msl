@@ -210,25 +210,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="invoiceTransaction">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceTransaction">
-        <MappingFragment StoreEntitySet="invoiceTransaction">
-          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
-          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="invoiceTransactionDef">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceTransactionDef">
-        <MappingFragment StoreEntitySet="invoiceTransactionDef">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
-          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="mcCard">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.mcCard">
         <MappingFragment StoreEntitySet="mcCard">
@@ -317,16 +298,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="transaction">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.transaction">
-        <MappingFragment StoreEntitySet="transaction">
-          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="accountID" ColumnName="accountID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="user">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.user">
         <MappingFragment StoreEntitySet="user">
@@ -358,6 +329,24 @@
           <ScalarProperty Name="lastName" ColumnName="lastName" />
           <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="entityID" ColumnName="entityID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.transaction">
+        <MappingFragment StoreEntitySet="transaction">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="accountID" ColumnName="accountID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoiceTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceTransaction">
+        <MappingFragment StoreEntitySet="invoiceTransaction">
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

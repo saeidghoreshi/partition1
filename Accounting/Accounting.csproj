@@ -39,6 +39,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +57,13 @@
     <Compile Include="Classes\Invoice.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Service.cs" />
+    <Compile Include="Classes\subAccounts\AR.cs" />
+    <Compile Include="Classes\subAccounts\INC.cs" />
+    <Compile Include="Classes\subAccounts\EXP.cs" />
+    <Compile Include="Classes\subAccounts\W.cs" />
+    <Compile Include="Classes\subAccounts\TA.cs" />
+    <Compile Include="Classes\subAccounts\CCCASH.cs" />
+    <Compile Include="Classes\subAccounts\DBCASH.cs" />
     <Compile Include="Classes\Transaction.cs" />
     <Compile Include="Classes\subAccounts\AP.cs" />
     <Compile Include="Models\Accounting.Designer.cs">

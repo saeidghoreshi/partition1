@@ -8,9 +8,9 @@ using Accounting.Classes.Enums;
 
 namespace Accounting.Interfaces.subAccounts
 {
-    public class APAccount : LibAccount
+    public class EXPAccount : OEAccount
     {
-        public readonly int CATTYPE = LibCategories.AP;
+        public readonly int CATTYPE = OECategories.EXP;
 
         public accountOperationStatus Create(int ownerEntityId,int currencyID,decimal balance=0)
         {
@@ -21,7 +21,6 @@ namespace Accounting.Interfaces.subAccounts
                     .SingleOrDefault();
                 if (duplicate != null)
                     ctx.DeleteObject(duplicate);
-
                 var newAccount = new account()
                 {
                     catTypeID=CATTYPE,

@@ -8,6 +8,7 @@ using Accounting.Classes;
 using Accounting.Models;
 using Accounting.Interfaces.subAccounts;
 using Accounting.Classes.Enums;
+using System.Transactions;
 
 namespace Accounting
 {
@@ -19,8 +20,14 @@ namespace Accounting
             //lookupManagement.run();
             //personManagement.createPerson();
             //currencyManagement.createCur();
-            //serviceManagement.createService();
+            
+            //accountManagement.create();
+            //cardManagement.createMasterCard();
+            
+
+            /*sample Invoice Creation*/
             invoiceManagement.createInvoice();
+            
             
 
             Console.WriteLine("Enter to Quit");
@@ -36,6 +43,35 @@ namespace Accounting
         }
     }
 
+
+    public class cardManagement
+    {
+        public static void createMasterCard()
+        {
+            var result = new Classes.MasterCard().create("111222333444",DateTime.Now);
+        }
+    }
+
+    public class accountManagement
+    {
+        public static void create()
+        {
+            using(var ts=new TransactionScope())
+            {
+                new APAccount().Create(16, 2);
+                new ARAccount().Create(16, 2);
+                new WAccount().Create(16, 2);
+                new EXPAccount().Create(16, 2);
+                new INCAccount().Create(16, 2);
+                new CCCASHAccount().Create(16, 2);
+                new DBCASHAccount().Create(16, 2);
+                new TAAccount().Create(16, 2);
+                
+                ts.Complete();
+            }
+            
+        }
+    }
     public class currencyManagement
     {
         public static void createCur()
@@ -66,6 +102,11 @@ namespace Accounting
 
             var newService=new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService" + DateTime.Now.Ticks.ToString());
             myInvoice.addService(newService.ID, newInvoice.ID, 2, 1000);
+
+            newService = new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService" + DateTime.Now.Ticks.ToString());
+            myInvoice.addService(newService.ID, newInvoice.ID, 2, 3000);
+
+            myInvoice.finalizeInvoice(newInvoice.ID);
         }
     }
     public class lookupManagement

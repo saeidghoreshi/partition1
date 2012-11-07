@@ -5,31 +5,32 @@ using System.Text;
 
 using Accounting.Interfaces;
 using Accounting.Classes.Enums;
+using Accounting.Models;
 
 namespace Accounting.Classes
 {   
     public abstract class Account
     {
-        protected int ID;
-        protected int catTypeID;
-        protected int ownerEntityID;
-        protected int currencyID;
-        protected decimal balance;
+        public static Models.account getAccount(int entityID,int catTypeID)
+        {
+            using(var ctx=new AccContext())
+            {
+                var account=ctx.account.Where(x=>x.catTypeID==catTypeID).SingleOrDefault();
+                return account;
+            }
+        }   
     }
     public abstract class AssetAccount:Account
     {
-        private int accountTYPE = ASSET.Value;
-        public  int ACCOUNTTYPE { get { return accountTYPE; } }
+        public readonly int accountTYPE = ASSET.Value;
     }
     public abstract class OEAccount : Account
     {
-        private int accountTYPE = OE.Value;
-        public int ACCOUNTTYPE { get { return accountTYPE; } }
+        public readonly int accountTYPE = OE.Value;
     }
     public abstract class LibAccount : Account
     {
-        private int accountTYPE = LIB.Value;
-        public int ACCOUNTTYPE { get { return accountTYPE; } }
+        public readonly int accountTYPE = LIB.Value;
     }
 
 
