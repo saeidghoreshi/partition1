@@ -47,6 +47,7 @@ namespace Accounting.Classes
                 var trans2 = Transaction.createNew((int)invoice.payerEntityID, (int)AssetCategories.AR, (decimal)invoiceServices);
                 transactions.Add(trans2);
 
+                /*Record Invoice Transaction*/
                 this.recordInvoiceTransaction(invoiceID, transactions);
 
                 ts.Complete();
@@ -88,12 +89,7 @@ namespace Accounting.Classes
                 //create invoice Transactions and invoice action Transactions
                 foreach (var item in transactions) 
                 {
-                    var invTrans=new Models.invoiceTransaction()
-                    {
-                        invoiceID=invoiceID,
-                        transactionID=item.ID
-                    };
-                    ctx.invoiceTransaction.AddObject(invTrans);
+                   
 
                     var invActionTrans = new Models.invoiceActionTransaction()
                     {
@@ -110,5 +106,7 @@ namespace Accounting.Classes
                 return transactionOperationStatus.Approved;
             }
         }
+
+        
     }
 }

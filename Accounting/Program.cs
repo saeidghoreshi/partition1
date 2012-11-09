@@ -26,10 +26,9 @@ namespace Accounting
             
 
             /*sample Invoice Creation*/
-            invoiceManagement.createInvoice();
-            
-            
+            //invoiceManagement.createInvoice();
 
+          
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
         }
@@ -141,6 +140,8 @@ namespace Accounting
             Console.WriteLine(result12);
         }
     }
+
+    
     
     
 }

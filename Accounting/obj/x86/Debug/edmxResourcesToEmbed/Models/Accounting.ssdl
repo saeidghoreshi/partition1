@@ -24,14 +24,14 @@
     <EntitySet Name="invoicePayment" EntityType="DB_40114_codeclubModel.Store.invoicePayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="invoiceService" EntityType="DB_40114_codeclubModel.Store.invoiceService" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="invoiceStat" EntityType="DB_40114_codeclubModel.Store.invoiceStat" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="invoiceTransaction" EntityType="DB_40114_codeclubModel.Store.invoiceTransaction" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="mcCard" EntityType="DB_40114_codeclubModel.Store.mcCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="office" EntityType="DB_40114_codeclubModel.Store.office" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="officeType" EntityType="DB_40114_codeclubModel.Store.officeType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="organization" EntityType="DB_40114_codeclubModel.Store.organization" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="orgOffice" EntityType="DB_40114_codeclubModel.Store.orgOffice" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="payment" EntityType="DB_40114_codeclubModel.Store.payment" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="paymentTransaction" EntityType="DB_40114_codeclubModel.Store.paymentTransaction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="paymentAction" EntityType="DB_40114_codeclubModel.Store.paymentAction" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="paymentActionTransaction" EntityType="DB_40114_codeclubModel.Store.paymentActionTransaction" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="paymentType" EntityType="DB_40114_codeclubModel.Store.paymentType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="service" EntityType="DB_40114_codeclubModel.Store.service" store:Type="Tables" Schema="Accounting" />
@@ -148,14 +148,6 @@
       <End Role="service" EntitySet="service" />
       <End Role="invoiceService" EntitySet="invoiceService" />
     </AssociationSet>
-    <AssociationSet Name="FK_invoiceTransaction_invoice" Association="DB_40114_codeclubModel.Store.FK_invoiceTransaction_invoice">
-      <End Role="invoice" EntitySet="invoice" />
-      <End Role="invoiceTransaction" EntitySet="invoiceTransaction" />
-    </AssociationSet>
-    <AssociationSet Name="FK_invoiceTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_invoiceTransaction_transaction">
-      <End Role="transaction" EntitySet="transaction" />
-      <End Role="invoiceTransaction" EntitySet="invoiceTransaction" />
-    </AssociationSet>
     <AssociationSet Name="FK_mcCard_ccCard" Association="DB_40114_codeclubModel.Store.FK_mcCard_ccCard">
       <End Role="ccCard" EntitySet="ccCard" />
       <End Role="mcCard" EntitySet="mcCard" />
@@ -196,13 +188,17 @@
       <End Role="paymentType" EntitySet="paymentType" />
       <End Role="payment" EntitySet="payment" />
     </AssociationSet>
-    <AssociationSet Name="FK_paymentTransaction_payment" Association="DB_40114_codeclubModel.Store.FK_paymentTransaction_payment">
+    <AssociationSet Name="FK_paymentAction_payment" Association="DB_40114_codeclubModel.Store.FK_paymentAction_payment">
       <End Role="payment" EntitySet="payment" />
-      <End Role="paymentTransaction" EntitySet="paymentTransaction" />
+      <End Role="paymentAction" EntitySet="paymentAction" />
     </AssociationSet>
-    <AssociationSet Name="FK_paymentTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_paymentTransaction_transaction">
+    <AssociationSet Name="FK_paymentActionTransaction_paymentAction" Association="DB_40114_codeclubModel.Store.FK_paymentActionTransaction_paymentAction">
+      <End Role="paymentAction" EntitySet="paymentAction" />
+      <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentActionTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_paymentActionTransaction_transaction">
       <End Role="transaction" EntitySet="transaction" />
-      <End Role="paymentTransaction" EntitySet="paymentTransaction" />
+      <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
     </AssociationSet>
     <AssociationSet Name="FK_person_entity" Association="DB_40114_codeclubModel.Store.FK_person_entity">
       <End Role="entity" EntitySet="entity" />
@@ -390,7 +386,6 @@
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="invoiceActionID" Type="int" />
     <Property Name="transactionID" Type="int" />
-    <Property Name="timestamp" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="invoicePayment">
     <Key>
@@ -417,14 +412,6 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="invoiceTransaction">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="invoiceID" Type="int" />
-    <Property Name="transactionID" Type="int" />
   </EntityType>
   <EntityType Name="mcCard">
     <Key>
@@ -473,12 +460,20 @@
     <Property Name="currencyID" Type="int" />
     <Property Name="paymentTypeID" Type="int" />
   </EntityType>
-  <EntityType Name="paymentTransaction">
+  <EntityType Name="paymentAction">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="paymentID" Type="int" />
+    <Property Name="paymentStatID" Type="int" />
+  </EntityType>
+  <EntityType Name="paymentActionTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="paymentActionID" Type="int" />
     <Property Name="transactionID" Type="int" />
   </EntityType>
   <EntityType Name="paymentType">
@@ -879,32 +874,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_invoiceTransaction_invoice">
-    <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="0..1" />
-    <End Role="invoiceTransaction" Type="DB_40114_codeclubModel.Store.invoiceTransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="invoice">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="invoiceTransaction">
-        <PropertyRef Name="invoiceID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_invoiceTransaction_transaction">
-    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="invoiceTransaction" Type="DB_40114_codeclubModel.Store.invoiceTransaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="transaction">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="invoiceTransaction">
-        <PropertyRef Name="transactionID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_mcCard_ccCard">
     <End Role="ccCard" Type="DB_40114_codeclubModel.Store.ccCard" Multiplicity="0..1" />
     <End Role="mcCard" Type="DB_40114_codeclubModel.Store.mcCard" Multiplicity="*" />
@@ -1025,26 +994,38 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_paymentTransaction_payment">
+  <Association Name="FK_paymentAction_payment">
     <End Role="payment" Type="DB_40114_codeclubModel.Store.payment" Multiplicity="0..1" />
-    <End Role="paymentTransaction" Type="DB_40114_codeclubModel.Store.paymentTransaction" Multiplicity="*" />
+    <End Role="paymentAction" Type="DB_40114_codeclubModel.Store.paymentAction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="payment">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="paymentTransaction">
+      <Dependent Role="paymentAction">
         <PropertyRef Name="paymentID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_paymentTransaction_transaction">
+  <Association Name="FK_paymentActionTransaction_paymentAction">
+    <End Role="paymentAction" Type="DB_40114_codeclubModel.Store.paymentAction" Multiplicity="0..1" />
+    <End Role="paymentActionTransaction" Type="DB_40114_codeclubModel.Store.paymentActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paymentAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentActionTransaction">
+        <PropertyRef Name="paymentActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentActionTransaction_transaction">
     <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1" />
-    <End Role="paymentTransaction" Type="DB_40114_codeclubModel.Store.paymentTransaction" Multiplicity="*" />
+    <End Role="paymentActionTransaction" Type="DB_40114_codeclubModel.Store.paymentActionTransaction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="transaction">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="paymentTransaction">
+      <Dependent Role="paymentActionTransaction">
         <PropertyRef Name="transactionID" />
       </Dependent>
     </ReferentialConstraint>

@@ -171,16 +171,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="invoiceActionTransaction">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceActionTransaction">
-        <MappingFragment StoreEntitySet="invoiceActionTransaction">
-          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
-          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
-          <ScalarProperty Name="invoiceActionID" ColumnName="invoiceActionID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="invoicePayment">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoicePayment">
         <MappingFragment StoreEntitySet="invoicePayment">
@@ -263,15 +253,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="paymentTransaction">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentTransaction">
-        <MappingFragment StoreEntitySet="paymentTransaction">
-          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
-          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="paymentType">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentType">
         <MappingFragment StoreEntitySet="paymentType">
@@ -342,11 +323,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="invoiceTransaction">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceTransaction">
-        <MappingFragment StoreEntitySet="invoiceTransaction">
+    <EntitySetMapping Name="invoiceActionTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceActionTransaction">
+        <MappingFragment StoreEntitySet="invoiceActionTransaction">
           <ScalarProperty Name="transactionID" ColumnName="transactionID" />
-          <ScalarProperty Name="invoiceID" ColumnName="invoiceID" />
+          <ScalarProperty Name="invoiceActionID" ColumnName="invoiceActionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentAction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentAction">
+        <MappingFragment StoreEntitySet="paymentAction">
+          <ScalarProperty Name="paymentStatID" ColumnName="paymentStatID" />
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paymentActionTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentActionTransaction">
+        <MappingFragment StoreEntitySet="paymentActionTransaction">
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="paymentActionID" ColumnName="paymentActionID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

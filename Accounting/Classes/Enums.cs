@@ -94,7 +94,8 @@ namespace Accounting.Classes.Enums
     public enum ccCardType{MC=1,Visa=2}
     public enum cardType{DebitCard=1,CreditCard=2}
 
-    public enum invoiceStat{Generated=1,Refunded=2,Voided=3}
+    public enum invoiceStat{Generated=1,Deleted=2,Cancelled=3/*if no payments occured or all payments voided or refunded*/,partiallyPaid=4,fullyPaid=5}
+    public enum paymentStat { Approved=1,Voided=2,Refunded=3 }
     public enum currencyType{ Real=1,UnReal=2}
 
 
@@ -142,6 +143,12 @@ namespace Accounting.Classes.Enums
         Duplicate = 3,
         Unknown = 4,
         NULL = 4,
+    }
+    public enum paymentOperationStatus
+    {
+        Approved = 1,
+        NotApproved = 2,
+        Unknown = 3
     }
     public enum transactionOperationStatus
     {

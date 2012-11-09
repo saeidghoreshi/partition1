@@ -55,6 +55,7 @@
     <Compile Include="Classes\Entity.cs" />
     <Compile Include="Classes\Enums.cs" />
     <Compile Include="Classes\Invoice.cs" />
+    <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Service.cs" />
     <Compile Include="Classes\subAccounts\AR.cs" />
