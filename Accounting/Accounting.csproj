@@ -81,8 +81,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Accounting.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Documentation\Accountin businuss Rules.docx" />
+    <None Include="Documentation\accounting DB.doc" />
+    <None Include="Documentation\accounting-DB - Nov102012.vsd" />
+    <None Include="Documentation\accounting.uml" />
+    <None Include="Documentation\accounting.~ml" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

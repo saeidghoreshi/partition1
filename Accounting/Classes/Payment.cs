@@ -10,7 +10,7 @@ namespace Accounting.Classes
 {
     public class Payment
     {
-        private Models.payment doPayment(int payerEntityID,int payeeEntityID,decimal amount,int currencyID,int paymentTypeID) {
+        private Models.payment pay(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) {
 
             using (var ctx = new AccContext())
             {
@@ -19,45 +19,20 @@ namespace Accounting.Classes
                     payerTypeID=payerEntityID,
                     payeeTypeID=payeeEntityID,
                     amount=amount,
-                    currencyID=currencyID,
-                    paymentTypeID=paymentTypeID
+                    currencyID=currencyID
                 };
                 ctx.payment.AddObject(_payment);
                 ctx.SaveChanges();
                 return _payment;
             }
         }
-        public virtual Models.invoicePayment payInvoice(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int paymentTypeID)
-        {
-            using (var ctx = new AccContext())
-            using (var ts=new TransactionScope())
-            {
-                var payment=this.doPayment(payerEntityID,payeeEntityID,amount,currencyID,paymentTypeID);
-
-                var invoicePay= new Models.invoicePayment()
-                {
-                    invoiceID = invoiceID,
-                    paymentID = payment.ID
-                };
-                ctx.invoicePayment.AddObject(invoicePay);
-                ctx.SaveChanges();
-                return invoicePay;
-            }
-            
-        }
     }
-    public class internalPayment : Payment
-    {
-        public override Models.invoicePayment payInvoice(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int paymentTypeID)
-        {
-            return base.payInvoice(invoiceID, payerEntityID, payeeEntityID, amount, currencyID,paymentTypeID);
-        }
-    }
+    
     public class externalPayment : Payment
     {
         public readonly int paymentTypeId = (int)Enums.paymentType.External;
-        //public static 
-        public override paymentOperationStatus payInvoice(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int paymentTypeID)
+        
+        public override Models.payment pay(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts=new TransactionScope())
@@ -72,6 +47,16 @@ namespace Accounting.Classes
                 ctx.SaveChanges();
             }
             return paymentOperationStatus.Approved;
+        }
+    }
+
+    public class internalPayment : Payment
+    {
+        public readonly int paymentTypeId = (int)Enums.paymentType.Internal;
+
+        public override Models.payment pay(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        {
+            return base.pay(invoiceID, payerEntityID, payeeEntityID, amount, currencyID, this.paymentTypeId);
         }
     }
 }

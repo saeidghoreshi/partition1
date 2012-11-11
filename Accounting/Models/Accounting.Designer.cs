@@ -22,50 +22,52 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_account_categoryType", "categoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.categoryType), "account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.account), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_account_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.account), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_account_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.account), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_card_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "card", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.card), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_transaction_account", "account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.account), "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.transaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_dbCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "dbCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.dbCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_dbCard_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "dbCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.dbCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_categoryType_glType", "glType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.glType), "categoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.categoryType), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_ccCardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCard", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "mcCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.mcCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_visaCard_ccCard", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "visaCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.visaCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "mcCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.mcCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_visaCard_ccCardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "visaCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.visaCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccPayment_externalPayment", "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.externalPayment), "ccPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccPayment), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccPayment_extPaymentType", "extPaymentType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.extPaymentType), "ccPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_currency_currencyType", "currencyType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currencyType), "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.currency), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoice_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoice), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceService_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "invoiceService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceService), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_payment_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.payment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_dbPayment_externalPayment", "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.externalPayment), "dbPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.dbPayment), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entity_entityType", "entityType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entityType), "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entity), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_dbPayment_extPaymentType", "extPaymentType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.extPaymentType), "dbPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.dbPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoice_entitypayee", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoice), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoice_entityPayer", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoice), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_organization_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "organization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.organization), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_payment_entitypayee", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.payment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_payment_entitypayer", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.payment), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_person_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.person), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_service_entitygiver", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "service", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.service), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_service_entityreceiver", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "service", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.service), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_externalPayment_extPaymentType", "extPaymentType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.extPaymentType), "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.externalPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_externalPayment_payment", "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.payment), "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.externalPayment), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_externalPayment_paymentType", "paymentType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.paymentType), "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.externalPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_internalPayment_payment", "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.payment), "internalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.internalPayment), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_internalPayment_paymentType", "paymentType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.paymentType), "internalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.internalPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceAction_invoice", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoice), "invoiceAction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceAction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoicePayment_invoice", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoice), "invoicePayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoicePayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceService_invoice", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoice), "invoiceService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceService), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceAction_invoiceStat", "invoiceStat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoiceStat), "invoiceAction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceAction), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceActionTransaction_invoiceAction", "invoiceAction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoiceAction), "invoiceActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceActionTransaction), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceActionTransaction_transaction", "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.transaction), "invoiceActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceActionTransaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoicePayment_payment", "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.payment), "invoicePayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoicePayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceService_service", "service", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.service), "invoiceService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceService), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_office_officeType", "officeType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.officeType), "office", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.office), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_orgOffice_office", "office", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.office), "orgOffice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.orgOffice), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_orgOffice_organization", "organization", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.organization), "orgOffice", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.orgOffice), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_payment_payment", "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Accounting.Models.payment), "payment1", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.payment), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_payment_paymentType", "paymentType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.paymentType), "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.payment), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_userType", "userType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.userType), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_person_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "person", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.person), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_person", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_transaction_account", "account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.account), "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.transaction), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceActionTransaction_invoiceAction", "invoiceAction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoiceAction), "invoiceActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceActionTransaction), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceActionTransaction_transaction", "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.transaction), "invoiceActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceActionTransaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_paymentAction_payment", "payment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.payment), "paymentAction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.paymentAction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_paymentActionTransaction_paymentAction", "paymentAction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.paymentAction), "paymentActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.paymentActionTransaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_paymentActionTransaction_transaction", "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.transaction), "paymentActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.paymentActionTransaction), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_person", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_userType", "userType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.userType), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
 
 #endregion
 
@@ -424,6 +426,22 @@ namespace Accounting.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<invoiceActionTransaction> invoiceActionTransaction
+        {
+            get
+            {
+                if ((_invoiceActionTransaction == null))
+                {
+                    _invoiceActionTransaction = base.CreateObjectSet<invoiceActionTransaction>("invoiceActionTransaction");
+                }
+                return _invoiceActionTransaction;
+            }
+        }
+        private ObjectSet<invoiceActionTransaction> _invoiceActionTransaction;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<invoicePayment> invoicePayment
         {
             get
@@ -568,6 +586,38 @@ namespace Accounting.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<paymentAction> paymentAction
+        {
+            get
+            {
+                if ((_paymentAction == null))
+                {
+                    _paymentAction = base.CreateObjectSet<paymentAction>("paymentAction");
+                }
+                return _paymentAction;
+            }
+        }
+        private ObjectSet<paymentAction> _paymentAction;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<paymentActionTransaction> paymentActionTransaction
+        {
+            get
+            {
+                if ((_paymentActionTransaction == null))
+                {
+                    _paymentActionTransaction = base.CreateObjectSet<paymentActionTransaction>("paymentActionTransaction");
+                }
+                return _paymentActionTransaction;
+            }
+        }
+        private ObjectSet<paymentActionTransaction> _paymentActionTransaction;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<paymentType> paymentType
         {
             get
@@ -580,6 +630,22 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<paymentType> _paymentType;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<person> person
+        {
+            get
+            {
+                if ((_person == null))
+                {
+                    _person = base.CreateObjectSet<person>("person");
+                }
+                return _person;
+            }
+        }
+        private ObjectSet<person> _person;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -612,6 +678,22 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<sysUserType> _sysUserType;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<transaction> transaction
+        {
+            get
+            {
+                if ((_transaction == null))
+                {
+                    _transaction = base.CreateObjectSet<transaction>("transaction");
+                }
+                return _transaction;
+            }
+        }
+        private ObjectSet<transaction> _transaction;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -660,86 +742,6 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<visaCard> _visaCard;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<person> person
-        {
-            get
-            {
-                if ((_person == null))
-                {
-                    _person = base.CreateObjectSet<person>("person");
-                }
-                return _person;
-            }
-        }
-        private ObjectSet<person> _person;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<transaction> transaction
-        {
-            get
-            {
-                if ((_transaction == null))
-                {
-                    _transaction = base.CreateObjectSet<transaction>("transaction");
-                }
-                return _transaction;
-            }
-        }
-        private ObjectSet<transaction> _transaction;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<invoiceActionTransaction> invoiceActionTransaction
-        {
-            get
-            {
-                if ((_invoiceActionTransaction == null))
-                {
-                    _invoiceActionTransaction = base.CreateObjectSet<invoiceActionTransaction>("invoiceActionTransaction");
-                }
-                return _invoiceActionTransaction;
-            }
-        }
-        private ObjectSet<invoiceActionTransaction> _invoiceActionTransaction;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<paymentAction> paymentAction
-        {
-            get
-            {
-                if ((_paymentAction == null))
-                {
-                    _paymentAction = base.CreateObjectSet<paymentAction>("paymentAction");
-                }
-                return _paymentAction;
-            }
-        }
-        private ObjectSet<paymentAction> _paymentAction;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<paymentActionTransaction> paymentActionTransaction
-        {
-            get
-            {
-                if ((_paymentActionTransaction == null))
-                {
-                    _paymentActionTransaction = base.CreateObjectSet<paymentActionTransaction>("paymentActionTransaction");
-                }
-                return _paymentActionTransaction;
-            }
-        }
-        private ObjectSet<paymentActionTransaction> _paymentActionTransaction;
 
         #endregion
 
@@ -898,6 +900,14 @@ namespace Accounting.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the invoiceActionTransaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToinvoiceActionTransaction(invoiceActionTransaction invoiceActionTransaction)
+        {
+            base.AddObject("invoiceActionTransaction", invoiceActionTransaction);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the invoicePayment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToinvoicePayment(invoicePayment invoicePayment)
@@ -970,11 +980,35 @@ namespace Accounting.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the paymentAction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTopaymentAction(paymentAction paymentAction)
+        {
+            base.AddObject("paymentAction", paymentAction);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the paymentActionTransaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTopaymentActionTransaction(paymentActionTransaction paymentActionTransaction)
+        {
+            base.AddObject("paymentActionTransaction", paymentActionTransaction);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the paymentType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTopaymentType(paymentType paymentType)
         {
             base.AddObject("paymentType", paymentType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the person EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToperson(person person)
+        {
+            base.AddObject("person", person);
         }
     
         /// <summary>
@@ -991,6 +1025,14 @@ namespace Accounting.Models
         public void AddTosysUserType(sysUserType sysUserType)
         {
             base.AddObject("sysUserType", sysUserType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the transaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotransaction(transaction transaction)
+        {
+            base.AddObject("transaction", transaction);
         }
     
         /// <summary>
@@ -1015,46 +1057,6 @@ namespace Accounting.Models
         public void AddTovisaCard(visaCard visaCard)
         {
             base.AddObject("visaCard", visaCard);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the person EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToperson(person person)
-        {
-            base.AddObject("person", person);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the transaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotransaction(transaction transaction)
-        {
-            base.AddObject("transaction", transaction);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the invoiceActionTransaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToinvoiceActionTransaction(invoiceActionTransaction invoiceActionTransaction)
-        {
-            base.AddObject("invoiceActionTransaction", invoiceActionTransaction);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the paymentAction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTopaymentAction(paymentAction paymentAction)
-        {
-            base.AddObject("paymentAction", paymentAction);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the paymentActionTransaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTopaymentActionTransaction(paymentActionTransaction paymentActionTransaction)
-        {
-            base.AddObject("paymentActionTransaction", paymentActionTransaction);
         }
 
         #endregion
@@ -1429,30 +1431,6 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> cardTypeID
-        {
-            get
-            {
-                return _cardTypeID;
-            }
-            set
-            {
-                OncardTypeIDChanging(value);
-                ReportPropertyChanging("cardTypeID");
-                _cardTypeID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("cardTypeID");
-                OncardTypeIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _cardTypeID;
-        partial void OncardTypeIDChanging(Nullable<global::System.Int32> value);
-        partial void OncardTypeIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String cardNumber
         {
             get
@@ -1500,44 +1478,6 @@ namespace Accounting.Models
 
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_card_cardType", "cardType")]
-        public cardType cardType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_card_cardType", "cardType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_card_cardType", "cardType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<cardType> cardTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_card_cardType", "cardType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<cardType>("DB_40114_codeclubModel.FK_card_cardType", "cardType", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1674,18 +1614,40 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_card_cardType", "card")]
-        public EntityCollection<card> card
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccCard_cardType", "ccCard")]
+        public EntityCollection<ccCard> ccCard
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<card>("DB_40114_codeclubModel.FK_card_cardType", "card");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ccCard>("DB_40114_codeclubModel.FK_ccCard_cardType", "ccCard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<card>("DB_40114_codeclubModel.FK_card_cardType", "card", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ccCard>("DB_40114_codeclubModel.FK_ccCard_cardType", "ccCard", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_dbCard_cardType", "dbCard")]
+        public EntityCollection<dbCard> dbCard
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbCard>("DB_40114_codeclubModel.FK_dbCard_cardType", "dbCard");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbCard>("DB_40114_codeclubModel.FK_dbCard_cardType", "dbCard", value);
                 }
             }
         }
@@ -1944,24 +1906,24 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ccCardTypeID
+        public Nullable<global::System.Int32> cardTypeID
         {
             get
             {
-                return _ccCardTypeID;
+                return _cardTypeID;
             }
             set
             {
-                OnccCardTypeIDChanging(value);
-                ReportPropertyChanging("ccCardTypeID");
-                _ccCardTypeID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ccCardTypeID");
-                OnccCardTypeIDChanged();
+                OncardTypeIDChanging(value);
+                ReportPropertyChanging("cardTypeID");
+                _cardTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cardTypeID");
+                OncardTypeIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _ccCardTypeID;
-        partial void OnccCardTypeIDChanging(Nullable<global::System.Int32> value);
-        partial void OnccCardTypeIDChanged();
+        private Nullable<global::System.Int32> _cardTypeID;
+        partial void OncardTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OncardTypeIDChanged();
 
         #endregion
 
@@ -2012,16 +1974,16 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccCard_ccCardType", "ccCardType")]
-        public ccCardType ccCardType
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccCard_cardType", "cardType")]
+        public cardType cardType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccCard_ccCardType", "ccCardType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_ccCard_cardType", "cardType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccCard_ccCardType", "ccCardType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_ccCard_cardType", "cardType").Value = value;
             }
         }
         /// <summary>
@@ -2029,17 +1991,17 @@ namespace Accounting.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<ccCardType> ccCardTypeReference
+        public EntityReference<cardType> cardTypeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccCard_ccCardType", "ccCardType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_ccCard_cardType", "cardType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccCard_ccCardType", "ccCardType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<cardType>("DB_40114_codeclubModel.FK_ccCard_cardType", "cardType", value);
                 }
             }
         }
@@ -2179,18 +2141,40 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccCard_ccCardType", "ccCard")]
-        public EntityCollection<ccCard> ccCard
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCardType", "mcCard")]
+        public EntityCollection<mcCard> mcCard
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ccCard>("DB_40114_codeclubModel.FK_ccCard_ccCardType", "ccCard");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<mcCard>("DB_40114_codeclubModel.FK_mcCard_ccCardType", "mcCard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ccCard>("DB_40114_codeclubModel.FK_ccCard_ccCardType", "ccCard", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<mcCard>("DB_40114_codeclubModel.FK_mcCard_ccCardType", "mcCard", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_visaCard_ccCardType", "visaCard")]
+        public EntityCollection<visaCard> visaCard
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<visaCard>("DB_40114_codeclubModel.FK_visaCard_ccCardType", "visaCard");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<visaCard>("DB_40114_codeclubModel.FK_visaCard_ccCardType", "visaCard", value);
                 }
             }
         }
@@ -2298,6 +2282,30 @@ namespace Accounting.Models
         private global::System.String _description;
         partial void OndescriptionChanging(global::System.String value);
         partial void OndescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> extPaymentTypeID
+        {
+            get
+            {
+                return _extPaymentTypeID;
+            }
+            set
+            {
+                OnextPaymentTypeIDChanging(value);
+                ReportPropertyChanging("extPaymentTypeID");
+                _extPaymentTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("extPaymentTypeID");
+                OnextPaymentTypeIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _extPaymentTypeID;
+        partial void OnextPaymentTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnextPaymentTypeIDChanged();
 
         #endregion
 
@@ -2338,6 +2346,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<externalPayment>("DB_40114_codeclubModel.FK_ccPayment_externalPayment", "externalPayment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccPayment_extPaymentType", "extPaymentType")]
+        public extPaymentType extPaymentType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_ccPayment_extPaymentType", "extPaymentType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_ccPayment_extPaymentType", "extPaymentType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<extPaymentType> extPaymentTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_ccPayment_extPaymentType", "extPaymentType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_ccPayment_extPaymentType", "extPaymentType", value);
                 }
             }
         }
@@ -2763,6 +2809,30 @@ namespace Accounting.Models
         private Nullable<global::System.Int32> _cardID;
         partial void OncardIDChanging(Nullable<global::System.Int32> value);
         partial void OncardIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> cardTypeID
+        {
+            get
+            {
+                return _cardTypeID;
+            }
+            set
+            {
+                OncardTypeIDChanging(value);
+                ReportPropertyChanging("cardTypeID");
+                _cardTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cardTypeID");
+                OncardTypeIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _cardTypeID;
+        partial void OncardTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OncardTypeIDChanged();
 
         #endregion
 
@@ -2803,6 +2873,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<card>("DB_40114_codeclubModel.FK_dbCard_card", "card", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_dbCard_cardType", "cardType")]
+        public cardType cardType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_dbCard_cardType", "cardType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_dbCard_cardType", "cardType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<cardType> cardTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<cardType>("DB_40114_codeclubModel.FK_dbCard_cardType", "cardType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<cardType>("DB_40114_codeclubModel.FK_dbCard_cardType", "cardType", value);
                 }
             }
         }
@@ -2910,6 +3018,30 @@ namespace Accounting.Models
         private global::System.String _description;
         partial void OndescriptionChanging(global::System.String value);
         partial void OndescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> extPaymentTypeID
+        {
+            get
+            {
+                return _extPaymentTypeID;
+            }
+            set
+            {
+                OnextPaymentTypeIDChanging(value);
+                ReportPropertyChanging("extPaymentTypeID");
+                _extPaymentTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("extPaymentTypeID");
+                OnextPaymentTypeIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _extPaymentTypeID;
+        partial void OnextPaymentTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnextPaymentTypeIDChanged();
 
         #endregion
 
@@ -2950,6 +3082,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<externalPayment>("DB_40114_codeclubModel.FK_dbPayment_externalPayment", "externalPayment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_dbPayment_extPaymentType", "extPaymentType")]
+        public extPaymentType extPaymentType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_dbPayment_extPaymentType", "extPaymentType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_dbPayment_extPaymentType", "extPaymentType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<extPaymentType> extPaymentTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_dbPayment_extPaymentType", "extPaymentType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_dbPayment_extPaymentType", "extPaymentType", value);
                 }
             }
         }
@@ -3009,30 +3179,6 @@ namespace Accounting.Models
         private global::System.Int32 _ID;
         partial void OnIDChanging(global::System.Int32 value);
         partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> entityTypeID
-        {
-            get
-            {
-                return _entityTypeID;
-            }
-            set
-            {
-                OnentityTypeIDChanging(value);
-                ReportPropertyChanging("entityTypeID");
-                _entityTypeID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("entityTypeID");
-                OnentityTypeIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _entityTypeID;
-        partial void OnentityTypeIDChanging(Nullable<global::System.Int32> value);
-        partial void OnentityTypeIDChanged();
 
         #endregion
 
@@ -3057,44 +3203,6 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<account>("DB_40114_codeclubModel.FK_account_entity", "account", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entity_entityType", "entityType")]
-        public entityType entityType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entityType>("DB_40114_codeclubModel.FK_entity_entityType", "entityType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entityType>("DB_40114_codeclubModel.FK_entity_entityType", "entityType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<entityType> entityTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entityType>("DB_40114_codeclubModel.FK_entity_entityType", "entityType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<entityType>("DB_40114_codeclubModel.FK_entity_entityType", "entityType", value);
                 }
             }
         }
@@ -3215,6 +3323,28 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_person_entity", "person")]
+        public EntityCollection<person> person
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<person>("DB_40114_codeclubModel.FK_person_entity", "person");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<person>("DB_40114_codeclubModel.FK_person_entity", "person", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_service_entitygiver", "service")]
         public EntityCollection<service> service
         {
@@ -3249,28 +3379,6 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<service>("DB_40114_codeclubModel.FK_service_entityreceiver", "service", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_person_entity", "person")]
-        public EntityCollection<person> person
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<person>("DB_40114_codeclubModel.FK_person_entity", "person");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<person>("DB_40114_codeclubModel.FK_person_entity", "person", value);
                 }
             }
         }
@@ -3358,32 +3466,6 @@ namespace Accounting.Models
         #endregion
 
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entity_entityType", "entity")]
-        public EntityCollection<entity> entity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<entity>("DB_40114_codeclubModel.FK_entity_entityType", "entity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<entity>("DB_40114_codeclubModel.FK_entity_entityType", "entity", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
     
     /// <summary>
@@ -3467,48 +3549,48 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> extPaymentTypeID
+        public Nullable<global::System.Int32> paymentTypeID
         {
             get
             {
-                return _extPaymentTypeID;
+                return _paymentTypeID;
             }
             set
             {
-                OnextPaymentTypeIDChanging(value);
-                ReportPropertyChanging("extPaymentTypeID");
-                _extPaymentTypeID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("extPaymentTypeID");
-                OnextPaymentTypeIDChanged();
+                OnpaymentTypeIDChanging(value);
+                ReportPropertyChanging("paymentTypeID");
+                _paymentTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("paymentTypeID");
+                OnpaymentTypeIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _extPaymentTypeID;
-        partial void OnextPaymentTypeIDChanging(Nullable<global::System.Int32> value);
-        partial void OnextPaymentTypeIDChanged();
+        private Nullable<global::System.Int32> _paymentTypeID;
+        partial void OnpaymentTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnpaymentTypeIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String descriptiohn
+        public global::System.String description
         {
             get
             {
-                return _descriptiohn;
+                return _description;
             }
             set
             {
-                OndescriptiohnChanging(value);
-                ReportPropertyChanging("descriptiohn");
-                _descriptiohn = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("descriptiohn");
-                OndescriptiohnChanged();
+                OndescriptionChanging(value);
+                ReportPropertyChanging("description");
+                _description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("description");
+                OndescriptionChanged();
             }
         }
-        private global::System.String _descriptiohn;
-        partial void OndescriptiohnChanging(global::System.String value);
-        partial void OndescriptiohnChanged();
+        private global::System.String _description;
+        partial void OndescriptionChanging(global::System.String value);
+        partial void OndescriptionChanged();
 
         #endregion
 
@@ -3565,44 +3647,6 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_externalPayment_extPaymentType", "extPaymentType")]
-        public extPaymentType extPaymentType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_externalPayment_extPaymentType", "extPaymentType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_externalPayment_extPaymentType", "extPaymentType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<extPaymentType> extPaymentTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_externalPayment_extPaymentType", "extPaymentType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<extPaymentType>("DB_40114_codeclubModel.FK_externalPayment_extPaymentType", "extPaymentType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_externalPayment_payment", "payment")]
         public payment payment
         {
@@ -3631,6 +3675,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<payment>("DB_40114_codeclubModel.FK_externalPayment_payment", "payment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_externalPayment_paymentType", "paymentType")]
+        public paymentType paymentType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_externalPayment_paymentType", "paymentType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_externalPayment_paymentType", "paymentType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<paymentType> paymentTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_externalPayment_paymentType", "paymentType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<paymentType>("DB_40114_codeclubModel.FK_externalPayment_paymentType", "paymentType", value);
                 }
             }
         }
@@ -3726,18 +3808,40 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_externalPayment_extPaymentType", "externalPayment")]
-        public EntityCollection<externalPayment> externalPayment
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccPayment_extPaymentType", "ccPayment")]
+        public EntityCollection<ccPayment> ccPayment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<externalPayment>("DB_40114_codeclubModel.FK_externalPayment_extPaymentType", "externalPayment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ccPayment>("DB_40114_codeclubModel.FK_ccPayment_extPaymentType", "ccPayment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<externalPayment>("DB_40114_codeclubModel.FK_externalPayment_extPaymentType", "externalPayment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ccPayment>("DB_40114_codeclubModel.FK_ccPayment_extPaymentType", "ccPayment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_dbPayment_extPaymentType", "dbPayment")]
+        public EntityCollection<dbPayment> dbPayment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<dbPayment>("DB_40114_codeclubModel.FK_dbPayment_extPaymentType", "dbPayment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<dbPayment>("DB_40114_codeclubModel.FK_dbPayment_extPaymentType", "dbPayment", value);
                 }
             }
         }
@@ -3934,6 +4038,30 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public Nullable<global::System.Int32> paymentTypeID
+        {
+            get
+            {
+                return _paymentTypeID;
+            }
+            set
+            {
+                OnpaymentTypeIDChanging(value);
+                ReportPropertyChanging("paymentTypeID");
+                _paymentTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("paymentTypeID");
+                OnpaymentTypeIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _paymentTypeID;
+        partial void OnpaymentTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnpaymentTypeIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public global::System.String description
         {
             get
@@ -3992,6 +4120,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<payment>("DB_40114_codeclubModel.FK_internalPayment_payment", "payment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_internalPayment_paymentType", "paymentType")]
+        public paymentType paymentType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_internalPayment_paymentType", "paymentType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_internalPayment_paymentType", "paymentType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<paymentType> paymentTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_internalPayment_paymentType", "paymentType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<paymentType>("DB_40114_codeclubModel.FK_internalPayment_paymentType", "paymentType", value);
                 }
             }
         }
@@ -4123,30 +4289,6 @@ namespace Accounting.Models
         private Nullable<global::System.Int32> _currencyID;
         partial void OncurrencyIDChanging(Nullable<global::System.Int32> value);
         partial void OncurrencyIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String timestamp
-        {
-            get
-            {
-                return _timestamp;
-            }
-            set
-            {
-                OntimestampChanging(value);
-                ReportPropertyChanging("timestamp");
-                _timestamp = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("timestamp");
-                OntimestampChanged();
-            }
-        }
-        private global::System.String _timestamp;
-        partial void OntimestampChanging(global::System.String value);
-        partial void OntimestampChanged();
 
         #endregion
 
@@ -5061,30 +5203,6 @@ namespace Accounting.Models
         private Nullable<global::System.Decimal> _amount;
         partial void OnamountChanging(Nullable<global::System.Decimal> value);
         partial void OnamountChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.Byte[] timestamp
-        {
-            get
-            {
-                return StructuralObject.GetValidValue(_timestamp);
-            }
-            set
-            {
-                OntimestampChanging(value);
-                ReportPropertyChanging("timestamp");
-                _timestamp = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("timestamp");
-                OntimestampChanged();
-            }
-        }
-        private global::System.Byte[] _timestamp;
-        partial void OntimestampChanging(global::System.Byte[] value);
-        partial void OntimestampChanged();
 
         #endregion
 
@@ -5391,6 +5509,30 @@ namespace Accounting.Models
         private Nullable<global::System.Int32> _ccCardID;
         partial void OnccCardIDChanging(Nullable<global::System.Int32> value);
         partial void OnccCardIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ccCardTypeID
+        {
+            get
+            {
+                return _ccCardTypeID;
+            }
+            set
+            {
+                OnccCardTypeIDChanging(value);
+                ReportPropertyChanging("ccCardTypeID");
+                _ccCardTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ccCardTypeID");
+                OnccCardTypeIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ccCardTypeID;
+        partial void OnccCardTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnccCardTypeIDChanged();
 
         #endregion
 
@@ -5431,6 +5573,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCard>("DB_40114_codeclubModel.FK_mcCard_ccCard", "ccCard", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCardType", "ccCardType")]
+        public ccCardType ccCardType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_mcCard_ccCardType", "ccCardType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_mcCard_ccCardType", "ccCardType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ccCardType> ccCardTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_mcCard_ccCardType", "ccCardType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_mcCard_ccCardType", "ccCardType", value);
                 }
             }
         }
@@ -6168,30 +6348,6 @@ namespace Accounting.Models
         private Nullable<global::System.Int32> _currencyID;
         partial void OncurrencyIDChanging(Nullable<global::System.Int32> value);
         partial void OncurrencyIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> paymentTypeID
-        {
-            get
-            {
-                return _paymentTypeID;
-            }
-            set
-            {
-                OnpaymentTypeIDChanging(value);
-                ReportPropertyChanging("paymentTypeID");
-                _paymentTypeID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("paymentTypeID");
-                OnpaymentTypeIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _paymentTypeID;
-        partial void OnpaymentTypeIDChanging(Nullable<global::System.Int32> value);
-        partial void OnpaymentTypeIDChanged();
 
         #endregion
 
@@ -6374,120 +6530,6 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoicePayment>("DB_40114_codeclubModel.FK_invoicePayment_payment", "invoicePayment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_payment_payment", "payment1")]
-        public payment payment1
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment1").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment1").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<payment> payment1Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment1");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment1", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_payment_payment", "payment")]
-        public payment payment2
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<payment> payment2Reference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<payment>("DB_40114_codeclubModel.FK_payment_payment", "payment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_payment_paymentType", "paymentType")]
-        public paymentType paymentType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_payment_paymentType", "paymentType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_payment_paymentType", "paymentType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<paymentType> paymentTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<paymentType>("DB_40114_codeclubModel.FK_payment_paymentType", "paymentType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<paymentType>("DB_40114_codeclubModel.FK_payment_paymentType", "paymentType", value);
                 }
             }
         }
@@ -6959,18 +7001,40 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_payment_paymentType", "payment")]
-        public EntityCollection<payment> payment
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_externalPayment_paymentType", "externalPayment")]
+        public EntityCollection<externalPayment> externalPayment
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<payment>("DB_40114_codeclubModel.FK_payment_paymentType", "payment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<externalPayment>("DB_40114_codeclubModel.FK_externalPayment_paymentType", "externalPayment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<payment>("DB_40114_codeclubModel.FK_payment_paymentType", "payment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<externalPayment>("DB_40114_codeclubModel.FK_externalPayment_paymentType", "externalPayment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_internalPayment_paymentType", "internalPayment")]
+        public EntityCollection<internalPayment> internalPayment
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<internalPayment>("DB_40114_codeclubModel.FK_internalPayment_paymentType", "internalPayment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<internalPayment>("DB_40114_codeclubModel.FK_internalPayment_paymentType", "internalPayment", value);
                 }
             }
         }
@@ -7229,24 +7293,24 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> giverEntityID
+        public Nullable<global::System.Int32> issuerEntityID
         {
             get
             {
-                return _giverEntityID;
+                return _issuerEntityID;
             }
             set
             {
-                OngiverEntityIDChanging(value);
-                ReportPropertyChanging("giverEntityID");
-                _giverEntityID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("giverEntityID");
-                OngiverEntityIDChanged();
+                OnissuerEntityIDChanging(value);
+                ReportPropertyChanging("issuerEntityID");
+                _issuerEntityID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("issuerEntityID");
+                OnissuerEntityIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _giverEntityID;
-        partial void OngiverEntityIDChanging(Nullable<global::System.Int32> value);
-        partial void OngiverEntityIDChanged();
+        private Nullable<global::System.Int32> _issuerEntityID;
+        partial void OnissuerEntityIDChanging(Nullable<global::System.Int32> value);
+        partial void OnissuerEntityIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7786,44 +7850,6 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_user_userType", "userType")]
-        public userType userType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<userType> userTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_user_person", "person")]
         public person person
         {
@@ -7852,6 +7878,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<person>("DB_40114_codeclubModel.FK_user_person", "person", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_user_userType", "userType")]
+        public userType userType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<userType> userTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<userType>("DB_40114_codeclubModel.FK_user_userType", "userType", value);
                 }
             }
         }
@@ -8042,6 +8106,30 @@ namespace Accounting.Models
         private Nullable<global::System.Int32> _ccCardID;
         partial void OnccCardIDChanging(Nullable<global::System.Int32> value);
         partial void OnccCardIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ccCardTypeID
+        {
+            get
+            {
+                return _ccCardTypeID;
+            }
+            set
+            {
+                OnccCardTypeIDChanging(value);
+                ReportPropertyChanging("ccCardTypeID");
+                _ccCardTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ccCardTypeID");
+                OnccCardTypeIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ccCardTypeID;
+        partial void OnccCardTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnccCardTypeIDChanged();
 
         #endregion
 
@@ -8082,6 +8170,44 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCard>("DB_40114_codeclubModel.FK_visaCard_ccCard", "ccCard", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_visaCard_ccCardType", "ccCardType")]
+        public ccCardType ccCardType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_visaCard_ccCardType", "ccCardType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_visaCard_ccCardType", "ccCardType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ccCardType> ccCardTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_visaCard_ccCardType", "ccCardType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_visaCard_ccCardType", "ccCardType", value);
                 }
             }
         }

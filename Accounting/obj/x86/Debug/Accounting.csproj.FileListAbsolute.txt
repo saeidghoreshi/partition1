@@ -3,3 +3,4 @@ C:\projects\Partitions\partition1\Accounting\bin\Debug\Accounting.exe
 C:\projects\Partitions\partition1\Accounting\bin\Debug\Accounting.pdb
 C:\projects\Partitions\partition1\Accounting\obj\x86\Debug\Accounting.exe
 C:\projects\Partitions\partition1\Accounting\obj\x86\Debug\Accounting.pdb
+C:\projects\Partitions\partition1\Accounting\obj\x86\Debug\Accounting.csprojResolveAssemblyReference.cache

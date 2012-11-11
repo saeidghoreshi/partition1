@@ -30,7 +30,7 @@ namespace Accounting.Classes
                 return newInvoice;
             }
         }
-        public invoiceOperationStatus finalizeInvoice(int invoiceID)
+        public void finalizeInvoice(int invoiceID)
         {
             using (var ctx = new AccContext())
             using (var ts =new TransactionScope())
@@ -40,7 +40,7 @@ namespace Accounting.Classes
                     throw  new Exception();
                 var invoiceServices = ctx.invoiceService.Where(x=>x.invoiceID==invoiceID).Sum(x=>x.amount);
                 
-                //create Transctions
+                //Record related transctions
                 List<Models.transaction> transactions = new List<transaction>();
                 var trans1=Transaction.createNew((int)invoice.payerEntityID,(int)LibCategories.AP,(decimal)invoiceServices);
                 transactions.Add(trans1);
@@ -51,9 +51,7 @@ namespace Accounting.Classes
                 this.recordInvoiceTransaction(invoiceID, transactions);
 
                 ts.Complete();
-                return invoiceOperationStatus.Approved;
             }
-        
         }
         public invoiceService addService(int serviceID,int invoiceID,int currencyID,decimal amount) 
         {
@@ -71,7 +69,7 @@ namespace Accounting.Classes
                 return newInvoiceService;
             }
         }
-        private transactionOperationStatus recordInvoiceTransaction(int invoiceID,List<Models.transaction> transactions)
+        private void recordInvoiceTransaction(int invoiceID,List<Models.transaction> transactions)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
@@ -89,8 +87,6 @@ namespace Accounting.Classes
                 //create invoice Transactions and invoice action Transactions
                 foreach (var item in transactions) 
                 {
-                   
-
                     var invActionTrans = new Models.invoiceActionTransaction()
                     {
                         invoiceActionID = invAction.ID,
@@ -103,10 +99,31 @@ namespace Accounting.Classes
 
                 ts.Complete();
 
-                return transactionOperationStatus.Approved;
             }
         }
 
+
+
+        /*Payment for Invoice*/
+        public void doInternalPayment(int invoiceID) { }
+        public void doCCExtPayment(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int paymentTypeID) 
+        {
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                var payment = this.doPayment(payerEntityID, payeeEntityID, amount, currencyID, paymentTypeID);
+
+                var invoicePay = new Models.invoicePayment()
+                {
+                    invoiceID = invoiceID,
+                    paymentID = payment.ID
+                };
+                ctx.invoicePayment.AddObject(invoicePay);
+                ctx.SaveChanges();
+                return payment;
+            }
+        }
+        public void doDBExtPayment() { }
         
     }
 }
