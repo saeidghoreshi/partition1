@@ -21,7 +21,7 @@ namespace Accounting.Classes
 
                 var newService = new Models.service()
                 {
-                    giverEntityID=giverEntityID,
+                    issuerEntityID=giverEntityID,
                     receiverEntityID=receiverEntityID,
                     name=serviceName
                 };

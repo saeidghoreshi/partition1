@@ -47,7 +47,7 @@ namespace Accounting
     {
         public static void createMasterCard()
         {
-            var result = new Classes.MasterCard().create("111222333444",DateTime.Now);
+            var result = new Classes.Card.CreditCard.MasterCard.MasterCard().create("111222333444",DateTime.Now);
         }
     }
 

@@ -103,7 +103,7 @@ namespace Accounting.Classes
                     extPaymentID = base.extPayment.ID,
                     extPaymentTypeID = this.extPaymentTypeId
                 };
-                ctx.ccPayment.AddObject(ccExtPay);
+                ctx.ccPayment.AddObject(dbExtPay);
                 ctx.SaveChanges();
                 this.dbextPayment = dbExtPay;
             }

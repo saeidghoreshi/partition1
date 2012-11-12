@@ -54,7 +54,6 @@ namespace Accounting.Classes.Enums
         };
     }
     public class OECategories : OE
-
     {
         /// <summary>
         /// static value
@@ -69,7 +68,6 @@ namespace Accounting.Classes.Enums
         };
     }
     public class LibCategories : LIB
-
     {
         /// <summary>
         /// static value
@@ -82,24 +80,69 @@ namespace Accounting.Classes.Enums
         };
     }
 
-    //entities Enums
-    public enum entityType {Organization=1,Office=2,Person=3}
-    public enum officeType {TemporaryOffice=1,HeadOffice=2,BankBranch=3}
-    public enum userType { AppUser=1,SysUser=2}
-    public enum sysUserType{NormalsysUser=1,AdminSysUser=2}
-
-    public enum paymentType{External=1,Internal=2}
-    public enum extPaymentType{CreditPayment=1,InteracPayment=2}
-
-    public enum ccCardType{MC=1,Visa=2}
-    public enum cardType{DebitCard=1,CreditCard=2}
-
-    public enum invoiceStat{Generated=1,Deleted=2,Cancelled=3/*if no payments occured or all payments voided or refunded*/,partiallyPaid=4,fullyPaid=5}
-    public enum paymentStat { Approved=1,Voided=2,Refunded=3 }
-    public enum currencyType{ Real=1,UnReal=2}
-
-
-
+    public enum entityType 
+    {
+        Organization=1,
+        Office=2,
+        Person=3
+    }
+    public enum officeType 
+    {
+        TemporaryOffice=1,
+        HeadOffice=2,
+        BankBranch=3
+    }
+    public enum userType 
+    { 
+        AppUser=1,
+        SysUser=2
+    }
+    public enum sysUserType
+    {
+        NormalsysUser=1,
+        AdminSysUser=2
+    }
+    public enum paymentType
+    {
+        External=1,
+        Internal=2
+    }
+    public enum extPaymentType
+    {
+        CreditPayment=1,
+        InteracPayment=2
+    }
+    public enum ccCardType
+    {
+        MC=1,
+        Visa=2
+    }
+    public enum cardType
+    {
+        DebitCard=1,
+        CreditCard=2
+    }
+    public enum invoiceStat
+    {
+        Generated=1,
+        Finalized=2, 
+        Deleted=3       /*If no Payments of any kind ever happend*/,
+        Cancelled=4     /*if no payments occured or all payments voided or refunded*/,
+        partiallyPaid=4,
+        fullyPaid=5
+    }
+    public enum paymentStat 
+    { 
+        Approved=1,
+        NotApproved = 2,
+        Voided=3,
+        Refunded=4 
+    }
+    public enum currencyType
+    { 
+        Real=1,
+        UnReal=2
+    }
     public enum accountStatus 
     { 
         initiated = 1, 

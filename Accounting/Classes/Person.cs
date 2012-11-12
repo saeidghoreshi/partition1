@@ -22,7 +22,7 @@ namespace Accounting.Classes
         {
             using(var ctx =new AccContext())
             {   
-                var newEntity=base.createEntity();
+                var newEntity=base.create();
                 var checkDuplication = ctx.person.Where(x => x.firstName == firstName && x.lastName == lastName).FirstOrDefault();
                 if (checkDuplication != null)
                     throw new Exception(personOperationStatus.Duplicated.ToString());

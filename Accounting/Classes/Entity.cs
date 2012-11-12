@@ -9,16 +9,11 @@ namespace Accounting.Classes
 {
     public class Entity
     {
-        protected int ID;
-        protected int entityTypeID;
-        protected Models.entity createEntity()
+        protected Models.entity create()
         {
             using (var ctx = new AccContext())
             {
-                var newEntity = new Models.entity()
-                {
-                    entityTypeID = (int)Enums.entityType.Person
-                };
+                var newEntity = new Models.entity(){};
                 ctx.entity.AddObject(newEntity);
                 ctx.SaveChanges();
 

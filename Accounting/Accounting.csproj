@@ -48,7 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
-    <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\card\Card.cs" />
+    <Compile Include="Classes\card\VisaCard.cs" />
+    <Compile Include="Classes\card\MasterCard.cs" />
+    <Compile Include="Classes\card\CreditCard.cs" />
+    <Compile Include="Classes\card\DebitCard.cs" />
     <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Currency.cs" />
     <Compile Include="Classes\CurrencyException.cs" />
