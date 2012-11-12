@@ -5,23 +5,25 @@ using System.Text;
 using System.Collections;
 
 namespace Accounting.Classes.Enums
-{   
-
-    public class ASSET
+{
+    public class ACCOUTTYPE
+    {   
+    }
+    public class ASSET:ACCOUTTYPE
     {
         /// <summary>
         /// static value
         /// </summary>
         public static readonly int Value = 1;
     }
-    public class OE
+    public class OE:ACCOUTTYPE
     {
         /// <summary>
         /// static value
         /// </summary>
         public static readonly int Value = 2;
     }
-    public class LIB
+    public class LIB:ACCOUTTYPE
     {
         /// <summary>
         /// static value
