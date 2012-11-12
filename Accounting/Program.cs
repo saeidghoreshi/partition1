@@ -16,18 +16,8 @@ namespace Accounting
     {
         static void Main(string[] args)
         {
-
             //lookupManagement.run();
-            //personManagement.createPerson();
-            //currencyManagement.createCur();
-            
-            //accountManagement.create();
-            //cardManagement.createMasterCard();
-            
-
-            /*sample Invoice Creation*/
-            //invoiceManagement.createInvoice();
-
+            Scenarion1.run();
           
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
@@ -45,26 +35,27 @@ namespace Accounting
 
     public class cardManagement
     {
-        public static void createMasterCard()
+        public static int createMasterCard()
         {
-            var result = new Classes.Card.CreditCard.MasterCard.MasterCard().create("111222333444",DateTime.Now);
+            var result = new Classes.Card.CreditCard.MasterCard.MasterCard().create("999888777666",DateTime.Now);
+            return result.ID;
         }
     }
 
     public class accountManagement
     {
-        public static void create()
+        public static void create(int entityID)
         {
             using(var ts=new TransactionScope())
             {
-                new APAccount().Create(16, 2);
-                new ARAccount().Create(16, 2);
-                new WAccount().Create(16, 2);
-                new EXPAccount().Create(16, 2);
-                new INCAccount().Create(16, 2);
-                new CCCASHAccount().Create(16, 2);
-                new DBCASHAccount().Create(16, 2);
-                new TAAccount().Create(16, 2);
+                new APAccount().Create(entityID, 2);
+                new ARAccount().Create(entityID, 2);
+                new WAccount().Create(entityID, 2);
+                new EXPAccount().Create(entityID, 2);
+                new INCAccount().Create(entityID, 2);
+                new CCCASHAccount().Create(entityID, 2);
+                new DBCASHAccount().Create(entityID, 2);
+                new TAAccount().Create(entityID, 2);
                 
                 ts.Complete();
             }
@@ -91,10 +82,12 @@ namespace Accounting
     }
     public class  invoiceManagement
     {
-        public static void createInvoice()
+        public static void createAndPayInvoice(int cardID)
         {
             var person1 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
+            accountManagement.create((int)person1.entityID);
             var person2 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
+            accountManagement.create((int)person2.entityID);
 
             var myInvoice=new Classes.Invoice();
             var newInvoice=myInvoice.createInvoice((int)person1.entityID, (int)person2.entityID, 2);
@@ -106,6 +99,10 @@ namespace Accounting
             myInvoice.addService(newService.ID, newInvoice.ID, 2, 3000);
 
             myInvoice.finalizeInvoice(newInvoice.ID);
+
+
+            //pay for invoice
+            myInvoice.doCCExtPayment(newInvoice.ID, (int)person1.entityID, (int)person2.entityID, myInvoice.getInvoiceServicesSumAmt(newInvoice.ID),2,cardID);
         }
     }
     public class lookupManagement
@@ -138,6 +135,21 @@ namespace Accounting
             Console.WriteLine(result10);
             Console.WriteLine(result11);
             Console.WriteLine(result12);
+        }
+    }
+
+
+   /// <summary>
+   /// create card
+   /// create invoice
+   /// payInvoice
+   /// </summary>
+    public class Scenarion1
+    {
+        public static void run()
+        {
+            var cardID=cardManagement.createMasterCard();
+            invoiceManagement.createAndPayInvoice(cardID);
         }
     }
 

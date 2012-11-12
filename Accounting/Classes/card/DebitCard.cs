@@ -28,14 +28,14 @@ namespace Accounting.Classes.Card.DebitCard
                 ///
                 /// create New Card at first
                 ///
-                base.create(cardNumber, expiryDate);
+                var CARD=base.create(cardNumber, expiryDate);
 
                 ///
                 /// create new Debit card at second
                 ///
                 var newDBCard = new Models.dbCard()
                 {
-                    cardID = base.CARD.ID,
+                    cardID = CARD.ID,
                     cardTypeID = this.cardTypeID
                 };
                 ctx.dbCard.AddObject(newDBCard);

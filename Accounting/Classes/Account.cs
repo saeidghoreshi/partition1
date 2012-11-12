@@ -15,7 +15,7 @@ namespace Accounting.Classes
         {
             using(var ctx=new AccContext())
             {
-                var account=ctx.account.Where(x=>x.catTypeID==catTypeID).SingleOrDefault();
+                var account=ctx.account.Where(x=>x.catTypeID==catTypeID && x.ownerEntityID==entityID).SingleOrDefault();
                 return account;
             }
         }   

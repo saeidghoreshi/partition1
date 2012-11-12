@@ -11,10 +11,8 @@ namespace Accounting.Classes.Card
 {
     public abstract class Card
     {
-        private Models.card card;
-        public Models.card CARD { get { return card; } }
-
-        protected void create(string cardNumber, DateTime expiryDate)
+        
+        protected Models.card create(string cardNumber, DateTime expiryDate)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
@@ -28,7 +26,7 @@ namespace Accounting.Classes.Card
                 ctx.SaveChanges();
 
                 ts.Complete();
-                this.card = newCard;
+                return newCard;
             }
         }
     }

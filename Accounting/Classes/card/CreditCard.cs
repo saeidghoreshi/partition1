@@ -25,7 +25,7 @@ namespace Accounting.Classes.Card.CreditCard
                 ///
                 /// create New Card at first
                 ///
-                base.create(cardNumber, expiryDate);
+                var CARD=base.create(cardNumber, expiryDate);
 
                 ///
                 /// create new Credit card at second
@@ -33,7 +33,7 @@ namespace Accounting.Classes.Card.CreditCard
 
                 var newCCCard = new Models.ccCard()
                 {
-                    cardID=base.CARD.ID,
+                    cardID=CARD.ID,
                     cardTypeID=this.cardTypeID
                 };
                 ctx.ccCard.AddObject(newCCCard);

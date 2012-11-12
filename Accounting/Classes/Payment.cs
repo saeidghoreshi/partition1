@@ -10,124 +10,228 @@ namespace Accounting.Classes
 {
     public abstract class Payment
     {
-        protected Models.payment payment;
-        public Models.payment PAYMENTRECORD { get { return payment; } }
+        public int paymentID;
+        public int payerEntityID;
+        public int payeeEntityID;
+        public decimal amount;
+        public int currencyID;
 
-        protected void pay(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) {
 
+        protected Models.payment pay(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) 
+        {
             using (var ctx = new AccContext())
             {
                 var _payment = new Models.payment()
                 {
-                    payerTypeID=payerEntityID,
-                    payeeTypeID=payeeEntityID,
+                    payerEntityID=payerEntityID,
+                    payeeEntityID=payeeEntityID,
                     amount=amount,
                     currencyID=currencyID
                 };
                 ctx.payment.AddObject(_payment);
                 ctx.SaveChanges();
-                this.payment=_payment;
+
+                this.pushClassData(_payment);
+
+                return _payment;
             }
+        }
+        /// <summary>
+        /// convert payment record from model to class data and renew class stat
+        /// </summary>
+        /// <param name="payment"></param>
+        private void pushClassData(Models.payment payment) 
+        {
+            this.paymentID = payment.ID;
+            this.payerEntityID = (int)payment.payerEntityID;
+            this.payeeEntityID = (int)payment.payeeEntityID;
+            this.amount = (decimal)payment.amount;
+            this.currencyID = (int)payment.currencyID;
         }
     }
     
     public abstract class externalPayment : Payment
     {
-        protected readonly int paymentTypeId = (int)Enums.paymentType.External;
+        public readonly int PAYMENTTYPEID = (int)Enums.paymentType.External;
 
-        protected Models.externalPayment extPayment;
-        public Models.externalPayment EXTPAYMENTRECORD { get{return extPayment;} }
+        public int extPaymentID;
+        public int paymentID;
+        public int paymentTypeID;
+        public string extPaymentDescription;
+        public int cardID;
 
-        protected void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
+        protected Models.externalPayment pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
         {
             using (var ctx = new AccContext())
             using (var ts=new TransactionScope())
             {
-                base.pay(payerEntityID, payeeEntityID, amount, currencyID);
+                var _payment= base.pay(payerEntityID, payeeEntityID, amount, currencyID);
                 
-                var _extPay= new Models.externalPayment()
+                var _extPayment= new Models.externalPayment()
                 {
-                    paymentID=base.payment.ID,
-                    paymentTypeID=this.paymentTypeId,
+                    paymentID=_payment.ID,
+                    paymentTypeID = this.PAYMENTTYPEID,
                     cardID=cardID
                 };
-                ctx.externalPayment.AddObject(_extPay);
+                ctx.externalPayment.AddObject(_extPayment);
                 ctx.SaveChanges();
-                this.extPayment=_extPay;
+
+                ts.Complete();
+                this.pushClassData(_extPayment);
+
+                return _extPayment;
             }
         }
+        /// <summary>
+        /// convert payment record from model to class data and renew class stat
+        /// </summary>
+        /// <param name="payment"></param>
+        private void pushClassData(Models.externalPayment extPayment)
+        {
+            this.extPaymentID= extPayment.ID;
+            this.paymentID = (int)extPayment.paymentID;
+            this.paymentTypeID = (int)extPayment.paymentTypeID;
+            this.extPaymentDescription = (string)extPayment.description;
+            this.cardID = (int)extPayment.cardID;
+        }
     }
-    public class ccExtPayment : externalPayment
+
+    public class ccPayment : externalPayment
     {
-        protected readonly int extPaymentTypeId = (int)Enums.extPaymentType.CreditPayment;
+        public readonly int EXTPAYMENTTYPEID= (int)Enums.extPaymentType.CreditPayment;
 
-
-        protected Models.ccPayment ccextPayment;
-        public Models.ccPayment CCEXTPAYMENTRECORD { get { return ccextPayment; } }
-
-        public new void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
+        
+        public int ccPaymentID;
+        public int extPaymentID;
+        public int extPaymentTypeID;
+        public string ccPaymentDescription;
+        
+        public new Models.ccPayment pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                base.pay(payerEntityID, payeeEntityID, amount, currencyID,cardID);
+                var extPayment=base.pay(payerEntityID, payeeEntityID, amount, currencyID,cardID);
 
-                var ccExtPay = new Models.ccPayment()
+                var _ccPayment = new Models.ccPayment()
                 {
-                    extPaymentID=base.extPayment.ID,
-                    extPaymentTypeID=this.extPaymentTypeId
+                    extPaymentID=extPayment.ID,
+                    extPaymentTypeID=this.EXTPAYMENTTYPEID
                 };
-                ctx.ccPayment.AddObject(ccExtPay);
+                ctx.ccPayment.AddObject(_ccPayment);
                 ctx.SaveChanges();
-                this.ccextPayment=ccExtPay;
+
+                ts.Complete();
+
+                this.pushClassData(_ccPayment);
+
+                return _ccPayment;
             }
         }
+        /// <summary>
+        /// convert payment record from model to class data and renew class stat
+        /// </summary>
+        /// <param name="payment"></param>
+        private void pushClassData(Models.ccPayment ccPayment)
+        {
+            this.ccPaymentID = ccPayment.ID;
+            this.extPaymentID = (int)ccPayment.extPaymentID;
+            this.extPaymentTypeID = (int)ccPayment.extPaymentTypeID;
+            this.ccPaymentDescription = (string)ccPayment.description;
+        }
     }
-    public class dbExtPayment : externalPayment
+    public class dbPayment : externalPayment
     {
-        protected readonly int extPaymentTypeId = (int)Enums.extPaymentType.InteracPayment;
+        protected readonly int EXTPAYMENTTYPEID = (int)Enums.extPaymentType.InteracPayment;
 
+        public int dbPaymentID;
+        public int extPaymentID;
+        public int extPaymentTypeID;
+        public string dbPaymentDescription;
 
-        protected Models.ccPayment dbextPayment;
-        public Models.ccPayment DBEXTPAYMENTRECORD { get { return dbextPayment; } }
-
-        public new void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int cardID)
+        public new Models.dbPayment pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int cardID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                base.pay(payerEntityID, payeeEntityID, amount, currencyID, cardID);
+                var extPayment= base.pay(payerEntityID, payeeEntityID, amount, currencyID, cardID);
 
-                var dbExtPay = new Models.ccPayment()
+                var _dbPayment = new Models.dbPayment()
                 {
-                    extPaymentID = base.extPayment.ID,
-                    extPaymentTypeID = this.extPaymentTypeId
+                    extPaymentID = extPayment.ID,
+                    extPaymentTypeID = this.EXTPAYMENTTYPEID
                 };
-                ctx.ccPayment.AddObject(dbExtPay);
+                ctx.dbPayment.AddObject(_dbPayment);
                 ctx.SaveChanges();
-                this.dbextPayment = dbExtPay;
+
+                ts.Complete();
+
+                this.pushClassData(_dbPayment);
+
+                return _dbPayment;
             }
         }
+
+        /// <summary>
+        /// convert payment record from model to class data and renew class stat
+        /// </summary>
+        /// <param name="payment"></param>
+        private void pushClassData(Models.dbPayment dbPayment)
+        {
+            this.dbPaymentID= dbPayment.ID;
+            this.extPaymentID = (int)dbPayment.extPaymentID;
+            this.extPaymentTypeID = (int)dbPayment.extPaymentTypeID;
+            this.extPaymentDescription = (string)dbPayment.description;
+        }
     }
-
-
-
-
-
-
-
 
 
 
     public class internalPayment : Payment
     {
-        public readonly int paymentTypeId = (int)Enums.paymentType.Internal;
+        public readonly int PAYMENTTYPEID = (int)Enums.paymentType.Internal;
 
-        public Models.payment Pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public int internalPaymentID;
+        public int paymentID;
+        public int paymentTypeID;
+        public string internalPaymentDescription;
+
+        public new  Models.internalPayment pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
-            base.pay( payerEntityID, payeeEntityID, amount, currencyID);
-            return base.payment;
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                var _payment = base.pay(payerEntityID, payeeEntityID, amount, currencyID);
+
+                var _internalPayment = new Models.internalPayment()
+                 {
+                     paymentID = _payment.ID,
+                     paymentTypeID = this.PAYMENTTYPEID
+                 };
+                ctx.internalPayment.AddObject(_internalPayment);
+                ctx.SaveChanges();
+
+                ts.Complete();
+                this.pushClassData(_internalPayment);
+
+                return _internalPayment;
+            }
         }
-        
+        /// <summary>
+        /// convert payment record from model to class data and renew class stat
+        /// </summary>
+        /// <param name="payment"></param>
+
+        /// <summary>
+        /// convert payment record from model to class data and renew class stat
+        /// </summary>
+        /// <param name="payment"></param>
+        private void pushClassData(Models.internalPayment internalPayment)
+        {
+            this.internalPaymentID = internalPayment.ID;
+            this.paymentID = (int)internalPayment.paymentID;
+            this.paymentTypeID = (int)internalPayment.paymentTypeID;
+            this.internalPaymentDescription = (string)internalPayment.description;
+        }
     }
 }

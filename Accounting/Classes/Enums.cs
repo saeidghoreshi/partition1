@@ -128,15 +128,16 @@ namespace Accounting.Classes.Enums
         Finalized=2, 
         Deleted=3       /*If no Payments of any kind ever happend*/,
         Cancelled=4     /*if no payments occured or all payments voided or refunded*/,
-        partiallyPaid=4,
-        fullyPaid=5
+        internalPaymant=5,
+        interacPaymant=6,
+        creditCardPaymant=7
     }
     public enum paymentStat 
     { 
-        Approved=1,
-        NotApproved = 2,
-        Voided=3,
-        Refunded=4 
+        Payment=1,
+        Voided=2,
+        Refunded=3,
+        NotApproved =4
     }
     public enum currencyType
     { 

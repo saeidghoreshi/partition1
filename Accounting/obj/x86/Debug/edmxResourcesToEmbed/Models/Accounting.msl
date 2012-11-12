@@ -241,17 +241,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="payment">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.payment">
-        <MappingFragment StoreEntitySet="payment">
-          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="payeeTypeID" ColumnName="payeeTypeID" />
-          <ScalarProperty Name="payerTypeID" ColumnName="payerTypeID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="paymentAction">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.paymentAction">
         <MappingFragment StoreEntitySet="paymentAction">
@@ -348,6 +337,17 @@
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="paymentTypeID" ColumnName="paymentTypeID" />
           <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="payeeEntityID" ColumnName="payeeEntityID" />
+          <ScalarProperty Name="payerEntityID" ColumnName="payerEntityID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
