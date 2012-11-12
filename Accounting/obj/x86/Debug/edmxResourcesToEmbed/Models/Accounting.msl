@@ -117,16 +117,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="externalPayment">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.externalPayment">
-        <MappingFragment StoreEntitySet="externalPayment">
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="paymentTypeID" ColumnName="paymentTypeID" />
-          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="extPaymentType">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.extPaymentType">
         <MappingFragment StoreEntitySet="extPaymentType">
@@ -347,6 +337,17 @@
         <MappingFragment StoreEntitySet="visaCard">
           <ScalarProperty Name="ccCardTypeID" ColumnName="ccCardTypeID" />
           <ScalarProperty Name="ccCardID" ColumnName="ccCardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="externalPayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.externalPayment">
+        <MappingFragment StoreEntitySet="externalPayment">
+          <ScalarProperty Name="cardID" ColumnName="cardID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="paymentTypeID" ColumnName="paymentTypeID" />
+          <ScalarProperty Name="paymentID" ColumnName="paymentID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

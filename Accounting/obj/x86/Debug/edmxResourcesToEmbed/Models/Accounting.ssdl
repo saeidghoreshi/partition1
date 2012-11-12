@@ -92,6 +92,10 @@
       <End Role="extPaymentType" EntitySet="extPaymentType" />
       <End Role="dbPayment" EntitySet="dbPayment" />
     </AssociationSet>
+    <AssociationSet Name="FK_externalPayment_card" Association="DB_40114_codeclubModel.Store.FK_externalPayment_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
     <AssociationSet Name="FK_externalPayment_payment" Association="DB_40114_codeclubModel.Store.FK_externalPayment_payment">
       <End Role="payment" EntitySet="payment" />
       <End Role="externalPayment" EntitySet="externalPayment" />
@@ -347,6 +351,7 @@
     <Property Name="paymentID" Type="int" />
     <Property Name="paymentTypeID" Type="int" />
     <Property Name="description" Type="text" />
+    <Property Name="cardID" Type="int" />
   </EntityType>
   <EntityType Name="extPaymentType">
     <Key>
@@ -704,6 +709,18 @@
       </Principal>
       <Dependent Role="dbPayment">
         <PropertyRef Name="extPaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_externalPayment_card">
+    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
+    <End Role="externalPayment" Type="DB_40114_codeclubModel.Store.externalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="externalPayment">
+        <PropertyRef Name="cardID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

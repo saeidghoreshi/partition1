@@ -9,11 +9,39 @@ using System.Transactions;
 
 namespace Accounting.Classes
 {
-    public abstract class Card{}
-    
-    public class CreditCard : Card
+    public abstract class Card
     {
-        public readonly int CARDTYPE = (int)Enums.cardType.CreditCard;
+        protected Models.card card;
+
+        public void create(string cardNumber, DateTime expiryDate)
+        {
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                //create Card
+                var newCard = new Models.card()
+                {
+                    cardNumber = cardNumber,
+                    expiryDate = expiryDate
+                };
+                ctx.card.AddObject(newCard);
+                ctx.SaveChanges();
+
+                ts.Complete();
+                this.card = newCard;
+            }
+        }
+    }
+    
+    public abstract class CreditCard : Card
+    {
+        public readonly int cardType = (int)Enums.cardType.CreditCard;
+
+        private Models.card ccCard;
+        public Models.card CCCARD { get { return ccCard; } }
+
+
+        
     }
 
     public class MasterCard : CreditCard 
@@ -28,7 +56,6 @@ namespace Accounting.Classes
                 //create Card
                 var newCard = new Models.card()
                 {
-                    cardTypeID = CARDTYPE,
                     cardNumber = cardNumber,
                     expiryDate = expiryDate
                 };

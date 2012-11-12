@@ -8,9 +8,12 @@ using System.Transactions;
 
 namespace Accounting.Classes
 {
-    public class Payment
+    public abstract class Payment
     {
-        private Models.payment pay(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) {
+        protected Models.payment payment;
+        public Models.payment PAYMENTRECORD { get { return payment; } }
+
+        protected void pay(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) {
 
             using (var ctx = new AccContext())
             {
@@ -23,40 +26,108 @@ namespace Accounting.Classes
                 };
                 ctx.payment.AddObject(_payment);
                 ctx.SaveChanges();
-                return _payment;
+                this.payment=_payment;
             }
         }
     }
     
-    public class externalPayment : Payment
+    public abstract class externalPayment : Payment
     {
-        public readonly int paymentTypeId = (int)Enums.paymentType.External;
-        
-        public override Models.payment pay(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        protected readonly int paymentTypeId = (int)Enums.paymentType.External;
+
+        protected Models.externalPayment extPayment;
+        public Models.externalPayment EXTPAYMENTRECORD { get{return extPayment;} }
+
+        protected void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
         {
             using (var ctx = new AccContext())
             using (var ts=new TransactionScope())
             {
-                Models.invoicePayment invoiePayment = base.payInvoice(invoiceID, payerEntityID, payeeEntityID, amount, currencyID, paymentTypeID);
+                base.pay(payerEntityID, payeeEntityID, amount, currencyID);
                 
-                var extPay= new Models.externalPayment()
+                var _extPay= new Models.externalPayment()
                 {
-                    paymentID = paymentID
+                    paymentID=base.payment.ID,
+                    paymentTypeID=this.paymentTypeId,
+                    cardID=cardID
                 };
-                ctx.invoicePayment.AddObject(invoicePay);
+                ctx.externalPayment.AddObject(_extPay);
                 ctx.SaveChanges();
+                this.extPayment=_extPay;
             }
-            return paymentOperationStatus.Approved;
         }
     }
+    public class ccExtPayment : externalPayment
+    {
+        protected readonly int extPaymentTypeId = (int)Enums.extPaymentType.CreditPayment;
+
+
+        protected Models.ccPayment ccextPayment;
+        public Models.ccPayment CCEXTPAYMENTRECORD { get { return ccextPayment; } }
+
+        public new void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
+        {
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                base.pay(payerEntityID, payeeEntityID, amount, currencyID,cardID);
+
+                var ccExtPay = new Models.ccPayment()
+                {
+                    extPaymentID=base.extPayment.ID,
+                    extPaymentTypeID=this.extPaymentTypeId
+                };
+                ctx.ccPayment.AddObject(ccExtPay);
+                ctx.SaveChanges();
+                this.ccextPayment=ccExtPay;
+            }
+        }
+    }
+    public class dbExtPayment : externalPayment
+    {
+        protected readonly int extPaymentTypeId = (int)Enums.extPaymentType.InteracPayment;
+
+
+        protected Models.ccPayment dbextPayment;
+        public Models.ccPayment DBEXTPAYMENTRECORD { get { return dbextPayment; } }
+
+        public new void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int cardID)
+        {
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                base.pay(payerEntityID, payeeEntityID, amount, currencyID, cardID);
+
+                var dbExtPay = new Models.ccPayment()
+                {
+                    extPaymentID = base.extPayment.ID,
+                    extPaymentTypeID = this.extPaymentTypeId
+                };
+                ctx.ccPayment.AddObject(ccExtPay);
+                ctx.SaveChanges();
+                this.dbextPayment = dbExtPay;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     public class internalPayment : Payment
     {
         public readonly int paymentTypeId = (int)Enums.paymentType.Internal;
 
-        public override Models.payment pay(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public Models.payment Pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
-            return base.pay(invoiceID, payerEntityID, payeeEntityID, amount, currencyID, this.paymentTypeId);
+            base.pay( payerEntityID, payeeEntityID, amount, currencyID);
+            return base.payment;
         }
+        
     }
 }

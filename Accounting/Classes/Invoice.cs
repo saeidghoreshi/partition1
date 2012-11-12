@@ -69,6 +69,12 @@ namespace Accounting.Classes
                 return newInvoiceService;
             }
         }
+
+        /// <summary>
+        /// this function records INVOICEACTION and INVOICEACTIONTRANSACTIONS
+        /// </summary>
+        /// <param name="invoiceID"></param>
+        /// <param name="transactions"></param>
         private void recordInvoiceTransaction(int invoiceID,List<Models.transaction> transactions)
         {
             using (var ctx = new AccContext())
@@ -105,25 +111,125 @@ namespace Accounting.Classes
 
 
         /*Payment for Invoice*/
-        public void doInternalPayment(int invoiceID) { }
-        public void doCCExtPayment(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int paymentTypeID) 
+        public void doINTERNALTransfer(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
-            using (var ctx = new AccContext())
-            using (var ts = new TransactionScope())
+            try
             {
-                var payment = this.doPayment(payerEntityID, payeeEntityID, amount, currencyID, paymentTypeID);
-
-                var invoicePay = new Models.invoicePayment()
+                using (var ctx = new AccContext())
+                using (var ts = new TransactionScope())
                 {
-                    invoiceID = invoiceID,
-                    paymentID = payment.ID
-                };
-                ctx.invoicePayment.AddObject(invoicePay);
-                ctx.SaveChanges();
-                return payment;
+                    Classes.internalPayment internalPayment = new internalPayment();
+                    internalPayment.Pay(payerEntityID, payeeEntityID, amount, currencyID);
+                    var donePayment = internalPayment.PAYMENTRECORD;
+
+                    /*Record New Invoice Payment*/
+                    var NewInvoicePayment = new Models.invoicePayment()
+                    {
+                        invoiceID = invoiceID,
+                        paymentID = donePayment.ID
+                    };
+                    ctx.invoicePayment.AddObject(NewInvoicePayment);
+                    ctx.SaveChanges();
+
+                    //Record related transctions [for invoice payment]
+                    List<Models.transaction> transactions = new List<transaction>();
+
+                    transactions.Add(Transaction.createNew(payerEntityID, (int)AssetCategories.W, -1 * amount));
+                    transactions.Add(Transaction.createNew(payerEntityID, (int)LibCategories.AP, +1 * amount));
+                    transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.W, +1 * amount));
+                    transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.AR, -1 * amount));
+
+                    /*Record Invoice Transaction*/
+                    this.recordInvoiceTransaction(invoiceID, transactions);
+
+                    ts.Complete();
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
         }
-        public void doDBExtPayment() { }
+        public void doCCExtPayment(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID) 
+        {
+            try {
+                using (var ctx = new AccContext())
+                using (var ts = new TransactionScope())
+                {
+                    Classes.ccExtPayment creditCardPayment = new ccExtPayment();
+                    creditCardPayment.pay(payerEntityID, payeeEntityID, amount, currencyID,cardID);
+                    var donePayment = creditCardPayment.PAYMENTRECORD;
+
+                    /*Record New Invoice Payment*/
+                    var NewInvoicePayment = new Models.invoicePayment()
+                    {
+                        invoiceID = invoiceID,
+                        paymentID = donePayment.ID
+                    };
+                    ctx.invoicePayment.AddObject(NewInvoicePayment);
+                    ctx.SaveChanges();
+
+                    //Record related transctions [for invoice payment]
+                    List<Models.transaction> transactions = new List<transaction>();
+
+                    transactions.Add(Transaction.createNew(payerEntityID, (int)AssetCategories.CCCASH, -1*amount));
+                    transactions.Add(Transaction.createNew(payerEntityID, (int)LibCategories.AP, +1*amount));
+                    transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.W, +1*amount));
+                    transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.AR, -1*amount));
+
+                    /*Record Invoice Transaction*/
+                    this.recordInvoiceTransaction(invoiceID, transactions);
+
+                    ts.Complete();
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+        }
+        public void doINTERACPayment(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int cardID)
+        {
+            try
+            {
+                using (var ctx = new AccContext())
+                using (var ts = new TransactionScope())
+                {
+                    Classes.dbExtPayment debitCardPayment = new dbExtPayment();
+                    debitCardPayment.pay(payerEntityID, payeeEntityID, amount, currencyID, cardID);
+                    var donePayment = debitCardPayment.PAYMENTRECORD;
+
+                    /*Record New Invoice Payment*/
+                    var NewInvoicePayment = new Models.invoicePayment()
+                    {
+                        invoiceID = invoiceID,
+                        paymentID = donePayment.ID
+                    };
+                    ctx.invoicePayment.AddObject(NewInvoicePayment);
+                    ctx.SaveChanges();
+
+                    //Record related transctions [for invoice payment]
+                    List<Models.transaction> transactions = new List<transaction>();
+
+                    transactions.Add(Transaction.createNew(payerEntityID, (int)AssetCategories.DBCASH, -1 * amount));
+                    transactions.Add(Transaction.createNew(payerEntityID, (int)LibCategories.AP, +1 * amount));
+                    transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.W, +1 * amount));
+                    transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.AR, -1 * amount));
+
+                    /*Record Invoice Transaction*/
+                    this.recordInvoiceTransaction(invoiceID, transactions);
+
+                    ts.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
         
     }
 }
