@@ -132,13 +132,7 @@ namespace Accounting.Classes.Enums
         interacPaymant=6,
         creditCardPaymant=7
     }
-    public enum paymentStat 
-    { 
-        Payment=1,
-        Voided=2,
-        Refunded=3,
-        NotApproved =4
-    }
+    
     public enum currencyType
     { 
         Real=1,

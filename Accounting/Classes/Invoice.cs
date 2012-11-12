@@ -141,45 +141,6 @@ namespace Accounting.Classes
             }
         }
 
-        /// <summary>
-        /// this function records PAYMENTACTION and PAYMENTACTIONTRANSACTIONS
-        /// </summary>
-        /// <param name="invoiceID"></param>
-        /// <param name="transactions"></param>
-        private void recordInvoicePaymentTransaction(int invoiceID,int paymentID,List<Models.transaction> transactions,Enums.paymentStat paymentStat)
-        {
-            using (var ctx = new AccContext())
-            using (var ts = new TransactionScope())
-            {
-                //Record Payment Action
-                var paymentAction = new Models.paymentAction()
-                {
-                    paymentID = paymentID,
-                    paymentStatID = (int)paymentStat
-                };
-                ctx.paymentAction.AddObject(paymentAction);
-                ctx.SaveChanges();
-
-
-
-                //create invoice Transactions and invoice action Transactions
-                foreach (var item in transactions) 
-                {
-                    var paymentActionTrans = new Models.paymentActionTransaction()
-                    {
-                        paymentActionID = paymentAction.ID,
-                        transactionID = item.ID
-                    };
-                    ctx.paymentActionTransaction.AddObject(paymentActionTrans);
-
-                    ctx.SaveChanges();
-                }
-
-                ts.Complete();
-
-            }
-        }
-        
 
         /*Payment for Invoice*/
         public void doINTERNALTransfer(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
@@ -211,8 +172,7 @@ namespace Accounting.Classes
 
                     /*Record Invoice Transaction*/
                     this.recordInvoiceTransaction(invoiceID, transactions, Enums.invoiceStat.internalPaymant);
-                    this.recordInvoicePaymentTransaction(invoiceID, (int)internalPayment.paymentID, transactions, Enums.paymentStat.Payment);
-
+                    
                     ts.Complete();
                 }
             }
@@ -251,7 +211,7 @@ namespace Accounting.Classes
 
                     /*Record Invoice Transaction*/
                     this.recordInvoiceTransaction(invoiceID, transactions, Enums.invoiceStat.creditCardPaymant);
-                    this.recordInvoicePaymentTransaction(invoiceID, (int)creditCardPayment.paymentID, transactions, Enums.paymentStat.Payment);
+                    
 
                     ts.Complete();
                 }
@@ -291,7 +251,7 @@ namespace Accounting.Classes
 
                     /*Record Invoice Transaction*/
                     this.recordInvoiceTransaction(invoiceID, transactions,Enums.invoiceStat.interacPaymant);
-                    this.recordInvoicePaymentTransaction(invoiceID, (int)debitCardPayment.paymentID, transactions, Enums.paymentStat.Payment);
+                    
 
                     ts.Complete();
                 }
