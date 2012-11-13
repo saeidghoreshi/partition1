@@ -11,7 +11,20 @@ namespace Accounting.Classes
 {
     public class Invoice
     {
-        public Models.invoice createInvoice(int payerEntityID,int payeeEntityID,int currencyID)
+        //properties
+        public int invoiceID;
+        public int payeeEntityID;
+        public int payerEntityID;
+        public int currencyID;
+
+        //Constructors
+        public Invoice() { }
+        public Invoice(int invoiceID)
+        {
+            this.invoiceID = invoiceID;
+        }
+
+        public void createInvoice(int payerEntityID,int payeeEntityID,int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope()) 
@@ -34,8 +47,8 @@ namespace Accounting.Classes
                 ctx.invoiceAction.AddObject(invAction);
                 ctx.SaveChanges();
 
+                mapData(newInvoice);
                 ts.Complete();
-                return newInvoice;
             }
         }
 
@@ -61,12 +74,12 @@ namespace Accounting.Classes
         /// 2-record Invoice Tranactions
         /// </summary>
         /// <param name="invoiceID"></param>
-        public void finalizeInvoice(int invoiceID)
+        public void finalizeInvoice()
         {
             using (var ctx = new AccContext())
             using (var ts =new TransactionScope())
             {
-                var invoice = ctx.invoice.Where(x=>x.ID==invoiceID).SingleOrDefault();
+                var invoice = ctx.invoice.Where(x=>x.ID==this.invoiceID).SingleOrDefault();
                 if(invoice==null)
                     throw  new Exception();
 
@@ -81,24 +94,25 @@ namespace Accounting.Classes
                 transactions.Add(trans2);
 
                 /*Record Invoice Transaction*/
-                this.recordInvoiceTransaction(invoiceID, transactions,Enums.invoiceStat.Finalized);
+                this.recordInvoiceTransaction( transactions,Enums.invoiceStat.Finalized);
 
                 ts.Complete();
             }
         }
-        public invoiceService addService(int serviceID,int invoiceID,int currencyID,decimal amount) 
+        public invoiceService addService(int serviceID,decimal amount) 
         {
             using (var ctx = new AccContext())
             {
                 var newInvoiceService= new Models.invoiceService()
                 {
-                    invoiceID=invoiceID,
+                    invoiceID=this.invoiceID,
                     serviceID=serviceID,
-                    currencyID=currencyID,
+                    currencyID=this.currencyID,
                     amount=amount
                 };
                 ctx.invoiceService.AddObject(newInvoiceService);
                 ctx.SaveChanges();
+
                 return newInvoiceService;
             }
         }
@@ -108,7 +122,7 @@ namespace Accounting.Classes
         /// </summary>
         /// <param name="invoiceID"></param>
         /// <param name="transactions"></param>
-        private void recordInvoiceTransaction(int invoiceID,List<Models.transaction> transactions , Enums.invoiceStat invoiceStat)
+        private void recordInvoiceTransaction(List<Models.transaction> transactions , Enums.invoiceStat invoiceStat)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
@@ -116,7 +130,7 @@ namespace Accounting.Classes
                 //create invoice Action
                 var invAction= new Models.invoiceAction()
                 {
-                    invoiceID = invoiceID,
+                    invoiceID = this.invoiceID,
                     invoiceStatID=(int)invoiceStat
                 };
                 ctx.invoiceAction.AddObject(invAction);
@@ -143,21 +157,21 @@ namespace Accounting.Classes
 
 
         /*Payment for Invoice*/
-        public void doINTERNALTransfer(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public void doINTERNALTransfer(decimal amount)
         {
             try
             {
                 using (var ctx = new AccContext())
                 using (var ts = new TransactionScope())
                 {
-                    Classes.internalPayment internalPayment = new internalPayment();
-                    var donePayment = internalPayment.pay(payerEntityID, payeeEntityID, amount, currencyID);
+                    Classes.internalPayment internalPayment = new Classes.internalPayment();
+                    internalPayment.pay(this.payerEntityID, this.payeeEntityID, amount, this.currencyID);
 
                     /*Record New Invoice Payment*/
                     var NewInvoicePayment = new Models.invoicePayment()
                     {
-                        invoiceID = invoiceID,
-                        paymentID = donePayment.ID
+                        invoiceID = this.invoiceID,
+                        paymentID = internalPayment.paymentID
                     };
                     ctx.invoicePayment.AddObject(NewInvoicePayment);
                     ctx.SaveChanges();
@@ -171,7 +185,7 @@ namespace Accounting.Classes
                     transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.AR, -1 * amount));
 
                     /*Record Invoice Transaction*/
-                    this.recordInvoiceTransaction(invoiceID, transactions, Enums.invoiceStat.internalPaymant);
+                    this.recordInvoiceTransaction( transactions, Enums.invoiceStat.internalPaymant);
                     
                     ts.Complete();
                 }
@@ -182,15 +196,15 @@ namespace Accounting.Classes
             }
 
         }
-        public void doCCExtPayment(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID) 
+        public void doCCExtPayment(decimal amount,int cardID) 
         {
             try {
                 using (var ctx = new AccContext())
                 using (var ts = new TransactionScope())
                 {
-                    Classes.ccPayment creditCardPayment = new ccPayment();
-                    var donePayment=creditCardPayment.pay(payerEntityID, payeeEntityID, amount, currencyID,cardID);
-
+                    Classes.ccPayment creditCardPayment = new ccPayment(cardID);
+                    creditCardPayment.pay(this.payerEntityID, this.payeeEntityID, amount, this.currencyID);
+                    
                     /*Record New Invoice Payment*/
                     var NewInvoicePayment = new Models.invoicePayment()
                     {
@@ -210,7 +224,7 @@ namespace Accounting.Classes
                     transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.AR, -1*amount));
 
                     /*Record Invoice Transaction*/
-                    this.recordInvoiceTransaction(invoiceID, transactions, Enums.invoiceStat.creditCardPaymant);
+                    this.recordInvoiceTransaction( transactions, Enums.invoiceStat.creditCardPaymant);
                     
 
                     ts.Complete();
@@ -222,21 +236,21 @@ namespace Accounting.Classes
             }
             
         }
-        public void doINTERACPayment(int invoiceID, int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int cardID)
+        public void doINTERACPayment(decimal amount,  int cardID)
         {
             try
             {
                 using (var ctx = new AccContext())
                 using (var ts = new TransactionScope())
                 {
-                    Classes.dbPayment debitCardPayment = new dbPayment();
-                    var donePayment=debitCardPayment.pay(payerEntityID, payeeEntityID, amount, currencyID, cardID);
-
+                    Classes.dbPayment debitCardPayment = new dbPayment(cardID);
+                    debitCardPayment.pay(this.payerEntityID, this.payeeEntityID, amount, this.currencyID);
+                    
                     /*Record New Invoice Payment*/
                     var NewInvoicePayment = new Models.invoicePayment()
                     {
-                        invoiceID = invoiceID,
-                        paymentID = donePayment.ID
+                        invoiceID = this.invoiceID,
+                        paymentID = debitCardPayment.paymentID
                     };
                     ctx.invoicePayment.AddObject(NewInvoicePayment);
                     ctx.SaveChanges();
@@ -250,7 +264,7 @@ namespace Accounting.Classes
                     transactions.Add(Transaction.createNew(payeeEntityID, (int)AssetCategories.AR, -1 * amount));
 
                     /*Record Invoice Transaction*/
-                    this.recordInvoiceTransaction(invoiceID, transactions,Enums.invoiceStat.interacPaymant);
+                    this.recordInvoiceTransaction( transactions,Enums.invoiceStat.interacPaymant);
                     
 
                     ts.Complete();
@@ -262,6 +276,15 @@ namespace Accounting.Classes
             }
 
         }
-        
+
+
+
+        private void mapData(Models.invoice invoice)
+        {
+            this.invoiceID = invoice.ID;
+            this.payeeEntityID = (int)invoice.payeeEntityID;
+            this.payerEntityID = (int)invoice.payerEntityID;
+            this.currencyID = (int)invoice.currencyID;
+        }
     }
 }

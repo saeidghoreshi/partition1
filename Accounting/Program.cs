@@ -16,59 +16,15 @@ namespace Accounting
     {
         static void Main(string[] args)
         {
-            //lookupManagement.run();
-            Scenarion1.run();
+            lookupManagement.run();
+            
           
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
         }
     }
-    public class personManagement 
-    {
-        public static void createPerson() 
-        {
-            var result=new Classes.Person().create("newFirstName",DateTime.Now.Ticks.ToString()).lastName;
-            Console.WriteLine(result);
-        }
-    }
-
-
-    public class cardManagement
-    {
-        public static int createMasterCard()
-        {
-            var result = new Classes.Card.CreditCard.MasterCard.MasterCard().create("999888777666",DateTime.Now);
-            return result.ID;
-        }
-    }
-
-    public class accountManagement
-    {
-        public static void create(int entityID)
-        {
-            using(var ts=new TransactionScope())
-            {
-                new APAccount().Create(entityID, 2);
-                new ARAccount().Create(entityID, 2);
-                new WAccount().Create(entityID, 2);
-                new EXPAccount().Create(entityID, 2);
-                new INCAccount().Create(entityID, 2);
-                new CCCASHAccount().Create(entityID, 2);
-                new DBCASHAccount().Create(entityID, 2);
-                new TAAccount().Create(entityID, 2);
-                
-                ts.Complete();
-            }
-            
-        }
-    }
-    public class currencyManagement
-    {
-        public static void createCur()
-        {
-            new Classes.Currency().createNewCurrency("CAD", (int)Accounting.Classes.Enums.currencyType.Real);
-        }
-    }
+    
+    
     public class serviceManagement
     {
         public static void createService()
@@ -80,61 +36,66 @@ namespace Accounting
             new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService"+DateTime.Now.Ticks.ToString());
         }
     }
-    public class  invoiceManagement
-    {
-        public static void createAndPayInvoice(int cardID)
-        {
-            var person1 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
-            accountManagement.create((int)person1.entityID);
-            var person2 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
-            accountManagement.create((int)person2.entityID);
-
-            var myInvoice=new Classes.Invoice();
-            var newInvoice=myInvoice.createInvoice((int)person1.entityID, (int)person2.entityID, 2);
-
-            var newService=new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService" + DateTime.Now.Ticks.ToString());
-            myInvoice.addService(newService.ID, newInvoice.ID, 2, 1000);
-
-            newService = new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService" + DateTime.Now.Ticks.ToString());
-            myInvoice.addService(newService.ID, newInvoice.ID, 2, 3000);
-
-            myInvoice.finalizeInvoice(newInvoice.ID);
-
-
-            //pay for invoice
-            myInvoice.doCCExtPayment(newInvoice.ID, (int)person1.entityID, (int)person2.entityID, myInvoice.getInvoiceServicesSumAmt(newInvoice.ID),2,cardID);
-        }
-    }
+    
     public class lookupManagement
     {
         public static void run()
         {
-            //Setup initiatives lookups
-            var result1 = Controller.SetupGLTypes();
-            var result2 = Controller.SetupOfficeTypes();
-            var result3 = Controller.SetupCardTypes();
-            var result4 = Controller.SetupccCardTypes();
-            var result5 = Controller.SetupCurrencyType();
-            var result6 = Controller.SetupEntityTypes();
-            var result7 = Controller.SetupExtPaymentTypes();
-            var result8 = Controller.SetupInvoiceStat();
-            var result9 = Controller.SetupOfficeTypes();
-            var result10 = Controller.SetupPaymentTypes();
-            var result11 = Controller.SetupSysUserTypes();
-            var result12 = Controller.SetupUserTypes();
+            using (var ctx=new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                ctx.resetSeeds();
 
-            Console.WriteLine(result1);
-            Console.WriteLine(result2);
-            Console.WriteLine(result3);
-            Console.WriteLine(result4);
-            Console.WriteLine(result5);
-            Console.WriteLine(result6);
-            Console.WriteLine(result7);
-            Console.WriteLine(result8);
-            Console.WriteLine(result9);
-            Console.WriteLine(result10);
-            Console.WriteLine(result11);
-            Console.WriteLine(result12);
+                //Setup initiatives lookups
+                 Controller.SetupAccountTypes();
+                 Controller.SetupCardTypes();
+                 Controller.SetupccCardTypes();
+                 Controller.SetupCurrencyType();
+                 Controller.SetupEntityTypes();
+                 Controller.SetupInvoiceStat();
+                 Controller.SetupExtPaymentTypes();
+                 Controller.SetupPaymentTypes();
+                 Controller.SetupOfficeTypes();
+                 Controller.SetupUserTypes();
+                 Controller.SetupSysUserTypes();
+
+               
+
+                //create one Currency
+                var cur1=new Classes.Currency();
+                var curCAD=cur1.create("CAD", (int)Accounting.Classes.Enums.currencyType.Real);
+
+                
+                //create 2 person and related accounts
+                List<Models.person> persons=new List<Models.person>();
+
+                var person1 = new Classes.Person();
+                persons.Add(person1.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
+                
+                var person2 = new Classes.Person();
+                persons.Add(person2.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
+                var person3 = new Classes.Person();
+                persons.Add(person3.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
+                var person4 = new Classes.Person();
+                persons.Add(person4.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
+
+
+                new APAccount().Create(person1.ENTITYID, 1);
+                new ARAccount().Create(person1.ENTITYID, 1);
+                new WAccount().Create(person1.ENTITYID, 1);
+                new EXPAccount().Create(person1.ENTITYID, 1);
+                new INCAccount().Create(person1.ENTITYID, 1);
+                new CCCASHAccount().Create(person1.ENTITYID, 1);
+                new DBCASHAccount().Create(person1.ENTITYID, 1);
+                new TAAccount().Create(person1.ENTITYID, 1);
+
+
+                //run the first Scenario
+                Scenario1.run(persons, curCAD);
+
+
+                ts.Complete();
+            }
         }
     }
 
@@ -144,12 +105,31 @@ namespace Accounting
    /// create invoice
    /// payInvoice
    /// </summary>
-    public class Scenarion1
+    public class Scenario1
     {
-        public static void run()
+        public static void run(List<Models.person> persons,Models.currency currency)
         {
-            var cardID=cardManagement.createMasterCard();
-            invoiceManagement.createAndPayInvoice(cardID);
+            var service1 = new Classes.Service();
+            service1.serviceName="Service 1" + DateTime.Now.Ticks.ToString();
+            service1.Create();
+
+            var service2 = new Classes.Service();
+            service2.serviceName = "Service 2" + DateTime.Now.Ticks.ToString();
+            service2.Create();
+
+
+            var invoice = new Classes.Invoice();
+            invoice.createInvoice((int)persons[0].entityID, (int)persons[1].entityID, currency.ID);
+
+            invoice.addService(service1.serviceID, 1500);
+            invoice.addService(service2.serviceID, 2500);
+
+            
+            invoice.finalizeInvoice();
+
+
+            //pay for invoice
+            invoice.doCCExtPayment( invoice.getInvoiceServicesSumAmt(invoice.invoiceID), cardID);
         }
     }
 

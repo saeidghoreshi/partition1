@@ -9,14 +9,14 @@ namespace Accounting.Classes
 {
     public class Person :Classes.Entity
     {
-        //List<ICard> Cards;
-        //List<IAccount> Accounts;
-        //List<IAddress> Addresses;
 
+        public int id;
+        public string firstname;
+        public string lastname;
 
-        public int ID { get; set; }
-        public string firstname { get; set; }
-        public string lastName { get; set; }
+        public int ID { get { return id; } }
+        public string FIRSTNAME { get { return firstname; } }
+        public string LASTNAME { get { return lastname; } }
 
         public Models.person create(string firstName,string lastName) 
         {
@@ -25,7 +25,7 @@ namespace Accounting.Classes
                 var newEntity=base.create();
                 var checkDuplication = ctx.person.Where(x => x.firstName == firstName && x.lastName == lastName).FirstOrDefault();
                 if (checkDuplication != null)
-                    throw new Exception(personOperationStatus.Duplicated.ToString());
+                    throw new Exception("Person Duplicated");
 
                 var newPerson = new Models.person() 
                 {
@@ -35,11 +35,37 @@ namespace Accounting.Classes
                 };
                 ctx.person.AddObject(newPerson);
                 ctx.SaveChanges();
+
+                fieldsMapping(newPerson);
                 
                 return newPerson;
             }
             
-        } 
+        }
+        public Models.entityCard addCard(int personEntityID, int cardID)
+        {
+            using (var ctx = new AccContext()) 
+            {
+                var person = ctx.person.Where(x => x.entityID == personEntityID).SingleOrDefault();
+                var newEntityCard = new Models.entityCard()
+                {
+                    entityID=personEntityID,
+                    CardID=cardID
+                };
+                ctx.entityCard.AddObject(newEntityCard);
+                ctx.SaveChanges();
+
+                return newEntityCard;
+            }
+        }
+
+
+        private void fieldsMapping(Models.person person)
+        {
+            this.id = person.ID;
+            this.firstname = person.firstName;
+            this.lastname = person.lastName;
+        }
        
     }
     

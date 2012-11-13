@@ -10,7 +10,7 @@ namespace Accounting.Classes
 {
     public class Controller
     {
-        public static ControllerOperationStatus SetupGLTypes()
+        public static void SetupAccountTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -78,10 +78,9 @@ namespace Accounting.Classes
                 }
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupEntityTypes()
+        public static void SetupEntityTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -104,10 +103,9 @@ namespace Accounting.Classes
                 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupOfficeTypes()
+        public static void SetupOfficeTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -130,10 +128,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupUserTypes()
+        public static void SetupUserTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -156,10 +153,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupSysUserTypes()
+        public static void SetupSysUserTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -182,10 +178,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupPaymentTypes()
+        public static void SetupPaymentTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -208,10 +203,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupExtPaymentTypes()
+        public static void SetupExtPaymentTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -234,10 +228,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupccCardTypes()
+        public static void SetupccCardTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -260,10 +253,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupCardTypes()
+        public static void SetupCardTypes()
         {
             using (var ctx = new AccContext())
             {
@@ -286,10 +278,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupInvoiceStat()
+        public static void SetupInvoiceStat()
         {
             using (var ctx = new AccContext())
             {
@@ -312,10 +303,9 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
-        public static ControllerOperationStatus SetupCurrencyType()
+        public static void SetupCurrencyType()
         {
             using (var ctx = new AccContext())
             {
@@ -338,7 +328,6 @@ namespace Accounting.Classes
 
                 ctx.SaveChanges();
 
-                return ControllerOperationStatus.Approved;
             }
         }
 

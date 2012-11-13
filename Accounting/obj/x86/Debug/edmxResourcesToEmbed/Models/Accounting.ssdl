@@ -13,6 +13,7 @@
     <EntitySet Name="dbCard" EntityType="DB_40114_codeclubModel.Store.dbCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="dbPayment" EntityType="DB_40114_codeclubModel.Store.dbPayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="entity" EntityType="DB_40114_codeclubModel.Store.entity" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="entityCard" EntityType="DB_40114_codeclubModel.Store.entityCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="entityType" EntityType="DB_40114_codeclubModel.Store.entityType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="externalPayment" EntityType="DB_40114_codeclubModel.Store.externalPayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="extPaymentType" EntityType="DB_40114_codeclubModel.Store.extPaymentType" store:Type="Tables" Schema="Accounting" />
@@ -89,6 +90,14 @@
     <AssociationSet Name="FK_dbPayment_extPaymentType" Association="DB_40114_codeclubModel.Store.FK_dbPayment_extPaymentType">
       <End Role="extPaymentType" EntitySet="extPaymentType" />
       <End Role="dbPayment" EntitySet="dbPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityCard_card" Association="DB_40114_codeclubModel.Store.FK_entityCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="entityCard" EntitySet="entityCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityCard_entity" Association="DB_40114_codeclubModel.Store.FK_entityCard_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="entityCard" EntitySet="entityCard" />
     </AssociationSet>
     <AssociationSet Name="FK_externalPayment_card" Association="DB_40114_codeclubModel.Store.FK_externalPayment_card">
       <End Role="card" EntitySet="card" />
@@ -311,7 +320,7 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="extPaymentID" Type="int" />
     <Property Name="description" Type="text" />
     <Property Name="extPaymentTypeID" Type="int" />
@@ -321,6 +330,14 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="entityCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="entityID" Type="int" />
+    <Property Name="CardID" Type="int" />
   </EntityType>
   <EntityType Name="entityType">
     <Key>
@@ -679,6 +696,30 @@
       </Principal>
       <Dependent Role="dbPayment">
         <PropertyRef Name="extPaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityCard_card">
+    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
+    <End Role="entityCard" Type="DB_40114_codeclubModel.Store.entityCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityCard">
+        <PropertyRef Name="CardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityCard_entity">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="entityCard" Type="DB_40114_codeclubModel.Store.entityCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityCard">
+        <PropertyRef Name="entityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1098,5 +1139,5 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="reset_GLTypeSeed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Accounting" />
+  <Function Name="resetSeeds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Accounting" />
 </Schema>

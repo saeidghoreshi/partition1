@@ -13,7 +13,7 @@ namespace Accounting.Interfaces.subAccounts
         public readonly int CATTYPE = AssetCategories.W;
 
 
-        public accountOperationStatus Create(int ownerEntityId,int currencyID,decimal balance=0)
+        public Models.account Create(int ownerEntityId,int currencyID,decimal balance=0)
         {
             using(var ctx=new  AccContext())
             {
@@ -31,7 +31,8 @@ namespace Accounting.Interfaces.subAccounts
                 };
                 ctx.account.AddObject(newAccount);
                 ctx.SaveChanges();
-                return accountOperationStatus.Approved;
+
+                return newAccount;
             }
 
 

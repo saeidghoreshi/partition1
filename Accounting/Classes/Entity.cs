@@ -7,8 +7,11 @@ using Accounting.Models;
 
 namespace Accounting.Classes
 {
-    public class Entity
+    public abstract class Entity
     {
+        private int entityID;
+        public int ENTITYID { get { return entityID; } }
+
         protected Models.entity create()
         {
             using (var ctx = new AccContext())
@@ -17,8 +20,14 @@ namespace Accounting.Classes
                 ctx.entity.AddObject(newEntity);
                 ctx.SaveChanges();
 
+                fieldsMapping(newEntity);
                 return newEntity;
             }
         }
+        private void fieldsMapping(Models.entity e) 
+        {
+            this.entityID = e.ID;
+        }
+
     }
 }

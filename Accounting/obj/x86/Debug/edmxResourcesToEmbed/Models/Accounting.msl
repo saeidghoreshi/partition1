@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="AccContext">
-    <FunctionImportMapping FunctionImportName="reset_GLTypeSeed" FunctionName="DB_40114_codeclubModel.Store.reset_GLTypeSeed" />
     <EntitySetMapping Name="account">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.account">
         <MappingFragment StoreEntitySet="account">
@@ -88,16 +87,6 @@
         <MappingFragment StoreEntitySet="dbCard">
           <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
           <ScalarProperty Name="cardID" ColumnName="cardID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="dbPayment">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.dbPayment">
-        <MappingFragment StoreEntitySet="dbPayment">
-          <ScalarProperty Name="extPaymentTypeID" ColumnName="extPaymentTypeID" />
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="extPaymentID" ColumnName="extPaymentID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -330,6 +319,26 @@
         <MappingFragment StoreEntitySet="visaCard">
           <ScalarProperty Name="ccCardTypeID" ColumnName="ccCardTypeID" />
           <ScalarProperty Name="ccCardID" ColumnName="ccCardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="resetSeeds" FunctionName="DB_40114_codeclubModel.Store.resetSeeds" />
+    <EntitySetMapping Name="dbPayment">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.dbPayment">
+        <MappingFragment StoreEntitySet="dbPayment">
+          <ScalarProperty Name="extPaymentTypeID" ColumnName="extPaymentTypeID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="extPaymentID" ColumnName="extPaymentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="entityCard">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.entityCard">
+        <MappingFragment StoreEntitySet="entityCard">
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="entityID" ColumnName="entityID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

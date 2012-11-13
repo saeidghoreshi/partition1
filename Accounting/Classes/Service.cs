@@ -10,26 +10,39 @@ namespace Accounting.Classes
 {
     public class Service
     {
-        public Models.service CreateNewService(int giverEntityID, int receiverEntityID, string serviceName)
+        public int serviceID;
+        public int issuerEntityID; 
+        public int receiverEntityID;
+        public string serviceName;
+
+        public void Create()
         {
             using (var ctx = new AccContext())
             {
-                var giverPerson = ctx.person.Where(x => x.entityID == giverEntityID).FirstOrDefault();
+                var giverPerson = ctx.person.Where(x => x.entityID == issuerEntityID).FirstOrDefault();
                 var receiverPerson = ctx.person.Where(x => x.entityID == receiverEntityID).FirstOrDefault();
                 if (receiverPerson == null || giverPerson == null)
-                    throw new Exception(serviceOperationStatus.NULL.ToString()); 
+                    throw new Exception("No entities defined"); 
 
                 var newService = new Models.service()
                 {
-                    issuerEntityID=giverEntityID,
+                    issuerEntityID=issuerEntityID,
                     receiverEntityID=receiverEntityID,
                     name=serviceName
                 };
 
                 ctx.service.AddObject(newService);
                 ctx.SaveChanges();
-                return newService;
+
+                mapData(newService);
             }
+        }
+        public void mapData(Models.service service)
+        {
+            this.serviceID = service.ID;
+            this.receiverEntityID = (int)service.receiverEntityID;
+            this.issuerEntityID = (int)service.issuerEntityID;
+            this.serviceName = (string)service.name;
         }
 
     }
