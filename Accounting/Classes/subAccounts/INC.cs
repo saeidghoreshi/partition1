@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Classes;
+using accounting.classes;
 using Accounting.Models;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 
-namespace Accounting.Interfaces.subAccounts
+namespace accounting.classes.subAccounts
 {
     public class INCAccount : OEAccount
     {
         public readonly int CATTYPE = OECategories.INC;
 
-        public Models.account Create(int ownerEntityId,int currencyID,decimal balance=0)
+        public Accounting.Models.account Create(int ownerEntityId,int currencyID,decimal balance=0)
         {
             using(var ctx=new  AccContext())
             {

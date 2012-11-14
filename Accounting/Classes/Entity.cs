@@ -5,28 +5,42 @@ using System.Text;
 using Accounting;
 using Accounting.Models;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public abstract class Entity
     {
         private int entityID;
         public int ENTITYID { get { return entityID; } }
+        public List<Accounting.Models.card> cards;
 
-        protected Models.entity create()
+        public void create()
         {
             using (var ctx = new AccContext())
             {
-                var newEntity = new Models.entity(){};
+                var newEntity = new Accounting.Models.entity() { };
                 ctx.entity.AddObject(newEntity);
                 ctx.SaveChanges();
 
-                fieldsMapping(newEntity);
-                return newEntity;
+                this.entityID = newEntity.ID;
             }
         }
-        private void fieldsMapping(Models.entity e) 
+        
+        public  void addCard(int cardID)
         {
-            this.entityID = e.ID;
+            int entityID = (int)this.ENTITYID;
+
+            using (var ctx = new AccContext())
+            {
+                var person = ctx.person.Where(x => x.entityID == entityID).SingleOrDefault();
+                var newEntityCard = new Accounting.Models.entityCard()
+                {
+                    entityID = this.ENTITYID,
+                    CardID = cardID
+                };
+                ctx.entityCard.AddObject(newEntityCard);
+                ctx.SaveChanges();
+
+            }
         }
 
     }

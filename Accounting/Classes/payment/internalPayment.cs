@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 using Accounting.Models;
 using System.Transactions;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     
     public class internalPayment : Payment
     {
-        public readonly int PAYMENTTYPEID = (int)Enums.paymentType.Internal;
+        public readonly int PAYMENTTYPEID = (int)enums.paymentType.Internal;
 
         public int internalPaymentID;
-        public int paymentID;
         public int paymentTypeID;
         public string internalPaymentDescription;
 
@@ -27,7 +26,7 @@ namespace Accounting.Classes
             {
                 base.pay(payerEntityID, payeeEntityID, amount, currencyID);
 
-                var _internalPayment = new Models.internalPayment()
+                var _internalPayment = new Accounting.Models.internalPayment()
                  {
                      paymentID = base.paymentID,
                      paymentTypeID = this.PAYMENTTYPEID
@@ -50,7 +49,7 @@ namespace Accounting.Classes
         /// convert payment record from model to class data and renew class stat
         /// </summary>
         /// <param name="payment"></param>
-        private void mapData(Models.internalPayment internalPayment)
+        private void mapData(Accounting.Models.internalPayment internalPayment)
         {
             this.internalPaymentID = internalPayment.ID;
             this.paymentID = (int)internalPayment.paymentID;

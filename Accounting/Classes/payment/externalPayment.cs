@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 using Accounting.Models;
 using System.Transactions;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     
     public abstract class externalPayment : Payment
     {
-        public readonly int PAYMENTTYPEID = (int)Enums.paymentType.External;
+        public readonly int PAYMENTTYPEID = (int)enums.paymentType.External;
 
         public int extPaymentID;
         public int paymentID;
@@ -31,7 +31,7 @@ namespace Accounting.Classes
             {
                 base.pay(payerEntityID, payeeEntityID, amount, currencyID);
 
-                var _extPayment= new Models.externalPayment()
+                var _extPayment= new Accounting.Models.externalPayment()
                 {
                     paymentID=base.paymentID,
                     paymentTypeID = this.PAYMENTTYPEID,
@@ -52,7 +52,7 @@ namespace Accounting.Classes
         /// </summary>
         /// <param name="payment"></param>
         /// 
-        private void mapData(Models.externalPayment extPayment)
+        private void mapData(Accounting.Models.externalPayment extPayment)
         {
             this.extPaymentID= extPayment.ID;
             this.paymentID = (int)extPayment.paymentID;

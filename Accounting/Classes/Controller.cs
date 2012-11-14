@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using Accounting.Models;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public class Controller
     {
@@ -90,12 +90,12 @@ namespace Accounting.Classes
                     ctx.entityType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.entityType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.entityType)))
                 {
                     //add its Categories
-                    var newEntityType = new Models.entityType()
+                    var newEntityType = new Accounting.Models.entityType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.entityType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.entityType), item),
                        name=item
                     };
                     ctx.entityType.AddObject(newEntityType);
@@ -115,12 +115,12 @@ namespace Accounting.Classes
                     ctx.officeType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.officeType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.officeType)))
                 {
                     //add its Categories
-                    var newType = new Models.officeType()
+                    var newType = new Accounting.Models.officeType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.officeType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.officeType), item),
                         name = item
                     };
                     ctx.officeType.AddObject(newType);
@@ -140,12 +140,12 @@ namespace Accounting.Classes
                     ctx.userType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.userType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.userType)))
                 {
                     //add its Categories
-                    var newType = new Models.userType()
+                    var newType = new Accounting.Models.userType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.userType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.userType), item),
                         name = item
                     };
                     ctx.userType.AddObject(newType);
@@ -165,12 +165,12 @@ namespace Accounting.Classes
                     ctx.sysUserType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.sysUserType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.sysUserType)))
                 {
                     //add its Categories
-                    var newType = new Models.sysUserType()
+                    var newType = new Accounting.Models.sysUserType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.sysUserType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.sysUserType), item),
                         name = item
                     };
                     ctx.sysUserType.AddObject(newType);
@@ -190,12 +190,12 @@ namespace Accounting.Classes
                     ctx.paymentType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.paymentType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.paymentType)))
                 {
                     //add its Categories
-                    var newType = new Models.paymentType()
+                    var newType = new Accounting.Models.paymentType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.paymentType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.paymentType), item),
                         name = item
                     };
                     ctx.paymentType.AddObject(newType);
@@ -215,12 +215,12 @@ namespace Accounting.Classes
                     ctx.extPaymentType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.extPaymentType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.extPaymentType)))
                 {
                     //add its Categories
-                    var newType = new Models.extPaymentType()
+                    var newType = new Accounting.Models.extPaymentType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.extPaymentType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.extPaymentType), item),
                         name = item
                     };
                     ctx.extPaymentType.AddObject(newType);
@@ -240,12 +240,12 @@ namespace Accounting.Classes
                     ctx.ccCardType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.ccCardType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.ccCardType)))
                 {
                     //add its Categories
-                    var newType = new Models.ccCardType()
+                    var newType = new Accounting.Models.ccCardType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.ccCardType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.ccCardType), item),
                         name = item
                     };
                     ctx.ccCardType.AddObject(newType);
@@ -265,12 +265,12 @@ namespace Accounting.Classes
                     ctx.cardType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.cardType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.cardType)))
                 {
                     //add its Categories
-                    var newType = new Models.cardType()
+                    var newType = new Accounting.Models.cardType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.cardType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.cardType), item),
                         name = item
                     };
                     ctx.cardType.AddObject(newType);
@@ -290,12 +290,12 @@ namespace Accounting.Classes
                     ctx.invoiceStat.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.invoiceStat)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.invoiceStat)))
                 {
                     //add its Categories
-                    var newType = new Models.invoiceStat()
+                    var newType = new Accounting.Models.invoiceStat()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.invoiceStat), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.invoiceStat), item),
                         name = item
                     };
                     ctx.invoiceStat.AddObject(newType);
@@ -315,12 +315,12 @@ namespace Accounting.Classes
                     ctx.currencyType.DeleteObject(item);
 
                 //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(Enums.currencyType)))
+                foreach (var item in Enum.GetNames(typeof(classes.enums.currencyType)))
                 {
                     //add its Categories
-                    var newType = new Models.currencyType()
+                    var newType = new Accounting.Models.currencyType()
                     {
-                        ID = (int)Enum.Parse(typeof(Enums.currencyType), item),
+                        ID = (int)Enum.Parse(typeof(classes.enums.currencyType), item),
                         name = item
                     };
                     ctx.currencyType.AddObject(newType);

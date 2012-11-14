@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using Accounting.Interfaces;
-using Accounting.Classes.Enums;
+using accounting.classes;
+using accounting.classes.enums;
 using Accounting.Models;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {   
     public abstract class Account
     {
-        public static Models.account getAccount(int entityID,int catTypeID)
+        public static Accounting.Models.account getAccount(int entityID,int catTypeID)
         {
             using(var ctx=new AccContext())
             {

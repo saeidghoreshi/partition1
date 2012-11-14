@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 using Accounting.Models;
 using System.Transactions;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public abstract class Payment
     {
@@ -22,7 +22,7 @@ namespace Accounting.Classes
         {
             using (var ctx = new AccContext())
             {
-                var _payment = new Models.payment()
+                var _payment = new Accounting.Models.payment()
                 {
                     payerEntityID=payerEntityID,
                     payeeEntityID=payeeEntityID,
@@ -40,7 +40,7 @@ namespace Accounting.Classes
         /// convert payment record from model to class data and renew class stat
         /// </summary>
         /// <param name="payment"></param>
-        private void mapData(Models.payment payment) 
+        private void mapData(Accounting.Models.payment payment) 
         {
             this.paymentID = payment.ID;
             this.payerEntityID = (int)payment.payerEntityID;

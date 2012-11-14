@@ -2,48 +2,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using Accounting;
 using Accounting.Models;
 using System.Transactions;
 
 using Accounting;
-using Accounting.Classes;
-using Accounting.Classes.Card;
+using accounting.classes;
 
-
-namespace Accounting.Classes.Card.CreditCard.MasterCard
+namespace accounting.classes.card.creditcard
 {
     
-    public class MasterCard : CreditCard 
+    public class MasterCard : CreditCard
     {
-        public readonly int ccCardTypeID= (int)Enums.ccCardType.MC;
+        public readonly int CCCARDTYPEID= (int)enums.ccCardType.MC;
 
-        public new Models.mcCard create(string cardNumber, DateTime expiryDate) 
+        public override void create() 
         {
             using(var ctx=new AccContext())
-            using (var ts= new TransactionScope())
+            using (var ts = new TransactionScope())
             {
                 ///
                 /// create New Credit Card at first
                 ///
-                var CCCARD=base.create(cardNumber, expiryDate);
+                base.create();
 
                 ///
                 /// create new Master Card at second
                 ///
 
-                var newmcCard=new mcCard()
+                var newmcCard = new mcCard()
                 {
-                    ccCardID=CCCARD.ID,
-                    ccCardTypeID=this.ccCardTypeID
+                    ccCardID = base.ccCardId,
+                    ccCardTypeID = this.CCCARDTYPEID
                 };
 
                 ctx.mcCard.AddObject(newmcCard);
                 ctx.SaveChanges();
 
                 ts.Complete();
-                return newmcCard;
             }
         }
     }

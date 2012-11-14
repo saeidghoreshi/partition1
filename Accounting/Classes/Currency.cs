@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using Accounting.Models;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public class Currency 
     {
-        public Models.currency create(string CurrencyName, int currencyTypeID)
+        public int currencyID;
+        public readonly int CURRENCYTYPEID;
+
+        public void create(string CurrencyName, int currencyTypeID)
         {
                 using (var ctx = new AccContext())
                 {
-                    var newCur = new Models.currency
+                    var newCur = new Accounting.Models.currency
                     {
                         currencyTypeID = currencyTypeID,
                         name = CurrencyName
@@ -26,8 +29,9 @@ namespace Accounting.Classes
                     {   
                         ctx.currency.AddObject(newCur);
                         ctx.SaveChanges();
+
+                        this.currencyID = newCur.ID;
                     }
-                    return newCur;
                 }
            
         }

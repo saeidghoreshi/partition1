@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace Accounting.Classes.Enums
+namespace accounting.classes.enums
 {
     public class ACCOUTTYPE
     {   

@@ -2,24 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using Accounting;
 using Accounting.Models;
 using System.Transactions;
 
-using Accounting;
-using Accounting.Classes;
-using Accounting.Classes.Card;
+using accounting.classes;
+using accounting.classes.card;
 
 
-namespace Accounting.Classes.Card.CreditCard.VisaCard
+namespace accounting.classes.card.creditcard
 {
     public class VisaCard : CreditCard
     {
-        public readonly int ccCardTypeID = (int)Enums.ccCardType.Visa;
+        public readonly int CCCARDTYPEID = (int)enums.ccCardType.Visa;
 
         
-        public new Models.visaCard create(string cardNumber, DateTime expiryDate)
+        public override void create()
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
@@ -27,7 +26,7 @@ namespace Accounting.Classes.Card.CreditCard.VisaCard
                 ///
                 /// create New Credit Card at first
                 ///
-                var CCCARD=base.create(cardNumber, expiryDate);
+                base.create();
 
                 ///
                 /// create new Visa Card at second
@@ -35,15 +34,16 @@ namespace Accounting.Classes.Card.CreditCard.VisaCard
 
                 var newvisaCard = new visaCard()
                 {
-                    ccCardID = CCCARD.ID,
-                    ccCardTypeID = this.ccCardTypeID
+                    ccCardID = base.ccCardId,
+                    ccCardTypeID = this.CCCARDTYPEID
                 };
 
                 ctx.visaCard.AddObject(newvisaCard);
                 ctx.SaveChanges();
 
+                
                 ts.Complete();
-                return newvisaCard;
+                
             }
         }
     }

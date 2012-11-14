@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 
 using Accounting.Models;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public class Transaction
     {
-        public static Models.transaction createNew(int entityID,int catTypeID,decimal amount)
+        public static Accounting.Models.transaction createNew(int entityID,int catTypeID,decimal amount)
         {
             using (var ctx = new AccContext())
             {
-                var newTrans = new Models.transaction()
+                var newTrans = new Accounting.Models.transaction()
                 {
                     accountID = Account.getAccount(entityID,catTypeID).ID,
                     amount = amount

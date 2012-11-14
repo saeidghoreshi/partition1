@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using System.Diagnostics;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public class CurrencyException:ApplicationException
     {

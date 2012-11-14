@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Classes.Enums;
+using accounting.classes.enums;
 using Accounting.Models;
 using System.Transactions;
 
-namespace Accounting.Classes
+namespace accounting.classes
 {
     public class ccPayment : externalPayment
     {
-        public readonly int EXTPAYMENTTYPEID= (int)Enums.extPaymentType.CreditPayment;
+        public readonly int EXTPAYMENTTYPEID= (int)enums.extPaymentType.CreditPayment;
 
         public int ccPaymentID;
-        public int extPaymentID;
         public int extPaymentTypeID;
         public string ccPaymentDescription;
 
@@ -26,7 +25,7 @@ namespace Accounting.Classes
             {
                 base.pay(payerEntityID, payeeEntityID, amount, currencyID);
                 
-                var _ccPayment = new Models.ccPayment()
+                var _ccPayment = new Accounting.Models.ccPayment()
                 {
                     extPaymentID=base.extPaymentID,
                     extPaymentTypeID=this.EXTPAYMENTTYPEID
@@ -44,7 +43,7 @@ namespace Accounting.Classes
         /// convert payment record from model to class data and renew class stat
         /// </summary>
         /// <param name="payment"></param>
-        private void mapData(Models.ccPayment ccPayment)
+        private void mapData(Accounting.Models.ccPayment ccPayment)
         {
             this.ccPaymentID = ccPayment.ID;
             this.extPaymentID = (int)ccPayment.extPaymentID;

@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using Accounting;
 using Accounting.Models;
 using System.Transactions;
 
-using Accounting;
-using Accounting.Classes;
-using Accounting.Classes.Card;
+using accounting.classes;
+using accounting.classes.card;
 
 
-namespace Accounting.Classes.Card.DebitCard
+namespace accounting.classes.card
 {
     public abstract class DebitCard : Card
     {
-        public readonly int cardTypeID = (int)Enums.cardType.DebitCard;
+        public readonly int cardTypeID = (int)enums.cardType.DebitCard;
 
-        
-        protected Models.dbCard create(string cardNumber, DateTime expiryDate)
+        public override void create()
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
@@ -28,21 +26,20 @@ namespace Accounting.Classes.Card.DebitCard
                 ///
                 /// create New Card at first
                 ///
-                var CARD=base.create(cardNumber, expiryDate);
+                base.create();
 
                 ///
                 /// create new Debit card at second
                 ///
-                var newDBCard = new Models.dbCard()
+                var newDBCard = new Accounting.Models.dbCard()
                 {
-                    cardID = CARD.ID,
+                    cardID = base.cardID,
                     cardTypeID = this.cardTypeID
                 };
                 ctx.dbCard.AddObject(newDBCard);
                 ctx.SaveChanges();
 
                 ts.Complete();
-                return newDBCard;
             }
         }
     }

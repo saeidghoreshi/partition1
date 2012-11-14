@@ -2,31 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting.Interfaces;
+using accounting.classes;
 using Accounting;
 using Accounting.Models;
 using System.Transactions;
 
-namespace Accounting.Classes.Card
+namespace accounting.classes
 {
     public abstract class Card
     {
-        
-        protected Models.card create(string cardNumber, DateTime expiryDate)
+        public int cardID;
+        public string cardNumber;
+        public DateTime expiryDate;
+
+        public virtual void create()
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                var newCard = new Models.card()
+                var newCard = new Accounting.Models.card()
                 {
-                    cardNumber = cardNumber,
-                    expiryDate = expiryDate
+                    cardNumber = this.cardNumber,
+                    expiryDate = this.expiryDate
                 };
                 ctx.card.AddObject(newCard);
                 ctx.SaveChanges();
 
+                this.cardID = newCard.ID;
+                this.cardNumber = newCard.cardNumber;
+                this.expiryDate = (DateTime)newCard.expiryDate;
+
                 ts.Complete();
-                return newCard;
             }
         }
     }

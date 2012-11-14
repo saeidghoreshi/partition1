@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using Accounting.Interfaces;
-using Accounting.Classes;
-using Accounting.Models;
-using Accounting.Interfaces.subAccounts;
-using Accounting.Classes.Enums;
 using System.Transactions;
+
+using accounting;
+using accounting.classes;
+using Accounting.Models;
+using accounting.classes.enums;
+using accounting.classes.subAccounts;
+
 
 namespace Accounting
 {
@@ -21,19 +22,6 @@ namespace Accounting
           
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
-        }
-    }
-    
-    
-    public class serviceManagement
-    {
-        public static void createService()
-        {
-            var person1 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
-            var person2 = new Classes.Person().create("newFirstName", DateTime.Now.Ticks.ToString());
-
-
-            new Classes.Service().CreateNewService((int)person1.entityID, (int)person2.entityID, "NewService"+DateTime.Now.Ticks.ToString());
         }
     }
     
@@ -62,22 +50,28 @@ namespace Accounting
                
 
                 //create one Currency
-                var cur1=new Classes.Currency();
-                var curCAD=cur1.create("CAD", (int)Accounting.Classes.Enums.currencyType.Real);
+                var cur1=new accounting.classes.Currency();
+                cur1.create("CAD", (int)accounting.classes.enums.currencyType.Real);
 
                 
                 //create 2 person and related accounts
-                List<Models.person> persons=new List<Models.person>();
+                List <accounting.classes.Person> persons=new List <accounting.classes.Person>();
 
-                var person1 = new Classes.Person();
-                persons.Add(person1.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
-                
-                var person2 = new Classes.Person();
-                persons.Add(person2.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
-                var person3 = new Classes.Person();
-                persons.Add(person3.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
-                var person4 = new Classes.Person();
-                persons.Add(person4.create("PersonFname 1 ", DateTime.Now.Ticks.ToString()));
+                var person1 = new accounting.classes.Person();
+                person1.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
+                persons.Add(person1);
+
+                var person2 = new accounting.classes.Person();
+                person2.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
+                persons.Add(person2);
+
+                var person3 = new accounting.classes.Person();
+                person3.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
+                persons.Add(person3);
+
+                var person4 = new accounting.classes.Person();
+                person4.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
+                persons.Add(person4);
 
 
                 new APAccount().Create(person1.ENTITYID, 1);
@@ -89,9 +83,18 @@ namespace Accounting
                 new DBCASHAccount().Create(person1.ENTITYID, 1);
                 new TAAccount().Create(person1.ENTITYID, 1);
 
+                new APAccount().Create(person2.ENTITYID, 1);
+                new ARAccount().Create(person2.ENTITYID, 1);
+                new WAccount().Create(person2.ENTITYID, 1);
+                new EXPAccount().Create(person2.ENTITYID, 1);
+                new INCAccount().Create(person2.ENTITYID, 1);
+                new CCCASHAccount().Create(person2.ENTITYID, 1);
+                new DBCASHAccount().Create(person2.ENTITYID, 1);
+                new TAAccount().Create(person2.ENTITYID, 1);
+
 
                 //run the first Scenario
-                Scenario1.run(persons, curCAD);
+                Scenario1.run(persons, cur1);
 
 
                 ts.Complete();
@@ -107,29 +110,51 @@ namespace Accounting
    /// </summary>
     public class Scenario1
     {
-        public static void run(List<Models.person> persons,Models.currency currency)
+        public static void run(List<accounting.classes.Person> persons,accounting.classes.Currency currency)
         {
-            var service1 = new Classes.Service();
+            var service1 = new accounting.classes.Service();
             service1.serviceName="Service 1" + DateTime.Now.Ticks.ToString();
+            service1.issuerEntityID = persons[0].ENTITYID;
+            service1.receiverEntityID = persons[1].ENTITYID;
             service1.Create();
 
-            var service2 = new Classes.Service();
+            var service2 = new accounting.classes.Service();
             service2.serviceName = "Service 2" + DateTime.Now.Ticks.ToString();
+            service2.issuerEntityID = persons[0].ENTITYID;
+            service2.receiverEntityID = persons[1].ENTITYID;
             service2.Create();
 
 
-            var invoice = new Classes.Invoice();
-            invoice.createInvoice((int)persons[0].entityID, (int)persons[1].entityID, currency.ID);
+            var invoice = new accounting.classes.Invoice();
+            invoice.createInvoice((int)persons[0].ENTITYID, (int)persons[1].ENTITYID, currency.currencyID);
 
             invoice.addService(service1.serviceID, 1500);
             invoice.addService(service2.serviceID, 2500);
 
-            
+
             invoice.finalizeInvoice();
 
+            //Create Cards and assign to usrs
 
+            accounting.classes.card.creditcard.MasterCard mc1 = new accounting.classes.card.creditcard.MasterCard();
+            mc1.cardNumber = "111-111-111-111";
+            mc1.expiryDate = DateTime.Now.AddYears(2);
+            mc1.create();
+
+            accounting.classes.card.creditcard.VisaCard visa1  = new accounting.classes.card.creditcard.VisaCard();
+            visa1.cardNumber = "222-222-222-222";
+            visa1.expiryDate = DateTime.Now.AddYears(2);
+            visa1.create();
+
+
+            
+            persons[0].addCard(mc1.cardID);
+            persons[1].addCard(visa1.cardID);
+
+            
             //pay for invoice
-            invoice.doCCExtPayment( invoice.getInvoiceServicesSumAmt(invoice.invoiceID), cardID);
+            invoice.doCCExtPayment( invoice.getInvoiceServicesSumAmt(invoice.invoiceID)/2, visa1.cardID);
+            invoice.doCCExtPayment(invoice.getInvoiceServicesSumAmt(invoice.invoiceID)/2, visa1.cardID);
         }
     }
 
