@@ -70,7 +70,6 @@
     <Compile Include="Classes\subAccounts\INC.cs" />
     <Compile Include="Classes\subAccounts\EXP.cs" />
     <Compile Include="Classes\subAccounts\W.cs" />
-    <Compile Include="Classes\subAccounts\TA.cs" />
     <Compile Include="Classes\subAccounts\CCCASH.cs" />
     <Compile Include="Classes\subAccounts\DBCASH.cs" />
     <Compile Include="Classes\Transaction.cs" />

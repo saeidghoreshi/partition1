@@ -88,9 +88,9 @@ namespace accounting.classes
                 
                 //Record related transctions
                 List <Accounting.Models.transaction> transactions = new List<transaction>();
-                var trans1 = Transaction.createNew((int)invoice.receiverEntityID, (int)LibCategories.AP, -1*(decimal)invoiceServicesAmt);
+                var trans1 = Transaction.createNew((int)invoice.receiverEntityID, (int)LibCategories.AP, -1*(decimal)invoiceServicesAmt,(int)invoice.currencyID);
                 transactions.Add(trans1);
-                var trans2 = Transaction.createNew((int)invoice.issuerEntityID, (int)AssetCategories.AR, +1*(decimal)invoiceServicesAmt);
+                var trans2 = Transaction.createNew((int)invoice.issuerEntityID, (int)AssetCategories.AR, +1 * (decimal)invoiceServicesAmt, (int)invoice.currencyID);
                 transactions.Add(trans2);
 
                 /*Record Invoice Transaction*/
@@ -180,10 +180,10 @@ namespace accounting.classes
                     //Record related transctions [for invoice payment]
                     List <Accounting.Models.transaction> transactions = new List<transaction>();
 
-                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.W, -1 * amount));
-                    transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount));
-                    transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount));
-                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.AR, -1 * amount));
+                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.W, -1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.AR, -1 * amount, this.currencyID));
 
                     /*Record Invoice Transaction*/
                     this.recordInvoiceTransaction( transactions, enums.invoiceStat.internalPaymant);
@@ -219,10 +219,10 @@ namespace accounting.classes
                     //Record related transctions [for invoice payment]
                     List <Accounting.Models.transaction> transactions = new List<transaction>();
 
-                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.CCCASH, -1 * amount));
-                    transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount));
-                    transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount));
-                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.AR, -1 * amount));
+                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.CCCASH, -1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.AR, -1 * amount, this.currencyID));
 
                     /*Record Invoice Transaction*/
                     enums.invoiceStat? invoicestat=null;
@@ -269,10 +269,10 @@ namespace accounting.classes
                     //Record related transctions [for invoice payment]
                     List <Accounting.Models.transaction> transactions = new List<transaction>();
 
-                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.DBCASH, -1 * amount));
-                    transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount));
-                    transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount));
-                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.AR, -1 * amount));
+                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.DBCASH, -1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount, this.currencyID));
+                    transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.AR, -1 * amount, this.currencyID));
 
                     /*Record Invoice Transaction*/
 

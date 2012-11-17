@@ -5,6 +5,7 @@ using System.Text;
 using accounting.classes;
 using Accounting.Models;
 using accounting.classes.enums;
+using accounting.classes.subAccounts;
 namespace accounting.classes
 {
     public class Person :classes.Entity
@@ -14,10 +15,7 @@ namespace accounting.classes
         public string firstname;
         public string lastname;
 
-        public int ID { get { return id; } }
-        public string FIRSTNAME { get { return firstname; } }
-        public string LASTNAME { get { return lastname; } }
-
+        
         public Accounting.Models.person create(string firstName,string lastName) 
         {
             using(var ctx =new AccContext())
@@ -44,16 +42,21 @@ namespace accounting.classes
             
         }
         
-        //public List <Accounting.Models.card> fetchPersonCards() 
-        //{
-        //    using(var ctx=new AccContext())
-        //    {
-        //        var cards=ctx.entity
-        //            .Where(x=>x.ID==base.ENTITYID)
-        //            .SingleOrDefault().entityCard
-        //            .
-        //    }
-        //}
+
+        public List<Accounting.Models.account> createAccounts(int currencyID) 
+        {
+            List<Accounting.Models.account> accounts = new List<account>();
+
+            accounts.Add(new APAccount().Create(base.ENTITYID, currencyID));
+            accounts.Add(new ARAccount().Create(base.ENTITYID, currencyID));
+            accounts.Add(new WAccount().Create(base.ENTITYID, currencyID));
+            accounts.Add(new EXPAccount().Create(base.ENTITYID, currencyID));
+            accounts.Add(new INCAccount().Create(base.ENTITYID, currencyID));
+            accounts.Add(new CCCASHAccount().Create(base.ENTITYID, currencyID));
+            accounts.Add(new DBCASHAccount().Create(base.ENTITYID, currencyID));
+
+            return accounts;
+        }
 
 
         private void fieldsMapping(Accounting.Models.person person)
@@ -62,7 +65,7 @@ namespace accounting.classes
             this.firstname = person.firstName;
             this.lastname = person.lastName;
         }
-       
+
     }
     
 

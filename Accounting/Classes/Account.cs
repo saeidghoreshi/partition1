@@ -11,11 +11,11 @@ namespace accounting.classes
 {   
     public abstract class Account
     {
-        public static Accounting.Models.account getAccount(int entityID,int catTypeID)
+        public static Accounting.Models.account getAccount(int entityID, int catTypeID, int currencyID)
         {
             using(var ctx=new AccContext())
             {
-                var account=ctx.account.Where(x=>x.catTypeID==catTypeID && x.ownerEntityID==entityID).SingleOrDefault();
+                var account = ctx.account.Where(x => x.catTypeID == catTypeID && x.ownerEntityID == entityID && x.currencyID == currencyID).SingleOrDefault();
                 return account;
             }
         }   

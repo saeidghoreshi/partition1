@@ -68,6 +68,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceAction_invoice", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoice), "invoiceAction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceAction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoicePayment_invoice", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoice), "invoicePayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoicePayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_invoiceService_invoice", "invoice", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.invoice), "invoiceService", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.invoiceService), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityWallet_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "entityWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityWallet), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityWallet_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "entityWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityWallet), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityWalletTransaction_entityWallet", "entityWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entityWallet), "entityWalletTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityWalletTransaction), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityWalletTransaction_transaction", "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.transaction), "entityWalletTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityWalletTransaction), true)]
 
 #endregion
 
@@ -726,6 +730,38 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<invoice> _invoice;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<entityWallet> entityWallet
+        {
+            get
+            {
+                if ((_entityWallet == null))
+                {
+                    _entityWallet = base.CreateObjectSet<entityWallet>("entityWallet");
+                }
+                return _entityWallet;
+            }
+        }
+        private ObjectSet<entityWallet> _entityWallet;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<entityWalletTransaction> entityWalletTransaction
+        {
+            get
+            {
+                if ((_entityWalletTransaction == null))
+                {
+                    _entityWalletTransaction = base.CreateObjectSet<entityWalletTransaction>("entityWalletTransaction");
+                }
+                return _entityWalletTransaction;
+            }
+        }
+        private ObjectSet<entityWalletTransaction> _entityWalletTransaction;
 
         #endregion
 
@@ -1033,6 +1069,22 @@ namespace Accounting.Models
         public void AddToinvoice(invoice invoice)
         {
             base.AddObject("invoice", invoice);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the entityWallet EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToentityWallet(entityWallet entityWallet)
+        {
+            base.AddObject("entityWallet", entityWallet);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the entityWalletTransaction EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToentityWalletTransaction(entityWalletTransaction entityWalletTransaction)
+        {
+            base.AddObject("entityWalletTransaction", entityWalletTransaction);
         }
 
         #endregion
@@ -2642,6 +2694,28 @@ namespace Accounting.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWallet_currency", "entityWallet")]
+        public EntityCollection<entityWallet> entityWallet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<entityWallet>("DB_40114_codeclubModel.FK_entityWallet_currency", "entityWallet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<entityWallet>("DB_40114_codeclubModel.FK_entityWallet_currency", "entityWallet", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -3424,6 +3498,28 @@ namespace Accounting.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWallet_entity", "entityWallet")]
+        public EntityCollection<entityWallet> entityWallet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<entityWallet>("DB_40114_codeclubModel.FK_entityWallet_entity", "entityWallet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<entityWallet>("DB_40114_codeclubModel.FK_entityWallet_entity", "entityWallet", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -3693,6 +3789,446 @@ namespace Accounting.Models
         #endregion
 
     
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="entityWallet")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class entityWallet : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new entityWallet object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static entityWallet CreateentityWallet(global::System.Int32 id)
+        {
+            entityWallet entityWallet = new entityWallet();
+            entityWallet.ID = id;
+            return entityWallet;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                OntitleChanging(value);
+                ReportPropertyChanging("title");
+                _title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("title");
+                OntitleChanged();
+            }
+        }
+        private global::System.String _title;
+        partial void OntitleChanging(global::System.String value);
+        partial void OntitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> entityID
+        {
+            get
+            {
+                return _entityID;
+            }
+            set
+            {
+                OnentityIDChanging(value);
+                ReportPropertyChanging("entityID");
+                _entityID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("entityID");
+                OnentityIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _entityID;
+        partial void OnentityIDChanging(Nullable<global::System.Int32> value);
+        partial void OnentityIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> amount
+        {
+            get
+            {
+                return _amount;
+            }
+            set
+            {
+                OnamountChanging(value);
+                ReportPropertyChanging("amount");
+                _amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("amount");
+                OnamountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _amount;
+        partial void OnamountChanging(Nullable<global::System.Decimal> value);
+        partial void OnamountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> currencyID
+        {
+            get
+            {
+                return _currencyID;
+            }
+            set
+            {
+                OncurrencyIDChanging(value);
+                ReportPropertyChanging("currencyID");
+                _currencyID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("currencyID");
+                OncurrencyIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _currencyID;
+        partial void OncurrencyIDChanging(Nullable<global::System.Int32> value);
+        partial void OncurrencyIDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWallet_currency", "currency")]
+        public currency currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("DB_40114_codeclubModel.FK_entityWallet_currency", "currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("DB_40114_codeclubModel.FK_entityWallet_currency", "currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<currency> currencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<currency>("DB_40114_codeclubModel.FK_entityWallet_currency", "currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<currency>("DB_40114_codeclubModel.FK_entityWallet_currency", "currency", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWallet_entity", "entity")]
+        public entity entity
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entity>("DB_40114_codeclubModel.FK_entityWallet_entity", "entity").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entity>("DB_40114_codeclubModel.FK_entityWallet_entity", "entity").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<entity> entityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entity>("DB_40114_codeclubModel.FK_entityWallet_entity", "entity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<entity>("DB_40114_codeclubModel.FK_entityWallet_entity", "entity", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWalletTransaction_entityWallet", "entityWalletTransaction")]
+        public EntityCollection<entityWalletTransaction> entityWalletTransaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<entityWalletTransaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_entityWallet", "entityWalletTransaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<entityWalletTransaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_entityWallet", "entityWalletTransaction", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="entityWalletTransaction")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class entityWalletTransaction : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new entityWalletTransaction object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static entityWalletTransaction CreateentityWalletTransaction(global::System.Int32 id)
+        {
+            entityWalletTransaction entityWalletTransaction = new entityWalletTransaction();
+            entityWalletTransaction.ID = id;
+            return entityWalletTransaction;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> entityWalletID
+        {
+            get
+            {
+                return _entityWalletID;
+            }
+            set
+            {
+                OnentityWalletIDChanging(value);
+                ReportPropertyChanging("entityWalletID");
+                _entityWalletID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("entityWalletID");
+                OnentityWalletIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _entityWalletID;
+        partial void OnentityWalletIDChanging(Nullable<global::System.Int32> value);
+        partial void OnentityWalletIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> transactionID
+        {
+            get
+            {
+                return _transactionID;
+            }
+            set
+            {
+                OntransactionIDChanging(value);
+                ReportPropertyChanging("transactionID");
+                _transactionID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("transactionID");
+                OntransactionIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _transactionID;
+        partial void OntransactionIDChanging(Nullable<global::System.Int32> value);
+        partial void OntransactionIDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWalletTransaction_entityWallet", "entityWallet")]
+        public entityWallet entityWallet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entityWallet>("DB_40114_codeclubModel.FK_entityWalletTransaction_entityWallet", "entityWallet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entityWallet>("DB_40114_codeclubModel.FK_entityWalletTransaction_entityWallet", "entityWallet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<entityWallet> entityWalletReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entityWallet>("DB_40114_codeclubModel.FK_entityWalletTransaction_entityWallet", "entityWallet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<entityWallet>("DB_40114_codeclubModel.FK_entityWalletTransaction_entityWallet", "entityWallet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWalletTransaction_transaction", "transaction")]
+        public transaction transaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<transaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_transaction", "transaction").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<transaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_transaction", "transaction").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<transaction> transactionReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<transaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_transaction", "transaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<transaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_transaction", "transaction", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -7622,6 +8158,28 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoiceActionTransaction>("DB_40114_codeclubModel.FK_invoiceActionTransaction_transaction", "invoiceActionTransaction", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_entityWalletTransaction_transaction", "entityWalletTransaction")]
+        public EntityCollection<entityWalletTransaction> entityWalletTransaction
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<entityWalletTransaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_transaction", "entityWalletTransaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<entityWalletTransaction>("DB_40114_codeclubModel.FK_entityWalletTransaction_transaction", "entityWalletTransaction", value);
                 }
             }
         }

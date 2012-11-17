@@ -15,6 +15,8 @@
     <EntitySet Name="entity" EntityType="DB_40114_codeclubModel.Store.entity" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="entityCard" EntityType="DB_40114_codeclubModel.Store.entityCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="entityType" EntityType="DB_40114_codeclubModel.Store.entityType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="entityWallet" EntityType="DB_40114_codeclubModel.Store.entityWallet" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="entityWalletTransaction" EntityType="DB_40114_codeclubModel.Store.entityWalletTransaction" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="externalPayment" EntityType="DB_40114_codeclubModel.Store.externalPayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="extPaymentType" EntityType="DB_40114_codeclubModel.Store.extPaymentType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="glType" EntityType="DB_40114_codeclubModel.Store.glType" store:Type="Tables" Schema="Accounting" />
@@ -98,6 +100,22 @@
     <AssociationSet Name="FK_entityCard_entity" Association="DB_40114_codeclubModel.Store.FK_entityCard_entity">
       <End Role="entity" EntitySet="entity" />
       <End Role="entityCard" EntitySet="entityCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWallet_currency" Association="DB_40114_codeclubModel.Store.FK_entityWallet_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="entityWallet" EntitySet="entityWallet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWallet_entity" Association="DB_40114_codeclubModel.Store.FK_entityWallet_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="entityWallet" EntitySet="entityWallet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWalletTransaction_entityWallet" Association="DB_40114_codeclubModel.Store.FK_entityWalletTransaction_entityWallet">
+      <End Role="entityWallet" EntitySet="entityWallet" />
+      <End Role="entityWalletTransaction" EntitySet="entityWalletTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWalletTransaction_transaction" Association="DB_40114_codeclubModel.Store.FK_entityWalletTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="entityWalletTransaction" EntitySet="entityWalletTransaction" />
     </AssociationSet>
     <AssociationSet Name="FK_externalPayment_card" Association="DB_40114_codeclubModel.Store.FK_externalPayment_card">
       <End Role="card" EntitySet="card" />
@@ -345,6 +363,24 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="entityWallet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="varchar" MaxLength="200" />
+    <Property Name="entityID" Type="int" />
+    <Property Name="amount" Type="decimal" />
+    <Property Name="currencyID" Type="int" />
+  </EntityType>
+  <EntityType Name="entityWalletTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="entityWalletID" Type="int" />
+    <Property Name="transactionID" Type="int" />
   </EntityType>
   <EntityType Name="externalPayment">
     <Key>
@@ -720,6 +756,56 @@
       </Principal>
       <Dependent Role="entityCard">
         <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWallet_currency">
+    <End Role="currency" Type="DB_40114_codeclubModel.Store.currency" Multiplicity="0..1" />
+    <End Role="entityWallet" Type="DB_40114_codeclubModel.Store.entityWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWallet">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWallet_entity">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="entityWallet" Type="DB_40114_codeclubModel.Store.entityWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWallet">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWalletTransaction_entityWallet">
+    <End Role="entityWallet" Type="DB_40114_codeclubModel.Store.entityWallet" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="entityWalletTransaction" Type="DB_40114_codeclubModel.Store.entityWalletTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entityWallet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWalletTransaction">
+        <PropertyRef Name="entityWalletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWalletTransaction_transaction">
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1" />
+    <End Role="entityWalletTransaction" Type="DB_40114_codeclubModel.Store.entityWalletTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWalletTransaction">
+        <PropertyRef Name="transactionID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

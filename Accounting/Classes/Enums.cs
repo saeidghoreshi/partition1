@@ -36,23 +36,18 @@ namespace accounting.classes.enums
         /// <summary>
         /// static value
         /// </summary>
-        public static readonly int AR = 1;
+        public static readonly int  AR = 1;
         public static readonly int  W= 2;
-        public static readonly int  TA= 3;
-        public static readonly int  DBCASH= 4;
-        public static readonly int  PP= 5;
-        public static readonly int  CCCASH= 6;
-        public static readonly int  EE= 7;
+        public static readonly int  DBCASH= 3;
+        public static readonly int  CCCASH= 4;
+        
 
         public static readonly Dictionary<int,string> list = new Dictionary<int,string>() 
         {
            {1,"AR"},
            {2,"W"},
-           {3,"TA"},
-           {4,"DBCASH"},
-           {5,"PP"},
-           {6,"CCCASH"},
-           {7,"EE"}
+           {3,"DBCASH"},
+           {4,"CCCASH"}
         };
     }
     public class OECategories : OE

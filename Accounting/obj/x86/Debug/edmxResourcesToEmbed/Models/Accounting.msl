@@ -343,5 +343,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="entityWallet">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.entityWallet">
+        <MappingFragment StoreEntitySet="entityWallet">
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="entityID" ColumnName="entityID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="entityWalletTransaction">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.entityWalletTransaction">
+        <MappingFragment StoreEntitySet="entityWalletTransaction">
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="entityWalletID" ColumnName="entityWalletID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

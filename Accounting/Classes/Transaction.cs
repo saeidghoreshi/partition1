@@ -10,13 +10,13 @@ namespace accounting.classes
 {
     public class Transaction
     {
-        public static Accounting.Models.transaction createNew(int entityID,int catTypeID,decimal amount)
+        public static Accounting.Models.transaction createNew(int entityID,int catTypeID,decimal amount,int currencyID)
         {
             using (var ctx = new AccContext())
             {
                 var newTrans = new Accounting.Models.transaction()
                 {
-                    accountID = Account.getAccount(entityID,catTypeID).ID,
+                    accountID = Account.getAccount(entityID, catTypeID, currencyID).ID,
                     amount = amount
                 };
                 ctx.transaction.AddObject(newTrans);
