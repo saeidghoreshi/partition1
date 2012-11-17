@@ -143,16 +143,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="invoice">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoice">
-        <MappingFragment StoreEntitySet="invoice">
-          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
-          <ScalarProperty Name="payerEntityID" ColumnName="payerEntityID" />
-          <ScalarProperty Name="payeeEntityID" ColumnName="payeeEntityID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="invoiceAction">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoiceAction">
         <MappingFragment StoreEntitySet="invoiceAction">
@@ -339,6 +329,16 @@
         <MappingFragment StoreEntitySet="entityCard">
           <ScalarProperty Name="CardID" ColumnName="CardID" />
           <ScalarProperty Name="entityID" ColumnName="entityID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="invoice">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.invoice">
+        <MappingFragment StoreEntitySet="invoice">
+          <ScalarProperty Name="currencyID" ColumnName="currencyID" />
+          <ScalarProperty Name="receiverEntityID" ColumnName="receiverEntityID" />
+          <ScalarProperty Name="issuerEntityID" ColumnName="issuerEntityID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

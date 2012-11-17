@@ -15,7 +15,7 @@ namespace accounting.classes.card.creditcard
 {
     public class VisaCard : CreditCard
     {
-        public readonly int CCCARDTYPEID = (int)enums.ccCardType.Visa;
+        public readonly int CCCARDTYPEID = (int)enums.ccCardType.VISACARD;
 
         
         public override void create()

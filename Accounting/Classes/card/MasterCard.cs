@@ -15,7 +15,7 @@ namespace accounting.classes.card.creditcard
     
     public class MasterCard : CreditCard
     {
-        public readonly int CCCARDTYPEID= (int)enums.ccCardType.MC;
+        public readonly int CCCARDTYPEID= (int)enums.ccCardType.MASTERCARD;
 
         public override void create() 
         {

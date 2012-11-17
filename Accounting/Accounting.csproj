@@ -95,6 +95,9 @@
     <None Include="Documentation\accounting.uml" />
     <None Include="Documentation\accounting.~ml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\Report1.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

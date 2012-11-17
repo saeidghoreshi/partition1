@@ -65,15 +65,6 @@ namespace Accounting
                 person2.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
                 persons.Add(person2);
 
-                var person3 = new accounting.classes.Person();
-                person3.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
-                persons.Add(person3);
-
-                var person4 = new accounting.classes.Person();
-                person4.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
-                persons.Add(person4);
-
-
                 new APAccount().Create(person1.ENTITYID, 1);
                 new ARAccount().Create(person1.ENTITYID, 1);
                 new WAccount().Create(person1.ENTITYID, 1);
@@ -112,6 +103,7 @@ namespace Accounting
     {
         public static void run(List<accounting.classes.Person> persons,accounting.classes.Currency currency)
         {
+            //Create 2 services
             var service1 = new accounting.classes.Service();
             service1.serviceName="Service 1" + DateTime.Now.Ticks.ToString();
             service1.issuerEntityID = persons[0].ENTITYID;
@@ -124,18 +116,19 @@ namespace Accounting
             service2.receiverEntityID = persons[1].ENTITYID;
             service2.Create();
 
-
+            //Create Invoice 
             var invoice = new accounting.classes.Invoice();
-            invoice.createInvoice((int)persons[0].ENTITYID, (int)persons[1].ENTITYID, currency.currencyID);
+            invoice.createInvoice((int)persons[0].ENTITYID, (int)persons[1].ENTITYID /*issuer*/, currency.currencyID);
 
-            invoice.addService(service1.serviceID, 1500);
-            invoice.addService(service2.serviceID, 2500);
+            
+            //assign services to the Invoice
+            invoice.addService(service1.serviceID, 1000);
+            invoice.addService(service2.serviceID, 1000);
 
-
+            //Finalize Invoice
             invoice.finalizeInvoice();
 
-            //Create Cards and assign to usrs
-
+            //Create Cards and assign to users
             accounting.classes.card.creditcard.MasterCard mc1 = new accounting.classes.card.creditcard.MasterCard();
             mc1.cardNumber = "111-111-111-111";
             mc1.expiryDate = DateTime.Now.AddYears(2);
@@ -146,15 +139,23 @@ namespace Accounting
             visa1.expiryDate = DateTime.Now.AddYears(2);
             visa1.create();
 
+            accounting.classes.card.DebitCard debit1 = new accounting.classes.card.DebitCard();
+            debit1.cardNumber = "333-333-333-333";
+            debit1.expiryDate = DateTime.Now.AddYears(4);
+            debit1.create();
 
             
+            //Assign cards lto Persons
+            //Add cards for payer
             persons[0].addCard(mc1.cardID);
-            persons[1].addCard(visa1.cardID);
-
-            
-            //pay for invoice
-            invoice.doCCExtPayment( invoice.getInvoiceServicesSumAmt(invoice.invoiceID)/2, visa1.cardID);
-            invoice.doCCExtPayment(invoice.getInvoiceServicesSumAmt(invoice.invoiceID)/2, visa1.cardID);
+            persons[0].addCard(visa1.cardID);
+            persons[0].addCard(debit1.cardID);
+                        
+            //2 partial payments for invoice 
+            invoice.doCCExtPayment( invoice.getInvoiceServicesSumAmt(invoice.invoiceID)/2, visa1.cardID,accounting.classes.enums.ccCardType.VISACARD);
+            invoice.doINTERACPayment(invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 4, debit1.cardID);
+            invoice.doINTERNALTransfer(invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 8);
+            invoice.doCCExtPayment(invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 8, mc1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
         }
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using accounting.classes;
+
 using Accounting;
 using Accounting.Models;
 using System.Transactions;
@@ -13,7 +13,7 @@ using accounting.classes.card;
 
 namespace accounting.classes.card
 {
-    public abstract class DebitCard : Card
+    public class DebitCard : Card
     {
         public readonly int cardTypeID = (int)enums.cardType.DebitCard;
 

@@ -123,11 +123,11 @@
       <End Role="currency" EntitySet="currency" />
       <End Role="invoice" EntitySet="invoice" />
     </AssociationSet>
-    <AssociationSet Name="FK_invoice_entitypayee" Association="DB_40114_codeclubModel.Store.FK_invoice_entitypayee">
+    <AssociationSet Name="FK_invoice_issuer" Association="DB_40114_codeclubModel.Store.FK_invoice_issuer">
       <End Role="entity" EntitySet="entity" />
       <End Role="invoice" EntitySet="invoice" />
     </AssociationSet>
-    <AssociationSet Name="FK_invoice_entityPayer" Association="DB_40114_codeclubModel.Store.FK_invoice_entityPayer">
+    <AssociationSet Name="FK_invoice_receiver" Association="DB_40114_codeclubModel.Store.FK_invoice_receiver">
       <End Role="entity" EntitySet="entity" />
       <End Role="invoice" EntitySet="invoice" />
     </AssociationSet>
@@ -384,8 +384,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="payeeEntityID" Type="int" />
-    <Property Name="payerEntityID" Type="int" />
+    <Property Name="issuerEntityID" Type="int" />
+    <Property Name="receiverEntityID" Type="int" />
     <Property Name="currencyID" Type="int" />
   </EntityType>
   <EntityType Name="invoiceAction">
@@ -795,7 +795,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_invoice_entitypayee">
+  <Association Name="FK_invoice_issuer">
     <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
     <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="*" />
     <ReferentialConstraint>
@@ -803,11 +803,11 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="invoice">
-        <PropertyRef Name="payeeEntityID" />
+        <PropertyRef Name="issuerEntityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_invoice_entityPayer">
+  <Association Name="FK_invoice_receiver">
     <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
     <End Role="invoice" Type="DB_40114_codeclubModel.Store.invoice" Multiplicity="*" />
     <ReferentialConstraint>
@@ -815,7 +815,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="invoice">
-        <PropertyRef Name="payerEntityID" />
+        <PropertyRef Name="receiverEntityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

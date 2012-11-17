@@ -116,8 +116,8 @@ namespace accounting.classes.enums
     }
     public enum ccCardType
     {
-        MC=1,
-        Visa=2
+        MASTERCARD=1,
+        VISACARD=2
     }
     public enum cardType
     {
@@ -132,7 +132,8 @@ namespace accounting.classes.enums
         Cancelled=4     /*if no payments occured or all payments voided or refunded*/,
         internalPaymant=5,
         interacPaymant=6,
-        creditCardPaymant=7
+        visaCardPaymant=7,
+        masterCardPaymant = 8
     }
     
     public enum currencyType
