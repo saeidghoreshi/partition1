@@ -14,22 +14,46 @@ namespace accounting.classes
         public readonly int PAYMENTTYPEID = (int)enums.paymentType.External;
 
         public int extPaymentID;
-        public int paymentID;
-        public int paymentTypeID;
         public string extPaymentDescription;
         public int cardID;
 
-        public externalPayment(int cardID):base() 
+        public externalPayment() { }
+        public externalPayment(int paymentID): base(paymentID)
         {
-            this.cardID = cardID;
-        } 
+            this.loadByPaymentID(paymentID);
+        }
 
-        public override void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public override void loadByPaymentID(int paymentID) 
+        {
+            using (var ctx = new AccContext())
+            {
+                base.loadByPaymentID(paymentID);
+
+                var extPaymentRecord = ctx.externalPayment
+                    .Where(x => x.paymentID == paymentID)
+                    .Select(x => new
+                    {
+                        extPaymentID = x.ID,
+                        description = x.description,
+                        cardID = (decimal)x.payment.amount
+                    })
+                    .SingleOrDefault();
+
+                if (extPaymentRecord == null)
+                    throw new Exception("no such a EXT Payment Exists");
+
+                this.extPaymentID = extPaymentRecord.extPaymentID;
+                this.extPaymentDescription = extPaymentRecord.description;
+                this.cardID = (int)extPaymentRecord.cardID;
+            }
+        }
+
+        public override void New(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts=new TransactionScope())
             {
-                base.pay(payerEntityID, payeeEntityID, amount, currencyID);
+                base.New(payerEntityID, payeeEntityID, amount, currencyID);
 
                 var _extPayment= new Accounting.Models.externalPayment()
                 {
@@ -42,24 +66,11 @@ namespace accounting.classes
 
                 ts.Complete();
 
-                this.mapData(_extPayment);
+                this.loadByPaymentID((int)_extPayment.paymentID);
 
             }
         }
 
-        /// <summary>
-        /// convert payment record from model to class data and renew class stat
-        /// </summary>
-        /// <param name="payment"></param>
-        /// 
-        private void mapData(Accounting.Models.externalPayment extPayment)
-        {
-            this.extPaymentID= extPayment.ID;
-            this.paymentID = (int)extPayment.paymentID;
-            this.paymentTypeID = (int)extPayment.paymentTypeID;
-            this.extPaymentDescription = (string)extPayment.description;
-            this.cardID = (int)extPayment.cardID;
-        }
     }
 
    

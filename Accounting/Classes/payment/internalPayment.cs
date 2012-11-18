@@ -14,17 +14,44 @@ namespace accounting.classes
         public readonly int PAYMENTTYPEID = (int)enums.paymentType.Internal;
 
         public int internalPaymentID;
-        public int paymentTypeID;
         public string internalPaymentDescription;
 
-        public internalPayment():base(){}
+        public internalPayment() { }
+        public internalPayment(int paymentID): base(paymentID)
+        {
+            this.loadByPaymentID(paymentID);
+        }
 
-        public override void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public override void loadByPaymentID(int paymentID) 
+        {
+            using (var ctx = new AccContext())
+            {
+                base.loadByPaymentID(paymentID);
+
+                var internalPaymentRecord = ctx.internalPayment
+                    .Where(x => x.paymentID == paymentID)
+                    .Select(x => new
+                    {
+                        internalPaymentID = x.ID,
+                        description = x.description
+                    })
+                    .SingleOrDefault();
+
+                if (internalPaymentRecord == null)
+                    throw new Exception("no such a EXT Payment Exists");
+
+                this.internalPaymentID = internalPaymentRecord.internalPaymentID;
+                this.internalPaymentDescription = internalPaymentRecord.description;
+            }
+        }
+
+
+        public override void New(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                base.pay(payerEntityID, payeeEntityID, amount, currencyID);
+                base.New(payerEntityID, payeeEntityID, amount, currencyID);
 
                 var _internalPayment = new Accounting.Models.internalPayment()
                  {
@@ -36,25 +63,10 @@ namespace accounting.classes
 
                 ts.Complete();
 
-                this.mapData(_internalPayment);
+                this.loadByPaymentID((int)_internalPayment.paymentID);
 
             }
         }
-        /// <summary>
-        /// convert payment record from model to class data and renew class stat
-        /// </summary>
-        /// <param name="payment"></param>
-
-        /// <summary>
-        /// convert payment record from model to class data and renew class stat
-        /// </summary>
-        /// <param name="payment"></param>
-        private void mapData(Accounting.Models.internalPayment internalPayment)
-        {
-            this.internalPaymentID = internalPayment.ID;
-            this.paymentID = (int)internalPayment.paymentID;
-            this.paymentTypeID = (int)internalPayment.paymentTypeID;
-            this.internalPaymentDescription = (string)internalPayment.description;
-        }
+        
     }
 }

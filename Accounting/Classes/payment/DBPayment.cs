@@ -17,15 +17,13 @@ namespace accounting.classes
         public int extPaymentTypeID;
         public string dbPaymentDescription;
 
-        public dbPayment(int cardID) : base(cardID) { }
 
-
-        public override void pay(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public override void New(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                base.pay(payerEntityID, payeeEntityID, amount, currencyID);
+                base.New(payerEntityID, payeeEntityID, amount, currencyID);
 
                 var _dbPayment = new Accounting.Models.dbPayment()
                 {

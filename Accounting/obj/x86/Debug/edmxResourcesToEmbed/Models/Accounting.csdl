@@ -254,6 +254,15 @@
       <End Role="transaction" EntitySet="transaction" />
       <End Role="entityWalletTransaction" EntitySet="entityWalletTransaction" />
     </AssociationSet>
+    <EntitySet Name="paymentTransaction" EntityType="DB_40114_codeclubModel.paymentTransaction" />
+    <AssociationSet Name="FK_invoicePaymentTransaction_invoicePayment" Association="DB_40114_codeclubModel.FK_invoicePaymentTransaction_invoicePayment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="paymentTransaction" EntitySet="paymentTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoicePaymentTransaction_transaction" Association="DB_40114_codeclubModel.FK_invoicePaymentTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="paymentTransaction" EntitySet="paymentTransaction" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="account">
     <Key>
@@ -544,6 +553,7 @@
     <NavigationProperty Name="externalPayment" Relationship="DB_40114_codeclubModel.FK_externalPayment_payment" FromRole="payment" ToRole="externalPayment" />
     <NavigationProperty Name="internalPayment" Relationship="DB_40114_codeclubModel.FK_internalPayment_payment" FromRole="payment" ToRole="internalPayment" />
     <NavigationProperty Name="invoicePayment" Relationship="DB_40114_codeclubModel.FK_invoicePayment_payment" FromRole="payment" ToRole="invoicePayment" />
+    <NavigationProperty Name="paymentTransaction" Relationship="DB_40114_codeclubModel.FK_invoicePaymentTransaction_invoicePayment" FromRole="payment" ToRole="paymentTransaction" />
   </EntityType>
   <EntityType Name="paymentType">
     <Key>
@@ -594,6 +604,7 @@
     <NavigationProperty Name="account" Relationship="DB_40114_codeclubModel.FK_transaction_account" FromRole="transaction" ToRole="account" />
     <NavigationProperty Name="invoiceActionTransaction" Relationship="DB_40114_codeclubModel.FK_invoiceActionTransaction_transaction" FromRole="transaction" ToRole="invoiceActionTransaction" />
     <NavigationProperty Name="entityWalletTransaction" Relationship="DB_40114_codeclubModel.FK_entityWalletTransaction_transaction" FromRole="transaction" ToRole="entityWalletTransaction" />
+    <NavigationProperty Name="paymentTransaction" Relationship="DB_40114_codeclubModel.FK_invoicePaymentTransaction_transaction" FromRole="transaction" ToRole="paymentTransaction" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -1314,6 +1325,40 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="entityWalletTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="paymentTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="paymentID" />
+    <Property Type="Int32" Name="transactionID" />
+    <NavigationProperty Name="payment" Relationship="DB_40114_codeclubModel.FK_invoicePaymentTransaction_invoicePayment" FromRole="paymentTransaction" ToRole="payment" />
+    <NavigationProperty Name="transaction" Relationship="DB_40114_codeclubModel.FK_invoicePaymentTransaction_transaction" FromRole="paymentTransaction" ToRole="transaction" />
+  </EntityType>
+  <Association Name="FK_invoicePaymentTransaction_invoicePayment">
+    <End Type="DB_40114_codeclubModel.payment" Role="payment" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.paymentTransaction" Role="paymentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentTransaction">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoicePaymentTransaction_transaction">
+    <End Type="DB_40114_codeclubModel.transaction" Role="transaction" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.paymentTransaction" Role="paymentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentTransaction">
         <PropertyRef Name="transactionID" />
       </Dependent>
     </ReferentialConstraint>

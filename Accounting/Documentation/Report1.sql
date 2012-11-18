@@ -44,3 +44,12 @@ ta.*
 from Accounting.entityWallet ew 
 inner join Accounting.entityWalletTransaction ewt on ewt.entityWalletID=ew.id
 inner join accounting.transactionAccount as ta on  ta.transactionID=ewt.transactionID
+
+select 'invoice payment Txns';
+select 
+pt.paymentID,
+ta.*
+from Accounting.paymenttransaction pt
+inner join Accounting.invoicePayment ip on ip.ID = pt.PaymentID
+inner join Accounting.transactionaccount ta on ta.transactionID=pt.transactionID
+;

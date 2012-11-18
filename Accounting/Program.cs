@@ -113,7 +113,7 @@ namespace Accounting
                 debit1.create();
 
                 //Add some money to the Person 0 wallet
-                person1.addWalletMoney(8000, "New Deposit", cur1.currencyID);
+                //person1.addWalletMoney(8000, "New Deposit", cur1.currencyID);
 
                 //Assign cards lto Persons
                 //Add cards for payer
@@ -127,6 +127,9 @@ namespace Accounting
                 person1.payInvoiceByInterac(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 4, debit1.cardID);
                 person1.payInvoiceByInternal(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 8);
                 person1.payInvoiceByCC(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
+
+                //Cancel Invoice Payment
+                
 
 
                 ts.Complete();

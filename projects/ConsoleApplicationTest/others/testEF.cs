@@ -99,7 +99,7 @@ namespace ConsoleApplication1
             //join > inner join
             //groupjoin > leftjoin   of   from > join > into >defultifempty ()
             //selectmany or (from from) > full  join
-            //selectManny > crossjoin
+            //selectMany > crossjoin
 
             //Sets
             //intersect , except , union , concat
