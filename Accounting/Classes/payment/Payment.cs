@@ -63,6 +63,7 @@ namespace accounting.classes
                 ctx.payment.AddObject(_payment);
                 ctx.SaveChanges();
 
+                
                 loadByPaymentID(_payment.ID);
                 
             }
@@ -90,8 +91,10 @@ namespace accounting.classes
                 this.currencyID=(int)payment.currencyID;
 
                 //get payment Transactions
-                var paymentTransactions = ctx.paymentTransaction
+                var paymentTransactions = ctx.paymentAction
                     .Where(x => x.paymentID == this.paymentID)
+                    .Single()
+                    .paymentActionTransaction
                     .Select(x => new 
                     {
                         ownerEntityID=x.transaction.account.ownerEntityID,
@@ -100,6 +103,7 @@ namespace accounting.classes
                         currencyID = x.transaction.account.currencyID
                     })
                     .ToList();
+
                 //enter and save revered Transactions
                 List<Accounting.Models.transaction> reveresedTransactions = new List<transaction>();
                 foreach (var txn in paymentTransactions)

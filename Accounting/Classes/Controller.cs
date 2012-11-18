@@ -305,6 +305,29 @@ namespace accounting.classes
 
             }
         }
+        public static void SetupPaymentStat()
+        {
+            using (var ctx = new AccContext())
+            {
+                //reset DB table
+                var alltypes = ctx.paymentStat.ToList();
+                foreach (var item in alltypes)
+                    ctx.paymentStat.DeleteObject(item);
+
+                //Add fresh lookup values
+                foreach (var item in Enum.GetNames(typeof(classes.enums.paymentStat)))
+                {
+                    //add its Categories
+                    var newType = new Accounting.Models.paymentStat()
+                    {
+                        ID = (int)Enum.Parse(typeof(classes.enums.paymentStat), item),
+                        name = item
+                    };
+                    ctx.paymentStat.AddObject(newType);
+                }
+                ctx.SaveChanges();
+            }
+        }
         public static void SetupCurrencyType()
         {
             using (var ctx = new AccContext())

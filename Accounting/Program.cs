@@ -46,6 +46,7 @@ namespace Accounting
                  Controller.SetupOfficeTypes();
                  Controller.SetupUserTypes();
                  Controller.SetupSysUserTypes();
+                 Controller.SetupPaymentStat();
 
                
 

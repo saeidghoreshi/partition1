@@ -4,13 +4,13 @@ inner join Accounting.invoiceStat iis on iis.ID=ia.invoiceStatID
 ;
 select SUM(balance) as 'tootal accounts balance' from Accounting.account ;
 
-select 'Union for Entities' as ' ';
+select 'Union for Entities' as ' '; 
 select p.entityID,p.firstName+'-'+p.lastName from Accounting.person p
 union
 select o.entityID,convert(varchar(200),o.ID) from Accounting.organization o
 
 
-select 'Invoice Actions' as '-';
+select 'Invoice Action Transactions' as '-';
 select i.ID as invoiceID,i.receiverEntityID,i.issuerEntityID,
 _is.name stat,
 ta.transactionID ,ta.amount,
@@ -33,7 +33,7 @@ from Accounting.invoicePayment ip
 inner join Accounting.payment p on p.ID=ip.paymentID;
 
 
-select 'entityWalletTxn'
+select 'entityWalletTxn' as ' '
 select ew.title as 'EW-Title',ew.amount 'EW-Amount',ew.entityID 'EW-entityID',
 ta.*
 
@@ -41,14 +41,37 @@ from Accounting.entityWallet ew
 inner join Accounting.entityWalletTransaction ewt on ewt.entityWalletID=ew.id
 inner join accounting.transactionAccount as ta on  ta.transactionID=ewt.transactionID
 
-select 'invoice payment Txns';
+
+select 'payment action ' as  ' ';
 select 
-pt.paymentID,
-ta.*
-from Accounting.paymenttransaction pt
-inner join Accounting.invoicePayment ip on ip.ID = pt.PaymentID
-inner join Accounting.transactionaccount ta on ta.transactionID=pt.transactionID
+p.ID as paymentID,p.amount,
+ps.name,
+
+pt.name as paymentType,
+case when ept.name is null then '-' else ept.name end  as extPaymentType
+
+from Accounting.payment p
+inner join Accounting.paymentAction pa on p.ID=pa.paymentID
+inner join Accounting.paymentstat ps on ps.ID=pa.paymentStatID
+
+left join Accounting.externalPayment ep on ep.paymentID=p.ID
+left join Accounting.internalPayment ip on ip.paymentID=p.ID
+left join Accounting.paymentType pt on pt.ID=case when ep.ID is null then ip.paymentTypeID else ep.paymentTypeID end 
+
+left join Accounting.ccPayment cc on cc.extPaymentID=ep.ID
+left join Accounting.dbPayment db on db.extPaymentID=ep.ID
+left join Accounting.extPaymentType ept on ept.ID=case when cc.extPaymentTypeID is null then db.extPaymentTypeID else cc.ID end 
 ;
+
+
+select 'payment action Txns' as  ' ';
+select 
+ps.name,
+ta.*
+from Accounting.paymentAction pa
+inner join Accounting.paymentActionTransaction pat on pa.ID=pat.paymentActionID
+inner join Accounting.transactionaccount ta on ta.transactionID=pat.transactionID
+inner join Accounting.paymentStat ps on pa.paymentStatID=ps.ID;
 
 
 select * from Accounting.currency;

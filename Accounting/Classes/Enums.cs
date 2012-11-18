@@ -121,15 +121,24 @@ namespace accounting.classes.enums
     }
     public enum invoiceStat
     {
-        Generated=1,
-        Finalized=2, 
-        Deleted=3       /*If no Payments of any kind ever happend*/,
-        Cancelled=4     /*if no payments occured or all payments voided or refunded*/,
-        internalPaymant=5,
-        interacPaymant=6,
-        visaCardPaymant=7,
+        Generated = 1,
+        Finalized = 2,
+        Deleted = 3       /*If no Payments of any kind ever happend*/,
+        Cancelled = 4     /*if no payments occured or all payments voided or refunded*/,
+        internalPaymant = 5,
+        interacPaymant = 6,
+        visaCardPaymant = 7,
         masterCardPaymant = 8,
-        partialPaymentCancelled=9
+        partialPaymentCancelled = 9
+    }
+    public enum paymentStat
+    {
+        PaidApproved = 1,
+        VoidApproved=2,
+        RefundApproved=3,
+        NotApprovedPaid =4 ,
+        NotApprovedVoid =5 ,
+        NotApprovedRefund =6
     }
     
     public enum currencyType
