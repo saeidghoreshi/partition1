@@ -1,10 +1,13 @@
+select * 
+from Accounting.invoiceAction ia
+inner join Accounting.invoiceStat iis on iis.ID=ia.invoiceStatID
+;
+select SUM(balance) as 'tootal accounts balance' from Accounting.account ;
 
-
-select 'Union for Entities';
+select 'Union for Entities' as ' ';
 select p.entityID,p.firstName+'-'+p.lastName from Accounting.person p
 union
 select o.entityID,convert(varchar(200),o.ID) from Accounting.organization o
-
 
 
 select 'Invoice Actions' as '-';
@@ -23,13 +26,6 @@ LEFT join Accounting.invoiceStat _is on _is.ID=ia.invoiceStatID
 left join Accounting.invoiceActionTransaction iat on iat.invoiceActionID=ia.ID
 left join accounting.transactionAccount as ta on  ta.transactionID=iat.transactionID
 ;
-
-select * from Accounting.currency;
-select * from Accounting.currencyType;
-
-
-select 'Services' as '-';
-select * from Accounting.service;
 
 select 'Invoice Payments' as '-';
 select ip.invoiceID,p.ID paymentid,p.payerEntityID,p.payeeEntityID,p.amount 
@@ -53,3 +49,10 @@ from Accounting.paymenttransaction pt
 inner join Accounting.invoicePayment ip on ip.ID = pt.PaymentID
 inner join Accounting.transactionaccount ta on ta.transactionID=pt.transactionID
 ;
+
+
+select * from Accounting.currency;
+select * from Accounting.currencyType;
+select 'Services' as '-';
+select * from Accounting.service;
+

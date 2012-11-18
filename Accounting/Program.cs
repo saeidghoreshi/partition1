@@ -58,11 +58,11 @@ namespace Accounting
                 List <accounting.classes.Person> persons=new List <accounting.classes.Person>();
 
                 var person1 = new accounting.classes.Person();
-                person1.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
+                person1.create("MASTER", "");
                 persons.Add(person1);
 
                 var person2 = new accounting.classes.Person();
-                person2.create("PersonFname 1 ", DateTime.Now.Ticks.ToString());
+                person2.create("SLAVE", "");
                 persons.Add(person2);
 
                 //Relate Acconts to the persons
@@ -72,30 +72,25 @@ namespace Accounting
 
                 
                 //Create 2 services
+                Dictionary<accounting.classes.Service,decimal> services = new Dictionary<Service,decimal>();
+
                 var service1 = new accounting.classes.Service();
-                service1.serviceName = "Service 1" + DateTime.Now.Ticks.ToString();
-                service1.issuerEntityID = persons[0].ENTITYID;
-                service1.receiverEntityID = persons[1].ENTITYID;
+                service1.serviceName = "Service-1";
+                service1.issuerEntityID = person1.ENTITYID;
+                service1.receiverEntityID = person2.ENTITYID;
                 service1.Create();
+                services.Add( service1,1000);
 
                 var service2 = new accounting.classes.Service();
-                service2.serviceName = "Service 2" + DateTime.Now.Ticks.ToString();
-                service2.issuerEntityID = persons[0].ENTITYID;
-                service2.receiverEntityID = persons[1].ENTITYID;
+                service2.serviceName = "Service-2";
+                service2.issuerEntityID = person1.ENTITYID;
+                service2.receiverEntityID = person2.ENTITYID;
                 service2.Create();
+                services.Add(service2,1000);
 
                 //Create Invoice 
-                var inv= new accounting.classes.Invoice();
-                inv.New((int)persons[0].ENTITYID, (int)persons[1].ENTITYID /*issuer*/, cur1.currencyID);
-
-
-                //assign services to the Invoice
-                inv.addService(service1.serviceID, 1000);
-                inv.addService(service2.serviceID, 1000);
-
-                //Finalize Invoice
-                inv.finalizeInvoice();
-
+                accounting.classes.Invoice inv= person1.createInvoice(person2.ENTITYID, cur1.currencyID,services);
+                
                 //Create Cards and assign to users
                 accounting.classes.card.creditcard.MasterCard mc1 = new accounting.classes.card.creditcard.MasterCard();
                 mc1.cardNumber = "111-111-111-111";
@@ -113,27 +108,25 @@ namespace Accounting
                 debit1.create();
 
                 //Add some money to the Person 0 wallet
-                //person1.addWalletMoney(8000, "New Deposit", cur1.currencyID);
+                person1.addWalletMoney(780, "New Deposit for person 1", cur1.currencyID);
+                person2.addWalletMoney(420, "New Deposit for Person 2", cur1.currencyID);
 
                 //Assign cards lto Persons
-                //Add cards for payer
-                persons[0].addCard(mc1.cardID);
-                persons[0].addCard(visa1.cardID);
-                persons[0].addCard(debit1.cardID);
+                person2.addCard(mc1.cardID);
+                person2.addCard(visa1.cardID);
+                person2.addCard(debit1.cardID);
 
                 //2 partial payments for invoice 
-                /*person1 is invoice receiver and payer*/
-                person1.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
-                person1.payInvoiceByInterac(inv, inv.getInvoiceServicesSumAmt() / 4, debit1.cardID);
-                person1.payInvoiceByInternal(inv, inv.getInvoiceServicesSumAmt() / 8);
-                person1.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
+                person2.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
+                person2.payInvoiceByInterac(inv, inv.getInvoiceServicesSumAmt() / 4, debit1.cardID);
+                person2.payInvoiceByInternal(inv, inv.getInvoiceServicesSumAmt() / 8);
+                person2.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
 
                 //Cancel Invoice Payment
                 inv.cancelInvoicePaymentCC(1);
                 inv.cancelInvoicePaymentDB(2);
                 inv.cancelInvoicePaymentINTERNAL(3);
                 inv.cancelInvoicePaymentCC(4);
-
 
                 ts.Complete();
             }

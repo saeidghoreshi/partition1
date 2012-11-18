@@ -24,7 +24,7 @@ namespace accounting.classes
             this.invoiceID = invoiceID;
         }
 
-        public void New(int receiverEntityID, int issuerEntityID, int currencyID)
+        public void OpenNew(int issuerEntityID,int receiverEntityID, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope()) 
@@ -328,17 +328,17 @@ namespace accounting.classes
                 accounting.classes.ccPayment payment = new accounting.classes.ccPayment();
                 payment.loadByPaymentID(paymentID);
 
+                var invAction = new invoiceAction()
+                {
+                    invoiceID = this.invoiceID,
+                    invoiceStatID = (int)enums.invoiceStat.partialPaymentCancelled
+                };
+                ctx.invoiceAction.AddObject(invAction);
+                ctx.SaveChanges();
+
                 List<Accounting.Models.transaction> txns = payment.cancelPayment();
                 foreach (var txn in txns)
                 {
-                    var invAction = new invoiceAction() 
-                    {
-                        invoiceID=this.invoiceID,
-                        invoiceStatID=(int)enums.invoiceStat.Cancelled
-                    };
-                    ctx.invoiceAction.AddObject(invAction);
-                    ctx.SaveChanges();
-
                     var invActionTxn = new invoiceActionTransaction() 
                     {
                         invoiceActionID=invAction.ID,
@@ -360,17 +360,18 @@ namespace accounting.classes
                 accounting.classes.dbPayment payment = new accounting.classes.dbPayment();
                 payment.loadByPaymentID(paymentID);
 
+                var invAction = new invoiceAction()
+                {
+                    invoiceID = this.invoiceID,
+                    invoiceStatID = (int)enums.invoiceStat.partialPaymentCancelled
+                };
+                ctx.invoiceAction.AddObject(invAction);
+                ctx.SaveChanges();
+
                 List<Accounting.Models.transaction> txns = payment.cancelPayment();
                 foreach (var txn in txns)
                 {
-                    var invAction = new invoiceAction()
-                    {
-                        invoiceID = this.invoiceID,
-                        invoiceStatID = (int)enums.invoiceStat.Cancelled
-                    };
-                    ctx.invoiceAction.AddObject(invAction);
-                    ctx.SaveChanges();
-
+                    
                     var invActionTxn = new invoiceActionTransaction()
                     {
                         invoiceActionID = invAction.ID,
@@ -392,17 +393,18 @@ namespace accounting.classes
                 accounting.classes.internalPayment payment = new accounting.classes.internalPayment();
                 payment.loadByPaymentID(paymentID);
 
+
+                var invAction = new invoiceAction()
+                {
+                    invoiceID = this.invoiceID,
+                    invoiceStatID = (int)enums.invoiceStat.partialPaymentCancelled
+                };
+                ctx.invoiceAction.AddObject(invAction);
+                ctx.SaveChanges();
+
                 List<Accounting.Models.transaction> txns = payment.cancelPayment();
                 foreach (var txn in txns)
                 {
-                    var invAction = new invoiceAction()
-                    {
-                        invoiceID = this.invoiceID,
-                        invoiceStatID = (int)enums.invoiceStat.Cancelled
-                    };
-                    ctx.invoiceAction.AddObject(invAction);
-                    ctx.SaveChanges();
-
                     var invActionTxn = new invoiceActionTransaction()
                     {
                         invoiceActionID = invAction.ID,

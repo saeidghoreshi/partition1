@@ -128,7 +128,8 @@ namespace accounting.classes.enums
         internalPaymant=5,
         interacPaymant=6,
         visaCardPaymant=7,
-        masterCardPaymant = 8
+        masterCardPaymant = 8,
+        partialPaymentCancelled=9
     }
     
     public enum currencyType

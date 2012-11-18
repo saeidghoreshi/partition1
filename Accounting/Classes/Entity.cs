@@ -108,6 +108,7 @@ namespace accounting.classes
         {
             inv.doCCExtPayment(amount, cardID, cardType);
         }
+
         /// <summary>
         /// Just for entittyType {person,Organization}
         /// </summary>
@@ -119,6 +120,7 @@ namespace accounting.classes
         {
             inv.doINTERACPayment(amount, cardID);
         }
+
         /// <summary>
         /// Just for entittyType {person,Organization}
         /// </summary>
@@ -130,12 +132,25 @@ namespace accounting.classes
         {
             inv.doINTERNALTransfer(amount);
         }
+
         /// <summary>
-        /// Just for entittyType {person,Organization}
+        /// create invoice with services/amount dectionary
         /// </summary>
-        /// <param name="inv"></param>
-        /// <param name="amount"></param>
-        /// <param name="cardID"></param>
-        /// <param name="cardType"></param>
+        /// <param name="receiverEntityID"></param>
+        /// <param name="currencyID"></param>
+        /// <param name="servicesAmt"></param>
+        public classes.Invoice createInvoice(int receiverEntityID,int currencyID,Dictionary<classes.Service,decimal> servicesAmt) 
+        {
+            var inv = new accounting.classes.Invoice();
+            inv.OpenNew(this.ENTITYID, receiverEntityID, currencyID);
+
+            foreach (var item in servicesAmt)
+                inv.addService((item.Key as classes.Service).serviceID,item.Value);
+
+            inv.finalizeInvoice();
+
+            return inv;
+        }
+        
     }
 }
