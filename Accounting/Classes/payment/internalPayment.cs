@@ -22,7 +22,7 @@ namespace accounting.classes
             this.loadByPaymentID(paymentID);
         }
 
-        public override void loadByPaymentID(int paymentID) 
+        public  void loadByPaymentID(int paymentID) 
         {
             using (var ctx = new AccContext())
             {
@@ -46,7 +46,7 @@ namespace accounting.classes
         }
 
 
-        public override void New(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public void NewPayment(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
@@ -61,9 +61,8 @@ namespace accounting.classes
                 ctx.internalPayment.AddObject(_internalPayment);
                 ctx.SaveChanges();
 
-                ts.Complete();
-
                 this.loadByPaymentID((int)_internalPayment.paymentID);
+                ts.Complete();
 
             }
         }

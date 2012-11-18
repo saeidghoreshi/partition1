@@ -22,7 +22,7 @@ namespace accounting.classes
             this.loadByPaymentID(paymentID);
         }
 
-        public virtual void loadByPaymentID(int paymentID) 
+        public void loadByPaymentID(int paymentID) 
         {
             using (var ctx = new AccContext())
             {
@@ -49,7 +49,7 @@ namespace accounting.classes
             }
         }
 
-        public virtual void New(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) 
+        protected void New(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) 
         {
             using (var ctx = new AccContext())
             {
@@ -63,11 +63,12 @@ namespace accounting.classes
                 ctx.payment.AddObject(_payment);
                 ctx.SaveChanges();
 
-                this.loadByPaymentID(_payment.ID);
+                loadByPaymentID(_payment.ID);
+                
             }
         }
 
-        public List<Accounting.Models.transaction> cancelPayment(int paymentID)
+        public List<Accounting.Models.transaction> cancelPayment()
         {
             
             //First check this payment is able to be cancelled  ************

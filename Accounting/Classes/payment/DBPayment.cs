@@ -18,12 +18,12 @@ namespace accounting.classes
         public string dbPaymentDescription;
 
 
-        public override void New(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public override void NewPayment(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                base.New(payerEntityID, payeeEntityID, amount, currencyID);
+                base.NewPayment(payerEntityID, payeeEntityID, amount, currencyID, cardID);
 
                 var _dbPayment = new Accounting.Models.dbPayment()
                 {
@@ -33,23 +33,33 @@ namespace accounting.classes
                 ctx.dbPayment.AddObject(_dbPayment);
                 ctx.SaveChanges();
 
+                this.loadByPaymentID((int)_dbPayment.externalPayment.paymentID);
                 ts.Complete();
-
-                this.mapData(_dbPayment);
 
             }
         }
 
-        /// <summary>
-        /// convert payment record from model to class data and renew class stat
-        /// </summary>
-        /// <param name="payment"></param>
-        private void mapData(Accounting.Models.dbPayment dbPayment)
+        public  void loadByPaymentID(int paymentID)
         {
-            this.dbPaymentID= dbPayment.ID;
-            this.extPaymentID = (int)dbPayment.extPaymentID;
-            this.extPaymentTypeID = (int)dbPayment.extPaymentTypeID;
-            this.extPaymentDescription = (string)dbPayment.description;
+            using (var ctx = new AccContext())
+            {
+                base.loadByPaymentID(paymentID);
+
+                var dbPaymentrecord = ctx.dbPayment
+                    .Where(x => x.externalPayment.paymentID == paymentID)
+                    .Select(x => new
+                    {
+                        ccPaymentID = x.ID,
+                        description = x.description
+                    })
+                    .SingleOrDefault();
+
+                if (dbPaymentrecord == null)
+                    throw new Exception("no such a cc DB Payment Exists");
+
+                this.dbPaymentID = dbPaymentrecord.ccPaymentID;
+                this.dbPaymentDescription = dbPaymentrecord.description;
+            }
         }
     }
 

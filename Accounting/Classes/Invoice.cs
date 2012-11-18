@@ -24,7 +24,7 @@ namespace accounting.classes
             this.invoiceID = invoiceID;
         }
 
-        public void createInvoice(int receiverEntityID, int issuerEntityID, int currencyID)
+        public void New(int receiverEntityID, int issuerEntityID, int currencyID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope()) 
@@ -47,8 +47,22 @@ namespace accounting.classes
                 ctx.invoiceAction.AddObject(invAction);
                 ctx.SaveChanges();
 
-                mapData(newInvoice);
+                this.loadInvoiceByInvoiceID(newInvoice.ID);
+
                 ts.Complete();
+            }
+        }
+        private void loadInvoiceByInvoiceID(int invoiceID) 
+        {
+            using(var ctx=new AccContext())
+            {
+                var inv = ctx.invoice
+                    .Where(x => x.ID == invoiceID).SingleOrDefault();
+
+                this.invoiceID = inv.ID;
+                this.issuerEntityID = (int)inv.issuerEntityID;
+                this.receiverEntityID = (int)inv.receiverEntityID;
+                this.currencyID = (int)inv.currencyID;   
             }
         }
 
@@ -57,14 +71,14 @@ namespace accounting.classes
         /// </summary>
         /// <param name="invoiceID"></param>
         /// <returns></returns>
-        public decimal getInvoiceServicesSumAmt(int invoiceID) 
+        public decimal getInvoiceServicesSumAmt()
         {
             using (var ctx = new AccContext())
             {
-                var invoice = ctx.invoice.Where(x => x.ID == invoiceID).SingleOrDefault();
+                var invoice = ctx.invoice.Where(x => x.ID == this.invoiceID).SingleOrDefault();
                 if (invoice == null)
                     throw new Exception();
-                var invoiceServicesAmt = ctx.invoiceService.Where(x => x.invoiceID == invoiceID).Sum(x => x.amount);
+                var invoiceServicesAmt = ctx.invoiceService.Where(x => x.invoiceID == this.invoiceID).Sum(x => x.amount);
                 return (decimal)invoiceServicesAmt;
             }
         }
@@ -84,7 +98,7 @@ namespace accounting.classes
                     throw  new Exception();
 
                 //Get Sum of Invoice Services added
-                decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt(invoiceID);
+                decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt();
                 
                 //Record related transctions
                 List <Accounting.Models.transaction> transactions = new List<transaction>();
@@ -166,7 +180,7 @@ namespace accounting.classes
                 using (var ts = new TransactionScope())
                 {
                     classes.internalPayment internalPayment = new classes.internalPayment();
-                    internalPayment.New(this.receiverEntityID, this.issuerEntityID, amount, this.currencyID);
+                    internalPayment.NewPayment(this.receiverEntityID, this.issuerEntityID, amount, this.currencyID);
 
                     /*Record New Invoice Payment*/
                     var NewInvoicePayment = new Accounting.Models.invoicePayment()
@@ -202,12 +216,12 @@ namespace accounting.classes
         }
         public void doCCExtPayment(decimal amount,int cardID,enums.ccCardType ccCardType) 
         {
-            try {
+           
                 using (var ctx = new AccContext())
                 using (var ts = new TransactionScope())
                 {
-                    classes.ccPayment creditCardPayment = new ccPayment(cardID);
-                    creditCardPayment.New(this.receiverEntityID, this.issuerEntityID, amount, this.currencyID);
+                    classes.ccPayment creditCardPayment = new ccPayment();
+                    creditCardPayment.NewPayment(this.receiverEntityID, this.issuerEntityID, amount, this.currencyID, cardID);
                     
                     /*Record New Invoice Payment*/
                     var NewInvoicePayment = new Accounting.Models.invoicePayment()
@@ -246,22 +260,16 @@ namespace accounting.classes
 
                     ts.Complete();
                 }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            
             
         }
         public void doINTERACPayment(decimal amount,  int cardID)
         {
-            try
-            {
                 using (var ctx = new AccContext())
                 using (var ts = new TransactionScope())
                 {
                     classes.dbPayment debitCardPayment = new dbPayment();
-                    debitCardPayment.New(this.receiverEntityID, this.issuerEntityID, amount, this.currencyID);
+                    debitCardPayment.NewPayment(this.receiverEntityID, this.issuerEntityID, amount, this.currencyID,cardID);
                     
                     /*Record New Invoice Payment*/
                     var NewInvoicePayment = new Accounting.Models.invoicePayment()
@@ -289,11 +297,7 @@ namespace accounting.classes
 
                     ts.Complete();
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            
 
         }
 
@@ -315,18 +319,102 @@ namespace accounting.classes
         }
 
 
-        public void cancelInvoicePayment(int paymentID) 
+        public void cancelInvoicePaymentCC(int paymentID) 
         {
-            accounting.classes.ccPayment payment = new accounting.classes.ccPayment();
-            payment.loadByPaymentID(paymentID);
-            //p.cancelPayment(1);
+            
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                accounting.classes.ccPayment payment = new accounting.classes.ccPayment();
+                payment.loadByPaymentID(paymentID);
+
+                List<Accounting.Models.transaction> txns = payment.cancelPayment();
+                foreach (var txn in txns)
+                {
+                    var invAction = new invoiceAction() 
+                    {
+                        invoiceID=this.invoiceID,
+                        invoiceStatID=(int)enums.invoiceStat.Cancelled
+                    };
+                    ctx.invoiceAction.AddObject(invAction);
+                    ctx.SaveChanges();
+
+                    var invActionTxn = new invoiceActionTransaction() 
+                    {
+                        invoiceActionID=invAction.ID,
+                        transactionID=txn.ID
+                    };
+                    ctx.invoiceActionTransaction.AddObject(invActionTxn);
+                    ctx.SaveChanges();
+
+                }
+                ts.Complete();
+            }
         }
-        private void mapData (Accounting.Models.invoice invoice)
+        public void cancelInvoicePaymentDB(int paymentID)
         {
-            this.invoiceID = invoice.ID;
-            this.issuerEntityID = (int)invoice.issuerEntityID;
-            this.receiverEntityID = (int)invoice.receiverEntityID;
-            this.currencyID = (int)invoice.currencyID;
+
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                accounting.classes.dbPayment payment = new accounting.classes.dbPayment();
+                payment.loadByPaymentID(paymentID);
+
+                List<Accounting.Models.transaction> txns = payment.cancelPayment();
+                foreach (var txn in txns)
+                {
+                    var invAction = new invoiceAction()
+                    {
+                        invoiceID = this.invoiceID,
+                        invoiceStatID = (int)enums.invoiceStat.Cancelled
+                    };
+                    ctx.invoiceAction.AddObject(invAction);
+                    ctx.SaveChanges();
+
+                    var invActionTxn = new invoiceActionTransaction()
+                    {
+                        invoiceActionID = invAction.ID,
+                        transactionID = txn.ID
+                    };
+                    ctx.invoiceActionTransaction.AddObject(invActionTxn);
+                    ctx.SaveChanges();
+
+                }
+                ts.Complete();
+            }
         }
+        public void cancelInvoicePaymentINTERNAL(int paymentID)
+        {
+
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                accounting.classes.internalPayment payment = new accounting.classes.internalPayment();
+                payment.loadByPaymentID(paymentID);
+
+                List<Accounting.Models.transaction> txns = payment.cancelPayment();
+                foreach (var txn in txns)
+                {
+                    var invAction = new invoiceAction()
+                    {
+                        invoiceID = this.invoiceID,
+                        invoiceStatID = (int)enums.invoiceStat.Cancelled
+                    };
+                    ctx.invoiceAction.AddObject(invAction);
+                    ctx.SaveChanges();
+
+                    var invActionTxn = new invoiceActionTransaction()
+                    {
+                        invoiceActionID = invAction.ID,
+                        transactionID = txn.ID
+                    };
+                    ctx.invoiceActionTransaction.AddObject(invActionTxn);
+                    ctx.SaveChanges();
+
+                }
+                ts.Complete();
+            }
+        }
+        
     }
 }

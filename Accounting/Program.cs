@@ -85,16 +85,16 @@ namespace Accounting
                 service2.Create();
 
                 //Create Invoice 
-                var invoice = new accounting.classes.Invoice();
-                invoice.createInvoice((int)persons[0].ENTITYID, (int)persons[1].ENTITYID /*issuer*/, cur1.currencyID);
+                var inv= new accounting.classes.Invoice();
+                inv.New((int)persons[0].ENTITYID, (int)persons[1].ENTITYID /*issuer*/, cur1.currencyID);
 
 
                 //assign services to the Invoice
-                invoice.addService(service1.serviceID, 1000);
-                invoice.addService(service2.serviceID, 1000);
+                inv.addService(service1.serviceID, 1000);
+                inv.addService(service2.serviceID, 1000);
 
                 //Finalize Invoice
-                invoice.finalizeInvoice();
+                inv.finalizeInvoice();
 
                 //Create Cards and assign to users
                 accounting.classes.card.creditcard.MasterCard mc1 = new accounting.classes.card.creditcard.MasterCard();
@@ -123,13 +123,16 @@ namespace Accounting
 
                 //2 partial payments for invoice 
                 /*person1 is invoice receiver and payer*/
-                person1.payInvoiceByCC(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
-                person1.payInvoiceByInterac(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 4, debit1.cardID);
-                person1.payInvoiceByInternal(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 8);
-                person1.payInvoiceByCC(invoice, invoice.getInvoiceServicesSumAmt(invoice.invoiceID) / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
+                person1.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
+                person1.payInvoiceByInterac(inv, inv.getInvoiceServicesSumAmt() / 4, debit1.cardID);
+                person1.payInvoiceByInternal(inv, inv.getInvoiceServicesSumAmt() / 8);
+                person1.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
 
                 //Cancel Invoice Payment
-                
+                inv.cancelInvoicePaymentCC(1);
+                inv.cancelInvoicePaymentDB(2);
+                inv.cancelInvoicePaymentINTERNAL(3);
+                inv.cancelInvoicePaymentCC(4);
 
 
                 ts.Complete();

@@ -22,11 +22,11 @@ namespace accounting.classes
             this.loadByPaymentID(paymentID);
         }
 
-        public override void loadByPaymentID(int paymentID) 
+        public  void loadByPaymentID(int paymentID) 
         {
             using (var ctx = new AccContext())
             {
-                base.loadByPaymentID(paymentID);
+               base.loadByPaymentID(paymentID);
 
                 var ccPaymentrecord = ctx.ccPayment
                     .Where(x => x.externalPayment.paymentID == paymentID)
@@ -38,19 +38,20 @@ namespace accounting.classes
                     .SingleOrDefault();
 
                 if (ccPaymentrecord == null)
-                    throw new Exception("no such a cc EXT Payment Exists");
+                    throw new Exception("no such a cc Payment Exists");
 
                 this.ccPaymentID = ccPaymentrecord.ccPaymentID;
                 this.ccPaymentDescription = ccPaymentrecord.description;
             }
         }
 
-        public override void New(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        public override void NewPayment(int payerEntityID, int payeeEntityID, decimal amount, int currencyID, int cardID)
         {
+            
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                base.New(payerEntityID, payeeEntityID, amount, currencyID);
+                base.NewPayment(payerEntityID, payeeEntityID, amount, currencyID,cardID);
                 
                 var _ccPayment = new Accounting.Models.ccPayment()
                 {
@@ -60,10 +61,10 @@ namespace accounting.classes
                 ctx.ccPayment.AddObject(_ccPayment);
                 ctx.SaveChanges();
 
+                this.loadByPaymentID((int)_ccPayment.externalPayment.paymentID);
                 ts.Complete();
 
-                this.loadByPaymentID((int)_ccPayment.ID);
-
+                
             }
         }
     }
