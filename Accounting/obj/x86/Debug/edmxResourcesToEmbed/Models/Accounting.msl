@@ -389,5 +389,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="bank">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bankCard">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.bankCard">
+        <MappingFragment StoreEntitySet="bankCard">
+          <ScalarProperty Name="cardID" ColumnName="cardID" />
+          <ScalarProperty Name="bankID" ColumnName="bankID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fee">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.fee">
+        <MappingFragment StoreEntitySet="fee">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
+          <ScalarProperty Name="banklID" ColumnName="banklID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

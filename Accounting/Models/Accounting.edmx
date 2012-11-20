@@ -7,6 +7,8 @@
     <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
           <EntitySet Name="account" EntityType="DB_40114_codeclubModel.Store.account" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.Store.bank" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.Store.bankCard" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="card" EntityType="DB_40114_codeclubModel.Store.card" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="cardType" EntityType="DB_40114_codeclubModel.Store.cardType" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="categoryType" EntityType="DB_40114_codeclubModel.Store.categoryType" store:Type="Tables" Schema="Accounting" />
@@ -24,6 +26,7 @@
           <EntitySet Name="entityWalletTransaction" EntityType="DB_40114_codeclubModel.Store.entityWalletTransaction" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="externalPayment" EntityType="DB_40114_codeclubModel.Store.externalPayment" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="extPaymentType" EntityType="DB_40114_codeclubModel.Store.extPaymentType" store:Type="Tables" Schema="Accounting" />
+          <EntitySet Name="fee" EntityType="DB_40114_codeclubModel.Store.fee" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="glType" EntityType="DB_40114_codeclubModel.Store.glType" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="internalPayment" EntityType="DB_40114_codeclubModel.Store.internalPayment" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="invoice" EntityType="DB_40114_codeclubModel.Store.invoice" store:Type="Tables" Schema="Accounting" />
@@ -60,6 +63,14 @@
           <AssociationSet Name="FK_account_entity" Association="DB_40114_codeclubModel.Store.FK_account_entity">
             <End Role="entity" EntitySet="entity" />
             <End Role="account" EntitySet="account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.Store.FK_bankCard_bank">
+            <End Role="bank" EntitySet="bank" />
+            <End Role="bankCard" EntitySet="bankCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.Store.FK_bankCard_card">
+            <End Role="card" EntitySet="card" />
+            <End Role="bankCard" EntitySet="bankCard" />
           </AssociationSet>
           <AssociationSet Name="FK_categoryType_glType" Association="DB_40114_codeclubModel.Store.FK_categoryType_glType">
             <End Role="glType" EntitySet="glType" />
@@ -136,6 +147,14 @@
           <AssociationSet Name="FK_externalPayment_paymentType" Association="DB_40114_codeclubModel.Store.FK_externalPayment_paymentType">
             <End Role="paymentType" EntitySet="paymentType" />
             <End Role="externalPayment" EntitySet="externalPayment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fee_bank" Association="DB_40114_codeclubModel.Store.FK_fee_bank">
+            <End Role="bank" EntitySet="bank" />
+            <End Role="fee" EntitySet="fee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fee_cardType" Association="DB_40114_codeclubModel.Store.FK_fee_cardType">
+            <End Role="cardType" EntitySet="cardType" />
+            <End Role="fee" EntitySet="fee" />
           </AssociationSet>
           <AssociationSet Name="FK_internalPayment_payment" Association="DB_40114_codeclubModel.Store.FK_internalPayment_payment">
             <End Role="payment" EntitySet="payment" />
@@ -288,6 +307,21 @@
           <Property Name="currencyID" Type="int" />
           <Property Name="balance" Type="decimal" Nullable="false" />
         </EntityType>
+        <EntityType Name="bank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="bankCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="bankID" Type="int" />
+          <Property Name="cardID" Type="int" />
+        </EntityType>
         <EntityType Name="card">
           <Key>
             <PropertyRef Name="ID" />
@@ -422,6 +456,16 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="fee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="banklID" Type="int" />
+          <Property Name="cardTypeID" Type="int" />
+          <Property Name="amount" Type="decimal" />
+          <Property Name="description" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="glType">
           <Key>
@@ -658,6 +702,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_bankCard_bank">
+          <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="0..1" />
+          <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="bankCard">
+              <PropertyRef Name="bankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bankCard_card">
+          <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
+          <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="card">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="bankCard">
+              <PropertyRef Name="cardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_categoryType_glType">
           <End Role="glType" Type="DB_40114_codeclubModel.Store.glType" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -889,6 +957,30 @@
             </Principal>
             <Dependent Role="externalPayment">
               <PropertyRef Name="paymentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fee_bank">
+          <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="0..1" />
+          <End Role="fee" Type="DB_40114_codeclubModel.Store.fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="fee">
+              <PropertyRef Name="banklID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fee_cardType">
+          <End Role="cardType" Type="DB_40114_codeclubModel.Store.cardType" Multiplicity="0..1" />
+          <End Role="fee" Type="DB_40114_codeclubModel.Store.fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cardType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="fee">
+              <PropertyRef Name="cardTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1598,6 +1690,25 @@
             <End Role="transaction" EntitySet="transaction" />
             <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
           </AssociationSet>
+          <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.bank" />
+          <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.bankCard" />
+          <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.FK_bankCard_bank">
+            <End Role="bank" EntitySet="bank" />
+            <End Role="bankCard" EntitySet="bankCard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.FK_bankCard_card">
+            <End Role="card" EntitySet="card" />
+            <End Role="bankCard" EntitySet="bankCard" />
+          </AssociationSet>
+          <EntitySet Name="fee" EntityType="DB_40114_codeclubModel.fee" />
+          <AssociationSet Name="FK_fee_bank" Association="DB_40114_codeclubModel.FK_fee_bank">
+            <End Role="bank" EntitySet="bank" />
+            <End Role="fee" EntitySet="fee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fee_cardType" Association="DB_40114_codeclubModel.FK_fee_cardType">
+            <End Role="cardType" EntitySet="cardType" />
+            <End Role="fee" EntitySet="fee" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="account">
           <Key>
@@ -1624,6 +1735,7 @@
           <NavigationProperty Name="dbCard" Relationship="DB_40114_codeclubModel.FK_dbCard_card" FromRole="card" ToRole="dbCard" />
           <NavigationProperty Name="entityCard" Relationship="DB_40114_codeclubModel.FK_entityCard_card" FromRole="card" ToRole="entityCard" />
           <NavigationProperty Name="externalPayment" Relationship="DB_40114_codeclubModel.FK_externalPayment_card" FromRole="card" ToRole="externalPayment" />
+          <NavigationProperty Name="bankCard" Relationship="DB_40114_codeclubModel.FK_bankCard_card" FromRole="card" ToRole="bankCard" />
         </EntityType>
         <EntityType Name="cardType">
           <Key>
@@ -1633,6 +1745,7 @@
           <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ccCard" Relationship="DB_40114_codeclubModel.FK_ccCard_cardType" FromRole="cardType" ToRole="ccCard" />
           <NavigationProperty Name="dbCard" Relationship="DB_40114_codeclubModel.FK_dbCard_cardType" FromRole="cardType" ToRole="dbCard" />
+          <NavigationProperty Name="fee" Relationship="DB_40114_codeclubModel.FK_fee_cardType" FromRole="cardType" ToRole="fee" />
         </EntityType>
         <EntityType Name="categoryType">
           <Key>
@@ -2741,6 +2854,85 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="bank">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bankCard" Relationship="DB_40114_codeclubModel.FK_bankCard_bank" FromRole="bank" ToRole="bankCard" />
+          <NavigationProperty Name="fee" Relationship="DB_40114_codeclubModel.FK_fee_bank" FromRole="bank" ToRole="fee" />
+        </EntityType>
+        <EntityType Name="bankCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="bankID" />
+          <Property Type="Int32" Name="cardID" />
+          <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_bankCard_bank" FromRole="bankCard" ToRole="bank" />
+          <NavigationProperty Name="card" Relationship="DB_40114_codeclubModel.FK_bankCard_card" FromRole="bankCard" ToRole="card" />
+        </EntityType>
+        <Association Name="FK_bankCard_bank">
+          <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.bankCard" Role="bankCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="bankCard">
+              <PropertyRef Name="bankID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bankCard_card">
+          <End Type="DB_40114_codeclubModel.card" Role="card" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.bankCard" Role="bankCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="card">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="bankCard">
+              <PropertyRef Name="cardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="fee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="banklID" />
+          <Property Type="Int32" Name="cardTypeID" />
+          <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+          <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_fee_bank" FromRole="fee" ToRole="bank" />
+          <NavigationProperty Name="cardType" Relationship="DB_40114_codeclubModel.FK_fee_cardType" FromRole="fee" ToRole="cardType" />
+        </EntityType>
+        <Association Name="FK_fee_bank">
+          <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="fee">
+              <PropertyRef Name="banklID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fee_cardType">
+          <End Type="DB_40114_codeclubModel.cardType" Role="cardType" Multiplicity="0..1" />
+          <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cardType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="fee">
+              <PropertyRef Name="cardTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3135,6 +3327,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="bank">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.bank">
+              <MappingFragment StoreEntitySet="bank">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bankCard">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.bankCard">
+              <MappingFragment StoreEntitySet="bankCard">
+                <ScalarProperty Name="cardID" ColumnName="cardID" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fee">
+            <EntityTypeMapping TypeName="DB_40114_codeclubModel.fee">
+              <MappingFragment StoreEntitySet="fee">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
+                <ScalarProperty Name="banklID" ColumnName="banklID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3226,13 +3446,17 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_transaction_account" >
           <ConnectorPoint PointX="4.5" PointY="25.583639322916667" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="25.583639322916667" />
+          <ConnectorPoint PointX="4.739583333333333" PointY="25.583639322916667" />
           <ConnectorPoint PointX="4.791666666666667" PointY="25.583639322916667" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="25.583639322916667" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="25.583639322916667" />
           <ConnectorPoint PointX="5.59375" PointY="25.583639322916667" />
           <ConnectorPoint PointX="5.59375" PointY="26.25" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_ccCard_card" >
           <ConnectorPoint PointX="5.25" PointY="10.432444661458334" />
+          <ConnectorPoint PointX="5.604166666666667" PointY="10.432444661458334" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="10.432444661458334" />
           <ConnectorPoint PointX="6" PointY="10.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_dbCard_card" >
@@ -3242,17 +3466,19 @@
           <ConnectorPoint PointX="6" PointY="7.3651432291666623" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_entityCard_card" >
-          <ConnectorPoint PointX="4.5" PointY="11.614889322916667" />
-          <ConnectorPoint PointX="4.5" PointY="12.375" />
+          <ConnectorPoint PointX="4.3437505000000005" PointY="11.807190755208334" />
+          <ConnectorPoint PointX="4.3437505000000005" PointY="12.375" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="12.375" />
+          <ConnectorPoint PointX="4.739583333333333" PointY="12.375" />
           <ConnectorPoint PointX="4.75" PointY="12.375" />
           <ConnectorPoint PointX="4.75" PointY="24.365143229166662" />
-          <ConnectorPoint PointX="4.885416666666667" PointY="24.365143229166662" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="24.365143229166662" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="24.365143229166662" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="24.365143229166662" />
           <ConnectorPoint PointX="6" PointY="24.365143229166662" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_externalPayment_card" >
-          <ConnectorPoint PointX="4.9375" PointY="11.614889322916667" />
-          <ConnectorPoint PointX="4.9375" PointY="32.780742187499996" />
+          <ConnectorPoint PointX="4.65625" PointY="11.807190755208334" />
+          <ConnectorPoint PointX="4.65625" PointY="32.780742187499996" />
           <ConnectorPoint PointX="5.041666666666667" PointY="32.780742187499996" />
           <ConnectorPoint PointX="5.208333333333333" PointY="32.780742187499996" />
           <ConnectorPoint PointX="9.5416641666666653" PointY="32.780742187499996" />
@@ -3262,16 +3488,18 @@
           <ConnectorPoint PointX="10.25" PointY="32.780742187499996" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_ccCard_cardType" >
-          <ConnectorPoint PointX="5.25" PointY="8.2256763337339756" />
-          <ConnectorPoint PointX="5.5660744349011217" PointY="8.5417507686350955" />
-          <ConnectorPoint PointX="5.6839255650988791" PointY="8.6596018988328538" />
-          <ConnectorPoint PointX="5.8125" PointY="8.7881763337339756" />
-          <ConnectorPoint PointX="5.8125" PointY="9.8099703307291719" />
-          <ConnectorPoint PointX="6" PointY="9.8099703307291719" />
+          <ConnectorPoint PointX="5.25" PointY="8.4179777660256416" />
+          <ConnectorPoint PointX="5.6285744349011217" PointY="8.7965522009267616" />
+          <ConnectorPoint PointX="5.7464255650988791" PointY="8.91440333112452" />
+          <ConnectorPoint PointX="5.75" PointY="8.9179777660256416" />
+          <ConnectorPoint PointX="5.75" PointY="9.8099703307291648" />
+          <ConnectorPoint PointX="6" PointY="9.8099703307291648" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_dbCard_cardType" >
-          <ConnectorPoint PointX="5.25" PointY="6.8700716145833312" />
-          <ConnectorPoint PointX="6" PointY="6.8700716145833312" />
+          <ConnectorPoint PointX="5.25" PointY="7.9227148437499935" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="7.9227148437499926" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="7.9227148437499935" />
+          <ConnectorPoint PointX="6" PointY="7.9227148437499935" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_categoryType_glType" >
           <ConnectorPoint PointX="1.875" PointY="36.625" />
@@ -3296,9 +3524,12 @@
           <ConnectorPoint PointX="8.25" PointY="9.8388196145833362" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_visaCard_ccCardType" >
-          <ConnectorPoint PointX="7.5" PointY="4.3315856668669941" />
-          <ConnectorPoint PointX="9" PointY="4.3315856668669941" />
-          <ConnectorPoint PointX="9" PointY="6.375" />
+          <ConnectorPoint PointX="7.5" PointY="5.2879850260416674" />
+          <ConnectorPoint PointX="7.9375" PointY="5.7254850260416674" />
+          <ConnectorPoint PointX="7.9375" PointY="7.3651432291666623" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="7.3651432291666614" />
+          <ConnectorPoint PointX="8.1458333333333339" PointY="7.3651432291666623" />
+          <ConnectorPoint PointX="8.25" PointY="7.3651432291666623" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_ccPayment_externalPayment" >
           <ConnectorPoint PointX="11.75" PointY="31.461293945312491" />
@@ -3319,10 +3550,10 @@
           <ConnectorPoint PointX="1.5" PointY="22.343242187499996" />
           <ConnectorPoint PointX="1.7916661666666667" PointY="22.343242187499996" />
           <ConnectorPoint PointX="1.9583328333333332" PointY="22.343242187499996" />
-          <ConnectorPoint PointX="2.6354166666666665" PointY="22.343242187499996" />
-          <ConnectorPoint PointX="2.8020833333333335" PointY="22.343242187499996" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="22.343242187499996" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="22.343242187499996" />
+          <ConnectorPoint PointX="2.677083333333333" PointY="22.343242187499996" />
+          <ConnectorPoint PointX="2.84375" PointY="22.343242187499996" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="22.343242187499996" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="22.343242187499996" />
           <ConnectorPoint PointX="6" PointY="22.343242187499996" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoice_currency" >
@@ -3335,8 +3566,8 @@
           <ConnectorPoint PointX="2.7151755650988791" PointY="22.251590829521938" />
           <ConnectorPoint PointX="2.78125" PointY="22.317665264423059" />
           <ConnectorPoint PointX="2.78125" PointY="31.348043119791654" />
-          <ConnectorPoint PointX="4.885416666666667" PointY="31.348043119791654" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="31.348043119791654" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="31.348043119791654" />
+          <ConnectorPoint PointX="4.739583333333333" PointY="31.348043119791654" />
           <ConnectorPoint PointX="5.25" PointY="31.348043119791654" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_payment_currency" >
@@ -3366,9 +3597,11 @@
         <AssociationConnector Association="DB_40114_codeclubModel.FK_entityCard_entity" >
           <ConnectorPoint PointX="2.25" PointY="25.894479797475963" />
           <ConnectorPoint PointX="2.4791666666666665" PointY="25.894479797475963" />
-          <ConnectorPoint PointX="2.8437499999999996" PointY="25.894479797475963" />
+          <ConnectorPoint PointX="2.8645833333333335" PointY="25.894479797475963" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="25.894479797475963" />
+          <ConnectorPoint PointX="4.739583333333333" PointY="25.894479797475963" />
           <ConnectorPoint PointX="4.791666666666667" PointY="25.894479797475963" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="25.894479797475963" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="25.894479797475963" />
           <ConnectorPoint PointX="5.510416666666667" PointY="25.894479797475963" />
           <ConnectorPoint PointX="5.677083333333333" PointY="25.894479797475963" />
           <ConnectorPoint PointX="6.75" PointY="25.894479797475963" />
@@ -3379,10 +3612,8 @@
           <ConnectorPoint PointX="1.8749995" PointY="22.191793619791667" />
           <ConnectorPoint PointX="2.5416666666666665" PointY="22.191793619791667" />
           <ConnectorPoint PointX="2.8125588425480976" PointY="22.191793619791667" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="22.191793619791667" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="22.191793619791667" />
           <ConnectorPoint PointX="4.833333333333333" PointY="22.191793619791667" />
-          <ConnectorPoint PointX="4.885416666666667" PointY="22.191793619791667" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="22.191793619791667" />
           <ConnectorPoint PointX="5.625" PointY="22.191793619791667" />
           <ConnectorPoint PointX="5.625" PointY="21.202869093750003" />
           <ConnectorPoint PointX="6" PointY="21.202869093750003" />
@@ -3476,8 +3707,10 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_externalPayment_payment" >
           <ConnectorPoint PointX="4.5" PointY="29.305043445312492" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="29.305043445312492" />
+          <ConnectorPoint PointX="4.739583333333333" PointY="29.305043445312492" />
           <ConnectorPoint PointX="4.791666666666667" PointY="29.305043445312492" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="29.305043445312492" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="29.305043445312492" />
           <ConnectorPoint PointX="9.9166666666666661" PointY="29.305043445312492" />
           <ConnectorPoint PointX="10.083333333333334" PointY="29.305043445312492" />
           <ConnectorPoint PointX="10.71875" PointY="29.305043445312492" />
@@ -3492,8 +3725,10 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_internalPayment_payment" >
           <ConnectorPoint PointX="4.5" PointY="28.895063667968742" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="28.895063667968742" />
+          <ConnectorPoint PointX="4.739583333333333" PointY="28.895063667968742" />
           <ConnectorPoint PointX="4.791666666666667" PointY="28.895063667968742" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="28.895063667968742" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="28.895063667968742" />
           <ConnectorPoint PointX="9.9166666666666661" PointY="28.895063667968742" />
           <ConnectorPoint PointX="10.083333333333334" PointY="28.895063667968742" />
           <ConnectorPoint PointX="12.28125" PointY="28.895063667968742" />
@@ -3506,25 +3741,21 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoiceAction_invoice" >
           <ConnectorPoint PointX="4.5" PointY="19.53125" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="19.53125" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="19.53125" />
           <ConnectorPoint PointX="4.833333333333333" PointY="19.53125" />
-          <ConnectorPoint PointX="4.885416666666667" PointY="19.53125" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="19.53125" />
           <ConnectorPoint PointX="5.4375" PointY="19.53125" />
           <ConnectorPoint PointX="5.4375" PointY="18.547587890624982" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoicePayment_invoice" >
           <ConnectorPoint PointX="4.5" PointY="19.828127499999994" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="19.828127499999994" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="19.828127499999994" />
           <ConnectorPoint PointX="4.833333333333333" PointY="19.828127499999994" />
-          <ConnectorPoint PointX="4.885416666666667" PointY="19.828127499999994" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="19.828127499999994" />
           <ConnectorPoint PointX="8.34375" PointY="19.828127499999994" />
           <ConnectorPoint PointX="8.34375" PointY="23.5" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoiceService_invoice" >
           <ConnectorPoint PointX="4.5" PointY="21.941793619791667" />
-          <ConnectorPoint PointX="4.6910744349011217" PointY="22.132868054692789" />
+          <ConnectorPoint PointX="4.5973244349011217" PointY="22.039118054692789" />
           <ConnectorPoint PointX="4.8089255650988791" PointY="22.250719184890546" />
           <ConnectorPoint PointX="4.875" PointY="22.316793619791667" />
           <ConnectorPoint PointX="4.875" PointY="31.278595377604162" />
@@ -3533,10 +3764,8 @@
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoiceAction_invoiceStat" >
           <ConnectorPoint PointX="3.78125" PointY="14.220683593749982" />
           <ConnectorPoint PointX="3.78125" PointY="17.461293945312491" />
-          <ConnectorPoint PointX="4.666666666666667" PointY="17.461293945312491" />
+          <ConnectorPoint PointX="4.572916666666667" PointY="17.461293945312491" />
           <ConnectorPoint PointX="4.833333333333333" PointY="17.461293945312491" />
-          <ConnectorPoint PointX="4.885416666666667" PointY="17.461293945312491" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="17.461293945312491" />
           <ConnectorPoint PointX="5.25" PointY="17.461293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoiceActionTransaction_invoiceAction" >
@@ -3551,8 +3780,10 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_invoicePayment_payment" >
           <ConnectorPoint PointX="4.5" PointY="26.77653746153846" />
-          <ConnectorPoint PointX="4.81607443490112" PointY="26.460463026637338" />
-          <ConnectorPoint PointX="4.9964255650988791" PointY="26.280111896439582" />
+          <ConnectorPoint PointX="4.5973244349011209" PointY="26.679213026637338" />
+          <ConnectorPoint PointX="4.7151755650988791" PointY="26.561361896439582" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="26.460463026637338" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="26.342611896439582" />
           <ConnectorPoint PointX="5.09375" PointY="26.18278746153846" />
           <ConnectorPoint PointX="5.09375" PointY="25.855286458333325" />
           <ConnectorPoint PointX="5.510416666666667" PointY="25.855286458333325" />
@@ -3590,8 +3821,10 @@
         </AssociationConnector>
         <AssociationConnector Association="DB_40114_codeclubModel.FK_paymentAction_payment" >
           <ConnectorPoint PointX="4.5" PointY="26.75807592307692" />
-          <ConnectorPoint PointX="4.81607443490112" PointY="26.442001488175798" />
-          <ConnectorPoint PointX="4.9964255650988791" PointY="26.261650357978041" />
+          <ConnectorPoint PointX="4.5973244349011209" PointY="26.660751488175798" />
+          <ConnectorPoint PointX="4.7151755650988791" PointY="26.542900357978041" />
+          <ConnectorPoint PointX="4.8160744349011209" PointY="26.442001488175798" />
+          <ConnectorPoint PointX="4.9339255650988791" PointY="26.324150357978041" />
           <ConnectorPoint PointX="5.03125" PointY="26.22682592307692" />
           <ConnectorPoint PointX="5.03125" PointY="25.953837890625003" />
           <ConnectorPoint PointX="5.510416666666667" PointY="25.953837890625003" />
@@ -3633,6 +3866,36 @@
           <ConnectorPoint PointX="9.8229166666666661" PointY="26.28125" />
           <ConnectorPoint PointX="9.9895833333333339" PointY="26.28125" />
           <ConnectorPoint PointX="13.5" PointY="26.28125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.bank" Width="1.5" PointX="3.75" PointY="3.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.bankCard" Width="1.5" PointX="6" PointY="12.5" Height="1.9802864583333246" />
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_bankCard_bank" >
+          <ConnectorPoint PointX="5.25" PointY="5.4756763337339729" />
+          <ConnectorPoint PointX="5.6875" PointY="5.9131763337339729" />
+          <ConnectorPoint PointX="5.6875" PointY="13.409615513020832" />
+          <ConnectorPoint PointX="6" PointY="13.409615513020832" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_bankCard_card" >
+          <ConnectorPoint PointX="5" PointY="11.807190755208334" />
+          <ConnectorPoint PointX="5" PointY="14.381735026041653" />
+          <ConnectorPoint PointX="6" PointY="14.381735026041653" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="DB_40114_codeclubModel.fee" Width="1.5" PointX="9" PointY="2.875" Height="2.3648893229166674" />
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_fee_bank" >
+          <ConnectorPoint PointX="4.5" PointY="3.75" />
+          <ConnectorPoint PointX="4.5" PointY="3.15625" />
+          <ConnectorPoint PointX="9" PointY="3.15625" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_40114_codeclubModel.FK_fee_cardType" >
+          <ConnectorPoint PointX="5.25" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="5.770833333333333" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="7.979166666666667" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="8.1458333333333339" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="10.15625" PointY="8.4490364583333282" />
+          <ConnectorPoint PointX="10.15625" PointY="5.2398893229166674" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

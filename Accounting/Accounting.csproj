@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\Address.cs" />
+    <Compile Include="Classes\Bank\Bank.cs" />
+    <Compile Include="Classes\Bank\bankBranch.cs" />
+    <Compile Include="Classes\Organization\Office.cs" />
     <Compile Include="Classes\card\Card.cs" />
     <Compile Include="Classes\card\VisaCard.cs" />
     <Compile Include="Classes\card\MasterCard.cs" />
@@ -58,6 +62,7 @@
     <Compile Include="Classes\CurrencyException.cs" />
     <Compile Include="Classes\Entity.cs" />
     <Compile Include="Classes\Enums.cs" />
+    <Compile Include="Classes\Bank\Fee.cs" />
     <Compile Include="Classes\Invoice.cs" />
     <Compile Include="Classes\payment\DBPayment.cs" />
     <Compile Include="Classes\payment\CCPayment.cs" />
@@ -96,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\Report1.sql" />
+    <Content Include="Documentation\test-resetSeed-rollback.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

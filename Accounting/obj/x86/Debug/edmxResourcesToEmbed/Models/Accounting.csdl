@@ -273,6 +273,25 @@
       <End Role="transaction" EntitySet="transaction" />
       <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
     </AssociationSet>
+    <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.bank" />
+    <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.bankCard" />
+    <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.FK_bankCard_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="bankCard" EntitySet="bankCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.FK_bankCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="bankCard" EntitySet="bankCard" />
+    </AssociationSet>
+    <EntitySet Name="fee" EntityType="DB_40114_codeclubModel.fee" />
+    <AssociationSet Name="FK_fee_bank" Association="DB_40114_codeclubModel.FK_fee_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fee_cardType" Association="DB_40114_codeclubModel.FK_fee_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="account">
     <Key>
@@ -299,6 +318,7 @@
     <NavigationProperty Name="dbCard" Relationship="DB_40114_codeclubModel.FK_dbCard_card" FromRole="card" ToRole="dbCard" />
     <NavigationProperty Name="entityCard" Relationship="DB_40114_codeclubModel.FK_entityCard_card" FromRole="card" ToRole="entityCard" />
     <NavigationProperty Name="externalPayment" Relationship="DB_40114_codeclubModel.FK_externalPayment_card" FromRole="card" ToRole="externalPayment" />
+    <NavigationProperty Name="bankCard" Relationship="DB_40114_codeclubModel.FK_bankCard_card" FromRole="card" ToRole="bankCard" />
   </EntityType>
   <EntityType Name="cardType">
     <Key>
@@ -308,6 +328,7 @@
     <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ccCard" Relationship="DB_40114_codeclubModel.FK_ccCard_cardType" FromRole="cardType" ToRole="ccCard" />
     <NavigationProperty Name="dbCard" Relationship="DB_40114_codeclubModel.FK_dbCard_cardType" FromRole="cardType" ToRole="dbCard" />
+    <NavigationProperty Name="fee" Relationship="DB_40114_codeclubModel.FK_fee_cardType" FromRole="cardType" ToRole="fee" />
   </EntityType>
   <EntityType Name="categoryType">
     <Key>
@@ -1413,6 +1434,85 @@
       </Principal>
       <Dependent Role="paymentActionTransaction">
         <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bankCard" Relationship="DB_40114_codeclubModel.FK_bankCard_bank" FromRole="bank" ToRole="bankCard" />
+    <NavigationProperty Name="fee" Relationship="DB_40114_codeclubModel.FK_fee_bank" FromRole="bank" ToRole="fee" />
+  </EntityType>
+  <EntityType Name="bankCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="bankID" />
+    <Property Type="Int32" Name="cardID" />
+    <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_bankCard_bank" FromRole="bankCard" ToRole="bank" />
+    <NavigationProperty Name="card" Relationship="DB_40114_codeclubModel.FK_bankCard_card" FromRole="bankCard" ToRole="card" />
+  </EntityType>
+  <Association Name="FK_bankCard_bank">
+    <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.bankCard" Role="bankCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bankCard">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bankCard_card">
+    <End Type="DB_40114_codeclubModel.card" Role="card" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.bankCard" Role="bankCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bankCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="fee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="banklID" />
+    <Property Type="Int32" Name="cardTypeID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+    <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_fee_bank" FromRole="fee" ToRole="bank" />
+    <NavigationProperty Name="cardType" Relationship="DB_40114_codeclubModel.FK_fee_cardType" FromRole="fee" ToRole="cardType" />
+  </EntityType>
+  <Association Name="FK_fee_bank">
+    <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="banklID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fee_cardType">
+    <End Type="DB_40114_codeclubModel.cardType" Role="cardType" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="cardTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

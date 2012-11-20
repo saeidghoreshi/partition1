@@ -2,6 +2,8 @@
 <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
     <EntitySet Name="account" EntityType="DB_40114_codeclubModel.Store.account" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.Store.bank" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.Store.bankCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="card" EntityType="DB_40114_codeclubModel.Store.card" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="cardType" EntityType="DB_40114_codeclubModel.Store.cardType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="categoryType" EntityType="DB_40114_codeclubModel.Store.categoryType" store:Type="Tables" Schema="Accounting" />
@@ -19,6 +21,7 @@
     <EntitySet Name="entityWalletTransaction" EntityType="DB_40114_codeclubModel.Store.entityWalletTransaction" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="externalPayment" EntityType="DB_40114_codeclubModel.Store.externalPayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="extPaymentType" EntityType="DB_40114_codeclubModel.Store.extPaymentType" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="fee" EntityType="DB_40114_codeclubModel.Store.fee" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="glType" EntityType="DB_40114_codeclubModel.Store.glType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="internalPayment" EntityType="DB_40114_codeclubModel.Store.internalPayment" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="invoice" EntityType="DB_40114_codeclubModel.Store.invoice" store:Type="Tables" Schema="Accounting" />
@@ -55,6 +58,14 @@
     <AssociationSet Name="FK_account_entity" Association="DB_40114_codeclubModel.Store.FK_account_entity">
       <End Role="entity" EntitySet="entity" />
       <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.Store.FK_bankCard_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="bankCard" EntitySet="bankCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.Store.FK_bankCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="bankCard" EntitySet="bankCard" />
     </AssociationSet>
     <AssociationSet Name="FK_categoryType_glType" Association="DB_40114_codeclubModel.Store.FK_categoryType_glType">
       <End Role="glType" EntitySet="glType" />
@@ -131,6 +142,14 @@
     <AssociationSet Name="FK_externalPayment_paymentType" Association="DB_40114_codeclubModel.Store.FK_externalPayment_paymentType">
       <End Role="paymentType" EntitySet="paymentType" />
       <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fee_bank" Association="DB_40114_codeclubModel.Store.FK_fee_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fee_cardType" Association="DB_40114_codeclubModel.Store.FK_fee_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="fee" EntitySet="fee" />
     </AssociationSet>
     <AssociationSet Name="FK_internalPayment_payment" Association="DB_40114_codeclubModel.Store.FK_internalPayment_payment">
       <End Role="payment" EntitySet="payment" />
@@ -283,6 +302,21 @@
     <Property Name="currencyID" Type="int" />
     <Property Name="balance" Type="decimal" Nullable="false" />
   </EntityType>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="bankCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="bankID" Type="int" />
+    <Property Name="cardID" Type="int" />
+  </EntityType>
   <EntityType Name="card">
     <Key>
       <PropertyRef Name="ID" />
@@ -417,6 +451,16 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="fee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="banklID" Type="int" />
+    <Property Name="cardTypeID" Type="int" />
+    <Property Name="amount" Type="decimal" />
+    <Property Name="description" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="glType">
     <Key>
@@ -653,6 +697,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_bankCard_bank">
+    <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="0..1" />
+    <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bankCard">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bankCard_card">
+    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
+    <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bankCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_categoryType_glType">
     <End Role="glType" Type="DB_40114_codeclubModel.Store.glType" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -884,6 +952,30 @@
       </Principal>
       <Dependent Role="externalPayment">
         <PropertyRef Name="paymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fee_bank">
+    <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="0..1" />
+    <End Role="fee" Type="DB_40114_codeclubModel.Store.fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="banklID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fee_cardType">
+    <End Role="cardType" Type="DB_40114_codeclubModel.Store.cardType" Multiplicity="0..1" />
+    <End Role="fee" Type="DB_40114_codeclubModel.Store.fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="cardTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -81,7 +81,8 @@ namespace accounting.classes.enums
     {
         Organization=1,
         Office=2,
-        Person=3
+        Person=3,
+        bank=4
     }
     public enum officeType 
     {
