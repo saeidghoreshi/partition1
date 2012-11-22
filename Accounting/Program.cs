@@ -112,10 +112,25 @@ namespace Accounting
                 person1.addWalletMoney(780, "New Deposit for person 1", cur1.currencyID);
                 person2.addWalletMoney(420, "New Deposit for Person 2", cur1.currencyID);
 
-                //Assign cards lto Persons
+                //Assign cards to Persons
                 person2.addCard(mc1.cardID);
                 person2.addCard(visa1.cardID);
                 person2.addCard(debit1.cardID);
+
+                //Create Bank
+                accounting.classes.bank.Bank bank1 = new accounting.classes.bank.Bank();
+                bank1.createNew("Scotia");
+
+                //Add Cards
+                bank1.addCard(debit1.cardID);
+                bank1.addCard(mc1.cardID);
+                bank1.addCard(visa1.cardID);
+
+                //Define Fee Rates
+                bank1.setFeeForIntracCardType((decimal)2.7, "Debit Card Rate for Winter 2012");
+                bank1.setFeeForCreditCardType(accounting.classes.enums.ccCardType.MASTERCARD, (decimal)1.6, "New MASTER Fees for Fall 2010");
+                bank1.setFeeForCreditCardType(accounting.classes.enums.ccCardType.VISACARD, (decimal)1.6, "New VISA Fees for Fall 2010");
+                
 
                 //2 partial payments for invoice 
                 person2.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
@@ -137,51 +152,7 @@ namespace Accounting
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                ctx.resetSeeds();
-
-                //Setup initiatives lookups
-                Controller.SetupAccountTypes();
-                Controller.SetupCardTypes();
-                Controller.SetupccCardTypes();
-                Controller.SetupCurrencyType();
-                Controller.SetupEntityTypes();
-                Controller.SetupInvoiceStat();
-                Controller.SetupExtPaymentTypes();
-                Controller.SetupPaymentTypes();
-                Controller.SetupOfficeTypes();
-                Controller.SetupUserTypes();
-                Controller.SetupSysUserTypes();
-                Controller.SetupPaymentStat();
-
-                //Create Cards and assign to users
-                accounting.classes.card.creditcard.MasterCard mc1 = new accounting.classes.card.creditcard.MasterCard();
-                mc1.cardNumber = "111-111-111-111";
-                mc1.expiryDate = DateTime.Now.AddYears(2);
-                mc1.createNew();
-
-                accounting.classes.card.creditcard.VisaCard visa1   = new accounting.classes.card.creditcard.VisaCard();
-                visa1.cardNumber = "333-333-333-333";
-                visa1.expiryDate = DateTime.Now.AddYears(2);
-                visa1.createNew();
-
-                accounting.classes.card.DebitCard debit1 = new accounting.classes.card.DebitCard();
-                debit1.cardNumber = "222-222-222-222";
-                debit1.expiryDate = DateTime.Now.AddYears(2);
-                debit1.createNew();
-
-                //Create Bank
-                accounting.classes.bank.Bank bank1 = new accounting.classes.bank.Bank();
-                bank1.createNew("Scotia");
-
-                //Add Cards
-                bank1.addCard(debit1.cardID);
-                bank1.addCard(mc1.cardID);
-
-                //Define Rates
-                bank1.setFeeForIntracCardType((decimal)0.6, "Debit Card Rate for Winter 2012");
-                bank1.setFeeForCreditCardType(accounting.classes.enums.ccCardType.MASTERCARD, (decimal)0.5, "New CC Fees for Fall 2010");
                 
-                ts.Complete();
             }
         }
     }

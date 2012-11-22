@@ -43,6 +43,19 @@ namespace accounting.classes
                 ts.Complete();
             }
         }
+        public Accounting.Models.bank getBank()
+        {
+            using(var ctx=new Accounting.Models.AccContext())
+            {
+                var theBank = ctx.bankCard
+                    .Where(x => x.cardID == cardID)
+                    .Select(x=>x.bank)
+                    .SingleOrDefault();
+
+                return theBank;
+            }
+        }
+
         public void loadByCardID(int cardID)
         {
             using (var ctx = new AccContext())

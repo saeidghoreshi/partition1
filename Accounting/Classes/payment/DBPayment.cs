@@ -22,7 +22,7 @@ namespace accounting.classes
             this.loadByPaymentID(paymentID);
         }
 
-        public void createNew(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
+        public new void createNew(int payerEntityID, int payeeEntityID, decimal amount, int currencyID,int cardID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())

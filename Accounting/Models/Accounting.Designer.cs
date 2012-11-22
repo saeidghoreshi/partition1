@@ -5525,24 +5525,24 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> banklID
+        public Nullable<global::System.Int32> bankID
         {
             get
             {
-                return _banklID;
+                return _bankID;
             }
             set
             {
-                OnbanklIDChanging(value);
-                ReportPropertyChanging("banklID");
-                _banklID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("banklID");
-                OnbanklIDChanged();
+                OnbankIDChanging(value);
+                ReportPropertyChanging("bankID");
+                _bankID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bankID");
+                OnbankIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _banklID;
-        partial void OnbanklIDChanging(Nullable<global::System.Int32> value);
-        partial void OnbanklIDChanged();
+        private Nullable<global::System.Int32> _bankID;
+        partial void OnbankIDChanging(Nullable<global::System.Int32> value);
+        partial void OnbankIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

@@ -51,6 +51,8 @@
     <Compile Include="Classes\Address.cs" />
     <Compile Include="Classes\Bank\Bank.cs" />
     <Compile Include="Classes\Bank\bankBranch.cs" />
+    <Compile Include="Classes\Fee\ccFee.cs" />
+    <Compile Include="Classes\Fee\Fee.cs" />
     <Compile Include="Classes\Organization\Office.cs" />
     <Compile Include="Classes\Card\Card.cs" />
     <Compile Include="Classes\Card\VisaCard.cs" />
@@ -62,7 +64,6 @@
     <Compile Include="Classes\CurrencyException.cs" />
     <Compile Include="Classes\Entity.cs" />
     <Compile Include="Classes\Enums.cs" />
-    <Compile Include="Classes\Bank\Fee.cs" />
     <Compile Include="Classes\Invoice.cs" />
     <Compile Include="Classes\Organization\Organization.cs" />
     <Compile Include="Classes\payment\DBPayment.cs" />

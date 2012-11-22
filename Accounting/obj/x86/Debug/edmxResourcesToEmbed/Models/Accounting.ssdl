@@ -468,7 +468,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="banklID" Type="int" />
+    <Property Name="bankID" Type="int" />
     <Property Name="cardTypeID" Type="int" />
     <Property Name="amount" Type="decimal" />
     <Property Name="description" Type="varchar" MaxLength="200" />
@@ -996,7 +996,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="fee">
-        <PropertyRef Name="banklID" />
+        <PropertyRef Name="bankID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

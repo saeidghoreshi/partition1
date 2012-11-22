@@ -47,7 +47,7 @@ namespace accounting.classes
             }
         }
 
-        public new void loadByPaymentID(int paymentID)
+        protected new void loadByPaymentID(int paymentID)
         {
             using (var ctx = new AccContext())
             {

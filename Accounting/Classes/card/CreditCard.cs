@@ -11,7 +11,7 @@ using accounting.classes;
 
 namespace accounting.classes.card
 {
-    public abstract class CreditCard : Card
+    public class CreditCard : Card
     {
         public readonly int CARDTYPEID = (int)enums.cardType.CreditCard;
 

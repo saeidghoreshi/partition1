@@ -75,68 +75,14 @@ namespace accounting.classes.bank
         /// <param name="feeID"></param>
         public void setFeeForIntracCardType(decimal amount,string description) 
         {
-            using (var ts = new TransactionScope())
-            {   
-                using (var ctx = new AccContext())
-                {
-                    /*FIRST check see if fee defined for the cardType*/
-                    var existingFee = ctx.fee
-                        .Where(x => x.banklID == this.bankID).SingleOrDefault();
-
-                    if (existingFee == null)
-                    {
-                        /*Create new Fee Entry*/
-                        var _newFee = new Accounting.Models.fee()
-                        {
-                            cardTypeID=(int)enums.cardType.DebitCard,
-                            amount=amount,
-                            description=description,
-                            banklID=this.bankID
-                        };
-                        ctx.fee.AddObject(_newFee);
-                    }
-                    else 
-                    {
-                        existingFee.amount = amount;
-                        existingFee.description = description;
-                    }
-                    ctx.SaveChanges();
-                }
-                ts.Complete();
-            }
+            Fee fee = new Fee();
+            fee.createNew(this.bankID, amount, description, (int)enums.cardType.DebitCard);
         }
 
         public void setFeeForCreditCardType(enums.ccCardType ccCardType, decimal amount, string description)
         {
-            using (var ts = new TransactionScope())
-            {
-                using (var ctx = new AccContext())
-                {
-                    /*FIRST check see if fee defined for the cardType*/
-                    var existingFee = ctx.ccFee
-                        .Where(x => x.banklID == this.bankID).SingleOrDefault();
-
-                    if (existingFee == null)
-                    {
-                        /*Create new Fee Entry*/
-                        var _newFee = new Accounting.Models.ccFee()
-                        {
-                            cccardTypeID = (int)ccCardType,
-                            amount = amount,
-                            description = description,
-                            banklID = this.bankID
-                        };
-                        ctx.ccFee.AddObject(_newFee);
-                    }
-                    else
-                    {
-                        existingFee.amount = amount;
-                        existingFee.description = description;
-                    }
-                    ctx.SaveChanges();
-                }
-                ts.Complete();
-            }
+            ccFee ccFee = new ccFee();
+            ccFee.createNew(this.bankID, amount, description, (int)ccCardType);
         }
 
         /// <summary>

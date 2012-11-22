@@ -199,7 +199,7 @@
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="amount" ColumnName="amount" />
           <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
-          <ScalarProperty Name="banklID" ColumnName="banklID" />
+          <ScalarProperty Name="bankID" ColumnName="bankID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

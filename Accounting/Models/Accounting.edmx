@@ -473,7 +473,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="banklID" Type="int" />
+          <Property Name="bankID" Type="int" />
           <Property Name="cardTypeID" Type="int" />
           <Property Name="amount" Type="decimal" />
           <Property Name="description" Type="varchar" MaxLength="200" />
@@ -1001,7 +1001,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="fee">
-              <PropertyRef Name="banklID" />
+              <PropertyRef Name="bankID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1960,7 +1960,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="banklID" />
+          <Property Type="Int32" Name="bankID" />
           <Property Type="Int32" Name="cardTypeID" />
           <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
           <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -2299,7 +2299,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="fee">
-              <PropertyRef Name="banklID" />
+              <PropertyRef Name="bankID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3155,7 +3155,7 @@
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
-                <ScalarProperty Name="banklID" ColumnName="banklID" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

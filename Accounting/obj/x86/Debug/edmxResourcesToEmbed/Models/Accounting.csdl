@@ -534,7 +534,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="banklID" />
+    <Property Type="Int32" Name="bankID" />
     <Property Type="Int32" Name="cardTypeID" />
     <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
     <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -873,7 +873,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="fee">
-        <PropertyRef Name="banklID" />
+        <PropertyRef Name="bankID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
