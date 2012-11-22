@@ -19,7 +19,7 @@ namespace accounting.classes
             using (var ctx = new Accounting.Models.AccContext())
             {
                 var existingFee = ctx.ccFee
-                    .Where(x => x.cccardTypeID == ccCardTypeID && x.banklID == bankID).SingleOrDefault();
+                    .Where(x => x.ccCardTypeID == ccCardTypeID && x.bankID == bankID).SingleOrDefault();
 
                 if (existingFee != null)
                 {
@@ -29,8 +29,8 @@ namespace accounting.classes
 
                 var _ccFee = new Accounting.Models.ccFee()
                 {
-                    banklID = (int)bankID,
-                    cccardTypeID = (int)ccCardTypeID,
+                    bankID = (int)bankID,
+                    ccCardTypeID = (int)ccCardTypeID,
                     amount = (decimal)amount,
                     description = description
                 };
@@ -54,8 +54,8 @@ namespace accounting.classes
                     throw new Exception("no such a CCFee Exists");
 
                 this.ccfeeID = _fee.ID;
-                this.bankID = (int)_fee.banklID;
-                this.ccCardTypeID = (int)_fee.cccardTypeID;
+                this.bankID = (int)_fee.bankID;
+                this.ccCardTypeID = (int)_fee.ccCardTypeID;
                 this.amount = (decimal)_fee.amount;
                 this.deacription = _fee.description;
             }
@@ -64,7 +64,7 @@ namespace accounting.classes
         {
             using (var ctx = new AccContext())
             {
-                var ccfee = ctx.ccFee.Where(x => (int)x.cccardTypeID == ccCardTypeID && x.banklID == bankID)
+                var ccfee = ctx.ccFee.Where(x => (int)x.ccCardTypeID == ccCardTypeID && x.bankID == bankID)
                         .SingleOrDefault();
 
                 if (ccfee == null)

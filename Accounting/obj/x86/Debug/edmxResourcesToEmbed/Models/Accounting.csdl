@@ -10,7 +10,6 @@
     <EntitySet Name="categoryType" EntityType="DB_40114_codeclubModel.categoryType" />
     <EntitySet Name="ccCard" EntityType="DB_40114_codeclubModel.ccCard" />
     <EntitySet Name="ccCardType" EntityType="DB_40114_codeclubModel.ccCardType" />
-    <EntitySet Name="ccFee" EntityType="DB_40114_codeclubModel.ccFee" />
     <EntitySet Name="ccPayment" EntityType="DB_40114_codeclubModel.ccPayment" />
     <EntitySet Name="currency" EntityType="DB_40114_codeclubModel.currency" />
     <EntitySet Name="currencyType" EntityType="DB_40114_codeclubModel.currencyType" />
@@ -23,7 +22,6 @@
     <EntitySet Name="entityWalletTransaction" EntityType="DB_40114_codeclubModel.entityWalletTransaction" />
     <EntitySet Name="externalPayment" EntityType="DB_40114_codeclubModel.externalPayment" />
     <EntitySet Name="extPaymentType" EntityType="DB_40114_codeclubModel.extPaymentType" />
-    <EntitySet Name="fee" EntityType="DB_40114_codeclubModel.fee" />
     <EntitySet Name="glType" EntityType="DB_40114_codeclubModel.glType" />
     <EntitySet Name="internalPayment" EntityType="DB_40114_codeclubModel.internalPayment" />
     <EntitySet Name="invoice" EntityType="DB_40114_codeclubModel.invoice" />
@@ -69,14 +67,6 @@
       <End Role="bank" EntitySet="bank" />
       <End Role="bankCard" EntitySet="bankCard" />
     </AssociationSet>
-    <AssociationSet Name="FK_ccFee_bank" Association="DB_40114_codeclubModel.FK_ccFee_bank">
-      <End Role="bank" EntitySet="bank" />
-      <End Role="ccFee" EntitySet="ccFee" />
-    </AssociationSet>
-    <AssociationSet Name="FK_fee_bank" Association="DB_40114_codeclubModel.FK_fee_bank">
-      <End Role="bank" EntitySet="bank" />
-      <End Role="fee" EntitySet="fee" />
-    </AssociationSet>
     <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.FK_bankCard_card">
       <End Role="card" EntitySet="card" />
       <End Role="bankCard" EntitySet="bankCard" />
@@ -105,10 +95,6 @@
       <End Role="cardType" EntitySet="cardType" />
       <End Role="dbCard" EntitySet="dbCard" />
     </AssociationSet>
-    <AssociationSet Name="FK_fee_cardType" Association="DB_40114_codeclubModel.FK_fee_cardType">
-      <End Role="cardType" EntitySet="cardType" />
-      <End Role="fee" EntitySet="fee" />
-    </AssociationSet>
     <AssociationSet Name="FK_categoryType_glType" Association="DB_40114_codeclubModel.FK_categoryType_glType">
       <End Role="glType" EntitySet="glType" />
       <End Role="categoryType" EntitySet="categoryType" />
@@ -116,10 +102,6 @@
     <AssociationSet Name="FK_ccCard_cardType" Association="DB_40114_codeclubModel.FK_ccCard_cardType">
       <End Role="ccCardType" EntitySet="ccCardType" />
       <End Role="ccCard" EntitySet="ccCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ccFee_ccFee" Association="DB_40114_codeclubModel.FK_ccFee_ccFee">
-      <End Role="ccCard" EntitySet="ccCard" />
-      <End Role="ccFee" EntitySet="ccFee" />
     </AssociationSet>
     <AssociationSet Name="FK_mcCard_ccCard" Association="DB_40114_codeclubModel.FK_mcCard_ccCard">
       <End Role="ccCard" EntitySet="ccCard" />
@@ -293,6 +275,24 @@
       <End Role="userType" EntitySet="userType" />
       <End Role="user" EntitySet="user" />
     </AssociationSet>
+    <EntitySet Name="ccFee" EntityType="DB_40114_codeclubModel.ccFee" />
+    <AssociationSet Name="FK_ccFee_bank" Association="DB_40114_codeclubModel.FK_ccFee_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="ccFee" EntitySet="ccFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccFee_ccCardType" Association="DB_40114_codeclubModel.FK_ccFee_ccCardType">
+      <End Role="ccCardType" EntitySet="ccCardType" />
+      <End Role="ccFee" EntitySet="ccFee" />
+    </AssociationSet>
+    <EntitySet Name="fee" EntityType="DB_40114_codeclubModel.fee" />
+    <AssociationSet Name="FK_fee_bank" Association="DB_40114_codeclubModel.FK_fee_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fee_cardType" Association="DB_40114_codeclubModel.FK_fee_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="account">
     <Key>
@@ -372,7 +372,6 @@
     <Property Type="Int32" Name="ccCardTypeID" />
     <NavigationProperty Name="card" Relationship="DB_40114_codeclubModel.FK_ccCard_card" FromRole="ccCard" ToRole="card" />
     <NavigationProperty Name="ccCardType" Relationship="DB_40114_codeclubModel.FK_ccCard_cardType" FromRole="ccCard" ToRole="ccCardType" />
-    <NavigationProperty Name="ccFee" Relationship="DB_40114_codeclubModel.FK_ccFee_ccFee" FromRole="ccCard" ToRole="ccFee" />
     <NavigationProperty Name="mcCard" Relationship="DB_40114_codeclubModel.FK_mcCard_ccCard" FromRole="ccCard" ToRole="mcCard" />
     <NavigationProperty Name="visaCard" Relationship="DB_40114_codeclubModel.FK_visaCard_ccCard" FromRole="ccCard" ToRole="visaCard" />
   </EntityType>
@@ -383,18 +382,7 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="ccCard" Relationship="DB_40114_codeclubModel.FK_ccCard_cardType" FromRole="ccCardType" ToRole="ccCard" />
-  </EntityType>
-  <EntityType Name="ccFee">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="banklID" />
-    <Property Type="Int32" Name="cccardTypeID" />
-    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
-    <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_ccFee_bank" FromRole="ccFee" ToRole="bank" />
-    <NavigationProperty Name="ccCard" Relationship="DB_40114_codeclubModel.FK_ccFee_ccFee" FromRole="ccFee" ToRole="ccCard" />
+    <NavigationProperty Name="ccFee" Relationship="DB_40114_codeclubModel.FK_ccFee_ccCardType" FromRole="ccCardType" ToRole="ccFee" />
   </EntityType>
   <EntityType Name="ccPayment">
     <Key>
@@ -528,18 +516,6 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="externalPayment" Relationship="DB_40114_codeclubModel.FK_externalPayment_extPaymentType" FromRole="extPaymentType" ToRole="externalPayment" />
-  </EntityType>
-  <EntityType Name="fee">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="bankID" />
-    <Property Type="Int32" Name="cardTypeID" />
-    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
-    <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_fee_bank" FromRole="fee" ToRole="bank" />
-    <NavigationProperty Name="cardType" Relationship="DB_40114_codeclubModel.FK_fee_cardType" FromRole="fee" ToRole="cardType" />
   </EntityType>
   <EntityType Name="glType">
     <Key>
@@ -853,30 +829,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ccFee_bank">
-    <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
-    <End Type="DB_40114_codeclubModel.ccFee" Role="ccFee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="bank">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ccFee">
-        <PropertyRef Name="banklID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_fee_bank">
-    <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
-    <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="bank">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="fee">
-        <PropertyRef Name="bankID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_bankCard_card">
     <End Type="DB_40114_codeclubModel.card" Role="card" Multiplicity="0..1" />
     <End Type="DB_40114_codeclubModel.bankCard" Role="bankCard" Multiplicity="*" />
@@ -961,18 +913,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_fee_cardType">
-    <End Type="DB_40114_codeclubModel.cardType" Role="cardType" Multiplicity="0..1" />
-    <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="cardType">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="fee">
-        <PropertyRef Name="cardTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_categoryType_glType">
     <End Type="DB_40114_codeclubModel.glType" Role="glType" Multiplicity="0..1" />
     <End Type="DB_40114_codeclubModel.categoryType" Role="categoryType" Multiplicity="*" />
@@ -994,18 +934,6 @@
       </Principal>
       <Dependent Role="ccCard">
         <PropertyRef Name="ccCardTypeID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ccFee_ccFee">
-    <End Type="DB_40114_codeclubModel.ccCard" Role="ccCard" Multiplicity="0..1" />
-    <End Type="DB_40114_codeclubModel.ccFee" Role="ccFee" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ccCard">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ccFee">
-        <PropertyRef Name="cccardTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1522,6 +1450,78 @@
       </Principal>
       <Dependent Role="user">
         <PropertyRef Name="userTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ccFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="bankID" />
+    <Property Type="Int32" Name="ccCardTypeID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_ccFee_bank" FromRole="ccFee" ToRole="bank" />
+    <NavigationProperty Name="ccCardType" Relationship="DB_40114_codeclubModel.FK_ccFee_ccCardType" FromRole="ccFee" ToRole="ccCardType" />
+  </EntityType>
+  <Association Name="FK_ccFee_bank">
+    <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.ccFee" Role="ccFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccFee">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccFee_ccCardType">
+    <End Type="DB_40114_codeclubModel.ccCardType" Role="ccCardType" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.ccFee" Role="ccFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccFee">
+        <PropertyRef Name="ccCardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="fee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="bankID" />
+    <Property Type="Int32" Name="cardTypeID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bank" Relationship="DB_40114_codeclubModel.FK_fee_bank" FromRole="fee" ToRole="bank" />
+    <NavigationProperty Name="cardType" Relationship="DB_40114_codeclubModel.FK_fee_cardType" FromRole="fee" ToRole="cardType" />
+  </EntityType>
+  <Association Name="FK_fee_bank">
+    <End Type="DB_40114_codeclubModel.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fee_cardType">
+    <End Type="DB_40114_codeclubModel.cardType" Role="cardType" Multiplicity="0..1" />
+    <End Type="DB_40114_codeclubModel.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="cardTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

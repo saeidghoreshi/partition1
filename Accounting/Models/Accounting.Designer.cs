@@ -24,8 +24,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_account_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.account), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_transaction_account", "account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.account), "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.transaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_bankCard_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "bankCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.bankCard), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_bankCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "bankCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.bankCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_card_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "card", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.card), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
@@ -33,10 +31,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "entityCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_externalPayment_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.externalPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_dbCard_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "dbCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.dbCard), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_categoryType_glType", "glType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.glType), "categoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.categoryType), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_cardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_ccFee", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCard", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "mcCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.mcCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_visaCard_ccCard", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "visaCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.visaCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccPayment_externalPayment", "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.externalPayment), "ccPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccPayment), true)]
@@ -80,6 +76,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_paymentActionTransaction_transaction", "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.transaction), "paymentActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.paymentActionTransaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_person", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_userType", "userType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.userType), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_ccCardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
 
 #endregion
 
@@ -258,22 +258,6 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<ccCardType> _ccCardType;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ccFee> ccFee
-        {
-            get
-            {
-                if ((_ccFee == null))
-                {
-                    _ccFee = base.CreateObjectSet<ccFee>("ccFee");
-                }
-                return _ccFee;
-            }
-        }
-        private ObjectSet<ccFee> _ccFee;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -466,22 +450,6 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<extPaymentType> _extPaymentType;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<fee> fee
-        {
-            get
-            {
-                if ((_fee == null))
-                {
-                    _fee = base.CreateObjectSet<fee>("fee");
-                }
-                return _fee;
-            }
-        }
-        private ObjectSet<fee> _fee;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -882,6 +850,38 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<visaCard> _visaCard;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ccFee> ccFee
+        {
+            get
+            {
+                if ((_ccFee == null))
+                {
+                    _ccFee = base.CreateObjectSet<ccFee>("ccFee");
+                }
+                return _ccFee;
+            }
+        }
+        private ObjectSet<ccFee> _ccFee;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<fee> fee
+        {
+            get
+            {
+                if ((_fee == null))
+                {
+                    _fee = base.CreateObjectSet<fee>("fee");
+                }
+                return _fee;
+            }
+        }
+        private ObjectSet<fee> _fee;
 
         #endregion
 
@@ -949,14 +949,6 @@ namespace Accounting.Models
         public void AddToccCardType(ccCardType ccCardType)
         {
             base.AddObject("ccCardType", ccCardType);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ccFee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToccFee(ccFee ccFee)
-        {
-            base.AddObject("ccFee", ccFee);
         }
     
         /// <summary>
@@ -1053,14 +1045,6 @@ namespace Accounting.Models
         public void AddToextPaymentType(extPaymentType extPaymentType)
         {
             base.AddObject("extPaymentType", extPaymentType);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the fee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTofee(fee fee)
-        {
-            base.AddObject("fee", fee);
         }
     
         /// <summary>
@@ -1261,6 +1245,22 @@ namespace Accounting.Models
         public void AddTovisaCard(visaCard visaCard)
         {
             base.AddObject("visaCard", visaCard);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ccFee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToccFee(ccFee ccFee)
+        {
+            base.AddObject("ccFee", ccFee);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the fee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTofee(fee fee)
+        {
+            base.AddObject("fee", fee);
         }
 
         #endregion
@@ -2702,28 +2702,6 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccFee_ccFee", "ccFee")]
-        public EntityCollection<ccFee> ccFee
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ccFee>("DB_40114_codeclubModel.FK_ccFee_ccFee", "ccFee");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ccFee>("DB_40114_codeclubModel.FK_ccFee_ccFee", "ccFee", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCard", "mcCard")]
         public EntityCollection<mcCard> mcCard
         {
@@ -2868,6 +2846,28 @@ namespace Accounting.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccFee_ccCardType", "ccFee")]
+        public EntityCollection<ccFee> ccFee
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ccFee>("DB_40114_codeclubModel.FK_ccFee_ccCardType", "ccFee");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ccFee>("DB_40114_codeclubModel.FK_ccFee_ccCardType", "ccFee", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -2930,48 +2930,48 @@ namespace Accounting.Models
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> banklID
+        public Nullable<global::System.Int32> bankID
         {
             get
             {
-                return _banklID;
+                return _bankID;
             }
             set
             {
-                OnbanklIDChanging(value);
-                ReportPropertyChanging("banklID");
-                _banklID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("banklID");
-                OnbanklIDChanged();
+                OnbankIDChanging(value);
+                ReportPropertyChanging("bankID");
+                _bankID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("bankID");
+                OnbankIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _banklID;
-        partial void OnbanklIDChanging(Nullable<global::System.Int32> value);
-        partial void OnbanklIDChanged();
+        private Nullable<global::System.Int32> _bankID;
+        partial void OnbankIDChanging(Nullable<global::System.Int32> value);
+        partial void OnbankIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> cccardTypeID
+        public Nullable<global::System.Int32> ccCardTypeID
         {
             get
             {
-                return _cccardTypeID;
+                return _ccCardTypeID;
             }
             set
             {
-                OncccardTypeIDChanging(value);
-                ReportPropertyChanging("cccardTypeID");
-                _cccardTypeID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("cccardTypeID");
-                OncccardTypeIDChanged();
+                OnccCardTypeIDChanging(value);
+                ReportPropertyChanging("ccCardTypeID");
+                _ccCardTypeID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ccCardTypeID");
+                OnccCardTypeIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _cccardTypeID;
-        partial void OncccardTypeIDChanging(Nullable<global::System.Int32> value);
-        partial void OncccardTypeIDChanged();
+        private Nullable<global::System.Int32> _ccCardTypeID;
+        partial void OnccCardTypeIDChanging(Nullable<global::System.Int32> value);
+        partial void OnccCardTypeIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3070,16 +3070,16 @@ namespace Accounting.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccFee_ccFee", "ccCard")]
-        public ccCard ccCard
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_ccFee_ccCardType", "ccCardType")]
+        public ccCardType ccCardType
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCard>("DB_40114_codeclubModel.FK_ccFee_ccFee", "ccCard").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccFee_ccCardType", "ccCardType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCard>("DB_40114_codeclubModel.FK_ccFee_ccFee", "ccCard").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccFee_ccCardType", "ccCardType").Value = value;
             }
         }
         /// <summary>
@@ -3087,17 +3087,17 @@ namespace Accounting.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<ccCard> ccCardReference
+        public EntityReference<ccCardType> ccCardTypeReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCard>("DB_40114_codeclubModel.FK_ccFee_ccFee", "ccCard");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccFee_ccCardType", "ccCardType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCard>("DB_40114_codeclubModel.FK_ccFee_ccFee", "ccCard", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ccCardType>("DB_40114_codeclubModel.FK_ccFee_ccCardType", "ccCardType", value);
                 }
             }
         }

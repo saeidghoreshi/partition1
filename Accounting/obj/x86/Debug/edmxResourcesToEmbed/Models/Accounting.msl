@@ -74,17 +74,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ccFee">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.ccFee">
-        <MappingFragment StoreEntitySet="ccFee">
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="cccardTypeID" ColumnName="cccardTypeID" />
-          <ScalarProperty Name="banklID" ColumnName="banklID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ccPayment">
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.ccPayment">
         <MappingFragment StoreEntitySet="ccPayment">
@@ -189,17 +178,6 @@
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.extPaymentType">
         <MappingFragment StoreEntitySet="extPaymentType">
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="fee">
-      <EntityTypeMapping TypeName="DB_40114_codeclubModel.fee">
-        <MappingFragment StoreEntitySet="fee">
-          <ScalarProperty Name="description" ColumnName="description" />
-          <ScalarProperty Name="amount" ColumnName="amount" />
-          <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
-          <ScalarProperty Name="bankID" ColumnName="bankID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -422,6 +400,28 @@
       <EntityTypeMapping TypeName="DB_40114_codeclubModel.visaCard">
         <MappingFragment StoreEntitySet="visaCard">
           <ScalarProperty Name="ccCardID" ColumnName="ccCardID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ccFee">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.ccFee">
+        <MappingFragment StoreEntitySet="ccFee">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="ccCardTypeID" ColumnName="ccCardTypeID" />
+          <ScalarProperty Name="bankID" ColumnName="bankID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fee">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.fee">
+        <MappingFragment StoreEntitySet="fee">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="cardTypeID" ColumnName="cardTypeID" />
+          <ScalarProperty Name="bankID" ColumnName="bankID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
