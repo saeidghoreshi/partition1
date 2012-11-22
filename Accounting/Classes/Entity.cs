@@ -13,21 +13,27 @@ namespace accounting.classes
     {
         private int entityID;
         public int ENTITYID { get { return entityID; } }
+
+        public int entityTypeID;
         public List<Accounting.Models.card> cards;
 
-        public void create()
+        protected void createNew(int entityTypeID)
         {
             using (var ctx = new AccContext())
             {
-                var newEntity = new Accounting.Models.entity() { };
+                var newEntity = new Accounting.Models.entity() 
+                {
+                    entityTypeID = entityTypeID
+                };
                 ctx.entity.AddObject(newEntity);
                 ctx.SaveChanges();
 
+                /*reload entity*/
                 this.entityID = newEntity.ID;
             }
         }
         
-        public  void addCard(int cardID)
+        public void addCard(int cardID)
         {
             int entityID = (int)this.ENTITYID;
 
@@ -59,7 +65,7 @@ namespace accounting.classes
             }
         }
 
-        public void addWalletMoney(decimal amount, string title, int currencyID) 
+        protected void addWalletMoney(decimal amount, string title, int currencyID) 
         {
             using(var ts=new TransactionScope())
             using(var ctx=new Accounting.Models.AccContext())
@@ -104,7 +110,7 @@ namespace accounting.classes
         /// <param name="amount"></param>
         /// <param name="cardID"></param>
         /// <param name="cardType"></param>
-        public virtual void payInvoiceByCC(classes.Invoice inv, decimal amount, int cardID, enums.ccCardType cardType)
+        protected void payInvoiceByCC(classes.Invoice inv, decimal amount, int cardID, enums.ccCardType cardType)
         {
             inv.doCCExtPayment(amount, cardID, cardType);
         }
@@ -116,7 +122,7 @@ namespace accounting.classes
         /// <param name="amount"></param>
         /// <param name="cardID"></param>
         /// <param name="cardType"></param>
-        public virtual void payInvoiceByInterac(classes.Invoice inv, decimal amount, int cardID)
+        protected void payInvoiceByInterac(classes.Invoice inv, decimal amount, int cardID)
         {
             inv.doINTERACPayment(amount, cardID);
         }
@@ -128,7 +134,7 @@ namespace accounting.classes
         /// <param name="amount"></param>
         /// <param name="cardID"></param>
         /// <param name="cardType"></param>
-        public virtual void payInvoiceByInternal(classes.Invoice inv, decimal amount)
+        protected void payInvoiceByInternal(classes.Invoice inv, decimal amount)
         {
             inv.doINTERNALTransfer(amount);
         }

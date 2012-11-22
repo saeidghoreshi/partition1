@@ -7,38 +7,35 @@ using Accounting;
 using Accounting.Models;
 using System.Transactions;
 
-using Accounting;
-using accounting.classes;
 
 namespace accounting.classes.card.creditcard
-{
-    
+{   
     public class MasterCard : CreditCard
     {
         public readonly int CCCARDTYPEID= (int)enums.ccCardType.MASTERCARD;
 
-        public override void create() 
+        public int mcCardID;
+
+        public MasterCard(): base(){}
+
+        public void createNew() 
         {
-            using(var ctx=new AccContext())
+            using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                ///
-                /// create New Credit Card at first
-                ///
-                base.create();
-
-                ///
-                /// create new Master Card at second
-                ///
+                base.createNew((int)enums.ccCardType.MASTERCARD);
 
                 var newmcCard = new mcCard()
                 {
-                    ccCardID = base.ccCardId,
-                    ccCardTypeID = this.CCCARDTYPEID
+                    ccCardID = base.ccCardID
                 };
 
                 ctx.mcCard.AddObject(newmcCard);
                 ctx.SaveChanges();
+
+                /*Reload object Props*/
+                this.mcCardID = newmcCard.ID;
+                this.ccCardID = (int)newmcCard.ccCardID;
 
                 ts.Complete();
             }

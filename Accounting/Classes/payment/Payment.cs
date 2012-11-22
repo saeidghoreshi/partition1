@@ -15,6 +15,7 @@ namespace accounting.classes
         public int payeeEntityID;
         public decimal amount;
         public int currencyID;
+        public int paymentTypeID;
 
         public Payment() { }
         public Payment(int paymentID)
@@ -22,34 +23,7 @@ namespace accounting.classes
             this.loadByPaymentID(paymentID);
         }
 
-        public void loadByPaymentID(int paymentID) 
-        {
-            using (var ctx = new AccContext())
-            {
-                var paymentRecord = ctx.payment
-                    .Where(x => x.ID == paymentID)
-                    .Select(x => new
-                    {
-                        paymentID = x.ID,
-                        payerEntityID = (int)x.payerEntityID,
-                        payeeEntityID = (int)x.payeeEntityID,
-                        amount = (decimal)x.amount,
-                        currencyID = (int)x.currencyID
-                    })
-                    .SingleOrDefault();
-
-                if (paymentRecord == null)
-                    throw new Exception("no such a Payment Exists");
-
-                this.paymentID = paymentRecord.paymentID;
-                this.payerEntityID = (int)paymentRecord.payerEntityID;
-                this.payeeEntityID = (int)paymentRecord.payeeEntityID;
-                this.amount = (decimal)paymentRecord.amount;
-                this.currencyID = (int)paymentRecord.currencyID;
-            }
-        }
-
-        protected void New(int payerEntityID,int payeeEntityID,decimal amount,int currencyID) 
+        protected void createNew(int payerEntityID,int payeeEntityID,decimal amount,int currencyID,int paymentTypeID) 
         {
             using (var ctx = new AccContext())
             {
@@ -58,20 +32,18 @@ namespace accounting.classes
                     payerEntityID=payerEntityID,
                     payeeEntityID=payeeEntityID,
                     amount=amount,
-                    currencyID=currencyID
+                    currencyID=currencyID,
+                    paymentTypeID=paymentTypeID
                 };
                 ctx.payment.AddObject(_payment);
                 ctx.SaveChanges();
 
-                
                 loadByPaymentID(_payment.ID);
-                
             }
         }
 
-        public List<Accounting.Models.transaction> cancelPayment()
-        {
-            
+        public List<Accounting.Models.transaction> cancelPayment(enums.paymentAction _paymentAction)
+        {   
             //First check this payment is able to be cancelled  ************
 
             //get Related transacions and input reveres ones
@@ -108,8 +80,41 @@ namespace accounting.classes
                 List<Accounting.Models.transaction> reveresedTransactions = new List<transaction>();
                 foreach (var txn in paymentTransactions)
                     reveresedTransactions.Add(Transaction.createNew((int)txn.ownerEntityID, (int)txn.catTypeID, -1 * (decimal)txn.amount, (int)txn.currencyID));
+
+                //IF PAYMENT ACTION IS REFUND, NEW FEE HANDLING TRANSACTIONS WOULD BE NEEDED
+                
+
+
                 return reveresedTransactions;
-    
+            }
+        }
+
+        public void loadByPaymentID(int paymentID)
+        {
+            using (var ctx = new AccContext())
+            {
+                var paymentRecord = ctx.payment
+                    .Where(x => x.ID == paymentID)
+                    .Select(x => new
+                    {
+                        paymentID = x.ID,
+                        payerEntityID = (int)x.payerEntityID,
+                        payeeEntityID = (int)x.payeeEntityID,
+                        amount = (decimal)x.amount,
+                        paymentTypeID = (int)x.paymentTypeID,
+                        currencyID = (int)x.currencyID
+                    })
+                    .SingleOrDefault();
+
+                if (paymentRecord == null)
+                    throw new Exception("no such a Payment Exists");
+
+                this.paymentID = paymentRecord.paymentID;
+                this.paymentTypeID = (int)paymentRecord.paymentTypeID;
+                this.payerEntityID = (int)paymentRecord.payerEntityID;
+                this.payeeEntityID = (int)paymentRecord.payeeEntityID;
+                this.amount = (decimal)paymentRecord.amount;
+                this.currencyID = (int)paymentRecord.currencyID;
             }
         }
 

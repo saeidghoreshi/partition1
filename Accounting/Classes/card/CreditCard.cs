@@ -15,37 +15,31 @@ namespace accounting.classes.card
     {
         public readonly int CARDTYPEID = (int)enums.cardType.CreditCard;
 
-        public int ccCardId;
+        public int ccCardID;
+        
+        public CreditCard(): base(){}
 
-
-        public override void create()
+        public new void createNew(int ccCardTypeID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                ///
-                /// create New Card at first
-                ///
-                base.create();
-
-                ///
-                /// create new Credit card at second
-                ///
+                base.createNew((int)enums.cardType.CreditCard);
 
                 var newCCCard = new Accounting.Models.ccCard()
                 {
-                    cardID=base.cardID,
-                    cardTypeID=this.CARDTYPEID
+                    cardID = base.cardID,
+                    ccCardTypeID = ccCardTypeID
                 };
                 ctx.ccCard.AddObject(newCCCard);
                 ctx.SaveChanges();
 
-                this.ccCardId = newCCCard.ID;
+                /*Reload the object props*/
+                this.cardID = (int)newCCCard.cardID;
+                this.ccCardID = newCCCard.ID;
 
                 ts.Complete();
             }
         }
-        
-        
     }
 }

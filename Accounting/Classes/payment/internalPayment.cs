@@ -22,7 +22,27 @@ namespace accounting.classes
             this.loadByPaymentID(paymentID);
         }
 
-        public  void loadByPaymentID(int paymentID) 
+        public void createNew(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
+        {
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                base.createNew(payerEntityID, payeeEntityID, amount, currencyID, (int)enums.paymentType.Internal);
+
+                var _internalPayment = new Accounting.Models.internalPayment()
+                 {
+                     paymentID = base.paymentID
+                 };
+                ctx.internalPayment.AddObject(_internalPayment);
+                ctx.SaveChanges();
+
+                this.loadByPaymentID((int)_internalPayment.paymentID);
+
+                ts.Complete();
+
+            }
+        }
+        public new void loadByPaymentID(int paymentID)
         {
             using (var ctx = new AccContext())
             {
@@ -30,40 +50,13 @@ namespace accounting.classes
 
                 var internalPaymentRecord = ctx.internalPayment
                     .Where(x => x.paymentID == paymentID)
-                    .Select(x => new
-                    {
-                        internalPaymentID = x.ID,
-                        description = x.description
-                    })
                     .SingleOrDefault();
 
                 if (internalPaymentRecord == null)
                     throw new Exception("no such a EXT Payment Exists");
 
-                this.internalPaymentID = internalPaymentRecord.internalPaymentID;
+                this.internalPaymentID = internalPaymentRecord.ID;
                 this.internalPaymentDescription = internalPaymentRecord.description;
-            }
-        }
-
-
-        public void NewPayment(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
-        {
-            using (var ctx = new AccContext())
-            using (var ts = new TransactionScope())
-            {
-                base.New(payerEntityID, payeeEntityID, amount, currencyID);
-
-                var _internalPayment = new Accounting.Models.internalPayment()
-                 {
-                     paymentID = base.paymentID,
-                     paymentTypeID = this.PAYMENTTYPEID
-                 };
-                ctx.internalPayment.AddObject(_internalPayment);
-                ctx.SaveChanges();
-
-                this.loadByPaymentID((int)_internalPayment.paymentID);
-                ts.Complete();
-
             }
         }
         

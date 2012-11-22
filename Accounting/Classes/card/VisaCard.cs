@@ -7,7 +7,6 @@ using Accounting;
 using Accounting.Models;
 using System.Transactions;
 
-using accounting.classes;
 using accounting.classes.card;
 
 
@@ -17,35 +16,31 @@ namespace accounting.classes.card.creditcard
     {
         public readonly int CCCARDTYPEID = (int)enums.ccCardType.VISACARD;
 
-        
-        public override void create()
+        public int visaCardID;
+
+        public VisaCard(): base(){}
+
+        public void createNew()
         {
+            base.createNew((int)enums.ccCardType.VISACARD);
+
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                ///
-                /// create New Credit Card at first
-                ///
-                base.create();
-
-                ///
-                /// create new Visa Card at second
-                ///
 
                 var newvisaCard = new visaCard()
                 {
-                    ccCardID = base.ccCardId,
-                    ccCardTypeID = this.CCCARDTYPEID
+                    ccCardID = base.ccCardID
                 };
 
                 ctx.visaCard.AddObject(newvisaCard);
                 ctx.SaveChanges();
 
-                
+                /*Reload object Props*/
+                this.visaCardID = newvisaCard.ID;
+
                 ts.Complete();
-                
             }
         }
     }
-    
 }

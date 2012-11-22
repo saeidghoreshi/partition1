@@ -141,7 +141,11 @@ namespace accounting.classes.enums
         NotApprovedVoid =5 ,
         NotApprovedRefund =6
     }
-    
+    public enum paymentAction
+    {
+        Void= 1,
+        Refund = 2
+    }
     public enum currencyType
     { 
         Real=1,

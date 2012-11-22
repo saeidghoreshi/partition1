@@ -56,11 +56,11 @@ inner join Accounting.paymentstat ps on ps.ID=pa.paymentStatID
 
 left join Accounting.externalPayment ep on ep.paymentID=p.ID
 left join Accounting.internalPayment ip on ip.paymentID=p.ID
-left join Accounting.paymentType pt on pt.ID=case when ep.ID is null then ip.paymentTypeID else ep.paymentTypeID end 
+left join Accounting.paymentType pt on pt.ID=p.paymentTypeID 
 
 left join Accounting.ccPayment cc on cc.extPaymentID=ep.ID
 left join Accounting.dbPayment db on db.extPaymentID=ep.ID
-left join Accounting.extPaymentType ept on ept.ID=case when cc.extPaymentTypeID is null then db.extPaymentTypeID else cc.ID end 
+left join Accounting.extPaymentType ept on ept.ID=ep.extPaymentTypeID 
 ;
 
 

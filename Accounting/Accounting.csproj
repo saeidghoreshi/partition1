@@ -52,11 +52,11 @@
     <Compile Include="Classes\Bank\Bank.cs" />
     <Compile Include="Classes\Bank\bankBranch.cs" />
     <Compile Include="Classes\Organization\Office.cs" />
-    <Compile Include="Classes\card\Card.cs" />
-    <Compile Include="Classes\card\VisaCard.cs" />
-    <Compile Include="Classes\card\MasterCard.cs" />
-    <Compile Include="Classes\card\CreditCard.cs" />
-    <Compile Include="Classes\card\DebitCard.cs" />
+    <Compile Include="Classes\Card\Card.cs" />
+    <Compile Include="Classes\Card\VisaCard.cs" />
+    <Compile Include="Classes\Card\MasterCard.cs" />
+    <Compile Include="Classes\Card\CreditCard.cs" />
+    <Compile Include="Classes\Card\DebitCard.cs" />
     <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Currency.cs" />
     <Compile Include="Classes\CurrencyException.cs" />
@@ -64,6 +64,7 @@
     <Compile Include="Classes\Enums.cs" />
     <Compile Include="Classes\Bank\Fee.cs" />
     <Compile Include="Classes\Invoice.cs" />
+    <Compile Include="Classes\Organization\Organization.cs" />
     <Compile Include="Classes\payment\DBPayment.cs" />
     <Compile Include="Classes\payment\CCPayment.cs" />
     <Compile Include="Classes\payment\internalPayment.cs" />
@@ -100,6 +101,7 @@
     <None Include="Documentation\accounting.~ml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Documentation\banking.sql" />
     <Content Include="Documentation\Report1.sql" />
     <Content Include="Documentation\test-resetSeed-rollback.txt" />
   </ItemGroup>
