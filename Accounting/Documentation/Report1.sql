@@ -51,6 +51,7 @@ pt.name as paymentType,
 case when ept.name is null then '-' else ept.name end  as extPaymentType
 
 from Accounting.payment p
+
 inner join Accounting.paymentAction pa on p.ID=pa.paymentID
 inner join Accounting.paymentstat ps on ps.ID=pa.paymentStatID
 
@@ -79,3 +80,5 @@ select * from Accounting.currencyType;
 select 'Services' as '-';
 select * from Accounting.service;
 
+select * from Accounting.fee
+select * from Accounting.ccfee

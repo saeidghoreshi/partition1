@@ -2,6 +2,7 @@
 <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
     <EntitySet Name="account" EntityType="DB_40114_codeclubModel.Store.account" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="address" EntityType="DB_40114_codeclubModel.Store.address" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.Store.bank" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.Store.bankCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="card" EntityType="DB_40114_codeclubModel.Store.card" store:Type="Tables" Schema="Accounting" />
@@ -11,6 +12,8 @@
     <EntitySet Name="ccCardType" EntityType="DB_40114_codeclubModel.Store.ccCardType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="ccFee" EntityType="DB_40114_codeclubModel.Store.ccFee" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="ccPayment" EntityType="DB_40114_codeclubModel.Store.ccPayment" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="city" EntityType="DB_40114_codeclubModel.Store.city" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="country" EntityType="DB_40114_codeclubModel.Store.country" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="currency" EntityType="DB_40114_codeclubModel.Store.currency" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="currencyType" EntityType="DB_40114_codeclubModel.Store.currencyType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="dbCard" EntityType="DB_40114_codeclubModel.Store.dbCard" store:Type="Tables" Schema="Accounting" />
@@ -43,6 +46,7 @@
     <EntitySet Name="paymentType" EntityType="DB_40114_codeclubModel.Store.paymentType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="person" EntityType="DB_40114_codeclubModel.Store.person" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="service" EntityType="DB_40114_codeclubModel.Store.service" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="street" EntityType="DB_40114_codeclubModel.Store.street" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="sysUserType" EntityType="DB_40114_codeclubModel.Store.sysUserType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="transaction" EntityType="DB_40114_codeclubModel.Store.transaction" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="user" EntityType="DB_40114_codeclubModel.Store.user" store:Type="Tables" Schema="Accounting" />
@@ -59,6 +63,18 @@
     <AssociationSet Name="FK_account_entity" Association="DB_40114_codeclubModel.Store.FK_account_entity">
       <End Role="entity" EntitySet="entity" />
       <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address_city" Association="DB_40114_codeclubModel.Store.FK_address_city">
+      <End Role="city" EntitySet="city" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address_country" Association="DB_40114_codeclubModel.Store.FK_address_country">
+      <End Role="country" EntitySet="country" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address_street" Association="DB_40114_codeclubModel.Store.FK_address_street">
+      <End Role="street" EntitySet="street" />
+      <End Role="address" EntitySet="address" />
     </AssociationSet>
     <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.Store.FK_bankCard_bank">
       <End Role="bank" EntitySet="bank" />
@@ -303,6 +319,15 @@
     <Property Name="currencyID" Type="int" />
     <Property Name="balance" Type="decimal" Nullable="false" />
   </EntityType>
+  <EntityType Name="address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="countryID" Type="int" />
+    <Property Name="cityID" Type="int" />
+    <Property Name="streetID" Type="int" />
+  </EntityType>
   <EntityType Name="bank">
     <Key>
       <PropertyRef Name="ID" />
@@ -374,6 +399,20 @@
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="extPaymentID" Type="int" />
     <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="currency">
     <Key>
@@ -633,6 +672,13 @@
     <Property Name="receiverEntityID" Type="int" />
     <Property Name="name" Type="nvarchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="street">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="sysUserType">
     <Key>
       <PropertyRef Name="ID" />
@@ -646,7 +692,7 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="accountID" Type="int" />
-    <Property Name="amount" Type="decimal" />
+    <Property Name="amount" Type="decimal" Scale="2" />
   </EntityType>
   <EntityType Name="user">
     <Key>
@@ -703,6 +749,42 @@
       </Principal>
       <Dependent Role="account">
         <PropertyRef Name="ownerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address_city">
+    <End Role="city" Type="DB_40114_codeclubModel.Store.city" Multiplicity="0..1" />
+    <End Role="address" Type="DB_40114_codeclubModel.Store.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address_country">
+    <End Role="country" Type="DB_40114_codeclubModel.Store.country" Multiplicity="0..1" />
+    <End Role="address" Type="DB_40114_codeclubModel.Store.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="countryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address_street">
+    <End Role="street" Type="DB_40114_codeclubModel.Store.street" Multiplicity="0..1" />
+    <End Role="address" Type="DB_40114_codeclubModel.Store.address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="street">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="streetID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -927,9 +1009,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_entityWalletTransaction_entityWallet">
-    <End Role="entityWallet" Type="DB_40114_codeclubModel.Store.entityWallet" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="entityWallet" Type="DB_40114_codeclubModel.Store.entityWallet" Multiplicity="0..1" />
     <End Role="entityWalletTransaction" Type="DB_40114_codeclubModel.Store.entityWalletTransaction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="entityWallet">
@@ -1101,9 +1181,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_invoiceActionTransaction_transaction">
-    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="0..1" />
     <End Role="invoiceActionTransaction" Type="DB_40114_codeclubModel.Store.invoiceActionTransaction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="transaction">

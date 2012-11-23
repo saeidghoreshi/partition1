@@ -23,7 +23,12 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_account_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.account), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_account_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.entity), "account", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.account), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_transaction_account", "account", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.account), "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.transaction), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_address_city", "city", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.city), "address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.address), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_address_country", "country", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.country), "address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.address), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_address_street", "street", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.street), "address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.address), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_bankCard_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "bankCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.bankCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_bankCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "bankCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.bankCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_card_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "card", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.card), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
@@ -31,10 +36,12 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "entityCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_externalPayment_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.card), "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.externalPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_dbCard_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "dbCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.dbCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_categoryType_glType", "glType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.glType), "categoryType", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.categoryType), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccCard_cardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_mcCard_ccCard", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "mcCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.mcCard), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_visaCard_ccCard", "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCard), "visaCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.visaCard), true)]
+[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_ccCardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccPayment_externalPayment", "externalPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.externalPayment), "ccPayment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccPayment), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_currency_currencyType", "currencyType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currencyType), "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.currency), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_entityWallet_currency", "currency", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.currency), "entityWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.entityWallet), true)]
@@ -76,10 +83,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_paymentActionTransaction_transaction", "transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.transaction), "paymentActionTransaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.paymentActionTransaction), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_person", "person", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.person), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
 [assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_user_userType", "userType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.userType), "user", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.user), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_ccFee_ccCardType", "ccCardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.ccCardType), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.ccFee), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.bank), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
-[assembly: EdmRelationshipAttribute("DB_40114_codeclubModel", "FK_fee_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Accounting.Models.cardType), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Accounting.Models.fee), true)]
 
 #endregion
 
@@ -146,6 +149,22 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<account> _account;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<address> address
+        {
+            get
+            {
+                if ((_address == null))
+                {
+                    _address = base.CreateObjectSet<address>("address");
+                }
+                return _address;
+            }
+        }
+        private ObjectSet<address> _address;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -262,6 +281,22 @@ namespace Accounting.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<ccFee> ccFee
+        {
+            get
+            {
+                if ((_ccFee == null))
+                {
+                    _ccFee = base.CreateObjectSet<ccFee>("ccFee");
+                }
+                return _ccFee;
+            }
+        }
+        private ObjectSet<ccFee> _ccFee;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<ccPayment> ccPayment
         {
             get
@@ -274,6 +309,38 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<ccPayment> _ccPayment;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<city> city
+        {
+            get
+            {
+                if ((_city == null))
+                {
+                    _city = base.CreateObjectSet<city>("city");
+                }
+                return _city;
+            }
+        }
+        private ObjectSet<city> _city;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<country> country
+        {
+            get
+            {
+                if ((_country == null))
+                {
+                    _country = base.CreateObjectSet<country>("country");
+                }
+                return _country;
+            }
+        }
+        private ObjectSet<country> _country;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -450,6 +517,22 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<extPaymentType> _extPaymentType;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<fee> fee
+        {
+            get
+            {
+                if ((_fee == null))
+                {
+                    _fee = base.CreateObjectSet<fee>("fee");
+                }
+                return _fee;
+            }
+        }
+        private ObjectSet<fee> _fee;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -774,6 +857,22 @@ namespace Accounting.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<street> street
+        {
+            get
+            {
+                if ((_street == null))
+                {
+                    _street = base.CreateObjectSet<street>("street");
+                }
+                return _street;
+            }
+        }
+        private ObjectSet<street> _street;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<sysUserType> sysUserType
         {
             get
@@ -850,38 +949,6 @@ namespace Accounting.Models
             }
         }
         private ObjectSet<visaCard> _visaCard;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ccFee> ccFee
-        {
-            get
-            {
-                if ((_ccFee == null))
-                {
-                    _ccFee = base.CreateObjectSet<ccFee>("ccFee");
-                }
-                return _ccFee;
-            }
-        }
-        private ObjectSet<ccFee> _ccFee;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<fee> fee
-        {
-            get
-            {
-                if ((_fee == null))
-                {
-                    _fee = base.CreateObjectSet<fee>("fee");
-                }
-                return _fee;
-            }
-        }
-        private ObjectSet<fee> _fee;
 
         #endregion
 
@@ -893,6 +960,14 @@ namespace Accounting.Models
         public void AddToaccount(account account)
         {
             base.AddObject("account", account);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the address EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaddress(address address)
+        {
+            base.AddObject("address", address);
         }
     
         /// <summary>
@@ -952,11 +1027,35 @@ namespace Accounting.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the ccFee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToccFee(ccFee ccFee)
+        {
+            base.AddObject("ccFee", ccFee);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the ccPayment EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToccPayment(ccPayment ccPayment)
         {
             base.AddObject("ccPayment", ccPayment);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the city EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTocity(city city)
+        {
+            base.AddObject("city", city);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the country EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTocountry(country country)
+        {
+            base.AddObject("country", country);
         }
     
         /// <summary>
@@ -1045,6 +1144,14 @@ namespace Accounting.Models
         public void AddToextPaymentType(extPaymentType extPaymentType)
         {
             base.AddObject("extPaymentType", extPaymentType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the fee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTofee(fee fee)
+        {
+            base.AddObject("fee", fee);
         }
     
         /// <summary>
@@ -1208,6 +1315,14 @@ namespace Accounting.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the street EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTostreet(street street)
+        {
+            base.AddObject("street", street);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the sysUserType EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTosysUserType(sysUserType sysUserType)
@@ -1245,22 +1360,6 @@ namespace Accounting.Models
         public void AddTovisaCard(visaCard visaCard)
         {
             base.AddObject("visaCard", visaCard);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ccFee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToccFee(ccFee ccFee)
-        {
-            base.AddObject("ccFee", ccFee);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the fee EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTofee(fee fee)
-        {
-            base.AddObject("fee", fee);
         }
 
         #endregion
@@ -1570,6 +1669,253 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<transaction>("DB_40114_codeclubModel.FK_transaction_account", "transaction", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="address")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class address : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new address object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static address Createaddress(global::System.Int32 id)
+        {
+            address address = new address();
+            address.ID = id;
+            return address;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> countryID
+        {
+            get
+            {
+                return _countryID;
+            }
+            set
+            {
+                OncountryIDChanging(value);
+                ReportPropertyChanging("countryID");
+                _countryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("countryID");
+                OncountryIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _countryID;
+        partial void OncountryIDChanging(Nullable<global::System.Int32> value);
+        partial void OncountryIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> cityID
+        {
+            get
+            {
+                return _cityID;
+            }
+            set
+            {
+                OncityIDChanging(value);
+                ReportPropertyChanging("cityID");
+                _cityID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("cityID");
+                OncityIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _cityID;
+        partial void OncityIDChanging(Nullable<global::System.Int32> value);
+        partial void OncityIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> streetID
+        {
+            get
+            {
+                return _streetID;
+            }
+            set
+            {
+                OnstreetIDChanging(value);
+                ReportPropertyChanging("streetID");
+                _streetID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("streetID");
+                OnstreetIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _streetID;
+        partial void OnstreetIDChanging(Nullable<global::System.Int32> value);
+        partial void OnstreetIDChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_address_city", "city")]
+        public city city
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<city>("DB_40114_codeclubModel.FK_address_city", "city").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<city>("DB_40114_codeclubModel.FK_address_city", "city").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<city> cityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<city>("DB_40114_codeclubModel.FK_address_city", "city");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<city>("DB_40114_codeclubModel.FK_address_city", "city", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_address_country", "country")]
+        public country country
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<country>("DB_40114_codeclubModel.FK_address_country", "country").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<country>("DB_40114_codeclubModel.FK_address_country", "country").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<country> countryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<country>("DB_40114_codeclubModel.FK_address_country", "country");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<country>("DB_40114_codeclubModel.FK_address_country", "country", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_address_street", "street")]
+        public street street
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<street>("DB_40114_codeclubModel.FK_address_street", "street").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<street>("DB_40114_codeclubModel.FK_address_street", "street").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<street> streetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<street>("DB_40114_codeclubModel.FK_address_street", "street");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<street>("DB_40114_codeclubModel.FK_address_street", "street", value);
                 }
             }
         }
@@ -3245,6 +3591,220 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<externalPayment>("DB_40114_codeclubModel.FK_ccPayment_externalPayment", "externalPayment", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="city")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class city : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new city object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static city Createcity(global::System.Int32 id)
+        {
+            city city = new city();
+            city.ID = id;
+            return city;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_address_city", "address")]
+        public EntityCollection<address> address
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<address>("DB_40114_codeclubModel.FK_address_city", "address");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<address>("DB_40114_codeclubModel.FK_address_city", "address", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="country")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class country : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new country object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static country Createcountry(global::System.Int32 id)
+        {
+            country country = new country();
+            country.ID = id;
+            return country;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_address_country", "address")]
+        public EntityCollection<address> address
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<address>("DB_40114_codeclubModel.FK_address_country", "address");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<address>("DB_40114_codeclubModel.FK_address_country", "address", value);
                 }
             }
         }
@@ -9371,6 +9931,113 @@ namespace Accounting.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<invoiceService>("DB_40114_codeclubModel.FK_invoiceService_service", "invoiceService", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB_40114_codeclubModel", Name="street")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class street : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new street object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        public static street Createstreet(global::System.Int32 id)
+        {
+            street street = new street();
+            street.ID = id;
+            return street;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DB_40114_codeclubModel", "FK_address_street", "address")]
+        public EntityCollection<address> address
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<address>("DB_40114_codeclubModel.FK_address_street", "address");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<address>("DB_40114_codeclubModel.FK_address_street", "address", value);
                 }
             }
         }
