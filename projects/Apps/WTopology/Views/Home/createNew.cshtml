@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/simpleLayout.cshtml";
+}
+
+
+@{
+    using (Html.BeginForm("saveCreateNew", "home", FormMethod.Post))
+    {   
+        
+        <table>
+        <tr>
+        <td>Parent Category</td>
+        </tr>
+        <tr>
+        <td>
+        <select id="createNew_parentCat" name="createNew_parentCat">
+            @foreach (var item in ViewBag.parentCategoryList)
+            {
+                <option value="@item["ID"]">@item["title"]</option>
+            }
+        </select>
+        </td>
+        </tr>
+
+        <tr>
+        <td><label for="createNew_title">Title</label></td>
+        </tr>
+        <tr>
+        <td><input type="text" id="createNew_title" name="createNew_title" /></td>
+        </tr>
+        <tr>
+        <td>Description</td>
+        </tr>
+        <tr>
+        <td><textarea cols="50" rows="10" id="createNew_description" name="createNew_description"></textarea></td>
+        </tr>
+        <tr>
+        <td>
+            <button class="main_btn">Save</button> 
+            <button class="main_btn">Back</button>
+        </td>
+        </tr>
+        </table>
+
+   };
+}

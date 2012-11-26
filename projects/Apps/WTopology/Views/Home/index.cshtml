@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/simpleLayout.cshtml";
+}
+
+
+@{
+    using (Html.BeginForm("actionsOnMainPage", "home", FormMethod.Post))
+    {   
+        <!--Search-->
+        <input type="text" id="main-search" value="search" class="main-search"/>
+        <hr />
+        <!--fileter-->
+        <table>
+        <tr>
+            <td><label for="main-collapseAll">Expand ALL</label><input class="main-expandcollapse" name="main-expandcollapse" type="radio" id="main-expandAll" /></td>
+            <td><label for="main-expandAll">Collapse ALL</label><input class="main-expandcollapse" name="main-expandcollapse" type="radio" id="main-collapseAll" checked /></td>
+        </tr>
+        </table>
+        <hr />
+        <!--Actions-->
+        <table>
+        <tr>
+        <td>
+            <button value="createResource" name="main_btn_createNew" class="main_btn_green">Create Sub New</button>
+        </td>
+        <td>
+            <button value="createCategory" name="main_btn_createCategory" class="main_btn_green">Create Category</button>
+        </td>
+        <td>
+            <button value="highlightResources" name="main_btn_hightlightResources" class="main_btn_green">HighLight</button>
+        </td>
+        <td>
+            <button value="unhighlightResources" name="main_btn_unhightlightResources" class="main_btn_red">(un)HighLight</button>
+        </td>
+        <td>
+            <button value="deleteResources" name="main_btn_deleteSelected" class="main_btn_red">Delete</button>
+        </td>
+        </tr>
+        </table>
+    
+        <div id="mainResult">
+        @foreach (var item in ViewBag.x0)
+        {
+            if (item.parentID == null)
+            {
+                <div class="item_parent" id="parent-@item.ID">@item.title</div>
+            }
+            else
+            { 
+                <div class="parent-@item.parentID item_child" >
+                    <table>
+                    <tr>
+                    <td><input type="checkbox" name="main_resources_cb" id="main_resources_cb_@item.ID" value="@item.ID" /></td>
+                    <td><label for="main_resources_cb_@item.ID" style='background:@item.colorCode'><a target="_blank" href="@item.title">@item.title</a></label></td>
+                    </tr>
+                    </table>
+                </div>
+            }
+        }
+        </div>
+    }
+}
