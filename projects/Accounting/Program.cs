@@ -139,10 +139,10 @@ namespace Accounting
                 person2.payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
 
                 //Cancel Invoice Payment
-                inv.cancelInvoicePaymentCC(1);
-                inv.cancelInvoicePaymentDB(2);
+                inv.cancelInvoicePaymentEXT(1);
+                inv.cancelInvoicePaymentEXT(2);
                 inv.cancelInvoicePaymentINTERNAL(3);
-                inv.cancelInvoicePaymentCC(4);
+                inv.cancelInvoicePaymentEXT(4);
 
                 ts.Complete();
             }

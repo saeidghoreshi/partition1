@@ -126,11 +126,15 @@ namespace accounting.classes.enums
         Finalized = 2,
         Deleted = 3       /*If no Payments of any kind ever happend*/,
         Cancelled = 4     /*if no payments occured or all payments voided or refunded*/,
+
         internalPaymant = 5,
         interacPaymant = 6,
         visaCardPaymant = 7,
         masterCardPaymant = 8,
-        partialPaymentCancelled = 9
+
+        partialInternalPaymantCancelled = 9,
+        partialInteracPaymantCancelled = 10,
+        partialCreditCardPaymantCancelled = 11
     }
     public enum paymentStat
     {

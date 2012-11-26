@@ -9,7 +9,7 @@ using System.Transactions;
 namespace accounting.classes
 {
     
-    public abstract class externalPayment : Payment
+    public class externalPayment : Payment
     {
         public readonly int PAYMENTTYPEID = (int)enums.paymentType.External;
 
@@ -47,7 +47,7 @@ namespace accounting.classes
             }
         }
 
-        protected new void loadByPaymentID(int paymentID)
+        public new void loadByPaymentID(int paymentID)
         {
             using (var ctx = new AccContext())
             {

@@ -58,6 +58,8 @@ namespace accounting.classes
             {
                 var inv = ctx.invoice
                     .Where(x => x.ID == invoiceID).SingleOrDefault();
+                if (inv == null)
+                    throw new Exception("Invoice does not exists");
 
                 this.invoiceID = inv.ID;
                 this.issuerEntityID = (int)inv.issuerEntityID;
@@ -93,18 +95,16 @@ namespace accounting.classes
             using (var ctx = new AccContext())
             using (var ts =new TransactionScope())
             {
-                var invoice = ctx.invoice.Where(x=>x.ID==this.invoiceID).SingleOrDefault();
-                if(invoice==null)
-                    throw  new Exception();
-
+                this.loadInvoiceByInvoiceID(this.invoiceID);
+                
                 //Get Sum of Invoice Services added
                 decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt();
                 
                 //Record related transctions
                 List <Accounting.Models.transaction> transactions = new List<transaction>();
-                var trans1 = Transaction.createNew((int)invoice.receiverEntityID, (int)LibCategories.AP, -1*(decimal)invoiceServicesAmt,(int)invoice.currencyID);
+                var trans1 = Transaction.createNew((int)this.receiverEntityID, (int)LibCategories.AP, -1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
                 transactions.Add(trans1);
-                var trans2 = Transaction.createNew((int)invoice.issuerEntityID, (int)AssetCategories.AR, +1 * (decimal)invoiceServicesAmt, (int)invoice.currencyID);
+                var trans2 = Transaction.createNew((int)this.issuerEntityID, (int)AssetCategories.AR, +1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
                 transactions.Add(trans2);
 
                 /*Record Invoice Transaction*/
@@ -290,39 +290,26 @@ namespace accounting.classes
 
         }
 
-
-        public void cancelInvoicePaymentCC(int paymentID) 
-        {   
-            using (var ctx = new AccContext())
-            using (var ts = new TransactionScope())
-            {
-                accounting.classes.ccPayment payment = new accounting.classes.ccPayment();
-                payment.loadByPaymentID(paymentID);
-
-                List<Accounting.Models.transaction> transactions = payment.cancelPayment(enums.paymentAction.Void);
-
-                /*Record Invoice Payment transactions*/
-                this.RecordInvoicePaymentTransactions(transactions, paymentID, enums.paymentStat.VoidApproved);
-                /*Record Invoice Transaction*/
-                this.RecordInvoiceTransaction(transactions, enums.invoiceStat.partialPaymentCancelled);
-                
-                ts.Complete();
-            }
-        }
-        public void cancelInvoicePaymentDB(int paymentID)
+        /*cancelling one payment od invoice at the time*/
+        public void cancelInvoicePaymentEXT(int paymentID)
         {
             using (var ctx = new AccContext())
             using (var ts = new TransactionScope())
             {
-                accounting.classes.dbPayment payment = new accounting.classes.dbPayment();
+                accounting.classes.externalPayment payment = new accounting.classes.externalPayment();
                 payment.loadByPaymentID(paymentID);
 
                 List<Accounting.Models.transaction> transactions = payment.cancelPayment(enums.paymentAction.Void);
 
                 /*Record Invoice Payment transactions*/
                 this.RecordInvoicePaymentTransactions(transactions, paymentID, enums.paymentStat.VoidApproved);
+
                 /*Record Invoice Transaction*/
-                this.RecordInvoiceTransaction(transactions, enums.invoiceStat.partialPaymentCancelled);
+                if(payment.extPaymentTypeID==(int)enums.extPaymentType.CreditPayment)
+                    this.RecordInvoiceTransaction(transactions, enums.invoiceStat.partialCreditCardPaymantCancelled);
+
+                if (payment.extPaymentTypeID == (int)enums.extPaymentType.InteracPayment)
+                    this.RecordInvoiceTransaction(transactions, enums.invoiceStat.partialInteracPaymantCancelled);
 
                 ts.Complete();
             }
@@ -340,9 +327,62 @@ namespace accounting.classes
                 this.RecordInvoicePaymentTransactions(transactions, paymentID, enums.paymentStat.VoidApproved);
 
                 /*Record Invoice Transaction*/
-                this.RecordInvoiceTransaction(transactions, enums.invoiceStat.partialPaymentCancelled);
+                this.RecordInvoiceTransaction(transactions, enums.invoiceStat.partialInternalPaymantCancelled);
 
                 ts.Complete();
+            }
+        }
+
+        /*cancel invoice all payments*/
+        public void cancelInvocice() 
+        {
+            using (var ctx = new AccContext())
+            using (var ts = new TransactionScope())
+            {
+                /*get all invoice payments*/
+                List<Accounting.Models.payment> payments = this.getAllPayments();
+
+                /*cancel payments one by one*/
+                foreach (var item in payments)
+                { 
+                    if(item.paymentTypeID==(int)enums.paymentType.Internal)
+                        cancelInvoicePaymentINTERNAL(item.ID);
+                    if(item.paymentTypeID==(int)enums.paymentType.External)
+                        cancelInvoicePaymentEXT(item.ID);
+                }
+
+                /*Cancel invoice*/
+                    this.loadInvoiceByInvoiceID(invoiceID);
+                
+                    //Get Sum of Invoice Services added
+                    decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt();
+
+                    //Record related transctions
+                    List<Accounting.Models.transaction> transactions = new List<transaction>();
+                    var trans1 = Transaction.createNew((int)this.receiverEntityID, (int)LibCategories.AP, +1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
+                    transactions.Add(trans1);
+                    var trans2 = Transaction.createNew((int)this.issuerEntityID, (int)AssetCategories.AR, -1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
+                    transactions.Add(trans2);
+
+                    /*Record Invoice Transaction*/
+                    this.RecordInvoiceTransaction(transactions, enums.invoiceStat.Cancelled);
+
+                    ts.Complete();
+                
+            }
+        }
+
+        public List<Accounting.Models.payment> getAllPayments() 
+        {
+            using (var ctx = new AccContext())
+            {
+                var payments = ctx.invoicePayment
+                    .Where(z => (int)z.invoiceID == this.invoiceID)
+                    //.Where(z=>z.invoice.in)
+                    .Select(x => x.payment)
+                    .ToList();
+
+                return payments;
             }
         }
 
