@@ -33,8 +33,33 @@
     
     
     $$(document).ready(function () {
+    
+       
+       $$( "input[type=button], button" )
+                .button()
+                .click(function( event ) {
+                    //event.preventDefault();
+       });
+       $$('#main_btn_createNew')
+       .button({icons: {primary: "ui-icon-link"}});
+       $$('#main_btn_createCategory')
+       .button({icons: {primary: "ui-icon-folder-open"}});
+       $$('#main_btn_hightlightResources')
+       .button({icons: {primary: "ui-icon-check"}});
+       $$('#main_btn_unhightlightResources')
+       .button({icons: {primary: "ui-icon-alert"}});
+       $$('#main_btn_deleteSelected')
+       .button({icons: {primary: "ui-icon-trash"}});
+       
+       
+       $$( "#main-expandcollapse" ).buttonset();
+       
+        
+            $$( "#radio" ).buttonset();
+        
+
         $$('.item_child').ready(function () {
-            $$('.item_child').animate({height: 'toggle'},0,function(){});
+            $$('#main-expandAll').change();
         });//itemChild start
 
         $$(".item_parent").click(function()

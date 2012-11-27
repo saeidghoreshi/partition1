@@ -198,6 +198,10 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DA.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Properties\PublishProfiles\doc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\doc - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\docarchive - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\docarchive - Web Deploy.pubxml" />
     <None Include="readme.txt" />
     <Content Include="Views\Home\topics\newTopic.cshtml" />
     <Content Include="Views\Home\topics\SubTopic.cshtml" />

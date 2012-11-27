@@ -2,10 +2,10 @@
 <Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
     <EntitySet Name="foldering" EntityType="DB_40114_codeclubModel.Store.foldering" store:Type="Tables" Schema="saeid" />
-    <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
+    <EntitySet Name="topics" EntityType="DB_40114_codeclubModel.Store.topics" store:Type="Tables" Schema="saeid" />
     <AssociationSet Name="FK_topic_foldering" Association="DB_40114_codeclubModel.Store.FK_topic_foldering">
       <End Role="foldering" EntitySet="foldering" />
-      <End Role="topic" EntitySet="topic" />
+      <End Role="topics" EntitySet="topics" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="foldering">
@@ -18,7 +18,7 @@
     <Property Name="is_active" Type="bit" />
     <Property Name="timestamp" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="topic">
+  <EntityType Name="topics">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -32,12 +32,12 @@
   </EntityType>
   <Association Name="FK_topic_foldering">
     <End Role="foldering" Type="DB_40114_codeclubModel.Store.foldering" Multiplicity="0..1" />
-    <End Role="topic" Type="DB_40114_codeclubModel.Store.topic" Multiplicity="*" />
+    <End Role="topics" Type="DB_40114_codeclubModel.Store.topics" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="foldering">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="topic">
+      <Dependent Role="topics">
         <PropertyRef Name="foldering_id" />
       </Dependent>
     </ReferentialConstraint>

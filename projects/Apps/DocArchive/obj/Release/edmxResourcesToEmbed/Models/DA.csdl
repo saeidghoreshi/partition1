@@ -1,14 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB_40114_codeclubModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityContainer Name="DOCContext" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.topic" />
     <EntitySet Name="foldering" EntityType="DB_40114_codeclubModel.foldering" />
+    <EntitySet Name="topics" EntityType="DB_40114_codeclubModel.topics" />
     <AssociationSet Name="FK_topic_foldering" Association="DB_40114_codeclubModel.FK_topic_foldering">
       <End Role="foldering" EntitySet="foldering" />
-      <End Role="topic" EntitySet="topic" />
+      <End Role="topics" EntitySet="topics" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="topic">
+  <EntityType Name="foldering">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parent_id" />
+    <Property Type="String" Name="title" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="is_active" />
+    <Property Type="String" Name="timestamp" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="topics" Relationship="DB_40114_codeclubModel.FK_topic_foldering" FromRole="foldering" ToRole="topics" />
+  </EntityType>
+  <EntityType Name="topics">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -19,27 +30,16 @@
     <Property Type="Boolean" Name="is_active" />
     <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="foldering_id" />
-    <NavigationProperty Name="foldering" Relationship="DB_40114_codeclubModel.FK_topic_foldering" FromRole="topic" ToRole="foldering" />
-  </EntityType>
-  <EntityType Name="foldering">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="parent_id" />
-    <Property Type="String" Name="title" MaxLength="400" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="is_active" />
-    <Property Type="String" Name="timestamp" MaxLength="500" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="topic" Relationship="DB_40114_codeclubModel.FK_topic_foldering" FromRole="foldering" ToRole="topic" />
+    <NavigationProperty Name="foldering" Relationship="DB_40114_codeclubModel.FK_topic_foldering" FromRole="topics" ToRole="foldering" />
   </EntityType>
   <Association Name="FK_topic_foldering">
     <End Type="DB_40114_codeclubModel.foldering" Role="foldering" Multiplicity="0..1" />
-    <End Type="DB_40114_codeclubModel.topic" Role="topic" Multiplicity="*" />
+    <End Type="DB_40114_codeclubModel.topics" Role="topics" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="foldering">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="topic">
+      <Dependent Role="topics">
         <PropertyRef Name="foldering_id" />
       </Dependent>
     </ReferentialConstraint>
