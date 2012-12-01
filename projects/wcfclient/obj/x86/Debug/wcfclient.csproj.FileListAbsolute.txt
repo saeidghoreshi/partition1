@@ -1,0 +1,6 @@
+C:\projects\Partitions\partition1\projects\wcfclient\bin\Debug\wcfclient.exe
+C:\projects\Partitions\partition1\projects\wcfclient\bin\Debug\wcfclient.pdb
+C:\projects\Partitions\partition1\projects\wcfclient\obj\x86\Debug\wcfclient.exe
+C:\projects\Partitions\partition1\projects\wcfclient\obj\x86\Debug\wcfclient.pdb
+C:\projects\Partitions\partition1\projects\wcfclient\bin\Debug\wcfclient.exe.config
+C:\projects\Partitions\partition1\projects\wcfclient\obj\x86\Debug\wcfclient.csprojResolveAssemblyReference.cache

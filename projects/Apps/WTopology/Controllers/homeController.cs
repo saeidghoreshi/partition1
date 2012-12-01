@@ -216,5 +216,24 @@ namespace WTopology.Controllers
                 return RedirectToAction("/");
         }
 
+
+        [HttpPost]
+        public JsonResult jSON_FetchResourceDescription()
+        {
+            var resourceID = -1;
+            if (string.IsNullOrEmpty(Request.Params["resourceID"]))
+                resourceID = -1;
+            else
+                resourceID = Convert.ToInt32(Request.Params["resourceID"].ToString().Trim());
+
+            sqlServer x = new sqlServer();
+            List<sqlServerPar> pars = new List<sqlServerPar>();
+            pars.Add(new sqlServerPar { dbType = SqlDbType.Int, name = "resourceID", value = resourceID });
+
+            var result = resource.getResourceList(x.runSP("WTopology.getResourcedetails", pars).Tables[0]);
+            
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

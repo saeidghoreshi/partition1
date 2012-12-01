@@ -121,6 +121,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="Resources\base\ext-4.0.2-ext-all.js" />
     <Content Include="Resources\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Resources\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Resources\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -140,8 +141,17 @@
     <Content Include="Resources\base\jquery.ui.theme.css" />
     <Content Include="Resources\base\prototype-1.7.7.0.js" />
     <Content Include="Resources\base\require.js" />
+    <Content Include="Resources\Editor\Guid.txt" />
+    <Content Include="Resources\Editor\images\rte_colorpicker_gray.jpg" />
+    <Content Include="Resources\Editor\images\rte_colorpicker_rgb.jpg" />
+    <Content Include="Resources\Editor\images\rte_icons.gif" />
+    <Content Include="Resources\Editor\jquery.ocupload-1.1.4.js" />
+    <Content Include="Resources\Editor\jquery.rte.css" />
+    <Content Include="Resources\Editor\jquery.rte.js" />
+    <Content Include="Resources\Editor\jquery.rte.tb.js" />
     <Content Include="Resources\javascript\home-main.js" />
     <Content Include="Resources\styles\StyleSheet1.css" />
+    <Content Include="Resources\images\zoom_in.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -155,7 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

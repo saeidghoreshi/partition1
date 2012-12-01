@@ -1,0 +1,39 @@
+Create Library
+1-create wcf service library and clenup
+2-create .cs file and define the application logic including class[datacontract], Interface[servicecontract] and implementation
+3-empty-up app.config
+
+Create IIS host application
+1-create web application and cleanup and just keep config file
+2-create service.svc 
+3-configure endpoints in app.config like
+
+  <system.serviceModel>
+
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" />
+
+    <services>
+      <service name="wcfLibrary.service" behaviorConfiguration="serviceBehavior">
+        <endpoint address ="Addr" binding="basicHttpBinding" contract="wcfLibrary.IService"></endpoint>
+        <endpoint address ="secureAddr" binding="wsHttpBinding" contract="wcfLibrary.IService"></endpoint>
+        <endpoint contract="IMetadataExchange" binding="mexHttpBinding" address="mex" />
+      </service>
+    </services>
+   
+    <behaviors>
+      <serviceBehaviors>
+        <behavior name="serviceBehavior">
+          <serviceMetadata httpGetEnabled="true"/>
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+
+  </system.serviceModel>
+
+4-add reference to service library
+5-run on browser
+
+
+client configuration
+1-create console application
+2-add web reference and add the wsdl/mex path and use auto-created config from file

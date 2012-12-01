@@ -8,6 +8,35 @@ using System.Data.SqlClient;
 
 namespace WTopology.Classes
 {
+
+    public class resource
+    {
+        public int ID;
+        public int parentID;
+        public string title;
+        public string description;
+        /// <summary>
+        /// get data table of  resource table from database and make Enumerable from it
+        /// </summary>
+        /// <param name="dt"></param>
+        public static List<resource> getResourceList(DataTable dt)
+        {
+            List<resource> result = new List<resource> { };
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                var node = new resource()
+                {
+                    ID= Convert.ToInt32(dt.Rows[i][0]),
+                    parentID= Convert.ToInt32(dt.Rows[i][1]),
+                    title= Convert.ToString(dt.Rows[i][2]),
+                    description= Convert.ToString(dt.Rows[i][3])
+                };
+                result.Add(node);
+                
+            }
+            return result;
+        }
+    }
     public class treeNode
     {
         public Nullable<int> ID;
