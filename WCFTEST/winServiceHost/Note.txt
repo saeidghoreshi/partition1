@@ -1,0 +1,10 @@
+﻿add reference to 
+1-the wcf library 
+2-service model
+3-sericeModel.Web
+
+define Host
+
+add Installer
+
+then in vs command promp switch to the directory, use installutil exe file

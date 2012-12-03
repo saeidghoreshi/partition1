@@ -1,0 +1,190 @@
+﻿Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+An exception occurred during the Rollback phase of the System.ServiceProcess.ServiceProcessInstaller installer.
+System.NullReferenceException: Object reference not set to an instance of an object.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+An exception occurred during the Rollback phase of the System.ServiceProcess.ServiceProcessInstaller installer.
+System.NullReferenceException: Object reference not set to an instance of an object.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Installing service MyService...
+Creating EventLog source MyService in log Application...
+Rolling back assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
+Restoring event log to previous state for source MyService.

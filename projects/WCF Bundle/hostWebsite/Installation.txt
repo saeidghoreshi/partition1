@@ -1,9 +1,0 @@
-﻿/*
-     * add service dll
-     *change svc file and just keep service tag with right reference
-     *add services to web.config 
-     * then web reference to svc URL
-
-
-	 IIS 5 / 6 only supports http
-	 using was to support other protocols i 7is

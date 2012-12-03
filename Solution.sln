@@ -99,6 +99,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHost", "WCFTEST\Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cryptography", "cryptography\cryptography.csproj", "{B3D260A9-A531-4E95-9CFF-B3E5415C031D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winServiceHost", "WCFTEST\winServiceHost\winServiceHost.csproj", "{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Solution.vsmdi
@@ -426,6 +428,16 @@ Global
 		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|Mixed Platforms.Build.0 = Release|x86
 		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|x86.ActiveCfg = Release|x86
 		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|x86.Build.0 = Release|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Debug|x86.ActiveCfg = Debug|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Debug|x86.Build.0 = Debug|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|Any CPU.ActiveCfg = Release|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|Mixed Platforms.Build.0 = Release|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|x86.ActiveCfg = Release|x86
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -455,5 +467,6 @@ Global
 		{9B5BD230-CA51-4274-80C9-180D7C3B7773} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
 		{5ACAA4E9-E094-4E21-97C2-16494F32E43B} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
 		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
+		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
 	EndGlobalSection
 EndGlobal

@@ -11,11 +11,11 @@ namespace ConsoleHost
 {
     public class myCustomSericeHost : ServiceHost
     {
-        public myCustomSericeHost() : base(typeof(service)) { }
+        public myCustomSericeHost() : base(typeof(wcfLibrary.service)) { }
         protected override void OnOpening()
         {
             base.OnOpening();
-            this.AddServiceEndpoint(typeof(service),new BasicHttpBinding(),"always-here");
+            this.AddServiceEndpoint(typeof(wcfLibrary.IService), new BasicHttpBinding(), "http://localhost:2100/service/always-here");
             //check if exists
             ServiceMetadataBehavior meta = this.Description.Behaviors.Find<ServiceMetadataBehavior>();
             if (meta != null)
@@ -34,6 +34,13 @@ namespace ConsoleHost
         static void Main(string[] args)
         {
             ServicesList();
+            /*
+              System.ServiceModel.Web.WebServiceHost webServiceHost = new System.ServiceModel.Web.WebServiceHost(typeof(HelloService));
+                webServiceHost.Open();
+                printRunningServices(webServiceHost);
+                Console.Read();
+                webServiceHost.Close();
+             */
         }
 
         static void printInfo(ServiceHost sh) 

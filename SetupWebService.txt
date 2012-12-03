@@ -81,3 +81,6 @@ Note : possible to download service definition using
 		//cross-platform Usage  [no need to add reference] or addWebReference for .NET
 		then client project can get the copy of those 2 files and add reference to sys.servicemodel and sys.runtime.serialization 
 		and then write the client code (chaneg the config file to app.config)
+
+
+		iis 5/6 only handles wcf http solution iss7/WAS
