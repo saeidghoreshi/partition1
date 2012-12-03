@@ -19,10 +19,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "javascript", "projects\Clie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jqm", "projects\Clientside-Projects\jqm\jqm.csproj", "{B84CA9A9-614B-4B63-93FC-2571ED632F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clientWCFBydll", "projects\WCF Bundle\clientWCFBydll\clientWCFBydll.csproj", "{EA79C9C6-C579-443D-B701-64AC997C01D3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientWCFService", "projects\WCF Bundle\ClientWCFService\ClientWCFService.csproj", "{34D2C048-267C-429E-9D94-E485579E1918}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostWCFService", "projects\WCF Bundle\HostWCFService\HostWCFService.csproj", "{89CD234D-9BD0-49B0-A2F4-7BE89153D699}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hostWebsite", "projects\WCF Bundle\hostWebsite\hostWebsite.csproj", "{4C8706CD-8931-448F-9082-92B9B9EA22A7}"
@@ -87,6 +83,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCFTEST", "WCFTEST", "{355BFC41-3C05-49B3-8DCC-D98CD64D37B4}"
 	ProjectSection(SolutionItems) = preProject
 		SetupWebService.txt = SetupWebService.txt
+		webHttp.txt = webHttp.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcfLibrary", "WCFTEST\wcfLibrary\wcfLibrary.csproj", "{6188A44D-9BAE-4D75-8B4B-2FEB25513A8C}"
@@ -97,6 +94,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "client", "WCFTEST\client\cl
 	ProjectSection(ProjectDependencies) = postProject
 		{9B5BD230-CA51-4274-80C9-180D7C3B7773} = {9B5BD230-CA51-4274-80C9-180D7C3B7773}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHost", "WCFTEST\ConsoleHost\ConsoleHost.csproj", "{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cryptography", "cryptography\cryptography.csproj", "{B3D260A9-A531-4E95-9CFF-B3E5415C031D}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -181,26 +182,6 @@ Global
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D}.Release|x86.ActiveCfg = Release|Any CPU
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Debug|x86.ActiveCfg = Debug|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Debug|x86.Build.0 = Debug|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Release|Any CPU.ActiveCfg = Release|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Release|Mixed Platforms.Build.0 = Release|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Release|x86.ActiveCfg = Release|x86
-		{EA79C9C6-C579-443D-B701-64AC997C01D3}.Release|x86.Build.0 = Release|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Debug|x86.ActiveCfg = Debug|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Debug|x86.Build.0 = Debug|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Release|Any CPU.ActiveCfg = Release|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Release|Mixed Platforms.Build.0 = Release|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Release|x86.ActiveCfg = Release|x86
-		{34D2C048-267C-429E-9D94-E485579E1918}.Release|x86.Build.0 = Release|x86
 		{89CD234D-9BD0-49B0-A2F4-7BE89153D699}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{89CD234D-9BD0-49B0-A2F4-7BE89153D699}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{89CD234D-9BD0-49B0-A2F4-7BE89153D699}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -425,13 +406,31 @@ Global
 		{5ACAA4E9-E094-4E21-97C2-16494F32E43B}.Release|Mixed Platforms.Build.0 = Release|x86
 		{5ACAA4E9-E094-4E21-97C2-16494F32E43B}.Release|x86.ActiveCfg = Release|x86
 		{5ACAA4E9-E094-4E21-97C2-16494F32E43B}.Release|x86.Build.0 = Release|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Debug|x86.ActiveCfg = Debug|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Debug|x86.Build.0 = Debug|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Release|Any CPU.ActiveCfg = Release|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Release|Mixed Platforms.Build.0 = Release|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Release|x86.ActiveCfg = Release|x86
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3}.Release|x86.Build.0 = Release|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Debug|x86.ActiveCfg = Debug|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Debug|x86.Build.0 = Debug|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|Any CPU.ActiveCfg = Release|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|x86.ActiveCfg = Release|x86
+		{B3D260A9-A531-4E95-9CFF-B3E5415C031D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EA79C9C6-C579-443D-B701-64AC997C01D3} = {4A5070FF-BE0F-408F-BBCE-71AD420D1C0F}
-		{34D2C048-267C-429E-9D94-E485579E1918} = {4A5070FF-BE0F-408F-BBCE-71AD420D1C0F}
 		{89CD234D-9BD0-49B0-A2F4-7BE89153D699} = {4A5070FF-BE0F-408F-BBCE-71AD420D1C0F}
 		{4C8706CD-8931-448F-9082-92B9B9EA22A7} = {4A5070FF-BE0F-408F-BBCE-71AD420D1C0F}
 		{701AE6A9-3647-42FB-ACA0-CA59E0273D96} = {4A5070FF-BE0F-408F-BBCE-71AD420D1C0F}
@@ -455,5 +454,6 @@ Global
 		{6188A44D-9BAE-4D75-8B4B-2FEB25513A8C} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
 		{9B5BD230-CA51-4274-80C9-180D7C3B7773} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
 		{5ACAA4E9-E094-4E21-97C2-16494F32E43B} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
+		{20B9E65E-8C0F-49EB-B8DA-10E57255D3A3} = {355BFC41-3C05-49B3-8DCC-D98CD64D37B4}
 	EndGlobalSection
 EndGlobal

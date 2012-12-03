@@ -44,7 +44,7 @@ namespace newWCFService
         [OperationContract]
         spec getSpecByName(string name);
 
-        [WebInvoke(Method = "DELETE", UriTemplate = "Interface1/{id}")]
+        [WebInvoke(Method = "DELETE", UriTemplate = "Interface1/{id}" ,ResponseFormat=WebMessageFormat.Json)]
         [OperationContract(IsOneWay = true)]
         void deleteSpec(string id);
 
@@ -54,13 +54,6 @@ namespace newWCFService
         [OperationContract]
         SyndicationFeedFormatter GetFeed(string format);
     }
-
-    /*
-     Adding webHttp Config
-     * <endpoint address="" binding="webHttpBinding" name="Helloservice_webhttp" contract="newWCFService.IHello"/>
-     * 
-     * and also endpoint behavior
-     */
 
 
     //in this case all object remains in memory as long as this service is running no matter of various channel connection

@@ -15,7 +15,7 @@ namespace client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Data", Namespace="http://schemas.datacontract.org/2004/07/wcfLibrary")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Data", Namespace="http://domain/Data")]
     [System.SerializableAttribute()]
     public partial class Data : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -62,8 +62,29 @@ namespace client.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService")]
     public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getName", ReplyAction="http://tempuri.org/IService/getNameResponse")]
-        string getName(client.ServiceReference1.Data d);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/addData")]
+        void addData(client.ServiceReference1.Data d);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, AsyncPattern=true, Action="http://tempuri.org/IService/addData")]
+        System.IAsyncResult BeginaddData(client.ServiceReference1.Data d, System.AsyncCallback callback, object asyncState);
+        
+        void EndaddData(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getList", ReplyAction="http://tempuri.org/IService/getListResponse")]
+        client.ServiceReference1.Data[] getList();
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/getList", ReplyAction="http://tempuri.org/IService/getListResponse")]
+        System.IAsyncResult BegingetList(System.AsyncCallback callback, object asyncState);
+        
+        client.ServiceReference1.Data[] EndgetList(System.IAsyncResult result);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetFeed", ReplyAction="http://tempuri.org/IService/GetFeedResponse")]
+        System.ServiceModel.Syndication.SyndicationFeedFormatter GetFeed(string format);
+        
+        [System.ServiceModel.OperationContractAttribute(AsyncPattern=true, Action="http://tempuri.org/IService/GetFeed", ReplyAction="http://tempuri.org/IService/GetFeedResponse")]
+        System.IAsyncResult BeginGetFeed(string format, System.AsyncCallback callback, object asyncState);
+        
+        System.ServiceModel.Syndication.SyndicationFeedFormatter EndGetFeed(System.IAsyncResult result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -72,7 +93,63 @@ namespace client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class getListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public getListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public client.ServiceReference1.Data[] Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((client.ServiceReference1.Data[])(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class GetFeedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        public GetFeedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        public System.ServiceModel.Syndication.SyndicationFeedFormatter Result {
+            get {
+                base.RaiseExceptionIfNecessary();
+                return ((System.ServiceModel.Syndication.SyndicationFeedFormatter)(this.results[0]));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public partial class ServiceClient : System.ServiceModel.ClientBase<client.ServiceReference1.IService>, client.ServiceReference1.IService {
+        
+        private BeginOperationDelegate onBeginaddDataDelegate;
+        
+        private EndOperationDelegate onEndaddDataDelegate;
+        
+        private System.Threading.SendOrPostCallback onaddDataCompletedDelegate;
+        
+        private BeginOperationDelegate onBegingetListDelegate;
+        
+        private EndOperationDelegate onEndgetListDelegate;
+        
+        private System.Threading.SendOrPostCallback ongetListCompletedDelegate;
+        
+        private BeginOperationDelegate onBeginGetFeedDelegate;
+        
+        private EndOperationDelegate onEndGetFeedDelegate;
+        
+        private System.Threading.SendOrPostCallback onGetFeedCompletedDelegate;
         
         public ServiceClient() {
         }
@@ -93,8 +170,157 @@ namespace client.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string getName(client.ServiceReference1.Data d) {
-            return base.Channel.getName(d);
+        public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> addDataCompleted;
+        
+        public event System.EventHandler<getListCompletedEventArgs> getListCompleted;
+        
+        public event System.EventHandler<GetFeedCompletedEventArgs> GetFeedCompleted;
+        
+        public void addData(client.ServiceReference1.Data d) {
+            base.Channel.addData(d);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginaddData(client.ServiceReference1.Data d, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginaddData(d, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public void EndaddData(System.IAsyncResult result) {
+            base.Channel.EndaddData(result);
+        }
+        
+        private System.IAsyncResult OnBeginaddData(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            client.ServiceReference1.Data d = ((client.ServiceReference1.Data)(inValues[0]));
+            return this.BeginaddData(d, callback, asyncState);
+        }
+        
+        private object[] OnEndaddData(System.IAsyncResult result) {
+            this.EndaddData(result);
+            return null;
+        }
+        
+        private void OnaddDataCompleted(object state) {
+            if ((this.addDataCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.addDataCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void addDataAsync(client.ServiceReference1.Data d) {
+            this.addDataAsync(d, null);
+        }
+        
+        public void addDataAsync(client.ServiceReference1.Data d, object userState) {
+            if ((this.onBeginaddDataDelegate == null)) {
+                this.onBeginaddDataDelegate = new BeginOperationDelegate(this.OnBeginaddData);
+            }
+            if ((this.onEndaddDataDelegate == null)) {
+                this.onEndaddDataDelegate = new EndOperationDelegate(this.OnEndaddData);
+            }
+            if ((this.onaddDataCompletedDelegate == null)) {
+                this.onaddDataCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnaddDataCompleted);
+            }
+            base.InvokeAsync(this.onBeginaddDataDelegate, new object[] {
+                        d}, this.onEndaddDataDelegate, this.onaddDataCompletedDelegate, userState);
+        }
+        
+        public client.ServiceReference1.Data[] getList() {
+            return base.Channel.getList();
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BegingetList(System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BegingetList(callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public client.ServiceReference1.Data[] EndgetList(System.IAsyncResult result) {
+            return base.Channel.EndgetList(result);
+        }
+        
+        private System.IAsyncResult OnBegingetList(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            return this.BegingetList(callback, asyncState);
+        }
+        
+        private object[] OnEndgetList(System.IAsyncResult result) {
+            client.ServiceReference1.Data[] retVal = this.EndgetList(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OngetListCompleted(object state) {
+            if ((this.getListCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.getListCompleted(this, new getListCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void getListAsync() {
+            this.getListAsync(null);
+        }
+        
+        public void getListAsync(object userState) {
+            if ((this.onBegingetListDelegate == null)) {
+                this.onBegingetListDelegate = new BeginOperationDelegate(this.OnBegingetList);
+            }
+            if ((this.onEndgetListDelegate == null)) {
+                this.onEndgetListDelegate = new EndOperationDelegate(this.OnEndgetList);
+            }
+            if ((this.ongetListCompletedDelegate == null)) {
+                this.ongetListCompletedDelegate = new System.Threading.SendOrPostCallback(this.OngetListCompleted);
+            }
+            base.InvokeAsync(this.onBegingetListDelegate, null, this.onEndgetListDelegate, this.ongetListCompletedDelegate, userState);
+        }
+        
+        public System.ServiceModel.Syndication.SyndicationFeedFormatter GetFeed(string format) {
+            return base.Channel.GetFeed(format);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.IAsyncResult BeginGetFeed(string format, System.AsyncCallback callback, object asyncState) {
+            return base.Channel.BeginGetFeed(format, callback, asyncState);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        public System.ServiceModel.Syndication.SyndicationFeedFormatter EndGetFeed(System.IAsyncResult result) {
+            return base.Channel.EndGetFeed(result);
+        }
+        
+        private System.IAsyncResult OnBeginGetFeed(object[] inValues, System.AsyncCallback callback, object asyncState) {
+            string format = ((string)(inValues[0]));
+            return this.BeginGetFeed(format, callback, asyncState);
+        }
+        
+        private object[] OnEndGetFeed(System.IAsyncResult result) {
+            System.ServiceModel.Syndication.SyndicationFeedFormatter retVal = this.EndGetFeed(result);
+            return new object[] {
+                    retVal};
+        }
+        
+        private void OnGetFeedCompleted(object state) {
+            if ((this.GetFeedCompleted != null)) {
+                InvokeAsyncCompletedEventArgs e = ((InvokeAsyncCompletedEventArgs)(state));
+                this.GetFeedCompleted(this, new GetFeedCompletedEventArgs(e.Results, e.Error, e.Cancelled, e.UserState));
+            }
+        }
+        
+        public void GetFeedAsync(string format) {
+            this.GetFeedAsync(format, null);
+        }
+        
+        public void GetFeedAsync(string format, object userState) {
+            if ((this.onBeginGetFeedDelegate == null)) {
+                this.onBeginGetFeedDelegate = new BeginOperationDelegate(this.OnBeginGetFeed);
+            }
+            if ((this.onEndGetFeedDelegate == null)) {
+                this.onEndGetFeedDelegate = new EndOperationDelegate(this.OnEndGetFeed);
+            }
+            if ((this.onGetFeedCompletedDelegate == null)) {
+                this.onGetFeedCompletedDelegate = new System.Threading.SendOrPostCallback(this.OnGetFeedCompleted);
+            }
+            base.InvokeAsync(this.onBeginGetFeedDelegate, new object[] {
+                        format}, this.onEndGetFeedDelegate, this.onGetFeedCompletedDelegate, userState);
         }
     }
 }
