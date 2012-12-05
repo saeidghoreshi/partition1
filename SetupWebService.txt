@@ -73,7 +73,7 @@ config on wcf library if using wcf client with out host
 Note : MEX Endpoints[tcp/http/pipes]  ~ iMetaldataExchange a standard service contract to discover endpoints
 Note : possible to download service definition using 
 
-		svcutil.exe  >>> gives Contract and Endpoints definitions
+		svcutil.exe  >>> gives Contract and Endpoints definitions   "use  disco.exe xxx.svc instead of just using svcutil"
 		(1)"wsdl" [usually by svc files] 
 		(2)"Meta" service metadata and if svcutil all of them, result is the same
 		(3) mex(tcp/http/pipe) end points which needs (2)
@@ -83,4 +83,10 @@ Note : possible to download service definition using
 		and then write the client code (chaneg the config file to app.config)
 
 
-		iis 5/6 only handles wcf http solution iss7/WAS
+		iis 5/6 only handles wcf http solution iss7/WAS >> winfeatures > 
+				1-WAS
+				2-.net 3.5 > WCF non-http
+				Not working >>>
+				3-goto c:\windows\system32\inetsrv\config\
+				4-at bindings http >  *:port:  -  net.tcp > 808:* - net.pipe > * - net.msmq > localhost 
+				5-add permission entry enabledProtocols:"http,net.pipe,net.tcp,net.msmq  in c:\windows\system32\inetsrv\config\applicationHost.config

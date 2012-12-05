@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://10.143.250.156/AuthData" elementFormDefault="qualified" targetNamespace="http://10.143.250.156/AuthData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AuthData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthData" nillable="true" type="tns:AuthData" />
+</xs:schema>

@@ -27,4 +27,10 @@ Content-Type: application/xml
 <Data xmlns="http://domain/Data">
 <name>Saeid Ghoreshi 2</name>
 </Data>
+
+NOTE:
+Data items posted thru the rest  must be alphabetically in order
+
+NOTE:
+Debugging can be done by fiddler and local port
 //------------------------------------------------------------------------------------------------------

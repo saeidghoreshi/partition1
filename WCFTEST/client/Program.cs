@@ -8,6 +8,7 @@ using System.ServiceModel;
 using System.Net;
 using System.Xml;
 using System.IO;
+using System.Threading;
 
 namespace client
 {
@@ -22,12 +23,13 @@ namespace client
         public static void syncOperation()
         {
             //client.ServiceReference1.ServiceClient client = new client.ServiceReference1.ServiceClient(new BasicHttpBinding(),new EndpointAddress(""));
-
+            
             client.ServiceReference1.ServiceClient client = new ServiceClient("WSHttpBinding_IService");
             try
             {
                 Data s1 = new Data() { name="saeid1"};
                 Data s2 = new Data() { name = "saeid2" };
+
                 client.addData(s1);
                 client.addData(s2);
 
@@ -103,7 +105,27 @@ namespace client
             sw.Write(sXML);
             sw.Close();
 
+            /*
+             HttpWebRequest req = null;
+        HttpWebResponse res = null;
+            string url = "http://localhost:1657/Service1.svc/getcharge";
+            req = (HttpWebRequest)WebRequest.Create(url);
+            req.Method = "POST";
+            req.ContentType = "application/xml";
+            req.Timeout = 30000;
+            req.Headers.Add("SOAPAction", url);
 
+            System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
+            xmlDoc.XmlResolver = null;
+            xmlDoc.Load(@"c:\file\benCharge.xml");
+            string sXML = xmlDoc.InnerXml;
+            req.ContentLength = sXML.Length;
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(req.GetRequestStream());
+            sw.Write(sXML);
+            sw.Close();
+
+            res = (HttpWebResponse)req.GetResponse();
+             */
 
             WebResponse response = request.GetResponse();
             Stream streamx = response.GetResponseStream();

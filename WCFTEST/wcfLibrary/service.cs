@@ -19,7 +19,8 @@ namespace wcfLibrary
         public string name;
     }
 
-    [ServiceContract]
+    //netTcp and net.pipes already are session-mode
+    [ServiceContract(SessionMode=SessionMode.Allowed)]
     public interface IService 
     {
         
@@ -41,14 +42,20 @@ namespace wcfLibrary
         SyndicationFeedFormatter GetFeed(string format);
     }
 
-    //in this case all object remains in memory as long as this service is running no matter of various channel connection
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    /*
+     singletone call is not threadsafe and needs concurrency and optionally manage the session state
+     
+     */
+    //in this case all object remains in memory as long as this service is running no matter of various channel connection  .Single
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     //[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)] //IIS Host
     public class service : IService
     {
         List<Data> repo = new List<Data>();
         public List<Data> getList()
         {
+            //can use it
+            //OperationContext.Current.SessionId
             return repo;
         }
         public void addData(Data d)

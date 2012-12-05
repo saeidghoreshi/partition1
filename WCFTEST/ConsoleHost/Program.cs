@@ -34,6 +34,10 @@ namespace ConsoleHost
         static void Main(string[] args)
         {
             ServicesList();
+            //can use it
+            //OperationContext.Current.SessionId
+
+
             /*
               System.ServiceModel.Web.WebServiceHost webServiceHost = new System.ServiceModel.Web.WebServiceHost(typeof(HelloService));
                 webServiceHost.Open();

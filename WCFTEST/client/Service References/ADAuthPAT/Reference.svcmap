@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3fec7bd5-705a-4aa1-824b-35b16022f98c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.143.250.156:88/AuthService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AuthService.xsd" MetadataType="Schema" ID="98860017-04dd-4c35-9d46-1f3cf9e9d33a" SourceId="1" SourceUrl="http://10.143.250.156:88/AuthService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AuthService1.xsd" MetadataType="Schema" ID="52d9c54e-c366-4474-aa42-d0027d7e8274" SourceId="1" SourceUrl="http://10.143.250.156:88/AuthService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AuthService2.xsd" MetadataType="Schema" ID="db3ca09a-4213-489b-a804-e27c21b8ece6" SourceId="1" SourceUrl="http://10.143.250.156:88/AuthService.svc?xsd=xsd3" />
+    <MetadataFile FileName="AuthService3.xsd" MetadataType="Schema" ID="41719d23-e82a-4640-a8f5-b9b30373270f" SourceId="1" SourceUrl="http://10.143.250.156:88/AuthService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AuthService.disco" MetadataType="Disco" ID="88c016a2-3541-4e46-b134-cdd05964f728" SourceId="1" SourceUrl="http://10.143.250.156:88/AuthService.svc?disco" />
+    <MetadataFile FileName="Authservice.wsdl" MetadataType="Wsdl" ID="657502b3-e897-40d7-bc28-d30378a164cd" SourceId="1" SourceUrl="http://10.143.250.156:88/AuthService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
