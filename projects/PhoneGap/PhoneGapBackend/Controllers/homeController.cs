@@ -8,8 +8,6 @@ namespace PhoneGapBackend.Controllers
 {
     public class homeController : Controller
     {
-        //
-        // GET: /home/
 
         public string Index()
         {

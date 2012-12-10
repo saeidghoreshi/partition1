@@ -12,3 +12,9 @@ apple is more restrict and need to be ios registered developer to get cerificate
 add
 <Capability Name="ID_CAP_SENSORS"/>
 to WMAppManifest
+
+
+
+2 W3C different web storage:
+1-sql storage [has issues w/ windows phone 7]
+2-web storage [uase this]
