@@ -26,7 +26,7 @@ namespace accounting.classes
 
         public void OpenNew(int issuerEntityID,int receiverEntityID, int currencyID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope()) 
             {
                 var newInvoice = new Accounting.Models.invoice()
@@ -54,7 +54,7 @@ namespace accounting.classes
         }
         private void loadInvoiceByInvoiceID(int invoiceID) 
         {
-            using(var ctx=new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var inv = ctx.invoice
                     .Where(x => x.ID == invoiceID).SingleOrDefault();
@@ -75,7 +75,7 @@ namespace accounting.classes
         /// <returns></returns>
         public decimal getInvoiceServicesSumAmt()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var invoice = ctx.invoice.Where(x => x.ID == this.invoiceID).SingleOrDefault();
                 if (invoice == null)
@@ -92,7 +92,7 @@ namespace accounting.classes
         /// <param name="invoiceID"></param>
         public void finalizeInvoice()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts =new TransactionScope())
             {
                 this.loadInvoiceByInvoiceID(this.invoiceID);
@@ -116,7 +116,7 @@ namespace accounting.classes
 
         public invoiceService addService(int serviceID,decimal amount) 
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var newInvoiceService= new Accounting.Models.invoiceService()
                 {
@@ -145,7 +145,7 @@ namespace accounting.classes
         {
             try
             {
-                using (var ctx = new AccContext())
+                using (var ctx = new AccContexts())
                 using (var ts = new TransactionScope())
                 {
                     classes.internalPayment internalPayment = new classes.internalPayment();
@@ -186,7 +186,7 @@ namespace accounting.classes
         {  
             //var ccFeeFor
 
-                using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
                 using (var ts = new TransactionScope())
                 {
                     classes.ccPayment creditCardPayment = new ccPayment();
@@ -244,7 +244,7 @@ namespace accounting.classes
         }
         public void doINTERACPayment(decimal amount,  int cardID)
         {
-                using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
                 using (var ts = new TransactionScope())
                 {
                     classes.dbPayment debitCardPayment = new dbPayment();
@@ -293,7 +293,7 @@ namespace accounting.classes
         /*cancelling one payment od invoice at the time*/
         public void cancelInvoicePaymentEXT(int paymentID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 accounting.classes.externalPayment payment = new accounting.classes.externalPayment();
@@ -316,7 +316,7 @@ namespace accounting.classes
         }
         public void cancelInvoicePaymentINTERNAL(int paymentID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 accounting.classes.internalPayment payment = new accounting.classes.internalPayment();
@@ -336,7 +336,7 @@ namespace accounting.classes
         /*cancel invoice all payments*/
         public void cancelInvocice() 
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 /*get all invoice payments*/
@@ -374,7 +374,7 @@ namespace accounting.classes
 
         public List<Accounting.Models.payment> getAllPayments() 
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var payments = ctx.invoicePayment
                     .Where(z => (int)z.invoiceID == this.invoiceID)
@@ -388,7 +388,7 @@ namespace accounting.classes
 
         private void RecordInvoiceTransaction(List<Accounting.Models.transaction> transactions, enums.invoiceStat invoiceStat)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 //create invoice Action
@@ -421,7 +421,7 @@ namespace accounting.classes
 
         private void RecordInvoicePaymentTransactions(List<Accounting.Models.transaction> txns, int paymentID , enums.paymentStat payStat)
         {
-            using (var ctx = new Accounting.Models.AccContext())
+            using (var ctx = new Accounting.Models.AccContexts())
             {
                 //Create Payment Action
                 var payAction = new Accounting.Models.paymentAction()

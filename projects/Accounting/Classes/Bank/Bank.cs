@@ -21,7 +21,7 @@ namespace accounting.classes.bank
         /// <param name="address"></param>
         public void createNew(string name,Address address=null) 
         {
-            using(var ctx=new AccContext())
+            using (var ctx = new AccContexts())
             {
                 base.createNew((int)enums.entityType.bank);
 
@@ -53,7 +53,7 @@ namespace accounting.classes.bank
             {
                 base.addCard(cardID);
 
-                using (var ctx = new AccContext())
+                using (var ctx = new AccContexts())
                 {
                     var _bankCard = new bankCard() 
                     {
@@ -100,7 +100,7 @@ namespace accounting.classes.bank
         /// <param name="bankID"></param>
         private void loadBankByBankID(int bankID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var _bank = ctx.bank
                     .Where(x => x.ID == bankID).SingleOrDefault();

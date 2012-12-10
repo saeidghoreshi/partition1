@@ -29,7 +29,7 @@ namespace Accounting
     {
         public static void run1()
         {
-            using (var ctx=new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                  ctx.resetSeeds();
@@ -149,7 +149,7 @@ namespace Accounting
         }
         public static void run2()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 

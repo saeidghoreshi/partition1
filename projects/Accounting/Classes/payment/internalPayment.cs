@@ -24,7 +24,7 @@ namespace accounting.classes
 
         public void createNew(int payerEntityID, int payeeEntityID, decimal amount, int currencyID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 base.createNew(payerEntityID, payeeEntityID, amount, currencyID, (int)enums.paymentType.Internal);
@@ -44,7 +44,7 @@ namespace accounting.classes
         }
         public new void loadByPaymentID(int paymentID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 base.loadByPaymentID(paymentID);
 

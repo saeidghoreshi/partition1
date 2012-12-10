@@ -15,7 +15,7 @@ namespace accounting.classes
 
         public void create(string CurrencyName, int currencyTypeID)
         {
-                using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
                 {
                     var newCur = new Accounting.Models.currency
                     {

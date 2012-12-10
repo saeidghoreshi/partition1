@@ -16,7 +16,7 @@ namespace accounting.classes
 
         public void createNew(int bankID, decimal amount, string description, int ccCardTypeID)
         {
-            using (var ctx = new Accounting.Models.AccContext())
+            using (var ctx = new Accounting.Models.AccContexts())
             {
                 var existingFee = ctx.ccFee
                     .Where(x => x.ccCardTypeID == ccCardTypeID && x.bankID == bankID).SingleOrDefault();
@@ -44,7 +44,7 @@ namespace accounting.classes
 
         public void loadFeeByID(int ccfeeID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var _fee = ctx.ccFee
                     .Where(x => x.ID == ccfeeID)
@@ -62,7 +62,7 @@ namespace accounting.classes
         }
         public void loadccFeeByBankCardTypeID(int ccCardTypeID, int bankID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var ccfee = ctx.ccFee.Where(x => (int)x.ccCardTypeID == ccCardTypeID && x.bankID == bankID)
                         .SingleOrDefault();

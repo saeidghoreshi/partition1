@@ -176,8 +176,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ADAuthService2" />
-      <xsd:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd3" namespace="http://10.143.250.156/AuthData" />
+      <xsd:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ADAuthService.classes" />
+      <xsd:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd3" namespace="http://10.143.250.156:88/AuthData" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthservice_IsAuthenticated_InputMessage">

@@ -19,7 +19,7 @@ namespace accounting.classes
 
         protected void createNew(int entityTypeID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var newEntity = new Accounting.Models.entity() 
                 {
@@ -37,7 +37,7 @@ namespace accounting.classes
         {
             int entityID = (int)this.ENTITYID;
 
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var person = ctx.person.Where(x => x.entityID == entityID).SingleOrDefault();
                 var newEntityCard = new Accounting.Models.entityCard()
@@ -53,7 +53,7 @@ namespace accounting.classes
 
         public List<Accounting.Models.card> fetchCards()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var cardsList = ctx.entityCard
                     .Where(x => x.entityID == this.ENTITYID)
@@ -68,7 +68,7 @@ namespace accounting.classes
         protected void addWalletMoney(decimal amount, string title, int currencyID) 
         {
             using(var ts=new TransactionScope())
-            using(var ctx=new Accounting.Models.AccContext())
+            using(var ctx=new Accounting.Models.AccContexts())
             {
                 //Record related transctions
                 List<Accounting.Models.transaction> transactions = new List<transaction>();

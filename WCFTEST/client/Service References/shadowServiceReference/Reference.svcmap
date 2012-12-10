@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dfa6e25a-1f85-431a-8ddc-98892f5a3d46" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:88/shadow.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="NoSvcFile.wsdl" MetadataType="Wsdl" ID="4d2c100d-a0dc-431b-a120-a18bbe6a1284" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?wsdl" />
+    <MetadataFile FileName="shadow.xsd" MetadataType="Schema" ID="23124c6c-b9ef-40de-bbf8-f35d426cc01e" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?xsd=xsd0" />
+    <MetadataFile FileName="shadow1.xsd" MetadataType="Schema" ID="3fdb32be-d8a5-468e-808b-c3348a0c0d5b" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?xsd=xsd1" />
+    <MetadataFile FileName="shadow2.xsd" MetadataType="Schema" ID="6fd290d9-0df7-4dfa-beca-9a7c29de9903" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?xsd=xsd4" />
+    <MetadataFile FileName="shadow3.xsd" MetadataType="Schema" ID="c7ef9252-dd37-4af5-b8a4-4183251dcaef" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?xsd=xsd5" />
+    <MetadataFile FileName="shadow4.xsd" MetadataType="Schema" ID="9a198352-a14c-4a1a-af58-08c34387c6d4" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?xsd=xsd3" />
+    <MetadataFile FileName="shadow5.xsd" MetadataType="Schema" ID="06d74fdd-a346-4931-b3d8-51651828c79f" SourceId="1" SourceUrl="http://localhost:88/shadow.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

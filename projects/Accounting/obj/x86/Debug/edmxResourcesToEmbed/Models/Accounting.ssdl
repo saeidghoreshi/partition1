@@ -52,6 +52,48 @@
     <EntitySet Name="user" EntityType="DB_40114_codeclubModel.Store.user" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="userType" EntityType="DB_40114_codeclubModel.Store.userType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="visaCard" EntityType="DB_40114_codeclubModel.Store.visaCard" store:Type="Tables" Schema="Accounting" />
+    <EntitySet Name="app_features" EntityType="DB_40114_codeclubModel.Store.app_features" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lu_role" EntityType="DB_40114_codeclubModel.Store.lu_role" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="module_features" EntityType="DB_40114_codeclubModel.Store.module_features" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="organization1" EntityType="DB_40114_codeclubModel.Store.organization1" store:Type="Tables" Schema="dbo" Table="organization" />
+    <EntitySet Name="permission" EntityType="DB_40114_codeclubModel.Store.permission" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="person1" EntityType="DB_40114_codeclubModel.Store.person1" store:Type="Tables" Schema="dbo" Table="person" />
+    <EntitySet Name="person_org" EntityType="DB_40114_codeclubModel.Store.person_org" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="DB_40114_codeclubModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="test" EntityType="DB_40114_codeclubModel.Store.test" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="testreview" EntityType="DB_40114_codeclubModel.Store.testreview" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="user1" EntityType="DB_40114_codeclubModel.Store.user1" store:Type="Tables" Schema="dbo" Table="user" />
+    <EntitySet Name="foldering" EntityType="DB_40114_codeclubModel.Store.foldering" store:Type="Tables" Schema="saeid" />
+    <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
+    <EntitySet Name="topics" EntityType="DB_40114_codeclubModel.Store.topics" store:Type="Tables" Schema="saeid" />
+    <EntitySet Name="document" EntityType="DB_40114_codeclubModel.Store.document" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="document_object" EntityType="DB_40114_codeclubModel.Store.document_object" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="lu_acl" EntityType="DB_40114_codeclubModel.Store.lu_acl" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="lu_component" EntityType="DB_40114_codeclubModel.Store.lu_component" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="lu_task_status" EntityType="DB_40114_codeclubModel.Store.lu_task_status" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="prca" EntityType="DB_40114_codeclubModel.Store.prca" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="rca" EntityType="DB_40114_codeclubModel.Store.rca" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="task" EntityType="DB_40114_codeclubModel.Store.task" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="task_person" EntityType="DB_40114_codeclubModel.Store.task_person" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="tp_progress" EntityType="DB_40114_codeclubModel.Store.tp_progress" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="tp_timer" EntityType="DB_40114_codeclubModel.Store.tp_timer" store:Type="Tables" Schema="workflow" />
+    <EntitySet Name="category" EntityType="DB_40114_codeclubModel.Store.category" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="login" EntityType="DB_40114_codeclubModel.Store.login" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="resource" EntityType="DB_40114_codeclubModel.Store.resource" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="resourceCategory" EntityType="DB_40114_codeclubModel.Store.resourceCategory" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="resourceHighlight" EntityType="DB_40114_codeclubModel.Store.resourceHighlight" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="transactionAccount" EntityType="DB_40114_codeclubModel.Store.transactionAccount" store:Type="Views" store:Schema="Accounting" store:Name="transactionAccount">
+      <DefiningQuery>SELECT 
+      [transactionAccount].[transactionID] AS [transactionID], 
+      [transactionAccount].[amount] AS [amount], 
+      [transactionAccount].[accountID] AS [accountID], 
+      [transactionAccount].[ownerEntityID] AS [ownerEntityID], 
+      [transactionAccount].[GL] AS [GL], 
+      [transactionAccount].[Category] AS [Category], 
+      [transactionAccount].[balance] AS [balance], 
+      [transactionAccount].[currency] AS [currency]
+      FROM [Accounting].[transactionAccount] AS [transactionAccount]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_account_categoryType" Association="DB_40114_codeclubModel.Store.FK_account_categoryType">
       <End Role="categoryType" EntitySet="categoryType" />
       <End Role="account" EntitySet="account" />
@@ -127,6 +169,10 @@
     <AssociationSet Name="FK_dbPayment_externalPayment" Association="DB_40114_codeclubModel.Store.FK_dbPayment_externalPayment">
       <End Role="externalPayment" EntitySet="externalPayment" />
       <End Role="dbPayment" EntitySet="dbPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_document_object_document_object" Association="DB_40114_codeclubModel.Store.FK_document_object_document_object">
+      <End Role="document" EntitySet="document" />
+      <End Role="document_object" EntitySet="document_object" />
     </AssociationSet>
     <AssociationSet Name="FK_entity_entityType" Association="DB_40114_codeclubModel.Store.FK_entity_entityType">
       <End Role="entityType" EntitySet="entityType" />
@@ -280,9 +326,57 @@
       <End Role="transaction" EntitySet="transaction" />
       <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
     </AssociationSet>
+    <AssociationSet Name="FK_permission_lu_role" Association="DB_40114_codeclubModel.Store.FK_permission_lu_role">
+      <End Role="lu_role" EntitySet="lu_role" />
+      <End Role="permission" EntitySet="permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_permission_user" Association="DB_40114_codeclubModel.Store.FK_permission_user">
+      <End Role="user1" EntitySet="user1" />
+      <End Role="permission" EntitySet="permission" />
+    </AssociationSet>
     <AssociationSet Name="FK_person_entity" Association="DB_40114_codeclubModel.Store.FK_person_entity">
       <End Role="entity" EntitySet="entity" />
       <End Role="person" EntitySet="person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_org_organization" Association="DB_40114_codeclubModel.Store.FK_person_org_organization">
+      <End Role="organization1" EntitySet="organization1" />
+      <End Role="person_org" EntitySet="person_org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_org_person" Association="DB_40114_codeclubModel.Store.FK_person_org_person">
+      <End Role="person1" EntitySet="person1" />
+      <End Role="person_org" EntitySet="person_org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prca_rca" Association="DB_40114_codeclubModel.Store.FK_prca_rca">
+      <End Role="rca" EntitySet="rca" />
+      <End Role="prca" EntitySet="prca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_acl" Association="DB_40114_codeclubModel.Store.FK_rca_lu_acl">
+      <End Role="lu_acl" EntitySet="lu_acl" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_component" Association="DB_40114_codeclubModel.Store.FK_rca_lu_component">
+      <End Role="lu_component" EntitySet="lu_component" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_role" Association="DB_40114_codeclubModel.Store.FK_rca_lu_role">
+      <End Role="lu_role" EntitySet="lu_role" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resource_resource" Association="DB_40114_codeclubModel.Store.FK_resource_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resource1" EntitySet="resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_category" Association="DB_40114_codeclubModel.Store.FK_resourceCategory_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="resourceCategory" EntitySet="resourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_resource" Association="DB_40114_codeclubModel.Store.FK_resourceCategory_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resourceCategory" EntitySet="resourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceHighlight_resource" Association="DB_40114_codeclubModel.Store.FK_resourceHighlight_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resourceHighlight" EntitySet="resourceHighlight" />
     </AssociationSet>
     <AssociationSet Name="FK_service_entitygiver" Association="DB_40114_codeclubModel.Store.FK_service_entitygiver">
       <End Role="entity" EntitySet="entity" />
@@ -292,6 +386,38 @@
       <End Role="entity" EntitySet="entity" />
       <End Role="service" EntitySet="service" />
     </AssociationSet>
+    <AssociationSet Name="FK_task_lu_task_status" Association="DB_40114_codeclubModel.Store.FK_task_lu_task_status">
+      <End Role="lu_task_status" EntitySet="lu_task_status" />
+      <End Role="task" EntitySet="task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_person_lu_task_status" Association="DB_40114_codeclubModel.Store.FK_task_person_lu_task_status">
+      <End Role="lu_task_status" EntitySet="lu_task_status" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_progress_task_user" Association="DB_40114_codeclubModel.Store.FK_task_user_progress_task_user">
+      <End Role="task_person" EntitySet="task_person" />
+      <End Role="tp_progress" EntitySet="tp_progress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_task" Association="DB_40114_codeclubModel.Store.FK_task_user_task">
+      <End Role="task" EntitySet="task" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_user" Association="DB_40114_codeclubModel.Store.FK_task_user_user">
+      <End Role="person1" EntitySet="person1" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel.Store.FK_testreview_test">
+      <End Role="test" EntitySet="test" />
+      <End Role="testreview" EntitySet="testreview" />
+    </AssociationSet>
+    <AssociationSet Name="FK_topic_foldering" Association="DB_40114_codeclubModel.Store.FK_topic_foldering">
+      <End Role="foldering" EntitySet="foldering" />
+      <End Role="topics" EntitySet="topics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tp_timers_task_person" Association="DB_40114_codeclubModel.Store.FK_tp_timers_task_person">
+      <End Role="task_person" EntitySet="task_person" />
+      <End Role="tp_timer" EntitySet="tp_timer" />
+    </AssociationSet>
     <AssociationSet Name="FK_transaction_account" Association="DB_40114_codeclubModel.Store.FK_transaction_account">
       <End Role="account" EntitySet="account" />
       <End Role="transaction" EntitySet="transaction" />
@@ -299,6 +425,10 @@
     <AssociationSet Name="FK_user_person" Association="DB_40114_codeclubModel.Store.FK_user_person">
       <End Role="person" EntitySet="person" />
       <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_person1" Association="DB_40114_codeclubModel.Store.FK_user_person1">
+      <End Role="person1" EntitySet="person1" />
+      <End Role="user1" EntitySet="user1" />
     </AssociationSet>
     <AssociationSet Name="FK_user_userType" Association="DB_40114_codeclubModel.Store.FK_user_userType">
       <End Role="userType" EntitySet="userType" />
@@ -716,6 +846,294 @@
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="ccCardID" Type="int" />
   </EntityType>
+  <EntityType Name="app_features">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="lu_role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="module_features">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="organization1">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Name="org_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_org_id" Type="int" />
+    <Property Name="org_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="street" Type="nvarchar" MaxLength="100" />
+    <Property Name="city" Type="nvarchar" MaxLength="100" />
+    <Property Name="postalcode" Type="nvarchar" MaxLength="100" />
+    <Property Name="logo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="permission">
+    <Key>
+      <PropertyRef Name="permission_id" />
+    </Key>
+    <Property Name="permission_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="int" />
+    <Property Name="role_id" Type="int" />
+  </EntityType>
+  <EntityType Name="person1">
+    <Key>
+      <PropertyRef Name="person_id" />
+    </Key>
+    <Property Name="person_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="nvarchar" MaxLength="200" />
+    <Property Name="lname" Type="nvarchar" MaxLength="200" />
+    <Property Name="thumbnailFile" Type="nvarchar" MaxLength="1000" />
+    <Property Name="thumbnailExt" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="person_org">
+    <Key>
+      <PropertyRef Name="person_org_id" />
+    </Key>
+    <Property Name="person_org_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="person_id" Type="int" />
+    <Property Name="org_id" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
+    <Property Name="address" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="testreview">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="testid" Type="int" />
+    <Property Name="rate" Type="int" />
+  </EntityType>
+  <EntityType Name="user1">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="nvarchar" MaxLength="200" />
+    <Property Name="password" Type="nvarchar" MaxLength="200" />
+    <Property Name="person_id" Type="int" />
+  </EntityType>
+  <EntityType Name="foldering">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="400" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="timestamp" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="topic">
+    <Key>
+      <PropertyRef Name="topic_id" />
+    </Key>
+    <Property Name="topic_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="topic_parent_id" Type="int" />
+    <Property Name="topic_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="topic_details" Type="text" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="datetime" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="topics">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="title" Type="nvarchar" MaxLength="500" />
+    <Property Name="description" Type="text" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="datetime" Type="nvarchar" MaxLength="100" />
+    <Property Name="foldering_id" Type="int" />
+  </EntityType>
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="document_id" />
+    </Key>
+    <Property Name="document_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="filename" Type="nvarchar" MaxLength="1000" />
+    <Property Name="fileext" Type="nvarchar" MaxLength="50" />
+    <Property Name="description" Type="text" />
+    <Property Name="timestamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="document_object">
+    <Key>
+      <PropertyRef Name="doc_obj_id" />
+    </Key>
+    <Property Name="doc_obj_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="document_id" Type="int" />
+    <Property Name="object_id" Type="int" />
+    <Property Name="is_active" Type="bit" />
+  </EntityType>
+  <EntityType Name="lu_acl">
+    <Key>
+      <PropertyRef Name="acl_id" />
+    </Key>
+    <Property Name="acl_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="lu_component">
+    <Key>
+      <PropertyRef Name="component_id" />
+    </Key>
+    <Property Name="component_id" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="lu_task_status">
+    <Key>
+      <PropertyRef Name="type_id" />
+    </Key>
+    <Property Name="type_id" Type="int" Nullable="false" />
+    <Property Name="type_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="prca">
+    <Key>
+      <PropertyRef Name="prca_id" />
+    </Key>
+    <Property Name="prca_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="person_id" Type="int" />
+    <Property Name="rca_id" Type="int" />
+  </EntityType>
+  <EntityType Name="rca">
+    <Key>
+      <PropertyRef Name="rca_id" />
+    </Key>
+    <Property Name="rca_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="component_id" Type="int" />
+    <Property Name="acl_id" Type="int" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Name="task_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="text" />
+    <Property Name="deadline" Type="date" />
+    <Property Name="task_status_id" Type="int" />
+    <Property Name="is_active" Type="bit" />
+    <Property Name="stamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="task_person">
+    <Key>
+      <PropertyRef Name="task_person_id" />
+    </Key>
+    <Property Name="task_person_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="task_id" Type="int" />
+    <Property Name="person_id" Type="int" />
+    <Property Name="eta" Type="float" />
+    <Property Name="user_task_status_id" Type="int" />
+  </EntityType>
+  <EntityType Name="tp_progress">
+    <Key>
+      <PropertyRef Name="t_p_p_id" />
+    </Key>
+    <Property Name="t_p_p_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="t_p_id" Type="int" />
+    <Property Name="description" Type="text" />
+    <Property Name="datetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tp_timer">
+    <Key>
+      <PropertyRef Name="t_p_t_id" />
+    </Key>
+    <Property Name="t_p_t_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="t_p_id" Type="int" />
+    <Property Name="start_stamp" Type="datetime" />
+    <Property Name="end_stamp" Type="datetime" />
+    <Property Name="is_commited" Type="bit" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="varchar" MaxLength="200" />
+    <Property Name="password" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="resource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parentID" Type="int" />
+    <Property Name="title" Type="varchar" MaxLength="200" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="resourceCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="resourceID" Type="int" />
+    <Property Name="categoryID" Type="int" />
+  </EntityType>
+  <EntityType Name="resourceHighlight">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="resourceID" Type="int" />
+    <Property Name="colorCode" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'DB_40114_codeclub.Accounting.transactionAccount' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="transactionAccount">
+    <Key>
+      <PropertyRef Name="transactionID" />
+      <PropertyRef Name="accountID" />
+      <PropertyRef Name="balance" />
+    </Key>
+    <Property Name="transactionID" Type="int" Nullable="false" />
+    <Property Name="amount" Type="decimal" />
+    <Property Name="accountID" Type="int" Nullable="false" />
+    <Property Name="ownerEntityID" Type="int" />
+    <Property Name="GL" Type="nvarchar" MaxLength="200" />
+    <Property Name="Category" Type="nvarchar" MaxLength="200" />
+    <Property Name="balance" Type="decimal" Nullable="false" />
+    <Property Name="currency" Type="nvarchar" MaxLength="20" />
+  </EntityType>
   <Association Name="FK_account_categoryType">
     <End Role="categoryType" Type="DB_40114_codeclubModel.Store.categoryType" Multiplicity="0..1" />
     <End Role="account" Type="DB_40114_codeclubModel.Store.account" Multiplicity="*" />
@@ -945,6 +1363,18 @@
       </Principal>
       <Dependent Role="dbPayment">
         <PropertyRef Name="extPaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_document_object_document_object">
+    <End Role="document" Type="DB_40114_codeclubModel.Store.document" Multiplicity="0..1" />
+    <End Role="document_object" Type="DB_40114_codeclubModel.Store.document_object" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="document">
+        <PropertyRef Name="document_id" />
+      </Principal>
+      <Dependent Role="document_object">
+        <PropertyRef Name="document_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1410,6 +1840,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_permission_lu_role">
+    <End Role="lu_role" Type="DB_40114_codeclubModel.Store.lu_role" Multiplicity="0..1" />
+    <End Role="permission" Type="DB_40114_codeclubModel.Store.permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_permission_user">
+    <End Role="user1" Type="DB_40114_codeclubModel.Store.user1" Multiplicity="0..1" />
+    <End Role="permission" Type="DB_40114_codeclubModel.Store.permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user1">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_person_entity">
     <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
     <End Role="person" Type="DB_40114_codeclubModel.Store.person" Multiplicity="*" />
@@ -1419,6 +1873,132 @@
       </Principal>
       <Dependent Role="person">
         <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_org_organization">
+    <End Role="organization1" Type="DB_40114_codeclubModel.Store.organization1" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="person_org" Type="DB_40114_codeclubModel.Store.person_org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="organization1">
+        <PropertyRef Name="org_id" />
+      </Principal>
+      <Dependent Role="person_org">
+        <PropertyRef Name="org_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_org_person">
+    <End Role="person1" Type="DB_40114_codeclubModel.Store.person1" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="person_org" Type="DB_40114_codeclubModel.Store.person_org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person1">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="person_org">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prca_rca">
+    <End Role="rca" Type="DB_40114_codeclubModel.Store.rca" Multiplicity="0..1" />
+    <End Role="prca" Type="DB_40114_codeclubModel.Store.prca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rca">
+        <PropertyRef Name="rca_id" />
+      </Principal>
+      <Dependent Role="prca">
+        <PropertyRef Name="rca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_acl">
+    <End Role="lu_acl" Type="DB_40114_codeclubModel.Store.lu_acl" Multiplicity="0..1" />
+    <End Role="rca" Type="DB_40114_codeclubModel.Store.rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_acl">
+        <PropertyRef Name="acl_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="acl_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_component">
+    <End Role="lu_component" Type="DB_40114_codeclubModel.Store.lu_component" Multiplicity="0..1" />
+    <End Role="rca" Type="DB_40114_codeclubModel.Store.rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_component">
+        <PropertyRef Name="component_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="component_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_role">
+    <End Role="lu_role" Type="DB_40114_codeclubModel.Store.lu_role" Multiplicity="0..1" />
+    <End Role="rca" Type="DB_40114_codeclubModel.Store.rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resource_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="0..1" />
+    <End Role="resource1" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resource1">
+        <PropertyRef Name="parentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_category">
+    <End Role="category" Type="DB_40114_codeclubModel.Store.category" Multiplicity="0..1" />
+    <End Role="resourceCategory" Type="DB_40114_codeclubModel.Store.resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="0..1" />
+    <End Role="resourceCategory" Type="DB_40114_codeclubModel.Store.resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceHighlight_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="resourceHighlight" Type="DB_40114_codeclubModel.Store.resourceHighlight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceHighlight">
+        <PropertyRef Name="resourceID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1446,6 +2026,102 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_task_lu_task_status">
+    <End Role="lu_task_status" Type="DB_40114_codeclubModel.Store.lu_task_status" Multiplicity="0..1" />
+    <End Role="task" Type="DB_40114_codeclubModel.Store.task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_task_status">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="task">
+        <PropertyRef Name="task_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_person_lu_task_status">
+    <End Role="lu_task_status" Type="DB_40114_codeclubModel.Store.lu_task_status" Multiplicity="0..1" />
+    <End Role="task_person" Type="DB_40114_codeclubModel.Store.task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_task_status">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="user_task_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_progress_task_user">
+    <End Role="task_person" Type="DB_40114_codeclubModel.Store.task_person" Multiplicity="0..1" />
+    <End Role="tp_progress" Type="DB_40114_codeclubModel.Store.tp_progress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task_person">
+        <PropertyRef Name="task_person_id" />
+      </Principal>
+      <Dependent Role="tp_progress">
+        <PropertyRef Name="t_p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_task">
+    <End Role="task" Type="DB_40114_codeclubModel.Store.task" Multiplicity="0..1" />
+    <End Role="task_person" Type="DB_40114_codeclubModel.Store.task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="task_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="task_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_user">
+    <End Role="person1" Type="DB_40114_codeclubModel.Store.person1" Multiplicity="0..1" />
+    <End Role="task_person" Type="DB_40114_codeclubModel.Store.task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person1">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_testreview_test">
+    <End Role="test" Type="DB_40114_codeclubModel.Store.test" Multiplicity="0..1" />
+    <End Role="testreview" Type="DB_40114_codeclubModel.Store.testreview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="test">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="testreview">
+        <PropertyRef Name="testid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_topic_foldering">
+    <End Role="foldering" Type="DB_40114_codeclubModel.Store.foldering" Multiplicity="0..1" />
+    <End Role="topics" Type="DB_40114_codeclubModel.Store.topics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foldering">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="topics">
+        <PropertyRef Name="foldering_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tp_timers_task_person">
+    <End Role="task_person" Type="DB_40114_codeclubModel.Store.task_person" Multiplicity="0..1" />
+    <End Role="tp_timer" Type="DB_40114_codeclubModel.Store.tp_timer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task_person">
+        <PropertyRef Name="task_person_id" />
+      </Principal>
+      <Dependent Role="tp_timer">
+        <PropertyRef Name="t_p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_transaction_account">
     <End Role="account" Type="DB_40114_codeclubModel.Store.account" Multiplicity="0..1" />
     <End Role="transaction" Type="DB_40114_codeclubModel.Store.transaction" Multiplicity="*" />
@@ -1467,6 +2143,18 @@
       </Principal>
       <Dependent Role="user">
         <PropertyRef Name="personID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_person1">
+    <End Role="person1" Type="DB_40114_codeclubModel.Store.person1" Multiplicity="0..1" />
+    <End Role="user1" Type="DB_40114_codeclubModel.Store.user1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person1">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="user1">
+        <PropertyRef Name="person_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1495,4 +2183,61 @@
     </ReferentialConstraint>
   </Association>
   <Function Name="resetSeeds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Accounting" />
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="createCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="cat_title" Type="varchar" Mode="In" />
+    <Parameter Name="cat_description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="deleteResourceIDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceIDs" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="getAllParentResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology" />
+  <Function Name="getAllResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology" />
+  <Function Name="getResourcedetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getSearchResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="criteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="highlightedResourceIDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceIDs" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="saveNewResource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="parentID" Type="int" Mode="In" />
+    <Parameter Name="title" Type="varchar" Mode="In" />
+    <Parameter Name="description" Type="text" Mode="In" />
+  </Function>
+  <Function Name="unhighlightedResourceIDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceIDs" Type="varchar" Mode="In" />
+  </Function>
 </Schema>

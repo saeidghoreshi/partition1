@@ -18,13 +18,12 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:88/customService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:88/customService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="customService.xsd" MetadataType="Schema" ID="13e96d21-84c1-45d5-87ed-9419b8c7f724" SourceId="1" SourceUrl="http://localhost:88/customService.svc?xsd=xsd3" />
     <MetadataFile FileName="customService1.xsd" MetadataType="Schema" ID="24ecef8d-ebad-4a41-a63f-3318e95c7686" SourceId="1" SourceUrl="http://localhost:88/customService.svc?xsd=xsd4" />
     <MetadataFile FileName="customService2.xsd" MetadataType="Schema" ID="5ad8c753-f34a-40f4-90e1-adca453d3cbd" SourceId="1" SourceUrl="http://localhost:88/customService.svc?xsd=xsd5" />
-    <MetadataFile FileName="customService.disco" MetadataType="Disco" ID="0092048e-24b8-4b80-bf7e-42173fe50757" SourceId="1" SourceUrl="http://localhost:88/customService.svc?disco" />
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b93ae04b-4461-4ba6-b647-f20337e1d950" SourceId="1" SourceUrl="http://localhost:88/customService.svc?wsdl" />
     <MetadataFile FileName="customService3.xsd" MetadataType="Schema" ID="04a769b4-9939-4ad6-9b5d-1bc7dc808b81" SourceId="1" SourceUrl="http://localhost:88/customService.svc?xsd=xsd0" />
     <MetadataFile FileName="customService4.xsd" MetadataType="Schema" ID="4b9e1245-e037-4eca-9e88-521d07617c5d" SourceId="1" SourceUrl="http://localhost:88/customService.svc?xsd=xsd1" />

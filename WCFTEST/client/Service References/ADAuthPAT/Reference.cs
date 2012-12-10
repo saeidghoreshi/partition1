@@ -15,7 +15,7 @@ namespace client.ADAuthPAT {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthserviceDataResult", Namespace="http://schemas.datacontract.org/2004/07/ADAuthService2")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthserviceDataResult", Namespace="http://schemas.datacontract.org/2004/07/ADAuthService.classes")]
     [System.SerializableAttribute()]
     public partial class AuthserviceDataResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -108,7 +108,7 @@ namespace client.ADAuthPAT {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthserviceUserGroup", Namespace="http://schemas.datacontract.org/2004/07/ADAuthService2")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthserviceUserGroup", Namespace="http://schemas.datacontract.org/2004/07/ADAuthService.classes")]
     [System.SerializableAttribute()]
     public partial class AuthserviceUserGroup : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -153,7 +153,7 @@ namespace client.ADAuthPAT {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AuthData", Namespace="http://10.143.250.156/AuthData")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuthData", Namespace="http://10.143.250.156:88/AuthData")]
     [System.SerializableAttribute()]
     public partial class AuthData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

@@ -17,7 +17,7 @@ namespace accounting.classes
 
         public void Create()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var giverPerson = ctx.person.Where(x => x.entityID == issuerEntityID).FirstOrDefault();
                 var receiverPerson = ctx.person.Where(x => x.entityID == receiverEntityID).FirstOrDefault();

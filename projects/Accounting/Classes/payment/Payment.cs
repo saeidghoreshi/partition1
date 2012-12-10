@@ -25,7 +25,7 @@ namespace accounting.classes
 
         protected void createNew(int payerEntityID,int payeeEntityID,decimal amount,int currencyID,int paymentTypeID) 
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var _payment = new Accounting.Models.payment()
                 {
@@ -47,7 +47,7 @@ namespace accounting.classes
             //First check this payment is able to be cancelled  ************
 
             //get Related transacions and input reveres ones
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //get Payment details
                 var payment = ctx.payment
@@ -91,7 +91,7 @@ namespace accounting.classes
 
         protected void loadByPaymentID(int paymentID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var paymentRecord = ctx.payment
                     .Where(x => x.ID == paymentID)

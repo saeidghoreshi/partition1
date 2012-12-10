@@ -23,8 +23,8 @@ namespace client
         public static void syncOperation()
         {
             //client.ServiceReference1.ServiceClient client = new client.ServiceReference1.ServiceClient(new BasicHttpBinding(),new EndpointAddress(""));
-            
-            client.ServiceReference1.ServiceClient client = new ServiceClient("WSHttpBinding_IService");
+
+            client.ServiceReference1.ServiceClient client = new ServiceClient("NetTcpBinding_IService");
             try
             {
                 Data s1 = new Data() { name="saeid1"};
@@ -42,11 +42,13 @@ namespace client
             catch (FaultException fe)
             {
                 Console.WriteLine(fe.GetType());
+                
                 client.Abort();
             }
             catch (CommunicationException ce)
             {
                 Console.WriteLine(ce.GetType());
+                Console.WriteLine(ce.Message);
                 client.Abort();
             }
             catch (TimeoutException te)

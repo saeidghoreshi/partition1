@@ -25,7 +25,7 @@ namespace accounting.classes
             if (this.expiryDate == null)
                 throw new Exception("No Expiy Date Entered");
 
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 var newCard = new Accounting.Models.card()
@@ -45,7 +45,7 @@ namespace accounting.classes
         }
         public Accounting.Models.bank getBank()
         {
-            using(var ctx=new Accounting.Models.AccContext())
+            using(var ctx=new Accounting.Models.AccContexts())
             {
                 var theBank = ctx.bankCard
                     .Where(x => x.cardID == cardID)
@@ -58,7 +58,7 @@ namespace accounting.classes
 
         public void loadByCardID(int cardID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var paymentRecord = ctx.card
                     .Where(x => x.ID == cardID)

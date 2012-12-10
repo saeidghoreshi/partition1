@@ -134,3 +134,24 @@ The file is located at C:\projects\Partitions\partition1\WCFTEST\winServiceHost\
 The Rollback phase completed successfully.
 
 The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe assembly's progress.
+The file is located at C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe assembly's progress.
+The file is located at C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+
+The uninstall is beginning.
+See the contents of the log file for the C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe assembly's progress.
+The file is located at C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog.
+
+The uninstall has completed.

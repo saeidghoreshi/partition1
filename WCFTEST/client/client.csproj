@@ -57,12 +57,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\shadowServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\System.ServiceModel.Syndication.SyndicationFeedFormatter.datasource" />
     <None Include="Service References\ADAuthPAT\Authservice.wsdl" />
     <None Include="Service References\ADAuthPAT\AuthService.xsd">
@@ -93,10 +100,33 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference1\service.wsdl" />
+    <None Include="Service References\shadowServiceReference\client.shadowServiceReference.Data.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\shadowServiceReference\NoSvcFile.wsdl" />
+    <None Include="Service References\shadowServiceReference\shadow.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\shadowServiceReference\shadow1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\shadowServiceReference\shadow2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\shadowServiceReference\shadow3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\shadowServiceReference\shadow4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\shadowServiceReference\shadow5.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ADAuthPAT\" />
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\shadowServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
@@ -120,9 +150,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\customService.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Service References\ADAuthPAT\AuthService.disco" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +160,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ADAuthPAT\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\shadowServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\shadowServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\shadowServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

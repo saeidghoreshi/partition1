@@ -20,7 +20,7 @@ namespace accounting.classes.card.creditcard
 
         public void createNew() 
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 base.createNew((int)enums.ccCardType.MASTERCARD);

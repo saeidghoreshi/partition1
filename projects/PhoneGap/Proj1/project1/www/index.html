@@ -26,31 +26,46 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 
-    <link rel="stylesheet" href="jquery.mobile-1.1.1.css" />
-    <script type="text/javascript" src="jquery-1.8.2.js"></script>
-    <script type="text/javascript" src="jquery.mobile-1.1.1.js"></script>
-    <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
-    <!--link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8"/-->
-  
+ Cordova WP7</title>
+
+	  <!--link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8"/-->
+
+      <link rel="stylesheet" href="jQuery/jquery.mobile-1.2.0.css" type="text/css" media="screen" />
+      <script type="text/javascript" charset="utf-8" src="jQuery/jquery-1.8.3.js"></script>
+      <script type="text/javascript" charset="utf-8" src="jQuery/jquery.mobile-1.2.0.js"></script>
+
+
+
+
+      <!--script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script-->
+      <script type="text/javascript" charset="utf-8" src="stopgap.js"></script>
+      
 
       <script type="text/javascript">
 
+
         document.addEventListener("deviceready",onDeviceReady,false);
 
-        // once the device ready event fires, you can safely do your thing! -jm
+        
         function onDeviceReady()
         {
+            //document.getElementById("welcomeMsg").innerHTML += "Cordova is ready! version=" + window.device.cordova;
+            //console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
 
-            $('#devicename').html(device.name);
-            $('#devicephonegap').html(device.cordova);
-            $('#deviceplatform').html(device.platform);
-            $('#deviceuuid').html(device.uuid);
-            $('#deviceversion').html(device.version);
+        }
 
-            //Accelerometer
-            var wid = navigator.accelerometer.watchAcceleration(onSuccessAcc, onErrorAcc, { frequency: 1000 });
-            //Camera
-            //navigator.camera.getPicture(onSuccessCam, onErrorCam, { quality: 50, DestinationType: Camera.DestinationType.FILE_URI });
+
+        
+      </script>
+
+
+
+
+  </head>
+  <body>
+  <div id="home" data-role="page">
+  <div data-role="header">
+  <h1>HeaderationType: Camera.DestinationType.FILE_URI });
             //GeoLocation
             navigator.geolocation.watchPosition(onSuccessGeo, onErrorGeo, { frequency: 1000 });
             //Notification

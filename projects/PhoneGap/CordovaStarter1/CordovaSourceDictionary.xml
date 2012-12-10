@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is auto-generated, do not edit! -jm -->
+<CordovaSourceDictionary>
+    <FilePath Value="www\jQuery\jquery-1.8.3.js"/>
+    <FilePath Value="www\jQuery\jquery.mobile-1.2.0.css"/>
+    <FilePath Value="www\jQuery\jquery.mobile-1.2.0.js"/>
+    <FilePath Value="www\jQuery\jquery.mobile.structure-1.2.0.css"/>
+    <FilePath Value="www\stopgap.js"/>
+    <FilePath Value="www\cordova-1.9.0.js"/>
+    <FilePath Value="www\index.html"/>
+    <FilePath Value="www\master.css"/>
+</CordovaSourceDictionary>

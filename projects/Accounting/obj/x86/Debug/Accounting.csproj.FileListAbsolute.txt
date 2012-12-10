@@ -10,3 +10,7 @@ C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Accounting.pdb
 C:\projects\Partitions\partition1\projects\Accounting\obj\x86\Debug\Accounting.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\Accounting\obj\x86\Debug\Accounting.exe
 C:\projects\Partitions\partition1\projects\Accounting\obj\x86\Debug\Accounting.pdb
+C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.dll
+C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.Linq.dll
+C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.xml
+C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.Linq.xml

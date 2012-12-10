@@ -24,7 +24,7 @@ namespace accounting.classes.card.creditcard
         {
             base.createNew((int)enums.ccCardType.VISACARD);
 
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
 

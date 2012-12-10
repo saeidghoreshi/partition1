@@ -23,7 +23,7 @@ namespace accounting.classes.card
 
         public void createNew() 
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
                 base.createNew((int)enums.cardType.DebitCard);

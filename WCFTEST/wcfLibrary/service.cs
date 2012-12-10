@@ -23,7 +23,7 @@ namespace wcfLibrary
     [ServiceContract(SessionMode=SessionMode.Allowed)]
     public interface IService 
     {
-        
+
         [WebInvoke(Method = "POST", UriTemplate = "Data",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml
@@ -37,7 +37,7 @@ namespace wcfLibrary
 
         [ServiceKnownType(typeof(Atom10FeedFormatter))]
         [ServiceKnownType(typeof(Rss20FeedFormatter))]
-        [WebGet(UriTemplate = "Interface/feed/{format}")]
+        [WebGet(UriTemplate = "feed/{format}")]
         [OperationContract]
         SyndicationFeedFormatter GetFeed(string format);
     }

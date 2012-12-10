@@ -11,7 +11,8 @@
     <RootNamespace>Accounting</RootNamespace>
     <AssemblyName>Accounting</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -34,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mindscape.LightSpeed">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Mindscape\LightSpeed\Bin\Mindscape.LightSpeed.dll</HintPath>
+    </Reference>
+    <Reference Include="Mindscape.LightSpeed.Linq">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Mindscape\LightSpeed\Bin\Mindscape.LightSpeed.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
@@ -86,25 +93,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Accounting.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\LightSpeedModel1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LightSpeedModel1.lsmodel</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Models\Accounting.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Accounting.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Documentation\Accountin businuss Rules.docx" />
     <None Include="Documentation\accounting DB.doc" />
     <None Include="Documentation\accounting-DB - Nov102012.vsd" />
     <None Include="Documentation\accounting.uml" />
     <None Include="Documentation\accounting.~ml" />
+    <EntityDeploy Include="Models\Accounting.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Accounting.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\LightSpeedModel1.lsmodel">
+      <Generator>LightSpeedModelGenerator</Generator>
+      <LastGenOutput>LightSpeedModel1.cs</LastGenOutput>
+    </None>
+    <None Include="Models\LightSpeedModel1.lsmodel.diagram">
+      <DependentUpon>LightSpeedModel1.lsmodel</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\banking.sql" />
     <Content Include="Documentation\Report1.sql" />
     <Content Include="Documentation\test-resetSeed-rollback.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

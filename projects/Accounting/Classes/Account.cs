@@ -13,7 +13,7 @@ namespace accounting.classes
     {
         public static Accounting.Models.account getAccount(int entityID, int catTypeID, int currencyID)
         {
-            using(var ctx=new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var account = ctx.account.Where(x => x.catTypeID == catTypeID && x.ownerEntityID == entityID && x.currencyID == currencyID).SingleOrDefault();
                 return account;

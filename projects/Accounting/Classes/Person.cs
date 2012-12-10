@@ -18,7 +18,7 @@ namespace accounting.classes
         
         public void createNew(string firstName,string lastName) 
         {
-            using(var ctx =new AccContext())
+            using (var ctx = new AccContexts())
             {   
                 base.createNew((int)enums.entityType.Person);
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ADAuthService2" />
-  <xs:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd3" namespace="http://10.143.250.156/AuthData" />
+  <xs:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ADAuthService.classes" />
+  <xs:import schemaLocation="http://10.143.250.156:88/AuthService.svc?xsd=xsd3" namespace="http://10.143.250.156:88/AuthData" />
   <xs:element name="IsAuthenticated">
     <xs:complexType>
       <xs:sequence>
@@ -13,21 +13,21 @@
   <xs:element name="IsAuthenticatedResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ADAuthService2" minOccurs="0" name="IsAuthenticatedResult" nillable="true" type="q1:AuthserviceDataResult" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ADAuthService.classes" minOccurs="0" name="IsAuthenticatedResult" nillable="true" type="q1:AuthserviceDataResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="IsAuthenticatedPost">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://10.143.250.156/AuthData" minOccurs="0" name="data" nillable="true" type="q2:AuthData" />
+        <xs:element xmlns:q2="http://10.143.250.156:88/AuthData" minOccurs="0" name="data" nillable="true" type="q2:AuthData" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="IsAuthenticatedPostResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ADAuthService2" minOccurs="0" name="IsAuthenticatedPostResult" nillable="true" type="q3:AuthserviceDataResult" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ADAuthService.classes" minOccurs="0" name="IsAuthenticatedPostResult" nillable="true" type="q3:AuthserviceDataResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

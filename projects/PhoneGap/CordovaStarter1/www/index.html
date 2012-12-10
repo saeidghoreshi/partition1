@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <title>Cordova WP7</title>
+
+	  <!--link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8"/-->
+
+      <link rel="stylesheet" href="jQuery/jquery.mobile-1.2.0.css" type="text/css" media="screen" />
+      <script type="text/javascript" charset="utf-8" src="jQuery/jquery-1.8.3.js"></script>
+      <script type="text/javascript" charset="utf-8" src="jQuery/jquery.mobile-1.2.0.js"></script>
+
+      <!--PhoneGap-->
+      <script type="text/javascript" charset="utf-8" src="cordova-1.9.0.js"></script>
+      
+
+      <script type="text/javascript">
+        document.addEventListener("deviceready",onDeviceReady,false);
+        function onDeviceReady()
+        {
+            //document.getElementById("welcomeMsg").innerHTML += "Cordova is ready! version=" + window.device.cordova;
+            //console.log("onDeviceReady. You should see this message in Visual Studio's output window.");
+        }
+      </script>
+
+
+
+
+  </head>
+  <body>
+  <!--Main Page-->
+  <div id="home" data-role="page">
+  <div data-role="header">
+
+  <a href="#pageList" data-icon="home" >ViewList</a>
+  <h1>Header</h1>
+  <a href="#" data-icon="Dialog" >Empty</a>
+
+  </div>
+  <div data-role="content">
+  <h1>content</h1>
+  <a href="#newpage" data-role="button">New Page</a>
+  </div>
+  <div data-role="footer" data-position="fixed">
+  <h1>footer</h1>
+  </div>
+  </div>
+
+
+  <!--New Page-->
+  <div id="newpage" data-role="page">
+  <div data-role="header">
+  <a href="#home" data-icon="delete">Cancel</a>
+  <h1>Header</h1>
+  <a href="#dialogpage" data-icon="Dialog" data-rel="dialog">Dialog</a>
+  </div>
+  <div data-role="content">
+  <h1>New Page</h1>
+  <label for="name">Name</label>
+  <input type="text" id="name"/>
+  <a href="#" data-role="button"  id="saveBtn">Save</a>
+  </div>
+  <div data-role="footer" data-position="fixed">
+  <h1>footer</h1>
+  </div>
+  </div>
+
+  <!--Dialog Page-->
+  <div id="dialogpage" data-role="page">
+  <div data-role="header">
+  <h3>Dialog H</h3>
+  </div>
+  <div data-role="content">
+  <h6>Dialog Page</h6>
+  </div>
+  </div>
+
+  
+
+    <script>
+            $.support.cors = true;
+            $.mobile.allowCrossDomainPages = true;
+        
+            $("#newpage").live('pageshow', function () {
+                
+                var personname = window.localStorage.getItem('name');
+                if(personname!==null && personname.length > 0)
+                    $('#name').val(personname);
+            });
+
+            $("#saveBtn").click(function () {
+                window.localStorage.setItem("name", $("#name").val());
+            });
+
+            $.get("http://localhost:90/home/index", function (data) {
+                //$("#tweets_list").listview('refresh');
+                $('body').prepend(data);
+            });
+
+        
+    </script>
+  </body>
+</html>

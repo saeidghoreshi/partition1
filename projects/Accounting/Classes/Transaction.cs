@@ -12,7 +12,7 @@ namespace accounting.classes
     {
         public static Accounting.Models.transaction createNew(int entityID,int catTypeID,decimal amount,int currencyID)
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 var newTrans = new Accounting.Models.transaction()
                 {

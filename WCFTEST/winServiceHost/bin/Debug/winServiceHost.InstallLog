@@ -188,3 +188,24 @@ Affected parameters are:
    logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.InstallLog
    assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winservicehost.exe
 Restoring event log to previous state for source MyService.
+Installing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Installing service MyService...
+Service MyService has been successfully installed.
+Creating EventLog source MyService in log Application...
+Committing assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Uninstalling assembly 'C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.InstallLog
+   assemblypath = C:\projects\Partitions\partition1\WCFTEST\winServiceHost\bin\Debug\winServiceHost.exe
+Removing EventLog source MyService.
+Service MyService is being removed from the system...
+Service MyService was successfully removed from the system.

@@ -12,7 +12,7 @@ namespace accounting.classes
     {
         public static void SetupAccountTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var allgltypes = ctx.glType.ToList();
@@ -82,7 +82,7 @@ namespace accounting.classes
         }
         public static void SetupEntityTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.entityType.ToList();
@@ -107,7 +107,7 @@ namespace accounting.classes
         }
         public static void SetupOfficeTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.officeType.ToList();
@@ -132,7 +132,7 @@ namespace accounting.classes
         }
         public static void SetupUserTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.userType.ToList();
@@ -157,7 +157,7 @@ namespace accounting.classes
         }
         public static void SetupSysUserTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.sysUserType.ToList();
@@ -182,7 +182,7 @@ namespace accounting.classes
         }
         public static void SetupPaymentTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.paymentType.ToList();
@@ -207,7 +207,7 @@ namespace accounting.classes
         }
         public static void SetupExtPaymentTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.extPaymentType.ToList();
@@ -232,7 +232,7 @@ namespace accounting.classes
         }
         public static void SetupccCardTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.ccCardType.ToList();
@@ -257,7 +257,7 @@ namespace accounting.classes
         }
         public static void SetupCardTypes()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.cardType.ToList();
@@ -282,7 +282,7 @@ namespace accounting.classes
         }
         public static void SetupInvoiceStat()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.invoiceStat.ToList();
@@ -307,7 +307,7 @@ namespace accounting.classes
         }
         public static void SetupPaymentStat()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.paymentStat.ToList();
@@ -330,7 +330,7 @@ namespace accounting.classes
         }
         public static void SetupCurrencyType()
         {
-            using (var ctx = new AccContext())
+            using (var ctx = new AccContexts())
             {
                 //reset DB table
                 var alltypes = ctx.currencyType.ToList();
