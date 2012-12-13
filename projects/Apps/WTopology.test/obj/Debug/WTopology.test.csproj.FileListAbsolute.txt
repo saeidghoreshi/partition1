@@ -1,0 +1,17 @@
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\WTopology.test.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\WTopology.test.pdb
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\WTopology.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Web.Http.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Web.Http.WebHost.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Net.Http.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Net.Http.Formatting.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\Newtonsoft.Json.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\WTopology.pdb
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Web.Http.xml
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Web.Http.WebHost.xml
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Net.Http.xml
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\System.Net.Http.Formatting.xml
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\bin\Debug\Newtonsoft.Json.xml
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\obj\Debug\WTopology.test.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\obj\Debug\WTopology.test.dll
+C:\projects\Partitions\partition1\projects\Apps\WTopology.test\obj\Debug\WTopology.test.pdb

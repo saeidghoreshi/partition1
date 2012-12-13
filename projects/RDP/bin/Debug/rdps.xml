@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRDP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RDP>
+    <ID>1</ID>
+    <parentID>-1</parentID>
+    <serverName>Home</serverName>
+    <serverIP>-1</serverIP>
+    <username>-1</username>
+    <password>-1</password>
+  </RDP>
+  <RDP>
+    <ID>2</ID>
+    <parentID>1</parentID>
+    <serverName>Server2008-DC-1</serverName>
+    <serverIP>192.168.152.133</serverIP>
+    <username>administrator</username>
+    <password>p0$31d0n</password>
+  </RDP>
+  <RDP>
+    <ID>3</ID>
+    <parentID>1</parentID>
+    <serverName>Server2008-DC-2</serverName>
+    <serverIP>192.168.152.132</serverIP>
+    <username>administrator</username>
+    <password>p0$31d0n</password>
+  </RDP>
+  <RDP>
+    <ID>4</ID>
+    <parentID>-1</parentID>
+    <serverName>Office</serverName>
+    <serverIP>-1</serverIP>
+    <username>-1</username>
+    <password>-1</password>
+  </RDP>
+  <RDP>
+    <ID>5</ID>
+    <parentID>4</parentID>
+    <serverName>PAT-Office2</serverName>
+    <serverIP>office2.stardynetech.com</serverIP>
+    <username>pat.rgoreshi@star</username>
+    <password>po$31don</password>
+  </RDP>
+  <RDP>
+    <ID>6</ID>
+    <parentID>4</parentID>
+    <serverName>PAT-Office1</serverName>
+    <serverIP>10.143.250.156</serverIP>
+    <username>rgoreshi@PAT</username>
+    <password>p0$31d0n</password>
+  </RDP>
+ 
+   
+</ArrayOfRDP>

@@ -21,8 +21,8 @@ namespace WTopology.Controllers
         
         public ActionResult Index()
         {
-            if (Session["user"] == null)
-                return RedirectToAction("login");
+            //if (Session["user"] == null)
+             //   return RedirectToAction("login");
 
             sqlServer x = new sqlServer();
             List<sqlServerPar> pars = new List<sqlServerPar>();

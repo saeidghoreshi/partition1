@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdps>
+  <rdp>
+	  <id>1</id>
+	  <parentid>-1</parentid>
+	  <servername>Home</servername>
+	  <serverip>-1</serverip>
+	  <username>-1</username>
+	  <password>-1</password>
+  </rdp>
+  <rdp>
+	  <id>2</id>
+	  <parentid>1</parentid>
+	  <servername>Server2008-DC-1</servername>
+	  <serverip>192.168.152.133</serverip>
+	  <username>administrator</username>
+	  <password>p0$31d0n</password>
+  </rdp>
+  <rdp>
+	  <id>3</id>
+	  <parentid>1</parentid>
+	  <servername>Server2008-DC-2</servername>
+	  <serverip>192.168.152.132</serverip>
+	  <username>administrator</username>
+	  <password>p0$31d0n</password>
+  </rdp>
+  <rdp>
+	  <id>4</id>
+	  <parentid>-1</parentid>
+	  <servername>Office</servername>
+	  <serverip>-1</serverip>
+	  <username>-1</username>
+	  <password>-1</password>
+  </rdp>
+  <rdp>
+	  <id>5</id>
+	  <parentid>4</parentid>
+	  <servername>PAT-Office2</servername>
+	  <serverip>office2.stardynetech.com</serverip>
+	  <username>pat.rgoreshi@star</username>
+	  <password>po$31don</password>
+  </rdp>
+  <rdp>
+	  <id>6</id>
+	  <parentid>4</parentid>
+	  <servername>PAT-Office1</servername>
+	  <serverip>10.143.250.156</serverip>
+	  <username>rgoreshi@PAT</username>
+	  <password>p0$31d0n</password>
+  </rdp>
+ 
+</rdps>
+

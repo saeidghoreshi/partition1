@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="27399193-3c9e-4695-b16c-b15b5f9ab6f0" name="saeid@SAEID-PC 2012-12-09 21:32:16" runUser="saeid-PC\saeid" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="f25fb7e2-1cee-4ddf-bd6e-ad7c3fd8e824">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="saeid_SAEID-PC 2012-12-09 21_32_16">
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP\bin\Debug\Console_DP.exe" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\WTopology.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\projects\Apps\DocArchive\bin\DocArchive.dll" />
+      <DeploymentItem filename="C:\projects\Partitions\partition1\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-12-09T21:32:16.9914775-08:00" queuing="2012-12-09T21:32:17.1629993-08:00" start="2012-12-09T21:32:17.1685000-08:00" finish="2012-12-09T21:32:18.0251088-08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="6" executed="6" passed="3" error="0" failed="2" timeout="0" aborted="0" inconclusive="1" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="FirstTest" storage="c:\projects\partitions\partition1\projects\designpattern\console_dp.test\bin\debug\console_dp.test.dll" id="27b2e000-6ad9-6af5-0c67-2b85b164a1fc">
+      <Execution id="01efd31c-96f0-428d-a71c-d796ebdd1d42" />
+      <TestMethod codeBase="C:/projects/Partitions/partition1/projects/DesignPattern/Console_DP.Test/bin/Debug/Console_DP.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Console_DP.Test.UnitTest1, Console_DP.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="FirstTest" />
+    </UnitTest>
+    <UnitTest name="Contact" storage="c:\projects\partitions\partition1\projects\apps\docarchive.tests\bin\debug\docarchive.tests.dll" id="f3890812-d548-e92f-2be0-7c137463fd5d">
+      <Execution id="1ab9953f-48cd-4e80-923e-9fcce235f955" />
+      <TestMethod codeBase="C:/projects/Partitions/partition1/projects/Apps/DocArchive.Tests/bin/Debug/DocArchive.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DocArchive.Tests.Controllers.HomeControllerTest, DocArchive.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Contact" />
+    </UnitTest>
+    <UnitTest name="About" storage="c:\projects\partitions\partition1\projects\apps\docarchive.tests\bin\debug\docarchive.tests.dll" id="99f36976-bb12-faaa-403e-d83c7ed82fa9">
+      <Execution id="3df20e97-07a1-46f5-bdb6-970ce74c9ae7" />
+      <TestMethod codeBase="C:/projects/Partitions/partition1/projects/Apps/DocArchive.Tests/bin/Debug/DocArchive.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DocArchive.Tests.Controllers.HomeControllerTest, DocArchive.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="About" />
+    </UnitTest>
+    <UnitTest name="Index" storage="c:\projects\partitions\partition1\projects\apps\docarchive.tests\bin\debug\docarchive.tests.dll" id="2d3eff63-ec86-1a73-a020-4d25d4bafd88">
+      <Execution id="e6412da7-1073-40d8-b939-a6b631463ade" />
+      <TestMethod codeBase="C:/projects/Partitions/partition1/projects/Apps/DocArchive.Tests/bin/Debug/DocArchive.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DocArchive.Tests.Controllers.HomeControllerTest, DocArchive.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index" />
+    </UnitTest>
+    <UnitTest name="runTest" storage="c:\projects\partitions\partition1\projects\designpattern\console_dp.test\bin\debug\console_dp.test.dll" id="8e68ab94-015c-b9e0-8f79-915ae5d42380">
+      <Execution id="ff4b7481-85dd-4af6-96a1-4f557ef42b98" />
+      <TestMethod codeBase="C:/projects/Partitions/partition1/projects/DesignPattern/Console_DP.Test/bin/Debug/Console_DP.Test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Console_DP.Test.SampleTest, Console_DP.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="runTest" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="c:\projects\partitions\partition1\projects\apps\wtopology.test\bin\debug\wtopology.test.dll" id="0f3f8658-c1e1-6230-3de6-d54efea1c02b">
+      <Execution id="0f36599d-2493-431e-97ab-7437b960616f" />
+      <TestMethod codeBase="C:/projects/Partitions/partition1/projects/Apps/WTopology.test/bin/Debug/WTopology.test.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="WTopology.test.UnitTest1, WTopology.test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0f3f8658-c1e1-6230-3de6-d54efea1c02b" executionId="0f36599d-2493-431e-97ab-7437b960616f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27b2e000-6ad9-6af5-0c67-2b85b164a1fc" executionId="01efd31c-96f0-428d-a71c-d796ebdd1d42" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2d3eff63-ec86-1a73-a020-4d25d4bafd88" executionId="e6412da7-1073-40d8-b939-a6b631463ade" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e68ab94-015c-b9e0-8f79-915ae5d42380" executionId="ff4b7481-85dd-4af6-96a1-4f557ef42b98" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="99f36976-bb12-faaa-403e-d83c7ed82fa9" executionId="3df20e97-07a1-46f5-bdb6-970ce74c9ae7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3890812-d548-e92f-2be0-7c137463fd5d" executionId="1ab9953f-48cd-4e80-923e-9fcce235f955" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0f36599d-2493-431e-97ab-7437b960616f" testId="0f3f8658-c1e1-6230-3de6-d54efea1c02b" testName="TestMethod1" computerName="SAEID-PC" duration="00:00:00.0525613" startTime="2012-12-09T21:32:17.1805015-08:00" endTime="2012-12-09T21:32:17.4470354-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f36599d-2493-431e-97ab-7437b960616f">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method WTopology.test.UnitTest1.TestMethod1 threw exception: 
+System.NullReferenceException: Object reference not set to an instance of an object.</Message>
+          <StackTrace>    at WTopology.Classes.sqlServer.runSP(String spName, List`1 pars) in C:\projects\Partitions\partition1\projects\Apps\WTopology\Classes\sql.cs:line 22
+   at WTopology.Controllers.homeController.createNew() in C:\projects\Partitions\partition1\projects\Apps\WTopology\Controllers\homeController.cs:line 93
+   at WTopology.test.UnitTest1.TestMethod1() in C:\projects\Partitions\partition1\projects\Apps\WTopology.test\UnitTest1.cs:line 21
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="01efd31c-96f0-428d-a71c-d796ebdd1d42" testId="27b2e000-6ad9-6af5-0c67-2b85b164a1fc" testName="FirstTest" computerName="SAEID-PC" duration="00:00:00.0171769" startTime="2012-12-09T21:32:17.4555364-08:00" endTime="2012-12-09T21:32:17.6860657-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01efd31c-96f0-428d-a71c-d796ebdd1d42">
+    </UnitTestResult>
+    <UnitTestResult executionId="e6412da7-1073-40d8-b939-a6b631463ade" testId="2d3eff63-ec86-1a73-a020-4d25d4bafd88" testName="Index" computerName="SAEID-PC" duration="00:00:00.0530679" startTime="2012-12-09T21:32:17.6950669-08:00" endTime="2012-12-09T21:32:17.9515994-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6412da7-1073-40d8-b939-a6b631463ade">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.AreEqual failed. Expected:&lt;Modify this template to jump-start your ASP.NET MVC application.&gt;. Actual:&lt;(null)&gt;. </Message>
+          <StackTrace>   at CallSite.Target(Closure , CallSite , Type , String , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecuteVoid3[T0,T1,T2](CallSite site, T0 arg0, T1 arg1, T2 arg2)
+   at DocArchive.Tests.Controllers.HomeControllerTest.Index() in C:\projects\Partitions\partition1\projects\Apps\DocArchive.Tests\Controllers\HomeControllerTest.cs:line 25
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="ff4b7481-85dd-4af6-96a1-4f557ef42b98" testId="8e68ab94-015c-b9e0-8f79-915ae5d42380" testName="runTest" computerName="SAEID-PC" duration="00:00:00.0056287" startTime="2012-12-09T21:32:17.9601005-08:00" endTime="2012-12-09T21:32:17.9686016-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Inconclusive" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff4b7481-85dd-4af6-96a1-4f557ef42b98">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Inconclusive failed. A method that does not return a value cannot be verified.</Message>
+          <StackTrace>   at Console_DP.Test.SampleTest.runTest() in C:\projects\Partitions\partition1\projects\DesignPattern\Console_DP.Test\SampleTest.cs:line 75
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3df20e97-07a1-46f5-bdb6-970ce74c9ae7" testId="99f36976-bb12-faaa-403e-d83c7ed82fa9" testName="About" computerName="SAEID-PC" duration="00:00:00.0002010" startTime="2012-12-09T21:32:17.9766026-08:00" endTime="2012-12-09T21:32:17.9791029-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3df20e97-07a1-46f5-bdb6-970ce74c9ae7">
+    </UnitTestResult>
+    <UnitTestResult executionId="1ab9953f-48cd-4e80-923e-9fcce235f955" testId="f3890812-d548-e92f-2be0-7c137463fd5d" testName="Contact" computerName="SAEID-PC" duration="00:00:00.0001261" startTime="2012-12-09T21:32:17.9876040-08:00" endTime="2012-12-09T21:32:17.9896043-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1ab9953f-48cd-4e80-923e-9fcce235f955">
+    </UnitTestResult>
+  </Results>
+</TestRun>
