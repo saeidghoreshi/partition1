@@ -1,0 +1,82 @@
+﻿<div id="page3" data-role="page">
+    
+
+    <div data-role="content" >
+
+    <!--device info-->
+    <div id="devicename"></div>
+    <div id="devicephonegap"></div>
+    <div id="deviceplatform"></div>
+    <div id="deviceuuid"></div>
+    <div id="deviceversion"></div>
+
+    <!--accelerometer-->
+    <div id="ax"></div>
+    <div id="ay"></div>
+    <div id="az"></div>
+    <div id="atime"></div>
+    
+    <!--Notify me-->
+    <a id="notifybtn" href="#">Click to notify</a>
+
+    <!--Camera-->
+    <div id="imageuri"></div>
+    
+
+    <!--GeoLocation-->
+    <div id="lat"></div>
+    <div id="lon"></div>
+        
+            
+    </div>
+
+
+</div>
+
+  <script>
+            
+      $("#devicename").html(window.device.name);
+      $("#devicephonegap").html(window.device.cordova);
+      $("#deviceplatform").html(window.device.platform);
+      $("#deviceuuid").html(window.device.uuid);
+      $("#deviceversion").html(window.device.version);
+
+
+        //Accelerometer
+        navigator.accelerometer.watchAcceleration(onSuccessAcc, onErrorAcc, { frequency: 1000 });
+
+        function onSuccessAcc(a) {
+            $('#ax').html(a.x);
+            $('#ay').html(a.y);
+            $('#az').html(a.z);
+            $('#atime').html(a.timestamp);
+        }
+        function onErrorAcc() { }
+
+        //Camera
+        navigator.camera.getPicture(onSuccessCam, onErrorCam, {quality:50,destinationType: Camera.DestinationType.FILE_URI   });
+        function onSuccessCam(fileuri) {
+            $('#imageuri').html(fileuri);
+        }
+        function onErrorCam(fileuri) { }
+
+        //GeoLocation
+        navigator.geolocation.watchPosition(onSuccessGeo, onErrorGeo, { frequency: 1000 });
+        function onSuccessGeo(p) {
+            $('#lat').html(p.coords.latitude);
+            $('#lon').html(p.coords.longitude); 
+        }
+        function onErrorGeo() { }
+
+
+        //Notification
+        $('#notifybtn').click(function () {
+            navigator.notification.alert("You clicked me",onSuccessNotify,"Click","OK");
+        });
+        function onSuccessNotify() {
+            $('#notifybtn').html("clicked");
+        }
+
+
+
+  </script>
