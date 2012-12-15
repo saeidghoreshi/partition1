@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\projects\themes\bin\themes.dll
-C:\projects\Partitions\partition1\projects\themes\bin\themes.pdb
-C:\projects\Partitions\partition1\projects\themes\obj\Debug\themes.dll
-C:\projects\Partitions\partition1\projects\themes\obj\Debug\themes.pdb
