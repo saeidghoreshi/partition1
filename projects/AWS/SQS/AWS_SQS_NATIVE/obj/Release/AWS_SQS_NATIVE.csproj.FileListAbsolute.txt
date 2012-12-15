@@ -1,7 +1,0 @@
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Release\AWS_SQS_NATIVE.exe.config
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Release\AWS_SQS_NATIVE.exe
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Release\AWS_SQS_NATIVE.pdb
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Release\AWSSDK.dll
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\bin\Release\AWSSDK.xml
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\obj\Release\AWS_SQS_NATIVE.exe
-C:\projects\Partitions\partition1\projects\AWS\SQS\AWS_SQS_NATIVE\obj\Release\AWS_SQS_NATIVE.pdb

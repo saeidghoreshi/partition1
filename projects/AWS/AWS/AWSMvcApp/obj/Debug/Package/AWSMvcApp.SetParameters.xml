@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <setParameter name="IIS Web Application Name" value="Default Web Site/AWSMvcApp_deploy" />
-  <setParameter name="DefaultConnection-Web.config Connection String" value="Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-AWSMvcApp-20120923164853;Integrated Security=SSPI" />
-</parameters>

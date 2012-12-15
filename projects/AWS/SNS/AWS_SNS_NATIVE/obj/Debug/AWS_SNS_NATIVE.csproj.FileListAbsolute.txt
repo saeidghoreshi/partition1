@@ -1,7 +1,0 @@
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\bin\Debug\AWS_SNS_NATIVE.exe.config
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\bin\Debug\AWS_SNS_NATIVE.exe
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\bin\Debug\AWS_SNS_NATIVE.pdb
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\bin\Debug\AWSSDK.dll
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\bin\Debug\AWSSDK.xml
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\obj\Debug\AWS_SNS_NATIVE.exe
-C:\projects\Partitions\partition1\projects\AWS\SNS\AWS_SNS_NATIVE\obj\Debug\AWS_SNS_NATIVE.pdb

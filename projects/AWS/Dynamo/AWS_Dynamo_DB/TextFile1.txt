@@ -1,1 +1,0 @@
-﻿create your own dynamo DB and change attr

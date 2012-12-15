@@ -1,7 +1,0 @@
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\bin\Release\AWS_.NETAPI.exe.config
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\bin\Release\AWS_.NETAPI.exe
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\bin\Release\AWS_.NETAPI.pdb
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\bin\Release\AWSSDK.dll
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\bin\Release\AWSSDK.xml
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\obj\Release\AWS_.NETAPI.exe
-C:\projects\Partitions\partition1\projects\AWS\AWS\AWS_.NETAPI\obj\Release\AWS_.NETAPI.pdb
