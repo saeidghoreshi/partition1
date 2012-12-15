@@ -1,0 +1,4 @@
+C:\projects\Partitions\partition1\projects\FinalWork\WebApplication1\bin\WebApplication1.dll
+C:\projects\Partitions\partition1\projects\FinalWork\WebApplication1\bin\WebApplication1.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\WebApplication1\obj\Debug\WebApplication1.dll
+C:\projects\Partitions\partition1\projects\FinalWork\WebApplication1\obj\Debug\WebApplication1.pdb
