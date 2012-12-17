@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CE0749B4-2F1C-4707-BB0F-EA103D37112C}</ProjectGuid>
+    <ProjectGuid>{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcApplication3</RootNamespace>
-    <AssemblyName>MvcApplication3</AssemblyName>
+    <RootNamespace>testMVC</RootNamespace>
+    <AssemblyName>testMVC</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -36,10 +36,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\..\..\packages\Mvc2Futures.2.0.50217.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\..\..\packages\MvcContrib.2.0.95.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcPager3">
+      <HintPath>..\..\..\packages\MvcPager3.1.5\lib\net40\MvcPager3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -161,153 +172,157 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Handler1.ashx.cs">
-      <DependentUpon>Handler1.ashx</DependentUpon>
+    <Compile Include="Models\Model1.Designer.cs">
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
-    <Content Include="images\black.png" />
-    <Content Include="images\environment.jpg" />
-    <Content Include="images\bg1.jpg" />
-    <Content Include="Scripts\Async\async.js" />
-    <Content Include="Scripts\base\ext-4.0.2-ext-all.js" />
-    <Content Include="Scripts\base\jquery-1.8.2.js" />
-    <Content Include="Scripts\base\jQUI\jquery-ui-1.9.css" />
-    <Content Include="Scripts\base\jQUI\jquery-ui-1.9.js" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-icons_004276_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\blitzer\jquery-ui-1.8.23.custom.css" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-icons_222222_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Scripts\base\jQUI\themes\default\jquery-ui-1.8.23.custom.css" />
-    <Content Include="Scripts\base\KendoUI\Default\editor.png" />
-    <Content Include="Scripts\base\KendoUI\Default\imagebrowser.png" />
-    <Content Include="Scripts\base\KendoUI\Default\loading-image.gif" />
-    <Content Include="Scripts\base\KendoUI\Default\loading.gif" />
-    <Content Include="Scripts\base\KendoUI\Default\slider-h.gif" />
-    <Content Include="Scripts\base\KendoUI\Default\slider-v.gif" />
-    <Content Include="Scripts\base\KendoUI\Default\sprite.png" />
-    <Content Include="Scripts\base\KendoUI\examples.css" />
-    <Content Include="Scripts\base\KendoUI\kendo.common.min.css" />
-    <Content Include="Scripts\base\KendoUI\kendo.default.min.css" />
-    <Content Include="Scripts\base\KendoUI\kendo.web.min.js" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\editor.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\imagebrowser.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\loading-image.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\loading.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\slider-h.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\slider-v.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Black\sprite.png" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\editor.png" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\imagebrowser.png" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\loading-image.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\loading.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\slider-h.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\slider-v.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\BlueOpal\sprite.png" />
-    <Content Include="Scripts\base\KendoUI\styles\kendo.black.min.css" />
-    <Content Include="Scripts\base\KendoUI\styles\kendo.blueopal.min.css" />
-    <Content Include="Scripts\base\KendoUI\styles\kendo.common.min.css" />
-    <Content Include="Scripts\base\KendoUI\styles\kendo.default.min.css" />
-    <Content Include="Scripts\base\KendoUI\styles\kendo.metro.min.css" />
-    <Content Include="Scripts\base\KendoUI\styles\kendo.silver.min.css" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\editor.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\imagebrowser.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\loading-image.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\loading.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\slider-h.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\slider-v.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Metro\sprite.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\editor.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\imagebrowser.png" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\loading-image.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\loading.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\slider-h.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\slider-v.gif" />
-    <Content Include="Scripts\base\KendoUI\styles\Silver\sprite.png" />
-    <Content Include="Scripts\base\KendoUI\styles\textures\glass.png" />
-    <Content Include="Scripts\base\KendoUI\styles\textures\highlight.png" />
-    <Content Include="Scripts\base\KendoUI\textures\glass.png" />
-    <Content Include="Scripts\base\KendoUI\textures\highlight.png" />
-    <Content Include="Scripts\base\prototype-1.7.7.0.js" />
-    <Content Include="Scripts\inheritance\inheritance.js" />
-    <Content Include="Scripts\loader.js" />
-    <Content Include="Scripts\observer\observerCallee.js" />
-    <Content Include="Scripts\observer\observerCaller.js" />
-    <Content Include="Scripts\start.js" />
-    <Content Include="Scripts\structure\Application.js" />
-    <Content Include="Scripts\structure\base.js" />
-    <Content Include="Scripts\Tests\test1.js" />
-    <Content Include="Scripts\Tests\test2.css" />
-    <Content Include="Scripts\Tests\test2.js" />
-    <Content Include="Styles\customTheme1.css" />
-    <Content Include="Temporart-Repo\abstractBase.js" />
-    <Content Include="Temporart-Repo\Application.js" />
-    <Content Include="Temporart-Repo\baseController.js" />
-    <Content Include="Temporart-Repo\baseCss.css" />
-    <Content Include="Web.config" />
+    <Content Include="resources\components\abstractBase.js" />
+    <Content Include="resources\components\Application.js" />
+    <Content Include="resources\components\applicationResources.js" />
+    <Content Include="resources\components\base\css\baseCss.css" />
+    <Content Include="resources\components\base\images\1.png" />
+    <Content Include="resources\components\base\images\2.png" />
+    <Content Include="resources\components\base\images\3.png" />
+    <Content Include="resources\components\base\images\5.png" />
+    <Content Include="resources\components\base\images\apple_folder.png" />
+    <Content Include="resources\components\base\images\facebook.png" />
+    <Content Include="resources\components\base\images\human_user_trash.png" />
+    <Content Include="resources\components\base\images\left-pointer.png" />
+    <Content Include="resources\components\base\images\loading3.gif" />
+    <Content Include="resources\components\base\images\loadingAlert.gif" />
+    <Content Include="resources\components\base\images\login-30.png" />
+    <Content Include="resources\components\base\images\login.png" />
+    <Content Include="resources\components\base\images\logout-30.png" />
+    <Content Include="resources\components\base\images\logout.png" />
+    <Content Include="resources\components\base\images\permissions.png" />
+    <Content Include="resources\components\base\images\scheduled_tasks.png" />
+    <Content Include="resources\components\base\images\settings.png" />
+    <Content Include="resources\components\base\images\taskAssignment.png" />
+    <Content Include="resources\components\base\images\tasks.png" />
+    <Content Include="resources\components\base\images\user.png" />
+    <Content Include="resources\components\base\js\baseController.js" />
+    <Content Include="resources\components\moduleResources.js" />
+    <Content Include="Scripts\img\glyphicons-halflings-white.png" />
+    <Content Include="Scripts\img\glyphicons-halflings.png" />
+    <Content Include="Scripts\libraries\bootstrap.min.css" />
+    <Content Include="Scripts\libraries\bootstrap.min.js" />
+    <Content Include="Scripts\libraries\joose.js" />
+    <Content Include="Scripts\libraries\jQuery\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\libraries\jQuery\jquery-ui-1.8.23.custom.min.js" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\blitzer\jquery-ui-1.8.23.custom.css" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\libraries\jQuery\themes\default\jquery-ui-1.8.23.custom.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="resources\modules\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Layout1.cshtml" />
+    <Content Include="Areas\Admin\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\components\base\images\Thumbs.db" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\editUser.cshtml" />
+    <Content Include="Views\Home\error\error.cshtml" />
+    <Content Include="Views\Home\error\error_bottom.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\main.cshtml" />
+    <Content Include="Views\Home\newUser.cshtml" />
+    <Content Include="Views\Home\process.cshtml" />
+    <Content Include="Views\Home\users.cshtml" />
     <Content Include="Views\Home\viewport\viewport1.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_simpleLayout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\viewport\viewport2.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\viewport\viewport3.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Handler1.ashx" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Scripts\base\KendoUI\textures\Thumbs.db" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -325,7 +340,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2861</DevelopmentServerPort>
+          <DevelopmentServerPort>5341</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
