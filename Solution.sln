@@ -99,8 +99,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "projects\FinalWo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplication2", "projects\FinalWork\MvcApplication3\MvcApplication2.csproj", "{CE0749B4-2F1C-4707-BB0F-EA103D37112C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testMVC", "projects\FinalWork\testMVC\testMVC.csproj", "{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}"
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Solution.vsmdi
@@ -428,16 +426,6 @@ Global
 		{CE0749B4-2F1C-4707-BB0F-EA103D37112C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CE0749B4-2F1C-4707-BB0F-EA103D37112C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CE0749B4-2F1C-4707-BB0F-EA103D37112C}.Release|x86.ActiveCfg = Release|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -468,6 +456,5 @@ Global
 		{8C56968E-853C-4BD5-8CA2-4FC8B4553A04} = {E7A3C695-EFCE-402D-8242-B5AF0C668CF2}
 		{B6A2440D-8380-478C-8221-79C738EDB886} = {E7A3C695-EFCE-402D-8242-B5AF0C668CF2}
 		{CE0749B4-2F1C-4707-BB0F-EA103D37112C} = {E7A3C695-EFCE-402D-8242-B5AF0C668CF2}
-		{CEF685F2-9759-458D-AF4A-E8C7760F3AAD} = {E7A3C695-EFCE-402D-8242-B5AF0C668CF2}
 	EndGlobalSection
 EndGlobal
