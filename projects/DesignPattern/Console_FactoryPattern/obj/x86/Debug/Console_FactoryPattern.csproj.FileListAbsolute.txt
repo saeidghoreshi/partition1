@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_FactoryPattern\bin\Debug\Console_FactoryPattern.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_FactoryPattern\bin\Debug\Console_FactoryPattern.pdb
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_FactoryPattern\obj\x86\Debug\Console_FactoryPattern.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_FactoryPattern\obj\x86\Debug\Console_FactoryPattern.pdb

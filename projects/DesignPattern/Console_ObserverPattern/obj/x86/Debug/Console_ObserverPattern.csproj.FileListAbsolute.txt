@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\bin\Debug\Console_ObserverPattern.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\bin\Debug\Console_ObserverPattern.pdb
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\obj\x86\Debug\Console_ObserverPattern.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_ObserverPattern\obj\x86\Debug\Console_ObserverPattern.pdb

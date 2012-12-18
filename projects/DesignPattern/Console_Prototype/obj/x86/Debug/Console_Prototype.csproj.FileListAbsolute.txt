@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_Prototype\bin\Debug\Console_Prototype.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_Prototype\bin\Debug\Console_Prototype.pdb
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_Prototype\obj\x86\Debug\Console_Prototype.exe
-C:\projects\Partitions\partition1\projects\DesignPattern\Console_Prototype\obj\x86\Debug\Console_Prototype.pdb
