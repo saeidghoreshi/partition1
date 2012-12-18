@@ -1,35 +1,71 @@
-﻿<div id="menu">
-
-    <div class="section">
-    <p class="section-p">>Section1</p>
-    <div prop='content' class="section-content"></div>
-    </div>
-
-    <div class="section">
-    <p class="section-p">>Section2</p>
-    <div prop='content' class="section-content"></div>
-    </div>
-
-
-    <div class="section">
-    <p class="section-p">>Section3</p>
-    <div prop='content' class="section-content"></div>
-    </div>
+﻿<style>
+.section
+{
+    margin:0px 0px 3px 0px;  
+    font-family:Courier New;  
+    font-size:10px;
+    width:202px;
     
+    border:1px solid white;
+     /*Border Radious*/
+    -moz-border-radius: 2px 2px 0px 0px;
+    -webkit-border-top-left-radius: 2px;
+    -webkit-border-top-right-radius: 2px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -goog-ms-border-radius: 2px 2px 0px 0px;
+    border-radius: 2px 2px 0px 0px;
+    
+     /*Box Shadow*/
+    -moz-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    -webkit-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    -goog-ms-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    
+}
+.section-header
+{
+    width:200px;
+    height:20px;
+    background:gray;
+    cursor:pointer;
+    padding:2px;
+    
+}
+.section-content
+{
+    background:white;
+    width:200px;
+    height:100px;
+    border:1px solid transparent;   
+}
+</style>
+
+<!--Accordion-->
+<div class="section">
+    <div class="section-header">Header 1</div>
+    <div prop='content' class="section-content"></div>
 </div>
 
+<div class="section">
+    <div class="section-header">Header 2</div>
+    <div prop='content' class="section-content"></div>
+</div>
+
+
+<div class="section">
+    <div class="section-header">Header 3</div>
+    <div prop='content' class="section-content"></div>
+</div>
+    
+
+
+
 <br/>
 <br/>
 <br/>
-<div id="btn" style="width:20px;height:20px;background:red;margin-left:100px"></div>
-<div id="btn2" class="btn" data-toggle="button">Single Toggle</div>
 
-<div id="output1"></div>
-
-
-
-<b2>Plugin Test</b2>
-<div id='pluginTest'>
+<div id='numberdata'>
 
     <div>1</div>
     <div>2</div>
@@ -38,5 +74,4 @@
     <div>5</div>
 
 </div>
-<b2>data event</b2>
-<div id='testdiv'></div>
+<div id='customEvent'></div>

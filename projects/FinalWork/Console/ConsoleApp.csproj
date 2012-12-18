@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypto\Program.cs" />
     <Compile Include="DesignPatterns\Adapter\client.cs" />
     <Compile Include="DesignPatterns\Adapter\component.cs" />
     <Compile Include="DesignPatterns\Adapter\Implementations\AdapterImplementations.cs" />

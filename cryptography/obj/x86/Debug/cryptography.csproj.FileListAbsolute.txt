@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\cryptography\bin\Debug\cryptography.exe
-C:\projects\Partitions\partition1\cryptography\bin\Debug\cryptography.pdb
-C:\projects\Partitions\partition1\cryptography\obj\x86\Debug\cryptography.exe
-C:\projects\Partitions\partition1\cryptography\obj\x86\Debug\cryptography.pdb

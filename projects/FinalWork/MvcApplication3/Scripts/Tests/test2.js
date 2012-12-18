@@ -8,136 +8,220 @@ var test2
             initialize: function () {
 
                 var me=this;
-                $('#test2').ready(me.buildGUI);
+                me.buildGUI2();
             },
 
-
+            //On Viewport1
             buildGUI: function () {
                 
                 var me = this;
     
                     console.time('timer1');
-                    console.log($('#pluginTest').find('div').average());
+                    console.log('divs values average: '+$('#numberdata').find('div').average());
                     console.timeEnd('timer1');
 
-
-                    $('#testdiv').on('setData', function (e, key, value) { console.log('data set '+key+" >> "+ value) });
-                    $('#testdiv').on('changeData', function (e, key, value) { console.log('data change '+key+" >> "+  value) });
-                    $('#testdiv').on('getData', function (e, key) { console.log('data get '+key) });
-
+                    console.log('-------------data Test on elements--------------');
+                    $('#testdiv').on('setData', function (e, key, value) { console.log('data set event '+key+" >> "+ value) });
+                    $('#testdiv').on('changeData', function (e, key, value) { console.log('data change event '+key+" >> "+  value) });
+                    $('#testdiv').on('getData', function (e, key) { console.log('data get event  '+key) });
+                    
                     //set/change Data
                     $('#testdiv').data('var1', 1);
 
                     //get Data
-                    console.log($('#testdiv').data('var1'));
+                    console.log('GET DATA #1 >> '+$('#testdiv').data('var1'));
 
                     //Remove Data
                     $('#testdiv').removeData('var1');
 
-                    //Get Data
-                    console.log($('#testdiv').data('var1'));
-                    var data = $('#testdiv').data('var1');
+                    //Get REMOVED Data WHICH IS REMOVED
+                    console.log('GET DATA #2 >> '+$('#testdiv').data('var1'));
+                    console.log('-------------data Test on elements End--------------');
+
 
                     //----------------------------------------------------------------------------------------------------------------------
                     //Note : for built-in events just use delegate[doesnt bubble up and acts like live]
                     //but for defining custome events use below
                     //--------------custom Events
-                    $('#testdiv').die('green').live('green', function () { console.log('gone green'); })
-                    $('#testdiv').live('green', function () { console.log('another gone green'); })
-                    $('#testdiv').trigger('green');
-                    //----------------------------------------------------------------------------------------------------------------------
+                    console.log('--------------Custom Events-------------');
+                    $('#customEvent').die('green').live('green', function () { console.log('gone green'); })
+                    $('#customEvent').live('green', function () { console.log('another gone green'); })
+                    $('#customEvent').trigger('green');
+                    console.log('--------------Custom Events End-------------');
 
-
-                    //ajax Hirarchy
-                    $.ajax(
-					{
-					    url: '/home/sss',
-					    success: function (e) { console.log('success'); },
-					    error: function (e) { console.log('error'); },
-					    complete: function (e) { console.log('complete'); }
-					});
-
-
-                    //jQuerxy effects : hide,show, toggle/ slideUp,slidedown,sldeToggle / fadeI,faeOut,fadeTo
-                    $('.section').die("click").live({ click: function () {
-
+ 
+                    $('body').undelegate(".section","click").delegate('.section',"click",function (e) {
 
                         //$(this).find('div[prop = "content"]').slideToggle(1000);
                         //OR
+                        
                         $(this).find('div').each(function (index) {
 
                             if ($(this).hasClass('section-content')) {
-
-                                $(this).slideToggle('slow');
+                            
+                                $(this).slideToggle();
                                 //$(this).toggle('slow');
-                                //bounce,explode,puldate
+                                //$(this).effect("bounce", { times:3 }, 300);
+                                //$(this).effect("explode", { times:3 }, 300);
+
+                                //blinking
+                                //$(this).effect("pulsate", { times:3 }, 2000);
 
                             }
 
-                        })
-
-                        //event type detection
-                        /*
-                        $('#item').bind("mouseup mouseleave"
-                        ,function(e)
-                        {
-                        if(e.type=="mouseup")
                         });
-                        */
-                        //Live[works for new objects added and aloso bubble up] 
-                        //and delegate aks the same except the fact that we can put a filter
-                        /*use delegates > $('#divs').delegate('filter attr','click',function);
+                        e.stopPropagation();
+                        return false;
+
+                    });//.section click
+
+
+                    //multiple Event Binding
+                     $('body').undelegate(".section-header","mouseover mouseleave").delegate('.section-header',"mouseover mouseleave",function (e) {
+                     
+                        if(e.type==="mouseover")
+                            console.log("over");
+                        if(e.type==="mouseleave")
+                            console.log("leave");
                         
-                        */
+                        e.stopPropagation();
+                        return false;
 
-                        //selector
-                        /*
-                        $('div:eq(index)') index-th div child
-                        $('whatever',item) > means whatever relative to item
-                        */
-                        //Note : e.stopPropagation  > means prevent bubblng up in live events
-                        //use in delegate
+                    });//.section-header mouseup mouseleave
+                    
+            },
 
-                        //Note: when using $  means by reference if want by value ten use clone()
+            //on ViewPort3
+            buildUI: function () {
+                var me = this;
+                
 
-                        //Note: $(filter,item) > filter items relative to item
+                    value = 0;
+                    $('#progress').progressbar({ value: value });
 
-                        //Note 
-                        /*
-                        item.hover(
-                        function(){},
-                        function(){}
-                        );
-                        */
+                    var countup = function () {
+                        value++;
+                        $('#progress').progressbar("option", "value", value);
 
-                        //Note : item.toggle
-                        /*(
-                        function(){},
-                        function(){},
-                        function(){}
-
-                        );
-                        acts like multiple click toggle
-                        */
+                        if (value < 100)
+                            setTimeout(countup, 10);
+                        else
+                            $('#progress').progressbar("disable");
                     }
+                    countup();
+
+                    //build tabs
+                    $('#tabs').tabs();
+
+                    //Build Accordion
+                    $('#accordion').accordion(
+					{
+					    autoHeight: true,
+					    collapsible: true,
+					    change: function (event, ui) {
+					        console.log(event, ui);
+					    }
+
+					});
+                    $('#accordion').accordion("activate", 2);
+
+                    //autocmplete
+                    // var classes=
+                    // [
+                    // 'C#',
+                    // 'VB'
+                    // ];
+                    $('#search').autocomplete(
+					{
+					    source: "handler1.ashx",
+					    minLength: 2,
+					    delay: 1500
+					});
+
+                    //UI butons
+
+                    $('#buttons').children().button({ icons: { primary: "ui-icon-search", secondary: "ui-icon-wrench"} });
+                    $('#radios', function () {
+
+                        $('#radios').buttonset();
+                    })
+
+                    $('#checks').buttonset();
+
+                    $('#effect-btn').button();
+                    $('#ease-btn').button();
+
+                    //Effects
+                    $('#effect-btn').click(function () {
+                        $('#effect-box')
+						.effect('bounce')
+						.effect('explode', { pieces: 4 }, 1000, function () { });
                     });
-               
+
+                    //Easing  document s in effect section
+                    $('#ease-btn').click(function () {
+                        $('#ease-box')
+						.css({ position: "relative" })
+						.animate(
+						{
+						    left: "+=50"
+						}, 1000, "easeOutBounce")
+						.toggleClass('c1', 'slow')
+                        //.class (slow)   to do animation also  specially when reverse action matter
+                    });
+
+                    //DND
+                    //$('#draggables').children().draggable();
+                    $('#d1').draggable
+					(
+						{
+						    revert: "invalid",
+						    helper: function () { return $('<div>Move</div>'); }
+						}
+					);
+                    $('#d2').draggable
+					(
+						{
+						    revert: "invalid",
+						    helper: "clone"
+						}
+					);
+                    $('#d3').draggable();
+
+                    $('#d1,#d2,#d3').draggable("option", "stack", ".ui-draggable");
+                    $('#d1,#d2,#d3').draggable("option", "handle", ".header");
+
+                    //make droppable
+                    $('#trash').droppable
+					(
+						{
+						    accept: "#d2 , #sortables div",
+						    activeClass: "opaque",
+						    drop: function (event, ui) {
+						        ui.draggable.fadeOut(2000, function () {
+						            $(this).remove();
+						        });
+						    }
+						}
+					);
+                    //Sortable
+                    $('#sortables').sortable
+					(
+						{
+						    //axis:"y",
+						    placeholder: "placeholder"
+						}
+					);
+                
 
             },
 
+            //On Viewport 2
             buildGUI2: function ()   //UI
             {
                 var me = this;
 
-                $.ajax(
-                {
-                    url: "/home/componentViewLoader/",
-                    type: "GET",
-                    data: { viewname: 'viewport2' }
-                }).done(function (data) {
-
-                    $('#' + me.getId()).html(data.result);
-
+               
                     var bullet =
 					{
 					    shoot: function ()   ////////WAIT Function
@@ -208,7 +292,6 @@ var test2
 					$('#whowon').click(function () { bullet.shot.done(function (e) { console.log(e); }); });
 
 
-                });
 
                 //WHEN
                 //pat1
@@ -229,137 +312,6 @@ var test2
 
                     setTimeout(function () { def.resolve() }, 2000);
                 });
-            },
-
-            buildUI: function () {
-                var me = this;
-
-                $.ajax(
-                {
-                    url: "/home/componentViewLoader/",
-                    type: "GET",
-                    data: { viewname: 'viewport3' }
-                }).done(function (data) {
-                    $('#' + me.getId()).html(data.result);
-
-                    value = 0;
-                    $('#progress').progressbar({ value: value });
-
-                    var countup = function () {
-                        value++;
-                        $('#progress').progressbar("option", "value", value);
-
-                        if (value < 100)
-                            setTimeout(countup, 10);
-                        else
-                            $('#progress').progressbar("disable");
-                    }
-                    countup();
-
-                    //build tabs
-                    $('#tabs').tabs();
-                    $('#accordion').accordion(
-					{
-					    autoHeight: true,
-					    collapsible: true,
-					    change: function (event, ui) {
-					        console.log(event, ui);
-					    }
-
-					});
-                    $('#accordion').accordion("activate", 2);
-
-                    //autocmplete
-                    // var classes=
-                    // [
-                    // 'C#',
-                    // 'VB'
-                    // ];
-                    $('#search').autocomplete(
-					{
-					    source: "handler1.ashx",
-					    minLength: 2,
-					    delay: 1500
-					});
-                    //UI butons
-
-                    $('#buttons').children().button({ icons: { primary: "ui-icon-search", secondary: "ui-icon-wrench"} });
-                    $('#radios', function () {
-
-                        $('#radios').buttonset();
-                    })
-
-                    $('#checks').buttonset();
-
-                    $('#effect-btn').button();
-                    $('#ease-btn').button();
-                    //Effects
-
-                    $('#effect-btn').click(function () {
-                        $('#effect-box')
-						.effect('bounce')
-						.effect('explode', { pieces: 4 }, 2000, function () { });
-                        //find list of possible effects in JS file
-                    });
-
-                    //Easing  document s in effect section
-                    $('#ease-btn').click(function () {
-                        $('#ease-box')
-						.css({ position: "relative" })
-						.animate(
-						{
-						    left: "+=50"
-						}, 1000, "easeOutBounce")
-						.toggleClass('c1', 'slow')
-                        //.class (slow)   to do animation also  specially when reverse action matter
-                    });
-
-                    //DND
-                    //$('#draggables').children().draggable();
-                    $('#d1').draggable
-					(
-						{
-						    revert: "invalid",
-						    helper: function () { return $('<div>Move</div>'); }
-						}
-					);
-                    $('#d2').draggable
-					(
-						{
-						    revert: "invalid",
-						    helper: "clone"
-						}
-					);
-                    $('#d3').draggable();
-
-                    $('#d1,#d2,#d3').draggable("option", "stack", ".ui-draggable");
-                    $('#d1,#d2,#d3').draggable("option", "handle", ".header");
-
-                    //make droppable
-                    $('#trash').droppable
-					(
-						{
-						    accept: "#d2 , #sortables div",
-						    activeClass: "opaque",
-						    drop: function (event, ui) {
-						        ui.draggable.fadeOut(2000, function () {
-						            $(this).remove();
-						        });
-						    }
-						}
-					);
-                    //Sortable
-                    $('#sortables').sortable
-					(
-						{
-						    //axis:"y",
-						    placeholder: "placeholder"
-						}
-					);
-                });
-
-
-
             }
             
         });

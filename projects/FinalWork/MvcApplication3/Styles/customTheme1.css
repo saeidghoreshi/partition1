@@ -1,28 +1,31 @@
 ﻿body
 {
-    background: #111 url(../images/bg1.jpg) repeat-x fixed top center;
+    background: #111 url(../images/environment.jpg) no-repeat fixed  center;
 }
-.box 
+.myBox 
 {
     top:100px;
+    width:400px;
+    height:600px;
     padding:20px;
     margin:20px;
-    min-width:600;
-    height:600px;
     color:#ccc;
     font:10px verdana;
     
     background: transparent url(../images/black.png) repeat scroll top left;
-    -moz-border-radius: 0px 0px 0px 0px;
-    -webkit-border-top-left-radius: 0px;
-    -webkit-border-top-right-radius: 0px;
-    -webkit-border-bottom-left-radius: 0px;
-    -webkit-border-bottom-right-radius: 0px;
-    -goog-ms-border-radius: 0px 0px 0px 0px;
-    border-radius: 0px 0px 0px 0px;
     
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
-    -goog-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+    /*Border Radious*/
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -goog-ms-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    
+    /*Box Shadow*/
+    -moz-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    -webkit-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    -goog-ms-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
 }
