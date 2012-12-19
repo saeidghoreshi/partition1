@@ -28,7 +28,7 @@ job.prototype.calculateASync = function () {
             }
 
             if (i < len)
-                setTimeout(arguments.calee, 30); //given time to other UI ops
+                setTimeout(arguments.callee, 30); //given time to other UI ops
             else
                 callback(items);
 
