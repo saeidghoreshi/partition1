@@ -1,18 +1,21 @@
-﻿(function ($$) {
+﻿var JSCSSLOADER=null;
+
+(function ($$) {
     (function ($) {
 
         JSCSSLOADER = Class.create({
 
-            initialize: function (jsArray, cssArray, callback) {
+            initialize: function (jsArray, cssArray) {
                 this.jsArray = jsArray;
                 this.cssArray = cssArray;
-                this.loadAll(callback);
-            },
-
-            loadAll: function (callback) {
-                $.getScript(this.jsArray, (callback === null ? function () { } : callback));
             }
         });
+
+        JSCSSLOADER.loadAll = function (jsArray, cssArray, callback) {
+
+            $.getScript(cssArray, function () {});
+            $.getScript(jsArray, (callback === null ? function () { } : callback));
+        }
 
     } (jQuery));
 } (Prototype));

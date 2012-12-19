@@ -50,6 +50,31 @@ var Test1;
                     console.log('--------------Custom Events End-------------');
 
  
+                    //Hide all the tabs except Header 3
+                    //$(".section-header:not(:contains('Header 3'))").next().hide();
+                    $(".section-header:not(:eq(0))").next().hide();
+                    //Using Find an chaining 
+                    $(".section-content").find('p:eq(1)').empty().html('saeid 1 ');
+                    $(".section-content")
+                        .find('p:eq(0) > a')
+                        .empty()
+                        .html('Link1')
+                        .attr('href',"http://ww.google.com")
+                        .data('key',{id:1,parent:2});
+
+                    //Filter
+                    var item=$(".section-content")
+                        .find('p > a')
+                        .filter(function()
+                        {
+                            return ($(this).data('key').id===1)
+                        });
+                        console.log("----------using Filter-------");
+                        console.log(item.html());
+                        console.log("----------using Filter END-------");
+
+                        
+
                     $('body').undelegate(".section","click").delegate('.section',"click",function (e) {
 
                         //$(this).find('div[prop = "content"]').slideToggle(1000);

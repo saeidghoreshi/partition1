@@ -1,7 +1,7 @@
 ﻿/*
 $(':input')
 $(':input[type="radio"]')
-$(div:contains('plural'))
+$(div:contains('plural'))           ==>Good for searching
 $('r:first-child')
 $('div:[title^="xxx"]')
 $('div:[title*="xxx"]')
@@ -37,10 +37,10 @@ $('input:radio[name=g1]:checked')
 ***always use === and !==
 
 $(TAG[attr=sth])
-E F  or $(F,E)          ==>any F tag under E
+E F  or $(F,E)          ==>any F tag descendant to E
 E>F			            ==>any F children under E at level one
 E+F			            ==>any F sticking immediatly after E
-E:not(s)
+E:not(s)                ==>s can be class or id
 E~F			            ==>any F sticks after E
 $('.x .y')	            ==>$('.x').find('.y')
 $('#x div:eq(index)')   ==>index-th div child
@@ -50,7 +50,7 @@ $().wrap('<b></b>');
 jQuery.fn.FunctionName=function(){} then call it like $().FunctionName();
 
 */
-
+//http: //www.w3.org/TR/css3-selectors/
 
 
 

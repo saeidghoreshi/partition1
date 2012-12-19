@@ -165,8 +165,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Handler1.ashx.cs">
-      <DependentUpon>Handler1.ashx</DependentUpon>
+    <Compile Include="longProcessingResource.ashx.cs">
+      <DependentUpon>longProcessingResource.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -273,7 +273,7 @@
     <Content Include="Views\Home\viewport\viewport3.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Handler1.ashx" />
+    <Content Include="longProcessingResource.ashx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\base\KendoUI\textures\Thumbs.db" />
