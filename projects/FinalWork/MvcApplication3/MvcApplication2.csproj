@@ -227,6 +227,7 @@
     <Content Include="Scripts\base\KendoUI\textures\glass.png" />
     <Content Include="Scripts\base\KendoUI\textures\highlight.png" />
     <Content Include="Scripts\base\prototype-1.7.7.0.js" />
+    <Content Include="Scripts\DesignPatterns\inheritance\basic.js" />
     <Content Include="Scripts\DesignPatterns\inheritance\inheritance.js" />
     <Content Include="Scripts\structure\loader.js" />
     <Content Include="Scripts\DesignPatterns\observer\observerCallee.js" />
@@ -234,9 +235,12 @@
     <Content Include="Scripts\start.js" />
     <Content Include="Scripts\structure\Application.js" />
     <Content Include="Scripts\structure\base.js" />
+    <Content Include="Scripts\Tests\TestDND.js" />
+    <Content Include="Scripts\Tests\Test1.js" />
+    <Content Include="Scripts\Tests\Test3.js" />
     <Content Include="Scripts\Tests\jQueryNotations.js" />
     <Content Include="Scripts\Tests\miscellaneous.js" />
-    <Content Include="Scripts\Tests\test2.js" />
+    <Content Include="Scripts\Tests\Test2.js" />
     <Content Include="Styles\customTheme1.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -273,6 +277,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\base\KendoUI\textures\Thumbs.db" />
+    <Content Include="Views\Home\viewport\viewportDND.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

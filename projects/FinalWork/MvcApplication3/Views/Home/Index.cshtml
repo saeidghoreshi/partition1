@@ -3,10 +3,16 @@
 }
         <!--Test-->
         <table cellpadding="0" cellspacing="0" border="0">
+
         <tr>
-        <td><div class="myBox">@{ Html.RenderPartial("viewport/viewport1"); }</div></td>
-        <td><div class="myBox">@{ Html.RenderPartial("viewport/viewport2"); }</div></td>
-        <td><div class="myBox">@{ Html.RenderPartial("viewport/viewport3"); }</div></td>
+            <td><div class="myBoxStyle myBoxVer1">@{ Html.RenderPartial("viewport/viewport1"); }</div></td>
+            <td><div class="myBoxStyle myBoxVer1">@{ Html.RenderPartial("viewport/viewport2"); }</div></td>
+            <td rowspan="2"><div class="myBoxStyle myBoxVer2">@{ Html.RenderPartial("viewport/viewport3"); }</div></td>
         </tr>
+
+        <tr>
+            <td colspan="2"><div class="myBoxStyle myBoxHor">@{ Html.RenderPartial("viewport/viewportDND"); }</div></td>
+        </tr>
+
         </table>
         

@@ -15,7 +15,7 @@
     <li><a href="#tab1">Tab1</a></li>
     <li><a href="#tab2">Tab2</a></li>
     <li><a href="#tab3">Tab3</a></li>
-    <li><a href="simple html File address">Tab4</a></li>
+    <li><a href="http://www.google.com">Tab4</a></li>
 </ul>
 <div id="tab1">sample tst fo tab1</div>
 <div id="tab2">sample tst fo tab2</div>
@@ -64,9 +64,10 @@
 
 
 <div id="checks">
-<input type="checkbox" id="ch1" name='chek' /><label for="ch1">JS</label>
-<input type="checkbox" id="ch2" name='chek' /><label for="ch2">JS</label>
-<input type="checkbox" id="ch3" name='chek' /><label for="ch3">JS</label>
+<input type="checkbox" id="ch1" name='chek' /><label for="ch1">JS1</label>
+<input type="checkbox" id="ch2" name='chek' /><label for="ch2">JS2</label>
+<input type="checkbox" id="ch3" name='chek' /><label for="ch3">JS3</label>
+<input type="checkbox" id="ch4" name='chek' /><label for="ch4">JS4</label>
 </div>
 
 
@@ -102,94 +103,3 @@
     </td>
 </tr>
 </table>
-
-<!--DND-->
-<style>
-
-.ui-draggable
-{
-    width:100px;
-    height:70px;
-    background:#f2f2f2;
-    padding:3px;
-    border:1px solid red;
-    box-shadow:5px 5px 5px black;
-}
-.ui-draggable > .header
-{
-    width:100%;
-    height:20px;
-    background:green;
-    padding:2px;
-    cursor:pointer;
-}
-.trash
-{
-    width:130px;
-    height:130px;
-    padding:5px;
-    border:1px dashed red;
-}
-
-.semitrans{opacity:0.6;}
-.opaque{opacity:1.0;}
-
-table td
-{
-    padding:10px;
-}
-</style>
-
-
-
-<table>
-<tr>
-    <td>
-        <div id="draggables">
-            <div id="d1"><div class='header'>A</div></div>
-            <div id="d2"><div class='header'>B</div></div>
-            <div id="d3"><div class='header'>C</div></div>
-        </div>
-    </td>
-    <td>
-        <div class="trash semitrans" id="trash"></div>    
-    </td>
-
-    <td>
-        <div id="sortables">
-            <div id="s1"><div class='header'>S1</div></div>
-            <div id="s2"><div class='header'>S2</div></div>
-            <div id="s3"><div class='header'>S3</div></div>
-        </div>
-    
-    </td>
-</tr>
-</table>
-
-
-
-<!--Sortable-->
-<style>
-#sortables .header
-{
-    width:100px;
-    height:20px;
-    background:green;
-    cursor:pointer;
-    
-    padding:2px;
-    margin:5px;
-}
-#sortables > .placeholder
-{
-    box-shadow:inset 0 0 15px black;
-    width:100px;
-    height:20px;
-    background-color:transparent;
-    border:1px dashed red;
-    
-    padding:2px;
-    margin:5px;
-}
-</style>
-

@@ -1,17 +1,12 @@
 ﻿body
 {
     background: #111 url(../images/environment.jpg) no-repeat fixed  center;
+    font:verdana;
 }
-.myBox 
-{
-    top:100px;
-    width:400px;
-    height:600px;
-    padding:20px;
-    margin:20px;
+.myBoxStyle
+{   
+    margin:10px;
     color:#ccc;
-    font:10px verdana;
-    
     background: transparent url(../images/black.png) repeat scroll top left;
     
     /*Border Radious*/
@@ -29,3 +24,24 @@
     -goog-ms-box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
     box-shadow: 0 1px 20px rgba(0, 0, 0, .50);
 }
+.myBoxVer1
+{
+    margin-top:20px;
+    width:400px;
+    height:400px;
+}
+.myBoxVer2
+{
+    margin-top:20px;
+    width:600px;
+    height:750px;
+}
+.myBoxHor
+{
+    margin-top:0px;
+    height:300px;
+}
+ table
+ {
+     width:100%;
+ }
