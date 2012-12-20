@@ -86,14 +86,7 @@ var Test2;
 
 
 
-                //WHEN
-                //pat1
-                me.tagReady('w1', function () {
-                    //var promise1=$('#w1').fadeIn(2000).promise();
-                    //var promise2=$('#w2').fadeIn(3000).promise();
-                    //var when=$.when(promise1,promise2).done(function(){console.log('both loaded');});
-                });
-                //pat2
+                
                 me.tagReady('w1', function () {
                     var promise1 = $('#w1').fadeIn(2000).promise();
                     var promise2 = $('#w2').fadeIn(3000).promise();

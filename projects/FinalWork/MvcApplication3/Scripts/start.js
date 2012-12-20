@@ -10,4 +10,4 @@
 
 
 
-JSCSSLOADER.loadAll(['scripts/DesignPatternsTests/Promisses/Promise1.js'], [''], null);
+JSCSSLOADER.loadAll(['scripts/DesignPatterns/Promises/Promise1.js'], [''], null);
