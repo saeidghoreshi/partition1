@@ -1,4 +1,0 @@
-C:\projects\Partitions\partition1\projects\FinalWork\Console\obj\x86\Debug\Console.exe
-C:\projects\Partitions\partition1\projects\FinalWork\Console\obj\x86\Debug\Console.pdb
-C:\projects\Partitions\partition1\projects\FinalWork\Console\bin\Debug\Console.exe
-C:\projects\Partitions\partition1\projects\FinalWork\Console\bin\Debug\Console.pdb

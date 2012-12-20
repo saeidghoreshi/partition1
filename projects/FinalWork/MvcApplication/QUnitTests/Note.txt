@@ -1,0 +1,6 @@
+﻿check all tyhe endpoints respond with success ?
+get requests return back the expected data ?
+do the post/put/delete  works ??
+
+
+http://qunitjs.com

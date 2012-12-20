@@ -1,5 +1,0 @@
-D:\Projects\TestProject1\bin\Debug\TestProject1.dll
-D:\Projects\TestProject1\bin\Debug\TestProject1.pdb
-D:\Projects\TestProject1\obj\Debug\ResolveAssemblyReference.cache
-D:\Projects\TestProject1\obj\Debug\TestProject1.dll
-D:\Projects\TestProject1\obj\Debug\TestProject1.pdb

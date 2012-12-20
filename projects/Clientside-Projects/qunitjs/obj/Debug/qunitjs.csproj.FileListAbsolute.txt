@@ -1,8 +1,0 @@
-C:\projects\Partitions\partition1\projects\javascript\qunitjs\bin\qunitjs.dll
-C:\projects\Partitions\partition1\projects\javascript\qunitjs\bin\qunitjs.pdb
-C:\projects\Partitions\partition1\projects\javascript\qunitjs\obj\Debug\qunitjs.dll
-C:\projects\Partitions\partition1\projects\javascript\qunitjs\obj\Debug\qunitjs.pdb
-C:\projects\Partitions\partition1\projects\Clientside-Projects\qunitjs\bin\qunitjs.dll
-C:\projects\Partitions\partition1\projects\Clientside-Projects\qunitjs\bin\qunitjs.pdb
-C:\projects\Partitions\partition1\projects\Clientside-Projects\qunitjs\obj\Debug\qunitjs.dll
-C:\projects\Partitions\partition1\projects\Clientside-Projects\qunitjs\obj\Debug\qunitjs.pdb

@@ -1,0 +1,14 @@
+C:\projects\Partitions\partition1\WCFTEST\IISHost\bin\IISHost.dll
+C:\projects\Partitions\partition1\WCFTEST\IISHost\bin\IISHost.pdb
+C:\projects\Partitions\partition1\WCFTEST\IISHost\obj\Debug\IISHost.dll
+C:\projects\Partitions\partition1\WCFTEST\IISHost\obj\Debug\IISHost.pdb
+C:\projects\Partitions\partition1\WCFTEST\IISHost\bin\wcfLibrary.dll
+C:\projects\Partitions\partition1\WCFTEST\IISHost\bin\wcfLibrary.pdb
+C:\projects\Partitions\partition1\WCFTEST\IISHost\obj\Debug\IISHost.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\bin\IISHost.dll
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\bin\IISHost.pdb
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\bin\wcfLibrary.dll
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\bin\wcfLibrary.pdb
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\obj\Debug\IISHost.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\obj\Debug\IISHost.dll
+C:\projects\Partitions\partition1\projects\WCFTEST\IISHost\obj\Debug\IISHost.pdb

@@ -1,0 +1,16 @@
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\bin\Debug\ConsoleHost.exe
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\bin\Debug\ConsoleHost.pdb
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\bin\Debug\wcfLibrary.dll
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\bin\Debug\wcfLibrary.pdb
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\obj\x86\Debug\ConsoleHost.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\obj\x86\Debug\ConsoleHost.exe
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\obj\x86\Debug\ConsoleHost.pdb
+C:\projects\Partitions\partition1\WCFTEST\ConsoleHost\bin\Debug\ConsoleHost.exe.config
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\bin\Debug\ConsoleHost.exe.config
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\bin\Debug\ConsoleHost.exe
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\bin\Debug\ConsoleHost.pdb
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\bin\Debug\wcfLibrary.dll
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\bin\Debug\wcfLibrary.pdb
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\obj\x86\Debug\ConsoleHost.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\obj\x86\Debug\ConsoleHost.exe
+C:\projects\Partitions\partition1\projects\WCFTEST\ConsoleHost\obj\x86\Debug\ConsoleHost.pdb

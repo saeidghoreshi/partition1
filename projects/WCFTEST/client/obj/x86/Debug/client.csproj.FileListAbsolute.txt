@@ -1,0 +1,12 @@
+C:\projects\Partitions\partition1\WCFTEST\client\bin\Debug\client.exe.config
+C:\projects\Partitions\partition1\WCFTEST\client\bin\Debug\client.exe
+C:\projects\Partitions\partition1\WCFTEST\client\bin\Debug\client.pdb
+C:\projects\Partitions\partition1\WCFTEST\client\obj\x86\Debug\client.exe
+C:\projects\Partitions\partition1\WCFTEST\client\obj\x86\Debug\client.pdb
+C:\projects\Partitions\partition1\WCFTEST\client\obj\x86\Debug\client.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCFTEST\client\bin\Debug\client.exe.config
+C:\projects\Partitions\partition1\projects\WCFTEST\client\bin\Debug\client.exe
+C:\projects\Partitions\partition1\projects\WCFTEST\client\bin\Debug\client.pdb
+C:\projects\Partitions\partition1\projects\WCFTEST\client\obj\x86\Debug\client.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\WCFTEST\client\obj\x86\Debug\client.exe
+C:\projects\Partitions\partition1\projects\WCFTEST\client\obj\x86\Debug\client.pdb

@@ -1,9 +1,0 @@
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Release\BusStop.contract.dll
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Release\BusStop.contract.pdb
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Release\NServiceBus.dll
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Release\nunit.framework.dll
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Release\NServiceBus.xml
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\bin\Release\nunit.framework.xml
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\obj\Release\BusStop.contract.csprojResolveAssemblyReference.cache
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\obj\Release\BusStop.contract.dll
-C:\projects\Partitions\partition1\projects\BusService\BusStop.contract\obj\Release\BusStop.contract.pdb
