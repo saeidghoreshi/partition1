@@ -201,6 +201,8 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\jqm - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\jqm - Web Deploy.pubxml" />
     <None Include="Scripts\libraries\jQurey-Mobile\images\Thumbs.db" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\view1.cshtml" />

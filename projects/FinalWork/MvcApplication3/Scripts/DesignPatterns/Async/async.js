@@ -18,6 +18,7 @@ job.prototype.calculateASync = function () {
 
         setTimeout(function () {/***/
             var result;
+   
 
             //25 ms per 3000 record
             for (var start = new Date(); i < len && (new Date) - start < 25 * pauseTimes  /*750*/; i++) 
