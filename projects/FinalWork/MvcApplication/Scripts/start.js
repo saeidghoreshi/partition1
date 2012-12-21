@@ -4,10 +4,10 @@
 //JSCSSLOADER.loadAll(['scripts/Tests/miscellaneous.js.js'], ['scripts/Tests/test2.css'], null);
 
 
-//JSCSSLOADER.loadAll(['scripts/Tests/Test1.js'], [''], null);
+JSCSSLOADER.loadAll(['scripts/Tests/Test1.js'], [''], null);
 //JSCSSLOADER.loadAll(['scripts/Tests/Test2.js'], [''], null);
 //JSCSSLOADER.loadAll(['scripts/Tests/Test3.js'], [''], null);
 
 
 
-JSCSSLOADER.loadAll(['scripts/DesignPatterns/Promises/Promise1.js'], [''], null);
+//JSCSSLOADER.loadAll(['scripts/DesignPatterns/Promises/Promise1.js'], [''], null);

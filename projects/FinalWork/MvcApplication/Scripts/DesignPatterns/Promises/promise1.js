@@ -27,11 +27,8 @@
         })
         .always(function (data) {
             console.log("Defered Object #1 Always !!!!");
-        })
-        .progress(function () {
-            console.log("Defered Object #1 is progressing ....!!!!");
         });
-        
+
 
         //for dfd2
         dfd2
@@ -43,14 +40,11 @@
         })
         .always(function (data) {
             console.log("Defered Object #2 Always !!!!");
-        })
-        .progress(function () {
-            console.log("Defered Object #2 is progressing ....!!!!");
         });
 
         //Merging
         $.when(dfd1.promise(), dfd2.promise()).done(function (args) {
-            console.log("When Reached !!!  W/ ARGS >>> "+args);
+            console.log("When Reached !!!  W/ ARGS >>> " + args);
         });
 
 

@@ -1,18 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "devenv", "..\..\..\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe", "{48D00537-587A-4617-93FC-289A38F864C0}"
-	ProjectSection(DebuggerProjectSystem) = preProject
-		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = c:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe
-		RemoteMachine = SAEID-PC
-		StartingDirectory = c:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE
-		Environment = Default
-		LaunchingEngine = 00000000-0000-0000-0000-000000000000
-		LaunchSQLEngine = No
-		AttachLaunchAction = No
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{FCC5C077-390C-47F1-8F90-844F58C3B6FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientSide", "ClientSide", "{3D09FB77-D190-4AA1-97F3-68EBD36B195C}"
@@ -79,12 +67,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{48D00537-587A-4617-93FC-289A38F864C0}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{48D00537-587A-4617-93FC-289A38F864C0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{48D00537-587A-4617-93FC-289A38F864C0}.Debug|x86.ActiveCfg = Debug|x86
-		{48D00537-587A-4617-93FC-289A38F864C0}.Release|Any CPU.ActiveCfg = Debug|x86
-		{48D00537-587A-4617-93FC-289A38F864C0}.Release|Mixed Platforms.ActiveCfg = Debug|x86
-		{48D00537-587A-4617-93FC-289A38F864C0}.Release|x86.ActiveCfg = Debug|x86
 		{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}.Debug|Mixed Platforms.Build.0 = Debug|x86

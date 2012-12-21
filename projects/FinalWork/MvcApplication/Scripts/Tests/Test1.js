@@ -8,6 +8,35 @@ var Test1;
             initialize: function () {
 
                 var me=this;
+                    var p1=$("#body")
+                    .css(
+                    {
+                        opacity:0,
+                        display:"block",
+                        marginLeft:'100px'
+                    })
+                    .animate({
+                      opacity:1,
+                      marginLeft:'0px'
+                    });
+
+                    var dfd=$.Deferred();
+
+                    $.when(p1,dfd.promise())
+                    .done(function()
+                    {
+                        console.log('After Done');
+                    })
+                    .always(function()
+                    {
+                        console.log("Always");
+                    });
+
+                    setTimeout(function()
+                    {
+                        dfd.reject();
+                    },3000);
+
                 me.buildGUI();
             },
 
@@ -15,7 +44,7 @@ var Test1;
             buildGUI: function () {
                 
                 var me = this;
-    
+
                     console.time('timer1');
                     console.log('divs values average: '+$('#numberdata').find('div').average());
                     console.timeEnd('timer1');

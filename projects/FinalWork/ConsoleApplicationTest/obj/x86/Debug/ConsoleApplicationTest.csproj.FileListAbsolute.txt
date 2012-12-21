@@ -60,3 +60,5 @@ C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.csproj.ResolveComReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.exe
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ModelsProject.dll
+C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ModelsProject.pdb
