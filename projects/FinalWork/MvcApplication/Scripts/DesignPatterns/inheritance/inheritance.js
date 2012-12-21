@@ -15,8 +15,8 @@
         Person.callMailServer = function () { console.log("Mail Server Called") };
 
         //Add Method using prototype
-        Person.prototype.addMe = function () {
-            console.log("Add Method using prototype Called");
+        Person.prototype.addMe = function (msg) {
+            console.log("Add Method using prototype Called - " + msg);
         }
 
 
@@ -24,7 +24,13 @@
         var Pirate = Class.create(Person, {
             // Override the Method
             say: function ($super, message) {
+
                 console.log($super(message) + ', +++++!');
+
+
+                //Note : $super means Person.prototype.say function beacasu not used in prototype definition but in explicit prototype notation
+                Person.prototype.addMe.apply(this, ["ryan#1"]);
+                Person.prototype.addMe.call(this, "ryan#2");
             }
         });
 
@@ -38,13 +44,14 @@
         //Instantiatiation
         var john = new Pirate('Long John');
         //Test 
-        console.log(john instanceof Person)
+        console.log(john instanceof Person);
+
 
         //call method
         john.say('ahoy matey');
-        
+
         //Call Method using prototype
-        john.addMe();
+        john.addMe("Ryan");
 
         console.log('-----------Inheritance END--------------');
 

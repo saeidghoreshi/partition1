@@ -87,7 +87,7 @@ var Test2;
 
 
                 
-                me.tagReady('w1', function () {
+                baseClass.tagReady('w1', function () {
                     var promise1 = $('#w1').fadeIn(2000).promise();
                     var promise2 = $('#w2').fadeIn(3000).promise();
                     var def = $.Deferred();
