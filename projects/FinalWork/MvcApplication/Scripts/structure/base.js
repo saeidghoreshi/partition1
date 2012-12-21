@@ -3,32 +3,9 @@
 (function ($$) {
     (function ($) {
 
-        baseCalss= Class.create({
+        baseClass= Class.create({
 
             initialize: function () {},
-
-            idGenerator: function (prefix) {
-				return prefix + '-' + (new Number(1000000000000000 * Math.random())).toFixed(0).toString();
-			},
-
-			tagReady: function (tagId, callback) {
-			
-				$('#' + tagId).ready(function () {
-					YAHOO.util.Event.onAvailable(tagId,callback);
-				});
-			},
-			isBrowser: function (browser) {
-				if (browser == 'chrome') {
-					if (jQuery.browser.webkit == true && jQuery.browser.safari == true &&
-						/chrome/.test(navigator.userAgent.toLowerCase()))
-						return true;
-				}
-				if (browser == 'safari' && jQuery.browser.safari) return true;
-				if (browser == 'opera' && jQuery.browser.opera) return true;
-				if (browser == 'msie' && jQuery.browser.msie) return true;
-				if (browser == 'mozilla' && jQuery.browser.mozilla) return true;
-
-			},
 
             //****************************************************************
 			//********************************  dialog Generator *******************
@@ -189,6 +166,29 @@
 			}
         });
 
+
+        baseClass.idGenerator=function (prefix) {
+				return prefix + '-' + (new Number(1000000000000000 * Math.random())).toFixed(0).toString();
+		};
+
+		baseClass.tagReady= function (tagId, callback) {
+			
+				$('#' + tagId).ready(function () {
+					YAHOO.util.Event.onAvailable(tagId,callback);
+				});
+		};
+		baseClass.isBrowser= function (browser) {
+				if (browser == 'chrome') {
+					if (jQuery.browser.webkit == true && jQuery.browser.safari == true &&
+						/chrome/.test(navigator.userAgent.toLowerCase()))
+						return true;
+				}
+				if (browser == 'safari' && jQuery.browser.safari) return true;
+				if (browser == 'opera' && jQuery.browser.opera) return true;
+				if (browser == 'msie' && jQuery.browser.msie) return true;
+				if (browser == 'mozilla' && jQuery.browser.mozilla) return true;
+
+		};
     } (jQuery));
 } (Prototype));
 

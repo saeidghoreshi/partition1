@@ -172,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="QUnitTests\Note.txt" />
+    <Content Include="resources\components\mainMenu\css\mainMenuCss.css" />
+    <Content Include="resources\components\mainMenu\js\mainMenuController.js" />
     <Content Include="Scripts\base\qunit.css" />
     <Content Include="Global.asax" />
     <Content Include="images\black.png" />
@@ -179,6 +181,7 @@
     <Content Include="images\bg1.jpg" />
     <Content Include="QUnitTests\endpointrs.test.htm" />
     <Content Include="Scripts\base\moment.js" />
+    <Content Include="Scripts\base\sammy.js" />
     <Content Include="Scripts\base\underscore-1.4.3.js" />
     <Content Include="Scripts\DesignPatterns\Async\async.js" />
     <Content Include="Scripts\base\ext-4.0.2-ext-all.js" />
@@ -264,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="resources\components\mainMenu\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

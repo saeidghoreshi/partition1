@@ -12,9 +12,13 @@
         });
 
         JSCSSLOADER.loadAll = function (jsArray, cssArray, callback) {
+        
 
-            $.getScript(cssArray, function () {});
-            $.getScript(jsArray, (callback === null ? function () { } : callback));
+        YAHOO.util.Get.css(cssArray, {});
+        YAHOO.util.Get.script(jsArray,{onSuccess:(callback === null ? function () { } : callback)});
+
+            //$.getScript(cssArray, function () {});
+            //$.getScript(jsArray, (callback === null ? function () { } : callback));
         }
 
     } (jQuery));
