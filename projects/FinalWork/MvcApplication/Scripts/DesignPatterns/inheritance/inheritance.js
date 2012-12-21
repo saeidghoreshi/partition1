@@ -20,7 +20,7 @@
         }
 
 
-
+        //Inheritance
         var Pirate = Class.create(Person, {
             // Override the Method
             say: function ($super, message) {

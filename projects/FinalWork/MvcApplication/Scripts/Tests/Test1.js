@@ -50,21 +50,21 @@ var Test1;
                     console.timeEnd('timer1');
 
                     console.log('-------------data Test on elements--------------');
-                    $('#testdiv').on('setData', function (e, key, value) { console.log('data set event '+key+" >> "+ value) });
-                    $('#testdiv').on('changeData', function (e, key, value) { console.log('data change event '+key+" >> "+  value) });
-                    $('#testdiv').on('getData', function (e, key) { console.log('data get event  '+key) });
+                    $('#numberdata').on('setData', function (e, key, value) { console.log('data set event '+key+" >> "+ value) });
+                    $('#numberdata').on('changeData', function (e, key, value) { console.log('data change event '+key+" >> "+  value) });
+                    $('#numberdata').on('getData', function (e, key) { console.log('data get event  '+key) });
                     
                     //set/change Data
-                    $('#testdiv').data('var1', 1);
+                    $('#numberdata').data('var1', 1);
 
                     //get Data
-                    console.log('GET DATA #1 >> '+$('#testdiv').data('var1'));
+                    console.log('GET DATA #1 >> '+$('#numberdata').data('var1'));
 
                     //Remove Data
-                    $('#testdiv').removeData('var1');
+                    $('#numberdata').removeData('var1');
 
                     //Get REMOVED Data WHICH IS REMOVED
-                    console.log('GET DATA #2 >> '+$('#testdiv').data('var1'));
+                    console.log('GET DATA #2 >> '+$('#numberdata').data('var1'));
                     console.log('-------------data Test on elements End--------------');
 
 
