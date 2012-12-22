@@ -8,7 +8,6 @@
     background:#f2f2f2;
     padding:3px;
     border:1px solid red;
-    box-shadow:5px 5px 5px black;
 }
 .ui-draggable > .header
 {
@@ -29,15 +28,11 @@
 .semitrans{opacity:0.6;}
 .opaque{opacity:1.0;}
 
-table td
-{
-    padding:10px;
-}
 </style>
 
 
 
-<table>
+<table cellpadding=0 cellspacing=0 border=0 id="table-dnd">
 <tr>
     <td>
         <div id="draggables">
@@ -50,41 +45,28 @@ table td
         <div class="trash semitrans" id="trash"></div>    
     </td>
 
+
+
+
+
+
+    <!--Sortables-->
     <td>
-        <div id="sortables">
+        <div id="sortablesY" class="sortables">
             <div id="s1"><div class='header'>S1</div></div>
             <div id="s2"><div class='header'>S2</div></div>
             <div id="s3"><div class='header'>S3</div></div>
         </div>
+    </td>
+    <td>
     
+        <div id="sortablesX" class="sortables">
+            <div><div class='header horizantal'>S1</div></div>
+            <div><div class='header horizantal'>S2</div></div>
+            <div><div class='header horizantal'>S3</div></div>
+        </div>
+
     </td>
 </tr>
 </table>
-
-
-
-<!--Sortable-->
-<style>
-#sortables .header
-{
-    width:100px;
-    height:20px;
-    background:green;
-    cursor:pointer;
-    
-    padding:2px;
-    margin:5px;
-}
-#sortables > .placeholder
-{
-    box-shadow:inset 0 0 15px black;
-    width:100px;
-    height:20px;
-    background-color:transparent;
-    border:1px dashed red;
-    
-    padding:2px;
-    margin:5px;
-}
-</style>
 

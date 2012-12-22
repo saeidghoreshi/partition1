@@ -172,10 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="QUnitTests\Note.txt" />
-    <Content Include="resources\components\mainMenu\mainMenuCss.css" />
-    <Content Include="resources\components\mainMenu\mainMenuController.js" />
-    <Content Include="resources\modules\kendoMenu\kendoMenuCss.css" />
-    <Content Include="resources\modules\kendoMenu\kendoMenuModule.js" />
     <Content Include="Scripts\base\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Scripts\base\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Scripts\base\JQUI\base-ui\images\ui-bg_flat_10_000000_40x100.png" />
@@ -221,6 +217,7 @@
     <Content Include="Scripts\base\moment.js" />
     <Content Include="Scripts\base\sammy.js" />
     <Content Include="Scripts\base\underscore-1.4.3.js" />
+    <Content Include="Scripts\start2.js" />
     <Content Include="Scripts\DesignPatterns\Async\async.js" />
     <Content Include="Scripts\base\ext-4.0.2-ext-all.js" />
     <Content Include="Scripts\base\KendoUI\Default\editor.png" />
@@ -284,7 +281,8 @@
     <Content Include="Scripts\start.js" />
     <Content Include="Scripts\structure\Application.js" />
     <Content Include="Scripts\structure\base.js" />
-    <Content Include="Scripts\Tests\TestDND.js" />
+    <Content Include="Scripts\DND\TestDND.css" />
+    <Content Include="Scripts\DND\TestDND.js" />
     <Content Include="Scripts\Tests\Test1.js" />
     <Content Include="Scripts\Tests\Test3.js" />
     <Content Include="Scripts\Tests\jQueryNotations.js" />
@@ -305,6 +303,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="resources\components\" />
+    <Folder Include="resources\modules\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -313,20 +313,21 @@
     <Content Include="Views\Shared\Layout1.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\viewport\viewport1.cshtml" />
+    <Content Include="Views\Home\viewport-Index\viewport1.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\viewport\viewport2.cshtml" />
+    <Content Include="Views\Home\viewport-Index\viewport2.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\viewport\viewport3.cshtml" />
+    <Content Include="Views\Home\viewport-Index\viewport3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="longProcessingResource.ashx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\base\KendoUI\textures\Thumbs.db" />
-    <Content Include="Views\Home\viewport\viewportDND.cshtml" />
+    <Content Include="Views\Home\viewport-Dnd\viewportDND.cshtml" />
+    <Content Include="Views\Home\dnd.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

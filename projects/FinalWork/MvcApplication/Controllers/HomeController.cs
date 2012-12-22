@@ -12,7 +12,11 @@ namespace MvcApplication3.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+            return View();
+        }
+        [ActionName("dnd")]
+        public ActionResult dnd()
+        {   
             return View();
         }
     }

@@ -90,50 +90,6 @@ var Test3;
                         //.class (slow)   to do animation also  specially when reverse action matter
                     });
 
-                    //DND
-                    //$('#draggables').children().draggable();
-                    $('#d1').draggable
-					(
-						{
-						    revert: "invalid",
-						    helper: function () { return $('<div>Move</div>'); }
-						}
-					);
-                    $('#d2').draggable
-					(
-						{
-						    revert: "invalid",
-						    helper: "clone"
-						}
-					);
-                    $('#d3').draggable();
-
-                    $('#d1,#d2,#d3').draggable("option", "stack", ".ui-draggable");
-                    $('#d1,#d2,#d3').draggable("option", "handle", ".header");
-
-                    //make droppable
-                    $('#trash').droppable
-					(
-						{
-						    accept: "#d2 , #sortables div",
-						    activeClass: "opaque",
-						    drop: function (event, ui) {
-						        ui.draggable.fadeOut(2000, function () {
-						            $(this).remove();
-						        });
-						    }
-						}
-					);
-                    //Sortable
-                    $('#sortables').sortable
-					(
-						{
-						    //axis:"y",
-						    placeholder: "placeholder"
-						}
-					);
-                
-
             }
 
             

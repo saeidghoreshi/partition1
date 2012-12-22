@@ -14,7 +14,26 @@
             buildUI: function () {
                 var me = this;
 
+                
                     //$('#draggables').children().draggable();
+                    //Sortable
+                    $('#sortablesY').sortable
+					(
+						{
+						    axis:"y",
+                            placeholder: "placeholder"
+						}
+					);
+                    $('#sortablesX').sortable
+					(
+						{
+						    axis:"x"
+						}
+					);
+                     $( "#sortablesX" ).disableSelection();
+
+                    return;
+                    
                     $('#d1').draggable
 					(
 						{
@@ -47,14 +66,7 @@
 						    }
 						}
 					);
-                    //Sortable
-                    $('#sortables').sortable
-					(
-						{
-						    //axis:"y",
-						    placeholder: "placeholder"
-						}
-					);
+                    
                 
 
             }

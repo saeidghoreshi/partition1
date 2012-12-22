@@ -1,0 +1,42 @@
+﻿
+    
+table{width:100%;}
+#table-dnd tr td:nth-child(4)
+{
+    width:400px;
+    border:1px solid red;
+    
+}
+#table-dnd tr {vertical-align:top;}
+
+
+
+.sortables .header
+{
+    width:100px;
+    height:20px;
+    background:#f2f2f2;
+    opacity:0.8;
+    cursor:pointer;
+    padding:2px;
+    margin:5px;
+    color:Black;
+    font-family:verdana;
+    font-size:10px;
+    
+}
+.sortables .horizantal
+{
+    float:left;
+}
+.sortables > .placeholder
+{
+    
+    width:100px;
+    height:20px;
+    background-color:gray;
+    border:1px dashed gray;
+    padding:2px;
+    margin:5px;
+    
+}

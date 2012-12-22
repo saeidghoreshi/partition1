@@ -1,4 +1,5 @@
-﻿@background:url(../images/environment.jpg);
+﻿@backgroundX:url(../images/environment.jpg);
+@background:'';
 .shadow(@percent:0.50)
 {
     /*Box Shadow*/
@@ -27,7 +28,7 @@ body
     background:@background no-repeat fixed  center;
     font:verdana;
     margin-left: 100;
-    display: none;
+    /*display: none;*/
 }
 .myBoxStyle
 {   
