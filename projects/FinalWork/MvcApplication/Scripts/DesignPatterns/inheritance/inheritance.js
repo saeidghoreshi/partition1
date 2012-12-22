@@ -56,5 +56,7 @@
         console.log('-----------Inheritance END--------------');
 
 
+
+        
     } (jQuery));
 } (Prototype));

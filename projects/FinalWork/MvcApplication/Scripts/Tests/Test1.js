@@ -162,7 +162,18 @@ var Test1;
                 console.log($(this).get(0));
             });
             return sum;
+        };
+        $.fn.ColorChanger= function () {
+
+            //State Will be maintained universally
+            var colorStat++;
+
+            //State will be based on Node selected
+            this.data("colorLevel",10);
+
+            this.css({background:"yellow"});
         }
+        //call it like  $('#div').ColorChanger();
       
     } (jQuery));
 } (Prototype));

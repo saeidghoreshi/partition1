@@ -1,5 +1,4 @@
-﻿@backgroundX:url(../images/environment.jpg);
-@background:'';
+﻿@background:url(../images/environment.jpg);
 .shadow(@percent:0.50)
 {
     /*Box Shadow*/
@@ -44,12 +43,14 @@ body
     margin-top:20;
     width:400px;
     height:400px;
+    padding: 20px;
 }
 .myBoxVer2
 {
     margin-top:20px;
     width:600px;
     height:750px;
+    padding: 20px;
 }
 .myBoxHor
 {

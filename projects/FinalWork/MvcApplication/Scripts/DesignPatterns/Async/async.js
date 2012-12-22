@@ -23,7 +23,7 @@ job.prototype.calculateASync = function () {
             //25 ms per 3000 record
             for (var start = new Date(); i < len && (new Date) - start < 25 * pauseTimes  /*750*/; i++) 
             {
-                result = iterFunc.call(this, items[i]);  // ~~ make 'this' Object owner of this function
+                result = iterFunc.call(this, items[i]);  // ~~ make 'this' Object owner of this function  -  defining scope - usually be sued for class.prototype.method.call(scope)
                 //OR
                 //result = iterFunc.apply(this, [items[i]]); 
             }

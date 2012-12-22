@@ -56,5 +56,36 @@ console.log('----------------NOTE----------------');
 console.log('to round on precisions we can multiple by 10, round and return back of parse to string and do customized rounding');
 
 
+console.log('----------------NOTE----------------');
+console.log('----------------Extend----------------');
+
+//Note extend function just clone the reference object and any chage after that happens to object wont effect the target object
+var animal =
+{
+    eat: function () { }
+}
+var cat =
+{
+    miaw: function () { }
+}
+var dog=
+{
+    bark: function () { }
+}
+
+$.extend(true,catdog, cat, dog, animal);  //true to make recursive objects appendabble
+animal.eat();
+cat.miaw();
+dog.bark();
+
+
+//Note:
+/*
+all wronge
+.data ("_xxx")
+.data("handle")
+.data("events")
+*/
+
 
 
