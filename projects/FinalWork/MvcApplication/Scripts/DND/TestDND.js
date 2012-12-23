@@ -20,7 +20,11 @@
                         {   
                             scroll: true ,
                             scrollSensitivity: 100,
-                            scrollSpeed: 100
+                            scrollSpeed: 100,
+
+                            connectToSortable: "#sortableDraggable",
+                            helper: "clone",  //if want to use it by ref then  helper:''
+                            revert: "invalid"
                         }
                     ).disableSelection();
 
@@ -58,7 +62,8 @@
                     $( "#sortable2, #sortable3" ).sortable({
 
                         revert: 'invalid',
-                        connectWith: ".connectedSortable"//means can drag drop on .connectedSortable objects not neccessary reverse if itself dont have it
+                        connectWith: ".connectedSortable"
+                        //means can Automatically drag N drop on ".connectedSortable" objects not neccessary reverse if itself dont have it
                     }).disableSelection();
 
                     $( "#sortable1").sortable({
@@ -70,7 +75,8 @@
 
                     })
                     .disableSelection()
-                    .droppable(
+                    //already by using "connectwith" dropping happens Automatically, but want to ad more features then use droppable in target element
+                    .droppable( 
                     {
                             accept: "#sortable2 li",
                             drop: function (event, ui) {
@@ -113,58 +119,28 @@
                     });
 
 
-                   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    //--------------------------------------------------------------------
-                    return;
-                    
-                    $('#d1').draggable
-					(
-						{
-						    revert: "invalid",
-						    helper: function () { return $('<div>Move</div>'); }
-						}
-					);
-                    $('#d2').draggable
-					(
-						{
-						    revert: "invalid",
-						    helper: "clone"
-						}
-					);
-                    $('#d3').draggable();
-
-                    $('#d1,#d2,#d3').draggable("option", "stack", ".ui-draggable");
-                    $('#d1,#d2,#d3').draggable("option", "handle", ".header");
-
-                    //make droppable
+                    //Grabs every thing draggable hovering on it
                     $('#trash').droppable
 					(
 						{
-						    accept: "#d2 , #sortables div",
-						    activeClass: "opaque",
+						    //accept: "#sortable2 li",  //Optianal
 						    drop: function (event, ui) {
-						        ui.draggable.fadeOut(2000, function () {
-						            $(this).remove();
-						        });
+						        $item=ui.draggable;
+
+                                $item.clone()
+                                .css({position:""})
+                                .addClass("SIDEBYSIDE")
+                                .appendTo("#trash");
 						    }
 						}
 					);
-                    
-                
+
+
+                    //Draggable connect with sortables
+                    $( "#sortableDraggable" ).sortable({
+                        revert: true
+                    }).disableSelection();
 
             }
 

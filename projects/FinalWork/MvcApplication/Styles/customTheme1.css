@@ -38,6 +38,13 @@ body
     .shadow();
     
 }
+.myBoxVerFull
+{
+    width:100%;
+    height:800px;
+    padding: 20px;
+}
+
 .myBoxVer1
 {
     margin-top:20;
