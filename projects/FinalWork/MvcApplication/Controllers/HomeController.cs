@@ -19,5 +19,17 @@ namespace MvcApplication3.Controllers
         {   
             return View();
         }
+        [HttpPost] 
+        [ValidateInput(false)] //if we manually handle  the xss(cross site scripting)
+        [ValidateAntiForgeryToken] // CSRF cross site request forgery [need cookies enabled]
+        public ActionResult create() 
+        {
+            //Do Operation
+            return View();
+        }
+        public ActionResult footer() 
+        {
+            return Content("test Footer");
+        }
     }
 }

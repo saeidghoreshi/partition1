@@ -166,13 +166,14 @@ var Test1;
         $.fn.ColorChanger= function () {
 
             //State Will be maintained universally
-            var colorStat++;
+            var colorStat=0;
+            colorStat++;
 
             //State will be based on Node selected
-            this.data("colorLevel",10);
+            //this.data("colorLevel",10);
 
             this.css({background:"yellow"});
-        }
+        };
         //call it like  $('#div').ColorChanger();
       
     } (jQuery));

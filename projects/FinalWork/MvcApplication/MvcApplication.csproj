@@ -279,7 +279,7 @@
     <Content Include="Scripts\DesignPatterns\observer\observerCallee.js" />
     <Content Include="Scripts\DesignPatterns\observer\observerCaller.js" />
     <Content Include="Scripts\start.js" />
-    <Content Include="Scripts\structure\Application.js" />
+    <Content Include="Scripts\structure\Application-not.js" />
     <Content Include="Scripts\structure\base.js" />
     <Content Include="Scripts\DND\TestDND.css" />
     <Content Include="Scripts\DND\TestDND.js" />
@@ -303,14 +303,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="resources\components\" />
-    <Folder Include="resources\modules\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Layout1.cshtml" />
+    <Content Include="Views\Shared\Layout-Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\viewport-Index\viewport1.cshtml" />
@@ -328,6 +326,7 @@
     <None Include="Scripts\base\KendoUI\textures\Thumbs.db" />
     <Content Include="Views\Home\viewport-Dnd\viewportDND.cshtml" />
     <Content Include="Views\Home\dnd.cshtml" />
+    <Content Include="Views\Shared\Layout-DND.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
