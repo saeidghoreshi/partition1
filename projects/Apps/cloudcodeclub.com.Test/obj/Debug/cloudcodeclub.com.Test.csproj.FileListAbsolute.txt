@@ -65,3 +65,5 @@ C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com.Test\bin\Debug
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com.Test\obj\Debug\cloudcodeclub.com.Test.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com.Test\obj\Debug\cloudcodeclub.com.Test.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com.Test\obj\Debug\cloudcodeclub.com.Test.pdb
+C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com.Test\bin\Debug\Console.exe
+C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com.Test\bin\Debug\Console.pdb

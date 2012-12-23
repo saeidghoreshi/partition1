@@ -6,3 +6,4 @@ C:\projects\Partitions\partition1\projects\FinalWork\Console_App\bin\Debug\Conso
 C:\projects\Partitions\partition1\projects\FinalWork\Console_App\bin\Debug\Console.pdb
 C:\projects\Partitions\partition1\projects\FinalWork\Console_App\obj\x86\Debug\Console.exe
 C:\projects\Partitions\partition1\projects\FinalWork\Console_App\obj\x86\Debug\Console.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\Console_App\bin\Debug\Console.exe.config
