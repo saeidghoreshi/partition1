@@ -26,12 +26,12 @@ body
 {
     background:@background no-repeat fixed  center;
     font:verdana;
-    margin-left: 100;
+    padding: 10px;
     /*display: none;*/
 }
 .myBoxStyle
 {   
-    margin:10px;
+    margin:5px;
     color:#ccc;
     background: transparent url(../images/black.png) repeat scroll top left;
     .borderRadious();

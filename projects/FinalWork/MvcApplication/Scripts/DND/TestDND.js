@@ -14,8 +14,9 @@
             buildUI: function () {
                 var me = this;
 
-                
-                    //$('#draggables').children().draggable();
+                    //Draggables
+                    $('#draggables').children().draggable();
+
                     //Sortable
                     $('#sortablesY').sortable
 					(
@@ -27,11 +28,31 @@
                     $('#sortablesX').sortable
 					(
 						{
-						    axis:"x"
+						    axis:"x",
+                            placeholder: "placeholder horizantal"
 						}
 					);
-                     $( "#sortablesX" ).disableSelection();
+                    
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    //--------------------------------------------------------------------
                     return;
                     
                     $('#d1').draggable

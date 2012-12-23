@@ -1,72 +1,46 @@
-﻿<!--DND-->
-<style>
+﻿
+<div class="devider" style="width:150px">
+<!--Draggables-->
+    Draggables
+    <hr/>
+    <ul id="draggables" >
+            <li class='header'>A</li>
+            <li class='header'>B</li>
+            <li class='header'>C</li>
+    </ul>
+</div>
 
-.ui-draggable
-{
-    width:100px;
-    height:70px;
-    background:#f2f2f2;
-    padding:3px;
-    border:1px solid red;
-}
-.ui-draggable > .header
-{
-    width:100%;
-    height:20px;
-    background:green;
-    padding:2px;
-    cursor:pointer;
-}
-.trash
-{
-    width:130px;
-    height:130px;
-    padding:5px;
-    border:1px dashed red;
-}
+<div class="devider" style="width:150px">
+    Sortables Y
+    <hr />
+    <ul id="sortablesY" class="sortables">
+            <li>S1</li>
+            <li>S2</li>
+            <li>S3</li>
+    </ul>
+</div>
 
-.semitrans{opacity:0.6;}
-.opaque{opacity:1.0;}
-
-</style>
+<div class="devider" style="width:350px">
+    Sortables X
+    <hr />
+    <ul id="sortablesX" class="sortables">
+            <li class='horizantal'>S1</li>
+            <li class='horizantal'>S2</li>
+            <li class='horizantal'>S3</li>
+    </ul>
+</div>
 
 
-
-<table cellpadding=0 cellspacing=0 border=0 id="table-dnd">
-<tr>
-    <td>
-        <div id="draggables">
-            <div id="d1"><div class='header'>A</div></div>
-            <div id="d2"><div class='header'>B</div></div>
-            <div id="d3"><div class='header'>C</div></div>
-        </div>
-    </td>
-    <td>
-        <div class="trash semitrans" id="trash"></div>    
-    </td>
+<div class="devider" style="width:350px">
+    Trash
+    <hr />
+    <div class="trash" id="trash"></div>    
+</div>
 
 
 
+        
 
 
 
-    <!--Sortables-->
-    <td>
-        <div id="sortablesY" class="sortables">
-            <div id="s1"><div class='header'>S1</div></div>
-            <div id="s2"><div class='header'>S2</div></div>
-            <div id="s3"><div class='header'>S3</div></div>
-        </div>
-    </td>
-    <td>
-    
-        <div id="sortablesX" class="sortables">
-            <div><div class='header horizantal'>S1</div></div>
-            <div><div class='header horizantal'>S2</div></div>
-            <div><div class='header horizantal'>S3</div></div>
-        </div>
-
-    </td>
-</tr>
-</table>
 
