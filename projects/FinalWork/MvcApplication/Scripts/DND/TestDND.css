@@ -16,28 +16,39 @@
 }
 .sortables li
 {
+    margin: 0 5px 5px 5px; 
+    padding: 5px; 
     width:90px;
-    height:20px;
-    background:#f2f2f2;
-    opacity:0.8;
-    cursor:pointer;
-    padding:2px;
-    margin:5px;
-    color:Black;
-    font-family:verdana;
-    font-size:10px;
     
 }
-.sortables .horizantal{float:left;}
+
 
 .sortables .placeholder
 {
-    height:20px;
+    height:26px;
     background-color:gray;
-    border:1px dashed gray;
-    padding:2px;
-    margin:5px;
+    border:1px solid red;
+    
 }
+
+
+.sortables{cursor:move;}
+.SIDEBYSIDE{float:left;}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .trash
 {
