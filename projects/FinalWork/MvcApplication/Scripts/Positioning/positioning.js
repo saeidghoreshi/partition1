@@ -2,7 +2,7 @@
 (function ($$) {
     (function ($) {
 
-        TestDND= Class.create({
+        positioning= Class.create({
 
             initialize: function () {
 
@@ -14,7 +14,37 @@
             buildUI: function () {
                 var me = this;
 
-                    
+                var list=[];
+
+                list.push($('<div class="button">Click me1</div>'));
+                $(list[0]).text("Saeid Button");
+
+                var parent=$('#mainContainer');
+
+                for(var x=0;x<list.length;x++)
+                    $(list[x]).css(
+                    {
+                        display:"none",
+                        position:"absolute",
+                        left:parent.offset().left+30,
+                        top:parent.offset().top+30
+                    });
+
+                $('#mainContainer').append(list);
+
+                $('.button').button()
+                .undelegate(this,"click").delegate(this,"click",function (e) 
+                {
+                    alert('clicked');
+                    //$( this ).toggleClass( "ui-icon-minusthick" ).toggleClass( "ui-icon-plusthick" );
+                    e.stopPropagation();
+                });
+
+                $('#mainContainer').undelegate(this,"mouseenter mouseleave").delegate(this,"mouseenter mouseleave",function (e) 
+                {
+                     $('.button').toggle(500);
+                     e.stopPropagation();
+                });
 
             }
 

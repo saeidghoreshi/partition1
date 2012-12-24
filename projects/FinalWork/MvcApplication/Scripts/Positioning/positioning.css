@@ -1,1 +1,14 @@
-﻿
+﻿.devider
+{   
+    margin:10px;
+    padding:10px;
+    background: transparent url('../../images/black.png') repeat scroll top left;
+    float:left;
+}
+
+.mainContainer
+{
+    border:1px solid red;
+    width:200px;
+    height:150px;
+ }
