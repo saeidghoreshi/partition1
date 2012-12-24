@@ -19,6 +19,13 @@ namespace MvcApplication3.Controllers
         {   
             return View();
         }
+        [ActionName("themes")]
+        public ActionResult themes()
+        {
+            return View();
+        }
+
+
         [HttpPost] 
         [ValidateInput(false)] //if we manually handle  the xss(cross site scripting)
         [ValidateAntiForgeryToken] // CSRF cross site request forgery [need cookies enabled]

@@ -171,6 +171,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\Tabs-gradient_bg.gif" />
     <Content Include="QUnitTests\Note.txt" />
     <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -217,6 +218,7 @@
     <Content Include="ClientSideLibraries\moment.js" />
     <Content Include="ClientSideLibraries\sammy.js" />
     <Content Include="ClientSideLibraries\underscore-1.4.3.js" />
+    <Content Include="Scripts\startThemes.js" />
     <Content Include="Scripts\Positioning\positioning.css" />
     <Content Include="Scripts\Positioning\positioning.js" />
     <Content Include="Scripts\startPositioning.js" />
@@ -331,6 +333,9 @@
     <Content Include="Views\Home\dnd.cshtml" />
     <Content Include="Views\Shared\Layout-DND.cshtml" />
     <Content Include="Views\Home\viewport-Dnd\positioning.cshtml" />
+    <Content Include="Views\Home\viewport-themes\tabs.cshtml" />
+    <Content Include="Views\Home\themes.cshtml" />
+    <Content Include="Views\Shared\Layout-Themes.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
