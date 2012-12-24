@@ -133,6 +133,10 @@ namespace WindowsFormsApp
             Task T = tasks[index];
         }
         //Pattern 2  waitallonebyone
+
+
+        //Not:L in case of using loop variable , need to be passed by valuye and be cloned otherwkise wiil be passed bu ref
+        //Note : ++ is not atomic
         IEnumerable<Guid> Pattern2()
         {
             /*

@@ -73,6 +73,8 @@ namespace WindowsFormsApp
             EmbaressinglyParallelism();
         }
 
+
+        //Lock Solution to overcome race condition
         private void useLocking()
         {
             label1.Text = "Processing...";
@@ -144,6 +146,7 @@ namespace WindowsFormsApp
             );
         }
 
+        //Lock-Free Solution to overcome race condition  [Move shared to local and merge them later]
         private void useLockFree()
         {
             label1.Text = "Processing...";
@@ -204,6 +207,10 @@ namespace WindowsFormsApp
             );
         }
 
+        //Note : while using shared  bilt-in objects or functions wo/ locking, check them wherther or not its thread safe or not
+        //because while using them might be usinf 
+
+        //Patterns for result thread Handling
         private int WaitAllPattern(List<Task<int>> tasks)
         {
             Task.WaitAll(tasks.ToArray());
@@ -229,6 +236,12 @@ namespace WindowsFormsApp
             return results.Sum();
         }
 
+
+
+
+        //Till Here
+
+
         //Long Running Task
         private void longRunningTask()
         {
@@ -241,7 +254,12 @@ namespace WindowsFormsApp
 
                 for (var i = 0; i < 10; i++)
                 {
-                    Task t = CreateLongRunningThread(durationInMilliSecond, TaskCreationOptions.LongRunning/*sucks up threads*/);
+                    Task t = CreateLongRunningThread(durationInMilliSecond, TaskCreationOptions.LongRunning);
+                        /*
+                         * if not controlling by processing count and use onebyone pattern
+                         * sucks up threads and memory > push all the task to threads and CPU intensive
+                         
+                         */
                     tasks.Add(t);
                 }
 
@@ -271,8 +289,6 @@ namespace WindowsFormsApp
             return t;
 
         }
-
-
 
         //Long Running Task Optimized
         private void longRunningTaskOptimized()
@@ -333,7 +349,7 @@ namespace WindowsFormsApp
 
         }
 
-
+        //Even Better Solution >>>> parallel.for
 
         //Embaressingly parallelism
         private void EmbaressinglyParallelism()
