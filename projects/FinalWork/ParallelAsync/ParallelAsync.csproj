@@ -50,9 +50,9 @@
     <Compile Include="Classes\Events\Delegate.cs" />
     <Compile Include="Classes\Events\events1.cs" />
     <Compile Include="Classes\Events\events2.cs" />
-    <Compile Include="Classes\ParallelDesignPattern\DesignPatterns.cs" />
-    <Compile Include="Classes\ParallelDesignPattern\OtherPatterns\OtherPatterns1.cs" />
-    <Compile Include="Classes\ParallelDesignPattern\OtherPatterns\OtherPatterns2.cs" />
+    <Compile Include="Classes\ParallelDesignPattern\Patterns\DesignPatterns1.cs" />
+    <Compile Include="Classes\ParallelDesignPattern\Sample.cs" />
+    <Compile Include="Classes\ParallelDesignPattern\Patterns\DesignPatterns2.cs" />
     <Compile Include="Classes\RaceConditionConcurrency\LocalLockFree\LockFree.cs" />
     <Compile Include="Classes\RaceConditionConcurrency\Syncronization\Lock\Lock.cs" />
     <Compile Include="Classes\RaceConditionConcurrency\Syncronization\Monitor\Account.cs" />
@@ -62,7 +62,6 @@
     <Compile Include="Classes\ParallelDesignPattern\HarvestingPatterns.cs" />
     <Compile Include="Classes\Threading\threading.cs" />
     <Compile Include="Classes\TraditionalAsync\async.cs" />
-    <Compile Include="Classes\TraditionalAsync\asyncWS.cs" />
     <Compile Include="paralleAsync.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +96,6 @@
   <ItemGroup>
     <Content Include="Classes\ParallelDesignPattern\Note.txt" />
     <Content Include="Classes\RaceConditionConcurrency\Note.txt" />
-    <Content Include="Classes\reference.txt" />
     <Content Include="Classes\Threading\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

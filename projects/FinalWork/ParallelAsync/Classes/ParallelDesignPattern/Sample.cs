@@ -11,7 +11,7 @@ namespace ParallelDesignPattern.OtherPatterns
 {
     public static class OtherPatterns1
     {   
-        int result = 0;
+        static int result = 0;
         //this approach can be used to enhance UI responsiveness
         public static void Sample1() 
         {

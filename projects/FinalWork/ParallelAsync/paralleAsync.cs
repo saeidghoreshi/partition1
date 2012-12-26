@@ -31,7 +31,7 @@ namespace ParallelAsync
             /*using Map Reduce*/
             cts = new CancellationTokenSource();
             CancellationToken ct = cts.Token;
-            ParallelDesignPattern.DesignPatterns.mapReduce(ct);
+            ParallelDesignPattern.DesignPatterns1.mapReduce(ct);
         }
         public CancellationTokenSource cts = new CancellationTokenSource();
         private void btn_cancelmp_Click(object sender, EventArgs e)
