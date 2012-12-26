@@ -36,7 +36,21 @@
 
             });
         });
-	    
+
+
+        $('#sortables-el').ready(function () {
+
+            $('#sortables-el').sortable
+					(
+						{
+						    axis: "y"
+						}
+					).disableSelection();
+
+
+        });
+        
+
 
     } (jQuery));
 } (Prototype));

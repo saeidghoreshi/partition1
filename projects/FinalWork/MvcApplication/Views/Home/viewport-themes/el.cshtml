@@ -1,0 +1,155 @@
+﻿<style>
+    .item
+{
+    position:relative;
+    float:left;
+    width:100px;
+    height:30px;
+    background:url("../../../images/menu/nav.png") repeat-x;
+    color:White;
+    font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+    font-size:10px;
+    text-align:center;
+    }
+.item > a
+{
+    position:absolute;
+    cursor:pointer;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+    padding-top:5px;
+    }
+.item:hover
+{
+    float:left;
+    width:100px;
+    height:30px;
+    background:url("../../../images/menu/navhov.png") repeat-x;
+    }
+    .item-right
+    {
+        /*Border Radious*/
+        -moz-border-radius: 0 5px 5px 0;
+        -webkit-border-top-left-radius: 0;
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 0;
+        -goog-ms-border-radius: 0 5px 5px 0 ;
+        border-radius: 0 5px 5px 0;
+        }
+    .item-left
+    {
+        /*Border Radious*/
+        -moz-border-radius: 5px 0 0 5px; 
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        -webkit-border-bottom-right-radius: 5px;
+        -goog-ms-border-radius: 5px 0px 0px 5px;
+        border-radius: 5px 0px 0px 5px;
+        }
+
+.item-line
+{
+    float:left;
+    width:2px;
+    height:30px;
+    background:url("../../../images/menu/navline.png") repeat-x;
+    }
+.menu
+{
+    position:relative;
+    margin-bottom:50px;
+}
+</style>
+
+<div class="menu">
+<div class="item item-left"><a>Home</a></div>
+<div class="item-line"></div>
+<div class="item"><a>About</a></div>
+<div class="item-line"></div>
+<div class="item item-right"><a>Contact</a></div>
+</div>    
+
+
+
+<style type="text/css">
+    .main
+    {
+        position:relative;
+        width:180px;
+        height:300px;
+        border:1px solid gainsboro;   
+        background:white;
+    }
+    .maindiv
+    {
+        border:0px solid gainsboro;
+        background:#eee;
+        width:400px;
+        height:40px;
+        position:relative;
+        text-align:center;
+        vertical-align:middle;
+    }
+    .cornerstone
+    {
+        position:relative;
+        background:url('/images/el.png')  no-repeat;
+        width: 10px;
+        height: 10px;
+    }
+    .cornerstoneright
+    {
+        position:relative;
+        background:url('/images/el-Right.png') no-repeat;
+        width: 10px;
+        height: 10px;
+        background-position:right;
+    }
+    .divCollection
+    {
+        position:relative;
+        width:200px;
+        left:-10px;
+       
+    }
+    </style>
+<div class="main">
+
+    <div id="sortables-el">
+    
+            <div>
+                <div class="divCollection cornerstoneright"></div>
+                <div class="divCollection maindiv">1</div>
+                <div class="divCollection cornerstone"></div>
+            </div>
+
+            <div>
+                <div class="divCollection cornerstoneright"></div>
+                <div class="divCollection maindiv">2</div>
+                <div class="divCollection cornerstone"></div>
+            </div>
+
+            <div>
+                <div class="divCollection cornerstoneright"></div>
+                <div class="divCollection maindiv">3</div>
+                <div class="divCollection cornerstone"></div>
+            </div>
+
+            <div>
+                <div class="divCollection cornerstoneright"></div>
+                <div class="divCollection maindiv">4</div>
+                <div class="divCollection cornerstone"></div>
+            </div>
+    </div>
+            
+            
+        
+    </div>
+    
+    
+
+    

@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\bin\Debug\ParallelAsync.exe
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\bin\Debug\ParallelAsync.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.Properties.Resources.resources
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.csproj.GenerateResource.Cache
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.exe
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.paralleAsync.resources

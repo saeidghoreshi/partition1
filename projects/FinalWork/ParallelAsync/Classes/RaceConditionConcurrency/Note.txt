@@ -1,0 +1,29 @@
+﻿::NOTES::
+
+1-check any built in function to be thread safe [if not using locking], if not sure then make a LOCAL instantiation and use it
+2-IO is not usually parallized unless HW supports it, and starts on a thread and return the thread to the pool till the IO operation completes
+3-is a huge difference in performance in using LOCAL variables instead of Shared ones
+4-tasks must handle at least 200-300 cpu cycle unless worse than sequential, and save on context switching
+5-all tasks first queued then task scheduler will assign them to thred pool and possible to override task scheduler action
+6-number of threads can be unlimited but can decide based on the cores available, but can cause more context switching 
+7-program use thread-pool which contains multiple [non]worker threads each per task .
+8-the term "worker" means non-dedicated and can be shared between tasks children tasks in local queue
+9-in case of IO processing [eg.file download], number of running task doesnot mastter
+10-threading even in one code machines let smaller tasks to be finished faster and make use of CPU maximum power
+11-if creating the tasks in a loop, there is delay between task created and started. Then pass params in arg section and by value
+12-Multithreading can be used in 1-UI responsiveness 2-IO Async 3-take most advantage of CPU
+13-threads always fight over CPU
+14-APM methods : threads,delegateInvoke,Event-based APM (backgroundworker)
+15-operatrions will stick to a thread to go to fight over CPU
+******************************************
+Parallelism Types*************************
+******************************************
+//Data			Paralelism						> one operation on multiple data like calculating sqrt(2D array) 
+				>> Parallel.For(0,N,(i)=>{DO(i);}) 
+				>>Parallel.Foreach(ds,(e)=>{DO(e);})
+
+//Task			Paralelism						> multiple parallel operation on multiple or same data   
+				>>  Parallel.Invoke( ()=>Task1(),()=>Task2(),()=>Task3() )
+
+//Dataflow		Paralelism						> operationd depend on another like many-to-one one-to-many and in some cases cant have parallism
+//Embarresing	Parallel						> independetnts of another >>Parallel.for and foreach  > Like huge image loading   [No DataFlow] and No data dependencies

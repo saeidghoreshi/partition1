@@ -137,6 +137,8 @@
     <None Include="Properties\PublishProfiles\arc-gis - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\arc-gis - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\arc-gis - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\arcgisRyan - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\arcgisRyan - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\docarchive - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\docarchive - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\testxx - FTP.pubxml" />

@@ -20,14 +20,15 @@
                 $(list[0]).text("Saeid Button");
 
                 var parent=$('#mainContainer');
+                //must be positioned relative, then can use children to be relative
 
                 for(var x=0;x<list.length;x++)
                     $(list[x]).css(
                     {
                         display:"none",
                         position:"absolute",
-                        left:parent.offset().left+30,
-                        top:parent.offset().top+30
+                        left:30,
+                        top:30
                     });
 
                 $('#mainContainer').append(list);

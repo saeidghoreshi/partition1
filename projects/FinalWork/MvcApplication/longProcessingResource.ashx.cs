@@ -31,6 +31,7 @@ namespace javascript
 
             //context.Response.ContentType = "image/png";
 	        //context.Response.WriteFile("~/Flower1.png");
+            //context.Response.StatusCode = 404;
     
         }
         private IEnumerable<dynamic> classes =new List<dynamic>()

@@ -51,3 +51,9 @@ C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\DotNetOp
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication3.dll
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication3.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.Runtime.dll
+C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.Threading.Tasks.dll
+C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.Runtime.xml
+C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.Threading.Tasks.xml

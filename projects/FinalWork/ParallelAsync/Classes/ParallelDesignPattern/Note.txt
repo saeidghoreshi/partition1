@@ -1,0 +1,7 @@
+﻿::Note::
+********************************************
+Parallel Patterns: [worse to better]********
+********************************************
+* dataflow				> dependency using continuewhenAll<otherTasksReturnType,thisTaskReturnType>
+* producer-consumer		> uses blocking Collection wait P if full and C if empty and wakeup P if not-full and C if Not-empty
+* map-reduce			> reduces shared resources contention

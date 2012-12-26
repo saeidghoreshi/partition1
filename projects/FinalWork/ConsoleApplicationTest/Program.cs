@@ -54,6 +54,7 @@ namespace ConsoleApplication1
             foo.lastname = "Ghoreshi";
             */
 
+
             Console.WriteLine("Enter Key to Exit");
             Console.ReadLine();
         }

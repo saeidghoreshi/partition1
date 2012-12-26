@@ -36,10 +36,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Async.1.0.12-beta\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Async.1.0.12-beta\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.Async.1.0.12-beta\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.1.0.11-beta\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\..\..\packages\Microsoft.Bcl.1.0.11-beta\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -171,7 +186,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\el-Right.png" />
+    <Content Include="images\environment2.jpg" />
+    <Content Include="images\menu\nav.png" />
+    <Content Include="images\menu\navhov.png" />
+    <Content Include="images\menu\navline.png" />
     <Content Include="images\Tabs-gradient_bg.gif" />
+    <Content Include="images\strip-gray.png" />
     <Content Include="QUnitTests\Note.txt" />
     <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -294,6 +315,7 @@
     <Content Include="Scripts\Tests\miscellaneous.js" />
     <Content Include="Scripts\Tests\Test2.js" />
     <Content Include="Styles\customTheme1.css" />
+    <Content Include="images\el.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -336,6 +358,7 @@
     <Content Include="Views\Home\viewport-themes\tabs.cshtml" />
     <Content Include="Views\Home\themes.cshtml" />
     <Content Include="Views\Shared\Layout-Themes.cshtml" />
+    <Content Include="Views\Home\viewport-themes\el.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

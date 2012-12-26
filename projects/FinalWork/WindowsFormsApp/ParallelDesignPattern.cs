@@ -15,6 +15,7 @@ using System.Collections;
 using System.IO;
 using System.Diagnostics;
 
+
 namespace WindowsFormsApp
 {
     public partial class ParallelDesignPattern : Form
@@ -40,8 +41,11 @@ namespace WindowsFormsApp
             InitializeComponent();
             
         }
+
+        //Consumer/Producer   w/ blockingCollection
         void concurrent() 
         {
+            
             var sw = System.Diagnostics.Stopwatch.StartNew();
 
             int max = 10000;
@@ -60,7 +64,7 @@ namespace WindowsFormsApp
                 for(int i=0;i<10;i++)
                     work.Add(records[i]);
 
-                //producer signals
+                //producer signals its done
                 work.CompleteAdding();
             });
 
@@ -129,6 +133,8 @@ namespace WindowsFormsApp
             catch(Exception){}
         
         }
+
+        //Famous solution for embarresigly parallel search data mining apps
         void mapReduce(CancellationToken ct)
         {
             label1.Text = string.Empty;
@@ -153,7 +159,11 @@ namespace WindowsFormsApp
                 Parallel.ForEach
                     (
                         source,
+
+                        //Initializer   [initialize the TLS task local storage]
                         () => { return new Dictionary<string, int>(); },//localInit for local Dictionary
+
+                        //Task Body
                         (line, loopControl, localDic) =>//WORK W/ LOCAL STORAGE
                         {
                             (localDic as Dictionary<string, int>).Add(line, line.Length);
@@ -165,8 +175,10 @@ namespace WindowsFormsApp
                             }
                             return localDic;
                         },
+                        //Finalizer  happens just before the task exit
                         (localDic) =>
                         {
+                            //initializer and finalizer may execute concurrently and need to be handled in a thread safe manner
                             lock (result)
                             {
                                 //merge(result,localDic)
@@ -177,10 +189,20 @@ namespace WindowsFormsApp
                     );
                 return result;
 
-            }, ct);
-
+            }, 
+            ct);
+            /*
+            Task.Factory.ContinueWhenAll(new[] { t1, t2 },
+                (Task<string>[]tasks) => 
+                {
+                    foreach (var t in tasks) { }
+                }
+                );
+             * //.wait()  >> optioanl
+            */
             Task T2 = T.ContinueWith((lastTask) =>
             {
+                
                 Dictionary<string, int> result;
                 try
                 {
@@ -197,17 +219,14 @@ namespace WindowsFormsApp
                         label1.Text += "\n" + e.Message;
                     }
                 }
-
-
-
-
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
-        }    
+        }
 
-        public CancellationTokenSource cts ;
+        public CancellationTokenSource cts = new CancellationTokenSource();
         private void runBtn_Click(object sender, EventArgs e)
         {
+            //in this case all tasks will be cancelled not all
             cts = new CancellationTokenSource();
             CancellationToken ct = cts.Token;
             mapReduce(ct);
@@ -216,7 +235,10 @@ namespace WindowsFormsApp
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            //possible to cancel task connected with the token by calling CTS.Cancel
             cts.Cancel();
+            cts = new CancellationTokenSource();
+
             label1.Text = "Task Cancelled";
             //in this scenarion all tasks will be \cancelled but can change it to make only one be canceled
         }

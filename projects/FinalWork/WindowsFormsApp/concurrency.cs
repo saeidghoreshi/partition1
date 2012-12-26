@@ -56,7 +56,7 @@ namespace WindowsFormsApp
 
             //threading even in one code machines let smaller tasks to be finished faster and make use of CPU maximum power
 
-            //Note
+            //Note---------------------------------------------------------------------------------------------------------------------
             //Parallelism types:
             //data > one operation on multiple data like calculating sqrt(2D array) >> Parallel.For(0,N,(i)=>{DO(i);}) & Parallel.For(ds,(e)=>{DO(e);})
             //Task >multiple operation on multiple data   >>  Parallel.Invoke( ()=>Task1(),()=>Task2(),()=>Task3() )
@@ -239,8 +239,6 @@ namespace WindowsFormsApp
 
 
 
-        //Till Here
-
 
         //Long Running Task
         private void longRunningTask()
@@ -350,13 +348,27 @@ namespace WindowsFormsApp
         }
 
         //Even Better Solution >>>> parallel.for
+        //Possible Scenarios:
+        /*
+           1-Different Data >> same operation across different data   or same task against different elements of 2-D array
+         * 2-Different Task >> multiple parallel task executing across different or same data
+         * 3-Different Dataflow  >> in some cases not gonna be able to have parallysm
+         * 4-Embarrasingly(delightfully) Parallel  [no data flow]
+         */
+
+        //TPL Support
+        //data Parallelism:
+        //1-Parallel.For
+        //2-Parallel.Foreach
+        //Task Parallelism
+        //1-Parallel.Invoke
 
         //Embaressingly parallelism
         private void EmbaressinglyParallelism()
         {
             int[,] result = new int[10, 10];
             //scenario that can formulate the problem to n-D array and all of them are independent from each other 
-            //by using parallel we FORK multiple tasks concurently and JOIN to sequential execution
+            //by using parallel we FORK multiple tasks concurently and JOIN to sequential execution   
 
             ParallelOptions option = EnableEmbaressinglyParallelismCancel();
 
@@ -370,10 +382,16 @@ namespace WindowsFormsApp
                         label1.Text += i.ToString() + "-" + j.ToString() + "\n";
                         //result[i, j] = i * j;
 
-                    });//IMPLICIT WAIT
-                });//IMPLICIT WAIT
+                    });//IMPLICIT WAITALL
+                });//IMPLICIT WAITALL
             }
-            catch (OperationCanceledException ex) { /*No need to be handeled*/}
+            catch (OperationCanceledException ex) { 
+                /*No need to be handeled*/
+                Console.WriteLine("operation Cancelled");
+            }
+            catch (AggregateException e1)
+            {
+            }
         }
 
         private CancellationTokenSource cts;
@@ -389,10 +407,7 @@ namespace WindowsFormsApp
             cts.Cancel();
         }
 
-        private void concurrency_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
     }
 }

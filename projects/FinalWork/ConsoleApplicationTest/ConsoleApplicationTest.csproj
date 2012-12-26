@@ -76,21 +76,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="asyncWS.cs" />
     <Compile Include="DLR\reflection.cs" />
-    <Compile Include="Monitor\Account.cs" />
-    <Compile Include="Monitor\HoldWaitDeadLockSolution.cs" />
-    <Compile Include="Monitor\HoldWaitMonitor.cs" />
-    <Compile Include="Monitor\Mutex.cs" />
     <Compile Include="others\Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
     <Compile Include="Generics\Generic.cs" />
     <Compile Include="linqXML\LinqXml.cs" />
     <Compile Include="Office\excel.cs" />
     <Compile Include="others\Enumerator.cs" />
-    <Compile Include="Events\events1.cs" />
-    <Compile Include="Events\events2.cs" />
-    <Compile Include="Events\Delegate.cs" />
     <Compile Include="others\Collections.cs" />
     <Compile Include="others\files.cs" />
     <Compile Include="others\LinqXML.cs" />
@@ -104,8 +96,6 @@
     </Compile>
     <Compile Include="summit\Class1.cs" />
     <Compile Include="others\testEF.cs" />
-    <Compile Include="Interop\Threading\threading.cs" />
-    <Compile Include="TraditionalAsync\async.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -139,7 +129,6 @@
   <ItemGroup>
     <Content Include="Encapsulation\Note.txt" />
     <Content Include="Generics\TextFile1.txt" />
-    <Content Include="Interop\TextFile1.txt" />
     <Content Include="linqXML\users.xml" />
     <Content Include="Note.txt" />
   </ItemGroup>

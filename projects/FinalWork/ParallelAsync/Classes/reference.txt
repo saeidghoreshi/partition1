@@ -1,0 +1,10 @@
+﻿http://tinyurl.com/tpl-book
+http://msdn.microsoft.com/concurrency
+http://tinyurl.com/pp-on-msdn
+
+
+in using shared variables , if need to ba accessed in parallel schema , take care of reace condition
+
+
+TPL
+tinyurl.com/pp-on-msdn
