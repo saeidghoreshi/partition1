@@ -47,9 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Events\Delegate.cs" />
-    <Compile Include="Classes\Events\events1.cs" />
-    <Compile Include="Classes\Events\events2.cs" />
     <Compile Include="Classes\ParallelDesignPattern\Patterns\DesignPatterns1.cs" />
     <Compile Include="Classes\ParallelDesignPattern\Sample.cs" />
     <Compile Include="Classes\ParallelDesignPattern\Patterns\DesignPatterns2.cs" />

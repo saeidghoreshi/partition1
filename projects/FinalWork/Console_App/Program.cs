@@ -10,7 +10,8 @@ namespace Console_App
     {
         static void Main(string[] args)
         {
-            
+            //EventsDelegates.Delegate.Run();
+            EventsDelegates.TESTEVENT.RUN();
             Console.ReadLine();
         }
         

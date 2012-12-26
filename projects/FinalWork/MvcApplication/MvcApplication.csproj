@@ -193,6 +193,7 @@
     <Content Include="images\menu\navline.png" />
     <Content Include="images\Tabs-gradient_bg.gif" />
     <Content Include="images\strip-gray.png" />
+    <Content Include="Note.txt" />
     <Content Include="QUnitTests\Note.txt" />
     <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />

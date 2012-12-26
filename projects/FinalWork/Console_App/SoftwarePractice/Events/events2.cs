@@ -3,10 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApplication1.event2
+namespace EventsDelegates
 {
-    //not important to define delegate for events
-    //public delegate void customeHandler(object sender,EventArgs args);
+    /*
+        Not important to define delegate for events
+        public delegate void customeHandler(object sender,EventArgs args);
+    */
+
+    /*That s how it works*/
+    /*
+     1-Define class bondable events
+     2-Define class operation which uses events;
+     * 
+     3-Instantiate Object
+     4-bind Events to functions
+     5-Call object's operations
+    */
 
     public class customEventArgs : EventArgs 
     {
@@ -58,10 +70,10 @@ namespace ConsoleApplication1.event2
         }
     }
 
-    public class consumer 
+    public static class TESTEVENT 
     {
-        customCollection<string> myRepo;
-        public consumer() 
+        static customCollection<string> myRepo;
+        public static void RUN() 
         {
             myRepo = new customCollection<string>(new List<string>() { "data1", "Data2", "data3" });
 
@@ -87,10 +99,10 @@ namespace ConsoleApplication1.event2
 
 
         //handlers Definitions
-        public void addedToRepo1(object sender,EventArgs e) {Console.WriteLine("Something added to my repo firstone");}
-        public void addedToRepo2(object sender, EventArgs e) { Console.WriteLine("Something added to my repo second one"); }
-        public void updateRepo(object sender, EventArgs e) { Console.WriteLine("my repo updated" + ((customEventArgs)e).message); }
-        public void removeRepo(object sender, EventArgs e) { Console.WriteLine("my repo changed"); }
+        static void addedToRepo1(object sender,EventArgs e) {Console.WriteLine("Something added to my repo firstone");}
+        static void addedToRepo2(object sender, EventArgs e) { Console.WriteLine("Something added to my repo second one"); }
+        static void updateRepo(object sender, EventArgs e) { Console.WriteLine("my repo updated" + ((customEventArgs)e).message); }
+        static void removeRepo(object sender, EventArgs e) { Console.WriteLine("my repo changed"); }
 
     }
 }

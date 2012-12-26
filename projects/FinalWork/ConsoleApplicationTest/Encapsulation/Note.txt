@@ -1,10 +1,21 @@
-﻿interface 
->>>>>> another reason to need interface is that the framework implementations already hooked up with interfaces
-and waiting for interface implementation to be connected 
+﻿::interface ::
+1-Reason to need interface is that the framework implementations already hooked up with interfaces & waiting for interface implementation to be connected 
+2-In some cases framework scans interfaces to be implemented , can us other project class library and add reference to main project
+3-In casting an object to an interface or degrading to a class, first opens doors to specific functioality but no change in main class data structure
+4-In case of degradingécasting, degraded implementation will be used unless virtualéoverride has been used
+5-Interface is a very vague concept whether or not implemented and multiple implementation
 
-or in some cases framework scans interfaces to be implemented , can us other project class library and add reference to main project
 
 
-event
-delegate 
-class hierarch
+
+::Miscellaneous::
+object.ReferenceEquals()
+Debug.writeLine()
+
+1-structs are implicitly sealed and cant be inherited from other struct. use them if dont want to have object allocation oveehead
+2-val-types[struct/enum] will be passed by value unless using ref/out  and ref-types[class/interface/delegate/array] passed by reference unless using clone
+3-boxing means , converting val-type to object type using ()
+4-modifiers can be private,public,protected,internal,protected internal
+5-class and struct can implement multiple Interface [Unique option]
+6-we can expand built-in or custom class and override [use base]
+7-use classes as an object and work with them

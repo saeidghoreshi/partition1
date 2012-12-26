@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections;
 
 
-namespace ConsoleApplication1
+namespace EventsDelegates
 {
     public delegate void ChangedEventHandler(object sender, EventArgs e);
 

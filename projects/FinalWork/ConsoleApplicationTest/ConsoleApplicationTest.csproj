@@ -76,16 +76,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DLR\reflection.cs" />
-    <Compile Include="others\Encapsulation.cs" />
+    <Compile Include="others\reflection.cs" />
+    <Compile Include="Encapsulation\Encapsulation.cs" />
     <Compile Include="Encapsulation\Class1.cs" />
     <Compile Include="Generics\Generic.cs" />
     <Compile Include="linqXML\LinqXml.cs" />
-    <Compile Include="Office\excel.cs" />
+    <Compile Include="summit\excel.cs" />
     <Compile Include="others\Enumerator.cs" />
     <Compile Include="others\Collections.cs" />
     <Compile Include="others\files.cs" />
-    <Compile Include="others\LinqXML.cs" />
+    <Compile Include="linqXML\LinqXML2.cs" />
     <Compile Include="others\PGConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -130,7 +130,6 @@
     <Content Include="Encapsulation\Note.txt" />
     <Content Include="Generics\TextFile1.txt" />
     <Content Include="linqXML\users.xml" />
-    <Content Include="Note.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

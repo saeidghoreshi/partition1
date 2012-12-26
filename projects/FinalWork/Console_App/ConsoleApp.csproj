@@ -64,6 +64,9 @@
     <Compile Include="DesignPatterns\Visitor\Program.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoftwarePractice\Events\Delegate.cs" />
+    <Compile Include="SoftwarePractice\Events\events1.cs" />
+    <Compile Include="SoftwarePractice\Events\events2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DesignPatterns\Adapter\Note.txt" />
