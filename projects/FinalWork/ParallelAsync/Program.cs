@@ -19,6 +19,7 @@ namespace ParallelAsync
             Application.SetCompatibleTextRenderingDefault(false);
             mainform = new paralleAsync();
             Application.Run(mainform);
+            
         }
     }
 }

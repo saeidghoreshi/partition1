@@ -20,6 +20,7 @@ namespace ParallelAsync
 
         private void btn_testConcurrency_Click(object sender, EventArgs e)
         {
+            
             /*RaceConditionConcurrency Options*/
             //1
             //RaceConditionConcurrency.Syncronization.Lock.Run();

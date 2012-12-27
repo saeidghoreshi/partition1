@@ -1,0 +1,2328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="AccContexts" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="resetSeeds" />
+    <EntitySet Name="account" EntityType="Models.account" />
+    <EntitySet Name="address" EntityType="Models.address" />
+    <EntitySet Name="bank" EntityType="Models.bank" />
+    <EntitySet Name="bankCard" EntityType="Models.bankCard" />
+    <EntitySet Name="card" EntityType="Models.card" />
+    <EntitySet Name="cardType" EntityType="Models.cardType" />
+    <EntitySet Name="categoryType" EntityType="Models.categoryType" />
+    <EntitySet Name="ccCard" EntityType="Models.ccCard" />
+    <EntitySet Name="ccCardType" EntityType="Models.ccCardType" />
+    <EntitySet Name="ccFee" EntityType="Models.ccFee" />
+    <EntitySet Name="ccPayment" EntityType="Models.ccPayment" />
+    <EntitySet Name="city" EntityType="Models.city" />
+    <EntitySet Name="country" EntityType="Models.country" />
+    <EntitySet Name="currency" EntityType="Models.currency" />
+    <EntitySet Name="currencyType" EntityType="Models.currencyType" />
+    <EntitySet Name="dbCard" EntityType="Models.dbCard" />
+    <EntitySet Name="dbPayment" EntityType="Models.dbPayment" />
+    <EntitySet Name="entity" EntityType="Models.entity" />
+    <EntitySet Name="entityCard" EntityType="Models.entityCard" />
+    <EntitySet Name="entityType" EntityType="Models.entityType" />
+    <EntitySet Name="entityWallet" EntityType="Models.entityWallet" />
+    <EntitySet Name="entityWalletTransaction" EntityType="Models.entityWalletTransaction" />
+    <EntitySet Name="externalPayment" EntityType="Models.externalPayment" />
+    <EntitySet Name="extPaymentType" EntityType="Models.extPaymentType" />
+    <EntitySet Name="fee" EntityType="Models.fee" />
+    <EntitySet Name="glType" EntityType="Models.glType" />
+    <EntitySet Name="internalPayment" EntityType="Models.internalPayment" />
+    <EntitySet Name="invoice" EntityType="Models.invoice" />
+    <EntitySet Name="invoiceAction" EntityType="Models.invoiceAction" />
+    <EntitySet Name="invoiceActionTransaction" EntityType="Models.invoiceActionTransaction" />
+    <EntitySet Name="invoicePayment" EntityType="Models.invoicePayment" />
+    <EntitySet Name="invoiceService" EntityType="Models.invoiceService" />
+    <EntitySet Name="invoiceStat" EntityType="Models.invoiceStat" />
+    <EntitySet Name="mcCard" EntityType="Models.mcCard" />
+    <EntitySet Name="office" EntityType="Models.office" />
+    <EntitySet Name="officeType" EntityType="Models.officeType" />
+    <EntitySet Name="organization" EntityType="Models.organization" />
+    <EntitySet Name="orgOffice" EntityType="Models.orgOffice" />
+    <EntitySet Name="payment" EntityType="Models.payment" />
+    <EntitySet Name="paymentAction" EntityType="Models.paymentAction" />
+    <EntitySet Name="paymentActionTransaction" EntityType="Models.paymentActionTransaction" />
+    <EntitySet Name="paymentStat" EntityType="Models.paymentStat" />
+    <EntitySet Name="paymentType" EntityType="Models.paymentType" />
+    <EntitySet Name="person" EntityType="Models.person" />
+    <EntitySet Name="service" EntityType="Models.service" />
+    <EntitySet Name="street" EntityType="Models.street" />
+    <EntitySet Name="sysUserType" EntityType="Models.sysUserType" />
+    <EntitySet Name="transaction" EntityType="Models.transaction" />
+    <EntitySet Name="user" EntityType="Models.user" />
+    <EntitySet Name="userType" EntityType="Models.userType" />
+    <EntitySet Name="visaCard" EntityType="Models.visaCard" />
+    <EntitySet Name="app_features" EntityType="Models.app_features" />
+    <EntitySet Name="lu_role" EntityType="Models.lu_role" />
+    <EntitySet Name="module_features" EntityType="Models.module_features" />
+    <EntitySet Name="organization1" EntityType="Models.organization1" />
+    <EntitySet Name="permission" EntityType="Models.permission" />
+    <EntitySet Name="person1" EntityType="Models.person1" />
+    <EntitySet Name="person_org" EntityType="Models.person_org" />
+    <EntitySet Name="sysdiagrams" EntityType="Models.sysdiagrams" />
+    <EntitySet Name="test" EntityType="Models.test" />
+    <EntitySet Name="testreview" EntityType="Models.testreview" />
+    <EntitySet Name="user1" EntityType="Models.user1" />
+    <EntitySet Name="foldering" EntityType="Models.foldering" />
+    <EntitySet Name="topic" EntityType="Models.topic" />
+    <EntitySet Name="topics" EntityType="Models.topics" />
+    <EntitySet Name="document" EntityType="Models.document" />
+    <EntitySet Name="document_object" EntityType="Models.document_object" />
+    <EntitySet Name="lu_acl" EntityType="Models.lu_acl" />
+    <EntitySet Name="lu_component" EntityType="Models.lu_component" />
+    <EntitySet Name="lu_task_status" EntityType="Models.lu_task_status" />
+    <EntitySet Name="prca" EntityType="Models.prca" />
+    <EntitySet Name="rca" EntityType="Models.rca" />
+    <EntitySet Name="task" EntityType="Models.task" />
+    <EntitySet Name="task_person" EntityType="Models.task_person" />
+    <EntitySet Name="tp_progress" EntityType="Models.tp_progress" />
+    <EntitySet Name="tp_timer" EntityType="Models.tp_timer" />
+    <EntitySet Name="category" EntityType="Models.category" />
+    <EntitySet Name="login" EntityType="Models.login" />
+    <EntitySet Name="resource" EntityType="Models.resource" />
+    <EntitySet Name="resourceCategory" EntityType="Models.resourceCategory" />
+    <EntitySet Name="resourceHighlight" EntityType="Models.resourceHighlight" />
+    <EntitySet Name="transactionAccount" EntityType="Models.transactionAccount" />
+    <AssociationSet Name="FK_account_categoryType" Association="Models.FK_account_categoryType">
+      <End Role="categoryType" EntitySet="categoryType" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_account_currency" Association="Models.FK_account_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_account_entity" Association="Models.FK_account_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="account" EntitySet="account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_transaction_account" Association="Models.FK_transaction_account">
+      <End Role="account" EntitySet="account" />
+      <End Role="transaction" EntitySet="transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address_city" Association="Models.FK_address_city">
+      <End Role="city" EntitySet="city" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address_country" Association="Models.FK_address_country">
+      <End Role="country" EntitySet="country" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_address_street" Association="Models.FK_address_street">
+      <End Role="street" EntitySet="street" />
+      <End Role="address" EntitySet="address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bankCard_bank" Association="Models.FK_bankCard_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="bankCard" EntitySet="bankCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccFee_bank" Association="Models.FK_ccFee_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="ccFee" EntitySet="ccFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fee_bank" Association="Models.FK_fee_bank">
+      <End Role="bank" EntitySet="bank" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bankCard_card" Association="Models.FK_bankCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="bankCard" EntitySet="bankCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_card_cardType" Association="Models.FK_card_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="card" EntitySet="card" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccCard_card" Association="Models.FK_ccCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="ccCard" EntitySet="ccCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbCard_card" Association="Models.FK_dbCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="dbCard" EntitySet="dbCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityCard_card" Association="Models.FK_entityCard_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="entityCard" EntitySet="entityCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_externalPayment_card" Association="Models.FK_externalPayment_card">
+      <End Role="card" EntitySet="card" />
+      <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbCard_cardType" Association="Models.FK_dbCard_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="dbCard" EntitySet="dbCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fee_cardType" Association="Models.FK_fee_cardType">
+      <End Role="cardType" EntitySet="cardType" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_categoryType_glType" Association="Models.FK_categoryType_glType">
+      <End Role="glType" EntitySet="glType" />
+      <End Role="categoryType" EntitySet="categoryType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccCard_cardType" Association="Models.FK_ccCard_cardType">
+      <End Role="ccCardType" EntitySet="ccCardType" />
+      <End Role="ccCard" EntitySet="ccCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_mcCard_ccCard" Association="Models.FK_mcCard_ccCard">
+      <End Role="ccCard" EntitySet="ccCard" />
+      <End Role="mcCard" EntitySet="mcCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_visaCard_ccCard" Association="Models.FK_visaCard_ccCard">
+      <End Role="ccCard" EntitySet="ccCard" />
+      <End Role="visaCard" EntitySet="visaCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccFee_ccCardType" Association="Models.FK_ccFee_ccCardType">
+      <End Role="ccCardType" EntitySet="ccCardType" />
+      <End Role="ccFee" EntitySet="ccFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ccPayment_externalPayment" Association="Models.FK_ccPayment_externalPayment">
+      <End Role="externalPayment" EntitySet="externalPayment" />
+      <End Role="ccPayment" EntitySet="ccPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_currency_currencyType" Association="Models.FK_currency_currencyType">
+      <End Role="currencyType" EntitySet="currencyType" />
+      <End Role="currency" EntitySet="currency" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWallet_currency" Association="Models.FK_entityWallet_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="entityWallet" EntitySet="entityWallet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoice_currency" Association="Models.FK_invoice_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="invoice" EntitySet="invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceService_currency" Association="Models.FK_invoiceService_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="invoiceService" EntitySet="invoiceService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_currency" Association="Models.FK_payment_currency">
+      <End Role="currency" EntitySet="currency" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbPayment_externalPayment" Association="Models.FK_dbPayment_externalPayment">
+      <End Role="externalPayment" EntitySet="externalPayment" />
+      <End Role="dbPayment" EntitySet="dbPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entity_entityType" Association="Models.FK_entity_entityType">
+      <End Role="entityType" EntitySet="entityType" />
+      <End Role="entity" EntitySet="entity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityCard_entity" Association="Models.FK_entityCard_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="entityCard" EntitySet="entityCard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWallet_entity" Association="Models.FK_entityWallet_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="entityWallet" EntitySet="entityWallet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoice_issuer" Association="Models.FK_invoice_issuer">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="invoice" EntitySet="invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoice_receiver" Association="Models.FK_invoice_receiver">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="invoice" EntitySet="invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_organization_entity" Association="Models.FK_organization_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="organization" EntitySet="organization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_entitypayee" Association="Models.FK_payment_entitypayee">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_entitypayer" Association="Models.FK_payment_entitypayer">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_entity" Association="Models.FK_person_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="person" EntitySet="person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_entitygiver" Association="Models.FK_service_entitygiver">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="service" EntitySet="service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_service_entityreceiver" Association="Models.FK_service_entityreceiver">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="service" EntitySet="service" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWalletTransaction_entityWallet" Association="Models.FK_entityWalletTransaction_entityWallet">
+      <End Role="entityWallet" EntitySet="entityWallet" />
+      <End Role="entityWalletTransaction" EntitySet="entityWalletTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_entityWalletTransaction_transaction" Association="Models.FK_entityWalletTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="entityWalletTransaction" EntitySet="entityWalletTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_externalPayment_extPaymentType" Association="Models.FK_externalPayment_extPaymentType">
+      <End Role="extPaymentType" EntitySet="extPaymentType" />
+      <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_externalPayment_payment" Association="Models.FK_externalPayment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="externalPayment" EntitySet="externalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_internalPayment_payment" Association="Models.FK_internalPayment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="internalPayment" EntitySet="internalPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceAction_invoice" Association="Models.FK_invoiceAction_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoiceAction" EntitySet="invoiceAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoicePayment_invoice" Association="Models.FK_invoicePayment_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoicePayment" EntitySet="invoicePayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceService_invoice" Association="Models.FK_invoiceService_invoice">
+      <End Role="invoice" EntitySet="invoice" />
+      <End Role="invoiceService" EntitySet="invoiceService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceAction_invoiceStat" Association="Models.FK_invoiceAction_invoiceStat">
+      <End Role="invoiceStat" EntitySet="invoiceStat" />
+      <End Role="invoiceAction" EntitySet="invoiceAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceActionTransaction_invoiceAction" Association="Models.FK_invoiceActionTransaction_invoiceAction">
+      <End Role="invoiceAction" EntitySet="invoiceAction" />
+      <End Role="invoiceActionTransaction" EntitySet="invoiceActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceActionTransaction_transaction" Association="Models.FK_invoiceActionTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="invoiceActionTransaction" EntitySet="invoiceActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoicePayment_payment" Association="Models.FK_invoicePayment_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="invoicePayment" EntitySet="invoicePayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_invoiceService_service" Association="Models.FK_invoiceService_service">
+      <End Role="service" EntitySet="service" />
+      <End Role="invoiceService" EntitySet="invoiceService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_office_officeType" Association="Models.FK_office_officeType">
+      <End Role="officeType" EntitySet="officeType" />
+      <End Role="office" EntitySet="office" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orgOffice_office" Association="Models.FK_orgOffice_office">
+      <End Role="office" EntitySet="office" />
+      <End Role="orgOffice" EntitySet="orgOffice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_orgOffice_organization" Association="Models.FK_orgOffice_organization">
+      <End Role="organization" EntitySet="organization" />
+      <End Role="orgOffice" EntitySet="orgOffice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_paymentType" Association="Models.FK_payment_paymentType">
+      <End Role="paymentType" EntitySet="paymentType" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentAction_payment" Association="Models.FK_paymentAction_payment">
+      <End Role="payment" EntitySet="payment" />
+      <End Role="paymentAction" EntitySet="paymentAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentAction_paymentStat" Association="Models.FK_paymentAction_paymentStat">
+      <End Role="paymentStat" EntitySet="paymentStat" />
+      <End Role="paymentAction" EntitySet="paymentAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentActionTransaction_paymentAction" Association="Models.FK_paymentActionTransaction_paymentAction">
+      <End Role="paymentAction" EntitySet="paymentAction" />
+      <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_paymentActionTransaction_transaction" Association="Models.FK_paymentActionTransaction_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="paymentActionTransaction" EntitySet="paymentActionTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_person" Association="Models.FK_user_person">
+      <End Role="person" EntitySet="person" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_userType" Association="Models.FK_user_userType">
+      <End Role="userType" EntitySet="userType" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_permission_lu_role" Association="Models.FK_permission_lu_role">
+      <End Role="lu_role" EntitySet="lu_role" />
+      <End Role="permission" EntitySet="permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_role" Association="Models.FK_rca_lu_role">
+      <End Role="lu_role" EntitySet="lu_role" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_org_organization" Association="Models.FK_person_org_organization">
+      <End Role="organization1" EntitySet="organization1" />
+      <End Role="person_org" EntitySet="person_org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_permission_user" Association="Models.FK_permission_user">
+      <End Role="user1" EntitySet="user1" />
+      <End Role="permission" EntitySet="permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_person_org_person" Association="Models.FK_person_org_person">
+      <End Role="person1" EntitySet="person1" />
+      <End Role="person_org" EntitySet="person_org" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_user" Association="Models.FK_task_user_user">
+      <End Role="person1" EntitySet="person1" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_person1" Association="Models.FK_user_person1">
+      <End Role="person1" EntitySet="person1" />
+      <End Role="user1" EntitySet="user1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_testreview_test" Association="Models.FK_testreview_test">
+      <End Role="test" EntitySet="test" />
+      <End Role="testreview" EntitySet="testreview" />
+    </AssociationSet>
+    <AssociationSet Name="FK_topic_foldering" Association="Models.FK_topic_foldering">
+      <End Role="foldering" EntitySet="foldering" />
+      <End Role="topics" EntitySet="topics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_document_object_document_object" Association="Models.FK_document_object_document_object">
+      <End Role="document" EntitySet="document" />
+      <End Role="document_object" EntitySet="document_object" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_acl" Association="Models.FK_rca_lu_acl">
+      <End Role="lu_acl" EntitySet="lu_acl" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_rca_lu_component" Association="Models.FK_rca_lu_component">
+      <End Role="lu_component" EntitySet="lu_component" />
+      <End Role="rca" EntitySet="rca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_lu_task_status" Association="Models.FK_task_lu_task_status">
+      <End Role="lu_task_status" EntitySet="lu_task_status" />
+      <End Role="task" EntitySet="task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_person_lu_task_status" Association="Models.FK_task_person_lu_task_status">
+      <End Role="lu_task_status" EntitySet="lu_task_status" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prca_rca" Association="Models.FK_prca_rca">
+      <End Role="rca" EntitySet="rca" />
+      <End Role="prca" EntitySet="prca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_task" Association="Models.FK_task_user_task">
+      <End Role="task" EntitySet="task" />
+      <End Role="task_person" EntitySet="task_person" />
+    </AssociationSet>
+    <AssociationSet Name="FK_task_user_progress_task_user" Association="Models.FK_task_user_progress_task_user">
+      <End Role="task_person" EntitySet="task_person" />
+      <End Role="tp_progress" EntitySet="tp_progress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tp_timers_task_person" Association="Models.FK_tp_timers_task_person">
+      <End Role="task_person" EntitySet="task_person" />
+      <End Role="tp_timer" EntitySet="tp_timer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_category" Association="Models.FK_resourceCategory_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="resourceCategory" EntitySet="resourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resource_resource" Association="Models.FK_resource_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resource1" EntitySet="resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_resource" Association="Models.FK_resourceCategory_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resourceCategory" EntitySet="resourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceHighlight_resource" Association="Models.FK_resourceHighlight_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resourceHighlight" EntitySet="resourceHighlight" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="catTypeID" />
+    <Property Type="Int32" Name="ownerEntityID" />
+    <Property Type="Int32" Name="currencyID" />
+    <Property Type="Decimal" Name="balance" Nullable="false" Precision="18" Scale="0" />
+    <NavigationProperty Name="categoryType" Relationship="Models.FK_account_categoryType" FromRole="account" ToRole="categoryType" />
+    <NavigationProperty Name="currency" Relationship="Models.FK_account_currency" FromRole="account" ToRole="currency" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_account_entity" FromRole="account" ToRole="entity" />
+    <NavigationProperty Name="transaction" Relationship="Models.FK_transaction_account" FromRole="account" ToRole="transaction" />
+  </EntityType>
+  <EntityType Name="address">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="countryID" />
+    <Property Type="Int32" Name="cityID" />
+    <Property Type="Int32" Name="streetID" />
+    <NavigationProperty Name="city" Relationship="Models.FK_address_city" FromRole="address" ToRole="city" />
+    <NavigationProperty Name="country" Relationship="Models.FK_address_country" FromRole="address" ToRole="country" />
+    <NavigationProperty Name="street" Relationship="Models.FK_address_street" FromRole="address" ToRole="street" />
+  </EntityType>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bankCard" Relationship="Models.FK_bankCard_bank" FromRole="bank" ToRole="bankCard" />
+    <NavigationProperty Name="ccFee" Relationship="Models.FK_ccFee_bank" FromRole="bank" ToRole="ccFee" />
+    <NavigationProperty Name="fee" Relationship="Models.FK_fee_bank" FromRole="bank" ToRole="fee" />
+  </EntityType>
+  <EntityType Name="bankCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="bankID" />
+    <Property Type="Int32" Name="cardID" />
+    <NavigationProperty Name="bank" Relationship="Models.FK_bankCard_bank" FromRole="bankCard" ToRole="bank" />
+    <NavigationProperty Name="card" Relationship="Models.FK_bankCard_card" FromRole="bankCard" ToRole="card" />
+  </EntityType>
+  <EntityType Name="card">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="cardNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="expiryDate" />
+    <Property Type="Int32" Name="cardTypeID" />
+    <NavigationProperty Name="bankCard" Relationship="Models.FK_bankCard_card" FromRole="card" ToRole="bankCard" />
+    <NavigationProperty Name="cardType" Relationship="Models.FK_card_cardType" FromRole="card" ToRole="cardType" />
+    <NavigationProperty Name="ccCard" Relationship="Models.FK_ccCard_card" FromRole="card" ToRole="ccCard" />
+    <NavigationProperty Name="dbCard" Relationship="Models.FK_dbCard_card" FromRole="card" ToRole="dbCard" />
+    <NavigationProperty Name="entityCard" Relationship="Models.FK_entityCard_card" FromRole="card" ToRole="entityCard" />
+    <NavigationProperty Name="externalPayment" Relationship="Models.FK_externalPayment_card" FromRole="card" ToRole="externalPayment" />
+  </EntityType>
+  <EntityType Name="cardType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="card" Relationship="Models.FK_card_cardType" FromRole="cardType" ToRole="card" />
+    <NavigationProperty Name="dbCard" Relationship="Models.FK_dbCard_cardType" FromRole="cardType" ToRole="dbCard" />
+    <NavigationProperty Name="fee" Relationship="Models.FK_fee_cardType" FromRole="cardType" ToRole="fee" />
+  </EntityType>
+  <EntityType Name="categoryType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="glTypeID" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="account" Relationship="Models.FK_account_categoryType" FromRole="categoryType" ToRole="account" />
+    <NavigationProperty Name="glType" Relationship="Models.FK_categoryType_glType" FromRole="categoryType" ToRole="glType" />
+  </EntityType>
+  <EntityType Name="ccCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="cardID" />
+    <Property Type="Int32" Name="ccCardTypeID" />
+    <NavigationProperty Name="card" Relationship="Models.FK_ccCard_card" FromRole="ccCard" ToRole="card" />
+    <NavigationProperty Name="ccCardType" Relationship="Models.FK_ccCard_cardType" FromRole="ccCard" ToRole="ccCardType" />
+    <NavigationProperty Name="mcCard" Relationship="Models.FK_mcCard_ccCard" FromRole="ccCard" ToRole="mcCard" />
+    <NavigationProperty Name="visaCard" Relationship="Models.FK_visaCard_ccCard" FromRole="ccCard" ToRole="visaCard" />
+  </EntityType>
+  <EntityType Name="ccCardType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ccCard" Relationship="Models.FK_ccCard_cardType" FromRole="ccCardType" ToRole="ccCard" />
+    <NavigationProperty Name="ccFee" Relationship="Models.FK_ccFee_ccCardType" FromRole="ccCardType" ToRole="ccFee" />
+  </EntityType>
+  <EntityType Name="ccFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="bankID" />
+    <Property Type="Int32" Name="ccCardTypeID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bank" Relationship="Models.FK_ccFee_bank" FromRole="ccFee" ToRole="bank" />
+    <NavigationProperty Name="ccCardType" Relationship="Models.FK_ccFee_ccCardType" FromRole="ccFee" ToRole="ccCardType" />
+  </EntityType>
+  <EntityType Name="ccPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="extPaymentID" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="externalPayment" Relationship="Models.FK_ccPayment_externalPayment" FromRole="ccPayment" ToRole="externalPayment" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="address" Relationship="Models.FK_address_city" FromRole="city" ToRole="address" />
+  </EntityType>
+  <EntityType Name="country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="address" Relationship="Models.FK_address_country" FromRole="country" ToRole="address" />
+  </EntityType>
+  <EntityType Name="currency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="currencyTypeID" />
+    <Property Type="String" Name="name" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="account" Relationship="Models.FK_account_currency" FromRole="currency" ToRole="account" />
+    <NavigationProperty Name="currencyType" Relationship="Models.FK_currency_currencyType" FromRole="currency" ToRole="currencyType" />
+    <NavigationProperty Name="entityWallet" Relationship="Models.FK_entityWallet_currency" FromRole="currency" ToRole="entityWallet" />
+    <NavigationProperty Name="invoice" Relationship="Models.FK_invoice_currency" FromRole="currency" ToRole="invoice" />
+    <NavigationProperty Name="invoiceService" Relationship="Models.FK_invoiceService_currency" FromRole="currency" ToRole="invoiceService" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_payment_currency" FromRole="currency" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="currencyType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="currency" Relationship="Models.FK_currency_currencyType" FromRole="currencyType" ToRole="currency" />
+  </EntityType>
+  <EntityType Name="dbCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="cardID" />
+    <Property Type="Int32" Name="cardTypeID" />
+    <NavigationProperty Name="card" Relationship="Models.FK_dbCard_card" FromRole="dbCard" ToRole="card" />
+    <NavigationProperty Name="cardType" Relationship="Models.FK_dbCard_cardType" FromRole="dbCard" ToRole="cardType" />
+  </EntityType>
+  <EntityType Name="dbPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="extPaymentID" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="externalPayment" Relationship="Models.FK_dbPayment_externalPayment" FromRole="dbPayment" ToRole="externalPayment" />
+  </EntityType>
+  <EntityType Name="entity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="entityTypeID" />
+    <NavigationProperty Name="account" Relationship="Models.FK_account_entity" FromRole="entity" ToRole="account" />
+    <NavigationProperty Name="entityType" Relationship="Models.FK_entity_entityType" FromRole="entity" ToRole="entityType" />
+    <NavigationProperty Name="entityCard" Relationship="Models.FK_entityCard_entity" FromRole="entity" ToRole="entityCard" />
+    <NavigationProperty Name="entityWallet" Relationship="Models.FK_entityWallet_entity" FromRole="entity" ToRole="entityWallet" />
+    <NavigationProperty Name="invoice" Relationship="Models.FK_invoice_issuer" FromRole="entity" ToRole="invoice" />
+    <NavigationProperty Name="invoice1" Relationship="Models.FK_invoice_receiver" FromRole="entity" ToRole="invoice" />
+    <NavigationProperty Name="organization" Relationship="Models.FK_organization_entity" FromRole="entity" ToRole="organization" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_payment_entitypayee" FromRole="entity" ToRole="payment" />
+    <NavigationProperty Name="payment1" Relationship="Models.FK_payment_entitypayer" FromRole="entity" ToRole="payment" />
+    <NavigationProperty Name="person" Relationship="Models.FK_person_entity" FromRole="entity" ToRole="person" />
+    <NavigationProperty Name="service" Relationship="Models.FK_service_entitygiver" FromRole="entity" ToRole="service" />
+    <NavigationProperty Name="service1" Relationship="Models.FK_service_entityreceiver" FromRole="entity" ToRole="service" />
+  </EntityType>
+  <EntityType Name="entityCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="entityID" />
+    <Property Type="Int32" Name="CardID" />
+    <NavigationProperty Name="card" Relationship="Models.FK_entityCard_card" FromRole="entityCard" ToRole="card" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_entityCard_entity" FromRole="entityCard" ToRole="entity" />
+  </EntityType>
+  <EntityType Name="entityType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_entity_entityType" FromRole="entityType" ToRole="entity" />
+  </EntityType>
+  <EntityType Name="entityWallet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="title" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="entityID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="currencyID" />
+    <NavigationProperty Name="currency" Relationship="Models.FK_entityWallet_currency" FromRole="entityWallet" ToRole="currency" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_entityWallet_entity" FromRole="entityWallet" ToRole="entity" />
+    <NavigationProperty Name="entityWalletTransaction" Relationship="Models.FK_entityWalletTransaction_entityWallet" FromRole="entityWallet" ToRole="entityWalletTransaction" />
+  </EntityType>
+  <EntityType Name="entityWalletTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="entityWalletID" />
+    <Property Type="Int32" Name="transactionID" />
+    <NavigationProperty Name="entityWallet" Relationship="Models.FK_entityWalletTransaction_entityWallet" FromRole="entityWalletTransaction" ToRole="entityWallet" />
+    <NavigationProperty Name="transaction" Relationship="Models.FK_entityWalletTransaction_transaction" FromRole="entityWalletTransaction" ToRole="transaction" />
+  </EntityType>
+  <EntityType Name="externalPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="paymentID" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="cardID" />
+    <Property Type="Int32" Name="extPaymentTypeID" />
+    <NavigationProperty Name="card" Relationship="Models.FK_externalPayment_card" FromRole="externalPayment" ToRole="card" />
+    <NavigationProperty Name="ccPayment" Relationship="Models.FK_ccPayment_externalPayment" FromRole="externalPayment" ToRole="ccPayment" />
+    <NavigationProperty Name="dbPayment" Relationship="Models.FK_dbPayment_externalPayment" FromRole="externalPayment" ToRole="dbPayment" />
+    <NavigationProperty Name="extPaymentType" Relationship="Models.FK_externalPayment_extPaymentType" FromRole="externalPayment" ToRole="extPaymentType" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_externalPayment_payment" FromRole="externalPayment" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="extPaymentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="externalPayment" Relationship="Models.FK_externalPayment_extPaymentType" FromRole="extPaymentType" ToRole="externalPayment" />
+  </EntityType>
+  <EntityType Name="fee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="bankID" />
+    <Property Type="Int32" Name="cardTypeID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="bank" Relationship="Models.FK_fee_bank" FromRole="fee" ToRole="bank" />
+    <NavigationProperty Name="cardType" Relationship="Models.FK_fee_cardType" FromRole="fee" ToRole="cardType" />
+  </EntityType>
+  <EntityType Name="glType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="categoryType" Relationship="Models.FK_categoryType_glType" FromRole="glType" ToRole="categoryType" />
+  </EntityType>
+  <EntityType Name="internalPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="paymentID" />
+    <Property Type="String" Name="description" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_internalPayment_payment" FromRole="internalPayment" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="invoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="issuerEntityID" />
+    <Property Type="Int32" Name="receiverEntityID" />
+    <Property Type="Int32" Name="currencyID" />
+    <NavigationProperty Name="currency" Relationship="Models.FK_invoice_currency" FromRole="invoice" ToRole="currency" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_invoice_issuer" FromRole="invoice" ToRole="entity" />
+    <NavigationProperty Name="entity1" Relationship="Models.FK_invoice_receiver" FromRole="invoice" ToRole="entity" />
+    <NavigationProperty Name="invoiceAction" Relationship="Models.FK_invoiceAction_invoice" FromRole="invoice" ToRole="invoiceAction" />
+    <NavigationProperty Name="invoicePayment" Relationship="Models.FK_invoicePayment_invoice" FromRole="invoice" ToRole="invoicePayment" />
+    <NavigationProperty Name="invoiceService" Relationship="Models.FK_invoiceService_invoice" FromRole="invoice" ToRole="invoiceService" />
+  </EntityType>
+  <EntityType Name="invoiceAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="invoiceID" />
+    <Property Type="Int32" Name="invoiceStatID" />
+    <NavigationProperty Name="invoice" Relationship="Models.FK_invoiceAction_invoice" FromRole="invoiceAction" ToRole="invoice" />
+    <NavigationProperty Name="invoiceStat" Relationship="Models.FK_invoiceAction_invoiceStat" FromRole="invoiceAction" ToRole="invoiceStat" />
+    <NavigationProperty Name="invoiceActionTransaction" Relationship="Models.FK_invoiceActionTransaction_invoiceAction" FromRole="invoiceAction" ToRole="invoiceActionTransaction" />
+  </EntityType>
+  <EntityType Name="invoiceActionTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="invoiceActionID" />
+    <Property Type="Int32" Name="transactionID" />
+    <NavigationProperty Name="invoiceAction" Relationship="Models.FK_invoiceActionTransaction_invoiceAction" FromRole="invoiceActionTransaction" ToRole="invoiceAction" />
+    <NavigationProperty Name="transaction" Relationship="Models.FK_invoiceActionTransaction_transaction" FromRole="invoiceActionTransaction" ToRole="transaction" />
+  </EntityType>
+  <EntityType Name="invoicePayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="invoiceID" />
+    <Property Type="Int32" Name="paymentID" />
+    <NavigationProperty Name="invoice" Relationship="Models.FK_invoicePayment_invoice" FromRole="invoicePayment" ToRole="invoice" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_invoicePayment_payment" FromRole="invoicePayment" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="invoiceService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="invoiceID" />
+    <Property Type="Int32" Name="serviceID" />
+    <Property Type="Int32" Name="currencyID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+    <NavigationProperty Name="currency" Relationship="Models.FK_invoiceService_currency" FromRole="invoiceService" ToRole="currency" />
+    <NavigationProperty Name="invoice" Relationship="Models.FK_invoiceService_invoice" FromRole="invoiceService" ToRole="invoice" />
+    <NavigationProperty Name="service" Relationship="Models.FK_invoiceService_service" FromRole="invoiceService" ToRole="service" />
+  </EntityType>
+  <EntityType Name="invoiceStat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="invoiceAction" Relationship="Models.FK_invoiceAction_invoiceStat" FromRole="invoiceStat" ToRole="invoiceAction" />
+  </EntityType>
+  <EntityType Name="mcCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ccCardID" />
+    <NavigationProperty Name="ccCard" Relationship="Models.FK_mcCard_ccCard" FromRole="mcCard" ToRole="ccCard" />
+  </EntityType>
+  <EntityType Name="office">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="officeTypeID" />
+    <NavigationProperty Name="officeType" Relationship="Models.FK_office_officeType" FromRole="office" ToRole="officeType" />
+    <NavigationProperty Name="orgOffice" Relationship="Models.FK_orgOffice_office" FromRole="office" ToRole="orgOffice" />
+  </EntityType>
+  <EntityType Name="officeType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="office" Relationship="Models.FK_office_officeType" FromRole="officeType" ToRole="office" />
+  </EntityType>
+  <EntityType Name="organization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="entityID" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_organization_entity" FromRole="organization" ToRole="entity" />
+    <NavigationProperty Name="orgOffice" Relationship="Models.FK_orgOffice_organization" FromRole="organization" ToRole="orgOffice" />
+  </EntityType>
+  <EntityType Name="orgOffice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="orgID" />
+    <Property Type="Int32" Name="officeID" />
+    <NavigationProperty Name="office" Relationship="Models.FK_orgOffice_office" FromRole="orgOffice" ToRole="office" />
+    <NavigationProperty Name="organization" Relationship="Models.FK_orgOffice_organization" FromRole="orgOffice" ToRole="organization" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="payerEntityID" />
+    <Property Type="Int32" Name="payeeEntityID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="currencyID" />
+    <Property Type="Int32" Name="paymentTypeID" />
+    <NavigationProperty Name="currency" Relationship="Models.FK_payment_currency" FromRole="payment" ToRole="currency" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_payment_entitypayee" FromRole="payment" ToRole="entity" />
+    <NavigationProperty Name="entity1" Relationship="Models.FK_payment_entitypayer" FromRole="payment" ToRole="entity" />
+    <NavigationProperty Name="externalPayment" Relationship="Models.FK_externalPayment_payment" FromRole="payment" ToRole="externalPayment" />
+    <NavigationProperty Name="internalPayment" Relationship="Models.FK_internalPayment_payment" FromRole="payment" ToRole="internalPayment" />
+    <NavigationProperty Name="invoicePayment" Relationship="Models.FK_invoicePayment_payment" FromRole="payment" ToRole="invoicePayment" />
+    <NavigationProperty Name="paymentType" Relationship="Models.FK_payment_paymentType" FromRole="payment" ToRole="paymentType" />
+    <NavigationProperty Name="paymentAction" Relationship="Models.FK_paymentAction_payment" FromRole="payment" ToRole="paymentAction" />
+  </EntityType>
+  <EntityType Name="paymentAction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="paymentID" />
+    <Property Type="Int32" Name="paymentStatID" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_paymentAction_payment" FromRole="paymentAction" ToRole="payment" />
+    <NavigationProperty Name="paymentStat" Relationship="Models.FK_paymentAction_paymentStat" FromRole="paymentAction" ToRole="paymentStat" />
+    <NavigationProperty Name="paymentActionTransaction" Relationship="Models.FK_paymentActionTransaction_paymentAction" FromRole="paymentAction" ToRole="paymentActionTransaction" />
+  </EntityType>
+  <EntityType Name="paymentActionTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="paymentActionID" />
+    <Property Type="Int32" Name="transactionID" />
+    <NavigationProperty Name="paymentAction" Relationship="Models.FK_paymentActionTransaction_paymentAction" FromRole="paymentActionTransaction" ToRole="paymentAction" />
+    <NavigationProperty Name="transaction" Relationship="Models.FK_paymentActionTransaction_transaction" FromRole="paymentActionTransaction" ToRole="transaction" />
+  </EntityType>
+  <EntityType Name="paymentStat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="paymentAction" Relationship="Models.FK_paymentAction_paymentStat" FromRole="paymentStat" ToRole="paymentAction" />
+  </EntityType>
+  <EntityType Name="paymentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="payment" Relationship="Models.FK_payment_paymentType" FromRole="paymentType" ToRole="payment" />
+  </EntityType>
+  <EntityType Name="person">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="entityID" />
+    <Property Type="String" Name="firstName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="lastName" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_person_entity" FromRole="person" ToRole="entity" />
+    <NavigationProperty Name="user" Relationship="Models.FK_user_person" FromRole="person" ToRole="user" />
+  </EntityType>
+  <EntityType Name="service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="issuerEntityID" />
+    <Property Type="Int32" Name="receiverEntityID" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_service_entitygiver" FromRole="service" ToRole="entity" />
+    <NavigationProperty Name="entity1" Relationship="Models.FK_service_entityreceiver" FromRole="service" ToRole="entity" />
+    <NavigationProperty Name="invoiceService" Relationship="Models.FK_invoiceService_service" FromRole="service" ToRole="invoiceService" />
+  </EntityType>
+  <EntityType Name="street">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="address" Relationship="Models.FK_address_street" FromRole="street" ToRole="address" />
+  </EntityType>
+  <EntityType Name="sysUserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="accountID" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="2" />
+    <NavigationProperty Name="account" Relationship="Models.FK_transaction_account" FromRole="transaction" ToRole="account" />
+    <NavigationProperty Name="entityWalletTransaction" Relationship="Models.FK_entityWalletTransaction_transaction" FromRole="transaction" ToRole="entityWalletTransaction" />
+    <NavigationProperty Name="invoiceActionTransaction" Relationship="Models.FK_invoiceActionTransaction_transaction" FromRole="transaction" ToRole="invoiceActionTransaction" />
+    <NavigationProperty Name="paymentActionTransaction" Relationship="Models.FK_paymentActionTransaction_transaction" FromRole="transaction" ToRole="paymentActionTransaction" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="userTypeID" />
+    <Property Type="Int32" Name="personID" />
+    <NavigationProperty Name="person" Relationship="Models.FK_user_person" FromRole="user" ToRole="person" />
+    <NavigationProperty Name="userType" Relationship="Models.FK_user_userType" FromRole="user" ToRole="userType" />
+  </EntityType>
+  <EntityType Name="userType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="user" Relationship="Models.FK_user_userType" FromRole="userType" ToRole="user" />
+  </EntityType>
+  <EntityType Name="visaCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ccCardID" />
+    <NavigationProperty Name="ccCard" Relationship="Models.FK_visaCard_ccCard" FromRole="visaCard" ToRole="ccCard" />
+  </EntityType>
+  <EntityType Name="app_features">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parent_id" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="lu_role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Type="Int32" Name="role_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="role_name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="permission" Relationship="Models.FK_permission_lu_role" FromRole="lu_role" ToRole="permission" />
+    <NavigationProperty Name="rca" Relationship="Models.FK_rca_lu_role" FromRole="lu_role" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="module_features">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parent_id" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="organization1">
+    <Key>
+      <PropertyRef Name="org_id" />
+    </Key>
+    <Property Type="Int32" Name="org_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parent_org_id" />
+    <Property Type="String" Name="org_name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="street" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="city" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="postalcode" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="logo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="person_org" Relationship="Models.FK_person_org_organization" FromRole="organization1" ToRole="person_org" />
+  </EntityType>
+  <EntityType Name="permission">
+    <Key>
+      <PropertyRef Name="permission_id" />
+    </Key>
+    <Property Type="Int32" Name="permission_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="user_id" />
+    <Property Type="Int32" Name="role_id" />
+    <NavigationProperty Name="lu_role" Relationship="Models.FK_permission_lu_role" FromRole="permission" ToRole="lu_role" />
+    <NavigationProperty Name="user1" Relationship="Models.FK_permission_user" FromRole="permission" ToRole="user1" />
+  </EntityType>
+  <EntityType Name="person1">
+    <Key>
+      <PropertyRef Name="person_id" />
+    </Key>
+    <Property Type="Int32" Name="person_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="fname" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="lname" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="thumbnailFile" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="thumbnailExt" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="person_org" Relationship="Models.FK_person_org_person" FromRole="person1" ToRole="person_org" />
+    <NavigationProperty Name="task_person" Relationship="Models.FK_task_user_user" FromRole="person1" ToRole="task_person" />
+    <NavigationProperty Name="user1" Relationship="Models.FK_user_person1" FromRole="person1" ToRole="user1" />
+  </EntityType>
+  <EntityType Name="person_org">
+    <Key>
+      <PropertyRef Name="person_org_id" />
+    </Key>
+    <Property Type="Int32" Name="person_org_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="person_id" />
+    <Property Type="Int32" Name="org_id" />
+    <NavigationProperty Name="organization1" Relationship="Models.FK_person_org_organization" FromRole="person_org" ToRole="organization1" />
+    <NavigationProperty Name="person1" Relationship="Models.FK_person_org_person" FromRole="person_org" ToRole="person1" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="test">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="address" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="testreview" Relationship="Models.FK_testreview_test" FromRole="test" ToRole="testreview" />
+  </EntityType>
+  <EntityType Name="testreview">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="testid" />
+    <Property Type="Int32" Name="rate" />
+    <NavigationProperty Name="test" Relationship="Models.FK_testreview_test" FromRole="testreview" ToRole="test" />
+  </EntityType>
+  <EntityType Name="user1">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Type="Int32" Name="user_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="username" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="password" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="person_id" />
+    <NavigationProperty Name="permission" Relationship="Models.FK_permission_user" FromRole="user1" ToRole="permission" />
+    <NavigationProperty Name="person1" Relationship="Models.FK_user_person1" FromRole="user1" ToRole="person1" />
+  </EntityType>
+  <EntityType Name="foldering">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parent_id" />
+    <Property Type="String" Name="title" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="is_active" />
+    <Property Type="String" Name="timestamp" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="topics" Relationship="Models.FK_topic_foldering" FromRole="foldering" ToRole="topics" />
+  </EntityType>
+  <EntityType Name="topic">
+    <Key>
+      <PropertyRef Name="topic_id" />
+    </Key>
+    <Property Type="Int32" Name="topic_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="topic_parent_id" />
+    <Property Type="String" Name="topic_title" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="topic_details" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="is_active" />
+    <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="topics">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parent_id" />
+    <Property Type="String" Name="title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="is_active" />
+    <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="foldering_id" />
+    <NavigationProperty Name="foldering" Relationship="Models.FK_topic_foldering" FromRole="topics" ToRole="foldering" />
+  </EntityType>
+  <EntityType Name="document">
+    <Key>
+      <PropertyRef Name="document_id" />
+    </Key>
+    <Property Type="Int32" Name="document_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="filename" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="fileext" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Binary" Name="timestamp" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="document_object" Relationship="Models.FK_document_object_document_object" FromRole="document" ToRole="document_object" />
+  </EntityType>
+  <EntityType Name="document_object">
+    <Key>
+      <PropertyRef Name="doc_obj_id" />
+    </Key>
+    <Property Type="Int32" Name="doc_obj_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="document_id" />
+    <Property Type="Int32" Name="object_id" />
+    <Property Type="Boolean" Name="is_active" />
+    <NavigationProperty Name="document" Relationship="Models.FK_document_object_document_object" FromRole="document_object" ToRole="document" />
+  </EntityType>
+  <EntityType Name="lu_acl">
+    <Key>
+      <PropertyRef Name="acl_id" />
+    </Key>
+    <Property Type="Int32" Name="acl_id" Nullable="false" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="rca" Relationship="Models.FK_rca_lu_acl" FromRole="lu_acl" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="lu_component">
+    <Key>
+      <PropertyRef Name="component_id" />
+    </Key>
+    <Property Type="Int32" Name="component_id" Nullable="false" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="rca" Relationship="Models.FK_rca_lu_component" FromRole="lu_component" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="lu_task_status">
+    <Key>
+      <PropertyRef Name="type_id" />
+    </Key>
+    <Property Type="Int32" Name="type_id" Nullable="false" />
+    <Property Type="String" Name="type_name" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="task" Relationship="Models.FK_task_lu_task_status" FromRole="lu_task_status" ToRole="task" />
+    <NavigationProperty Name="task_person" Relationship="Models.FK_task_person_lu_task_status" FromRole="lu_task_status" ToRole="task_person" />
+  </EntityType>
+  <EntityType Name="prca">
+    <Key>
+      <PropertyRef Name="prca_id" />
+    </Key>
+    <Property Type="Int32" Name="prca_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="person_id" />
+    <Property Type="Int32" Name="rca_id" />
+    <NavigationProperty Name="rca" Relationship="Models.FK_prca_rca" FromRole="prca" ToRole="rca" />
+  </EntityType>
+  <EntityType Name="rca">
+    <Key>
+      <PropertyRef Name="rca_id" />
+    </Key>
+    <Property Type="Int32" Name="rca_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="role_id" />
+    <Property Type="Int32" Name="component_id" />
+    <Property Type="Int32" Name="acl_id" />
+    <NavigationProperty Name="lu_role" Relationship="Models.FK_rca_lu_role" FromRole="rca" ToRole="lu_role" />
+    <NavigationProperty Name="lu_acl" Relationship="Models.FK_rca_lu_acl" FromRole="rca" ToRole="lu_acl" />
+    <NavigationProperty Name="lu_component" Relationship="Models.FK_rca_lu_component" FromRole="rca" ToRole="lu_component" />
+    <NavigationProperty Name="prca" Relationship="Models.FK_prca_rca" FromRole="rca" ToRole="prca" />
+  </EntityType>
+  <EntityType Name="task">
+    <Key>
+      <PropertyRef Name="task_id" />
+    </Key>
+    <Property Type="Int32" Name="task_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="deadline" />
+    <Property Type="Int32" Name="task_status_id" />
+    <Property Type="Boolean" Name="is_active" />
+    <Property Type="DateTime" Name="stamp" />
+    <NavigationProperty Name="lu_task_status" Relationship="Models.FK_task_lu_task_status" FromRole="task" ToRole="lu_task_status" />
+    <NavigationProperty Name="task_person" Relationship="Models.FK_task_user_task" FromRole="task" ToRole="task_person" />
+  </EntityType>
+  <EntityType Name="task_person">
+    <Key>
+      <PropertyRef Name="task_person_id" />
+    </Key>
+    <Property Type="Int32" Name="task_person_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="task_id" />
+    <Property Type="Int32" Name="person_id" />
+    <Property Type="Double" Name="eta" />
+    <Property Type="Int32" Name="user_task_status_id" />
+    <NavigationProperty Name="person1" Relationship="Models.FK_task_user_user" FromRole="task_person" ToRole="person1" />
+    <NavigationProperty Name="lu_task_status" Relationship="Models.FK_task_person_lu_task_status" FromRole="task_person" ToRole="lu_task_status" />
+    <NavigationProperty Name="task" Relationship="Models.FK_task_user_task" FromRole="task_person" ToRole="task" />
+    <NavigationProperty Name="tp_progress" Relationship="Models.FK_task_user_progress_task_user" FromRole="task_person" ToRole="tp_progress" />
+    <NavigationProperty Name="tp_timer" Relationship="Models.FK_tp_timers_task_person" FromRole="task_person" ToRole="tp_timer" />
+  </EntityType>
+  <EntityType Name="tp_progress">
+    <Key>
+      <PropertyRef Name="t_p_p_id" />
+    </Key>
+    <Property Type="Int32" Name="t_p_p_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="t_p_id" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="datetime" />
+    <NavigationProperty Name="task_person" Relationship="Models.FK_task_user_progress_task_user" FromRole="tp_progress" ToRole="task_person" />
+  </EntityType>
+  <EntityType Name="tp_timer">
+    <Key>
+      <PropertyRef Name="t_p_t_id" />
+    </Key>
+    <Property Type="Int32" Name="t_p_t_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="t_p_id" />
+    <Property Type="DateTime" Name="start_stamp" />
+    <Property Type="DateTime" Name="end_stamp" />
+    <Property Type="Boolean" Name="is_commited" />
+    <NavigationProperty Name="task_person" Relationship="Models.FK_tp_timers_task_person" FromRole="tp_timer" ToRole="task_person" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="resourceCategory" Relationship="Models.FK_resourceCategory_category" FromRole="category" ToRole="resourceCategory" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="username" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="resource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="parentID" />
+    <Property Type="String" Name="title" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="resource1" Relationship="Models.FK_resource_resource" FromRole="resource" ToRole="resource1" />
+    <NavigationProperty Name="resource2" Relationship="Models.FK_resource_resource" FromRole="resource1" ToRole="resource" />
+    <NavigationProperty Name="resourceCategory" Relationship="Models.FK_resourceCategory_resource" FromRole="resource" ToRole="resourceCategory" />
+    <NavigationProperty Name="resourceHighlight" Relationship="Models.FK_resourceHighlight_resource" FromRole="resource" ToRole="resourceHighlight" />
+  </EntityType>
+  <EntityType Name="resourceCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="resourceID" />
+    <Property Type="Int32" Name="categoryID" />
+    <NavigationProperty Name="category" Relationship="Models.FK_resourceCategory_category" FromRole="resourceCategory" ToRole="category" />
+    <NavigationProperty Name="resource" Relationship="Models.FK_resourceCategory_resource" FromRole="resourceCategory" ToRole="resource" />
+  </EntityType>
+  <EntityType Name="resourceHighlight">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="resourceID" />
+    <Property Type="String" Name="colorCode" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="resource" Relationship="Models.FK_resourceHighlight_resource" FromRole="resourceHighlight" ToRole="resource" />
+  </EntityType>
+  <EntityType Name="transactionAccount">
+    <Key>
+      <PropertyRef Name="transactionID" />
+      <PropertyRef Name="accountID" />
+      <PropertyRef Name="balance" />
+    </Key>
+    <Property Type="Int32" Name="transactionID" Nullable="false" />
+    <Property Type="Decimal" Name="amount" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="accountID" Nullable="false" />
+    <Property Type="Int32" Name="ownerEntityID" />
+    <Property Type="String" Name="GL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Category" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="balance" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="currency" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_account_categoryType">
+    <End Type="Models.categoryType" Role="categoryType" Multiplicity="0..1" />
+    <End Type="Models.account" Role="account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoryType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="catTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_account_currency">
+    <End Type="Models.currency" Role="currency" Multiplicity="0..1" />
+    <End Type="Models.account" Role="account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_account_entity">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.account" Role="account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="account">
+        <PropertyRef Name="ownerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_transaction_account">
+    <End Type="Models.account" Role="account" Multiplicity="0..1" />
+    <End Type="Models.transaction" Role="transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="transaction">
+        <PropertyRef Name="accountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address_city">
+    <End Type="Models.city" Role="city" Multiplicity="0..1" />
+    <End Type="Models.address" Role="address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="cityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address_country">
+    <End Type="Models.country" Role="country" Multiplicity="0..1" />
+    <End Type="Models.address" Role="address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="countryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_address_street">
+    <End Type="Models.street" Role="street" Multiplicity="0..1" />
+    <End Type="Models.address" Role="address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="street">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="address">
+        <PropertyRef Name="streetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bankCard_bank">
+    <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="Models.bankCard" Role="bankCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bankCard">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccFee_bank">
+    <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="Models.ccFee" Role="ccFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccFee">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fee_bank">
+    <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
+    <End Type="Models.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="bankID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bankCard_card">
+    <End Type="Models.card" Role="card" Multiplicity="0..1" />
+    <End Type="Models.bankCard" Role="bankCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bankCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_card_cardType">
+    <End Type="Models.cardType" Role="cardType" Multiplicity="0..1" />
+    <End Type="Models.card" Role="card" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="card">
+        <PropertyRef Name="cardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccCard_card">
+    <End Type="Models.card" Role="card" Multiplicity="0..1" />
+    <End Type="Models.ccCard" Role="ccCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbCard_card">
+    <End Type="Models.card" Role="card" Multiplicity="0..1" />
+    <End Type="Models.dbCard" Role="dbCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbCard">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityCard_card">
+    <End Type="Models.card" Role="card" Multiplicity="0..1" />
+    <End Type="Models.entityCard" Role="entityCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityCard">
+        <PropertyRef Name="CardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_externalPayment_card">
+    <End Type="Models.card" Role="card" Multiplicity="0..1" />
+    <End Type="Models.externalPayment" Role="externalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="card">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="externalPayment">
+        <PropertyRef Name="cardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbCard_cardType">
+    <End Type="Models.cardType" Role="cardType" Multiplicity="0..1" />
+    <End Type="Models.dbCard" Role="dbCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbCard">
+        <PropertyRef Name="cardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fee_cardType">
+    <End Type="Models.cardType" Role="cardType" Multiplicity="0..1" />
+    <End Type="Models.fee" Role="fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="cardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_categoryType_glType">
+    <End Type="Models.glType" Role="glType" Multiplicity="0..1" />
+    <End Type="Models.categoryType" Role="categoryType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="glType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="categoryType">
+        <PropertyRef Name="glTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccCard_cardType">
+    <End Type="Models.ccCardType" Role="ccCardType" Multiplicity="0..1" />
+    <End Type="Models.ccCard" Role="ccCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccCard">
+        <PropertyRef Name="ccCardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_mcCard_ccCard">
+    <End Type="Models.ccCard" Role="ccCard" Multiplicity="0..1" />
+    <End Type="Models.mcCard" Role="mcCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="mcCard">
+        <PropertyRef Name="ccCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_visaCard_ccCard">
+    <End Type="Models.ccCard" Role="ccCard" Multiplicity="0..1" />
+    <End Type="Models.visaCard" Role="visaCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCard">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="visaCard">
+        <PropertyRef Name="ccCardID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccFee_ccCardType">
+    <End Type="Models.ccCardType" Role="ccCardType" Multiplicity="0..1" />
+    <End Type="Models.ccFee" Role="ccFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ccCardType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccFee">
+        <PropertyRef Name="ccCardTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ccPayment_externalPayment">
+    <End Type="Models.externalPayment" Role="externalPayment" Multiplicity="0..1" />
+    <End Type="Models.ccPayment" Role="ccPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="externalPayment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ccPayment">
+        <PropertyRef Name="extPaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_currency_currencyType">
+    <End Type="Models.currencyType" Role="currencyType" Multiplicity="0..1" />
+    <End Type="Models.currency" Role="currency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currencyType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="currency">
+        <PropertyRef Name="currencyTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWallet_currency">
+    <End Type="Models.currency" Role="currency" Multiplicity="0..1" />
+    <End Type="Models.entityWallet" Role="entityWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWallet">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoice_currency">
+    <End Type="Models.currency" Role="currency" Multiplicity="0..1" />
+    <End Type="Models.invoice" Role="invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoice">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceService_currency">
+    <End Type="Models.currency" Role="currency" Multiplicity="0..1" />
+    <End Type="Models.invoiceService" Role="invoiceService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceService">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_currency">
+    <End Type="Models.currency" Role="currency" Multiplicity="0..1" />
+    <End Type="Models.payment" Role="payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="currency">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="currencyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbPayment_externalPayment">
+    <End Type="Models.externalPayment" Role="externalPayment" Multiplicity="0..1" />
+    <End Type="Models.dbPayment" Role="dbPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="externalPayment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="dbPayment">
+        <PropertyRef Name="extPaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entity_entityType">
+    <End Type="Models.entityType" Role="entityType" Multiplicity="0..1" />
+    <End Type="Models.entity" Role="entity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entityType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entity">
+        <PropertyRef Name="entityTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityCard_entity">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.entityCard" Role="entityCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityCard">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWallet_entity">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.entityWallet" Role="entityWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWallet">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoice_issuer">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.invoice" Role="invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoice">
+        <PropertyRef Name="issuerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoice_receiver">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.invoice" Role="invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoice">
+        <PropertyRef Name="receiverEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_organization_entity">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.organization" Role="organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="organization">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_entitypayee">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.payment" Role="payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="payeeEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_entitypayer">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.payment" Role="payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="payerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_entity">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.person" Role="person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="person">
+        <PropertyRef Name="entityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_entitygiver">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.service" Role="service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="service">
+        <PropertyRef Name="issuerEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_service_entityreceiver">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.service" Role="service" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="service">
+        <PropertyRef Name="receiverEntityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWalletTransaction_entityWallet">
+    <End Type="Models.entityWallet" Role="entityWallet" Multiplicity="0..1" />
+    <End Type="Models.entityWalletTransaction" Role="entityWalletTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entityWallet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWalletTransaction">
+        <PropertyRef Name="entityWalletID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_entityWalletTransaction_transaction">
+    <End Type="Models.transaction" Role="transaction" Multiplicity="0..1" />
+    <End Type="Models.entityWalletTransaction" Role="entityWalletTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="entityWalletTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_externalPayment_extPaymentType">
+    <End Type="Models.extPaymentType" Role="extPaymentType" Multiplicity="0..1" />
+    <End Type="Models.externalPayment" Role="externalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="extPaymentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="externalPayment">
+        <PropertyRef Name="extPaymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_externalPayment_payment">
+    <End Type="Models.payment" Role="payment" Multiplicity="0..1" />
+    <End Type="Models.externalPayment" Role="externalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="externalPayment">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_internalPayment_payment">
+    <End Type="Models.payment" Role="payment" Multiplicity="0..1" />
+    <End Type="Models.internalPayment" Role="internalPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="internalPayment">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceAction_invoice">
+    <End Type="Models.invoice" Role="invoice" Multiplicity="0..1" />
+    <End Type="Models.invoiceAction" Role="invoiceAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceAction">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoicePayment_invoice">
+    <End Type="Models.invoice" Role="invoice" Multiplicity="0..1" />
+    <End Type="Models.invoicePayment" Role="invoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoicePayment">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceService_invoice">
+    <End Type="Models.invoice" Role="invoice" Multiplicity="0..1" />
+    <End Type="Models.invoiceService" Role="invoiceService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceService">
+        <PropertyRef Name="invoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceAction_invoiceStat">
+    <End Type="Models.invoiceStat" Role="invoiceStat" Multiplicity="0..1" />
+    <End Type="Models.invoiceAction" Role="invoiceAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoiceStat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceAction">
+        <PropertyRef Name="invoiceStatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceActionTransaction_invoiceAction">
+    <End Type="Models.invoiceAction" Role="invoiceAction" Multiplicity="0..1" />
+    <End Type="Models.invoiceActionTransaction" Role="invoiceActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="invoiceAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceActionTransaction">
+        <PropertyRef Name="invoiceActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceActionTransaction_transaction">
+    <End Type="Models.transaction" Role="transaction" Multiplicity="0..1" />
+    <End Type="Models.invoiceActionTransaction" Role="invoiceActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceActionTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoicePayment_payment">
+    <End Type="Models.payment" Role="payment" Multiplicity="0..1" />
+    <End Type="Models.invoicePayment" Role="invoicePayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoicePayment">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_invoiceService_service">
+    <End Type="Models.service" Role="service" Multiplicity="0..1" />
+    <End Type="Models.invoiceService" Role="invoiceService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="invoiceService">
+        <PropertyRef Name="serviceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_office_officeType">
+    <End Type="Models.officeType" Role="officeType" Multiplicity="0..1" />
+    <End Type="Models.office" Role="office" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="officeType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="office">
+        <PropertyRef Name="officeTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orgOffice_office">
+    <End Type="Models.office" Role="office" Multiplicity="0..1" />
+    <End Type="Models.orgOffice" Role="orgOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="office">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="orgOffice">
+        <PropertyRef Name="officeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_orgOffice_organization">
+    <End Type="Models.organization" Role="organization" Multiplicity="0..1" />
+    <End Type="Models.orgOffice" Role="orgOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="organization">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="orgOffice">
+        <PropertyRef Name="orgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_paymentType">
+    <End Type="Models.paymentType" Role="paymentType" Multiplicity="0..1" />
+    <End Type="Models.payment" Role="payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paymentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="paymentTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentAction_payment">
+    <End Type="Models.payment" Role="payment" Multiplicity="0..1" />
+    <End Type="Models.paymentAction" Role="paymentAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="payment">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentAction">
+        <PropertyRef Name="paymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentAction_paymentStat">
+    <End Type="Models.paymentStat" Role="paymentStat" Multiplicity="0..1" />
+    <End Type="Models.paymentAction" Role="paymentAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paymentStat">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentAction">
+        <PropertyRef Name="paymentStatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentActionTransaction_paymentAction">
+    <End Type="Models.paymentAction" Role="paymentAction" Multiplicity="0..1" />
+    <End Type="Models.paymentActionTransaction" Role="paymentActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paymentAction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentActionTransaction">
+        <PropertyRef Name="paymentActionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_paymentActionTransaction_transaction">
+    <End Type="Models.transaction" Role="transaction" Multiplicity="0..1" />
+    <End Type="Models.paymentActionTransaction" Role="paymentActionTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="paymentActionTransaction">
+        <PropertyRef Name="transactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_person">
+    <End Type="Models.person" Role="person" Multiplicity="0..1" />
+    <End Type="Models.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="personID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_userType">
+    <End Type="Models.userType" Role="userType" Multiplicity="0..1" />
+    <End Type="Models.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="userType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="userTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_permission_lu_role">
+    <End Type="Models.lu_role" Role="lu_role" Multiplicity="0..1" />
+    <End Type="Models.permission" Role="permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_role">
+    <End Type="Models.lu_role" Role="lu_role" Multiplicity="0..1" />
+    <End Type="Models.rca" Role="rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_org_organization">
+    <End Type="Models.organization1" Role="organization1" Multiplicity="0..1" />
+    <End Type="Models.person_org" Role="person_org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="organization1">
+        <PropertyRef Name="org_id" />
+      </Principal>
+      <Dependent Role="person_org">
+        <PropertyRef Name="org_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_permission_user">
+    <End Type="Models.user1" Role="user1" Multiplicity="0..1" />
+    <End Type="Models.permission" Role="permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user1">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="permission">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_person_org_person">
+    <End Type="Models.person1" Role="person1" Multiplicity="0..1" />
+    <End Type="Models.person_org" Role="person_org" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person1">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="person_org">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_user">
+    <End Type="Models.person1" Role="person1" Multiplicity="0..1" />
+    <End Type="Models.task_person" Role="task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person1">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_person1">
+    <End Type="Models.person1" Role="person1" Multiplicity="0..1" />
+    <End Type="Models.user1" Role="user1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="person1">
+        <PropertyRef Name="person_id" />
+      </Principal>
+      <Dependent Role="user1">
+        <PropertyRef Name="person_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_testreview_test">
+    <End Type="Models.test" Role="test" Multiplicity="0..1" />
+    <End Type="Models.testreview" Role="testreview" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="test">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="testreview">
+        <PropertyRef Name="testid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_topic_foldering">
+    <End Type="Models.foldering" Role="foldering" Multiplicity="0..1" />
+    <End Type="Models.topics" Role="topics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="foldering">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="topics">
+        <PropertyRef Name="foldering_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_document_object_document_object">
+    <End Type="Models.document" Role="document" Multiplicity="0..1" />
+    <End Type="Models.document_object" Role="document_object" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="document">
+        <PropertyRef Name="document_id" />
+      </Principal>
+      <Dependent Role="document_object">
+        <PropertyRef Name="document_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_acl">
+    <End Type="Models.lu_acl" Role="lu_acl" Multiplicity="0..1" />
+    <End Type="Models.rca" Role="rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_acl">
+        <PropertyRef Name="acl_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="acl_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_rca_lu_component">
+    <End Type="Models.lu_component" Role="lu_component" Multiplicity="0..1" />
+    <End Type="Models.rca" Role="rca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_component">
+        <PropertyRef Name="component_id" />
+      </Principal>
+      <Dependent Role="rca">
+        <PropertyRef Name="component_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_lu_task_status">
+    <End Type="Models.lu_task_status" Role="lu_task_status" Multiplicity="0..1" />
+    <End Type="Models.task" Role="task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_task_status">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="task">
+        <PropertyRef Name="task_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_person_lu_task_status">
+    <End Type="Models.lu_task_status" Role="lu_task_status" Multiplicity="0..1" />
+    <End Type="Models.task_person" Role="task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lu_task_status">
+        <PropertyRef Name="type_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="user_task_status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prca_rca">
+    <End Type="Models.rca" Role="rca" Multiplicity="0..1" />
+    <End Type="Models.prca" Role="prca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rca">
+        <PropertyRef Name="rca_id" />
+      </Principal>
+      <Dependent Role="prca">
+        <PropertyRef Name="rca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_task">
+    <End Type="Models.task" Role="task" Multiplicity="0..1" />
+    <End Type="Models.task_person" Role="task_person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task">
+        <PropertyRef Name="task_id" />
+      </Principal>
+      <Dependent Role="task_person">
+        <PropertyRef Name="task_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_task_user_progress_task_user">
+    <End Type="Models.task_person" Role="task_person" Multiplicity="0..1" />
+    <End Type="Models.tp_progress" Role="tp_progress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task_person">
+        <PropertyRef Name="task_person_id" />
+      </Principal>
+      <Dependent Role="tp_progress">
+        <PropertyRef Name="t_p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tp_timers_task_person">
+    <End Type="Models.task_person" Role="task_person" Multiplicity="0..1" />
+    <End Type="Models.tp_timer" Role="tp_timer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="task_person">
+        <PropertyRef Name="task_person_id" />
+      </Principal>
+      <Dependent Role="tp_timer">
+        <PropertyRef Name="t_p_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_category">
+    <End Type="Models.category" Role="category" Multiplicity="0..1" />
+    <End Type="Models.resourceCategory" Role="resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resource_resource">
+    <End Type="Models.resource" Role="resource" Multiplicity="0..1" />
+    <End Type="Models.resource" Role="resource1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resource1">
+        <PropertyRef Name="parentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_resource">
+    <End Type="Models.resource" Role="resource" Multiplicity="0..1" />
+    <End Type="Models.resourceCategory" Role="resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceHighlight_resource">
+    <End Type="Models.resource" Role="resource" Multiplicity="0..1" />
+    <End Type="Models.resourceHighlight" Role="resourceHighlight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceHighlight">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

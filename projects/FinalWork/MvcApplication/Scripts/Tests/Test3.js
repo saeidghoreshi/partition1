@@ -86,8 +86,10 @@ var Test3;
 						{
 						    left: "+=50"
 						}, 1000, "easeOutBounce")
+                        //}, 1000, "easeInOutElastic")
 						.toggleClass('c1', 'slow')
-                        //.class (slow)   to do animation also  specially when reverse action matter
+                        //.addClass (c,'slow')   to do animation also  specially when reverse action matter
+                        //hide('explode')
                     });
 
             }

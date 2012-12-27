@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3108802-DCB7-4518-BB9D-431C1D360DB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccountingLib</RootNamespace>
+    <AssemblyName>AccountingLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\Address.cs" />
+    <Compile Include="Classes\Bank\Bank.cs" />
+    <Compile Include="Classes\Bank\bankBranch.cs" />
+    <Compile Include="Classes\Card\Card.cs" />
+    <Compile Include="Classes\Card\CreditCard.cs" />
+    <Compile Include="Classes\Card\DebitCard.cs" />
+    <Compile Include="Classes\Card\MasterCard.cs" />
+    <Compile Include="Classes\Card\VisaCard.cs" />
+    <Compile Include="Classes\Controller.cs" />
+    <Compile Include="Classes\Currency.cs" />
+    <Compile Include="Classes\CurrencyException.cs" />
+    <Compile Include="Classes\Entity.cs" />
+    <Compile Include="Classes\Enums.cs" />
+    <Compile Include="Classes\Fee\ccFee.cs" />
+    <Compile Include="Classes\Fee\Fee.cs" />
+    <Compile Include="Classes\Invoice.cs" />
+    <Compile Include="Classes\Organization\Office.cs" />
+    <Compile Include="Classes\Organization\Organization.cs" />
+    <Compile Include="Classes\payment\CCPayment.cs" />
+    <Compile Include="Classes\payment\DBPayment.cs" />
+    <Compile Include="Classes\payment\externalPayment.cs" />
+    <Compile Include="Classes\payment\internalPayment.cs" />
+    <Compile Include="Classes\payment\Payment.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Service.cs" />
+    <Compile Include="Classes\subAccounts\AP.cs" />
+    <Compile Include="Classes\subAccounts\AR.cs" />
+    <Compile Include="Classes\subAccounts\CCCASH.cs" />
+    <Compile Include="Classes\subAccounts\DBCASH.cs" />
+    <Compile Include="Classes\subAccounts\EXP.cs" />
+    <Compile Include="Classes\subAccounts\INC.cs" />
+    <Compile Include="Classes\subAccounts\W.cs" />
+    <Compile Include="Classes\Transaction.cs" />
+    <Compile Include="Models\Accounting.Designer.cs">
+      <DependentUpon>Accounting.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\Accounting.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Accounting.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

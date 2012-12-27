@@ -18,6 +18,8 @@
                     $('#draggables').children().draggable
                     (
                         {   
+                            //snap handle
+                            //helper:function(){return $('<div></div>')}
                             scroll: true ,
                             scrollSensitivity: 100,
                             scrollSpeed: 100,
@@ -27,7 +29,8 @@
                             revert: "invalid"
                         }
                     ).disableSelection();
-
+                    $('#draggables').children().draggable
+                    ("option","stack",".ui-draggable");
 
                     //Sortable
                     $('#sortablesY').sortable
@@ -78,6 +81,7 @@
                     //already by using "connectwith" dropping happens Automatically, but want to ad more features then use droppable in target element
                     .droppable( 
                     {
+                    activeClass:"",
                             accept: "#sortable2 li",
                             drop: function (event, ui) {
                                 $item = ui.draggable;

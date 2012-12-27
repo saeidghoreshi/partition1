@@ -5,3 +5,6 @@ C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug
 C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.exe
 C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.pdb
 C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.paralleAsync.resources
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\bin\Debug\AsyncCtpLibrary.dll
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\bin\Debug\AsyncCtpLibrary.xml
+C:\projects\Partitions\partition1\projects\FinalWork\ParallelAsync\obj\x86\Debug\ParallelAsync.csprojResolveAssemblyReference.cache

@@ -14,11 +14,8 @@ C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightS
 C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.Linq.dll
 C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.xml
 C:\projects\Partitions\partition1\projects\Accounting\bin\Debug\Mindscape.LightSpeed.Linq.xml
-C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.exe.config
-C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.exe
 C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.pdb
-C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Mindscape.LightSpeed.xml
-C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Mindscape.LightSpeed.Linq.xml
-C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Accounting.csprojResolveAssemblyReference.cache
-C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Accounting.exe
 C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Accounting.pdb
+C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.dll.config
+C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.dll
+C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Accounting.dll
