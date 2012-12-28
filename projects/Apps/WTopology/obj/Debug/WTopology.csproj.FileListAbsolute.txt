@@ -42,7 +42,6 @@ C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.WebPage
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.WebPages.dll
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.WebPages.Razor.dll
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\Microsoft.Web.Infrastructure.xml
-C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\Newtonsoft.Json.xml
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Net.Http.xml
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Net.Http.Formatting.xml
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Net.Http.WebRequest.xml

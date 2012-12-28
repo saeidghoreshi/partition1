@@ -8076,6 +8076,7 @@ namespace AccountingLib.Models
     [EdmEntityTypeAttribute(NamespaceName="Models", Name="invoice")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
+    
     public partial class invoice : EntityObject
     {
         #region Factory Method

@@ -6,12 +6,15 @@ using AccountingLib;
 using AccountingLib.Models;
 using accounting.classes.enums;
 using System.Transactions;
+using System.Runtime.Serialization;
 
 namespace accounting.classes
 {
+    [DataContract]
     public class Invoice
     {
         //properties
+        [DataMember]
         public int invoiceID;
         public int issuerEntityID;
         public int receiverEntityID;

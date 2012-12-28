@@ -23,7 +23,6 @@ namespace wcfLibrary
     [ServiceContract(SessionMode=SessionMode.Allowed)]
     public interface IService 
     {
-
         [WebInvoke(Method = "POST", UriTemplate = "Data",
             RequestFormat = WebMessageFormat.Xml,
             ResponseFormat = WebMessageFormat.Xml

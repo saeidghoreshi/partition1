@@ -108,19 +108,15 @@ C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.WebPages.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.WebPages.Razor.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\Yahoo.Yui.Compressor.dll
-C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\EventStore.pdb
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\EventStore.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\EventStore.Serialization.Json.pdb
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\Microsoft.Web.Infrastructure.xml
-C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\Newtonsoft.Json.xml
-C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\Npgsql.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.Helpers.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.Razor.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.WebPages.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.WebPages.Deployment.xml
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\System.Web.WebPages.Razor.xml
-C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\cloudcodeclub.com.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\MvcApplication1.Views.permission.loginForm.en.resources
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\MvcApplication1.Views.permission.loginForm.fr.resources
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\cloudcodeclub.com.csproj.GenerateResource.Cache
@@ -128,3 +124,4 @@ C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\en\M
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\fr\MvcApplication1.resources.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\MvcApplication1.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\MvcApplication1.pdb
+C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\cloudcodeclub.com.csprojResolveAssemblyReference.cache
