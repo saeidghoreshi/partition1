@@ -186,8 +186,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientSideLibraries\JQeasyui\easyui.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\icon.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\jquery.easyui.min.js" />
+    <Content Include="images\environment3.jpg" />
     <Content Include="images\el-Right.png" />
     <Content Include="images\environment2.jpg" />
+    <Content Include="images\environment3.png" />
+    <Content Include="images\environment5.png" />
+    <Content Include="images\label.png" />
     <Content Include="images\menu\nav.png" />
     <Content Include="images\menu\navhov.png" />
     <Content Include="images\menu\navline.png" />
@@ -240,6 +247,7 @@
     <Content Include="ClientSideLibraries\moment.js" />
     <Content Include="ClientSideLibraries\sammy.js" />
     <Content Include="ClientSideLibraries\underscore-1.4.3.js" />
+    <Content Include="Scripts\startSample1.js" />
     <Content Include="Scripts\startThemes.js" />
     <Content Include="Scripts\Positioning\positioning.css" />
     <Content Include="Scripts\Positioning\positioning.js" />
@@ -317,6 +325,13 @@
     <Content Include="Scripts\Tests\Test2.js" />
     <Content Include="Styles\customTheme1.css" />
     <Content Include="images\el.png" />
+    <Content Include="Styles\sample1\img\background.jpg" />
+    <Content Include="Styles\sample1\img\button_bg.jpg" />
+    <Content Include="Styles\sample1\img\dot.png" />
+    <Content Include="Styles\sample1\img\main-bg-pattern.png" />
+    <Content Include="Styles\sample1\script.js" />
+    <Content Include="Styles\sample1\styles.css" />
+    <Content Include="Styles\sample2\StyleSheet1.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -360,6 +375,8 @@
     <Content Include="Views\Home\themes.cshtml" />
     <Content Include="Views\Shared\Layout-Themes.cshtml" />
     <Content Include="Views\Home\viewport-themes\el.cshtml" />
+    <Content Include="Views\Home\sample1.cshtml" />
+    <Content Include="Views\Shared\Layout-sample1.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

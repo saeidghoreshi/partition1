@@ -24,6 +24,10 @@ namespace MvcApplication3.Controllers
         {
             return View();
         }
+        public ActionResult sample1()
+        {
+            return View();
+        }
 
 
         [HttpPost] 
