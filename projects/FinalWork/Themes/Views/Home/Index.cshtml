@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/Index.cshtml";
+    Layout = "~/Views/Shared/subMaster1.cshtml";
 }
 
 
@@ -70,9 +70,6 @@
 				
 
 			</div>
-
-
-
 		</div>
         
         
@@ -84,186 +81,105 @@
 	</div>
     <!--end:#content-->
 
-
-
-
-
-
-
     
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
-	
+<style>
+    .scroll-pane { overflow: auto; width: 99%; float:left; }
+    .scroll-content { width: 2440px; float: left; }
+    .scroll-content-item { width: 100px; height: 100px; float: left; margin: 10px; font-size: 3em; line-height: 96px; text-align: center; }
+    * html .scroll-content-item { display: inline; } /* IE6 float double margin bug */
+    .scroll-bar-wrap { clear: left; padding: 0 4px 0 2px; margin: 0 -1px -1px -1px; }
+    .scroll-bar-wrap .ui-slider { background: none; border:0; height: 2em; margin: 0 auto;  }
+    .scroll-bar-wrap .ui-handle-helper-parent { position: relative; width: 100%; height: 100%; margin: 0 auto; }
+    .scroll-bar-wrap .ui-slider-handle { top:.2em; height: 1.5em; }
+    .scroll-bar-wrap .ui-slider-handle .ui-icon { margin: -8px auto 0; position: relative; top: 50%; }
+    </style>
+    <script>
+        (function ($) {
+        $(function () {
+            //scrollpane parts
+            var scrollPane = $(".scroll-pane"),
+            scrollContent = $(".scroll-content");
 
+            //build slider
+            var scrollbar = $(".scroll-bar").slider({
+                slide: function (event, ui) {
+                    if (scrollContent.width() > scrollPane.width()) {
+                        scrollContent.css("margin-left", Math.round(
+                        ui.value / 100 * (scrollPane.width() - scrollContent.width())
+                    ) + "px");
+                    } else {
+                        scrollContent.css("margin-left", 0);
+                    }
+                }
+            });
 
-    <!--DataGrid-->
-    <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
-	
+            //append icon to handle
+            var handleHelper = scrollbar.find(".ui-slider-handle")
+        .mousedown(function () {
+            scrollbar.width(handleHelper.width());
+        })
+        .mouseup(function () {
+            scrollbar.width("100%");
+        })
+        .append("<span class='ui-icon ui-icon-grip-dotted-vertical'></span>")
+        .wrap("<div class='ui-handle-helper-parent'></div>").parent();
 
-	<div class="demo-info" style="margin-bottom:10px">
-		<div class="demo-tip icon-tip">&nbsp;</div>
-		<div>Click the page bar to change page number or page size.</div>
-	</div>
-	<p>
-		Pagination on 
-		<select onchange="changeP(this.value)">
-			<option>bottom</option>
-			<option>top</option>
-			<option>both</option>
-		</select>
-	</p>
-	
-	<table id="tt" class="easyui-datagrid" style="width:700px;height:250px"
-			url="http://www.jeasyui.com/tutorial/datagrid/datagrid2_getdata.php"
-			title="Load Data" iconCls="icon-save"
-			rownumbers="true" pagination="true">
-		<thead>
-			<tr>
-				<th field="itemid" width="80">Item ID</th>
-				<th field="productid" width="120">Product ID</th>
-				<th field="listprice" width="80" align="right">List Price</th>
-				<th field="unitcost" width="80" align="right">Unit Cost</th>
-				<th field="attr1" width="200">Attribute</th>
-				<th field="status" width="60" align="center">Stauts</th>
-			</tr>
-		</thead>
-	</table>
-	<script type="text/javascript">
-	    function changeP(pos) {
-	        $('#tt').datagrid('loadData', []);
-	        $('#tt').datagrid({ pagePosition: pos });
-	    }
-	</script>
+            //change overflow to hidden now that slider handles the scrolling
+            scrollPane.css("overflow", "hidden");
 
-    <!--layout-->
+            //size scrollbar and handle proportionally to scroll distance
+            function sizeScrollbar() {
+                var remainder = scrollContent.width() - scrollPane.width();
+                var proportion = remainder / scrollContent.width();
+                var handleSize = scrollPane.width() - (proportion * scrollPane.width());
+                scrollbar.find(".ui-slider-handle").css({
+                    width: handleSize,
+                    "margin-left": -handleSize / 2
+                });
+                handleHelper.width("").width(scrollbar.width() - handleSize);
+            }
 
-	<script type="text/javascript">
-	    function showcontent(language) {
-	        $('#content').html('Introduction to ' + language + ' language');
-	    }
-	    $(function () {
-	        showcontent('java');
-	    });
-	</script>
-    <!--Tabs-->
-    	<h2>Tabs Demo</h2>
-	<div class="easyui-tabs" style="width:400px;height:100px;">
-		<div title="First Tab" style="padding:10px;">
-			First Tab
-		</div>
-		<div title="Second Tab" closable="true" style="padding:10px;">
-			Second Tab
-		</div>
-		<div title="Third Tab" iconCls="icon-reload" closable="true" style="padding:10px;">
-			Third Tab
-		</div>
-	</div>
-    <!--Layout1-->
-    <style>
-		.p-search{
-			background:#fafafa;
-			padding:5px;
-			border:1px solid #ccc;
-			border-bottom:0;
-			overflow:hidden;
-		}
-		.p-search input{
-			width:300px;
-			border:1px solid #ccc;
-			background: #fff url('images/search.png') no-repeat right top;
-		}
-		.p-right{
-			text-align:center;
-			border:1px solid #ccc;
-			border-left:0;
-			width:150px;
-			background:#fafafa;
-			padding-top:10px;
-		}
-	</style>
+            //reset slider value based on scroll content position
+            function resetValue() {
+                var remainder = scrollPane.width() - scrollContent.width();
+                var leftVal = scrollContent.css("margin-left") === "auto" ? 0 :
+                parseInt(scrollContent.css("margin-left"));
+                var percentage = Math.round(leftVal / remainder * 100);
+                scrollbar.slider("value", percentage);
+            }
 
-<div class="easyui-panel" title="Complex Panel Layout" iconCls="icon-search" collapsible="true" style="padding:5px;width:500px;height:250px;">
-	<div class="easyui-layout" fit="true">
-		<div region="north" border="false" class="p-search">
-			<label>Search:</label><input></input>
-		</div>
-		<div region="center" border="false">
-			<div class="easyui-layout" fit="true">
-				<div region="east" border="false" class="p-right">
-					<img src="images/msn.gif"/>
-				</div>
-				<div region="center" border="false" style="border:1px solid #ccc;">
-					<div class="easyui-layout" fit="true">
-						<div region="south" split="true" border="false" style="height:60px;">
-							<textarea style="border:0;width:100%;height:100%;resize:none">Hi,I am easyui.</textarea>
-						</div>
-						<div region="center" border="false">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-	<!--Layout2-->
-	<div class="easyui-layout" style="width:400px;height:200px;">
-		<div region="west" split="true" title="Navigator" style="width:150px;">
-			<p style="padding:5px;margin:0;">Select language:</p>
-			<ul>
-				<li><a href="javascript:void(0)" onclick="showcontent('java')">Java</a></li>
-				<li><a href="javascript:void(0)" onclick="showcontent('cshape')">C#</a></li>
-				<li><a href="javascript:void(0)" onclick="showcontent('vb')">VB</a></li>
-				<li><a href="javascript:void(0)" onclick="showcontent('erlang')">Erlang</a></li>
-			</ul>
-		</div>
-		<div id="content" region="center" title="Language" style="padding:5px;">
-		</div>
-	</div>
+            //if the slider is 100% and window gets larger, reveal content
+            function reflowContent() {
+                var showing = scrollContent.width() + parseInt(scrollContent.css("margin-left"), 10);
+                var gap = scrollPane.width() - showing;
+                if (gap > 0) {
+                    scrollContent.css("margin-left", parseInt(scrollContent.css("margin-left"), 10) + gap);
+                }
+            }
 
-    <!--Menu-->
-	<div style="background:#fafafa;padding:5px;width:200px;border:1px solid #ccc">
-        <a href="#" class="easyui-menubutton" menu="#mm1" iconCls="icon-edit">Edit</a>
-        <a href="#" class="easyui-menubutton" menu="#mm2" iconCls="icon-help">Help</a>
+            //change handle position on window resize
+            $(window).resize(function () {
+                resetValue();
+                sizeScrollbar();
+                reflowContent();
+            });
+            //init scrollbar size
+            setTimeout(sizeScrollbar, 10); //safari wants a timeout
+        });
+    } (jQuery));
+    </script>
+</head>
+<body>
+ 
+<div class="scroll-pane ui-widget ui-widget-header ui-corner-all">
+    <div class="scroll-content">
+        <div class="scroll-content-item ui-widget-header">1</div>
+        
     </div>
-    <div id="mm1" style="width:150px;">
-        <div iconCls="icon-undo">Undo</div>
-        <div iconCls="icon-redo">Redo</div>
-        <div class="menu-sep"></div>
-        <div>Cut</div>
-        <div>Copy</div>
-        <div>Paste</div>
-        <div class="menu-sep"></div>
-        <div iconCls="icon-remove">Delete</div>
-        <div>Select All</div>
+    <div class="scroll-bar-wrap ui-widget-content ui-corner-bottom">
+        <div class="scroll-bar"></div>
     </div>
-    <div id="mm2" style="width:100px;">
-        <div>Help</div>
-        <div>Update</div>
-        <div>About</div>
-    </div>
-
-
-	<div style="border:1px solid #ccc;background:#fafafa;padding:5px;width:120px;">
-		<a href="#" class="easyui-splitbutton" menu="#mm" iconCls="icon-edit">Edit</a>
-		<a href="#" class="easyui-linkbutton" plain="true" iconCls="icon-help"></a>
-	</div>
-	<div id="mm" style="width:150px;">
-		<div iconCls="icon-undo">Undo</div>
-		<div iconCls="icon-redo">Redo</div>
-		<div class="menu-sep"></div>
-		<div>Cut</div>
-		<div>Copy</div>
-		<div>Paste</div>
-		<div class="menu-sep"></div>
-		<div>
-			<span>Open</span>
-			<div style="width:150px;">
-				<div>Firefox</div>
-				<div>Internet Explorer</div>
-				<div class="menu-sep"></div>
-				<div>Select Program...</div>
-			</div>
-		</div>
-		<div iconCls="icon-remove">Delete</div>
-		<div>Select All</div>
-	</div>
-
+</div>
+ 

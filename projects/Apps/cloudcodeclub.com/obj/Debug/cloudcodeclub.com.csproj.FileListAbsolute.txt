@@ -124,4 +124,6 @@ C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\en\M
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\fr\MvcApplication1.resources.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\MvcApplication1.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\MvcApplication1.pdb
+C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\js.net.dll
+C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\bin\Noesis.Javascript.dll
 C:\projects\Partitions\partition1\projects\Apps\cloudcodeclub.com\obj\Debug\cloudcodeclub.com.csprojResolveAssemblyReference.cache

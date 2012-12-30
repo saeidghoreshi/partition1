@@ -46,14 +46,6 @@ C:\projects\Partitions\partition1\projects\ConsoleApplicationTest\obj\x86\Debug\
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ConsoleApplicationTest.exe.config
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ConsoleApplicationTest.exe
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ConsoleApplicationTest.pdb
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\Mono.Security.dll
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\EntityFramework.xml
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\Npgsql.xml
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\nunit.framework.xml
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\System.Reactive.Core.xml
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\System.Reactive.Interfaces.xml
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\System.Reactive.Linq.xml
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\System.Reactive.PlatformServices.xml
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\Interop.ADOX.dll
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\Interop.ADOX.dll

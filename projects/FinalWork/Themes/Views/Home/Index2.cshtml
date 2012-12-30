@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Index2";
+    Layout = "~/Views/Shared/subMaster2.cshtml";
+}
+
+
+<!--Layout-->
+	<div id="mainLayout" class="easyui-layout" style="height:750px;margin-top:5px;">
+		<div id="tsk-outer-west" region="west" split="true" title="Main Menu" style="width:200px;height:500px">
+            <!--ACC-->
+        	<div id="aa" class="easyui-accordion" style="height:700px;border:0px">
+		        <div title="Title1" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;"></div>
+		        <div title="Title2" data-options="iconCls:'icon-search',
+				        tools:[{
+					        iconCls:'icon-reload',
+					        handler:function(){
+						        $('#tt').datagrid('reload');
+					        }
+				        }]">
+			        
+		        </div>
+		        <div title="Title3" style="padding:10px;" data-options="selected:true">
+                
+                <!--treeView Componet-->
+                <ul id="tree" ></ul>  
+
+                
+                </div>
+	        </div>
+            <!--Acc End-->
+        
+        </div>
+
+        <!--Define Layout Center-->
+		<div id="tsk-outer-center" region="center" title="Main" style="padding:5px;" data-options="iconCls:'icon-search',
+				        tools:[{
+					        iconCls:'icon-reload',
+					        handler:function(){
+						        alert('Hi');
+					        }
+				        }]">
+        
+            <!--Define inner layout in center Area**********-->
+            <div class="easyui-layout" fit="true">  
+                <div id="tsk-inner-center" region="center" >  
+                         <!--Define Tabs Control in layout center right-->
+                         <div class="easyui-tabs" style="width:1000px;height:700px;">  
+                                 <div id="tab1"  title="Organization Plot" style="padding:10px;position:relative;" data-options="iconCls:'icon-help',closable:true"> 
+                                                <div class="scroll-pane jspScrollable" id="wf" ></div> 
+                                            </div> 
+                                 <div id="tab2" title="About" style="padding:10px">
+                                                <table class="easyui-datagrid" title="Basic DataGrid" style="width:800px" 
+                                                data-options="singleSelect:true,collapsible:true,url:'/datasource/datagrid_data2.json'">  
+                                                    <thead>  
+                                                        <tr>  
+                                                            <th data-options="field:'itemid',width:80">Item ID</th>  
+                                                            <th data-options="field:'productid',width:100">Product</th>  
+                                                            <th data-options="field:'listprice',width:80,align:'right'">List Price</th>  
+                                                            <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>  
+                                                            <th data-options="field:'attr1',width:250">Attribute</th>  
+                                                            <th data-options="field:'status',width:60,align:'center'">Status</th>  
+                                                        </tr>  
+                                                    </thead>  
+                                                </table>
+                                            </div>
+                         </div> 
+                         <!--Define Tabs Control in layout center right END-->
+
+                    
+                </div>  
+                <div id="tsk-inner-west" title="Tasks" region="west" split="true" style="width:200px;" data-options="tools:[{
+					        iconCls:'icon-save',
+					        handler:function(){
+						        $('#tt').datagrid('reload');
+					        }
+				        }]">
+
+                <ul id="sortablesY" class="sortables">
+                        <li class="ui-state-focus">S1</li>
+                        <li class="ui-state-focus">S2</li>
+                        <li class="ui-state-focus">S3</li>
+                </ul>
+                </div>  
+            </div>
+            <!--Define inner layout in center Area END******-->
+        </div>
+	</div>
+    
+
+
+    
+
+    <style>
+    
+.scroll-pane
+{
+	width: 100%;
+	height: 200px;
+	overflow: auto;
+}
+
+	
+    </style>

@@ -22,7 +22,7 @@
             },
             init: function () {
                 var me = this;
-
+                
                 padding = -10;
                 me.window = { width: window.innerWidth, height: window.innerHeight }
                 $('#theme1_maintable').css('height', me.window.height + padding + 'px');
@@ -35,11 +35,12 @@
 
 
                 });
+                
 
                 me.buildGUI();
                 me.keyEvents();
 
-                //me.loadWorkFlow();
+                me.loadWorkFlow();
                 me.loadRightSideTabs();
                 me.buildContextMenu();
 

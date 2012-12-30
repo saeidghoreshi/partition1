@@ -129,63 +129,46 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="components\index.js" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="components\index2\index2Controller.js" />
+    <Content Include="components\index2\mainmenu\controller.js" />
+    <Content Include="components\index2\menu\bg-gray.gif" />
+    <Content Include="components\index2\menu\bg-gray1.gif" />
+    <Content Include="components\index2\menu\bg-gray2.gif" />
+    <Content Include="components\index2\menu\tabmenu.css" />
+    <Content Include="components\index2\menu\tabmenu.js" />
+    <Content Include="components\index2\theme\index2-theme.js" />
+    <Content Include="components\index2\theme\img\mainlogo.gif" />
+    <Content Include="components\index2\theme\index2-theme.css" />
+    <Content Include="components\index\controller.js" />
+    <Content Include="components\index\menu\arrow1.gif" />
+    <Content Include="components\index\menu\bg-gray.png" />
+    <Content Include="components\index\menu\ddmenu.css" />
+    <Content Include="components\index\menu\ddmenu.js" />
+    <Content Include="components\index2\orgChartVertical\orgChartVerticalClass.js" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="JSplugins\contextMenu\css\contextMenuCss.css" />
+    <Content Include="JSplugins\contextMenu\images\context-menu-gradient.gif" />
+    <Content Include="JSplugins\contextMenu\images\cut.png" />
+    <Content Include="JSplugins\contextMenu\images\door.png" />
+    <Content Include="JSplugins\contextMenu\images\page_white_copy.png" />
+    <Content Include="JSplugins\contextMenu\images\page_white_delete.png" />
+    <Content Include="JSplugins\contextMenu\images\page_white_edit.png" />
+    <Content Include="JSplugins\contextMenu\images\page_white_paste.png" />
+    <Content Include="JSplugins\contextMenu\js\contextMenu.js" />
+    <Content Include="JSplugins\extjs\css\extjscss.css" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.form.js" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.googlemaps-2.js" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.gridPanel.js" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.Store.js" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.treePanel.js" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.viewPort1.js" />
+    <Content Include="JSplugins\extjs\js\abstractClasses\Ext.viewPort2.js" />
+    <Content Include="JSplugins\extjs\js\plugin\PreviewPlugin.js" />
+    <Content Include="JSplugins\extjs\js\plugin\ProgressBarPager.js" />
+    <Content Include="JSplugins\extjs\js\plugin\RowExpander.js" />
+    <Content Include="JSplugins\extjs\js\plugin\SearchField.js" />
+    <Content Include="JSplugins\extjs\js\plugin\SlidingPager.js" />
+    <Content Include="JSplugins\extjs\js\plugin\treeViewCellEdit.js" />
     <Content Include="JSplugins\fancyFormNvalidator\demo.css" />
     <Content Include="JSplugins\fancyFormNvalidator\demo.htm" />
     <Content Include="JSplugins\fancyFormNvalidator\demo.js" />
@@ -218,6 +201,13 @@
     <Content Include="JSplugins\fancyFormNvalidator\jqTransformPlugin\img\textarea\textarea_tr.gif" />
     <Content Include="JSplugins\fancyFormNvalidator\jqTransformPlugin\jqtransform.css" />
     <Content Include="JSplugins\fancyFormNvalidator\jqTransformPlugin\jquery.jqtransform.js" />
+    <Content Include="JSplugins\Gmapv3\js\gmaps.js" />
+    <Content Include="JSplugins\jScrollPane\jquery.jscrollpane.css" />
+    <Content Include="JSplugins\jScrollPane\jquery.jscrollpane.min.js" />
+    <Content Include="JSplugins\jScrollPane\jquery.mousewheel.js" />
+    <Content Include="JSplugins\jScrollPane\mwheelIntent.js" />
+    <Content Include="JSplugins\kendoGrid\css\kendogridCss.css" />
+    <Content Include="JSplugins\kendoGrid\js\kendoGridModule.js" />
     <Content Include="JSplugins\scroller-sly\img\download.png" />
     <Content Include="JSplugins\scroller-sly\img\repo.png" />
     <Content Include="JSplugins\scroller-sly\img\terminology.png" />
@@ -229,6 +219,17 @@
     <Content Include="JSplugins\simpleMenuv1\demo.css" />
     <Content Include="JSplugins\simpleMenuv1\html.txt" />
     <Content Include="JSplugins\simpleMenuv1\script.js" />
+    <Content Include="JSplugins\UImask\jquery.loadmask.css" />
+    <Content Include="JSplugins\UImask\loading.gif" />
+    <Content Include="JSplugins\UImask\jquery.loadmask.min.js" />
+    <Content Include="JSplugins\workflow\workflowCss.css" />
+    <Content Include="JSplugins\workflow\images\logo1.png" />
+    <Content Include="JSplugins\workflow\images\logo2.png" />
+    <Content Include="JSplugins\workflow\images\logo3.png" />
+    <Content Include="JSplugins\workflow\js\ContextmenuConnection.js" />
+    <Content Include="JSplugins\workflow\js\MyInputPort.js" />
+    <Content Include="JSplugins\workflow\js\MyOutputPort.js" />
+    <Content Include="JSplugins\workflow\js\person.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -239,10 +240,14 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\Index.cshtml" />
+    <Content Include="Views\Shared\subMaster1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="JSplugins\extjs\images\" />
+    <Folder Include="JSplugins\Gmapv3\css\" />
+    <Folder Include="JSplugins\Gmapv3\images\" />
+    <Folder Include="JSplugins\kendoGrid\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -251,13 +256,27 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\IndexFooter.cshtml" />
+    <Content Include="Views\Home\footer\IndexFooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Parent.cshtml" />
+    <Content Include="Views\Shared\Master.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\IndexPartialHeader.cshtml" />
+    <Content Include="Views\Home\header\Index1PartialHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\subMaster2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\header\Index2PartialHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="datasource\datagrid_data2.json" />
+    <None Include="datasource\tree.json" />
+    <None Include="JSplugins\contextMenu\images\Thumbs.db" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
