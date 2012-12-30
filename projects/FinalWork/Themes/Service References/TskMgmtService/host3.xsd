@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TskMgmtSrv.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TskMgmtSrv.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:99/host.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOftask_person">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="task_person" nillable="true" type="tns:task_person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftask_person" nillable="true" type="tns:ArrayOftask_person" />
+  <xs:complexType name="task_person">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eta" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="lu_task_status" nillable="true" type="tns:lu_task_status" />
+          <xs:element minOccurs="0" name="lu_task_statusReference" nillable="true" type="q1:EntityReferenceOflu_task_statusXWxaep14" />
+          <xs:element minOccurs="0" name="person" nillable="true" type="tns:person" />
+          <xs:element minOccurs="0" name="personReference" nillable="true" type="q1:EntityReferenceOfpersonXWxaep14" />
+          <xs:element minOccurs="0" name="person_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="task" nillable="true" type="tns:task" />
+          <xs:element minOccurs="0" name="taskReference" nillable="true" type="q1:EntityReferenceOftaskXWxaep14" />
+          <xs:element minOccurs="0" name="task_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="task_person_id" type="xs:int" />
+          <xs:element minOccurs="0" name="tp_progress" nillable="true" type="tns:ArrayOftp_progress" />
+          <xs:element minOccurs="0" name="tp_timer" nillable="true" type="tns:ArrayOftp_timer" />
+          <xs:element minOccurs="0" name="user_task_status_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="task_person" nillable="true" type="tns:task_person" />
+  <xs:complexType name="lu_task_status">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="task" nillable="true" type="tns:ArrayOftask" />
+          <xs:element minOccurs="0" name="task_person" nillable="true" type="tns:ArrayOftask_person" />
+          <xs:element minOccurs="0" name="type_id" type="xs:int" />
+          <xs:element minOccurs="0" name="type_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="lu_task_status" nillable="true" type="tns:lu_task_status" />
+  <xs:complexType name="ArrayOftask">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="task" nillable="true" type="tns:task" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftask" nillable="true" type="tns:ArrayOftask" />
+  <xs:complexType name="task">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="deadline" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="is_active" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="lu_task_status" nillable="true" type="tns:lu_task_status" />
+          <xs:element minOccurs="0" name="lu_task_statusReference" nillable="true" type="q3:EntityReferenceOflu_task_statusXWxaep14" />
+          <xs:element minOccurs="0" name="stamp" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="task_id" type="xs:int" />
+          <xs:element minOccurs="0" name="task_person" nillable="true" type="tns:ArrayOftask_person" />
+          <xs:element minOccurs="0" name="task_status_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="task" nillable="true" type="tns:task" />
+  <xs:complexType name="person">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="person_id" type="xs:int" />
+          <xs:element minOccurs="0" name="person_org" nillable="true" type="tns:ArrayOfperson_org" />
+          <xs:element minOccurs="0" name="task_person" nillable="true" type="tns:ArrayOftask_person" />
+          <xs:element minOccurs="0" name="thumbnailExt" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="thumbnailFile" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="users" nillable="true" type="tns:ArrayOfuser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="person" nillable="true" type="tns:person" />
+  <xs:complexType name="ArrayOfperson_org">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="person_org" nillable="true" type="tns:person_org" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfperson_org" nillable="true" type="tns:ArrayOfperson_org" />
+  <xs:complexType name="person_org">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="org_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="organization" nillable="true" type="tns:organization" />
+          <xs:element minOccurs="0" name="organizationReference" nillable="true" type="q5:EntityReferenceOforganizationXWxaep14" />
+          <xs:element minOccurs="0" name="person" nillable="true" type="tns:person" />
+          <xs:element minOccurs="0" name="personReference" nillable="true" type="q5:EntityReferenceOfpersonXWxaep14" />
+          <xs:element minOccurs="0" name="person_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="person_org_id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="person_org" nillable="true" type="tns:person_org" />
+  <xs:complexType name="organization">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="logo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="org_id" type="xs:int" />
+          <xs:element minOccurs="0" name="org_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="parent_org_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="person_org" nillable="true" type="tns:ArrayOfperson_org" />
+          <xs:element minOccurs="0" name="postalcode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="organization" nillable="true" type="tns:organization" />
+  <xs:complexType name="ArrayOfuser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="user" nillable="true" type="tns:user" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuser" nillable="true" type="tns:ArrayOfuser" />
+  <xs:complexType name="user">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="permissions" nillable="true" type="tns:ArrayOfpermission" />
+          <xs:element minOccurs="0" name="person" nillable="true" type="tns:person" />
+          <xs:element minOccurs="0" name="personReference" nillable="true" type="q7:EntityReferenceOfpersonXWxaep14" />
+          <xs:element minOccurs="0" name="person_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="user_id" type="xs:int" />
+          <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="user" nillable="true" type="tns:user" />
+  <xs:complexType name="ArrayOfpermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="permission" nillable="true" type="tns:permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfpermission" nillable="true" type="tns:ArrayOfpermission" />
+  <xs:complexType name="permission">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lu_role" nillable="true" type="tns:lu_role" />
+          <xs:element minOccurs="0" name="lu_roleReference" nillable="true" type="q8:EntityReferenceOflu_roleXWxaep14" />
+          <xs:element minOccurs="0" name="permission_id" type="xs:int" />
+          <xs:element minOccurs="0" name="role_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="user" nillable="true" type="tns:user" />
+          <xs:element minOccurs="0" name="userReference" nillable="true" type="q8:EntityReferenceOfuserXWxaep14" />
+          <xs:element minOccurs="0" name="user_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="permission" nillable="true" type="tns:permission" />
+  <xs:complexType name="lu_role">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="permissions" nillable="true" type="tns:ArrayOfpermission" />
+          <xs:element minOccurs="0" name="rca" nillable="true" type="tns:ArrayOfrca" />
+          <xs:element minOccurs="0" name="role_id" type="xs:int" />
+          <xs:element minOccurs="0" name="role_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="lu_role" nillable="true" type="tns:lu_role" />
+  <xs:complexType name="ArrayOfrca">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="rca" nillable="true" type="tns:rca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfrca" nillable="true" type="tns:ArrayOfrca" />
+  <xs:complexType name="rca">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="acl_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="component_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="lu_acl" nillable="true" type="tns:lu_acl" />
+          <xs:element minOccurs="0" name="lu_aclReference" nillable="true" type="q10:EntityReferenceOflu_aclXWxaep14" />
+          <xs:element minOccurs="0" name="lu_component" nillable="true" type="tns:lu_component" />
+          <xs:element minOccurs="0" name="lu_componentReference" nillable="true" type="q10:EntityReferenceOflu_componentXWxaep14" />
+          <xs:element minOccurs="0" name="lu_role" nillable="true" type="tns:lu_role" />
+          <xs:element minOccurs="0" name="lu_roleReference" nillable="true" type="q10:EntityReferenceOflu_roleXWxaep14" />
+          <xs:element minOccurs="0" name="prca" nillable="true" type="tns:ArrayOfprca" />
+          <xs:element minOccurs="0" name="rca_id" type="xs:int" />
+          <xs:element minOccurs="0" name="role_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="rca" nillable="true" type="tns:rca" />
+  <xs:complexType name="lu_acl">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="acl_id" type="xs:int" />
+          <xs:element minOccurs="0" name="rca" nillable="true" type="tns:ArrayOfrca" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="lu_acl" nillable="true" type="tns:lu_acl" />
+  <xs:complexType name="lu_component">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="component_id" type="xs:int" />
+          <xs:element minOccurs="0" name="rca" nillable="true" type="tns:ArrayOfrca" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="lu_component" nillable="true" type="tns:lu_component" />
+  <xs:complexType name="ArrayOfprca">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="prca" nillable="true" type="tns:prca" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfprca" nillable="true" type="tns:ArrayOfprca" />
+  <xs:complexType name="prca">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="person_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="prca_id" type="xs:int" />
+          <xs:element minOccurs="0" name="rca" nillable="true" type="tns:rca" />
+          <xs:element minOccurs="0" name="rcaReference" nillable="true" type="q13:EntityReferenceOfrcaXWxaep14" />
+          <xs:element minOccurs="0" name="rca_id" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="prca" nillable="true" type="tns:prca" />
+  <xs:complexType name="ArrayOftp_progress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tp_progress" nillable="true" type="tns:tp_progress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftp_progress" nillable="true" type="tns:ArrayOftp_progress" />
+  <xs:complexType name="tp_progress">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="datetime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="t_p_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="t_p_p_id" type="xs:int" />
+          <xs:element minOccurs="0" name="task_person" nillable="true" type="tns:task_person" />
+          <xs:element minOccurs="0" name="task_personReference" nillable="true" type="q14:EntityReferenceOftask_personXWxaep14" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="tp_progress" nillable="true" type="tns:tp_progress" />
+  <xs:complexType name="ArrayOftp_timer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tp_timer" nillable="true" type="tns:tp_timer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftp_timer" nillable="true" type="tns:ArrayOftp_timer" />
+  <xs:complexType name="tp_timer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="end_stamp" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="is_commited" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="start_stamp" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="t_p_id" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="t_p_t_id" type="xs:int" />
+          <xs:element minOccurs="0" name="task_person" nillable="true" type="tns:task_person" />
+          <xs:element minOccurs="0" name="task_personReference" nillable="true" type="q15:EntityReferenceOftask_personXWxaep14" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="tp_timer" nillable="true" type="tns:tp_timer" />
+</xs:schema>

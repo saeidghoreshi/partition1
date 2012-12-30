@@ -40,6 +40,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +129,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\TskMgmtService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="components\index2\index2Controller.js" />
@@ -230,6 +237,15 @@
     <Content Include="JSplugins\workflow\js\MyInputPort.js" />
     <Content Include="JSplugins\workflow\js\MyOutputPort.js" />
     <Content Include="JSplugins\workflow\js\person.js" />
+    <None Include="Service References\TskMgmtService\configuration91.svcinfo" />
+    <None Include="Service References\TskMgmtService\configuration.svcinfo" />
+    <None Include="Service References\TskMgmtService\host6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -277,6 +293,37 @@
     <None Include="datasource\datagrid_data2.json" />
     <None Include="datasource\tree.json" />
     <None Include="JSplugins\contextMenu\images\Thumbs.db" />
+    <None Include="Service References\TskMgmtService\host.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\host1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\host2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\host3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\host4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\host5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TskMgmtService\Themes.TskMgmtService.organization.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TskMgmtService\Themes.TskMgmtService.task_person.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TskMgmtService\TskMgmtservice.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\TskMgmtService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

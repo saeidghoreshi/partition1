@@ -1,0 +1,5 @@
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtSrv\bin\Debug\TskMgmtSrv.dll.config
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtSrv\bin\Debug\TskMgmtSrv.dll
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtSrv\bin\Debug\TskMgmtSrv.pdb
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtSrv\obj\Debug\TskMgmtSrv.dll
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtSrv\obj\Debug\TskMgmtSrv.pdb

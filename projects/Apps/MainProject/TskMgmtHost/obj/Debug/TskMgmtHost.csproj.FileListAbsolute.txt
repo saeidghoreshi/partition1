@@ -1,0 +1,7 @@
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\bin\TskMgmtHost.dll
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\bin\TskMgmtHost.pdb
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\bin\TskMgmtSrv.dll
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\bin\TskMgmtSrv.pdb
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\obj\Debug\TskMgmtHost.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\obj\Debug\TskMgmtHost.dll
+C:\projects\Partitions\partition1\projects\Apps\MainProject\TskMgmtHost\obj\Debug\TskMgmtHost.pdb

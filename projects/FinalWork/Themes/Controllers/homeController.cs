@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using Themes.TskMgmtService;
+
 namespace Themes.Controllers
 {
     public class homeController : Controller
@@ -14,6 +16,7 @@ namespace Themes.Controllers
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
         public ActionResult Index()
         {
+            
             return View();
         }
         public ActionResult Index2()
@@ -26,7 +29,7 @@ namespace Themes.Controllers
         }
         public JsonResult json_readWorkFlow()
         {
-            sqlServer db = new sqlServer(connString);
+            /*sqlServer db = new sqlServer(connString);
             DataTable dt = db.fetch("select * from dbo.organization").Tables[0];
 
             //build tree
@@ -53,6 +56,10 @@ namespace Themes.Controllers
                 this.RecTree(tree[j], dt);
 
             return Json(tree, JsonRequestBehavior.AllowGet);
+             */
+            TskMgmtService.TskMgmtserviceClient TskMgmtClient = new TskMgmtserviceClient("BasicHttpBinding_ITskMgmtservice");
+            var result=TskMgmtClient.json_readWorkFlow();
+            return Json(result, JsonRequestBehavior.AllowGet);
 
         }
 
