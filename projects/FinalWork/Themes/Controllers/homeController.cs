@@ -7,11 +7,11 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
-using Themes.TskMgmtService;
 
+using Classes;
 namespace Themes.Controllers
 {
-    public class homeController : Controller
+    public class HomeController : Controller
     {
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
         public ActionResult Index()
@@ -27,66 +27,7 @@ namespace Themes.Controllers
         {
             return PartialView("IndexFooter");
         }
-        public JsonResult json_readWorkFlow()
-        {
-            /*sqlServer db = new sqlServer(connString);
-            DataTable dt = db.fetch("select * from dbo.organization").Tables[0];
-
-            //build tree
-            List<organization> tree = new List<organization> { };
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (dt.Rows[i]["parent_org_id"].ToString() == "")
-                {
-                    var node = new organization()
-                    {
-                        org_id = dt.Rows[i][0].ToString(),
-                        parent_org_id = dt.Rows[i][1].ToString(),
-                        org_name = dt.Rows[i][2].ToString(),
-                        logo = "/jsplugins/workflow/images/" + dt.Rows[i][6].ToString(),
-
-                        children = new List<organization>(),
-                        //assignedUsers = this.getTaskAssignedUsers(Convert.ToUInt16(dt.Rows[i][0]))
-                    };
-                    tree.Add(node);
-                }
-            }
-
-            for (int j = 0; j < tree.Count; j++)
-                this.RecTree(tree[j], dt);
-
-            return Json(tree, JsonRequestBehavior.AllowGet);
-             */
-            TskMgmtService.TskMgmtserviceClient TskMgmtClient = new TskMgmtserviceClient("BasicHttpBinding_ITskMgmtservice");
-            var result=TskMgmtClient.json_readWorkFlow();
-            return Json(result, JsonRequestBehavior.AllowGet);
-
-        }
-
-        public void RecTree(organization node, DataTable dt)
-        {
-            for (int j = 0; j < dt.Rows.Count; j++)
-            {
-                if (dt.Rows[j]["parent_org_id"].ToString() == node.org_id)
-                {
-                    var _node = new organization()
-                    {
-                        org_id = dt.Rows[j][0].ToString(),
-                        parent_org_id = dt.Rows[j][1].ToString(),
-                        org_name = dt.Rows[j][2].ToString(),
-                        logo = "/jsplugins/workflow/images/" + dt.Rows[j][6].ToString(),
-
-                        children = new List<organization>(),
-                        //assignedUsers = this.getTaskAssignedUsers(Convert.ToUInt16(dt.Rows[j][0]))
-                    };
-                    node.children.Add(_node);
-                }
-            }
-            for (int j = 0; j < node.children.Count; j++)
-                RecTree(node.children[j], dt);
-        }
-
-        
+       
     }
     public class organization
     {

@@ -521,15 +521,6 @@ namespace MvcApplication1.Controllers
                 from t in ctx.task 
                 where t.is_active==true //&& tp.person_id == person_id
                 select t
-                //select new
-                //{
-                //    task_id=t.task_id,
-                //    title=t.title,
-                //    description=t.description,
-                //    deadline=t.deadline,
-                //    task_status_id=t.task_status_id,
-                //    task_status_name=t.lu_task_status.type_name
-                //}
             );
             return Q;
         }

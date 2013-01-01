@@ -8,17 +8,11 @@
                 enableDetails: true
             });
         this.orgChart.init();
-        this.orgChart.clearTags();
-
-
-        //Theming
-        $('#sortablesY').sortable
-					(
-						{
-						    axis: "y",
-						    placeholder: "placeholder"
-						}
-					).disableSelection();
+        //this.orgChart.clearTags();
+        //this.orgChart.pushTaskSequenceLayer(1);
+        this.orgChart.buildUserTasksList();
+        
+        
 
     } (jQuery));
 } (Prototype));

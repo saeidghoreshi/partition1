@@ -45,10 +45,10 @@
                 <div id="tsk-inner-center" region="center" >  
                          <!--Define Tabs Control in layout center right-->
                          <div class="easyui-tabs" style="width:1000px;height:700px;">  
-                                 <div id="tab1"  title="Organization Plot" style="padding:10px;position:relative;" data-options="iconCls:'icon-help',closable:true"> 
+                                 <div id="tab1"  title="Organization Plot" style="padding:10px;position:relative;" data-options="iconCls:'icon-help',closable:true,selected:true"> 
                                                 <div class="scroll-pane jspScrollable" id="wf" ></div> 
                                             </div> 
-                                 <div id="tab2" title="About" style="padding:10px">
+                                 <div id="tab2" title="About" style="padding:10px"  >
                                                 <table class="easyui-datagrid" title="Basic DataGrid" style="width:800px" 
                                                 data-options="singleSelect:true,collapsible:true,url:'/datasource/datagrid_data2.json'">  
                                                     <thead>  
@@ -62,7 +62,46 @@
                                                         </tr>  
                                                     </thead>  
                                                 </table>
-                                            </div>
+                                 </div>
+
+
+                                 <div id="tab3" title="hAcc" data-options="selected:false" >
+                                <!--HACC-->
+                                <div id="hacc" >
+                                <div class="Hsection" style="float:left;">
+                                     <div class="media-bar Hsection-header" style="float:left">
+                                        <ul>
+                                            <li></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="Hsection-content" style="float:left">Part1</div>
+                                </div>
+                                <div class="Hsection"style="float:left">
+                                     <div class="media-bar Hsection-header" style="float:left">
+                                        <ul>
+                                            <li></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="Hsection-content" style="float:left">Part2</div>
+                                </div>
+                                <div class="Hsection"style="float:left">
+                                     <div class="media-bar Hsection-header" style="float:left">
+                                        <ul>
+                                            <li></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="Hsection-content" style="float:left">Part2</div>
+                                </div>
+                                </div>
+                             
+                                </div>
+
+
+
+
                          </div> 
                          <!--Define Tabs Control in layout center right END-->
 
@@ -75,29 +114,96 @@
 					        }
 				        }]">
 
-                <ul id="sortablesY" class="sortables">
-                        <li class="ui-state-focus">S1</li>
-                        <li class="ui-state-focus">S2</li>
-                        <li class="ui-state-focus">S3</li>
-                </ul>
+                
                 </div>  
             </div>
             <!--Define inner layout in center Area END******-->
         </div>
 	</div>
-    
 
 
-    
+    <script>
+    (function ($) {
+        $('.Hsection').undelegate(this, "click").delegate(this, "click", function (e) {
+            var me = this;
+
+            var hideAll = $('.Hsection-content').fadeOut();
+            $.when(hideAll)
+            .done(function () {
+
+                $(me).find('div').each(function (index) {
+
+                    if ($(this).hasClass('Hsection-content')) {
+                        if ($(this).is(":visible"))
+                            $(this).fadeOut(function () { });
+                        else
+                            $(this).fadeIn(function () { });
+                    }
+
+                });
+            });
+
+            e.stopPropagation();
+            return false;
+
+        }); //.section click
+        $(".Hsection-header:not(:eq(0))").next().hide();
+
+        var i = 0;
+        
+    } (jQuery));
+    </script>
 
     <style>
-    
-.scroll-pane
-{
-	width: 100%;
-	height: 200px;
-	overflow: auto;
-}
+        
+        #hacc
+        {
+            margin-top:10px;
+            }
+        .media-bar {
+            width: 30px;
+            height: 400px;
+            
+           
+            background-image:url("../../components/index2/hSlider/img/small-bg.png");
+            
+            background-image: -webkit-gradient(linear, left center, right center, from(#5F8CB0), to(#4A7496));
+            background-image: -webkit-linear-gradient(left, #5F8CB0, #4A7496);
+            background-image: -moz-linear-gradient(left, #5F8CB0, #4A7496);
+            background-image: -o-linear-gradient(left, #5F8CB0, #4A7496);
+            background-image: -ms-linear-gradient(left, #5F8CB0, #4A7496);
+            background-image: linear-gradient(left, #5F8CB0, #4A7496);
+            position: relative;
+            
+            -webkit-border-radius: 0px;
+            border-radius: 0px;
+            border: 1px solid #1C5380;
+        }
+        .media-bar ul
+        {   
+            width:100%;
+            padding:0px;
+            margin:0px;
+            cursor:pointer;
+            
+            
+        }
+        .media-bar li
+        {
+            cursor:pointer;
+            list-style-type:none;
+                /*border-top: 1px solid rgba(255, 255, 255, 0.12);
+                border-bottom: 1px solid #1C5380;
+                */
+        }
+        .Hsection-content
+        {
+            min-width:400px;
+            height:380px;
+            border-right:1px solid #1C5380;   
+            border-top:1px solid #1C5380;   
+            border-bottom:1px solid #1C5380;   
+            padding:10px;
+        }
 
-	
-    </style>
+</style>

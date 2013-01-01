@@ -29,6 +29,6 @@ C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.Razor
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPages.xml
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPages.Deployment.xml
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPages.Razor.xml
-C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.dll
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.csprojResolveAssemblyReference.cache

@@ -1,0 +1,18 @@
+﻿<ul id="tasksList" class="sortables">
+@{
+    var @className="";
+}
+    @foreach(var item in ViewBag.tasks)
+    {
+
+        if (item["task_status_id"] == 1) { className = "task-not-started"; }
+        if (item["task_status_id"] == 2) { className = "task-processing"; }
+        if (item["task_status_id"] == 3) { className = "task-finished"; }
+                
+        
+
+        <li class="task @className" taskID="@item["task_id"]">@item["title"]</li>
+    }   
+
+    
+</ul>
