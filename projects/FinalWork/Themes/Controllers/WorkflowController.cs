@@ -22,8 +22,7 @@ namespace MvcApplication1.Controllers
 
         //build Organizations Hierarchy tree
         public JsonResult json_readWorkFlow()
-        {
-            
+        {   
             sqlServer db = new sqlServer(connString);
             DataTable dt = db.fetch("select * from dbo.organization").Tables[0];
 
@@ -499,6 +498,9 @@ namespace MvcApplication1.Controllers
           
         */
         
+
+
+
         public IEnumerable<object> getUserCurrentTasks(int person_id)
         {
             sqlServer db = new sqlServer(connString);
@@ -510,7 +512,63 @@ namespace MvcApplication1.Controllers
             ViewBag.tasks = this.getUserCurrentTasks(22);
             return this.getPureView("TasksList").ToString();
         }
-        
+
+        public JsonResult getUsers() 
+        {
+            sqlServer db = new sqlServer(connString);
+            var dt = db.fetch("exec workflow.getUserOrg").Tables[0];
+
+            //build tree
+            List<dynamic> tree = new List<dynamic> { };
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i]["parentId"].ToString() == "")
+                {
+                    var node = new
+                    {
+                        id = dt.Rows[i][0].ToString(),
+                        parentId = dt.Rows[i][1].ToString(),
+                        text = dt.Rows[i][2].ToString(),
+                        state = "",//closed
+                        iconCls="",
+                        children = new List<dynamic>()
+                    };
+                    tree.Add(node);
+                }
+            }
+
+            for (int j = 0; j < tree.Count; j++)
+                this.getUsersRec(tree[j], dt);
+
+            return Json(tree, JsonRequestBehavior.AllowGet);
+        }
+        public void getUsersRec(dynamic node, DataTable dt)
+        {
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+                if (dt.Rows[j]["parentId"].ToString() == node.id)
+                {
+                    var _node = new 
+                    {
+                        id = dt.Rows[j][0].ToString(),
+                        parentId = dt.Rows[j][1].ToString(),
+                        text = dt.Rows[j][2].ToString(),
+                        state = "",
+                        iconCls = "",
+                        children = new List<dynamic>()
+                    };
+                    node.children.Add(_node);
+                }
+            }
+            for (int j = 0; j < node.children.Count; j++)
+                getUsersRec(node.children[j], dt);
+        }
+
+
+        public string Form_createAssignTask() 
+        {
+            return this.getPureView("_createAssignTask").ToString();
+        }
 
         //GET PURE VIEW
         public object getPureView(string viewName)

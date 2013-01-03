@@ -5,7 +5,7 @@
         menuId: "tabmenu",
         linkIdToMenuHtml: null,
 	    preview: true,
-	    delay: 200,
+	    delay: 100,
 	    speed: .04,
 	    license: "2c8m1"
     };

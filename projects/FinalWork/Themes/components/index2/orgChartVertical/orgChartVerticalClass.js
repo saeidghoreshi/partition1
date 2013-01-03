@@ -1,8 +1,10 @@
-﻿var orgChartVerticalClass;
+﻿//Class Definitions
+var orgChartVerticalClass;
+var TskCreateAssignmentClass;
 
 (function ($$) {
     (function ($) {
-
+        
         orgChartVerticalClass = Class.create({
             initialize: function (config) {
                 this.config = config;
@@ -37,7 +39,7 @@
                 var me = this;
 
                 var basePos ={};
-                basePos.left=700;
+                basePos.left=500;
                 basePos.top=50;
 
                 draw2d.Connection.setDefaultRouter(new draw2d.FanConnectionRouter());
@@ -285,7 +287,7 @@
                     type:"get"
                 }).done(function(html)
                 {
-                    $("#tsk-inner-west").html(html);
+                    $("#List-1").html(html);
                     $('#tasksList').sortable
 					(
 						{
@@ -304,9 +306,76 @@
                     e.stopPropagation();
                     return false;
                 });
-            
+            },
+
+
+            /*List of all organization*/
+            handleUserOrgTree:function()
+            {
+                $('#tree').tree({
+	                onClick: function(node){
+		                alert(node.id);  
+	                }
+                });
             }
+
+
         });
 
     } (jQuery));
+} (Prototype));
+
+
+
+(function ($$) {
+    (function ($) {
+        TskCreateAssignmentClass=Class.create(
+        {
+            initialize:function(config)
+            {
+                this.config=config;
+                this.buildView(this.config.containerID);
+            },
+            buildView:function(ContainerID)
+            {
+                 var me=this;
+
+                 $.ajax(
+                 {
+                    url:"/workflow/Form_createAssignTask",
+                    type:"get"
+
+                 }).done(function(html)
+                 {
+                 
+                    $('#wf').ready(function()
+                    {
+                        $('#wf').html(html);
+                        $('#TskCreateAssignLayout').layout();  
+
+                        $('#testTree').tree(
+                        {
+                            onClick: function(node){
+                                me.loadUserPerOrg();
+                                
+	                        }
+                        });
+                    });
+                 });
+            },
+            loadUserPerOrg:function()
+            {
+                var me=this;
+
+                $('#TskCreateAssignLayout-east').html("east Html Loaded");
+                $('#TskCreateAssignLayout-center').html("center Html Loaded");
+                $.ajax(
+                    {
+                        url:""
+                    });
+                }
+            }
+        });
+
+        } (jQuery));
 } (Prototype));

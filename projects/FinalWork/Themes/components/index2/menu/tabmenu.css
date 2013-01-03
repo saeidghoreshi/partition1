@@ -7,12 +7,12 @@ ul#tabmenu
 {
     width:100%;
     margin: 0 auto; /*If the menu has a width, this "margin:0 auto;" makes the menu center-aligned. You can remove it for left-alignment, or change it to "margin-left:auto; margin-right:0;" for right-alignment.*/
-    text-align:center;
+    text-align:left;
     list-style:none;
     padding:0;
     font-size:0;
     position:relative;
-    min-height:60px;
+    min-height:62px;
 }
 ul#tabmenu:after
 {
@@ -24,16 +24,16 @@ ul#tabmenu li
     display:inline;
     list-style:none; padding:0;
     margin-top:0;margin-bottom:0;
-    margin-left:-1px;margin-right:0;
+    margin-left:0;margin-right:-1px;
 }
         
 /*Main menu links*/
 ul#tabmenu li a
 {
     letter-spacing:normal;
-    color:#555555;
-    padding:0 18px;
-    line-height:24px;
+    color:#666666;
+    padding:0 14px;
+    line-height:26px;
     font-size:11px;
     font-weight:normal;
     font-family:Arial;
@@ -41,13 +41,13 @@ ul#tabmenu li a
     display:inline-block; 
     outline:0;
     
-    border:none;
+    border:1px solid #CAD0DB;
     border-bottom:none;
-    background:#FFFFFF url(bg-gray.gif) no-repeat 0 bottom;
+    background:#F7F7F7;
     position:relative;
     top:1px;
     z-index:4;  
-    
+    border-radius:4px 4px 0 0;
 }
 /* If you've set the menu's javascript file with { preview:false }, you may want to specify the following hovered tab styles     
 ul#tabmenu li a:hover {
@@ -58,8 +58,8 @@ ul#tabmenu li a:hover {
 ul#tabmenu li.active a
 {
     padding-bottom:1px;
-    background: #FFFFFF url(bg-gray1.gif) no-repeat 0 bottom;
-    color:#333333;
+    background: #E9ECF0;
+    color:#000000;
 }
 
 /* You can set active tab's style when hovered
@@ -72,21 +72,21 @@ ul#tabmenu li.active a:hover {
 ul#tabmenu li.active ul, ul#tabmenu>li:first-child>ul
 {
     display:block;
-    text-align:center;
+    text-align:left;
     margin:0;
     padding:0;
-    border:1px solid #DEE2E9;border-top:1px solid #C6CDD8;    
+    border:1px solid #CAD0DB;    
     float:left;
     width:100%;
     z-index:3;
-    border-radius:3px;
+    border-radius:0 3px 3px 3px;
 }
         
 ul#tabmenu li ul
 {
     display: none;
     letter-spacing:normal;
-    background:#FFFFFF url(bg-gray2.gif) repeat-x 0 0;
+    background:#E9ECF0;
 }    
 ul#tabmenu li li
 {
@@ -98,8 +98,8 @@ ul#tabmenu ul li a
 {
     color:#000000;
     padding:0;
-    padding-left:9px;padding-right:9px; 
-    font-size:11px;
+    padding-left:30px;padding-right:0; 
+    font-size:12px;
     font-weight:normal;
     font-family:Arial;
     line-height:36px;
@@ -120,7 +120,7 @@ ul#tabmenu ul li.subActive a, ul#tabmenu ul li a:hover
   
 ul#tabmenu li.dummy a
 {
-    padding:0;    
+    display:none;    
 }
 
 /*Third-level sub menu
@@ -131,7 +131,7 @@ ul#tabmenu ul li li a
     line-height:22px;
     padding: 0; 
     white-space: nowrap;
-    font-size:11px;
+    font-size:12px;
     font-weight:normal;
     font-family:Arial;
 }
@@ -160,8 +160,8 @@ ul#tabmenu li.active ul ul
     padding:4px 24px 10px 24px;
     left: 0px; /*offset*/
     width: auto;
-    background:#FFFFFF;
-    border:1px solid #DEE2E9;
+    background:#E9ECF0;
+    border:1px solid #CAD0DB;
     border-top: 0;
     *top: 36px;
     display: none;
