@@ -53,9 +53,7 @@
             var i = 0;
         };
 
-
-        
-        
+      
 
     } (jQuery));
 } (Prototype));

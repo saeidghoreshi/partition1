@@ -3,18 +3,6 @@
     font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
     font-size: 10px;
     }
-.mainlogo
-{
-    position:absolute;
-	top:0px;
-	right: 0px;
-	margin-right: 15px;
-	margin-top: 10px;
-    background: url('img/mainLogo.gif') no-repeat;
-    width:100px;
-    height:81px;
-    z-index: 1;
-}
 
 
 

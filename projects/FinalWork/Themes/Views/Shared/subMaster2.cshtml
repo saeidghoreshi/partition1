@@ -3,44 +3,56 @@
     ViewBag.partialHeader = RenderPage("../home/header/index2PartialHeader.cshtml");
 }
 <div class="mainlogo"></div>
-<ul id="tabmenu">
-    <li>
-        Main Page
-        <ul>
-            <li><a href="#">Main</a></li>
-        </ul>
-    </li>
 
+<nav id="ddmenu">
+    <ul>
+        <li><a href="#">Main</a>
+            <div>
+                <div class="column">
+                    <b>Column 1</b>
+                    <a href="#">Main Page</a>
+                    <a href="#">Change Lauout</a>
+                </div>
+                <div class="column">
+                    <b>Column 2</b>
+                    <a href="#">Main Page</a>
+                    <a href="#">Change Lauout</a>
+                </div>
+            </div>
+        </li>
+        
+        <li>Accounting
+            <div>
+                <div class="column">
+                    <a href="#">Invoices</a>
+                    <a href="#">Payments</a>
+                    
+                </div>
+            </div>
+        </li>
+        <li>Samples
+            <div class="dropToLeft2">
+                <div class="column">
+                    <b>ExtJS 4</b>
+                    <div>
+                        <a href="#">Fermentum ut nulla</a>
+                        <a href="#">Duis ut mauris</a>
+                        <a href="#">Quisque tempor</a>
+                    </div>
+                    <b>jQueryEasyUI</b>
+                    <div>
+                        <a href="#">Quisque dictum</a>
+                        <a href="#">Nulla scelerisque</a>
+                        <a href="#">hendrerit tincidunt</a>
+                    </div>
+                </div>
+               
+            </div>
+        </li>
+        
+    </ul>
+</nav>
 
-
-    <li>
-        <a href="#">Accounting</a>
-        <ul>
-            <li><a href="#">Invoices</a>
-            <ul>
-                <li><a href="#">Issued</a></li>
-                <li><a href="/">Received</a></li>
-                <li><a href="/">History</a></li>
-            </ul>
-            </li>
-
-            <li><a href="#">Payments</a>
-            <ul>
-                <li><a href="#">Incomming</a></li>
-                <li><a href="/">Outgoing</a></li>
-            </ul>
-            </li>
-        </ul>
-    </li>
-    <li>
-        <a href="#">Test</a>
-        <ul>
-            <li><a href="#">ExtJS4</a></li>
-            <li><a href="#">jQueryEasyUI</a></li>
-        </ul>
-    </li>
-    
-</ul>
 
 @RenderBody()
 

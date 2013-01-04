@@ -11,10 +11,13 @@
             "../../components/index2/orgChartVertical/orgChartVerticalClass.css",
             "../../components/index2/general/general.css"
         ], null);
-        JSCSSLOADER.loadAll(["../../components/index2/menu/tabmenu.js"], ["../../components/index2/menu/tabmenu.css"], null);
 
-        
-
+        //Load jQBreadCumb Module and use it in desired components
+        JSCSSLOADER.interfaceReader("../../JSplugins/jQBreadCrumb_11/interface.js",
+            function () 
+            {
+                $("#breadCrumb0").jBreadCrumb({ easing: 'swing' });
+            });
 
     } (jQuery));
 } (Prototype));

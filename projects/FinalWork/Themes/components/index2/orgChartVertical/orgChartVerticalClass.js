@@ -168,7 +168,8 @@ var TskCreateAssignmentClass;
 
                 
                 var idLbl = helperClass.idGenerator(me.config.id);
-                var x=$('<div id="' + idLbl + '"></div>');
+                var x=$('<div class="cmenu" id="' + idLbl + '"></div>');
+                x.append("<div><div>");
                 $('#wf').append(x);
                 
                 x.css("border", '1px solid #C6C6C6');
@@ -347,10 +348,7 @@ var TskCreateAssignmentClass;
 
                  }).done(function(html)
                  {
-                 
-                    $('#wf').ready(function()
-                    {
-                        $('#wf').html(html);
+                   $('#wf').html(html);
                         $('#TskCreateAssignLayout').layout();  
 
                         $('#testTree').tree(
@@ -360,7 +358,6 @@ var TskCreateAssignmentClass;
                                 
 	                        }
                         });
-                    });
                  });
             },
             loadUserPerOrg:function()
@@ -373,7 +370,7 @@ var TskCreateAssignmentClass;
                     {
                         url:""
                     });
-                }
+                
             }
         });
 
