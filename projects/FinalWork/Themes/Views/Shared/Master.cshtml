@@ -48,8 +48,101 @@
     @ViewBag.partialHeader
 
     <script src="http://localhost:91/ClientSideLibraries/less-1.3.1.js" type="text/javascript"></script>
+
+    <!--Master Components-->
+    <link href="../../../Components/master/topMenu/ddmenu.css" rel="stylesheet" type="text/css" />
+    <script src="../../../components/master/topMenu/ddmenu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    (function ($$) {
+    (function ($) {
+        function theme() {
+
+            $('.Hsection').undelegate(this, "click").delegate(this, "click", function (e) {
+                var me = this;
+
+                var hideAll = $('.Hsection-content').fadeOut();
+                $.when(hideAll)
+            .done(function () {
+
+                $(me).find('div').each(function (index) {
+
+                    if ($(this).hasClass('Hsection-content')) {
+                        if ($(this).is(":visible"))
+                            $(this).fadeOut(function () { });
+                        else
+                            $(this).fadeIn(function () { });
+                    }
+
+                });
+            });
+
+                e.stopPropagation();
+                return false;
+
+            }); //.section click
+            $(".Hsection-header:not(:eq(0))").next().hide();
+
+            var i = 0;
+        };
+        theme();
+
+    } (jQuery));
+} (Prototype));
+
+
+
+    </script>
 </head>
 <body>
+    <nav id="ddmenu">
+    <ul>
+        <li><a href="#">Main</a>
+            <div>
+                <div class="column">
+                    <b>Main Menu</b>
+                    <a href="/">Main Page</a>
+                    <a href="#">Empty</a>
+                </div>
+                <div class="column">
+                    <b>Empty</b>
+                    <a href="#">Empty</a>
+                </div>
+            </div>
+        </li>
+        
+        <li>Accounting
+            <div>
+                <div class="column">
+                    <a href="#">Invoices</a>
+                    <a href="#">Payments</a>
+                    
+                </div>
+            </div>
+        </li>
+        <li>Samples
+            <div class="dropToLeft2">
+                <div class="column">
+                    <b>ExtJS 4</b>
+                    <div>
+                        <a href="#">Empty</a>
+                    </div>
+                    <b>jQueryEasyUI</b>
+                    <div>
+                        <a href="#">Empty</a>
+                        
+                    </div>
+                    <b>Others</b>
+                    <div>
+                        <a href="/home/index2">ajax Upload</a>
+                        
+                    </div>
+                </div>
+               
+            </div>
+        </li>
+        
+    </ul>
+</nav>
      @{/*Html.RenderAction("IndexFooter","home");*/}
      @RenderBody()
 </body>

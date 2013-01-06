@@ -140,8 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Components\index1\General\img\arrow-top.png" />
-    <Content Include="Components\index1\General\img\arrow.png" />
+    <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-left.png" />
+    <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-right.png" />
+    <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-up.png" />
     <Content Include="Components\index1\hSlider\img\bg.jpg" />
     <Content Include="Components\index1\hSlider\img\small-bg.png" />
     <Content Include="Components\index1\index1Controller.js" />
@@ -150,6 +151,9 @@
     <Content Include="Components\index1\menu\ddmenu.css" />
     <Content Include="Components\index1\menu\ddmenu.js" />
     <Content Include="Components\index1\menu\img1.jpg" />
+    <Content Include="Components\index2\css\jquery.main.js" />
+    <Content Include="Components\index2\General\general.js" />
+    <Content Include="Components\index2\Interface.js" />
     <Content Include="JSplugins\ajaxUpload\ajaxupload.3.5.js" />
     <Content Include="JSplugins\ajaxUpload\ajaxUpload.3.5.css" />
     <Content Include="JSplugins\tigraMenu_free\blank.html" />
@@ -269,13 +273,13 @@
     <Content Include="JSplugins\workflow\js\MyInputPort.js" />
     <Content Include="JSplugins\workflow\js\MyOutputPort.js" />
     <Content Include="JSplugins\workflow\js\person.js" />
-    <Content Include="Views\Shared\css\all.css" />
-    <Content Include="Views\Shared\css\ie.css" />
-    <Content Include="Views\Shared\images\bg-controls.png" />
-    <Content Include="Views\Shared\images\bg-shadow.png" />
-    <Content Include="Views\Shared\images\bg-wrapper.png" />
-    <Content Include="Views\Shared\images\img1.png" />
-    <Content Include="Views\Shared\images\sprite.png" />
+    <Content Include="Components\index2\css\all.css" />
+    <Content Include="Components\index2\css\ie.css" />
+    <Content Include="Components\index2\images\bg-controls.png" />
+    <Content Include="Components\index2\images\bg-shadow.png" />
+    <Content Include="Components\index2\images\bg-wrapper.png" />
+    <Content Include="Components\index2\images\img1.png" />
+    <Content Include="Components\index2\images\sprite.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -331,6 +335,8 @@
     <Content Include="Views\Workflow\TasksList.cshtml" />
     <Content Include="Views\Workflow\_createAssignTask.cshtml" />
     <Content Include="Views\Shared\subMaster2.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
+    <Content Include="Views\Home\header\Index2PartialHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
