@@ -1,9 +1,59 @@
 ﻿@{
     Layout = "~/Views/Shared/Master.cshtml";
-    ViewBag.partialHeader = RenderPage("../home/header/Index1PartialHeader.cshtml");
-    
+    ViewBag.partialHeader = RenderPage("../home/header/index1PartialHeader.cshtml");
 }
-   
+<div class="mainlogo"></div>
+
+<nav id="ddmenu">
+    <ul>
+        <li><a href="#">Main</a>
+            <div>
+                <div class="column">
+                    <b>Column 1</b>
+                    <a href="#">Main Page</a>
+                    <a href="#">Change Lauout</a>
+                </div>
+                <div class="column">
+                    <b>Column 2</b>
+                    <a href="#">Main Page</a>
+                    <a href="#">Change Lauout</a>
+                </div>
+            </div>
+        </li>
+        
+        <li>Accounting
+            <div>
+                <div class="column">
+                    <a href="#">Invoices</a>
+                    <a href="#">Payments</a>
+                    
+                </div>
+            </div>
+        </li>
+        <li>Samples
+            <div class="dropToLeft2">
+                <div class="column">
+                    <b>ExtJS 4</b>
+                    <div>
+                        <a href="#">Fermentum ut nulla</a>
+                        <a href="#">Duis ut mauris</a>
+                        <a href="#">Quisque tempor</a>
+                    </div>
+                    <b>jQueryEasyUI</b>
+                    <div>
+                        <a href="#">Quisque dictum</a>
+                        <a href="#">Nulla scelerisque</a>
+                        <a href="#">hendrerit tincidunt</a>
+                    </div>
+                </div>
+               
+            </div>
+        </li>
+        
+    </ul>
+</nav>
+
+
 @RenderBody()
 
      

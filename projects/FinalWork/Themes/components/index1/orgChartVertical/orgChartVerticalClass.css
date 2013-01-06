@@ -1,0 +1,17 @@
+﻿.task-processing
+{
+   background: gainsboro url('img/task-processing.png') no-repeat right;
+   border: 1px solid #aaa;
+}
+.task-not-started
+{
+    background: gainsboro url('img/task-not-started.png') no-repeat right;
+    border: 1px solid #aaa;
+}
+
+.task-finished
+{
+    background: gainsboro url('img/task-finished.png') no-repeat right;
+    border: 1px solid #aaa;
+}
+

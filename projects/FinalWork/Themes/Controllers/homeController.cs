@@ -17,15 +17,25 @@ namespace Themes.Controllers
         public ActionResult Index()
         {
             
-            return View();
+            return View("index1");
         }
         public ActionResult Index2()
         {
-            return View();
+
+            return View("index2");
         }
+        
         public ActionResult IndexFooter()
         {
             return PartialView("IndexFooter");
+        }
+
+        public void upload() 
+        {
+            var file = Request.Files["uploadfile"];
+            //IE messup file.FileName then use your own >> [to cover all browser code like this]
+            var nameSections=file.FileName.Split(new char[]{'\\'});
+            file.SaveAs(Server.MapPath("../upload/") + nameSections[nameSections.Length-1]); 
         }
        
     }
