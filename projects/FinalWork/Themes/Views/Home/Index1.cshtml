@@ -17,14 +17,20 @@
                 
 <!--Layout-->
 
-<div id="mainLayout" class="easyui-layout" style="width:100%;height:750px;margin-top:5px;">  
-    <div data-options="region:'south',title:'Banner',split:true" style="height:100px;"></div>  
+<div id="mainLayout" class="easyui-layout" style="width:100%;height:745px;margin-top:5px;">  
+    <div data-options="region:'south',title:'Banner',split:true" style="height:100px;">
+    <ul class="big-menu-strip">
+        <li id="view-tasks">View Tasks</li>
+        <li id="new-task">New Task</li>
+        <li id="my-tasks">My Tasks</li>
+    </ul>
+    </div>  
     <div data-options="region:'west',title:'Main Panel',split:true" style="width:250px;background:#f5f5f5">
             <!--ACC-->
         	<div id="aa" class="easyui-accordion" style="height:600px;border:0px">
 		        
 		        <div title="Users" style="padding-left:2px;" data-options="selected:true,border:false">
-                <button id="test">test</button>
+                
                 <!--treeView Componet-->
                 <ul id="tree" class="easyui-tree" data-options="url:'/workflow/getusers',animate:true,lines:true" ></ul>  
                 
@@ -38,13 +44,13 @@
             <div id="tsk-inner-west" data-options="region:'west',title:'West',split:true" style="width:150px;">
                 <div id="List-1"></div>
             </div>  
-            <div id="tsk-inner-center" data-options="region:'center',title:'center title'" style="padding:2px;background:#eee;">
+            <div id="tsk-inner-center" data-options="region:'center',title:'center title'" style="padding:0px;background:#eee;">
             
              <!--Define Tabs Control in layout center right-->
-             <div class="easyui-tabs" style="width:1140px;height:550px;">  
+             <div class="easyui-tabs" style="width:1155px;height:568px;" data-options="border:false">  
                                  <div id="tab1"  title="Organization Plot" style="padding:2px;position:relative;" data-options="iconCls:'icon-help',closable:true,selected:true"> 
 
-                                    <div id="wf"></div>
+                                    <div id="main-area" style="height:100%;"></div>
                                     
                                  </div> 
 

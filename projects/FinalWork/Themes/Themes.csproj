@@ -145,15 +145,15 @@
     <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-up.png" />
     <Content Include="Components\index1\hSlider\img\bg.jpg" />
     <Content Include="Components\index1\hSlider\img\small-bg.png" />
-    <Content Include="Components\index1\index1Controller.js" />
-    <Content Include="Components\index1\menu\arrow1.gif" />
-    <Content Include="Components\index1\menu\bg-gray.png" />
-    <Content Include="Components\index1\menu\ddmenu.css" />
-    <Content Include="Components\index1\menu\ddmenu.js" />
-    <Content Include="Components\index1\menu\img1.jpg" />
+    <Content Include="Components\index1\index1Interface.js" />
+    <Content Include="Components\Master\topMenu\arrow1.gif" />
+    <Content Include="Components\Master\topMenu\bg-gray.png" />
+    <Content Include="Components\Master\topMenu\ddmenu.css" />
+    <Content Include="Components\Master\topMenu\ddmenu.js" />
+    <Content Include="Components\Master\topMenu\img1.jpg" />
     <Content Include="Components\index2\css\jquery.main.js" />
     <Content Include="Components\index2\General\general.js" />
-    <Content Include="Components\index2\Interface.js" />
+    <Content Include="Components\index2\index2Interface.js" />
     <Content Include="JSplugins\ajaxUpload\ajaxupload.3.5.js" />
     <Content Include="JSplugins\ajaxUpload\ajaxUpload.3.5.css" />
     <Content Include="JSplugins\tigraMenu_free\blank.html" />
@@ -188,7 +188,6 @@
     <Content Include="Components\index1\orgChartVertical\img\roundIconsSequence\9.png" />
     <Content Include="Components\index1\orgChartVertical\img\roundIconsSequence\source.png" />
     <Content Include="Components\index1\General\general.js" />
-    <Content Include="Components\index1\General\img\mainlogo.gif" />
     <Content Include="Components\index1\General\general.css" />
     <Content Include="Components\index1\orgChartVertical\orgChartVerticalClass.js" />
     <Content Include="Global.asax" />
@@ -318,11 +317,8 @@
     <Content Include="Views\Home\header\Index1PartialHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="datasource\tree3.json" />
-    <None Include="datasource\tree2.json" />
-    <None Include="datasource\datagrid_data2.json" />
-    <None Include="datasource\tree.json" />
     <Content Include="JSplugins\ajaxUpload\ajax-file-upload.zip" />
+    <None Include="datasource\datagrid_data2.json" />
     <None Include="JSplugins\contextMenu\images\Thumbs.db" />
     <EntityDeploy Include="Models\prjModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -333,7 +329,7 @@
     <Content Include="Views\Workflow\taskAssignment.cshtml" />
     <Content Include="Views\Workflow\userCurrentTasksForm.cshtml" />
     <Content Include="Views\Workflow\TasksList.cshtml" />
-    <Content Include="Views\Workflow\_createAssignTask.cshtml" />
+    <Content Include="Views\Workflow\Form_createAssignTask.cshtml" />
     <Content Include="Views\Shared\subMaster2.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
     <Content Include="Views\Home\header\Index2PartialHeader.cshtml" />

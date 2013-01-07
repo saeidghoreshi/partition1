@@ -81,8 +81,8 @@
                     //already by using "connectwith" dropping happens Automatically, but want to ad more features then use droppable in target element
                     .droppable( 
                     {
-                    activeClass:"",
-                            accept: "#sortable2 li",
+                            activeClass:"",
+                            //accept: "#sortable2 li",
                             drop: function (event, ui) {
                                 $item = ui.draggable;
                                 

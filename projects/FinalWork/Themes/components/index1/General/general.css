@@ -79,3 +79,29 @@
             border-bottom:1px solid #1C5380;   
             padding:10px;
         }
+        
+        .big-menu-strip 
+        {
+            vertical-align: middle;
+        }
+        .big-menu-strip li
+        {
+                border: 1px solid gainboro;
+                background: black;
+                opacity:0.7;
+                width: 80px;
+                list-style-type: none; 
+                float: left;
+	            margin-left:20px;
+	            padding: 10px;
+	            border-radius:5px;
+	            color:White;
+	            font-weight: bold;
+	            cursor:pointer;
+                box-shadow:5px 5px 2px 1px gray;
+                text-align: center;
+        }
+        
+ /*To make the adragging between panels happen*/       
+.panel,.layout-panel{overflow:visible !important;}
+        

@@ -10,7 +10,7 @@ var TskCreateAssignmentClass;
                 this.config = config;
             },
 			
-            init: function () {
+            viewTasks: function () {
                 var me = this;
                 
                 me.resetDrawing();
@@ -151,7 +151,7 @@ var TskCreateAssignmentClass;
                 //area around GUi Nodes to grab Clicking and other events
                 var id = helperClass.idGenerator(me.config.id);
                 var surrondArea=$('<div id="' + id + '"></div>');
-                $('#wf').append(surrondArea);
+                $('#main-area').append(surrondArea);
                 surrondArea.css("width", 50);
                 surrondArea.css("height", 50);
                 surrondArea.css("border", '1px solid transparent');
@@ -162,7 +162,7 @@ var TskCreateAssignmentClass;
 
                 //Nmae Tag
                 var id = helperClass.idGenerator(me.config.id);
-                $('#wf').append('<div id="' + id + '"></div>');
+                $('#main-area').append('<div id="' + id + '"></div>');
                 var tag = $('#' + id);
 
                 tag.addClass('tags');
@@ -281,7 +281,7 @@ var TskCreateAssignmentClass;
                 }); 
 
 
-                $('#wf').append(tt);
+                $('#main-area').append(tt);
             },
 
 			//push task Sequence per Task - user
@@ -323,7 +323,7 @@ var TskCreateAssignmentClass;
 
                                 //build tag
                                 var id = helperClass.idGenerator(me.config.id);
-                                $('#wf').append('<div id="' + id + '"></div>');
+                                $('#main-area').append('<div id="' + id + '"></div>');
                                 var tag = $('#' + id);
 
                                 tag.addClass('Sequence-tags');
@@ -350,9 +350,11 @@ var TskCreateAssignmentClass;
             resetDrawing: function () {
 
                 var me = this;
-                $("#" + me.config.id).html('');
                 me.clearTags();
-                me.clearSeqTags();    
+                me.clearSeqTags();  
+                delete $('#main-area').children();
+                $('#'+me.config.id).children().remove();  
+                $("#" + me.config.id).html('');
             },
 
             //build task List /User
@@ -395,9 +397,16 @@ var TskCreateAssignmentClass;
 		                alert(node.id);  
 	                }
                 });
-            }
+            },
 
 
+            //Operations
+            newTask:function()
+            {
+                var me=this;
+                me.TskCreateAssignment=new TskCreateAssignmentClass({containerID:me.config.id}); 
+            },
+            myTasks:function(){}
         });
 
     } (jQuery));
@@ -425,28 +434,91 @@ var TskCreateAssignmentClass;
 
                  }).done(function(html)
                  {
-                   $('#wf').html(html);
+                   $('#'+ContainerID).html(html);
                         $('#TskCreateAssignLayout').layout();  
 
-                        $('#testTree').tree(
+                        $('#orgsTree').tree(
                         {
                             onClick: function(node){
-                                me.loadUserPerOrg();
+                                me.loadUserPerOrg(node.id);
                                 
 	                        }
                         });
                  });
             },
-            loadUserPerOrg:function()
+            loadUserPerOrg:function(orgID)
             {
                 var me=this;
-
-                $('#TskCreateAssignLayout-east').html("east Html Loaded");
-                $('#TskCreateAssignLayout-center').html("center Html Loaded");
+                $("#TskCreateAssignLayout-center").empty();
                 $.ajax(
+                {
+                    url:"/workflow/getOrgUsers",
+                    data:{orgID:orgID}
+                }).done(function(result)
+                {
+                    for(var i=0;i<result.length;i++)
                     {
-                        url:""
+                        var item=$("<li></li>")
+                        var pointer=$('<div></div>');
+                        pointer.css(
+                        {
+                            background:"url('/components/index1/orgChartVertical/img/arrow-point-right.png')",
+                            position:"absolute",
+                            right:0,
+                            width:12,
+                            height:9
+                        });
+                        item.append(pointer);
+                        item.append('<div>'+result[i].name+'</div>');
+                        item.appendTo("#TskCreateAssignLayout-center");
+                        item.css(
+                        {
+                            border:"1px solid #aaa",
+                            background:"#eee",
+                            'list-style-type':'none',
+                            padding:3,
+                            margin:5,
+                            cursor:"pointer",
+                            "min-width":100
+                        });
+                    }
+                        
+                    
+                    
+                    
+                    $('#TskCreateAssignLayout-center li').draggable({  
+                        revert:true,  
+                        proxy:'clone',
+                        onStartDrag:function(){  
+                            $(this).draggable('options').cursor = 'auto';  
+                            $(this).draggable('proxy').css('z-index',999999999);  
+                        },  
+                        onStopDrag:function(){  
+                            $(this).draggable('options').cursor='auto';  
+                        }  
                     });
+                    $('#TskCreateAssignLayout-east').sortable();
+                    $('#TskCreateAssignLayout-east').droppable({  
+                        onDragEnter:function(e,source){  
+                            $(source).draggable('options').cursor='auto';  
+                            $(source).draggable('options').width="200px";
+                        },  
+                        onDragLeave:function(e,source){  
+                            $(source).draggable('options').cursor='auto';  
+                            $(source).draggable('options').width="200px";
+                        },  
+                        onDrop:function(e,source){
+                            
+                             var x=source.clone();
+                             $(x).html('<img src="/components/index1/orgChartVertical/img/arrowResize.png" />'+$(source).text());   
+                             $("#TskCreateAssignLayout-east").append(x);
+  
+                            
+                        }  
+                    });  
+                    
+                    
+                });
                 
             }
         });

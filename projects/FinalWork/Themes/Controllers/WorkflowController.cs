@@ -567,9 +567,24 @@ namespace MvcApplication1.Controllers
 
         public string Form_createAssignTask() 
         {
-            return this.getPureView("_createAssignTask").ToString();
+            return this.getPureView("Form_createAssignTask").ToString();
         }
+        public JsonResult getOrgUsers() 
+        {
+            var pars = Request.Params;
+            int orgID=Convert.ToInt32(pars["orgID"]);
 
+            sqlServer db = new sqlServer(connString);
+            var data= db.fetch("exec workflow.getOrgUsers @orgID =" + orgID).Tables[0].AsEnumerable();
+            List<dynamic> result = new List<dynamic>();
+            foreach (var item in data)
+                result.Add(new 
+                {
+                    person_id=item["person_id"],
+                    name = item["name"]
+                });
+            return Json(result,JsonRequestBehavior.AllowGet);
+        }
         //GET PURE VIEW
         public object getPureView(string viewName)
         {
