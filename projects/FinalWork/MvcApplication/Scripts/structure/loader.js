@@ -1,4 +1,5 @@
-﻿var JSCSSLOADER=null;
+﻿//Class Defimition
+var JSCSSLOADER;
 
 (function ($$) {
     (function ($) {
@@ -11,15 +12,15 @@
             }
         });
 
-        JSCSSLOADER.interfaceReader= function (jsFilePath,callback) 
+        JSCSSLOADER.interfaceReader= function (jsCssFilePath,callback) 
         {
             $.ajax(
             {
-                url:jsFilePath,
+                url:jsCssFilePath,
                 type:"GET",
                 dataType:"json"
             }).done(function(result/*would be like [[],[]]*/)
-            {
+            {   
                 JSCSSLOADER.loadAll(result[0],result[1],callback);
             });
         },

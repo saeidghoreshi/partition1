@@ -140,12 +140,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-left.png" />
-    <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-right.png" />
-    <Content Include="Components\index1\orgChartVertical\img\arrow\arrow-up.png" />
+    <Content Include="Components\index1\General\interface.js" />
+    <Content Include="Components\index1\orgChartVertical\interface.js" />
+    <Content Include="JSplugins\tipsy\interface.js" />
+    <Content Include="JSplugins\tipsy\jquery.tipsy.js" />
+    <Content Include="JSplugins\tipsy\tipsy.css" />
+    <Content Include="JSplugins\tipsy\img\arrow-left.png" />
+    <Content Include="JSplugins\tipsy\img\arrow-up.png" />
     <Content Include="Components\index1\hSlider\img\bg.jpg" />
     <Content Include="Components\index1\hSlider\img\small-bg.png" />
     <Content Include="Components\index1\index1Interface.js" />
+    <Content Include="Components\index1\orgChartVertical\img\arrowResize.png" />
+    <Content Include="Components\index1\orgChartVertical\img\arrow-point-right.png" />
     <Content Include="Components\Master\topMenu\arrow1.gif" />
     <Content Include="Components\Master\topMenu\bg-gray.png" />
     <Content Include="Components\Master\topMenu\ddmenu.css" />
@@ -292,6 +298,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Components\index1\orgChartVertical\img\arrow\" />
     <Folder Include="JSplugins\extjs\images\" />
     <Folder Include="JSplugins\Gmapv3\css\" />
     <Folder Include="JSplugins\Gmapv3\images\" />

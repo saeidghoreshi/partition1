@@ -1,0 +1,9 @@
+﻿[
+    [
+        "../../components/index1/orgChartVertical/orgChartVerticalClass.js",
+        "../../components/index1/orgChartVertical/TskCreateAssignment.js"
+    ],
+    [
+        "../../components/index1/orgChartVertical/orgChartVerticalClass.css"
+    ]
+]

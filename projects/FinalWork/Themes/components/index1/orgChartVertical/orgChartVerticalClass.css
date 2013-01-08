@@ -15,3 +15,15 @@
     border: 1px solid #aaa;
 }
 
+
+
+.TskCreateAssignLayout-center
+{
+    border:1px solid #aaa;
+    background:#eee;
+    list-style-type:none;
+    padding:3px;
+    margin:5px;
+    cursor:pointer;
+    min-width:100px ;    
+}
