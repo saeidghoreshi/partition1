@@ -63,8 +63,8 @@
                             $(this).draggable('options').cursor = 'auto';
                         }
                     });
-                    $('#TskCreateAssignLayout-east').sortable();
-                    $('#TskCreateAssignLayout-east').droppable({
+                    $('#TskCreateAssignLayout-east div:eq(1)').sortable();
+                    $('#TskCreateAssignLayout-east div:eq(1)').droppable({
                         onDragEnter: function (e, source) {
                             $(source).draggable('options').cursor = 'auto';
                             $(source).draggable('options').width = "200px";
@@ -78,7 +78,7 @@
 
                             var x = source.clone();
                             $(x).html('<img src="/components/index1/orgChartVertical/img/arrowResize.png" />' + $(source).text());
-                            $("#TskCreateAssignLayout-east").append(x);
+                            $("#TskCreateAssignLayout-east div:eq(1)").append(x);
                             $(x).attr('title', "Click to Sort");
                             $(x).tipsy({ title: 'title', gravity: 'sw' });
                             

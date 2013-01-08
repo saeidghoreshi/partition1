@@ -27,3 +27,23 @@
     cursor:pointer;
     min-width:100px ;    
 }
+
+.TskCreateAssignLayout-east-Left
+{
+    float:left;
+    width:50px;
+    height:100%;
+    background:black;
+    opacity:0.6;
+    border-radius:0px 5px 5px 0px;
+}
+    
+    
+.TskCreateAssignLayout-east-Right
+{
+	    float:left;
+	    width:600px;
+	    height:100%;
+	    
+}
+	
