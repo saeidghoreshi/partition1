@@ -147,7 +147,7 @@
 
 
                 //area around GUi Nodes to grab Clicking and other events
-                var id = helperClass.idGenerator(me.config.id);
+                var id = helperLib.idGenerator(me.config.id);
                 var surrondArea=$('<div id="' + id + '"></div>');
                 $('#main-area').append(surrondArea);
                 surrondArea.css("width", 50);
@@ -159,7 +159,7 @@
                 surrondArea.css("z-index", 99999999);
 
                 //Nmae Tag
-                var id = helperClass.idGenerator(me.config.id);
+                var id = helperLib.idGenerator(me.config.id);
                 $('#main-area').append('<div id="' + id + '"></div>');
                 var tag = $('#' + id);
 
@@ -224,7 +224,7 @@
 
 
                                 //build tag
-                                var id = helperClass.idGenerator(me.config.id);
+                                var id = helperLib.idGenerator(me.config.id);
                                 $('#main-area').append('<div id="' + id + '"></div>');
                                 var tag = $('#' + id);
 

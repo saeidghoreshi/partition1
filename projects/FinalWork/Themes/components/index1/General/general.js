@@ -4,17 +4,17 @@
         $('#mainLayout').layout();  
         
         //Load Tipsy Tooltip Module
-        JSCSSLOADER.interfaceReader('/jsplugins/tipsy/interface.js',function()
+        helperLib.interfaceReader('/jsplugins/tipsy/interface.js',function()
         {
 
             //Load BreadVrum Module
-            JSCSSLOADER.interfaceReader("../../JSplugins/jQBreadCrumb_11/interface.js",
+            helperLib.interfaceReader("../../JSplugins/jQBreadCrumb_11/interface.js",
             function () 
             {
                 $("#breadCrumb0").jBreadCrumb({ easing: 'swing' });
             });
             //Load orgChart Component
-            JSCSSLOADER.interfaceReader('../../Components/index1/orgChartVertical/interface.js',function()
+            helperLib.interfaceReader('../../Components/index1/orgChartVertical/interface.js',function()
             {
             
                 //Handle Bottom Menu

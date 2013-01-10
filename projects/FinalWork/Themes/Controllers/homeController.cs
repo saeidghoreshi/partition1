@@ -21,8 +21,11 @@ namespace Themes.Controllers
         }
         public ActionResult Index2()
         {
-
             return View("index2");
+        }
+        public ActionResult Index3()
+        {
+            return View("index3");
         }
         
         public ActionResult IndexFooter()

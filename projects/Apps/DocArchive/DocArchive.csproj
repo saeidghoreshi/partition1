@@ -130,6 +130,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HomeControllerTest.cs" />
     <Compile Include="Models\DA.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,7 +1,7 @@
 ﻿(function ($$) {
     (function ($) {
 
-        JSCSSLOADER.interfaceReader('/components/index1/general/interface.js', function () {});
+        helperLib.interfaceReader('/components/index1/general/interface.js', function () {});
 
     } (jQuery));
 } (Prototype));

@@ -2,7 +2,7 @@
     (function ($) {
 
 
-        JSCSSLOADER.loadAll(
+        helperLib.loadAll(
         [
             "../../components/index2/general/general.js"
         ],

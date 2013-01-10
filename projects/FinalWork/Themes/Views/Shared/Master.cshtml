@@ -43,7 +43,7 @@
 
     <!--Base-->
     <script src="http://localhost:91/Scripts/structure/helper.js" type="text/javascript"></script>
-    <script src="http://localhost:91/Scripts/structure/loader.js" type="text/javascript"></script>
+    <script src="http://localhost:91/Scripts/structure/helper.js" type="text/javascript"></script>
 
     @ViewBag.partialHeader
 
@@ -54,7 +54,8 @@
     <script src="../../../components/master/topMenu/ddmenu.js" type="text/javascript"></script>
     <script type="text/javascript">
     (function ($$) {
-    (function ($) {
+        (function ($) {
+
         function theme() {
 
             $('.Hsection').undelegate(this, "click").delegate(this, "click", function (e) {
@@ -89,19 +90,28 @@
     } (jQuery));
 } (Prototype));
 
-
-
     </script>
+    <style type="text/css">
+    .topMenu
+    {
+        position:fixed;
+        top:0px;
+        width:100%;
+        z-index:100;
+        
+    }
+    </style>
+
 </head>
 <body style="width:99%;height:100%;">
-    <nav id="ddmenu">
+    <nav id="ddmenu" class="topMenu">
     <ul>
         <li><a href="#">Main</a>
             <div>
                 <div class="column">
                     <b>Main Menu</b>
                     <a href="/">Main Page</a>
-                    <a href="#">Empty</a>
+                    <a href="/home/index3">ScrollerPane</a>
                 </div>
                 <div class="column">
                     <b>Empty</b>
@@ -144,7 +154,10 @@
     </ul>
 </nav>
      @{/*Html.RenderAction("IndexFooter","home");*/}
+     <div style="margin-top:50px;">
      @RenderBody()
+     </div>
+     
 </body>
 
 </html>
