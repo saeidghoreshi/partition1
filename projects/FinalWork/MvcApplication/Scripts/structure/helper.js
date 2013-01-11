@@ -11,6 +11,7 @@
                 url:jsCssFilePath,
                 type:"GET",
                 dataType:"json"
+                
             }).done(function(result/*would be like [[],[]]*/)
             {   
                 YAHOO.util.Get.css(result[1], {});

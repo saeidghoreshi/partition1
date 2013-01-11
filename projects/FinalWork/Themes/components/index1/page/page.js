@@ -2,20 +2,8 @@
     (function ($) {
 
         $('#mainLayout').layout();  
-        
-        //Load Tipsy Tooltip Module
-        helperLib.interfaceReader('/jsplugins/tipsy/interface.js',function()
-        {
-
-            //Load BreadVrum Module
-            helperLib.interfaceReader("../../JSplugins/jQBreadCrumb_11/interface.js",
-            function () 
-            {
+            
                 $("#breadCrumb0").jBreadCrumb({ easing: 'swing' });
-            });
-            //Load orgChart Component
-            helperLib.interfaceReader('../../Components/index1/orgChartVertical/interface.js',function()
-            {
             
                 //Handle Bottom Menu
                 $('.big-menu-strip').sortable({axis: "x"}).disableSelection();
@@ -39,9 +27,7 @@
                     this.orgChart.myTasks("main-area");
                     return false;
                 }); 
-            });
-        });
-
+        
     } (jQuery));
 } (Prototype));
 

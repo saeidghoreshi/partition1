@@ -1,0 +1,6 @@
+﻿(function ($$) {
+    (function ($) {
+       
+
+    } (jQuery));
+} (Prototype));
