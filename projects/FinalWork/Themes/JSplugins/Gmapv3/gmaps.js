@@ -1,40 +1,59 @@
-﻿(function ($) {
-Class('gmapsClass',
-{
-    has:
-        {
-            config:
-            {
-                is: 'rw',
-                init: {}
-            }
-        },
-    methods:
-        {
-            initialize: function (config) {
-                var me = this;
+﻿var gmap;
 
+(function ($$) {
+    (function ($) {
+
+        gmap=Class.create({
+        initialize: function (config) {
+
+                var me = this;
                 me.config = config;
-                me.config.id = app.idGenerator('placeholder');
-                $('#' + me.config.parentId).html('<div id=' + me.config.id + '></div>');
-
-                $('#' + me.config.id).css(
-                    {
-                        width: $('#' + me.config.parentId).width(),
-                        height: $('#' + me.config.parentId).height()
-                    }
-                );
+                
                 me.init();
+              
             },
-            getId: function () {
-                var me = this;
-                return me.config.id;
-            },
-
             init: function () {
                 var me = this;
 
-                app.tagReady(me.config.id,function () {me.buildGUI();});
+                this.map=$('#'+me.config.parentID).gMap({
+	                controls: false,
+	                scrollwheel: true,
+	                maptype: 'TERRAIN',
+	                markers: [
+		                {
+			                latitude: 47.670553,
+			                longitude: 9.588479,
+			                icon: {
+				                image: "/jsplugins/gmapv3/images/gmap_pin_orange.png",
+				                iconsize: [26, 46],
+				                iconanchor: [12,46]
+			                }
+		                },
+                        {
+			                latitude: 47.65197522925437,
+			                longitude: 9.47845458984375
+		                },
+		                {
+			                latitude: 47.594996,
+			                longitude: 9.600708,
+			                icon: {
+				                image: "/jsplugins/gmapv3/images/gmap_pin_grey.png",
+				                iconsize: [26, 46],
+				                iconanchor: [12,46]
+			                }
+		                }
+	                ],
+	                icon: {
+		                image: "/jsplugins/gmapv3/images/gmap_pin.png", 
+		                iconsize: [26, 46],
+		                iconanchor: [12, 46]
+	                },
+	                latitude: 47.58969,
+	                longitude: 9.473413,
+	                zoom: 10
+                });
+                //helperLib.tagReady(me.config.parentID,function () {me.buildGUI();});
+                
             },
             buildGUI: function () {
 
@@ -49,7 +68,7 @@ Class('gmapsClass',
                     zoom: 5,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-                me.maps = new google.maps.Map(document.getElementById(me.config.id), myOptions);
+                me.maps = new google.maps.Map(document.getElementById(me.config.parentID), myOptions);
 
                 me.directionsDisplay.setMap(me.maps);
 
@@ -165,7 +184,12 @@ Class('gmapsClass',
 
             },
             reverseGeoCoding: function () { }
+        });
+            
+    } (jQuery));
+} (Prototype));
 
-        }
-});
-})(jQuery);
+
+
+            
+            

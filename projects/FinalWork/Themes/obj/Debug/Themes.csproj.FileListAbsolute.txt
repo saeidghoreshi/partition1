@@ -31,4 +31,3 @@ C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPa
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPages.Razor.xml
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.dll
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.pdb
-C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.csprojResolveAssemblyReference.cache

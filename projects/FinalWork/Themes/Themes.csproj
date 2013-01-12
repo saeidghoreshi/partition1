@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -140,9 +141,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Components\index1\General\interface.js" />
+    <Content Include="Components\index3\page\page.css" />
+    <Content Include="Components\index3\page\page.js" />
     <Content Include="Components\index1\orgChartVertical\TskCreateAssignment.js" />
-    <Content Include="Components\index1\orgChartVertical\interface.js" />
+    <Content Include="Components\index1\orgChartVertical\ref.txt" />
+    <Content Include="JSplugins\Gmapv3\images\gmap_pin.png" />
+    <Content Include="JSplugins\Gmapv3\images\gmap_pin_grey.png" />
+    <Content Include="JSplugins\Gmapv3\images\gmap_pin_orange.png" />
+    <Content Include="JSplugins\Gmapv3\jquery.gmap.js" />
+    <Content Include="JSplugins\Gmapv3\jquery.gmap.min.js" />
     <Content Include="JSplugins\jScrollPane\jquery.jscrollpane.css" />
     <Content Include="JSplugins\jScrollPane\jquery.jscrollpane.min.js" />
     <Content Include="JSplugins\jScrollPane\jquery.mousewheel.js" />
@@ -169,15 +176,10 @@
     <Content Include="JSplugins\modules\extjs\js\plugin\SearchField.js" />
     <Content Include="JSplugins\modules\extjs\js\plugin\SlidingPager.js" />
     <Content Include="JSplugins\modules\extjs\js\plugin\treeViewCellEdit.js" />
-    <Content Include="JSplugins\modules\Gmapv3\js\gmaps.js" />
-    <Content Include="JSplugins\modules\kendoGrid\css\kendogridCss.css" />
-    <Content Include="JSplugins\modules\kendoGrid\js\kendoGridModule.js" />
-    <Content Include="JSplugins\modules\kendoMenu\css\kendoMenuCss.css" />
-    <Content Include="JSplugins\modules\kendoMenu\js\kendoMenuModule.js" />
     <Content Include="JSplugins\modules\myTabs\css\mytabsCss.css" />
     <Content Include="JSplugins\modules\myTabs\images\tabgradient_bg.gif" />
     <Content Include="JSplugins\modules\myTabs\js\mytabsModule.js" />
-    <Content Include="JSplugins\modules\slider\css\dataViewSliderCss.css" />
+    <Content Include="JSplugins\modules\slider\dataViewSliderCss.css" />
     <Content Include="JSplugins\modules\slider\images\icon-2.png" />
     <Content Include="JSplugins\modules\slider\images\icon-3.png" />
     <Content Include="JSplugins\modules\slider\images\icon.png" />
@@ -187,24 +189,14 @@
     <Content Include="JSplugins\modules\slider\images\slider-nav-img\slider-nav-top.png" />
     <Content Include="JSplugins\modules\slider\images\tip\arrow_left.png" />
     <Content Include="JSplugins\modules\slider\images\tip\bg.png" />
-    <Content Include="JSplugins\modules\slider\js\dataViewSlider.js" />
-    <Content Include="JSplugins\modules\Tabs\css\tabsCss.css" />
-    <Content Include="JSplugins\modules\Tabs\js\tabsModule.js" />
-    <Content Include="JSplugins\modules\UImask\jquery.loadmask.css" />
-    <Content Include="JSplugins\modules\UImask\img\loading.gif" />
-    <Content Include="JSplugins\modules\UImask\jquery.loadmask.min.js" />
-    <Content Include="JSplugins\modules\uploader\css\uploaderCss.css" />
-    <Content Include="JSplugins\modules\uploader\images\document.png" />
-    <Content Include="JSplugins\modules\uploader\images\remove.png" />
-    <Content Include="JSplugins\modules\uploader\js\uploaderModule.js" />
-    <Content Include="JSplugins\tipsy\interface.js" />
+    <Content Include="JSplugins\modules\slider\dataViewSlider.js" />
+    <Content Include="JSplugins\tipsy\ref.txt" />
     <Content Include="JSplugins\tipsy\jquery.tipsy.js" />
     <Content Include="JSplugins\tipsy\tipsy.css" />
     <Content Include="JSplugins\tipsy\img\arrow-left.png" />
     <Content Include="JSplugins\tipsy\img\arrow-up.png" />
     <Content Include="Components\index1\hSlider\img\bg.jpg" />
     <Content Include="Components\index1\hSlider\img\small-bg.png" />
-    <Content Include="Components\index1\index1Interface.js" />
     <Content Include="Components\index1\orgChartVertical\img\arrowResize.png" />
     <Content Include="Components\index1\orgChartVertical\img\arrow-point-right.png" />
     <Content Include="Components\Master\topMenu\arrow1.gif" />
@@ -213,10 +205,7 @@
     <Content Include="Components\Master\topMenu\ddmenu.js" />
     <Content Include="Components\Master\topMenu\img1.jpg" />
     <Content Include="Components\index2\css\jquery.main.js" />
-    <Content Include="Components\index2\General\general.js" />
-    <Content Include="Components\index2\index2Interface.js" />
-    <Content Include="JSplugins\ajaxUpload\ajaxupload.3.5.js" />
-    <Content Include="JSplugins\ajaxUpload\ajaxUpload.3.5.css" />
+    <Content Include="Components\index2\page\page.js" />
     <Content Include="JSplugins\tigraMenu_free\blank.html" />
     <Content Include="JSplugins\tigraMenu_free\img\lev0_bg1.gif" />
     <Content Include="JSplugins\tigraMenu_free\img\lev0_bg2.gif" />
@@ -248,8 +237,8 @@
     <Content Include="Components\index1\orgChartVertical\img\roundIconsSequence\8.png" />
     <Content Include="Components\index1\orgChartVertical\img\roundIconsSequence\9.png" />
     <Content Include="Components\index1\orgChartVertical\img\roundIconsSequence\source.png" />
-    <Content Include="Components\index1\General\general.js" />
-    <Content Include="Components\index1\General\general.css" />
+    <Content Include="Components\index1\page\page.js" />
+    <Content Include="Components\index1\page\page.css" />
     <Content Include="Components\index1\orgChartVertical\orgChartVerticalClass.js" />
     <Content Include="Global.asax" />
     <Content Include="JSplugins\contextMenu\css\contextMenuCss.css" />
@@ -307,16 +296,16 @@
     <Content Include="JSplugins\fancyFormNvalidator\jqTransformPlugin\img\textarea\textarea_tr.gif" />
     <Content Include="JSplugins\fancyFormNvalidator\jqTransformPlugin\jqtransform.css" />
     <Content Include="JSplugins\fancyFormNvalidator\jqTransformPlugin\jquery.jqtransform.js" />
-    <Content Include="JSplugins\Gmapv3\js\gmaps.js" />
-    <Content Include="JSplugins\jQBreadCrumb_11\interface.js" />
+    <Content Include="JSplugins\Gmapv3\gmaps.js" />
+    <Content Include="JSplugins\jQBreadCrumb_11\ref.txt" />
     <Content Include="JSplugins\jQBreadCrumb_11\Images\Chevron.gif" />
     <Content Include="JSplugins\jQBreadCrumb_11\Images\IconHome.gif" />
     <Content Include="JSplugins\jQBreadCrumb_11\js\jquery.easing.1.3.js" />
     <Content Include="JSplugins\jQBreadCrumb_11\js\jquery.jBreadCrumb.1.1.js" />
     <Content Include="JSplugins\jQBreadCrumb_11\Styles\Base.css" />
     <Content Include="JSplugins\jQBreadCrumb_11\Styles\BreadCrumb.css" />
-    <Content Include="JSplugins\kendoGrid\css\kendogridCss.css" />
-    <Content Include="JSplugins\kendoGrid\js\kendoGridModule.js" />
+    <Content Include="JSplugins\kendoGrid\kendogridCss.css" />
+    <Content Include="JSplugins\kendoGrid\kendoGridModule.js" />
     <Content Include="JSplugins\simpleMenuv1\demo.css" />
     <Content Include="JSplugins\simpleMenuv1\html.txt" />
     <Content Include="JSplugins\simpleMenuv1\script.js" />
@@ -351,16 +340,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Components\index1\orgChartVertical\img\arrow\" />
     <Folder Include="JSplugins\extjs\images\" />
-    <Folder Include="JSplugins\Gmapv3\css\" />
-    <Folder Include="JSplugins\Gmapv3\images\" />
-    <Folder Include="JSplugins\kendoGrid\images\" />
     <Folder Include="JSplugins\modules\extjs\images\" />
-    <Folder Include="JSplugins\modules\Gmapv3\css\" />
-    <Folder Include="JSplugins\modules\Gmapv3\images\" />
-    <Folder Include="JSplugins\modules\kendoGrid\images\" />
-    <Folder Include="JSplugins\modules\kendoMenu\images\" />
-    <Folder Include="JSplugins\modules\Tabs\images\" />
-    <Folder Include="upload\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -372,16 +353,9 @@
     <Content Include="Views\Shared\Master.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\subMaster1.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\header\Index1PartialHeader.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="JSplugins\ajaxUpload\ajax-file-upload.zip" />
     <None Include="datasource\datagrid_data2.json" />
     <None Include="JSplugins\contextMenu\images\Thumbs.db" />
     <EntityDeploy Include="Models\prjModel.edmx">
@@ -394,14 +368,15 @@
     <Content Include="Views\Workflow\userCurrentTasksForm.cshtml" />
     <Content Include="Views\Workflow\TasksList.cshtml" />
     <Content Include="Views\Workflow\Form_createAssignTask.cshtml" />
-    <Content Include="Views\Shared\subMaster2.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
-    <Content Include="Views\Home\header\Index2PartialHeader.cshtml" />
     <None Include="JSplugins\modules\contextMenu\images\Thumbs.db" />
     <Content Include="Views\Home\Index3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

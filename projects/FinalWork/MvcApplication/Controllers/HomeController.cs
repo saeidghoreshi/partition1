@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
+
+
 namespace MvcApplication3.Controllers
 {
     public class HomeController : Controller
@@ -26,6 +29,7 @@ namespace MvcApplication3.Controllers
         }
         public ActionResult sample1()
         {
+            
             return View();
         }
 

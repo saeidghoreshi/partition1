@@ -27,6 +27,12 @@
                     this.orgChart.myTasks("main-area");
                     return false;
                 }); 
+
+                var mygmap=new gmap({parentID:"main-area"});
+                mygmap.buildGUI();
+
+                
+                
         
     } (jQuery));
 } (Prototype));

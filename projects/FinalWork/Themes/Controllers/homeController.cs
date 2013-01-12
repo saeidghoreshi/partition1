@@ -9,6 +9,7 @@ using System.Configuration;
 
 
 using Classes;
+using Themes.Models;
 namespace Themes.Controllers
 {
     public class HomeController : Controller
@@ -25,6 +26,8 @@ namespace Themes.Controllers
         }
         public ActionResult Index3()
         {
+            
+            
             return View("index3");
         }
         
@@ -32,13 +35,14 @@ namespace Themes.Controllers
         {
             return PartialView("IndexFooter");
         }
-
+        
         public void upload() 
         {
-            var file = Request.Files["uploadfile"];
+            var file = Request.Files["myfile"];
+            
             //IE messup file.FileName then use your own >> [to cover all browser code like this]
             var nameSections=file.FileName.Split(new char[]{'\\'});
-            file.SaveAs(Server.MapPath("../upload/") + nameSections[nameSections.Length-1]); 
+            file.SaveAs(Server.MapPath("../uploads/") + nameSections[nameSections.Length-1]); 
         }
        
     }
