@@ -1,8 +1,14 @@
 ﻿var helperLib;
-(function ($$) {
+
+
     (function ($) {
 
-        helperLib = Class.create({initialize: function () {}});
+        helperLib=function(field1) {
+
+            this.initialize= function () {}
+            
+        }
+
 
         helperLib.interfaceReader= function (jsCssFilePath,callback) 
         {
@@ -17,15 +23,15 @@
                 YAHOO.util.Get.css(result[1], {});
                 YAHOO.util.Get.script(result[0],{onSuccess:(callback === null ? function () { } : callback)});
             });
-        },
+        };
 
         helperLib.loadAll = function (jsArray, cssArray, callback) 
         {
             
-        },
+        };
         helperLib.dump= function (input) {
 				return YAHOO.lang.dump(input);
-	    }
+	    };
         helperLib.idGenerator=function (prefix) {
 				return prefix + '-' + (new Number(1000000000000000 * Math.random())).toFixed(0).toString();
 		};
@@ -50,6 +56,6 @@
 		};
 
     } (jQuery));
-} (Prototype));
+
 
 

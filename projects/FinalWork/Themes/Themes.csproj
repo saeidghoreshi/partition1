@@ -15,7 +15,7 @@
     <AssemblyName>Themes</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -128,6 +128,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkflowController.cs" />
+    <Compile Include="datasource.ashx.cs">
+      <DependentUpon>datasource.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,10 +144,102 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Components\dojo\page.css" />
+    <Content Include="Components\dojo\page.js" />
+    <Content Include="Components\easyUI\page.css" />
+    <Content Include="Components\easyUI\page.js" />
     <Content Include="Components\index3\page\page.css" />
     <Content Include="Components\index3\page\page.js" />
     <Content Include="Components\index1\orgChartVertical\TskCreateAssignment.js" />
     <Content Include="Components\index1\orgChartVertical\ref.txt" />
+    <Content Include="Components\Master\page.css" />
+    <Content Include="Components\Master\page.js" />
+    <Content Include="Components\node\node.js" />
+    <Content Include="datasource.ashx" />
+    <None Include="datasource\dojogrid.json" />
+    <None Include="datasource\treegrid.json" />
+    <Content Include="JSplugins\ckEditor\ckeditor.js" />
+    <Content Include="JSplugins\ckEditor\config.js" />
+    <Content Include="JSplugins\ckEditor\contents.css" />
+    <Content Include="JSplugins\ckEditor\lang\af.js" />
+    <Content Include="JSplugins\ckEditor\lang\ar.js" />
+    <Content Include="JSplugins\ckEditor\lang\bg.js" />
+    <Content Include="JSplugins\ckEditor\lang\bn.js" />
+    <Content Include="JSplugins\ckEditor\lang\bs.js" />
+    <Content Include="JSplugins\ckEditor\lang\ca.js" />
+    <Content Include="JSplugins\ckEditor\lang\cs.js" />
+    <Content Include="JSplugins\ckEditor\lang\cy.js" />
+    <Content Include="JSplugins\ckEditor\lang\da.js" />
+    <Content Include="JSplugins\ckEditor\lang\de.js" />
+    <Content Include="JSplugins\ckEditor\lang\el.js" />
+    <Content Include="JSplugins\ckEditor\lang\en-au.js" />
+    <Content Include="JSplugins\ckEditor\lang\en-ca.js" />
+    <Content Include="JSplugins\ckEditor\lang\en-gb.js" />
+    <Content Include="JSplugins\ckEditor\lang\en.js" />
+    <Content Include="JSplugins\ckEditor\lang\eo.js" />
+    <Content Include="JSplugins\ckEditor\lang\es.js" />
+    <Content Include="JSplugins\ckEditor\lang\et.js" />
+    <Content Include="JSplugins\ckEditor\lang\eu.js" />
+    <Content Include="JSplugins\ckEditor\lang\fa.js" />
+    <Content Include="JSplugins\ckEditor\lang\fi.js" />
+    <Content Include="JSplugins\ckEditor\lang\fo.js" />
+    <Content Include="JSplugins\ckEditor\lang\fr-ca.js" />
+    <Content Include="JSplugins\ckEditor\lang\fr.js" />
+    <Content Include="JSplugins\ckEditor\lang\gl.js" />
+    <Content Include="JSplugins\ckEditor\lang\gu.js" />
+    <Content Include="JSplugins\ckEditor\lang\he.js" />
+    <Content Include="JSplugins\ckEditor\lang\hi.js" />
+    <Content Include="JSplugins\ckEditor\lang\hr.js" />
+    <Content Include="JSplugins\ckEditor\lang\hu.js" />
+    <Content Include="JSplugins\ckEditor\lang\is.js" />
+    <Content Include="JSplugins\ckEditor\lang\it.js" />
+    <Content Include="JSplugins\ckEditor\lang\ja.js" />
+    <Content Include="JSplugins\ckEditor\lang\ka.js" />
+    <Content Include="JSplugins\ckEditor\lang\km.js" />
+    <Content Include="JSplugins\ckEditor\lang\ko.js" />
+    <Content Include="JSplugins\ckEditor\lang\ku.js" />
+    <Content Include="JSplugins\ckEditor\lang\lt.js" />
+    <Content Include="JSplugins\ckEditor\lang\lv.js" />
+    <Content Include="JSplugins\ckEditor\lang\mk.js" />
+    <Content Include="JSplugins\ckEditor\lang\mn.js" />
+    <Content Include="JSplugins\ckEditor\lang\ms.js" />
+    <Content Include="JSplugins\ckEditor\lang\nb.js" />
+    <Content Include="JSplugins\ckEditor\lang\nl.js" />
+    <Content Include="JSplugins\ckEditor\lang\no.js" />
+    <Content Include="JSplugins\ckEditor\lang\pl.js" />
+    <Content Include="JSplugins\ckEditor\lang\pt-br.js" />
+    <Content Include="JSplugins\ckEditor\lang\pt.js" />
+    <Content Include="JSplugins\ckEditor\lang\ro.js" />
+    <Content Include="JSplugins\ckEditor\lang\ru.js" />
+    <Content Include="JSplugins\ckEditor\lang\sk.js" />
+    <Content Include="JSplugins\ckEditor\lang\sl.js" />
+    <Content Include="JSplugins\ckEditor\lang\sr-latn.js" />
+    <Content Include="JSplugins\ckEditor\lang\sr.js" />
+    <Content Include="JSplugins\ckEditor\lang\sv.js" />
+    <Content Include="JSplugins\ckEditor\lang\th.js" />
+    <Content Include="JSplugins\ckEditor\lang\tr.js" />
+    <Content Include="JSplugins\ckEditor\lang\ug.js" />
+    <Content Include="JSplugins\ckEditor\lang\uk.js" />
+    <Content Include="JSplugins\ckEditor\lang\vi.js" />
+    <Content Include="JSplugins\ckEditor\lang\zh-cn.js" />
+    <Content Include="JSplugins\ckEditor\lang\zh.js" />
+    <Content Include="JSplugins\ckEditor\skins\moono\dialog.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\dialog_ie.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\dialog_ie7.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\dialog_ie8.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\dialog_opera.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\editor.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\editor_gecko.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\editor_ie.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\editor_ie7.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\editor_ie8.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\editor_iequirks.css" />
+    <Content Include="JSplugins\ckEditor\skins\moono\icons.png" />
+    <Content Include="JSplugins\ckEditor\skins\moono\images\arrow.png" />
+    <Content Include="JSplugins\ckEditor\skins\moono\images\close.png" />
+    <Content Include="JSplugins\ckEditor\skins\moono\images\mini.png" />
+    <Content Include="JSplugins\ckEditor\styles.js" />
     <Content Include="JSplugins\Gmapv3\images\gmap_pin.png" />
     <Content Include="JSplugins\Gmapv3\images\gmap_pin_grey.png" />
     <Content Include="JSplugins\Gmapv3\images\gmap_pin_orange.png" />
@@ -153,43 +248,17 @@
     <Content Include="JSplugins\jScrollPane\jquery.jscrollpane.css" />
     <Content Include="JSplugins\jScrollPane\jquery.jscrollpane.min.js" />
     <Content Include="JSplugins\jScrollPane\jquery.mousewheel.js" />
-    <Content Include="JSplugins\modules\contextMenu\css\contextMenuCss.css" />
-    <Content Include="JSplugins\modules\contextMenu\images\context-menu-gradient.gif" />
-    <Content Include="JSplugins\modules\contextMenu\images\cut.png" />
-    <Content Include="JSplugins\modules\contextMenu\images\door.png" />
-    <Content Include="JSplugins\modules\contextMenu\images\page_white_copy.png" />
-    <Content Include="JSplugins\modules\contextMenu\images\page_white_delete.png" />
-    <Content Include="JSplugins\modules\contextMenu\images\page_white_edit.png" />
-    <Content Include="JSplugins\modules\contextMenu\images\page_white_paste.png" />
-    <Content Include="JSplugins\modules\contextMenu\js\contextMenu.js" />
-    <Content Include="JSplugins\modules\extjs\css\extjscss.css" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.form.js" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.googlemaps-2.js" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.gridPanel.js" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.Store.js" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.treePanel.js" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.viewPort1.js" />
-    <Content Include="JSplugins\modules\extjs\js\abstractClasses\Ext.viewPort2.js" />
-    <Content Include="JSplugins\modules\extjs\js\plugin\PreviewPlugin.js" />
-    <Content Include="JSplugins\modules\extjs\js\plugin\ProgressBarPager.js" />
-    <Content Include="JSplugins\modules\extjs\js\plugin\RowExpander.js" />
-    <Content Include="JSplugins\modules\extjs\js\plugin\SearchField.js" />
-    <Content Include="JSplugins\modules\extjs\js\plugin\SlidingPager.js" />
-    <Content Include="JSplugins\modules\extjs\js\plugin\treeViewCellEdit.js" />
-    <Content Include="JSplugins\modules\myTabs\css\mytabsCss.css" />
-    <Content Include="JSplugins\modules\myTabs\images\tabgradient_bg.gif" />
-    <Content Include="JSplugins\modules\myTabs\js\mytabsModule.js" />
-    <Content Include="JSplugins\modules\slider\dataViewSliderCss.css" />
-    <Content Include="JSplugins\modules\slider\images\icon-2.png" />
-    <Content Include="JSplugins\modules\slider\images\icon-3.png" />
-    <Content Include="JSplugins\modules\slider\images\icon.png" />
-    <Content Include="JSplugins\modules\slider\images\slider-nav-img\slider-nav-bottom.png" />
-    <Content Include="JSplugins\modules\slider\images\slider-nav-img\slider-nav-left.png" />
-    <Content Include="JSplugins\modules\slider\images\slider-nav-img\slider-nav-right.png" />
-    <Content Include="JSplugins\modules\slider\images\slider-nav-img\slider-nav-top.png" />
-    <Content Include="JSplugins\modules\slider\images\tip\arrow_left.png" />
-    <Content Include="JSplugins\modules\slider\images\tip\bg.png" />
-    <Content Include="JSplugins\modules\slider\dataViewSlider.js" />
+    <Content Include="JSplugins\slider\dataViewSliderCss.css" />
+    <Content Include="JSplugins\slider\images\icon-2.png" />
+    <Content Include="JSplugins\slider\images\icon-3.png" />
+    <Content Include="JSplugins\slider\images\icon.png" />
+    <Content Include="JSplugins\slider\images\slider-nav-img\slider-nav-bottom.png" />
+    <Content Include="JSplugins\slider\images\slider-nav-img\slider-nav-left.png" />
+    <Content Include="JSplugins\slider\images\slider-nav-img\slider-nav-right.png" />
+    <Content Include="JSplugins\slider\images\slider-nav-img\slider-nav-top.png" />
+    <Content Include="JSplugins\slider\images\tip\arrow_left.png" />
+    <Content Include="JSplugins\slider\images\tip\bg.png" />
+    <Content Include="JSplugins\slider\dataViewSlider.js" />
     <Content Include="JSplugins\tipsy\ref.txt" />
     <Content Include="JSplugins\tipsy\jquery.tipsy.js" />
     <Content Include="JSplugins\tipsy\tipsy.css" />
@@ -204,7 +273,7 @@
     <Content Include="Components\Master\topMenu\ddmenu.css" />
     <Content Include="Components\Master\topMenu\ddmenu.js" />
     <Content Include="Components\Master\topMenu\img1.jpg" />
-    <Content Include="Components\index2\css\jquery.main.js" />
+    <Content Include="Components\index2\page\jquery.main.js" />
     <Content Include="Components\index2\page\page.js" />
     <Content Include="JSplugins\tigraMenu_free\blank.html" />
     <Content Include="JSplugins\tigraMenu_free\img\lev0_bg1.gif" />
@@ -241,7 +310,7 @@
     <Content Include="Components\index1\page\page.css" />
     <Content Include="Components\index1\orgChartVertical\orgChartVerticalClass.js" />
     <Content Include="Global.asax" />
-    <Content Include="JSplugins\contextMenu\css\contextMenuCss.css" />
+    <Content Include="JSplugins\contextMenu\contextMenuCss.css" />
     <Content Include="JSplugins\contextMenu\images\context-menu-gradient.gif" />
     <Content Include="JSplugins\contextMenu\images\cut.png" />
     <Content Include="JSplugins\contextMenu\images\door.png" />
@@ -249,7 +318,7 @@
     <Content Include="JSplugins\contextMenu\images\page_white_delete.png" />
     <Content Include="JSplugins\contextMenu\images\page_white_edit.png" />
     <Content Include="JSplugins\contextMenu\images\page_white_paste.png" />
-    <Content Include="JSplugins\contextMenu\js\contextMenu.js" />
+    <Content Include="JSplugins\contextMenu\contextMenu.js" />
     <Content Include="JSplugins\extjs\css\extjscss.css" />
     <Content Include="JSplugins\extjs\js\abstractClasses\Ext.form.js" />
     <Content Include="JSplugins\extjs\js\abstractClasses\Ext.googlemaps-2.js" />
@@ -318,13 +387,13 @@
     <Content Include="JSplugins\workflow\js\MyInputPort.js" />
     <Content Include="JSplugins\workflow\js\MyOutputPort.js" />
     <Content Include="JSplugins\workflow\js\person.js" />
-    <Content Include="Components\index2\css\all.css" />
-    <Content Include="Components\index2\css\ie.css" />
-    <Content Include="Components\index2\images\bg-controls.png" />
-    <Content Include="Components\index2\images\bg-shadow.png" />
-    <Content Include="Components\index2\images\bg-wrapper.png" />
-    <Content Include="Components\index2\images\img1.png" />
-    <Content Include="Components\index2\images\sprite.png" />
+    <Content Include="Components\index2\page\css\all.css" />
+    <Content Include="Components\index2\page\css\ie.css" />
+    <Content Include="Components\index2\page\images\bg-controls.png" />
+    <Content Include="Components\index2\page\images\bg-shadow.png" />
+    <Content Include="Components\index2\page\images\bg-wrapper.png" />
+    <Content Include="Components\index2\page\images\img1.png" />
+    <Content Include="Components\index2\page\images\sprite.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -335,12 +404,12 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <None Include="JSplugins\ckEditor\skins\moono\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Components\index1\orgChartVertical\img\arrow\" />
     <Folder Include="JSplugins\extjs\images\" />
-    <Folder Include="JSplugins\modules\extjs\images\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
@@ -357,7 +426,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="datasource\datagrid_data2.json" />
-    <None Include="JSplugins\contextMenu\images\Thumbs.db" />
     <EntityDeploy Include="Models\prjModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>prjModel.Designer.cs</LastGenOutput>
@@ -369,8 +437,9 @@
     <Content Include="Views\Workflow\TasksList.cshtml" />
     <Content Include="Views\Workflow\Form_createAssignTask.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
-    <None Include="JSplugins\modules\contextMenu\images\Thumbs.db" />
     <Content Include="Views\Home\Index3.cshtml" />
+    <Content Include="Views\Home\easyUI.cshtml" />
+    <Content Include="Views\Home\dojo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -392,12 +461,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>4240</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost:4240/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

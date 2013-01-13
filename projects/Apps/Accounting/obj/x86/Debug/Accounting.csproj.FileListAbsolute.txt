@@ -19,4 +19,3 @@ C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Account
 C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.dll.config
 C:\projects\Partitions\partition1\projects\Apps\Accounting\bin\Debug\Accounting.dll
 C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Accounting.dll
-C:\projects\Partitions\partition1\projects\Apps\Accounting\obj\x86\Debug\Accounting.csprojResolveAssemblyReference.cache

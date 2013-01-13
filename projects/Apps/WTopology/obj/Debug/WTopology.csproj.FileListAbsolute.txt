@@ -53,6 +53,5 @@ C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.Razor.x
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.WebPages.xml
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.WebPages.Deployment.xml
 C:\projects\Partitions\partition1\projects\Apps\WTopology\bin\System.Web.WebPages.Razor.xml
-C:\projects\Partitions\partition1\projects\Apps\WTopology\obj\Debug\WTopology.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\Apps\WTopology\obj\Debug\WTopology.dll
 C:\projects\Partitions\partition1\projects\Apps\WTopology\obj\Debug\WTopology.pdb

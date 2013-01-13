@@ -48,7 +48,6 @@ C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\DotNetOp
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\DotNetOpenAuth.OAuth.xml
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\DotNetOpenAuth.OpenId.xml
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
-C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication3.dll
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication3.pdb
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\Microsoft.Threading.Tasks.Extensions.Desktop.dll

@@ -14,7 +14,6 @@ C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceH
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingService.dll
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingLib.dll
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingService.pdb
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\EntityFramework.xml
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingLib.pdb
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\obj\Debug\AccountingServiceHost.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\obj\Debug\AccountingServiceHost.dll

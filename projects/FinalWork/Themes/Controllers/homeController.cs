@@ -16,8 +16,7 @@ namespace Themes.Controllers
     {
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
         public ActionResult Index()
-        {
-            
+        {   
             return View("index1");
         }
         public ActionResult Index2()
@@ -25,10 +24,16 @@ namespace Themes.Controllers
             return View("index2");
         }
         public ActionResult Index3()
-        {
-            
-            
+        {   
             return View("index3");
+        }
+        public ActionResult easyUI()
+        {
+            return View("easyUI");
+        }
+        public ActionResult dojo()
+        {
+            return View("dojo");
         }
         
         public ActionResult IndexFooter()

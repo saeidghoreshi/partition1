@@ -3,4 +3,3 @@ C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceC
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceClient\obj\x86\Debug\AccountingServiceClient.exe
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceClient\obj\x86\Debug\AccountingServiceClient.pdb
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceClient\bin\Debug\AccountingServiceClient.exe.config
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceClient\obj\x86\Debug\AccountingServiceClient.csprojResolveAssemblyReference.cache

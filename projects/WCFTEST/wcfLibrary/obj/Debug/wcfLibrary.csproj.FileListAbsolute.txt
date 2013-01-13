@@ -7,6 +7,5 @@ C:\projects\Partitions\partition1\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.csproj
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\bin\Debug\wcfLibrary.dll.config
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\bin\Debug\wcfLibrary.dll
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\bin\Debug\wcfLibrary.pdb
-C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.dll
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.pdb
