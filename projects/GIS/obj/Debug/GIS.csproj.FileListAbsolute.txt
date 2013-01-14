@@ -1,8 +1,0 @@
-C:\projects\Partitions\partition1\GIS\bin\GIS.dll
-C:\projects\Partitions\partition1\GIS\bin\GIS.pdb
-C:\projects\Partitions\partition1\GIS\obj\Debug\GIS.dll
-C:\projects\Partitions\partition1\GIS\obj\Debug\GIS.pdb
-C:\projects\Partitions\partition1\projects\GIS\bin\GIS.dll
-C:\projects\Partitions\partition1\projects\GIS\bin\GIS.pdb
-C:\projects\Partitions\partition1\projects\GIS\obj\Debug\GIS.dll
-C:\projects\Partitions\partition1\projects\GIS\obj\Debug\GIS.pdb
