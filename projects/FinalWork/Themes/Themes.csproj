@@ -129,9 +129,6 @@
     <Compile Include="Controllers\facebookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkflowController.cs" />
-    <Compile Include="Components\test.ashx.cs">
-      <DependentUpon>test.ashx</DependentUpon>
-    </Compile>
     <Compile Include="datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
     </Compile>
@@ -158,13 +155,13 @@
     <None Include="Components\easyUI\partials\menu.cshtml" />
     <Content Include="Components\easyUI\page.css" />
     <Content Include="Components\easyUI\page.js" />
-    <None Include="Components\index1\partials\center.cshtml" />
+    <None Include="Views\Home\Index1\center.cshtml" />
     <Content Include="Components\index1\orgChart\chart.js" />
     <Content Include="Components\index1\page\img\m1.png" />
     <Content Include="Components\index1\page\img\m2.png" />
     <Content Include="Components\index1\page\img\m3.png" />
-    <Content Include="Components\index1\partials\menu.cshtml" />
-    <None Include="Components\index1\partials\tabs.cshtml" />
+    <Content Include="Components\index1\page\img\save.png" />
+    <Content Include="Views\Home\Index1\menu.cshtml" />
     <Content Include="Components\index3\page\page.css" />
     <Content Include="Components\index3\page\page.js" />
     <Content Include="Components\index1\orgChartVertical\TskCreateAssignment.js" />
@@ -172,8 +169,7 @@
     <Content Include="Components\Master\page.css" />
     <Content Include="Components\Master\page.js" />
     <Content Include="datasource.ashx" />
-    <Content Include="Components\index1\partials\orgList.cshtml" />
-    <Content Include="Components\test.ashx" />
+    <None Include="Views\Home\Index1\orgList.cshtml" />
     <None Include="datasource\dojogrid.json" />
     <None Include="datasource\treegrid.json" />
     <Content Include="JSplugins\ckEditor\ckeditor.js" />
@@ -420,7 +416,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="JSplugins\ckEditor\skins\moono\readme.md" />
   </ItemGroup>
   <ItemGroup>
@@ -433,10 +428,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\footer\IndexFooter.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\Master.cshtml" />
+    <Content Include="Views\Home\Master.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index1.cshtml" />

@@ -33,7 +33,7 @@
         {
             //config.size,pageUrl,content,modal
             var ID = helperLib.idGenerator('win');
-            $('body').append('<div id="' + ID + '">'+config.content+'</div>');
+            $('body').append('<div id="' + ID + '" style="padding:5px">'+config.content+'</div>');
             $('#'+ID).window({
                 width: config.size.width,
                 height: config.size.height,

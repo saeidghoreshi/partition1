@@ -76,7 +76,9 @@
                             }
                         }); 
                     }    
-                }
+                };
+
+                me.generalHandlers.mainPage();
          },//initialize End0
          resetPanel:function()
          {

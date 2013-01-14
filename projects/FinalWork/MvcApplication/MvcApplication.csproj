@@ -438,6 +438,7 @@
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\edit_remove.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\filesave.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\help.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\list.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\mini_add.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\mini_edit.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\mini_refresh.png" />
@@ -448,6 +449,7 @@
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\redo.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\reload.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\search.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\settings.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\sum.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\tip.png" />
     <Content Include="ClientSideLibraries\JQeasyui\themes\icons\undo.png" />

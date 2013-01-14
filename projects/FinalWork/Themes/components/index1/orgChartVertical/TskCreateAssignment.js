@@ -67,7 +67,7 @@
                     $('#TskCreateAssignLayout-east div:eq(1)').droppable({
                         onDragEnter: function (e, source) {
                             $(source).draggable('options').cursor = 'auto';
-                            $(source).draggable('options').width = "200px";
+                            
                         },
                         onDragLeave: function (e, source) {
                             $(source).draggable('options').cursor = 'auto';

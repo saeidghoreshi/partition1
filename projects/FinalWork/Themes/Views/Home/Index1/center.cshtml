@@ -2,5 +2,28 @@
     <div id="List-1"></div>
 </div>  
 <div id="tsk-inner-center" data-options="region:'center',title:'center title'" style="padding:0px;background:#eee;">
-    @RenderPage("tabs.cshtml");
+    
+        <div class="easyui-tabs" style="width:1155px;height:568px;" data-options="border:false">  
+        <div id="tab1"  title="Organization Plot" style="padding:2px;position:relative;" data-options="iconCls:'icon-help',closable:true,selected:true"> 
+           <div id="main-area" style="height:100%;"></div>
+        </div> 
+
+        <div id="tab2" title="About" style="padding:2px"  >
+                       <table class="easyui-datagrid" title="Basic DataGrid" style="width:800px" 
+                       data-options="singleSelect:true,collapsible:true,url:'/datasource.ashx?type=datagrid'">  
+                           <thead>  
+                               <tr>  
+                                   <th data-options="field:'itemid',width:80">Item ID</th>  
+                                   <th data-options="field:'productid',width:100">Product</th>  
+                                   <th data-options="field:'listprice',width:80,align:'right'">List Price</th>  
+                                   <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>  
+                                   <th data-options="field:'attr1',width:250">Attribute</th>  
+                                   <th data-options="field:'status',width:60,align:'center'">Status</th>  
+                               </tr>  
+                           </thead>  
+                       </table>
+        </div>
+        </div>
+
+
 </div>

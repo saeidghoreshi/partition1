@@ -3,15 +3,14 @@
 
     <div style="padding:5px;border:1px solid #ddd;" >  
         <a id="mainpage"  class="easyui-linkbutton menuItem" data-options="plain:true">Home</a>  
-        <a href="#" class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-edit'">Options</a>  
+        <a href="#" class="easyui-splitbutton" data-options="menu:'#mm1',iconCls:'icon-settings'">Actions</a>  
     </div>  
 
 
     <div id="mm1" style="width:150px;">  
-        <div id="tasklist" class="menuItem"     data-options="">View Lists</div>  
-        <div id="newtask"  class="menuItem"     data-options="iconCls:'icon-add'">New Task</div>  
+        <div id="entities" class="menuItem"     data-options="iconCls:'icon-list'">View Lists</div>  
         <div class="menu-sep"></div>  
-        <div id="viewmap"  class="menuItem"     data-options="iconCls:'icon-search'">View Entities</div>  
+        <div id="newtask"  class="menuItem"     data-options="iconCls:'icon-add'">New Task</div>  
     </div>  
     
 
@@ -23,10 +22,10 @@
 
                     switch ($(this).attr('id')) {
                         case 'tasklist':
-                            index1PageIns.generalHandlers.orgsList();
+                            
                             break;
-                        case 'viewmap':
-
+                        case 'entities':
+                            index1PageIns.generalHandlers.orgsList();
                             break;
 
                         case 'newtask':
