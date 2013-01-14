@@ -23,6 +23,7 @@
                 {
                     newTask:function()
                     {   
+                        var newTask=new TskCreateAssignmentClass({parentID:"center-area"});
                     },
                     orgsList:function()
                     {   

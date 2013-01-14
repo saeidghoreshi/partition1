@@ -36,10 +36,7 @@ namespace Themes.Controllers
             return View("dojo");
         }
         
-        public ActionResult IndexFooter()
-        {
-            return PartialView("IndexFooter");
-        }
+        
         
         public void upload() 
         {

@@ -28,14 +28,17 @@
                         case 'viewmap':
 
                             break;
+
                         case 'newtask':
 
+                            index1PageIns.generalHandlers.newTask();
+                            return;
                             $win = helperLib.easyUIWin(
                             {
-                                size:{width:400,height:400},
+                                size: { width: 400, height: 400 },
                                 pageUrl: "/workflow/test",
-                                content:"",
-                                modal:false
+                                content: "",
+                                modal: false
                             });
 
 
@@ -50,7 +53,5 @@
             } (jQuery));
         } (Prototype));
 
-        
-        
     </script>
 

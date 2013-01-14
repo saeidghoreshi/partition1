@@ -6,9 +6,9 @@
         {
             initialize: function (config) {
                 this.config = config;
-                this.buildView(this.config.containerID);
+                this.buildView(this.config.parentID);
             },
-            buildView: function (ContainerID) {
+            buildView: function (parentID) {
                 var me = this;
 
                 $.ajax(
@@ -17,7 +17,7 @@
                      type: "get"
 
                  }).done(function (html) {
-                     $('#' + ContainerID).html(html);
+                     $('#' + parentID).html(html);
                      $('#TskCreateAssignLayout').layout();
 
                      $('#orgsTree').tree(
