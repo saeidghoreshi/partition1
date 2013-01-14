@@ -14,45 +14,93 @@
             },
             init: function () {
                 var me = this;
+      
+                            $("#"+me.config.parentID).gmap3(
+                                { 
+                                    map: {
+                                        options: {
+                                            mapTypeId: google.maps.MapTypeId.TERRAIN,
+                                            center:
+                                            {
+                                                latLng:[48.764110, 2.346169], data:"", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}
+                                            },
+                                            zoom: 15
+                                        }
+                                    },
+                                    kmllayer: {
+                                            options: {
+                                                url: "http://gmap3.net/kml/rungis.kml",
+                                                preserveViewport: true
+                                            },
+                                            events: {
+                                                click: function (kml, event) {
+                                                    alert(event.featureData.description);
+                                                }
+                                            },
+                                            callback: function(map){
+                                            
+                                              console.log('callback Called');
+                                            }
+                                    },
 
-                this.map=$('#'+me.config.parentID).gMap({
-	                controls: false,
-	                scrollwheel: true,
-	                maptype: 'TERRAIN',
-	                markers: [
-		                {
-			                latitude: 47.670553,
-			                longitude: 9.588479,
-			                icon: {
-				                image: "/jsplugins/gmapv3/images/gmap_pin_orange.png",
-				                iconsize: [26, 46],
-				                iconanchor: [12,46]
-			                }
-		                },
-                        {
-			                latitude: 47.65197522925437,
-			                longitude: 9.47845458984375
-		                },
-		                {
-			                latitude: 47.594996,
-			                longitude: 9.600708,
-			                icon: {
-				                image: "/jsplugins/gmapv3/images/gmap_pin_grey.png",
-				                iconsize: [26, 46],
-				                iconanchor: [12,46]
-			                }
-		                }
-	                ],
-	                icon: {
-		                image: "/jsplugins/gmapv3/images/gmap_pin.png", 
-		                iconsize: [26, 46],
-		                iconanchor: [12, 46]
-	                },
-	                latitude: 47.58969,
-	                longitude: 9.473413,
-	                zoom: 10
-                });
-                //helperLib.tagReady(me.config.parentID,function () {me.buildGUI();});
+                                    marker:{
+                                        values: [
+                                          //first four for clustring
+                                          {
+                                                latLng:[49.28952958093682, 6.152559438984804], data:""
+                                          },
+                                          {
+                                                latLng:[44.28952958093682, 6.152559438984804], data:""
+                                          },
+                                          {
+                                                latLng:[49.28952958093682, -1.1501188139848408], data:""
+                                          },
+                                          {
+                                                latLng:[44.28952958093682, -1.1501188139848408], data:""
+                                          },
+                                          {
+                                                address:"66000 Perpignan, France", data:"", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}
+                                          },
+
+                                          {
+                                                latLng:[48.764110, 2.346169], data:"", options:{icon: "../../Components/index1/page/img/gmap_pin.png"} 
+                                          }
+
+
+                                        ],
+                                        cluster:{
+                                          radius: 100,
+          		                            // This style will be used for clusters with more than 0 markers
+          		                            0: {
+          		                              content: '<div class="cluster cluster-1">CLUSTER_COUNT</div>',
+          			                            width: 53,
+          			                            height: 52
+          		                            },
+          		                            // This style will be used for clusters with more than 20 markers
+          		                            20: {
+          		                              content: '<div class="cluster cluster-2">CLUSTER_COUNT</div>',
+          			                            width: 56,
+          			                            height: 55
+          		                            },
+          		                            // This style will be used for clusters with more than 50 markers
+          		                            50: {
+          		                              content: '<div class="cluster cluster-3">CLUSTER_COUNT</div>',
+          			                            width: 66,
+          			                            height: 65
+          		                            }
+          	                            }
+                                     }//Markers
+
+                                });
+
+                            $("#chk").change(function () {
+                                var map = $("#"+me.config.parentID).gmap3("get"),
+                                kml = $("#"+me.config.parentID).gmap3({ get: "kmllayer" });
+                                kml.setMap(jQuery(this).is(':checked') ? map : null);
+                            });
+
+
+                
                 
             },
             buildGUI: function () {
@@ -121,70 +169,9 @@
 
 
                 });
-            },
-            putMarker: function (input) {
-                marker = new google.maps.Marker({
-                    map: input.map,
-                    draggable: true,
-                    animation: google.maps.Animation.DROP,
-                    position: input.point
-                });
-                google.maps.event.addListener(marker, 'click', function () {
-                    if (marker.getAnimation() != null) {
-                        marker.setAnimation(null);
-                    } else {
-                        marker.setAnimation(google.maps.Animation.BOUNCE);
-                    }
-                });
-
-            },
-            circling: function (input) {
-
-                var Options = {
-                    strokeColor: "#FF0000",
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: "#FF0000",
-                    fillOpacity: 0.35,
-                    map: input.map,
-                    center: input.point,
-                    radius: 100000
-                };
-                new google.maps.Circle(Options);
-            },
-            calDirection: function (input) {
-
-                var request = {
-                    origin: input.startPoint,
-                    destination: input.endPoint,
-                    travelMode: google.maps.TravelMode.DRIVING
-                };
-                input.caller.directionsService.route(request, function (result, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        input.caller.directionsDisplay.setDirections(result);
-                    }
-                });
-            },
-            geoCoding: function (input) {
-
-
-                input.caller.geocoder.geocode({ 'address': input.address }, function (results, status) {
-                    if (status == google.maps.GeocoderStatus.OK) {
-                        input.caller.maps.setCenter(results[0].geometry.location);
-                        var marker = new google.maps.Marker({
-                            map: input.caller.maps,
-                            position: results[0].geometry.location
-                        });
-                        if (input.callback != null)
-                            input.callback();
-                    } else {
-                        alert("Geocode was not successful for the following reason: " + status);
-                    }
-                });
-
-            },
-            reverseGeoCoding: function () { }
-        });
+            }
+            
+           });
             
     } (jQuery));
 } (Prototype));
@@ -193,3 +180,5 @@
 
             
             
+
+

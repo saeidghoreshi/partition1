@@ -41,7 +41,7 @@
                 basePos.top=50;
 
                 draw2d.Connection.setDefaultRouter(new draw2d.FanConnectionRouter());
-                me.config.workflow = new draw2d.Workflow(me.config.id);
+                me.config.workflow = new draw2d.Workflow(me.config.parentID);
 
                 //var newNode = new draw2d.Person(me.RawNodes[0].logo + '.png');
                 var newNode = new draw2d.Person('/jsplugins/workflow/images/logo3.png');
@@ -147,9 +147,9 @@
 
 
                 //area around GUi Nodes to grab Clicking and other events
-                var id = helperLib.idGenerator(me.config.id);
+                var id = helperLib.idGenerator(me.config.parentID);
                 var surrondArea=$('<div id="' + id + '"></div>');
-                $('#main-area').append(surrondArea);
+                $('#'+me.config.parentID).append(surrondArea);
                 surrondArea.css("width", 50);
                 surrondArea.css("height", 50);
                 surrondArea.css("border", '1px solid transparent');
@@ -159,8 +159,8 @@
                 surrondArea.css("z-index", 99999999);
 
                 //Nmae Tag
-                var id = helperLib.idGenerator(me.config.id);
-                $('#main-area').append('<div id="' + id + '"></div>');
+                var id = helperLib.idGenerator(me.config.parentID);
+                $('#'+me.config.parentID).append('<div id="' + id + '"></div>');
                 var tag = $('#' + id);
 
                 tag.addClass('tags');
@@ -224,8 +224,8 @@
 
 
                                 //build tag
-                                var id = helperLib.idGenerator(me.config.id);
-                                $('#main-area').append('<div id="' + id + '"></div>');
+                                var id = helperLib.idGenerator(me.config.parentID);
+                                $('#'+me.config.parentID).append('<div id="' + id + '"></div>');
                                 var tag = $('#' + id);
 
                                 tag.addClass('Sequence-tags');
@@ -254,9 +254,9 @@
                 var me = this;
                 me.clearTags();
                 me.clearSeqTags();  
-                delete $('#main-area').children();
-                $('#'+me.config.id).children().remove();  
-                $("#" + me.config.id).html('');
+                delete $('#'+me.config.parentID).children();
+                $('#'+me.config.parentID).children().remove();  
+                $("#" + me.config.parentID).html('');
             },
 
             //build task List /User
@@ -306,7 +306,7 @@
             newTask:function()
             {
                 var me=this;
-                me.TskCreateAssignment=new TskCreateAssignmentClass({containerID:me.config.id}); 
+                me.TskCreateAssignment=new TskCreateAssignmentClass({containerID:me.config.parentID}); 
             },
             myTasks:function(){}
         });

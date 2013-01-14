@@ -1,0 +1,30 @@
+﻿
+	<p>
+		<input onclick="createEditor();" type="button" value="Create Editor">
+		<input onclick="removeEditor();" type="button" value="Remove Editor">
+	</p>
+	<!-- This div will hold the editor. -->
+	<div id="editor">
+	</div>
+	<div id="contents" style="display: none">
+		<p>
+			Edited Contents:
+		</p>
+		<!-- This div will be used to display the editor contents. -->
+		<div id="editorcontents">
+		</div>
+	</div>
+
+
+    <!--ckeditor Manual-->
+    <div id="section1">
+
+		<script>
+
+		    CKEDITOR.appendTo('section1',
+				null,
+				'<p>This is some <strong>sample text</strong>. You are using <a href="http://ckeditor.com/">CKEditor</a>.</p>'
+			);
+
+		</script>
+	</div>

@@ -1,13 +1,8 @@
 ﻿(function ($$) {
     (function ($) {
             
-        //$('body').append('<div id="'+helperLib.idGenerator('win')+'" class="easyui-window" title="Basic Window" data-options="iconCls:\'icon-save\'" style="width:500px;height:200px;padding:10px;">  The window content.  </div>  ');
+        $('body').append('<div id="'+helperLib.idGenerator('win')+'" class="easyui-window" title="Basic Window" data-options="iconCls:\'icon-save\'" style="width:500px;height:200px;padding:10px;">  The window content.  </div>  ');
         
-        
-		
-
-		
-        $('#lll').layout();  
 
     } (jQuery));
 } (Prototype));

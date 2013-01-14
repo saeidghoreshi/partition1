@@ -29,6 +29,20 @@
         {
             
         };
+        helperLib.easyUIWin=function(config)
+        {
+            //config.size,pageUrl,content,modal
+            var ID = helperLib.idGenerator('win');
+            $('body').append('<div id="' + ID + '">'+config.content+'</div>');
+            $('#'+ID).window({
+                width: config.size.width,
+                height: config.size.height,
+                modal: config.modal
+            });
+            if(config.pageUrl!=null)
+                $('#' + ID).window('refresh', config.pageUrl);
+            return  $('#' + ID);
+        },
         helperLib.dump= function (input) {
 				return YAHOO.lang.dump(input);
 	    };

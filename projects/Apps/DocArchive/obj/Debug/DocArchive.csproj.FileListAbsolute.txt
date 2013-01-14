@@ -32,3 +32,4 @@ C:\projects\Partitions\partition1\projects\Apps\DocArchive\bin\System.Web.WebPag
 C:\projects\Partitions\partition1\projects\Apps\DocArchive\bin\System.Web.WebPages.Razor.xml
 C:\projects\Partitions\partition1\projects\Apps\DocArchive\obj\Debug\DocArchive.dll
 C:\projects\Partitions\partition1\projects\Apps\DocArchive\obj\Debug\DocArchive.pdb
+C:\projects\Partitions\partition1\projects\Apps\DocArchive\obj\Debug\DocArchive.csprojResolveAssemblyReference.cache

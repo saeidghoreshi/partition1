@@ -2,138 +2,29 @@
     ViewBag.Title = "EasyUI";
     Layout = "~/Views/Shared/Master.cshtml";
 }
+<!--Menu-->
+<div class="wrapper">
+    @RenderPage("../../Components/easyUI/partials/menu.cshtml")
+</div>
 
-    
 <!--Tree-->
 <div class="wrapper">
-    <ul id="tree" class="easyui-tree" data-options="url:'/workflow/getusers',animate:true,lines:false" ></ul>  
+    @RenderPage("../../Components/easyUI/partials/treeview.cshtml")
 </div>
+
 <!--combogrid-->
 <div class="wrapper">
-    <select class="easyui-combogrid" style="width:250px" data-options="  
-            panelWidth: 500,  
-            idField: 'itemid',  
-            textField: 'productname',  
-            url: '../datasource.ashx?type=datagrid', 
-            multiple: true, 
-            columns: [[  
-                {field:'itemid',title:'Item ID',width:80,checkbox:true},  
-                {field:'productname',title:'Product',width:120},  
-                {field:'listprice',title:'List Price',width:80,align:'right'},  
-                {field:'unitcost',title:'Unit Cost',width:80,align:'right'},  
-                {field:'attr1',title:'Attribute',width:200},  
-                {field:'status',title:'Status',width:60,align:'center'}  
-            ]],  
-            fitColumns: true  
-        ">  
-    </select>  
+    @RenderPage("../../Components/easyUI/partials/combogrid.cshtml")
 </div>
 
-<!--treegrid-->
-    <div style="margin:10px 0;">  
-        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="collapseAll()">CollapseAll</a>  
-        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandAll()">ExpandAll</a>  
-        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandTo()">ExpandTo</a>  
-    </div>  
-    <table id="tg" class="easyui-treegrid" title="TreeGrid Actions" style="width:700px;height:250px"  
-            data-options="  
-                iconCls: 'icon-ok',  
-                rownumbers: true,  
-                animate: true,  
-                collapsible: true,  
-                fitColumns: true,  
-                url: '../datasource.ashx?type=treegrid', 
-                idField: 'id',  
-                treeField: 'name'  
-            ">  
-        <thead>  
-            <tr>  
-                <th data-options="field:'name',width:180">Task Name</th>  
-                <th data-options="field:'persons',width:60,align:'right'">Persons</th>  
-                <th data-options="field:'begin',width:80">Begin Date</th>  
-                <th data-options="field:'end',width:80">End Date</th>  
-                <th data-options="field:'progress',width:120,formatter:formatProgress">Progress</th>  
-            </tr>  
-        </thead>  
-    </table>  
-    <script type="text/javascript">
+<!--ckEditor-->
+<div class="wrapper">
+    @RenderPage("../../Components/easyUI/partials/ckeditor.cshtml")
+</div>
 
-        function formatProgress(value) {
-            if (value) {
-                var s = '<div style="width:100%;border:1px solid #ccc">' +
-                        '<div style="width:' + value + '%;background:#cc0000;color:#fff">' + value + '%' + '</div>'
-                '</div>';
-                return s;
-            } else {
-                return '';
-            }
-        }
-        function collapseAll() {
-            jQuery('#tg').treegrid('collapseAll');
-        }
-        function expandAll() {
-            jQuery('#tg').treegrid('expandAll');
-        }
-        function expandTo() {
-            jQuery('#tg').treegrid('expandTo', 21).treegrid('select', 21);
-        }  
-    </script>  
+<!--win layout-->
+@RenderPage("../../Components/easyUI/partials/winLayout.cshtml")
 
-   
-	<p>
-		<input onclick="createEditor();" type="button" value="Create Editor">
-		<input onclick="removeEditor();" type="button" value="Remove Editor">
-	</p>
-	<!-- This div will hold the editor. -->
-	<div id="editor">
-	</div>
-	<div id="contents" style="display: none">
-		<p>
-			Edited Contents:
-		</p>
-		<!-- This div will be used to display the editor contents. -->
-		<div id="editorcontents">
-		</div>
-	</div>
-
-
-    <!--ckeditor Manual-->
-    <div id="section1">
-
-		<script>
-
-		    CKEDITOR.appendTo('section1',
-				null,
-				'<p>This is some <strong>sample text</strong>. You are using <a href="http://ckeditor.com/">CKEditor</a>.</p>'
-			);
-
-		</script>
-	</div>
-    
-
-    <!--win layout-->
-    <div id="w" class="easyui-window" title="Window Layout" data-options="iconCls:'icon-save'" style="width:600px;height:500px;padding:5px;">  
-        <div id="lll" class="easyui-layout" style="width:100%;height:745px;margin-top:5px;">  
-            <div data-options="region:'west',title:'Main Panel',split:true" style="width:250px;background:#f5f5f5">
-                    <!--ACC-->
-        	        <div id="aa" class="easyui-accordion" style="height:600px;border:0px">
-		        
-		                <div title="Users" style="padding-left:2px;" data-options="selected:true,border:false">
-                
-                        <!--treeView Componet-->
-                        <ul id="tree" class="easyui-tree" data-options="url:'/workflow/getusers',animate:true,lines:true" ></ul>  
-                
-                        </div>
-	                </div>
-                    <!--Acc End-->
-            </div>  
-            <div data-options="region:'center',title:'center title'" style="padding:2px;background:#eee;">
-        
-            </div>  
-    
-        </div>  
-
-    </div>  
   
 
 

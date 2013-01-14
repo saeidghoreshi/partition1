@@ -32,3 +32,4 @@ C:\projects\Partitions\partition1\projects\FinalWork\MVC-Mobile\bin\System.Web.W
 C:\projects\Partitions\partition1\projects\FinalWork\MVC-Mobile\bin\System.Web.WebPages.Razor.xml
 C:\projects\Partitions\partition1\projects\FinalWork\MVC-Mobile\obj\Debug\jqm.dll
 C:\projects\Partitions\partition1\projects\FinalWork\MVC-Mobile\obj\Debug\jqm.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\MVC-Mobile\obj\Debug\MVC-Mobile.csprojResolveAssemblyReference.cache

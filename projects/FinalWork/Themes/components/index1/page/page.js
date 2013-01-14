@@ -1,41 +1,94 @@
-﻿(function ($$) {
+﻿var index1Page;
+(function ($$) {
     (function ($) {
 
-        $('#mainLayout').layout();  
+    index1Page=Class.create(
+    {
+        initiatilize:function(config)
+        {
+            var me=this;
+            me.config=config;
+        },
+        initiateLayout:function()
+        {
+            var me=this;
+                $('#mainLayout').layout();  
             
                 $("#breadCrumb0").jBreadCrumb({ easing: 'swing' });
             
                 //Handle Bottom Menu
                 $('.big-menu-strip').sortable({axis: "x"}).disableSelection();
-                $('#new-task').undelegate(this,"click").delegate(this,"click",function()
-                {
-                    this.orgChart = new orgChartVerticalClass({id: 'main-area'});
-                    this.orgChart.newTask();
-                    return false;
-                });
-                $("#view-tasks").undelegate(this,"click").delegate(this,"click",function()
-                {
-                    this.orgChart = new orgChartVerticalClass({id: 'main-area'});
-                    this.orgChart.viewTasks();
-                    this.orgChart.buildUserTasksList();
-                    this.orgChart.handleUserOrgTree();
-                
-                    return false;
-                });
-                $("#my-tasks").undelegate(this,"click").delegate(this,"click",function()
-                {
-                    this.orgChart.myTasks("main-area");
-                    return false;
-                }); 
 
-                var mygmap=new gmap({parentID:"main-area"});
-                mygmap.buildGUI();
+                me.generalHandlers=
+                {
+                    newTask:function()
+                    {   
+                    },
+                    orgsList:function()
+                    {   
+                        me.resetPanel();
+                        verticalOrgChart.loadOrgs("center-area");
+                    },
+                    myTasks:function()
+                    {
+                        
+                    },
+                    mainPage:function()
+                    {   
+                       me.resetPanel();
+                       var mygmap=new gmap({parentID:"center-area"});
+                       $('#tree').tree({
+                            onClick: function (node) {
+                                  var addr = "Tehran";
+                          
+                                  $("#center-area").gmap3({
+                                    getlatlng:{
+                                      address:  addr,
+                                      callback: function(results){
+                                        if ( !results ) return;
+                                        $(this).gmap3({
+                                           map: {
+                                                options: {
+                                                    mapTypeId: google.maps.MapTypeId.TERRAIN,
+                                                    center:
+                                                    {
+                                                        latLng:[49.253689, -123.111471]
+                                                    },
+                                                    zoom: 12
+                                                }
+                                            },
+                                            marker:{
+                                                values: [
+                                                  {
+                                                        latLng:[49.253689, -123.111471], data:"", options:{icon: "../../Components/index1/page/img/gmap_pin_grey.png"} 
+                                                  }
 
-                
-                
+
+                                                ]
+                                             }//Markers
+
+                                  
+                                        });
+                                      }
+                                    }
+                                  });
+                            }
+                        }); 
+                    }    
+                }
+         },//initialize End0
+         resetPanel:function()
+         {
+                var parentID=$("#center-area").parent().attr("id");
+                $("#center-area").remove();
+                $centerArea=$("<div id='center-area'></div>");
+                $centerArea.css({height:"100%",'text-align':'center'});
+                $('#'+parentID).append($centerArea);
+         }
+    });         
         
     } (jQuery));
 } (Prototype));
 
-
-﻿
+var index1PageIns=new index1Page();
+index1PageIns.initiateLayout();

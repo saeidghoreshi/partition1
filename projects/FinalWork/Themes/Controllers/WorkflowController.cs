@@ -529,6 +529,7 @@ namespace MvcApplication1.Controllers
                         id = dt.Rows[i][0].ToString(),
                         parentId = dt.Rows[i][1].ToString(),
                         text = dt.Rows[i][2].ToString(),
+                        title = dt.Rows[i][2].ToString(),
                         state = "",//closed
                         iconCls="",
                         children = new List<dynamic>()
@@ -553,6 +554,7 @@ namespace MvcApplication1.Controllers
                         id = dt.Rows[j][0].ToString(),
                         parentId = dt.Rows[j][1].ToString(),
                         text = dt.Rows[j][2].ToString(),
+                        title = dt.Rows[j][2].ToString(),
                         state = "",
                         iconCls = "",
                         children = new List<dynamic>()
