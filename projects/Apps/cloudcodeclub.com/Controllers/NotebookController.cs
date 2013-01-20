@@ -26,6 +26,7 @@ namespace MvcApplication1.Controllers
             return View();
         }
 
+        //tik
         [HttpPost]
         public JsonResult json_getFolderingForm()
         {
@@ -39,12 +40,14 @@ namespace MvcApplication1.Controllers
             
             return Json(new { result = html }, JsonRequestBehavior.AllowGet);
         }
+
+        //tik
         public JsonResult json_getDocumentorACLForm()
         {
             var html = this.getPureView("foldering/enterkeyword");
             return Json(new { result = html }, JsonRequestBehavior.AllowGet);
         }
-        
+        //tik
         public JsonResult json_getTopicDetailsForm()
         {
             var html = this.getPureView("foldering/folderingDetails");
@@ -60,7 +63,7 @@ namespace MvcApplication1.Controllers
             return Json(new { result = dt.Rows[0][0].ToString() });
         }
 
-        
+        //tik
         public JsonResult json_getTopics()
         {
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhostConnection"].ConnectionString);
@@ -119,6 +122,7 @@ namespace MvcApplication1.Controllers
                 Rec(node.children[j], dt);
         }
         
+        //tik
         [HttpPost]
         public JsonResult json_saveSelectedTopic() 
         {
@@ -165,6 +169,7 @@ namespace MvcApplication1.Controllers
         }
 
         //create new non-root or node 
+        //tik
         [HttpPost]
         public JsonResult json_createNewTopic() 
         {

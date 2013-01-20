@@ -19,7 +19,7 @@
                                 { 
                                     map: {
                                         options: {
-                                            mapTypeId: google.maps.MapTypeId.TERRAIN,
+                                            mapTypeId: google.maps.MapTypeId.SATELLITE ,
                                             center:
                                             {
                                                 latLng:[48.764110, 2.346169], data:"", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}
@@ -114,7 +114,7 @@
                 var myOptions = {
                     center: new google.maps.LatLng(49.25593, -123.128242),
                     zoom: 5,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                    mapTypeId: google.maps.MapTypeId.SATELLITE
                 };
                 me.maps = new google.maps.Map(document.getElementById(me.config.parentID), myOptions);
 

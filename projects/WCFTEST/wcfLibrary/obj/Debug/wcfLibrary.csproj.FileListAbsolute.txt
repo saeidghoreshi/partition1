@@ -9,3 +9,4 @@ C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\bin\Debug\wcfLibra
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\bin\Debug\wcfLibrary.pdb
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.dll
 C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.pdb
+C:\projects\Partitions\partition1\projects\WCFTEST\wcfLibrary\obj\Debug\wcfLibrary.csprojResolveAssemblyReference.cache

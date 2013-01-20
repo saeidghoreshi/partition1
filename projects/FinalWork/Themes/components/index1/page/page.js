@@ -36,8 +36,11 @@
                     },
                     mainPage:function()
                     {   
+                       //reset the main Placeholder
                        me.resetPanel();
+                       //load Goolemap
                        var mygmap=new gmap({parentID:"center-area"});
+                       //Load Tree in the left side
                        $('#tree').tree({
                             onClick: function (node) {
                                   var addr = "Tehran";
@@ -50,12 +53,12 @@
                                         $(this).gmap3({
                                            map: {
                                                 options: {
-                                                    mapTypeId: google.maps.MapTypeId.TERRAIN,
+                                                    mapTypeId: google.maps.MapTypeId.SATELLITE,
                                                     center:
                                                     {
                                                         latLng:[49.253689, -123.111471]
                                                     },
-                                                    zoom: 12
+                                                    zoom: 13
                                                 }
                                             },
                                             marker:{

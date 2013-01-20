@@ -1,0 +1,711 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0535C597-CB6A-454A-B027-5C889AA2AAA5}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>realestateweb</RootNamespace>
+    <AssemblyName>realestateweb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\..\..\..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientSideLibraries\helper.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\easyloader.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\jquery.easyui.min.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-af.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-bg.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-ca.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-cs.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-cz.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-da.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-de.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-en.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-es.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-fr.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-it.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-nl.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-pt_BR.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-ru.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-tr.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-zh_CN.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-zh_TW.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.accordion.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.calendar.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.combo.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.combobox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.combogrid.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.combotree.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.datagrid.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.datebox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.datetimebox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.dialog.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.draggable.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.droppable.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.form.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.layout.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.linkbutton.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.menu.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.menubutton.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.messager.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.numberbox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.numberspinner.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.pagination.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.panel.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.parser.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.progressbar.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.propertygrid.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.resizable.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.searchbox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.slider.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.spinner.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.splitbutton.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.tabs.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.timespinner.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.tree.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.treegrid.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.validatebox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\plugins\jquery.window.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\easyloader.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.accordion.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.calendar.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.combobox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.datebox.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.draggable.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.droppable.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.form.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.linkbutton.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.menu.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.parser.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.progressbar.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.propertygrid.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.resizable.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.slider.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.tabs.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\src\jquery.window.js" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\accordion.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\calendar.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\combo.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\combobox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\datagrid.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\datebox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\dialog.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\easyui.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\accordion_collapse.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\accordion_expand.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\blank.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\button_a_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\button_plain_hover.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\button_span_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\calendar_nextmonth.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\calendar_nextyear.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\calendar_prevmonth.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\calendar_prevyear.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\combo_arrow.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datagrid_header_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datagrid_row_collapse.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datagrid_row_expand.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datagrid_sort_asc.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datagrid_sort_desc.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datagrid_title_bg.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\datebox_arrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\layout_arrows.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\menu.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\menu_downarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\menu_rightarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\menu_sep.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\menu_split_downarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\messager_error.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\messager_info.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\messager_question.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\messager_warning.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\pagination_first.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\pagination_last.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\pagination_load.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\pagination_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\pagination_next.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\pagination_prev.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\panel_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\panel_title.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\panel_tools.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\searchbox_button.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\slider_handle.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\spinner_arrow_down.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\spinner_arrow_up.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tabs_active.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tabs_close.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tabs_enabled.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tabs_leftarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tabs_rightarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_arrows.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_checkbox_0.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_checkbox_1.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_checkbox_2.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_dnd_no.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_dnd_yes.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_elbow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_file.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_folder.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_folder_open.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\tree_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\validatebox_pointer.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\images\validatebox_warning.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\layout.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\linkbutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\menu.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\menubutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\messager.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\pagination.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\panel.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\progressbar.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\propertygrid.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\searchbox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\slider.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\spinner.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\splitbutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\tabs.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\tree.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\validatebox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\default\window.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\accordion.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\calendar.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\combo.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\combobox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\datagrid.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\datebox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\dialog.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\easyui.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\accordion_collapse.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\accordion_expand.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\blank.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\button_a_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\button_plain_hover.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\button_span_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\calendar_nextmonth.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\calendar_nextyear.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\calendar_prevmonth.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\calendar_prevyear.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\combo_arrow.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datagrid_header_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datagrid_row_collapse.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datagrid_row_expand.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datagrid_sort_asc.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datagrid_sort_desc.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datagrid_title_bg.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\datebox_arrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\layout_arrows.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\menu.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\menu_downarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\menu_rightarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\menu_sep.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\menu_split_downarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\messager_error.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\messager_info.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\messager_question.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\messager_warning.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\pagination_first.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\pagination_last.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\pagination_load.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\pagination_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\pagination_next.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\pagination_prev.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\panel_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\panel_title.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\panel_tools.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\searchbox_button.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\slider_handle.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\spinner_arrow_down.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\spinner_arrow_up.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tabs_close.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tabs_enabled.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tabs_leftarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tabs_rightarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_arrows.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_checkbox_0.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_checkbox_1.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_checkbox_2.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_dnd_no.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_dnd_yes.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_elbow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_file.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_folder.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_folder_open.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\tree_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\validatebox_pointer.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\images\validatebox_warning.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\layout.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\linkbutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\menu.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\menubutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\messager.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\pagination.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\panel.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\progressbar.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\propertygrid.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\searchbox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\slider.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\spinner.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\splitbutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\tabs.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\tree.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\validatebox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\gray\window.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icon.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\back.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\blank.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\cancel.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\cut.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\edit_add.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\edit_remove.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\filesave.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\help.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\list.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\mini_add.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\mini_edit.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\mini_refresh.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\no.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\ok.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\pencil.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\print.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\redo.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\reload.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\search.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\settings.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\sum.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\tip.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\icons\undo.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\accordion.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\calendar.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\combo.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\combobox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\datagrid.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\datebox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\dialog.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\easyui.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\accordion_collapse.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\accordion_expand.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\blank.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\calendar_nextmonth.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\calendar_nextyear.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\calendar_prevmonth.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\calendar_prevyear.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\combo_arrow.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\datagrid_row_collapse.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\datagrid_row_expand.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\datagrid_sort_asc.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\datagrid_sort_desc.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\datebox_arrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\layout_arrows.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\menu_downarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\menu_rightarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\menu_sep.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\menu_split_downarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\messager_error.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\messager_info.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\messager_question.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\messager_warning.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\pagination_first.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\pagination_last.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\pagination_load.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\pagination_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\pagination_next.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\pagination_prev.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\panel_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\panel_tools.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\searchbox_button.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\slider_handle.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tabs_close.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tabs_leftarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tabs_rightarrow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_arrows.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_checkbox_0.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_checkbox_1.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_checkbox_2.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_dnd_no.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_dnd_yes.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_elbow.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_file.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_folder.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_folder_open.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\tree_loading.gif" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\images\validatebox_warning.png" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\layout.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\linkbutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\menu.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\menubutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\messager.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\pagination.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\panel.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\progressbar.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\propertygrid.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\searchbox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\slider.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\splitbutton.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\tabs.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\tree.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\validatebox.css" />
+    <Content Include="ClientSideLibraries\JQeasyui\themes\metro\window.css" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\jquery-ui-1.9.2.custom.css" />
+    <Content Include="ClientSideLibraries\JQUI\base-ui\jquery-ui-1.9.2.custom.min.css" />
+    <Content Include="ClientSideLibraries\JQUI\jquery-1.8.3.js" />
+    <Content Include="ClientSideLibraries\JQUI\jquery-ui-1.9.2.custom.js" />
+    <Content Include="ClientSideLibraries\JQUI\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="ClientSideLibraries\JQUI\Note.txt" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-icons_222222_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-icons_454545_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-icons_888888_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\jquery.ui.all.css" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\jquery.ui.base.css" />
+    <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\jquery.ui.theme.css" />
+    <Content Include="ClientSideLibraries\plugins\ajaxForm\jquery.form.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\ckeditor.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\config.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\contents.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\af.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ar.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\bg.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\bn.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\bs.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ca.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\cs.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\cy.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\da.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\de.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\el.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\en-au.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\en-ca.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\en-gb.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\en.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\eo.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\es.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\et.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\eu.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\fa.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\fi.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\fo.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\fr-ca.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\fr.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\gl.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\gu.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\he.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\hi.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\hr.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\hu.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\is.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\it.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ja.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ka.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\km.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ko.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ku.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\lt.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\lv.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\mk.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\mn.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ms.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\nb.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\nl.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\no.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\pl.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\pt-br.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\pt.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ro.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ru.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\sk.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\sl.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\sr-latn.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\sr.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\sv.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\th.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\tr.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\ug.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\uk.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\vi.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\zh-cn.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\lang\zh.js" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\dialog.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\dialog_ie.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\dialog_ie7.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\dialog_ie8.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\dialog_opera.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\editor.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\editor_gecko.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\editor_ie.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\editor_ie7.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\editor_ie8.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\editor_iequirks.css" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\icons.png" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\images\arrow.png" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\images\close.png" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\images\mini.png" />
+    <Content Include="ClientSideLibraries\plugins\ckEditor\styles.js" />
+    <Content Include="ClientSideLibraries\plugins\Gmapv3\gmap3.js" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\Images\Chevron.gif" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\Images\IconHome.gif" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\js\jquery.easing.1.3.js" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\js\jquery.jBreadCrumb.1.1.js" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\ref.txt" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\Styles\Base.css" />
+    <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\Styles\BreadCrumb.css" />
+    <Content Include="ClientSideLibraries\plugins\jScrollPane\jquery.jscrollpane.css" />
+    <Content Include="ClientSideLibraries\plugins\jScrollPane\jquery.jscrollpane.min.js" />
+    <Content Include="ClientSideLibraries\plugins\jScrollPane\jquery.mousewheel.js" />
+    <Content Include="ClientSideLibraries\plugins\tipsy\img\arrow-left.png" />
+    <Content Include="ClientSideLibraries\plugins\tipsy\img\arrow-up.png" />
+    <Content Include="ClientSideLibraries\plugins\tipsy\jquery.tipsy.js" />
+    <Content Include="ClientSideLibraries\plugins\tipsy\ref.txt" />
+    <Content Include="ClientSideLibraries\plugins\tipsy\tipsy.css" />
+    <Content Include="ClientSideLibraries\plugins\UImask\jquery.loadmask.css" />
+    <Content Include="ClientSideLibraries\plugins\UImask\jquery.loadmask.min.js" />
+    <Content Include="ClientSideLibraries\plugins\UImask\loading.gif" />
+    <Content Include="ClientSideLibraries\plugins\vchart\Note.txt" />
+    <Content Include="ClientSideLibraries\plugins\vchart\lib_gg_orgchart_v04.js" />
+    <Content Include="ClientSideLibraries\raphael-min.js" />
+    <Content Include="ClientSideLibraries\prototype-1.7.7.0.js" />
+    <Content Include="Components\master\page.css" />
+    <Content Include="Components\master\page.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Master.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Components\index1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClientSideLibraries\JQeasyui\themes\default\images\Thumbs.db" />
+    <None Include="ClientSideLibraries\JQeasyui\themes\gray\images\Thumbs.db" />
+    <None Include="ClientSideLibraries\plugins\ckEditor\skins\moono\readme.md" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2656</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -12,7 +12,7 @@
 } (Prototype));
 
 //upload Script
-YAHOO.util.Get.script(["http://localhost:91/ClientSideLibraries/JQUI/jquery-1.8.3.js", "http://malsup.github.com/jquery.form.js"],
+YAHOO.util.Get.script(["http://localhost:91/ClientSideLibraries/JQUI/jquery-1.8.3.js", "../../../JSplugins/ajaxForm/jquery.form.js"],
     { onSuccess: function () {
 
         //the whole block need to be out of any scope if not work then move iit to html code  section
@@ -30,9 +30,11 @@ YAHOO.util.Get.script(["http://localhost:91/ClientSideLibraries/JQUI/jquery-1.8.
                 percent.html(percentVal);
             },
             complete: function (xhr) {
+
                 percent.html("completed");
+                percent.append(xhr.responseText);
             }
         });
 
-    } 
+    }
     });

@@ -190,6 +190,7 @@
     <Content Include="ClientSideLibraries\draw2D\moocanvas.js" />
     <Content Include="ClientSideLibraries\draw2D\mootools.js" />
     <Content Include="ClientSideLibraries\draw2D\wz_jsgraphics.js" />
+    <Content Include="ClientSideLibraries\helper.js" />
     <Content Include="ClientSideLibraries\JQeasyui\easyloader.js" />
     <Content Include="ClientSideLibraries\JQeasyui\jquery.easyui.min.js" />
     <Content Include="ClientSideLibraries\JQeasyui\locale\easyui-lang-af.js" />

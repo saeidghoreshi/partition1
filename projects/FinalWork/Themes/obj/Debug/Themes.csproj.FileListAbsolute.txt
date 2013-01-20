@@ -31,3 +31,11 @@ C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPa
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\System.Web.WebPages.Razor.xml
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.dll
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.Views.old.permission.loginForm.en.resources
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.Views.old.permission.loginForm.fr.resources
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.csproj.GenerateResource.Cache
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\en\Themes.resources.dll
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\fr\Themes.resources.dll
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\en\Themes.resources.dll
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\fr\Themes.resources.dll

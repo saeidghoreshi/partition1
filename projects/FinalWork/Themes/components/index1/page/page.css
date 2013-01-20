@@ -133,3 +133,14 @@
   			width: 66px;
   			height: 65px;
       }
+      
+      
+/*Extra Form Adjustment*/
+#tsk-inner-center 
+{
+    width:100% !important;              
+}
+#mainLayout2 .layout-panel-center
+{
+    width:100% !important;              
+}
