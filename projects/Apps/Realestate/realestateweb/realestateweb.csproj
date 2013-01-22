@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -165,6 +166,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\classes.cs" />
+    <Compile Include="Models\DB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -645,6 +648,12 @@
     <Content Include="ClientSideLibraries\plugins\vchart\lib_gg_orgchart_v04.js" />
     <Content Include="ClientSideLibraries\raphael-min.js" />
     <Content Include="ClientSideLibraries\prototype-1.7.7.0.js" />
+    <Content Include="Components\index1\img\gmap_pin.png" />
+    <Content Include="Components\index1\img\gmap_pin_grey.png" />
+    <Content Include="Components\index1\img\gmap_pin_orange.png" />
+    <Content Include="Components\index1\mapHandler.js" />
+    <Content Include="Components\index1\page.css" />
+    <Content Include="Components\index1\page.js" />
     <Content Include="Components\master\page.css" />
     <Content Include="Components\master\page.js" />
     <Content Include="favicon.ico" />
@@ -663,7 +672,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Components\index1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -672,6 +680,9 @@
     <None Include="ClientSideLibraries\JQeasyui\themes\default\images\Thumbs.db" />
     <None Include="ClientSideLibraries\JQeasyui\themes\gray\images\Thumbs.db" />
     <None Include="ClientSideLibraries\plugins\ckEditor\skins\moono\readme.md" />
+    <Content Include="Views\Home\Index1\center.cshtml" />
+    <Content Include="Views\Home\Index1\menu.cshtml" />
+    <Content Include="Views\Home\Index1\listings.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,17 @@
+﻿#listings ul li
+{
+    height:50px;
+    width:235px;
+    margin:1px;
+    padding:1px;
+    border:1px solid #666;
+    background: #eee;
+    list-style-type:none;
+    color:Red;
+}
+#listings ul
+{   
+    padding: 0px !important;
+    cursor:pointer;
+    margin: 0px;
+}
