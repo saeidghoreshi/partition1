@@ -656,6 +656,7 @@
     <Content Include="Components\index1\page.js" />
     <Content Include="Components\master\page.css" />
     <Content Include="Components\master\page.js" />
+    <Content Include="db.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />

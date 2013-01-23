@@ -617,7 +617,7 @@
     <Content Include="Components\NEW\rightTabsComponent\images\slider.PNG" />
     <Content Include="Components\NEW\rightTabsComponent\images\uploader.PNG" />
     <Content Include="Components\NEW\rightTabsComponent\js\rightTabsController.js" />
-    <Content Include="Components\NEW\slider\css\dataViewSliderCss.css" />
+    <Content Include="Components\NEW\slider\dataViewSliderCss.css" />
     <Content Include="Components\NEW\slider\images\icon-2.png" />
     <Content Include="Components\NEW\slider\images\icon-3.png" />
     <Content Include="Components\NEW\slider\images\icon.png" />
@@ -627,7 +627,7 @@
     <Content Include="Components\NEW\slider\images\slider-nav-img\slider-nav-top.png" />
     <Content Include="Components\NEW\slider\images\tip\arrow_left.png" />
     <Content Include="Components\NEW\slider\images\tip\bg.png" />
-    <Content Include="Components\NEW\slider\js\dataViewSlider.js" />
+    <Content Include="Components\NEW\slider\dataViewSlider.js" />
     <Content Include="Components\NEW\Tabs\css\tabsCss.css" />
     <Content Include="Components\NEW\Tabs\js\tabsModule.js" />
     <Content Include="Components\NEW\testExtjs\images\female.png" />

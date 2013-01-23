@@ -1,8 +1,44 @@
-﻿<div id="listings">
-<ul>
-@foreach (var item in ViewBag.data)
+﻿<div id='scrollerContainer' style="width:242px;">
+    <div id="scroll-pane">
+
+    <div id="listings">
+    <ul>
+    @foreach (var item in ViewBag.data)
+    {
+        <li data='{"lat":@item["lat"],"lng":@item["lng"]}'>
+        @item["address"], @item["postalcode"], @item["city"]<br/>
+        @item["status"]<br/>
+        </li>
+    }
+    </ul>
+    </div>
+
+</div></div>
+
+
+<style>
+#scrollerContainer
 {
-    <li>@item["name"]</li>
+    margin-right: 2px;
 }
-</ul>
-</div>
+#scroll-pane
+{
+	width: 100%;
+	height: 760px;
+	overflow: auto;
+}			
+</style>
+
+
+<script>
+(function ($$) {
+    (function ($) {
+
+        //scroller Pane
+        $('#scroll-pane').ready(function () {
+            $('#scroll-pane').jScrollPane();
+        });
+
+    } (jQuery));
+} (Prototype));
+</script>
