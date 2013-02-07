@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6BAF8909-4FA4-4354-BAAC-8A0D5056B428}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Accounting</RootNamespace>
     <AssemblyName>Accounting</AssemblyName>
@@ -114,11 +114,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Accounting.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\LightSpeedModel1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LightSpeedModel1.lsmodel</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,13 +128,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Accounting.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\LightSpeedModel1.lsmodel">
-      <Generator>LightSpeedModelGenerator</Generator>
-      <LastGenOutput>LightSpeedModel1.cs</LastGenOutput>
-    </None>
-    <None Include="Models\LightSpeedModel1.lsmodel.diagram">
-      <DependentUpon>LightSpeedModel1.lsmodel</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Documentation\banking.sql" />

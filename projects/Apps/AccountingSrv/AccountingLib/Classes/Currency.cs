@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using AccountingLib.Models;
+using Accounting.Models;
 using accounting.classes.enums;
 
 namespace accounting.classes
@@ -17,7 +17,7 @@ namespace accounting.classes
         {
             using (var ctx = new AccContexts())
                 {
-                    var newCur = new AccountingLib.Models.currency
+                    var newCur = new Accounting.Models.currency
                     {
                         currencyTypeID = currencyTypeID,
                         name = CurrencyName

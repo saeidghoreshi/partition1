@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="M8BUTZ+C6xk4X/D+a9cLxO7p6ic=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Isk4u01dID8rn7gv86olvWrZlqo=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAccountingV1">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IAccountingV1" contract="ServiceReference1.IAccountingV1" bindingType="basicHttpBinding" address="http://localhost:2912/srv.svc/I1" bindingConfiguration="BasicHttpBinding_IAccountingV1">
+    <endpoint name="BasicHttpBinding_IAccountingV1" contract="ServiceReference1.IAccountingV1" bindingType="basicHttpBinding" address="http://localhost:555/srv.svc/I1" bindingConfiguration="BasicHttpBinding_IAccountingV1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:2912/srv.svc/I1</serializedValue>
+          <serializedValue>http://localhost:555/srv.svc/I1</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

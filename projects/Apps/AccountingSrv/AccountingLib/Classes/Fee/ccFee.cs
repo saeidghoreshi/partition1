@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AccountingLib.Models;
+using Accounting.Models;
 
 namespace accounting.classes
 {
@@ -16,7 +16,7 @@ namespace accounting.classes
 
         public void createNew(int bankID, decimal amount, string description, int ccCardTypeID)
         {
-            using (var ctx = new AccountingLib.Models.AccContexts())
+            using (var ctx = new Accounting.Models.AccContexts())
             {
                 var existingFee = ctx.ccFee
                     .Where(x => x.ccCardTypeID == ccCardTypeID && x.bankID == bankID).SingleOrDefault();
@@ -27,7 +27,7 @@ namespace accounting.classes
                     ctx.SaveChanges();
                 }
 
-                var _ccFee = new AccountingLib.Models.ccFee()
+                var _ccFee = new Accounting.Models.ccFee()
                 {
                     bankID = (int)bankID,
                     ccCardTypeID = (int)ccCardTypeID,

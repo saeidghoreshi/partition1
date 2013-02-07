@@ -1,0 +1,102 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace dbLayer
+{
+    public class sqlServerPar
+    {
+        public string name;
+        public SqlDbType dbType;
+        public dynamic value;
+    }
+    //sqlserver Class
+    public class sqlServer
+    {
+        readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
+        private SqlConnection conn;
+        private string connstring;
+
+        public sqlServer()
+        {
+            this.connstring = connString;
+        }
+
+        public SqlConnection sqlconnection
+        {
+            get { return this.conn; }
+            set { this.conn = value; }
+        }
+
+        public DataSet query(string query)
+        {
+            using (this.sqlconnection = new SqlConnection(this.connstring))
+            {
+                this.sqlconnection.Open();
+                SqlTransaction trans = this.conn.BeginTransaction();
+                try
+                {   
+                    SqlDataAdapter da = new SqlDataAdapter(query, this.conn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    trans.Commit();
+                    conn.Close();
+                    return ds;
+                }
+                catch (Exception ex)
+                {
+                    try
+                    {
+                        if (this.sqlconnection.State != ConnectionState.Open)
+                        {
+                            trans.Rollback();
+                            throw new Exception("Connection Is Not Open" + ex.Message);
+                        }
+                    }
+                    catch (Exception ex1)
+                    {
+                        throw new Exception("Connection Is Not Open" + ex1.Message);
+                    }
+                    return (DataSet)null;
+                }
+                finally
+                {
+                    if (this.sqlconnection.State != ConnectionState.Open)
+                        this.conn.Close();
+                }
+            }
+        }
+
+        public DataSet storedProc(string spName, List<sqlServerPar> pars)
+        {
+            string connectionString = this.connstring;
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand spcmd = new SqlCommand(spName, con))
+                {
+                    spcmd.CommandType = CommandType.StoredProcedure;
+
+                    foreach (var item in pars)
+                    {
+                        SqlParameter newPar = new SqlParameter("@" + item.name, item.dbType);
+                        newPar.Value = item.value;
+                        spcmd.Parameters.Add(newPar);
+                    }
+
+                    using (SqlDataAdapter a = new SqlDataAdapter(spcmd))
+                    {
+                        DataSet ds = new DataSet();
+                        a.Fill(ds);
+                        return ds;
+                    }
+                }
+            }
+        }
+
+    }
+}

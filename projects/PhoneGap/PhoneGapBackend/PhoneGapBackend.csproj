@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -143,7 +144,9 @@
     <Content Include="Views\home\page3.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\phonegapbackend - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\phonegapbackend - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\phonegapbackend - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\phonegapbackend - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>

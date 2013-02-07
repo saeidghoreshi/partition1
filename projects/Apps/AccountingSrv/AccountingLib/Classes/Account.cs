@@ -5,13 +5,13 @@ using System.Text;
 
 using accounting.classes;
 using accounting.classes.enums;
-using AccountingLib.Models;
+using Accounting.Models;
 
 namespace accounting.classes
 {   
     public abstract class Account
     {
-        public static AccountingLib.Models.account getAccount(int entityID, int catTypeID, int currencyID)
+        public static Accounting.Models.account getAccount(int entityID, int catTypeID, int currencyID)
         {
             using (var ctx = new AccContexts())
             {

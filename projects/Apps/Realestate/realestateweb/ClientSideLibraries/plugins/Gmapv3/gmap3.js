@@ -345,6 +345,8 @@
     
     defaults.classes.OverlayView.call(this);
     this.setMap(map);
+
+    
     
     this.onAdd = function() {
         var panes = this.getPanes();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes.enums;
-using AccountingLib.Models;
+using Accounting.Models;
 using System.Transactions;
 
 namespace accounting.classes
@@ -29,7 +29,7 @@ namespace accounting.classes
             {
                 base.createNew(payerEntityID, payeeEntityID, amount, currencyID, cardID, (int)enums.extPaymentType.InteracPayment);
 
-                var _dbPayment = new AccountingLib.Models.dbPayment()
+                var _dbPayment = new Accounting.Models.dbPayment()
                 {
                     extPaymentID = base.extPaymentID
                 };

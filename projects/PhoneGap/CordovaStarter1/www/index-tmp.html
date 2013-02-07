@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License. 
+-->
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+
+    <title>Cordova WP7</title>
+
+	  <!--link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title" charset="utf-8"/-->
+
+      <!--PhoneGap-->
+      <link rel="stylesheet" href="jQuery/jquery.mobile-1.2.0.css" type="text/css" media="screen" />
+      <script type="text/javascript" src="jQuery/jquery-1.8.3.js"></script>
+      <script type="text/javascript" src="jQuery/jquery.mobile-1.2.0.js"></script>
+
+      <script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+
+
+     
+      <script type="text/javascript">
+          function loadPage() {
+
+              //$.get("http://localhost:90/home/index", function (data) {
+            $.ajax(
+            {
+                //To make the remote access activated you need to enable it in remote host configuration
+                url: "http://phonegapbackend.azurewebsites.net/home/index",
+                datatype: "jsonp",
+
+                success: function (data, status) {
+                    //$("#tweets_list").listview('refresh');
+                    $('body').append(data);
+                    $("#newpage").live('pageshow', function () {
+
+                        var personname = window.localStorage.getItem('name');
+                        if (personname !== null && personname.length > 0)
+                            $('#name').val(personname);
+                    });
+
+                    $("#saveBtn").click(function () {
+                        window.localStorage.setItem("name", $("#name").val());
+                        $.mobile.changePage('#home', { reverse: false, changeHash: false });
+                    });
+                   
+                },
+                error: function (data) {
+                    $('#footer').html(data);
+                }
+            });
+          }
+
+      </script>
+      
+  </head>
+  <body>
+
+      <!--Main Page-->
+      <div id="home" data-role="page">
+      <div data-role="header">
+
+      <a href="#pageList" data-icon="home" >ViewList</a>
+      <h1>Header</h1>
+      <a href="#page3" data-icon="Dialog" id="testBtn">Test</a>
+
+      </div>
+      <div data-role="content">
+      <h1>content</h1>
+      <a href="#newpage" data-role="button" id="newpage">New Page</a>
+      </div>
+      <div data-role="footer" id="footer" data-position="fixed">
+      <h1>footer</h1>
+      </div>
+      </div>
+    
+  </body>
+
+
+
+</html>
+
+

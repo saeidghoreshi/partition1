@@ -97,22 +97,49 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CordovaSourceDictionary.xml" />
+    <Resource Include="www\css\images\ajax-loader.png" />
+    <Resource Include="www\css\images\icons-18-black.png" />
+    <Resource Include="www\css\images\icons-18-white.png" />
+    <Resource Include="www\css\images\icons-36-black.png" />
+    <Resource Include="www\css\images\icons-36-white.png" />
+    <Content Include="www\css\jquery.mobile-1.0rc1.min.css" />
+    <Content Include="www\css\styles.css" />
+    <Content Include="www\employeedetails.html" />
+    <Content Include="www\index.html" />
+    <Content Include="www\js\cordova-2.2.0.js" />
+    <Content Include="www\js\employeedetails.js" />
+    <Content Include="www\js\employeelist.js" />
+    <Content Include="www\js\jquery.js" />
+    <Content Include="www\js\jquery.mobile-1.0rc1.min.js" />
+    <Content Include="www\js\reportlist.js" />
+    <Resource Include="www\pics\amy_jones.jpg" />
+    <Resource Include="www\pics\eugene_lee.jpg" />
+    <Resource Include="www\pics\gary_donovan.jpg" />
+    <Resource Include="www\pics\james_king.jpg" />
+    <Resource Include="www\pics\john_williams.jpg" />
+    <Resource Include="www\pics\julie_taylor.jpg" />
+    <Resource Include="www\pics\kathleen_byrne.jpg" />
+    <Resource Include="www\pics\lisa_wong.jpg" />
+    <Resource Include="www\pics\paula_gates.jpg" />
+    <Resource Include="www\pics\paul_jones.jpg" />
+    <Resource Include="www\pics\ray_moore.jpg" />
+    <Resource Include="www\pics\steven_wells.jpg" />
+    <Content Include="www\reportlist.html" />
     <Resource Include="www\jQuery\images\ajax-loader.gif" />
     <Resource Include="www\jQuery\images\icons-18-black.png" />
     <Resource Include="www\jQuery\images\icons-18-white.png" />
     <Resource Include="www\jQuery\images\icons-36-black.png" />
     <Resource Include="www\jQuery\images\icons-36-white.png" />
+    <Content Include="www\config.xml" />
     <Content Include="www\jQuery\jquery-1.8.3.js" />
     <Content Include="www\jQuery\jquery.mobile-1.2.0.css" />
     <Content Include="www\jQuery\jquery.mobile-1.2.0.js" />
     <Content Include="www\jQuery\jquery.mobile.structure-1.2.0.css" />
     <None Include="BuildManifestProcessor.js" />
     <Content Include="GapLib\WP7CordovaClassLib.dll" />
-    <Content Include="www\cordova-1.9.0.js" />
-    <Content Include="www\index.html">
+    <Content Include="www\index-tmp.html">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="www\master.css" />
     <None Include="cordova\debug.bat" />
     <None Include="cordova\emulate.bat" />
     <None Include="Properties\AppManifest.xml">

@@ -24,8 +24,8 @@ namespace realestateweb.Controllers
         public ActionResult getListings() 
         {
             sqlServer db = new sqlServer(connString);
-            var listings = db.fetch("exec realestate.getListings").Tables[0];
-            ViewBag.data = listings.AsEnumerable() ;
+            var listings = db.fetch("exec realestate.getListings").Tables[0].AsEnumerable();
+            ViewBag.data = listings;
             return PartialView("index1/listings");
         }
 

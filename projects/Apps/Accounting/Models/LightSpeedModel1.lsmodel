@@ -1,2 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<model xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" name="LightSpeedModel1" targetNamespace="Accounting.Models" databaseProvider="SqlServer2005" connectionString="Data Source=s06.winhost.com;Initial Catalog=DB_40114_codeclub;Persist Security Info=True;User ID=DB_40114_codeclub_user;Password=p0$31d0n;Pooling=False;Encrypt=True" pluralizedInDatabase="false" mediumTrustCompatibility="false" xmlns="http://namespaces.mindscape.co.nz/lightspeed" />

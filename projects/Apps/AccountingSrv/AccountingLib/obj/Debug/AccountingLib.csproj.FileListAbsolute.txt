@@ -3,6 +3,3 @@ C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\bin\
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\obj\Debug\AccountingLib.dll
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\obj\Debug\AccountingLib.pdb
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\bin\Debug\AccountingLib.dll.config
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\bin\Debug\EntityFramework.dll
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\bin\Debug\EntityFramework.xml
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingLib\obj\Debug\AccountingLib.csprojResolveAssemblyReference.cache

@@ -17,8 +17,7 @@ namespace Accounting
     {
         static void Main(string[] args)
         {
-            lookupManagement.run1();
-            //lookupManagement.run2();
+            lookupManagement.Scenario1();
           
             Console.WriteLine("Enter to Quit");
             Console.ReadLine();
@@ -27,7 +26,7 @@ namespace Accounting
     
     public class lookupManagement
     {
-        public static void run1()
+        public static void Scenario1()
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
@@ -145,14 +144,6 @@ namespace Accounting
                 inv.cancelInvoicePaymentEXT(4);
 
                 ts.Complete();
-            }
-        }
-        public static void run2()
-        {
-            using (var ctx = new AccContexts())
-            using (var ts = new TransactionScope())
-            {
-                
             }
         }
     }

@@ -56,4 +56,3 @@ C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.T
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\Microsoft.Threading.Tasks.Extensions.Desktop.xml
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.Runtime.xml
 C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\bin\System.Threading.Tasks.xml
-C:\projects\Partitions\partition1\projects\FinalWork\MvcApplication\obj\Debug\MvcApplication.csprojResolveAssemblyReference.cache

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using AccountingLib.Models;
+using Accounting.Models;
 using accounting.classes.bank;
 using System.Transactions;
 
@@ -25,7 +25,7 @@ namespace accounting.classes.bank
             {
                 base.createNew((int)enums.entityType.bank);
 
-                var _newBank = new AccountingLib.Models.bank() 
+                var _newBank = new Accounting.Models.bank() 
                 {
                     name=name
                 };

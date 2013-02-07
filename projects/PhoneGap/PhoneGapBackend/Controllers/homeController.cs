@@ -11,20 +11,18 @@ namespace PhoneGapBackend.Controllers
 
         public string Index()
         {
-            string viewName = "index";
-
-            return this.getPureView(viewName).ToString();
+            return "";
         }
-        public object getPureView(string viewName)
+        public string upload()
         {
-            var sw = new System.IO.StringWriter();
-            var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
-            var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
-            viewResult.View.Render(viewContext, sw);
-            viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
 
-            return sw.GetStringBuilder().ToString();
+            var file = Request.Files["data"];
+
+            //IE messup file.FileName then use your own >> [to cover all browser code like this]
+            //var nameSections = file.FileName.Split(new char[] { '\\' });
+            file.SaveAs(Server.MapPath("../uploads/") + file.FileName);
+            return file.FileName;
+            
         }
-
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using AccountingLib;
-using AccountingLib.Models;
+using Accounting;
+using Accounting.Models;
 using System.Transactions;
 
 namespace accounting.classes
@@ -28,7 +28,7 @@ namespace accounting.classes
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
             {
-                var newCard = new AccountingLib.Models.card()
+                var newCard = new Accounting.Models.card()
                 {
                     cardTypeID = cardTypeID,
                     cardNumber = this.cardNumber,
@@ -43,9 +43,9 @@ namespace accounting.classes
                 ts.Complete();
             }
         }
-        public AccountingLib.Models.bank getBank()
+        public Accounting.Models.bank getBank()
         {
-            using(var ctx=new AccountingLib.Models.AccContexts())
+            using(var ctx=new Accounting.Models.AccContexts())
             {
                 var theBank = ctx.bankCard
                     .Where(x => x.cardID == cardID)

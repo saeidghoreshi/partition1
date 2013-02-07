@@ -27,4 +27,3 @@ C:\projects\Partitions\partition1\projects\PhoneGap\PhoneGapBackend\bin\System.W
 C:\projects\Partitions\partition1\projects\PhoneGap\PhoneGapBackend\bin\System.Web.WebPages.Razor.xml
 C:\projects\Partitions\partition1\projects\PhoneGap\PhoneGapBackend\obj\Debug\PhoneGapBackend.dll
 C:\projects\Partitions\partition1\projects\PhoneGap\PhoneGapBackend\obj\Debug\PhoneGapBackend.pdb
-C:\projects\Partitions\partition1\projects\PhoneGap\PhoneGapBackend\obj\Debug\PhoneGapBackend.csprojResolveAssemblyReference.cache

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AccContexts-Web.config Connection String" description="AccContexts Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/;provider=System.Data.SqlClient;provider connection string=&quot;data source=s06.winhost.com;initial catalog=DB_40114_codeclub;persist security info=True;user id=DB_40114_codeclub_user;password=p0$31d0n;multipleactiveresultsets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\Apps\\AccountingSrv\\AccountingServiceHost\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AccContexts']/@connectionString" />
+  </parameter>
+</parameters>

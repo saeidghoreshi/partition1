@@ -84,6 +84,10 @@
       <Name>AccountingService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\ryanapp1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\ryanapp1 - Web Deploy.pubxml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

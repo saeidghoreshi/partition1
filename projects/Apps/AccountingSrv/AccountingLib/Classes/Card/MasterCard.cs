@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using AccountingLib;
-using AccountingLib.Models;
+using Accounting;
+using Accounting.Models;
 using System.Transactions;
 
 

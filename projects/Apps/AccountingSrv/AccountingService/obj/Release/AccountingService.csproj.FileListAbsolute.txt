@@ -1,0 +1,8 @@
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Release\AccountingService.dll.config
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Release\AccountingService.dll
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Release\AccountingService.pdb
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Release\AccountingLib.dll
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Release\AccountingLib.pdb
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Release\AccountingService.csprojResolveAssemblyReference.cache
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Release\AccountingService.dll
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Release\AccountingService.pdb

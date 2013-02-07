@@ -16,7 +16,7 @@ namespace AccountingServiceClient.ServiceReference1 {
     public interface IAccountingV1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/getInvoiceServicesSumAmt", ReplyAction="http://tempuri.org/IAccountingV1/getInvoiceServicesSumAmtResponse")]
-        string getInvoiceServicesSumAmt();
+        decimal getInvoiceServicesSumAmt();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -46,7 +46,7 @@ namespace AccountingServiceClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string getInvoiceServicesSumAmt() {
+        public decimal getInvoiceServicesSumAmt() {
             return base.Channel.getInvoiceServicesSumAmt();
         }
     }

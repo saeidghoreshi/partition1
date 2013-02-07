@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using AccountingLib.Models;
+using Accounting.Models;
 using accounting.classes.enums;
 
 namespace accounting.classes.subAccounts
@@ -12,7 +12,7 @@ namespace accounting.classes.subAccounts
     {
         public readonly int CATTYPE = OECategories.EXP;
 
-        public AccountingLib.Models.account Create(int ownerEntityId,int currencyID,decimal balance=0)
+        public Accounting.Models.account Create(int ownerEntityId,int currencyID,decimal balance=0)
         {
             using (var ctx = new AccContexts())
             {

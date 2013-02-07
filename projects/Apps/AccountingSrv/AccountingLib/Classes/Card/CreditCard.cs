@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using AccountingLib;
-using AccountingLib.Models;
+using Accounting;
+using Accounting.Models;
 using System.Transactions;
 
 using accounting.classes;
@@ -26,7 +26,7 @@ namespace accounting.classes.card
             {
                 base.createNew((int)enums.cardType.CreditCard);
 
-                var newCCCard = new AccountingLib.Models.ccCard()
+                var newCCCard = new Accounting.Models.ccCard()
                 {
                     cardID = base.cardID,
                     ccCardTypeID = ccCardTypeID

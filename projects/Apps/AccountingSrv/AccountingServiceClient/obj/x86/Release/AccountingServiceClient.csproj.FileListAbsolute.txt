@@ -1,0 +1,1 @@
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceClient\bin\Release\AccountingServiceClient.exe.config

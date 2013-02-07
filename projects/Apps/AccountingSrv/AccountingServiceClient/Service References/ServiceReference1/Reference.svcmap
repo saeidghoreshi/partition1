@@ -18,13 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2912/srv.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:555/srv.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AccountingV1.wsdl" MetadataType="Wsdl" ID="c30b3459-4157-49f6-bd03-43000ea6ca1b" SourceId="1" SourceUrl="http://localhost:2912/srv.svc/Accounting/meta?wsdl" />
-    <MetadataFile FileName="meta.xsd" MetadataType="Schema" ID="0430f74e-3fb9-4ed1-937c-038a94750749" SourceId="1" SourceUrl="http://localhost:2912/srv.svc/Accounting/meta?xsd=xsd1" />
-    <MetadataFile FileName="meta.disco" MetadataType="Disco" ID="faaa7bc2-ead1-4c8a-94f6-90d391419f29" SourceId="1" SourceUrl="http://localhost:2912/srv.svc/Accounting/meta?disco" />
-    <MetadataFile FileName="meta1.xsd" MetadataType="Schema" ID="9c79587d-ddb7-436c-99e3-4c0d5ec07817" SourceId="1" SourceUrl="http://localhost:2912/srv.svc/Accounting/meta?xsd=xsd0" />
+    <MetadataFile FileName="meta1.disco" MetadataType="Disco" ID="09585c3a-596e-4646-880f-9b322fc2c3a4" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?disco" />
+    <MetadataFile FileName="meta3.xsd" MetadataType="Schema" ID="ef84b450-8ca5-4e26-a629-2d82fc3cb250" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd1" />
+    <MetadataFile FileName="AccountingV11.wsdl" MetadataType="Wsdl" ID="cb802b10-e039-41cd-9c53-ba596d30625d" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?wsdl" />
+    <MetadataFile FileName="meta31.xsd" MetadataType="Schema" ID="fcd8bdcd-1139-4e7d-af22-b1a540bb5eb0" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

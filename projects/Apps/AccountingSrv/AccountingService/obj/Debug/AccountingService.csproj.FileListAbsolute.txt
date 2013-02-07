@@ -11,8 +11,8 @@ C:\projects\Partitions\partition1\projects\FinalWork\AccountingService\obj\Debug
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Debug\AccountingService.dll.config
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Debug\AccountingService.dll
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Debug\AccountingService.pdb
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Debug\AccountingService.dll
+C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Debug\AccountingService.pdb
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Debug\AccountingLib.dll
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\bin\Debug\AccountingLib.pdb
 C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Debug\AccountingService.csprojResolveAssemblyReference.cache
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Debug\AccountingService.dll
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingService\obj\Debug\AccountingService.pdb

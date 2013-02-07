@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file is auto-generated, do not edit! -jm -->
 <CordovaSourceDictionary>
+    <FilePath Value="www\css\jquery.mobile-1.0rc1.min.css"/>
+    <FilePath Value="www\css\styles.css"/>
+    <FilePath Value="www\employeedetails.html"/>
+    <FilePath Value="www\index.html"/>
+    <FilePath Value="www\js\cordova-2.2.0.js"/>
+    <FilePath Value="www\js\employeedetails.js"/>
+    <FilePath Value="www\js\employeelist.js"/>
+    <FilePath Value="www\js\jquery.js"/>
+    <FilePath Value="www\js\jquery.mobile-1.0rc1.min.js"/>
+    <FilePath Value="www\js\reportlist.js"/>
+    <FilePath Value="www\reportlist.html"/>
+    <FilePath Value="www\config.xml"/>
     <FilePath Value="www\jQuery\jquery-1.8.3.js"/>
     <FilePath Value="www\jQuery\jquery.mobile-1.2.0.css"/>
     <FilePath Value="www\jQuery\jquery.mobile-1.2.0.js"/>
     <FilePath Value="www\jQuery\jquery.mobile.structure-1.2.0.css"/>
-    <FilePath Value="www\cordova-1.9.0.js"/>
-    <FilePath Value="www\index.html"/>
-    <FilePath Value="www\master.css"/>
+    <FilePath Value="www\index-tmp.html"/>
 </CordovaSourceDictionary>

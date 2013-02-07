@@ -9,7 +9,7 @@ using System.ServiceModel.Web;
 using System.ServiceModel;
 
 
-using AccountingLib.Models;
+using Accounting.Models;
 using accounting.classes;
 
 
@@ -21,24 +21,20 @@ namespace RyanGoreshi
         [DataMember]
         public string name;
     }
-    public class tetsData { }
+    
     [ServiceContract(SessionMode = SessionMode.Allowed)]
     public interface IAccountingV1
     {
-        [WebGet(UriTemplate = "getInvoiceServicesSumAmt", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "getInvoiceSum", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         Invoice getInvoiceServicesSumAmt();
-        
     }
     public class AccountingV1: IAccountingV1
     {
         public Invoice getInvoiceServicesSumAmt()
         {
-            
-                accounting.classes.Invoice x = new accounting.classes.Invoice(1);
-                //return x.getInvoiceServicesSumAmt();
-                return x;
-
+            accounting.classes.Invoice x = new accounting.classes.Invoice(1);
+            return x;
         }
     }
 }

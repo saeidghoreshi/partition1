@@ -3,16 +3,16 @@
 
         var mygmap = new gmap({ parentID: "center-area", imageRoot: "/components/index1/img" });
 
-        jQuery('#listings > ul').sortable({ axis: "y" });
+        $('#listings > ul').sortable({ axis: "y" });
 
-        jQuery('#listings ul li').click(function () {
+        $('#listings ul li').click(function () {
             var data = jQuery(this).attr('data');
             data = jQuery.parseJSON(data);
 
             $('.listings_selected').removeClass('listings_selected');
             $(this).toggleClass('listings_selected');
 
-            jQuery('#center-area').gmap3({
+            $('#center-area').gmap3({
                 map: {
                     options: {
                         mapTypeId: google.maps.MapTypeId.HYBRID,
@@ -32,7 +32,12 @@
                 }//Markers
 
             });
-        });
+           });
+
+
+        
+
+
 
     } (jQuery));
 } (Prototype));
