@@ -16,6 +16,7 @@ namespace accounting.classes
         public int issuerEntityID;
         public int receiverEntityID;
         public int currencyID;
+        public int test;
 
         //Constructors
         public Invoice() { }

@@ -30,6 +30,10 @@ namespace RyanGoreshi
         [WebGet(UriTemplate = "getInvoiceSum", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         Invoice getInvoiceServicesSumAmt();
+
+        [WebGet(UriTemplate = "createInvoice", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        Invoice createinvoice();
         
     }
 
@@ -40,7 +44,10 @@ namespace RyanGoreshi
         {
             accounting.classes.Invoice x = new accounting.classes.Invoice(1);
             return x;
-            
+        }
+        public Invoice createinvoice()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="Documentation\accounting-DB - Nov102012.vsd" />
+    <None Include="Documentation\database-10112012.vsd" />
     <None Include="Documentation\Accounting.docx" />
     <None Include="Documentation\accounting.uml" />
     <None Include="Documentation\accounting.~ml" />
@@ -97,9 +97,9 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Documentation\banking.sql" />
-    <Content Include="Documentation\Report1.sql" />
-    <Content Include="Documentation\test-resetSeed-rollback.txt" />
+    <Content Include="Documentation\test-general-report.sql" />
+    <Content Include="Documentation\test-resetseed-rollback.sql" />
+    <Content Include="testCase.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
