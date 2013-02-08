@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes.enums;
-using Accounting.Models;
+using AccountingLib.Models;
 using System.Transactions;
 
 namespace accounting.classes
@@ -27,7 +27,7 @@ namespace accounting.classes
         {
             using (var ctx = new AccContexts())
             {
-                var _payment = new Accounting.Models.payment()
+                var _payment = new AccountingLib.Models.payment()
                 {
                     payerEntityID=payerEntityID,
                     payeeEntityID=payeeEntityID,
@@ -42,7 +42,7 @@ namespace accounting.classes
             }
         }
 
-        public List<Accounting.Models.transaction> cancelPayment(enums.paymentAction _paymentAction)
+        public List<AccountingLib.Models.transaction> cancelPayment(enums.paymentAction _paymentAction)
         {   
             //First check this payment is able to be cancelled  ************
 
@@ -77,7 +77,7 @@ namespace accounting.classes
                     .ToList();
 
                 //enter and save revered Transactions
-                List<Accounting.Models.transaction> reveresedTransactions = new List<transaction>();
+                List<AccountingLib.Models.transaction> reveresedTransactions = new List<transaction>();
                 foreach (var txn in paymentTransactions)
                     reveresedTransactions.Add(Transaction.createNew((int)txn.ownerEntityID, (int)txn.catTypeID, -1 * (decimal)txn.amount, (int)txn.currencyID));
 

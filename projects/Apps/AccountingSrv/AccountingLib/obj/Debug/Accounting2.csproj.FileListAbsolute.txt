@@ -1,0 +1,5 @@
+C:\projects\Partitions\partition1\projects\Apps\Accounting2\bin\Debug\Accounting2.dll.config
+C:\projects\Partitions\partition1\projects\Apps\Accounting2\bin\Debug\Accounting2.dll
+C:\projects\Partitions\partition1\projects\Apps\Accounting2\bin\Debug\Accounting2.pdb
+C:\projects\Partitions\partition1\projects\Apps\Accounting2\obj\Debug\Accounting2.dll
+C:\projects\Partitions\partition1\projects\Apps\Accounting2\obj\Debug\Accounting2.pdb

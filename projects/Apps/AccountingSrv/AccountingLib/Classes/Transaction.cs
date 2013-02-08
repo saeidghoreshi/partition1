@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using accounting.classes;
 
-using Accounting.Models;
+using AccountingLib.Models;
 
 namespace accounting.classes
 {
     public class Transaction
     {
-        public static Accounting.Models.transaction createNew(int entityID,int catTypeID,decimal amount,int currencyID)
+        public static AccountingLib.Models.transaction createNew(int entityID, int catTypeID, decimal amount, int currencyID)
         {
             using (var ctx = new AccContexts())
             {
-                var newTrans = new Accounting.Models.transaction()
+                var newTrans = new AccountingLib.Models.transaction()
                 {
                     accountID = Account.getAccount(entityID, catTypeID, currencyID).ID,
                     amount = amount

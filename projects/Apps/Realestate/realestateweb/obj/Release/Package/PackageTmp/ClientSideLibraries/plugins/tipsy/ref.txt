@@ -1,0 +1,2 @@
+﻿"/JSPlugins/tipsy/tipsy.css"
+"/JSPlugins/tipsy/jquery.tipsy.js"

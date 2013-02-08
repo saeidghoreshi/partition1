@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Accounting;
-using Accounting.Models;
+using AccountingLib;
+using AccountingLib.Models;
 using accounting.classes.enums;
 using System.Transactions;
 
@@ -15,13 +15,13 @@ namespace accounting.classes
         public int ENTITYID { get { return entityID; } }
 
         public int entityTypeID;
-        public List<Accounting.Models.card> cards;
+        public List<AccountingLib.Models.card> cards;
 
         protected void createNew(int entityTypeID)
         {
             using (var ctx = new AccContexts())
             {
-                var newEntity = new Accounting.Models.entity() 
+                var newEntity = new AccountingLib.Models.entity() 
                 {
                     entityTypeID = entityTypeID
                 };
@@ -40,7 +40,7 @@ namespace accounting.classes
             using (var ctx = new AccContexts())
             {
                 var person = ctx.person.Where(x => x.entityID == entityID).SingleOrDefault();
-                var newEntityCard = new Accounting.Models.entityCard()
+                var newEntityCard = new AccountingLib.Models.entityCard()
                 {
                     entityID = this.ENTITYID,
                     CardID = cardID
@@ -51,7 +51,7 @@ namespace accounting.classes
             }
         }
 
-        public List<Accounting.Models.card> fetchCards()
+        public List<AccountingLib.Models.card> fetchCards()
         {
             using (var ctx = new AccContexts())
             {
@@ -68,17 +68,17 @@ namespace accounting.classes
         protected void addWalletMoney(decimal amount, string title, int currencyID) 
         {
             using(var ts=new TransactionScope())
-            using(var ctx=new Accounting.Models.AccContexts())
+            using(var ctx=new AccountingLib.Models.AccContexts())
             {
                 //Record related transctions
-                List<Accounting.Models.transaction> transactions = new List<transaction>();
+                List<AccountingLib.Models.transaction> transactions = new List<transaction>();
                 var trans1 = Transaction.createNew(this.ENTITYID, (int)AssetCategories.W, +1 * (decimal)amount, currencyID);
                 transactions.Add(trans1);
                 var trans2 = Transaction.createNew(this.ENTITYID, (int)AssetCategories.CCCASH, -1 * (decimal)amount, currencyID);
                 transactions.Add(trans2);
 
                 //Record Wallet entity and walletEntityTransaction
-                var entityWallet = new Accounting.Models.entityWallet() 
+                var entityWallet = new AccountingLib.Models.entityWallet() 
                 {
                     entityID=this.ENTITYID,
                     amount=amount,
@@ -90,7 +90,7 @@ namespace accounting.classes
 
                 foreach(var txn in transactions)
                 {
-                    var entityWalletTxn = new Accounting.Models.entityWalletTransaction()
+                    var entityWalletTxn = new AccountingLib.Models.entityWalletTransaction()
                     {
                         entityWalletID = entityWallet.ID,
                         transactionID = txn.ID

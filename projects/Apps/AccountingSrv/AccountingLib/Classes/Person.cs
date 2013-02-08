@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using Accounting.Models;
+using AccountingLib.Models;
 using accounting.classes.enums;
 using accounting.classes.subAccounts;
 namespace accounting.classes
@@ -26,7 +26,7 @@ namespace accounting.classes
                 if (checkDuplication != null)
                     throw new Exception("Person Duplicated");
 
-                var newPerson = new Accounting.Models.person() 
+                var newPerson = new AccountingLib.Models.person() 
                 {
                     firstName=firstName,
                     lastName=lastName,
@@ -43,9 +43,9 @@ namespace accounting.classes
         }
         
 
-        public List<Accounting.Models.account> createAccounts(int currencyID) 
+        public List<AccountingLib.Models.account> createAccounts(int currencyID) 
         {
-            List<Accounting.Models.account> accounts = new List<account>();
+            List<AccountingLib.Models.account> accounts = new List<account>();
 
             accounts.Add(new APAccount().Create(base.ENTITYID, currencyID));
             accounts.Add(new ARAccount().Create(base.ENTITYID, currencyID));

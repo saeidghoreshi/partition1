@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using Accounting.Models;
+using AccountingLib.Models;
 using accounting.classes.enums;
 
 namespace accounting.classes
@@ -93,7 +93,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.entityType)))
                 {
                     //add its Categories
-                    var newEntityType = new Accounting.Models.entityType()
+                    var newEntityType = new AccountingLib.Models.entityType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.entityType), item),
                        name=item
@@ -118,7 +118,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.officeType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.officeType()
+                    var newType = new AccountingLib.Models.officeType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.officeType), item),
                         name = item
@@ -143,7 +143,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.userType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.userType()
+                    var newType = new AccountingLib.Models.userType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.userType), item),
                         name = item
@@ -168,7 +168,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.sysUserType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.sysUserType()
+                    var newType = new AccountingLib.Models.sysUserType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.sysUserType), item),
                         name = item
@@ -193,7 +193,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.paymentType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.paymentType()
+                    var newType = new AccountingLib.Models.paymentType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.paymentType), item),
                         name = item
@@ -218,7 +218,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.extPaymentType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.extPaymentType()
+                    var newType = new AccountingLib.Models.extPaymentType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.extPaymentType), item),
                         name = item
@@ -243,7 +243,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.ccCardType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.ccCardType()
+                    var newType = new AccountingLib.Models.ccCardType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.ccCardType), item),
                         name = item
@@ -268,7 +268,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.cardType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.cardType()
+                    var newType = new AccountingLib.Models.cardType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.cardType), item),
                         name = item
@@ -293,7 +293,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.invoiceStat)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.invoiceStat()
+                    var newType = new AccountingLib.Models.invoiceStat()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.invoiceStat), item),
                         name = item
@@ -318,7 +318,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.paymentStat)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.paymentStat()
+                    var newType = new AccountingLib.Models.paymentStat()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.paymentStat), item),
                         name = item
@@ -341,7 +341,7 @@ namespace accounting.classes
                 foreach (var item in Enum.GetNames(typeof(classes.enums.currencyType)))
                 {
                     //add its Categories
-                    var newType = new Accounting.Models.currencyType()
+                    var newType = new AccountingLib.Models.currencyType()
                     {
                         ID = (int)Enum.Parse(typeof(classes.enums.currencyType), item),
                         name = item

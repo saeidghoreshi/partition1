@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using accounting.classes;
-using Accounting.Models;
+using AccountingLib.Models;
 using accounting.classes.enums;
 
 namespace accounting.classes
@@ -22,9 +22,9 @@ namespace accounting.classes
                 var giverPerson = ctx.person.Where(x => x.entityID == issuerEntityID).FirstOrDefault();
                 var receiverPerson = ctx.person.Where(x => x.entityID == receiverEntityID).FirstOrDefault();
                 if (receiverPerson == null || giverPerson == null)
-                    throw new Exception("No entities defined"); 
+                    throw new Exception("No entities defined");
 
-                var newService = new Accounting.Models.service()
+                var newService = new AccountingLib.Models.service()
                 {
                     issuerEntityID=issuerEntityID,
                     receiverEntityID=receiverEntityID,
@@ -37,7 +37,7 @@ namespace accounting.classes
                 mapData(newService);
             }
         }
-        public void mapData (Accounting.Models.service service)
+        public void mapData(AccountingLib.Models.service service)
         {
             this.serviceID = service.ID;
             this.receiverEntityID = (int)service.receiverEntityID;

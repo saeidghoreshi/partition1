@@ -9,8 +9,9 @@ using System.ServiceModel.Web;
 using System.ServiceModel;
 
 
-using Accounting.Models;
+using AccountingLib.Models;
 using accounting.classes;
+using System.ServiceModel.Activation;
 
 
 namespace RyanGoreshi
@@ -22,19 +23,24 @@ namespace RyanGoreshi
         public string name;
     }
     
+    
     [ServiceContract(SessionMode = SessionMode.Allowed)]
     public interface IAccountingV1
     {
         [WebGet(UriTemplate = "getInvoiceSum", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         Invoice getInvoiceServicesSumAmt();
+        
     }
+
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class AccountingV1: IAccountingV1
     {
         public Invoice getInvoiceServicesSumAmt()
         {
             accounting.classes.Invoice x = new accounting.classes.Invoice(1);
             return x;
+            
         }
     }
 }
