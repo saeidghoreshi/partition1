@@ -22,7 +22,6 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="meta1.disco" MetadataType="Disco" ID="09585c3a-596e-4646-880f-9b322fc2c3a4" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?disco" />
-    <MetadataFile FileName="meta3.xsd" MetadataType="Schema" ID="ef84b450-8ca5-4e26-a629-2d82fc3cb250" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd1" />
     <MetadataFile FileName="AccountingV11.wsdl" MetadataType="Wsdl" ID="cb802b10-e039-41cd-9c53-ba596d30625d" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?wsdl" />
     <MetadataFile FileName="meta31.xsd" MetadataType="Schema" ID="fcd8bdcd-1139-4e7d-af22-b1a540bb5eb0" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd0" />
   </Metadata>

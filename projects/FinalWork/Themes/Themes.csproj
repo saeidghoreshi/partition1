@@ -590,6 +590,7 @@
     <None Include="Components\easyUI\partials\menu.cshtml" />
     <Content Include="Components\easyUI\page.css" />
     <Content Include="Components\easyUI\page.js" />
+    <Content Include="Views\Home\accounting.cshtml" />
     <None Include="Views\Home\Index1\center.cshtml" />
     <Content Include="Components\facebook\css\facebookCss.css" />
     <Content Include="Components\facebook\js\facebookController.js" />

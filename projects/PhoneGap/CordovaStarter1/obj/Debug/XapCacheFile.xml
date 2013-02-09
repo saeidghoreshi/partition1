@@ -1,17 +1,17 @@
-﻿<xapCache source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\CordovaStarter1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="07/02/2013 10:04:48 PM">
+﻿<xapCache source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\CordovaStarter1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="08/02/2013 10:58:33 AM">
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="09/12/2012 7:26:05 PM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Background.png" archivePath="Background.png" lastWriteTime="08/12/2012 11:57:58 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="08/12/2012 11:57:58 AM" />
-  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\CordovaStarter1.dll" archivePath="CordovaStarter1.dll" lastWriteTime="07/02/2013 10:04:47 PM" />
+  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\CordovaStarter1.dll" archivePath="CordovaStarter1.dll" lastWriteTime="08/02/2013 10:58:32 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\GapLib\WP7CordovaClassLib.dll" archivePath="WP7CordovaClassLib.dll" lastWriteTime="08/12/2012 11:57:58 AM" />
-  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="07/02/2013 10:04:47 PM" />
+  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\CordovaSourceDictionary.xml" archivePath="CordovaSourceDictionary.xml" lastWriteTime="08/02/2013 10:58:32 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\css\jquery.mobile-1.0rc1.min.css" archivePath="www\css\jquery.mobile-1.0rc1.min.css" lastWriteTime="07/02/2013 9:07:20 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\css\styles.css" archivePath="www\css\styles.css" lastWriteTime="07/02/2013 9:07:20 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\employeedetails.html" archivePath="www\employeedetails.html" lastWriteTime="07/02/2013 9:07:20 AM" />
-  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\index.html" archivePath="www\index.html" lastWriteTime="07/02/2013 9:07:20 AM" />
+  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\index.html" archivePath="www\index.html" lastWriteTime="07/02/2013 10:18:53 PM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\cordova-2.2.0.js" archivePath="www\js\cordova-2.2.0.js" lastWriteTime="07/02/2013 9:07:20 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\employeedetails.js" archivePath="www\js\employeedetails.js" lastWriteTime="07/02/2013 9:07:20 AM" />
-  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\employeelist.js" archivePath="www\js\employeelist.js" lastWriteTime="07/02/2013 9:55:20 AM" />
+  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\employeelist.js" archivePath="www\js\employeelist.js" lastWriteTime="07/02/2013 10:49:39 PM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\jquery.js" archivePath="www\js\jquery.js" lastWriteTime="07/02/2013 9:07:20 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\jquery.mobile-1.0rc1.min.js" archivePath="www\js\jquery.mobile-1.0rc1.min.js" lastWriteTime="07/02/2013 9:07:20 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\js\reportlist.js" archivePath="www\js\reportlist.js" lastWriteTime="07/02/2013 9:07:20 AM" />
@@ -24,7 +24,7 @@
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\GapLib\WP7CordovaClassLib.dll" archivePath="GapLib\WP7CordovaClassLib.dll" lastWriteTime="08/12/2012 11:57:58 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\www\index-tmp.html" archivePath="www\index-tmp.html" lastWriteTime="07/02/2013 9:22:03 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="08/12/2012 11:57:58 AM" />
-  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="07/02/2013 10:04:47 PM" />
+  <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="08/02/2013 10:58:32 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\ApplicationIcon.png" archivePath="ApplicationIcon.png" lastWriteTime="08/12/2012 11:57:58 AM" />
   <file source="C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\Bin\Debug\Background.png" archivePath="Background.png" lastWriteTime="08/12/2012 11:57:58 AM" />
 </xapCache>

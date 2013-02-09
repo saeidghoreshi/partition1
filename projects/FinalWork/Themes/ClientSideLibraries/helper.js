@@ -46,7 +46,7 @@
 				if (browser == 'msie' && jQuery.browser.msie) return true;
 				if (browser == 'mozilla' && jQuery.browser.mozilla) return true;
 		};
-        helper.AdjustWindow=function()
+        helperLib.AdjustWindow=function()
         {
             $(window).resize(function () {
                     me.window = { width: window.innerWidth, height: window.innerHeight }

@@ -63,9 +63,7 @@
     <EntitySet Name="test" EntityType="DB_40114_codeclubModel.Store.test" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="testreview" EntityType="DB_40114_codeclubModel.Store.testreview" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="user1" EntityType="DB_40114_codeclubModel.Store.user1" store:Type="Tables" Schema="dbo" Table="user" />
-    <EntitySet Name="foldering" EntityType="DB_40114_codeclubModel.Store.foldering" store:Type="Tables" Schema="saeid" />
     <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
-    <EntitySet Name="topics" EntityType="DB_40114_codeclubModel.Store.topics" store:Type="Tables" Schema="saeid" />
     <EntitySet Name="document" EntityType="DB_40114_codeclubModel.Store.document" store:Type="Tables" Schema="workflow" />
     <EntitySet Name="document_object" EntityType="DB_40114_codeclubModel.Store.document_object" store:Type="Tables" Schema="workflow" />
     <EntitySet Name="lu_acl" EntityType="DB_40114_codeclubModel.Store.lu_acl" store:Type="Tables" Schema="workflow" />
@@ -409,10 +407,6 @@
     <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel.Store.FK_testreview_test">
       <End Role="test" EntitySet="test" />
       <End Role="testreview" EntitySet="testreview" />
-    </AssociationSet>
-    <AssociationSet Name="FK_topic_foldering" Association="DB_40114_codeclubModel.Store.FK_topic_foldering">
-      <End Role="foldering" EntitySet="foldering" />
-      <End Role="topics" EntitySet="topics" />
     </AssociationSet>
     <AssociationSet Name="FK_tp_timers_task_person" Association="DB_40114_codeclubModel.Store.FK_tp_timers_task_person">
       <End Role="task_person" EntitySet="task_person" />
@@ -944,16 +938,6 @@
     <Property Name="password" Type="nvarchar" MaxLength="200" />
     <Property Name="person_id" Type="int" />
   </EntityType>
-  <EntityType Name="foldering">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="parent_id" Type="int" />
-    <Property Name="title" Type="nvarchar" MaxLength="400" />
-    <Property Name="is_active" Type="bit" />
-    <Property Name="timestamp" Type="varchar" MaxLength="500" />
-  </EntityType>
   <EntityType Name="topic">
     <Key>
       <PropertyRef Name="topic_id" />
@@ -964,18 +948,6 @@
     <Property Name="topic_details" Type="text" />
     <Property Name="is_active" Type="bit" />
     <Property Name="datetime" Type="varchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="topics">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="parent_id" Type="int" />
-    <Property Name="title" Type="nvarchar" MaxLength="500" />
-    <Property Name="description" Type="text" />
-    <Property Name="is_active" Type="bit" />
-    <Property Name="datetime" Type="nvarchar" MaxLength="100" />
-    <Property Name="foldering_id" Type="int" />
   </EntityType>
   <EntityType Name="document">
     <Key>
@@ -2095,18 +2067,6 @@
       </Principal>
       <Dependent Role="testreview">
         <PropertyRef Name="testid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_topic_foldering">
-    <End Role="foldering" Type="DB_40114_codeclubModel.Store.foldering" Multiplicity="0..1" />
-    <End Role="topics" Type="DB_40114_codeclubModel.Store.topics" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="foldering">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="topics">
-        <PropertyRef Name="foldering_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

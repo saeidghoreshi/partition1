@@ -5,6 +5,8 @@ using System.Text;
 using accounting.classes;
 using AccountingLib.Models;
 using accounting.classes.enums;
+using System.Diagnostics;
+using System.Transactions;
 
 namespace accounting.classes
 {
@@ -82,28 +84,30 @@ namespace accounting.classes
         }
         public static void SetupEntityTypes()
         {
-            using (var ctx = new AccContexts())
-            {
-                //reset DB table
-                var alltypes = ctx.entityType.ToList();
-                foreach (var item in alltypes)
-                    ctx.entityType.DeleteObject(item);
-
-                //Add fresh lookup values
-                foreach (var item in Enum.GetNames(typeof(classes.enums.entityType)))
+                using (var ctx = new AccContexts())
                 {
-                    //add its Categories
-                    var newEntityType = new AccountingLib.Models.entityType()
-                    {
-                        ID = (int)Enum.Parse(typeof(classes.enums.entityType), item),
-                       name=item
-                    };
-                    ctx.entityType.AddObject(newEntityType);
-                }
-                
-                ctx.SaveChanges();
+                    //reset DB table
+                    var alltypes = ctx.entityType.ToList();
+                    foreach (var item in alltypes)
+                        ctx.entityType.DeleteObject(item);
 
-            }
+                    //Add fresh lookup values
+                    foreach (var item in Enum.GetNames(typeof(classes.enums.entityType)))
+                    {
+                        //add its Categories
+                        var newEntityType = new AccountingLib.Models.entityType()
+                        {
+                            ID = (int)Enum.Parse(typeof(classes.enums.entityType), item),
+                            name = item
+                        };
+                        ctx.entityType.AddObject(newEntityType);
+                    }
+
+                    ctx.SaveChanges();
+
+                }
+            
+            
         }
         public static void SetupOfficeTypes()
         {
@@ -351,6 +355,34 @@ namespace accounting.classes
 
                 ctx.SaveChanges();
 
+            }
+        }
+
+
+        public static void resetAll()
+        {
+            sqlServer db = new sqlServer("server=s06.winhost.com;database=DB_40114_codeclub;uid=DB_40114_codeclub_user;pwd=p0$31d0n;");
+            db.runSP("[Accounting].[resetSeeds]", new List<sqlServerPar>());
+
+           
+            using (var ctx = new AccContexts()) 
+            using (var ts = new TransactionScope())
+            {
+
+                Controller.SetupAccountTypes();
+                Controller.SetupCardTypes();
+                Controller.SetupccCardTypes();
+                Controller.SetupCurrencyType();
+                Controller.SetupEntityTypes();
+                Controller.SetupInvoiceStat();
+                Controller.SetupExtPaymentTypes();
+                Controller.SetupPaymentTypes();
+                Controller.SetupOfficeTypes();
+                Controller.SetupUserTypes();
+                Controller.SetupSysUserTypes();
+                Controller.SetupPaymentStat();
+
+                ts.Complete();
             }
         }
 

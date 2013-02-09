@@ -11,6 +11,7 @@
         },
         initiateLayout:function()
         {
+            
             var me=this;
                 $('#mainLayout').layout();  
             

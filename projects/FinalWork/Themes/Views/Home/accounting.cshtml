@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Accounting";
+    Layout = "~/Views/home/Master.cshtml";
+}
+
+<div id='testResult'>Processing ...</div>
+<script>
+(function ($) {
+    $.ajax(
+            {
+                url: "http://localhost:555/srv.svc/rest/setupNewCustomer/saeid/hhhhoreshi/1",
+                type: "GET"
+            }).done(function (data) {
+                $('#testResult').html(YAHOO.lang.dump(data));
+                $('#testResult').prepend("<b>http://localhost:555/srv.svc/rest/setupNewCustomer/saeid/hhhhoreshi/1</b><br/>");
+
+            });
+}(jQuery));
+    
+</script>

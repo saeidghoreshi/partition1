@@ -56,6 +56,7 @@
     <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Currency.cs" />
     <Compile Include="Classes\CurrencyException.cs" />
+    <Compile Include="Classes\DB.cs" />
     <Compile Include="Classes\Entity.cs" />
     <Compile Include="Classes\Enums.cs" />
     <Compile Include="Classes\Fee\ccFee.cs" />

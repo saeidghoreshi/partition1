@@ -11,7 +11,8 @@ namespace AccountingServiceClient
         {
             AccountingServiceClient.ServiceReference1.AccountingV1Client x = 
                 new AccountingServiceClient.ServiceReference1.AccountingV1Client("BasicHttpBinding_IAccountingV1");
-            Console.WriteLine("getInvoiceServicesSumAmt = " + x.getInvoiceServicesSumAmt());
+            //Console.WriteLine("getInvoiceServicesSumAmt = " + x.getInvoiceServicesSumAmt());
+            x.resetDB();
 
             Console.ReadLine();
         }

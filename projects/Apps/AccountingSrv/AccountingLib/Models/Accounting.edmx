@@ -68,9 +68,7 @@
           <EntitySet Name="test" EntityType="DB_40114_codeclubModel.Store.test" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="testreview" EntityType="DB_40114_codeclubModel.Store.testreview" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="user1" EntityType="DB_40114_codeclubModel.Store.user1" store:Type="Tables" Schema="dbo" Table="user" />
-          <EntitySet Name="foldering" EntityType="DB_40114_codeclubModel.Store.foldering" store:Type="Tables" Schema="saeid" />
           <EntitySet Name="topic" EntityType="DB_40114_codeclubModel.Store.topic" store:Type="Tables" Schema="saeid" />
-          <EntitySet Name="topics" EntityType="DB_40114_codeclubModel.Store.topics" store:Type="Tables" Schema="saeid" />
           <EntitySet Name="document" EntityType="DB_40114_codeclubModel.Store.document" store:Type="Tables" Schema="workflow" />
           <EntitySet Name="document_object" EntityType="DB_40114_codeclubModel.Store.document_object" store:Type="Tables" Schema="workflow" />
           <EntitySet Name="lu_acl" EntityType="DB_40114_codeclubModel.Store.lu_acl" store:Type="Tables" Schema="workflow" />
@@ -414,10 +412,6 @@
           <AssociationSet Name="FK_testreview_test" Association="DB_40114_codeclubModel.Store.FK_testreview_test">
             <End Role="test" EntitySet="test" />
             <End Role="testreview" EntitySet="testreview" />
-          </AssociationSet>
-          <AssociationSet Name="FK_topic_foldering" Association="DB_40114_codeclubModel.Store.FK_topic_foldering">
-            <End Role="foldering" EntitySet="foldering" />
-            <End Role="topics" EntitySet="topics" />
           </AssociationSet>
           <AssociationSet Name="FK_tp_timers_task_person" Association="DB_40114_codeclubModel.Store.FK_tp_timers_task_person">
             <End Role="task_person" EntitySet="task_person" />
@@ -949,16 +943,6 @@
           <Property Name="password" Type="nvarchar" MaxLength="200" />
           <Property Name="person_id" Type="int" />
         </EntityType>
-        <EntityType Name="foldering">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="parent_id" Type="int" />
-          <Property Name="title" Type="nvarchar" MaxLength="400" />
-          <Property Name="is_active" Type="bit" />
-          <Property Name="timestamp" Type="varchar" MaxLength="500" />
-        </EntityType>
         <EntityType Name="topic">
           <Key>
             <PropertyRef Name="topic_id" />
@@ -969,18 +953,6 @@
           <Property Name="topic_details" Type="text" />
           <Property Name="is_active" Type="bit" />
           <Property Name="datetime" Type="varchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="topics">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="parent_id" Type="int" />
-          <Property Name="title" Type="nvarchar" MaxLength="500" />
-          <Property Name="description" Type="text" />
-          <Property Name="is_active" Type="bit" />
-          <Property Name="datetime" Type="nvarchar" MaxLength="100" />
-          <Property Name="foldering_id" Type="int" />
         </EntityType>
         <EntityType Name="document">
           <Key>
@@ -2103,18 +2075,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_topic_foldering">
-          <End Role="foldering" Type="DB_40114_codeclubModel.Store.foldering" Multiplicity="0..1" />
-          <End Role="topics" Type="DB_40114_codeclubModel.Store.topics" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="foldering">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="topics">
-              <PropertyRef Name="foldering_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tp_timers_task_person">
           <End Role="task_person" Type="DB_40114_codeclubModel.Store.task_person" Multiplicity="0..1" />
           <End Role="tp_timer" Type="DB_40114_codeclubModel.Store.tp_timer" Multiplicity="*" />
@@ -2313,9 +2273,7 @@
           <EntitySet Name="test" EntityType="Models.test" />
           <EntitySet Name="testreview" EntityType="Models.testreview" />
           <EntitySet Name="user1" EntityType="Models.user1" />
-          <EntitySet Name="foldering" EntityType="Models.foldering" />
           <EntitySet Name="topic" EntityType="Models.topic" />
-          <EntitySet Name="topics" EntityType="Models.topics" />
           <EntitySet Name="document" EntityType="Models.document" />
           <EntitySet Name="document_object" EntityType="Models.document_object" />
           <EntitySet Name="lu_acl" EntityType="Models.lu_acl" />
@@ -2620,10 +2578,6 @@
           <AssociationSet Name="FK_testreview_test" Association="Models.FK_testreview_test">
             <End Role="test" EntitySet="test" />
             <End Role="testreview" EntitySet="testreview" />
-          </AssociationSet>
-          <AssociationSet Name="FK_topic_foldering" Association="Models.FK_topic_foldering">
-            <End Role="foldering" EntitySet="foldering" />
-            <End Role="topics" EntitySet="topics" />
           </AssociationSet>
           <AssociationSet Name="FK_document_object_document_object" Association="Models.FK_document_object_document_object">
             <End Role="document" EntitySet="document" />
@@ -3325,17 +3279,6 @@
           <NavigationProperty Name="permission" Relationship="Models.FK_permission_user" FromRole="user1" ToRole="permission" />
           <NavigationProperty Name="person1" Relationship="Models.FK_user_person1" FromRole="user1" ToRole="person1" />
         </EntityType>
-        <EntityType Name="foldering">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="parent_id" />
-          <Property Type="String" Name="title" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="is_active" />
-          <Property Type="String" Name="timestamp" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="topics" Relationship="Models.FK_topic_foldering" FromRole="foldering" ToRole="topics" />
-        </EntityType>
         <EntityType Name="topic">
           <Key>
             <PropertyRef Name="topic_id" />
@@ -3346,19 +3289,6 @@
           <Property Type="String" Name="topic_details" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="is_active" />
           <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="topics">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="parent_id" />
-          <Property Type="String" Name="title" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="is_active" />
-          <Property Type="String" Name="datetime" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="foldering_id" />
-          <NavigationProperty Name="foldering" Relationship="Models.FK_topic_foldering" FromRole="topics" ToRole="foldering" />
         </EntityType>
         <EntityType Name="document">
           <Key>
@@ -4406,18 +4336,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_topic_foldering">
-          <End Type="Models.foldering" Role="foldering" Multiplicity="0..1" />
-          <End Type="Models.topics" Role="topics" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="foldering">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="topics">
-              <PropertyRef Name="foldering_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_document_object_document_object">
           <End Type="Models.document" Role="document" Multiplicity="0..1" />
           <End Type="Models.document_object" Role="document_object" Multiplicity="*" />
@@ -5148,17 +5066,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="foldering">
-            <EntityTypeMapping TypeName="Models.foldering">
-              <MappingFragment StoreEntitySet="foldering">
-                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
-                <ScalarProperty Name="is_active" ColumnName="is_active" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="topic">
             <EntityTypeMapping TypeName="Models.topic">
               <MappingFragment StoreEntitySet="topic">
@@ -5168,19 +5075,6 @@
                 <ScalarProperty Name="topic_title" ColumnName="topic_title" />
                 <ScalarProperty Name="topic_parent_id" ColumnName="topic_parent_id" />
                 <ScalarProperty Name="topic_id" ColumnName="topic_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="topics">
-            <EntityTypeMapping TypeName="Models.topics">
-              <MappingFragment StoreEntitySet="topics">
-                <ScalarProperty Name="foldering_id" ColumnName="foldering_id" />
-                <ScalarProperty Name="datetime" ColumnName="datetime" />
-                <ScalarProperty Name="is_active" ColumnName="is_active" />
-                <ScalarProperty Name="description" ColumnName="description" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -5436,9 +5330,7 @@
         <EntityTypeShape EntityType="Models.test" Width="1.5" PointX="18.75" PointY="10.125" Height="1.7879850260417243" />
         <EntityTypeShape EntityType="Models.testreview" Width="1.5" PointX="21" PointY="10.125" Height="1.7879850260417243" />
         <EntityTypeShape EntityType="Models.user1" Width="1.5" PointX="11" PointY="9.5" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="Models.foldering" Width="1.5" PointX="18.75" PointY="6.375" Height="2.1725878906249818" />
         <EntityTypeShape EntityType="Models.topic" Width="1.5" PointX="0.75" PointY="15" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="Models.topics" Width="1.5" PointX="21" PointY="6.25" Height="2.557190755208353" />
         <EntityTypeShape EntityType="Models.document" Width="1.5" PointX="18.75" PointY="2.125" Height="2.3648893229167243" />
         <EntityTypeShape EntityType="Models.document_object" Width="1.5" PointX="21" PointY="2.375" Height="1.980286458333353" />
         <EntityTypeShape EntityType="Models.lu_acl" Width="1.5" PointX="11" PointY="40.625" Height="1.5956835937499818" />
@@ -6060,10 +5952,6 @@
         <AssociationConnector Association="Models.FK_testreview_test" >
           <ConnectorPoint PointX="20.25" PointY="11.018992513020862" />
           <ConnectorPoint PointX="21" PointY="11.018992513020862" />
-        </AssociationConnector>
-        <AssociationConnector Association="Models.FK_topic_foldering" >
-          <ConnectorPoint PointX="20.25" PointY="7.4612939453124909" />
-          <ConnectorPoint PointX="21" PointY="7.4612939453124909" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_document_object_document_object" >
           <ConnectorPoint PointX="20.25" PointY="3.3651432291666765" />

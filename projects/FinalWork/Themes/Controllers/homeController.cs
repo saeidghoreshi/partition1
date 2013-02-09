@@ -35,6 +35,10 @@ namespace Themes.Controllers
         {
             return View("dojo");
         }
+        public ActionResult accounting()
+        {
+            return View("accounting");
+        }
         
         
         

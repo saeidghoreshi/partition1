@@ -8,6 +8,12 @@ $('#employeeListPage').bind('pageinit', function(event) {
 
 function getEmployeeList() {
 	
+    éécanvas test
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        ctx.moveTo(0,0);
+        ctx.lineTo(200,100);
+        ctx.stroke();
 	    
 		$.getJSON('http://ryanapp1.azurewebsites.net/srv.svc/rest/getInvoiceSum', function(data) {
 			    $('#employeeList li').remove();
