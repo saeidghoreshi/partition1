@@ -17,7 +17,7 @@ namespace accounting.classes
         public int entityTypeID;
         public List<AccountingLib.Models.card> cards;
 
-        protected void createNew(int entityTypeID)
+        protected void New(int entityTypeID)
         {
             using (var ctx = new AccContexts())
             {
@@ -148,7 +148,7 @@ namespace accounting.classes
         public classes.Invoice createInvoice(int receiverEntityID,int currencyID,Dictionary<classes.Service,decimal> servicesAmt) 
         {
             var inv = new accounting.classes.Invoice();
-            inv.createNew(this.ENTITYID, receiverEntityID, currencyID);
+            inv.New(this.ENTITYID, receiverEntityID, currencyID);
 
             foreach (var item in servicesAmt)
                 inv.addService((item.Key as classes.Service).serviceID,item.Value);

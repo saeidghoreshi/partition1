@@ -11,9 +11,9 @@ namespace accounting.classes.organization
         public int officeID;
         public string name;
 
-        public void createNew() 
+        public void New() 
         {
-            base.createNew((int)enums.entityType.Office);
+            base.New((int)enums.entityType.Office);
         }
     }
 }

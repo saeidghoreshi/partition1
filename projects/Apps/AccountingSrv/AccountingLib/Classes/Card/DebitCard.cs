@@ -21,7 +21,7 @@ namespace accounting.classes.card
 
         public DebitCard(): base(){}
 
-        public void createNew() 
+        public void New() 
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())

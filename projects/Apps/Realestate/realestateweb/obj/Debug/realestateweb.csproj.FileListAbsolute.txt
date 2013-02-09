@@ -50,3 +50,4 @@ C:\projects\Partitions\partition1\projects\Apps\Realestate\realestateweb\bin\Dot
 C:\projects\Partitions\partition1\projects\Apps\Realestate\realestateweb\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\projects\Partitions\partition1\projects\Apps\Realestate\realestateweb\obj\Debug\realestateweb.dll
 C:\projects\Partitions\partition1\projects\Apps\Realestate\realestateweb\obj\Debug\realestateweb.pdb
+C:\projects\Partitions\partition1\projects\Apps\Realestate\realestateweb\obj\Debug\realestateweb.csprojResolveAssemblyReference.cache

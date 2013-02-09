@@ -11,7 +11,7 @@ namespace accounting.classes.organization
 
         public void createNew()
         {
-            base.createNew((int)enums.entityType.Organization);
+            base.New((int)enums.entityType.Organization);
         }
         public new void addWalletMoney(decimal amount, string title, int currencyID) 
         {

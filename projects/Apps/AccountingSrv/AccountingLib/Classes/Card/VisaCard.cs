@@ -20,7 +20,7 @@ namespace accounting.classes.card.creditcard
 
         public VisaCard(): base(){}
 
-        public void createNew()
+        public void New()
         {
             base.createNew((int)enums.ccCardType.VISACARD);
 

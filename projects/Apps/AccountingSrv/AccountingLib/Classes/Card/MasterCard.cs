@@ -18,7 +18,7 @@ namespace accounting.classes.card.creditcard
 
         public MasterCard(): base(){}
 
-        public void createNew() 
+        public void New() 
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())

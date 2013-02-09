@@ -6,7 +6,7 @@ using AccountingLib.Models;
 using accounting.classes.bank;
 using System.Transactions;
 
-namespace accounting.classes.bank
+namespace accounting.classes
 {
     public class Bank:Entity
     {
@@ -14,16 +14,22 @@ namespace accounting.classes.bank
         public int bankID;
         public string bankName;
 
+        public Bank() :base(){}
+        public Bank(int bankId):base()
+        {   
+            loadBankByBankID(bankId);
+        }
+
         /// <summary>
         /// create new bank w/ optioanl addressing
         /// </summary>
         /// <param name="name"></param>
         /// <param name="address"></param>
-        public void createNew(string name,Address address=null) 
+        public void New(string name,Address address=null) 
         {
             using (var ctx = new AccContexts())
             {
-                base.createNew((int)enums.entityType.bank);
+                base.New((int)enums.entityType.bank);
 
                 var _newBank = new AccountingLib.Models.bank() 
                 {

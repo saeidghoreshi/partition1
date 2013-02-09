@@ -15,12 +15,33 @@ namespace accounting.classes
         public string firstname;
         public string lastname;
 
-        
-        public void createNew(string firstName,string lastName) 
+        public Person():base() { }
+        public Person(int personID) : base() 
+        {
+            loadPerson(personID);
+        }
+        private void loadPerson(int personID) 
+        {
+            using (var ctx = new AccContexts())
+            {
+                var person = ctx.person
+                    .Where(x => x.ID == personID)
+                    .SingleOrDefault();
+
+                if (person == null)
+                    throw new Exception("no such a Person Exists");
+
+                this.id = person.ID;
+                this.firstname = person.firstName;
+                this.lastname = person.lastName;
+            }    
+        }
+
+        public void New(string firstName,string lastName) 
         {
             using (var ctx = new AccContexts())
             {   
-                base.createNew((int)enums.entityType.Person);
+                base.New((int)enums.entityType.Person);
 
                 var checkDuplication = ctx.person.Where(x => x.firstName == firstName && x.lastName == lastName).FirstOrDefault();
                 if (checkDuplication != null)

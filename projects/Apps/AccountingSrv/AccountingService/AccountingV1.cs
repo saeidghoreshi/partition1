@@ -49,58 +49,78 @@ namespace RyanGoreshi
 
         [WebGet(UriTemplate = "invoice/finalize/{invoiceId}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        invoiceService finalizeInvoice(string invoiceId);
+        void finalizeInvoice(string invoiceId);
 
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Bank/new/{bankname}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void createBank();
+        void createBank(string bankname);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Bank/setFee/IntracCardType/{bankId}/{amount}/{description}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void createCard();
+        void setFeeForIntracCardType(string bankId,string amount, string description);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Bank/setFee/CreditCardType/{bankId}/{ccCardTypeID}/{amount}/{description}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void assignCard();
+        void setFeeForCreditCardType(string bankId, string ccCardTypeID, string amount, string description);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Card/Master/new/{cardNumber}/{expirydate}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void setFeeForIntracCardType();
+        void createMasterCard(string cardNumber,string expirydate);
 
-
-
-        /*
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Card/Visa/new/{cardNumber}/{expirydate}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void addWalletMoney();
+        void createVisaCard(string cardNumber, string expirydate);
+
+        [WebGet(UriTemplate = "Card/Debit/new/{cardNumber}/{expirydate}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void createDebitCard(string cardNumber, string expirydate);
+
+        [WebGet(UriTemplate = "Card/assignToBank/{cardId}/{bankId}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void assignCardToBank(string cardId,string bankId);
+
+        [WebGet(UriTemplate = "Card/AssignToPerson/{cardId}/{personId}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void assignCardToPerson(string cardId,string personId);
+
+        //Transactions
+        
+        [WebGet(UriTemplate = "Person/txn/addWallet/{personID}/{amount}/{curID}/{description}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void addWalletMoney(string personID,string amount,string curID,string description);
+
+        [WebGet(UriTemplate = "Invoice/sum/{invoiceID}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        decimal getInvoiceServicesSumAmt(string invoiceID);
+
           
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Invoice/Pay/Credit/{invoiceID}/{amount}/{cardId}/{ccCardTypeID}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
+        void payInvoiceByCC(string invoiceID , string amount ,string cardId,string ccCardTypeID);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Invoice/Pay/Interac/{invoiceID}/{amount}/{cardId}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void payInvoiceByInterac(inv, inv.getInvoiceServicesSumAmt() / 4, debit1.cardID);
+        void payInvoiceByInterac(string invoiceID,string amount ,string cardId);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Invoice/Pay/Interac/{invoiceID}/{amount}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void payInvoiceByInternal(inv, inv.getInvoiceServicesSumAmt() / 8);
+        void payInvoiceByInternal(string invoiceID,string amount);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        //Invoice Payment Cancellation
+
+        [WebGet(UriTemplate = "Invoice/Payment/Cancel/Ext/{invoiceID}/{paymentID}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 8, visa1.cardID, accounting.classes.enums.ccCardType.MASTERCARD);
+        void cancelInvoicePaymentEXT(string invoiceID,string paymentID);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Invoice/Payment/Cancel/INT/{invoiceID}/{paymentID}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void cancelInvoicePaymentEXT(1);
+        void cancelInvoicePaymentINTERNAL(string invoiceID,string paymentID);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        //Invoice Cancellation
+        [WebGet(UriTemplate = "Invoice/Cancel/{invoiceID}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void cancelInvoicePaymentINTERNAL(3);
-      
-        */
-
+        void cancelInvoice(string invoiceID);
     }
 
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
@@ -119,7 +139,7 @@ namespace RyanGoreshi
         public Person newCustomer(string firstname, string lastname, string curID)
         {
             var person = new accounting.classes.Person();
-            person.createNew(firstname, lastname);
+            person.New(firstname, lastname);
             
             //setup account
             person.createAccounts(Convert.ToInt32(curID));
@@ -132,14 +152,14 @@ namespace RyanGoreshi
             service.serviceName = servicename;
             service.issuerEntityID = Convert.ToInt32(issuerEntityId);
             service.receiverEntityID = Convert.ToInt32(receiverEntityId);
-            service.Create();
+            service.New();
             return service;
         }
         //OK
         public Invoice createinvoice(string issuerEid, string receiverEid, string curId)
         {
             accounting.classes.Invoice newInvoice = new accounting.classes.Invoice();
-            newInvoice.createNew(Convert.ToInt32(issuerEid), Convert.ToInt32(receiverEid), Convert.ToInt32(curId));
+            newInvoice.New(Convert.ToInt32(issuerEid), Convert.ToInt32(receiverEid), Convert.ToInt32(curId));
             return newInvoice;
         }
         //OK
@@ -155,30 +175,130 @@ namespace RyanGoreshi
             inv.finalizeInvoice();
         }
 
-
-        invoiceService IAccountingV1.finalizeInvoice(string invoiceId)
+        public void createBank(string bankname)
         {
-            throw new NotImplementedException();
+            accounting.classes.Bank bank1 = new accounting.classes.Bank();
+            bank1.New("Scotia");
+        }
+        public void createMasterCard(string cardNumber, string expirydate)
+        {
+            accounting.classes.card.creditcard.MasterCard mc1 = new accounting.classes.card.creditcard.MasterCard();
+            mc1.cardNumber = cardNumber;
+            mc1.expiryDate = Convert.ToDateTime(expirydate);
+            mc1.New();
         }
 
-        public void createBank()
+        public void createVisaCard(string cardNumber, string expirydate)
         {
-            throw new NotImplementedException();
+            accounting.classes.card.creditcard.VisaCard visa1 = new accounting.classes.card.creditcard.VisaCard();
+            visa1.cardNumber = cardNumber;
+            visa1.expiryDate = Convert.ToDateTime(expirydate);
+            visa1.New();
         }
 
-        public void createCard()
+        public void createDebitCard(string cardNumber, string expirydate)
         {
-            throw new NotImplementedException();
+            accounting.classes.card.DebitCard debit1 = new accounting.classes.card.DebitCard();
+            debit1.cardNumber = cardNumber;
+            debit1.expiryDate = Convert.ToDateTime(expirydate);
+            debit1.New();
         }
 
-        public void assignCard()
+        public void assignCardToBank(string cardId, string bankId)
         {
-            throw new NotImplementedException();
+            Bank b = new Bank(Convert.ToInt32(bankId));
+            b.addCard(Convert.ToInt32(cardId));
         }
 
-        public void setFeeForIntracCardType()
+        public void assignCardToPerson(string cardId, string personId)
         {
-            throw new NotImplementedException();
+            Person p = new Person(Convert.ToInt32(personId));
+            p.addCard(Convert.ToInt32(cardId));
+        }
+
+        public void setFeeForIntracCardType(string bankId, string amount, string description)
+        {
+            Bank b=new Bank(Convert.ToInt32(bankId));
+            b.setFeeForIntracCardType(Convert.ToDecimal(amount), description);
+        }
+
+        public void setFeeForCreditCardType(string bankId, string ccCardTypeID, string amount, string description)
+        {
+            Bank b = new Bank(Convert.ToInt32(bankId));
+
+            accounting.classes.enums.ccCardType cccardType = accounting.classes.enums.ccCardType.MASTERCARD;
+            switch (Convert.ToInt32(ccCardTypeID))
+            {
+                case 1:
+                    cccardType = accounting.classes.enums.ccCardType.MASTERCARD;
+                    break;
+                case 2:
+                    cccardType = accounting.classes.enums.ccCardType.VISACARD;
+                    break;
+            }
+
+            b.setFeeForCreditCardType(cccardType,Convert.ToDecimal(amount), description);
+        }
+
+        //Transacrtions
+
+        public void addWalletMoney(string personID, string amount, string curID, string description)
+        {
+            Person p = new Person(Convert.ToInt32(personID));
+            p.addWalletMoney(Convert.ToDecimal(amount), description, Convert.ToInt32(curID));
+        }
+
+        public decimal getInvoiceServicesSumAmt(string invoiceID)
+        {
+            Invoice inv = new Invoice(Convert.ToInt32(invoiceID));
+            return inv.getInvoiceServicesSumAmt();
+        }
+
+        public void payInvoiceByCC(string invoiceID, string amount, string cardId, string ccCardTypeID)
+        {
+            accounting.classes.enums.ccCardType cccardType = accounting.classes.enums.ccCardType.MASTERCARD;
+            switch (Convert.ToInt32(ccCardTypeID))
+            {
+                case 1:
+                    cccardType = accounting.classes.enums.ccCardType.MASTERCARD;
+                    break;
+                case 2:
+                    cccardType = accounting.classes.enums.ccCardType.VISACARD;
+                    break;
+            }
+
+            Invoice inv = new Invoice(Convert.ToInt32(invoiceID));
+            inv.doCCExtPayment(Convert.ToDecimal(amount), Convert.ToInt32(cardId), cccardType);
+        }
+
+        public void payInvoiceByInterac(string invoiceID, string amount, string cardId)
+        {
+            Invoice inv = new Invoice(Convert.ToInt32(invoiceID));
+            inv.doINTERACPayment(Convert.ToDecimal(amount), Convert.ToInt32(cardId));
+        }
+
+        public void payInvoiceByInternal(string invoiceID, string amount)
+        {
+            Invoice inv = new Invoice(Convert.ToInt32(invoiceID));
+            inv.doINTERNALTransfer(Convert.ToDecimal(amount));
+        }
+
+        public void cancelInvoicePaymentEXT(string invoiceID, string paymentID)
+        {
+            Invoice Inv = new Invoice(Convert.ToInt32(invoiceID));
+            Inv.cancelInvoicePaymentEXT(Convert.ToInt32(paymentID));
+        }
+
+        public void cancelInvoicePaymentINTERNAL(string invoiceID, string paymentID)
+        {
+            Invoice Inv = new Invoice(Convert.ToInt32(invoiceID));
+            Inv.cancelInvoicePaymentINTERNAL(Convert.ToInt32(paymentID));
+        }
+
+        public void cancelInvoice(string invoiceID)
+        {
+            Invoice Inv = new Invoice(Convert.ToInt32(invoiceID));
+            Inv.cancelInvoice();
         }
     }
 }

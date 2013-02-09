@@ -25,7 +25,7 @@ namespace accounting.classes
             loadInvoiceByInvoiceID(invoiceID);
         }
 
-        public void createNew(int issuerEntityID,int receiverEntityID, int currencyID)
+        public void New(int issuerEntityID,int receiverEntityID, int currencyID)
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope()) 
@@ -334,7 +334,7 @@ namespace accounting.classes
         }
 
         /*cancel invoice all payments*/
-        public void cancelInvocice() 
+        public void cancelInvoice() 
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())

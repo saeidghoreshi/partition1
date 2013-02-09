@@ -15,7 +15,7 @@ namespace accounting.classes
         public int receiverEntityID;
         public string serviceName;
 
-        public void Create()
+        public void New()
         {
             using (var ctx = new AccContexts())
             {
