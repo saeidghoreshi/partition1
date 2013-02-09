@@ -22,10 +22,10 @@ namespace accounting.classes
         public Invoice() { }
         public Invoice(int invoiceID)
         {
-            this.invoiceID = invoiceID;
+            loadInvoiceByInvoiceID(invoiceID);
         }
 
-        public void OpenNew(int issuerEntityID,int receiverEntityID, int currencyID)
+        public void createNew(int issuerEntityID,int receiverEntityID, int currencyID)
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope()) 
@@ -96,7 +96,6 @@ namespace accounting.classes
             using (var ctx = new AccContexts())
             using (var ts =new TransactionScope())
             {
-                this.loadInvoiceByInvoiceID(this.invoiceID);
                 
                 //Get Sum of Invoice Services added
                 decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt();

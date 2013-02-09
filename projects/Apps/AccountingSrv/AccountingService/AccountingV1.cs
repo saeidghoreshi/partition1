@@ -27,28 +27,30 @@ namespace RyanGoreshi
     [ServiceContract(SessionMode = SessionMode.Allowed)]
     public interface IAccountingV1
     {
-        [WebGet(UriTemplate = "resetdb", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "reset", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void resetDB();
+        void reset();
 
-        [WebGet(UriTemplate = "setupNewCustomer/{firstname}/{lastname}/{curID}", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Customer/new/{firstname}/{lastname}/{curID}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        Person setupNewCustomer(string firstname, string lastname, string curID);
+        Person newCustomer(string firstname, string lastname, string curID);
 
-
-
-        [WebGet(UriTemplate = "createService/{servicename}/{issuerEntityId}/{receiverEntityId}", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Service/new/{servicename}/{issuerEntityId}/{receiverEntityId}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         Service createService(string servicename, string issuerEntityId, string receiverEntityId);
 
-        /*
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "Invoice/new/{issuerEid}/{receiverEid}/{curId}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void createCard();
+        Invoice createinvoice(string issuerEid, string receiverEid, string curId);
 
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [WebGet(UriTemplate = "invoice/service/add/{invoiceId}/{serviceId}/{amount}", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
-        void addWalletMoney();
+        invoiceService createInvoiceService(string invoiceId, string serviceId,string amount);
+
+        [WebGet(UriTemplate = "invoice/finalize/{invoiceId}", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        invoiceService finalizeInvoice(string invoiceId);
+
 
         [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
@@ -56,8 +58,23 @@ namespace RyanGoreshi
 
         [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
+        void createCard();
+
+        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void assignCard();
+
+        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
         void setFeeForIntracCardType();
-        
+
+
+
+        /*
+        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        void addWalletMoney();
+          
         [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         void payInvoiceByCC(inv, inv.getInvoiceServicesSumAmt() / 2, visa1.cardID, accounting.classes.enums.ccCardType.VISACARD);
@@ -81,77 +98,87 @@ namespace RyanGoreshi
         [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
         [OperationContract]
         void cancelInvoicePaymentINTERNAL(3);
+      
+        */
 
-
-        [WebGet(UriTemplate = "", ResponseFormat = WebMessageFormat.Json)]
-        [OperationContract]
-        void assignCard();
-
-
-        [WebGet(UriTemplate = "getInvoiceSum", ResponseFormat = WebMessageFormat.Json)]
-        [OperationContract]
-        Invoice getInvoiceServicesSumAmt();
-        
-        
-        [WebGet(UriTemplate = "createInvoice/issuereid/receivereid/curId", ResponseFormat = WebMessageFormat.Json)]
-        [OperationContract]
-        Invoice createinvoice(int issuerEid, int receiverEid, int curId);
-         * */
-        
     }
 
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
     public class AccountingV1: IAccountingV1
     {
-        public Invoice getInvoiceServicesSumAmt()
+        //OK
+        public void reset()
         {
-            accounting.classes.Invoice x = new accounting.classes.Invoice(1);
-            return x;
-        }
-        public Invoice createinvoice(int issuerEid, int receiverEid, int curId)
-        {
-            accounting.classes.Invoice newInvoice = new accounting.classes.Invoice();
-            newInvoice.OpenNew(issuerEid, receiverEid, curId);
-            return newInvoice;
+            Controller.resetAll();
+
+            var cur_ca = new accounting.classes.Currency();
+            cur_ca.create("CAD", (int)accounting.classes.enums.currencyType.Real);
         }
 
         //OK
-        public void resetDB()
+        public Person newCustomer(string firstname, string lastname, string curID)
         {
-            Controller.resetAll();
+            var person = new accounting.classes.Person();
+            person.createNew(firstname, lastname);
+            
+            //setup account
+            person.createAccounts(Convert.ToInt32(curID));
+            return person;
+        }
+        //OK
+        public Service createService(string servicename, string issuerEntityId, string receiverEntityId)
+        {
+            var service = new accounting.classes.Service();
+            service.serviceName = servicename;
+            service.issuerEntityID = Convert.ToInt32(issuerEntityId);
+            service.receiverEntityID = Convert.ToInt32(receiverEntityId);
+            service.Create();
+            return service;
+        }
+        //OK
+        public Invoice createinvoice(string issuerEid, string receiverEid, string curId)
+        {
+            accounting.classes.Invoice newInvoice = new accounting.classes.Invoice();
+            newInvoice.createNew(Convert.ToInt32(issuerEid), Convert.ToInt32(receiverEid), Convert.ToInt32(curId));
+            return newInvoice;
+        }
+        //OK
+        public invoiceService createInvoiceService(string invoiceId, string serviceId,string amount)
+        {
+            accounting.classes.Invoice inv= new accounting.classes.Invoice(Convert.ToInt32(invoiceId));
+            return inv.addService(Convert.ToInt32(serviceId), Convert.ToDecimal(amount));
+        }
+        //OK
+        public void finalizeInvoice(string invoiceId)
+        {
+            accounting.classes.Invoice inv = new accounting.classes.Invoice(Convert.ToInt32(invoiceId));
+            inv.finalizeInvoice();
         }
 
 
-        public Person setupNewCustomer(string firstname,string lastname,string curID)
+        invoiceService IAccountingV1.finalizeInvoice(string invoiceId)
         {
-            resetDB();
-
-            var cur1 = new accounting.classes.Currency();
-            cur1.create("CAD", (int)accounting.classes.enums.currencyType.Real);
-
-
-            var person1 = new accounting.classes.Person();
-            person1.createNew(firstname, lastname);
-            
-            //setup account for default Currency
-            person1.createAccounts(Convert.ToInt32(curID));
-            person1.addWalletMoney(780, "New Deposit for person 1", Convert.ToInt32(curID));
-
-            return person1;
-
+            throw new NotImplementedException();
         }
 
-
-        public Service createService(string servicename,string issuerEntityId,string receiverEntityId)
+        public void createBank()
         {
-            var service1 = new accounting.classes.Service();
-            service1.serviceName = servicename;
-            service1.issuerEntityID = Convert.ToInt32(issuerEntityId);
-            service1.receiverEntityID = Convert.ToInt32(receiverEntityId);
-            service1.Create();
+            throw new NotImplementedException();
+        }
 
-            return service1;
-            
+        public void createCard()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void assignCard()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setFeeForIntracCardType()
+        {
+            throw new NotImplementedException();
         }
     }
 }

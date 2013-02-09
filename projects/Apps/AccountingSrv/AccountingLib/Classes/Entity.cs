@@ -148,7 +148,7 @@ namespace accounting.classes
         public classes.Invoice createInvoice(int receiverEntityID,int currencyID,Dictionary<classes.Service,decimal> servicesAmt) 
         {
             var inv = new accounting.classes.Invoice();
-            inv.OpenNew(this.ENTITYID, receiverEntityID, currencyID);
+            inv.createNew(this.ENTITYID, receiverEntityID, currencyID);
 
             foreach (var item in servicesAmt)
                 inv.addService((item.Key as classes.Service).serviceID,item.Value);
