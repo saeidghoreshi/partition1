@@ -26,10 +26,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Models", "FK_address_city", "city", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.city), "address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.address), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_address_country", "country", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.country), "address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.address), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_address_street", "street", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.street), "address", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.address), true)]
-[assembly: EdmRelationshipAttribute("Models", "FK_bankCard_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.bank), "bankCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.bankCard), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_ccFee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.bank), "ccFee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.ccFee), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_fee_bank", "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.bank), "fee", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.fee), true)]
-[assembly: EdmRelationshipAttribute("Models", "FK_bankCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.card), "bankCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.bankCard), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_card_cardType", "cardType", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.cardType), "card", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.card), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_ccCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.card), "ccCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.ccCard), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_dbCard_card", "card", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.card), "dbCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.dbCard), true)]
@@ -104,6 +102,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Models", "FK_resource_resource", "resource", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.resource), "resource1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.resource), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_resourceCategory_resource", "resource", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.resource), "resourceCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.resourceCategory), true)]
 [assembly: EdmRelationshipAttribute("Models", "FK_resourceHighlight_resource", "resource", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.resource), "resourceHighlight", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.resourceHighlight), true)]
+[assembly: EdmRelationshipAttribute("Models", "FK_bank_entity", "entity", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(AccountingLib.Models.entity), "bank", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(AccountingLib.Models.bank), true)]
 
 #endregion
 
@@ -202,22 +201,6 @@ namespace AccountingLib.Models
             }
         }
         private ObjectSet<bank> _bank;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<bankCard> bankCard
-        {
-            get
-            {
-                if ((_bankCard == null))
-                {
-                    _bankCard = base.CreateObjectSet<bankCard>("bankCard");
-                }
-                return _bankCard;
-            }
-        }
-        private ObjectSet<bankCard> _bankCard;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1461,14 +1444,6 @@ namespace AccountingLib.Models
         public void AddTobank(bank bank)
         {
             base.AddObject("bank", bank);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the bankCard EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTobankCard(bankCard bankCard)
-        {
-            base.AddObject("bankCard", bankCard);
         }
     
         /// <summary>
@@ -2845,33 +2820,35 @@ namespace AccountingLib.Models
         private global::System.String _name;
         partial void OnnameChanging(global::System.String value);
         partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> entityID
+        {
+            get
+            {
+                return _entityID;
+            }
+            set
+            {
+                OnentityIDChanging(value);
+                ReportPropertyChanging("entityID");
+                _entityID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("entityID");
+                OnentityIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _entityID;
+        partial void OnentityIDChanging(Nullable<global::System.Int32> value);
+        partial void OnentityIDChanged();
 
         #endregion
 
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Models", "FK_bankCard_bank", "bankCard")]
-        public EntityCollection<bankCard> bankCard
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<bankCard>("Models.FK_bankCard_bank", "bankCard");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<bankCard>("Models.FK_bankCard_bank", "bankCard", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2916,115 +2893,6 @@ namespace AccountingLib.Models
                 }
             }
         }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Models", Name="bankCard")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class bankCard : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new bankCard object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        public static bankCard CreatebankCard(global::System.Int32 id)
-        {
-            bankCard bankCard = new bankCard();
-            bankCard.ID = id;
-            return bankCard;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int32 _ID;
-        partial void OnIDChanging(global::System.Int32 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> bankID
-        {
-            get
-            {
-                return _bankID;
-            }
-            set
-            {
-                OnbankIDChanging(value);
-                ReportPropertyChanging("bankID");
-                _bankID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("bankID");
-                OnbankIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _bankID;
-        partial void OnbankIDChanging(Nullable<global::System.Int32> value);
-        partial void OnbankIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> cardID
-        {
-            get
-            {
-                return _cardID;
-            }
-            set
-            {
-                OncardIDChanging(value);
-                ReportPropertyChanging("cardID");
-                _cardID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("cardID");
-                OncardIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _cardID;
-        partial void OncardIDChanging(Nullable<global::System.Int32> value);
-        partial void OncardIDChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3032,16 +2900,16 @@ namespace AccountingLib.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Models", "FK_bankCard_bank", "bank")]
-        public bank bank
+        [EdmRelationshipNavigationPropertyAttribute("Models", "FK_bank_entity", "entity")]
+        public entity entity
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("Models.FK_bankCard_bank", "bank").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entity>("Models.FK_bank_entity", "entity").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("Models.FK_bankCard_bank", "bank").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entity>("Models.FK_bank_entity", "entity").Value = value;
             }
         }
         /// <summary>
@@ -3049,55 +2917,17 @@ namespace AccountingLib.Models
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<bank> bankReference
+        public EntityReference<entity> entityReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<bank>("Models.FK_bankCard_bank", "bank");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<entity>("Models.FK_bank_entity", "entity");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<bank>("Models.FK_bankCard_bank", "bank", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Models", "FK_bankCard_card", "card")]
-        public card card
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<card>("Models.FK_bankCard_card", "card").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<card>("Models.FK_bankCard_card", "card").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<card> cardReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<card>("Models.FK_bankCard_card", "card");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<card>("Models.FK_bankCard_card", "card", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<entity>("Models.FK_bank_entity", "entity", value);
                 }
             }
         }
@@ -3234,28 +3064,6 @@ namespace AccountingLib.Models
 
     
         #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Models", "FK_bankCard_card", "bankCard")]
-        public EntityCollection<bankCard> bankCard
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<bankCard>("Models.FK_bankCard_card", "bankCard");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<bankCard>("Models.FK_bankCard_card", "bankCard", value);
-                }
-            }
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6193,6 +6001,28 @@ namespace AccountingLib.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<service>("Models.FK_service_entityreceiver", "service", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Models", "FK_bank_entity", "bank")]
+        public EntityCollection<bank> bank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<bank>("Models.FK_bank_entity", "bank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<bank>("Models.FK_bank_entity", "bank", value);
                 }
             }
         }

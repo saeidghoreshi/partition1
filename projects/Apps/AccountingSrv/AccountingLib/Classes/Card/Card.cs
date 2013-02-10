@@ -9,7 +9,7 @@ using AccountingLib.Models;
 
 namespace accounting.classes
 {
-    public abstract class Card
+    public abstract class Card:Entity
     {
         public int cardID;
         public string cardNumber;
@@ -43,18 +43,7 @@ namespace accounting.classes
                 ts.Complete();
             }
         }
-        public AccountingLib.Models.bank getBank()
-        {
-            using(var ctx=new AccountingLib.Models.AccContexts())
-            {
-                var theBank = ctx.bankCard
-                    .Where(x => x.cardID == cardID)
-                    .Select(x=>x.bank)
-                    .SingleOrDefault();
-
-                return theBank;
-            }
-        }
+       
 
         public void loadByCardID(int cardID)
         {

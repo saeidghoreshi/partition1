@@ -9,7 +9,6 @@
           <EntitySet Name="account" EntityType="DB_40114_codeclubModel.Store.account" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="address" EntityType="DB_40114_codeclubModel.Store.address" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.Store.bank" store:Type="Tables" Schema="Accounting" />
-          <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.Store.bankCard" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="card" EntityType="DB_40114_codeclubModel.Store.card" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="cardType" EntityType="DB_40114_codeclubModel.Store.cardType" store:Type="Tables" Schema="Accounting" />
           <EntitySet Name="categoryType" EntityType="DB_40114_codeclubModel.Store.categoryType" store:Type="Tables" Schema="Accounting" />
@@ -121,13 +120,9 @@
             <End Role="street" EntitySet="street" />
             <End Role="address" EntitySet="address" />
           </AssociationSet>
-          <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.Store.FK_bankCard_bank">
+          <AssociationSet Name="FK_bank_entity" Association="DB_40114_codeclubModel.Store.FK_bank_entity">
+            <End Role="entity" EntitySet="entity" />
             <End Role="bank" EntitySet="bank" />
-            <End Role="bankCard" EntitySet="bankCard" />
-          </AssociationSet>
-          <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.Store.FK_bankCard_card">
-            <End Role="card" EntitySet="card" />
-            <End Role="bankCard" EntitySet="bankCard" />
           </AssociationSet>
           <AssociationSet Name="FK_card_cardType" Association="DB_40114_codeclubModel.Store.FK_card_cardType">
             <End Role="cardType" EntitySet="cardType" />
@@ -463,14 +458,7 @@
           </Key>
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="varchar" MaxLength="200" />
-        </EntityType>
-        <EntityType Name="bankCard">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="bankID" Type="int" />
-          <Property Name="cardID" Type="int" />
+          <Property Name="entityID" Type="int" />
         </EntityType>
         <EntityType Name="card">
           <Key>
@@ -1183,27 +1171,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_bankCard_bank">
-          <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="0..1" />
-          <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
+        <Association Name="FK_bank_entity">
+          <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+          <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="bank">
+            <Principal Role="entity">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="bankCard">
-              <PropertyRef Name="bankID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_bankCard_card">
-          <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
-          <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="card">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="bankCard">
-              <PropertyRef Name="cardID" />
+            <Dependent Role="bank">
+              <PropertyRef Name="entityID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2214,7 +2190,6 @@
           <EntitySet Name="account" EntityType="Models.account" />
           <EntitySet Name="address" EntityType="Models.address" />
           <EntitySet Name="bank" EntityType="Models.bank" />
-          <EntitySet Name="bankCard" EntityType="Models.bankCard" />
           <EntitySet Name="card" EntityType="Models.card" />
           <EntitySet Name="cardType" EntityType="Models.cardType" />
           <EntitySet Name="categoryType" EntityType="Models.categoryType" />
@@ -2319,10 +2294,6 @@
             <End Role="street" EntitySet="street" />
             <End Role="address" EntitySet="address" />
           </AssociationSet>
-          <AssociationSet Name="FK_bankCard_bank" Association="Models.FK_bankCard_bank">
-            <End Role="bank" EntitySet="bank" />
-            <End Role="bankCard" EntitySet="bankCard" />
-          </AssociationSet>
           <AssociationSet Name="FK_ccFee_bank" Association="Models.FK_ccFee_bank">
             <End Role="bank" EntitySet="bank" />
             <End Role="ccFee" EntitySet="ccFee" />
@@ -2330,10 +2301,6 @@
           <AssociationSet Name="FK_fee_bank" Association="Models.FK_fee_bank">
             <End Role="bank" EntitySet="bank" />
             <End Role="fee" EntitySet="fee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_bankCard_card" Association="Models.FK_bankCard_card">
-            <End Role="card" EntitySet="card" />
-            <End Role="bankCard" EntitySet="bankCard" />
           </AssociationSet>
           <AssociationSet Name="FK_card_cardType" Association="Models.FK_card_cardType">
             <End Role="cardType" EntitySet="cardType" />
@@ -2631,6 +2598,10 @@
             <End Role="resource" EntitySet="resource" />
             <End Role="resourceHighlight" EntitySet="resourceHighlight" />
           </AssociationSet>
+          <AssociationSet Name="FK_bank_entity" Association="Models.FK_bank_entity">
+            <End Role="entity" EntitySet="entity" />
+            <End Role="bank" EntitySet="bank" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="account">
           <Key>
@@ -2664,19 +2635,10 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="bankCard" Relationship="Models.FK_bankCard_bank" FromRole="bank" ToRole="bankCard" />
           <NavigationProperty Name="ccFee" Relationship="Models.FK_ccFee_bank" FromRole="bank" ToRole="ccFee" />
           <NavigationProperty Name="fee" Relationship="Models.FK_fee_bank" FromRole="bank" ToRole="fee" />
-        </EntityType>
-        <EntityType Name="bankCard">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="bankID" />
-          <Property Type="Int32" Name="cardID" />
-          <NavigationProperty Name="bank" Relationship="Models.FK_bankCard_bank" FromRole="bankCard" ToRole="bank" />
-          <NavigationProperty Name="card" Relationship="Models.FK_bankCard_card" FromRole="bankCard" ToRole="card" />
+          <Property Type="Int32" Name="entityID" />
+          <NavigationProperty Name="entity" Relationship="Models.FK_bank_entity" FromRole="bank" ToRole="entity" />
         </EntityType>
         <EntityType Name="card">
           <Key>
@@ -2686,7 +2648,6 @@
           <Property Type="String" Name="cardNumber" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="expiryDate" />
           <Property Type="Int32" Name="cardTypeID" />
-          <NavigationProperty Name="bankCard" Relationship="Models.FK_bankCard_card" FromRole="card" ToRole="bankCard" />
           <NavigationProperty Name="cardType" Relationship="Models.FK_card_cardType" FromRole="card" ToRole="cardType" />
           <NavigationProperty Name="ccCard" Relationship="Models.FK_ccCard_card" FromRole="card" ToRole="ccCard" />
           <NavigationProperty Name="dbCard" Relationship="Models.FK_dbCard_card" FromRole="card" ToRole="dbCard" />
@@ -2830,6 +2791,7 @@
           <NavigationProperty Name="person" Relationship="Models.FK_person_entity" FromRole="entity" ToRole="person" />
           <NavigationProperty Name="service" Relationship="Models.FK_service_entitygiver" FromRole="entity" ToRole="service" />
           <NavigationProperty Name="service1" Relationship="Models.FK_service_entityreceiver" FromRole="entity" ToRole="service" />
+          <NavigationProperty Name="bank" Relationship="Models.FK_bank_entity" FromRole="entity" ToRole="bank" />
         </EntityType>
         <EntityType Name="entityCard">
           <Key>
@@ -3556,18 +3518,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_bankCard_bank">
-          <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
-          <End Type="Models.bankCard" Role="bankCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="bank">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="bankCard">
-              <PropertyRef Name="bankID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ccFee_bank">
           <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
           <End Type="Models.ccFee" Role="ccFee" Multiplicity="*" />
@@ -3589,18 +3539,6 @@
             </Principal>
             <Dependent Role="fee">
               <PropertyRef Name="bankID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_bankCard_card">
-          <End Type="Models.card" Role="card" Multiplicity="0..1" />
-          <End Type="Models.bankCard" Role="bankCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="card">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="bankCard">
-              <PropertyRef Name="cardID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4492,6 +4430,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_bank_entity">
+          <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+          <End Type="Models.bank" Role="bank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entity">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="bank">
+              <PropertyRef Name="entityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4523,16 +4473,8 @@
           <EntitySetMapping Name="bank">
             <EntityTypeMapping TypeName="Models.bank">
               <MappingFragment StoreEntitySet="bank">
+                <ScalarProperty Name="entityID" ColumnName="entityID" />
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="bankCard">
-            <EntityTypeMapping TypeName="Models.bankCard">
-              <MappingFragment StoreEntitySet="bankCard">
-                <ScalarProperty Name="cardID" ColumnName="cardID" />
-                <ScalarProperty Name="bankID" ColumnName="bankID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -5271,7 +5213,6 @@
         <EntityTypeShape EntityType="Models.account" Width="1.5" PointX="5.25" PointY="23.625" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="Models.address" Width="1.5" PointX="19" PointY="17.125" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="Models.bank" Width="1.5" PointX="3.75" PointY="9" Height="1.980286458333353" />
-        <EntityTypeShape EntityType="Models.bankCard" Width="1.5" PointX="8.25" PointY="12" Height="1.980286458333353" />
         <EntityTypeShape EntityType="Models.card" Width="1.5" PointX="6" PointY="11.5" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="Models.cardType" Width="1.5" PointX="3.75" PointY="12" Height="1.980286458333353" />
         <EntityTypeShape EntityType="Models.categoryType" Width="1.5" PointX="3" PointY="31" Height="1.9802864583333566" />
@@ -5350,10 +5291,10 @@
         <EntityTypeShape EntityType="Models.transactionAccount" Width="1.5" PointX="13.75" PointY="19" Height="2.557190755208353" />
         <AssociationConnector Association="Models.FK_account_categoryType" >
           <ConnectorPoint PointX="4.5" PointY="31.001152846153843" />
-          <ConnectorPoint PointX="4.875" PointY="30.626152846153843" />
-          <ConnectorPoint PointX="4.875" PointY="24.999746093749991" />
+          <ConnectorPoint PointX="4.885416666666667" PointY="30.626152846153843" />
           <ConnectorPoint PointX="4.885416666666667" PointY="24.999746093749991" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="24.999746093749991" />
+          <ConnectorPoint PointX="4.9270833333333339" PointY="24.999746093749991" />
+          <ConnectorPoint PointX="5.09375" PointY="24.999746093749991" />
           <ConnectorPoint PointX="5.25" PointY="24.999746093749991" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_account_currency" >
@@ -5364,8 +5305,8 @@
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_account_entity" >
           <ConnectorPoint PointX="4.5" PointY="25.749619140624986" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="25.749619140624986" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="25.749619140624986" />
+          <ConnectorPoint PointX="4.8020833333333339" PointY="25.749619140624986" />
+          <ConnectorPoint PointX="5.09375" PointY="25.749619140624986" />
           <ConnectorPoint PointX="5.25" PointY="25.749619140624986" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_transaction_account" >
@@ -5391,59 +5332,50 @@
           <ConnectorPoint PointX="19.3437475" PointY="23.547841796874991" />
           <ConnectorPoint PointX="19.3437475" PointY="19.489889322916667" />
         </AssociationConnector>
-        <AssociationConnector Association="Models.FK_bankCard_bank" >
-          <ConnectorPoint PointX="5.25" PointY="10.64133789062501" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="10.64133789062501" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="10.64133789062501" />
-          <ConnectorPoint PointX="8.46875" PointY="10.64133789062501" />
-          <ConnectorPoint PointX="8.46875" PointY="12" />
-        </AssociationConnector>
         <AssociationConnector Association="Models.FK_ccFee_bank" >
-          <ConnectorPoint PointX="5.25" PointY="9.78941694531251" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="9.78941694531251" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="9.78941694531251" />
-          <ConnectorPoint PointX="5.75" PointY="9.78941694531251" />
-          <ConnectorPoint PointX="5.75" PointY="10.489889322916667" />
-          <ConnectorPoint PointX="9.4166666666666661" PointY="10.489889322916667" />
-          <ConnectorPoint PointX="9.5833333333333339" PointY="10.489889322916667" />
-          <ConnectorPoint PointX="10.75" PointY="10.489889322916667" />
-          <ConnectorPoint PointX="10.75" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="12.635416666666666" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="12.802083333333334" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="12.807294166666667" PointY="11.92258789062498" />
-          <ConnectorPoint PointX="13.083333333333334" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="15.197916666666666" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="15.364583333333334" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="16.25" PointY="11.922587890624982" />
-          <ConnectorPoint PointX="16.25" PointY="25.875" />
-          <ConnectorPoint PointX="17" PointY="25.875" />
-          <ConnectorPoint PointX="17" PointY="26.25" />
+          <ConnectorPoint PointX="4.5" PointY="11.364889322916666" />
+          <ConnectorPoint PointX="4.5" PointY="11.75" />
+          <ConnectorPoint PointX="5.5" PointY="11.75" />
+          <ConnectorPoint PointX="5.5" PointY="15.875" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="15.874999999999998" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="15.875" />
+          <ConnectorPoint PointX="7.2291691666666669" PointY="15.875" />
+          <ConnectorPoint PointX="7.3958358333333329" PointY="15.875" />
+          <ConnectorPoint PointX="10.4375" PointY="15.875" />
+          <ConnectorPoint PointX="10.4375" PointY="26.75" />
+          <ConnectorPoint PointX="12.072916666666666" PointY="26.75" />
+          <ConnectorPoint PointX="12.239583333333334" PointY="26.75" />
+          <ConnectorPoint PointX="12.541666666666666" PointY="26.75" />
+          <ConnectorPoint PointX="12.708333333333334" PointY="26.75" />
+          <ConnectorPoint PointX="13.604166916666665" PointY="26.75" />
+          <ConnectorPoint PointX="13.770833583333333" PointY="26.75" />
+          <ConnectorPoint PointX="14.416666666666666" PointY="26.75" />
+          <ConnectorPoint PointX="14.583333333333334" PointY="26.75" />
+          <ConnectorPoint PointX="15.875" PointY="26.75" />
+          <ConnectorPoint PointX="15.875" PointY="27.432444661458334" />
+          <ConnectorPoint PointX="16.25" PointY="27.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_fee_bank" >
-          <ConnectorPoint PointX="5.25" PointY="9.3322084726562551" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="9.3322084726562551" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="9.3322084726562551" />
-          <ConnectorPoint PointX="6" PointY="9.3322084726562551" />
-        </AssociationConnector>
-        <AssociationConnector Association="Models.FK_bankCard_card" >
-          <ConnectorPoint PointX="7.5" PointY="12.990143229166677" />
-          <ConnectorPoint PointX="8.25" PointY="12.990143229166677" />
+          <ConnectorPoint PointX="5.25" PointY="9.6199446614583337" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="9.6199446614583337" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="9.6199446614583337" />
+          <ConnectorPoint PointX="6" PointY="9.6199446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_card_cardType" >
           <ConnectorPoint PointX="5.25" PointY="12.990143229166677" />
+          <ConnectorPoint PointX="5.416666666666667" PointY="12.990143229166677" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="12.990143229166677" />
           <ConnectorPoint PointX="6" PointY="12.990143229166677" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_ccCard_card" >
-          <ConnectorPoint PointX="7.5" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="8.3854166666666661" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="8.5520833333333339" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="10.666666666666666" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="10.833333333333334" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="12.635416666666666" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="12.802083333333334" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="12.807294166666667" PointY="11.82883789062498" />
-          <ConnectorPoint PointX="13.083333333333334" PointY="11.828837890624982" />
-          <ConnectorPoint PointX="15.28125" PointY="11.828837890624982" />
+          <ConnectorPoint PointX="7.5" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="12.635416666666666" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="12.802083333333334" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="12.807294166666667" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="12.973960833333335" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="13.541666666666666" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="13.708333333333334" PointY="12.396393229166677" />
+          <ConnectorPoint PointX="15.28125" PointY="12.396393229166677" />
           <ConnectorPoint PointX="15.28125" PointY="12.875" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_dbCard_card" >
@@ -5451,6 +5383,8 @@
           <ConnectorPoint PointX="7.125" PointY="16.09375" />
           <ConnectorPoint PointX="7.2291691666666669" PointY="16.09375" />
           <ConnectorPoint PointX="7.3958358333333329" PointY="16.09375" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="16.09375" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="16.09375" />
           <ConnectorPoint PointX="13.166666666666666" PointY="16.09375" />
           <ConnectorPoint PointX="13.333333333333334" PointY="16.09375" />
           <ConnectorPoint PointX="13.541666666666666" PointY="16.09375" />
@@ -5469,8 +5403,8 @@
         <AssociationConnector Association="Models.FK_externalPayment_card" >
           <ConnectorPoint PointX="7.3125025" PointY="14.441793619791667" />
           <ConnectorPoint PointX="7.3125025" PointY="31.042999674479177" />
-          <ConnectorPoint PointX="10.166666666666666" PointY="31.042999674479177" />
-          <ConnectorPoint PointX="10.458333333333334" PointY="31.042999674479177" />
+          <ConnectorPoint PointX="10.208333333333332" PointY="31.042999674479177" />
+          <ConnectorPoint PointX="10.458333333333332" PointY="31.042999674479177" />
           <ConnectorPoint PointX="12.541666666666666" PointY="31.042999674479177" />
           <ConnectorPoint PointX="12.708333333333334" PointY="31.042999674479177" />
           <ConnectorPoint PointX="12.916666666666666" PointY="31.042999674479177" />
@@ -5484,6 +5418,8 @@
           <ConnectorPoint PointX="7.083333333333333" PointY="16.062497500000006" />
           <ConnectorPoint PointX="7.2291691666666669" PointY="16.062497500000006" />
           <ConnectorPoint PointX="7.3958358333333329" PointY="16.062497500000006" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="16.062497500000006" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="16.062497500000006" />
           <ConnectorPoint PointX="13.166666666666666" PointY="16.062497500000006" />
           <ConnectorPoint PointX="13.333333333333334" PointY="16.062497500000006" />
           <ConnectorPoint PointX="13.541666666666666" PointY="16.062497500000006" />
@@ -5493,8 +5429,8 @@
         <AssociationConnector Association="Models.FK_fee_cardType" >
           <ConnectorPoint PointX="5.25" PointY="12.001152846153847" />
           <ConnectorPoint PointX="5.625" PointY="11.626152846153847" />
-          <ConnectorPoint PointX="5.625" PointY="8.5723522363280775" />
-          <ConnectorPoint PointX="6" PointY="8.5723522363280775" />
+          <ConnectorPoint PointX="5.625" PointY="8.7162203307291737" />
+          <ConnectorPoint PointX="6" PointY="8.7162203307291737" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_categoryType_glType" >
           <ConnectorPoint PointX="2.25" PointY="32.047841796874991" />
@@ -5513,22 +5449,18 @@
           <ConnectorPoint PointX="13.604166916666665" PointY="26.297587890624982" />
           <ConnectorPoint PointX="13.25" PointY="26.297587890624982" />
           <ConnectorPoint PointX="13.25" PointY="15.749492187499982" />
-          <ConnectorPoint PointX="13.5" PointY="15.749492187499982" />
-          <ConnectorPoint PointX="13.5" PointY="14.057444661458305" />
+          <ConnectorPoint PointX="13.541666666666666" PointY="15.749492187499982" />
+          <ConnectorPoint PointX="13.541666666666666" PointY="14.057444661458305" />
           <ConnectorPoint PointX="13.541666666666666" PointY="14.057444661458305" />
           <ConnectorPoint PointX="13.708333333333334" PointY="14.057444661458305" />
           <ConnectorPoint PointX="14.25" PointY="14.057444661458305" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_mcCard_ccCard" >
           <ConnectorPoint PointX="15.75" PointY="13.235341796874991" />
-          <ConnectorPoint PointX="16.166666666666668" PointY="13.235341796874991" />
-          <ConnectorPoint PointX="16.333333333333332" PointY="13.235341796874991" />
           <ConnectorPoint PointX="16.5" PointY="13.235341796874991" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_visaCard_ccCard" >
           <ConnectorPoint PointX="15.75" PointY="14.807444661458305" />
-          <ConnectorPoint PointX="16.166666666666668" PointY="14.807444661458305" />
-          <ConnectorPoint PointX="16.333333333333332" PointY="14.807444661458305" />
           <ConnectorPoint PointX="16.5" PointY="14.807444661458305" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_ccFee_ccCardType" >
@@ -5542,24 +5474,24 @@
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_currency_currencyType" >
           <ConnectorPoint PointX="2.25" PointY="21.047841796874991" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="21.047841796874991" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="21.047841796874991" />
           <ConnectorPoint PointX="3" PointY="21.047841796874991" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_entityWallet_currency" >
           <ConnectorPoint PointX="3.75" PointY="22.374492187499982" />
           <ConnectorPoint PointX="3.75" PointY="22.691793619791667" />
-          <ConnectorPoint PointX="4.74089217588143" PointY="22.691793619791667" />
+          <ConnectorPoint PointX="4.7593537143429705" PointY="22.691793619791667" />
           <ConnectorPoint PointX="5.208333333333333" PointY="22.691793619791667" />
           <ConnectorPoint PointX="6.916666666666667" PointY="22.691793619791667" />
           <ConnectorPoint PointX="7.083333333333333" PointY="22.691793619791667" />
           <ConnectorPoint PointX="7.2291691666666669" PointY="22.691793619791667" />
           <ConnectorPoint PointX="7.3958358333333329" PointY="22.691793619791667" />
-          <ConnectorPoint PointX="7.541666666666667" PointY="22.691793619791667" />
-          <ConnectorPoint PointX="7.708333333333333" PointY="22.691793619791667" />
           <ConnectorPoint PointX="7.875" PointY="22.691793619791667" />
-          <ConnectorPoint PointX="7.875" PointY="22.028595377604177" />
-          <ConnectorPoint PointX="8.0416666666666661" PointY="22.028595377604177" />
-          <ConnectorPoint PointX="8.2083333333333339" PointY="22.028595377604177" />
-          <ConnectorPoint PointX="8.25" PointY="22.028595377604177" />
+          <ConnectorPoint PointX="7.875" PointY="21.931503857096381" />
+          <ConnectorPoint PointX="8.0416666666666661" PointY="21.931503857096381" />
+          <ConnectorPoint PointX="8.2083333333333339" PointY="21.931503857096381" />
+          <ConnectorPoint PointX="8.25" PointY="21.931503857096381" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoice_currency" >
           <ConnectorPoint PointX="4.5" PointY="20.937339247596093" />
@@ -5573,14 +5505,14 @@
           <ConnectorPoint PointX="7.083333333333333" PointY="22.941793619791667" />
           <ConnectorPoint PointX="7.2291691666666669" PointY="22.941793619791667" />
           <ConnectorPoint PointX="7.3958358333333329" PointY="22.941793619791667" />
-          <ConnectorPoint PointX="8" PointY="22.941793619791667" />
-          <ConnectorPoint PointX="8" PointY="23.557190755208353" />
+          <ConnectorPoint PointX="8.0416666666666661" PointY="22.941793619791667" />
+          <ConnectorPoint PointX="8.0416666666666661" PointY="23.557190755208353" />
           <ConnectorPoint PointX="8.0416666666666661" PointY="23.557190755208353" />
           <ConnectorPoint PointX="8.2083333333333339" PointY="23.557190755208353" />
-          <ConnectorPoint PointX="9.9166666666666661" PointY="23.557190755208353" />
-          <ConnectorPoint PointX="10.083333333333334" PointY="23.557190755208353" />
-          <ConnectorPoint PointX="10.25" PointY="23.557190755208353" />
-          <ConnectorPoint PointX="10.25" PointY="31.375" />
+          <ConnectorPoint PointX="9.9444444444444446" PointY="23.557190755208353" />
+          <ConnectorPoint PointX="10.111111111111113" PointY="23.557190755208353" />
+          <ConnectorPoint PointX="10.291666666666666" PointY="23.557190755208353" />
+          <ConnectorPoint PointX="10.291666666666666" PointY="31.375" />
           <ConnectorPoint PointX="10.291666666666666" PointY="31.375" />
           <ConnectorPoint PointX="10.458333333333334" PointY="31.375" />
           <ConnectorPoint PointX="11.25" PointY="31.375" />
@@ -5588,10 +5520,12 @@
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_payment_currency" >
           <ConnectorPoint PointX="4.5" PointY="22.367568110576904" />
-          <ConnectorPoint PointX="4.96875" PointY="22.836318110576904" />
-          <ConnectorPoint PointX="4.96875" PointY="28.980499674479177" />
+          <ConnectorPoint PointX="4.6647763554515338" PointY="22.518893334971168" />
+          <ConnectorPoint PointX="4.78753133685619" PointY="22.63162750156728" />
+          <ConnectorPoint PointX="4.8472873837350789" PointY="22.686505503802998" />
+          <ConnectorPoint PointX="4.9700423651397347" PointY="22.79923967039911" />
+          <ConnectorPoint PointX="5.010416666666667" PointY="22.836318110576904" />
           <ConnectorPoint PointX="5.010416666666667" PointY="28.980499674479177" />
-          <ConnectorPoint PointX="5.239583333333333" PointY="28.980499674479177" />
           <ConnectorPoint PointX="5.25" PointY="28.980499674479177" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_dbPayment_externalPayment" >
@@ -5603,99 +5537,101 @@
           <ConnectorPoint PointX="3" PointY="25.047841796874991" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_entityCard_entity" >
-          <ConnectorPoint PointX="4.5" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="4.6539316656650653" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="5.052083333333333" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="7.2291691666666669" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="7.3958358333333329" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="7.760416666666667" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="7.927083333333333" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="9" PointY="26.636495768229167" />
-          <ConnectorPoint PointX="9" PointY="25.980286458333353" />
+          <ConnectorPoint PointX="4.5" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="4.8020833333333339" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="5.09375" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="7.2291691666666669" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="7.3958358333333329" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="7.760416666666667" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="7.927083333333333" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="9.40625" PointY="26.615143229166677" />
+          <ConnectorPoint PointX="9.40625" PointY="25.980286458333353" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_entityWallet_entity" >
-          <ConnectorPoint PointX="4.1249994999999995" PointY="23.125" />
-          <ConnectorPoint PointX="4.1249994999999995" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="4.7674358974358979" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="5.208333333333333" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="6.916666666666667" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="7.083333333333333" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="7.2291691666666669" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="7.3958358333333329" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="7.625" PointY="22.816793619791667" />
-          <ConnectorPoint PointX="7.625" PointY="21.358045688802036" />
-          <ConnectorPoint PointX="8.0416666666666661" PointY="21.358045688802036" />
-          <ConnectorPoint PointX="8.2083333333333339" PointY="21.358045688802036" />
-          <ConnectorPoint PointX="8.25" PointY="21.358045688802036" />
+          <ConnectorPoint PointX="3.7066326153846152" PointY="23.125" />
+          <ConnectorPoint PointX="3.7066326153846152" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="4.0416661666666664" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="4.2083328333333325" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="4.81391050841346" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="5.0044344433671872" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="5.041666666666667" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="5.208333333333333" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="7.2291691666666669" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="7.3958358333333329" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="7.75" PointY="22.754293619791667" />
+          <ConnectorPoint PointX="7.75" PointY="21.931503857096381" />
+          <ConnectorPoint PointX="8.0416666666666661" PointY="21.931503857096381" />
+          <ConnectorPoint PointX="8.2083333333333339" PointY="21.931503857096381" />
+          <ConnectorPoint PointX="8.25" PointY="21.931503857096381" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoice_issuer" >
           <ConnectorPoint PointX="4.5" PointY="23.15153746153846" />
-          <ConnectorPoint PointX="4.75" PointY="22.90153746153846" />
-          <ConnectorPoint PointX="4.75" PointY="22.968331081330128" />
-          <ConnectorPoint PointX="4.8756866895085036" PointY="22.842644391821626" />
-          <ConnectorPoint PointX="4.9935378197062619" PointY="22.724793261623869" />
-          <ConnectorPoint PointX="5.0660744349011209" PointY="22.652256646429009" />
-          <ConnectorPoint PointX="5.1839255650988791" PointY="22.534405516231253" />
+          <ConnectorPoint PointX="5.0660744349011209" PointY="22.585463026637338" />
+          <ConnectorPoint PointX="5.1839255650988791" PointY="22.467611896439582" />
+          <ConnectorPoint PointX="5.1875" PointY="22.46403746153846" />
+          <ConnectorPoint PointX="5.1875" PointY="22.530831081330128" />
           <ConnectorPoint PointX="5.2765374615384619" PointY="22.441793619791667" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoice_receiver" >
-          <ConnectorPoint PointX="4.47576923076923" PointY="23.125" />
-          <ConnectorPoint PointX="4.625" PointY="22.75" />
-          <ConnectorPoint PointX="4.625" PointY="23.0425628505609" />
+          <ConnectorPoint PointX="4.5" PointY="23.13307592307692" />
+          <ConnectorPoint PointX="4.90625" PointY="22.72682592307692" />
+          <ConnectorPoint PointX="4.90625" PointY="22.7613128505609" />
           <ConnectorPoint PointX="5.0660744349011209" PointY="22.601488415659777" />
           <ConnectorPoint PointX="5.1839255650988791" PointY="22.48363728546202" />
           <ConnectorPoint PointX="5.25" PointY="22.4175628505609" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_organization_entity" >
-          <ConnectorPoint PointX="4.4884615384615376" PointY="26.835999348958353" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="27.163612245397939" />
-          <ConnectorPoint PointX="5.0276755650988791" PointY="27.375213375595695" />
-          <ConnectorPoint PointX="5.03125" PointY="27.378787810496817" />
-          <ConnectorPoint PointX="5.03125" PointY="35.268992513020834" />
-          <ConnectorPoint PointX="5.072916666666667" PointY="35.268992513020834" />
-          <ConnectorPoint PointX="5.239583333333333" PointY="35.268992513020834" />
+          <ConnectorPoint PointX="4.4884615384615376" PointY="27.028300781250003" />
+          <ConnectorPoint PointX="4.9375" PointY="27.477339242788467" />
+          <ConnectorPoint PointX="4.9375" PointY="35.268992513020834" />
+          <ConnectorPoint PointX="4.963541666666667" PointY="35.268992513020834" />
+          <ConnectorPoint PointX="5.130208333333333" PointY="35.268992513020834" />
           <ConnectorPoint PointX="5.25" PointY="35.268992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_payment_entitypayee" >
-          <ConnectorPoint PointX="4.5" PointY="26.785229118189122" />
-          <ConnectorPoint PointX="4.71875" PointY="27.003979118189122" />
-          <ConnectorPoint PointX="4.71875" PointY="26.56721253846154" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="26.664536973362662" />
-          <ConnectorPoint PointX="5.0276755650988791" PointY="26.876138103560418" />
+          <ConnectorPoint PointX="4.5" PointY="26.977530550480772" />
+          <ConnectorPoint PointX="4.8264911015677887" PointY="27.304021652048561" />
+          <ConnectorPoint PointX="4.9443422317655461" PointY="27.421872782246318" />
+          <ConnectorPoint PointX="4.9514911015677887" PointY="27.429021652048561" />
+          <ConnectorPoint PointX="5.0693422317655461" PointY="27.546872782246318" />
+          <ConnectorPoint PointX="5.1875" PointY="27.665030550480772" />
+          <ConnectorPoint PointX="5.1875" PointY="27.03596253846154" />
           <ConnectorPoint PointX="5.2765374615384619" PointY="27.125" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_payment_entitypayer" >
-          <ConnectorPoint PointX="4.5" PointY="26.805998348958351" />
-          <ConnectorPoint PointX="4.65625" PointY="26.962248348958351" />
-          <ConnectorPoint PointX="4.65625" PointY="26.555480769230769" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="26.715305204131891" />
-          <ConnectorPoint PointX="5.0276755650988791" PointY="26.926906334329647" />
+          <ConnectorPoint PointX="4.5" PointY="26.99829978125" />
+          <ConnectorPoint PointX="4.8264911015677887" PointY="27.324790882817791" />
+          <ConnectorPoint PointX="4.9443422317655461" PointY="27.442642013015547" />
+          <ConnectorPoint PointX="4.9514911015677887" PointY="27.449790882817791" />
+          <ConnectorPoint PointX="5.0693422317655461" PointY="27.567642013015547" />
+          <ConnectorPoint PointX="5.125" PointY="27.62329978125" />
+          <ConnectorPoint PointX="5.125" PointY="27.024230769230769" />
           <ConnectorPoint PointX="5.25" PointY="27.149230769230769" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_person_entity" >
-          <ConnectorPoint PointX="4.5" PointY="26.826767579727584" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="27.142842014628705" />
-          <ConnectorPoint PointX="5.0276755650988791" PointY="27.354443144826462" />
-          <ConnectorPoint PointX="5.1875" PointY="27.514267579727584" />
-          <ConnectorPoint PointX="5.1875" PointY="42.461293945312491" />
+          <ConnectorPoint PointX="4.5" PointY="27.019069012019234" />
+          <ConnectorPoint PointX="4.8264911015677887" PointY="27.345560113587023" />
+          <ConnectorPoint PointX="4.9443422317655461" PointY="27.46341124378478" />
+          <ConnectorPoint PointX="5.046875" PointY="27.565944012019234" />
+          <ConnectorPoint PointX="5.046875" PointY="42.461293945312491" />
           <ConnectorPoint PointX="5.25" PointY="42.461293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_service_entitygiver" >
-          <ConnectorPoint PointX="4.4469230769230768" PointY="26.835999348958353" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="27.205150706936397" />
-          <ConnectorPoint PointX="5.0276755650988791" PointY="27.416751837134154" />
-          <ConnectorPoint PointX="5.09375" PointY="27.482826272035275" />
-          <ConnectorPoint PointX="5.09375" PointY="45.432444661458362" />
-          <ConnectorPoint PointX="5.25" PointY="45.432444661458362" />
+          <ConnectorPoint PointX="4.4469230769230768" PointY="27.028300781250003" />
+          <ConnectorPoint PointX="4.8264911015677887" PointY="27.407868805894712" />
+          <ConnectorPoint PointX="4.9443422317655461" PointY="27.525719936092468" />
+          <ConnectorPoint PointX="4.96875" PointY="27.550127704326925" />
+          <ConnectorPoint PointX="4.96875" PointY="44.809970330729186" />
+          <ConnectorPoint PointX="5.25" PointY="44.809970330729186" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_service_entityreceiver" >
-          <ConnectorPoint PointX="4.4988461538461531" PointY="26.835999348958353" />
-          <ConnectorPoint PointX="4.8160744349011217" PointY="27.153227630013323" />
-          <ConnectorPoint PointX="5.0276755650988791" PointY="27.364828760211079" />
-          <ConnectorPoint PointX="5.15625" PointY="27.4934031951122" />
-          <ConnectorPoint PointX="5.15625" PointY="45.432444661458362" />
+          <ConnectorPoint PointX="4.4988461538461531" PointY="27.028300781250003" />
+          <ConnectorPoint PointX="4.90625" PointY="27.435704627403851" />
+          <ConnectorPoint PointX="4.90625" PointY="45.432444661458362" />
           <ConnectorPoint PointX="5.25" PointY="45.432444661458362" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_entityWalletTransaction_entityWallet" >
@@ -5753,6 +5689,8 @@
           <ConnectorPoint PointX="7.083333333333333" PointY="20.421877500000051" />
           <ConnectorPoint PointX="7.2291691666666669" PointY="20.421877500000051" />
           <ConnectorPoint PointX="7.3958358333333329" PointY="20.421877500000051" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="20.421877500000051" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="20.421877500000051" />
           <ConnectorPoint PointX="10.59375" PointY="20.421877500000051" />
           <ConnectorPoint PointX="10.59375" PointY="24.25" />
         </AssociationConnector>
@@ -5764,8 +5702,8 @@
           <ConnectorPoint PointX="7.3958358333333329" PointY="20.921214094401094" />
           <ConnectorPoint PointX="8.125" PointY="20.921214094401094" />
           <ConnectorPoint PointX="8.125" PointY="23.682190755208353" />
-          <ConnectorPoint PointX="10.166666666666666" PointY="23.682190755208353" />
-          <ConnectorPoint PointX="10.333333333333334" PointY="23.682190755208353" />
+          <ConnectorPoint PointX="10.208333333333332" PointY="23.682190755208353" />
+          <ConnectorPoint PointX="10.375" PointY="23.682190755208353" />
           <ConnectorPoint PointX="10.375" PointY="23.682190755208353" />
           <ConnectorPoint PointX="10.375" PointY="31.5" />
           <ConnectorPoint PointX="10.843748" PointY="31.5" />
@@ -5781,33 +5719,32 @@
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoiceActionTransaction_invoiceAction" >
           <ConnectorPoint PointX="9" PointY="17.53125" />
+          <ConnectorPoint PointX="10.354166666666666" PointY="17.53125" />
+          <ConnectorPoint PointX="10.520833333333334" PointY="17.53125" />
           <ConnectorPoint PointX="10.96875" PointY="17.53125" />
           <ConnectorPoint PointX="10.96875" PointY="21.125" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoiceActionTransaction_transaction" >
           <ConnectorPoint PointX="9" PointY="29.141337890625039" />
-          <ConnectorPoint PointX="10.166666666666666" PointY="29.141337890625039" />
-          <ConnectorPoint PointX="10.458333333333334" PointY="29.141337890625039" />
+          <ConnectorPoint PointX="10.208333333333332" PointY="29.141337890625039" />
+          <ConnectorPoint PointX="10.458333333333332" PointY="29.141337890625039" />
           <ConnectorPoint PointX="12.15625" PointY="29.141337890625039" />
           <ConnectorPoint PointX="12.15625" PointY="23.105286458333353" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoicePayment_payment" >
           <ConnectorPoint PointX="6.75" PointY="27.126152846153843" />
-          <ConnectorPoint PointX="6.9410744349011209" PointY="26.935078411252722" />
-          <ConnectorPoint PointX="7.0589255650988791" PointY="26.817227281054965" />
-          <ConnectorPoint PointX="7.125" PointY="26.751152846153843" />
+          <ConnectorPoint PointX="6.9426904681528789" PointY="26.922740367233523" />
+          <ConnectorPoint PointX="7.0573095318471211" PointY="26.801743474646841" />
           <ConnectorPoint PointX="7.125" PointY="26.730286458333353" />
           <ConnectorPoint PointX="7.2291691666666669" PointY="26.730286458333353" />
           <ConnectorPoint PointX="7.3958358333333329" PointY="26.730286458333353" />
           <ConnectorPoint PointX="7.760416666666667" PointY="26.730286458333353" />
           <ConnectorPoint PointX="7.927083333333333" PointY="26.730286458333353" />
           <ConnectorPoint PointX="10" PointY="26.730286458333353" />
-          <ConnectorPoint PointX="10.06607443490112" PointY="26.664212023432231" />
-          <ConnectorPoint PointX="10.183925565098878" PointY="26.546360893234475" />
-          <ConnectorPoint PointX="10.19107443490112" PointY="26.539212023432231" />
-          <ConnectorPoint PointX="10.308925565098878" PointY="26.421360893234475" />
-          <ConnectorPoint PointX="10.31607443490112" PointY="26.414212023432231" />
-          <ConnectorPoint PointX="10.433925565098878" PointY="26.296360893234475" />
+          <ConnectorPoint PointX="10.107741101567786" PointY="26.622545356765567" />
+          <ConnectorPoint PointX="10.225592231765544" PointY="26.50469422656781" />
+          <ConnectorPoint PointX="10.232741101567786" PointY="26.497545356765567" />
+          <ConnectorPoint PointX="10.496425565098878" PointY="26.233860893234475" />
           <ConnectorPoint PointX="10.5" PointY="26.230286458333353" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_invoiceService_service" >
@@ -5819,8 +5756,8 @@
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_office_officeType" >
           <ConnectorPoint PointX="4.5" PointY="38.172841796874991" />
-          <ConnectorPoint PointX="5.010416666666667" PointY="38.172841796874991" />
-          <ConnectorPoint PointX="5.239583333333333" PointY="38.172841796874991" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="38.172841796874991" />
+          <ConnectorPoint PointX="5.130208333333333" PointY="38.172841796874991" />
           <ConnectorPoint PointX="5.25" PointY="38.172841796874991" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_orgOffice_office" >
@@ -5834,8 +5771,8 @@
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_payment_paymentType" >
           <ConnectorPoint PointX="4.5" PointY="29.475591634114579" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="29.475591634114579" />
-          <ConnectorPoint PointX="5.239583333333333" PointY="29.475591634114579" />
+          <ConnectorPoint PointX="4.8020833333333339" PointY="29.475591634114579" />
+          <ConnectorPoint PointX="5.1302083333333339" PointY="29.475591634114579" />
           <ConnectorPoint PointX="5.25" PointY="29.475591634114579" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_paymentAction_payment" >
@@ -5846,10 +5783,10 @@
           <ConnectorPoint PointX="7.3958358333333329" PointY="26.5" />
           <ConnectorPoint PointX="7.760416666666667" PointY="26.5" />
           <ConnectorPoint PointX="7.927083333333333" PointY="26.5" />
-          <ConnectorPoint PointX="8.9166666666666661" PointY="26.5" />
-          <ConnectorPoint PointX="9.0833333333333339" PointY="26.5" />
-          <ConnectorPoint PointX="10.041666666666666" PointY="26.5" />
-          <ConnectorPoint PointX="10.458333333333334" PointY="26.5" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="26.5" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="26.5" />
+          <ConnectorPoint PointX="10.083333333333332" PointY="26.5" />
+          <ConnectorPoint PointX="10.520833333333332" PointY="26.5" />
           <ConnectorPoint PointX="12.072916666666666" PointY="26.5" />
           <ConnectorPoint PointX="12.239583333333334" PointY="26.5" />
           <ConnectorPoint PointX="12.541666666666666" PointY="26.5" />
@@ -5945,8 +5882,6 @@
         <AssociationConnector Association="Models.FK_user_person1" >
           <ConnectorPoint PointX="9.5" PointY="9.182190755208353" />
           <ConnectorPoint PointX="9.5" PointY="11.081238606770825" />
-          <ConnectorPoint PointX="10.666666666666666" PointY="11.081238606770825" />
-          <ConnectorPoint PointX="10.833333333333334" PointY="11.081238606770825" />
           <ConnectorPoint PointX="11" PointY="11.081238606770825" />
         </AssociationConnector>
         <AssociationConnector Association="Models.FK_testreview_test" >
@@ -6015,6 +5950,13 @@
           <ConnectorPoint PointX="0.98470903846153834" PointY="5.807190755208353" />
           <ConnectorPoint PointX="0.98470903846153834" PointY="7.2689925130208621" />
           <ConnectorPoint PointX="3" PointY="7.2689925130208621" />
+        </AssociationConnector>
+        <AssociationConnector Association="Models.FK_bank_entity" >
+          <ConnectorPoint PointX="4.1249994999999995" PointY="23.125" />
+          <ConnectorPoint PointX="4.1249994999999995" PointY="22.624492187499982" />
+          <ConnectorPoint PointX="2.75" PointY="22.624492187499982" />
+          <ConnectorPoint PointX="2.75" PointY="10.182444661458334" />
+          <ConnectorPoint PointX="3.75" PointY="10.182444661458334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -16,16 +16,17 @@ namespace accounting.classes
         public string lastname;
 
         public Person():base() { }
-        public Person(int personID) : base() 
+        public Person(int personEntityId)
+            : base() 
         {
-            loadPerson(personID);
+            loadPerson(personEntityId);
         }
-        private void loadPerson(int personID) 
+        private void loadPerson(int personEntityId) 
         {
             using (var ctx = new AccContexts())
             {
                 var person = ctx.person
-                    .Where(x => x.ID == personID)
+                    .Where(x => x.entityID == personEntityId)
                     .SingleOrDefault();
 
                 if (person == null)
@@ -34,6 +35,7 @@ namespace accounting.classes
                 this.id = person.ID;
                 this.firstname = person.firstName;
                 this.lastname = person.lastName;
+                base.ENTITYID = (int)person.entityID;
             }    
         }
 

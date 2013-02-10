@@ -11,3 +11,4 @@ C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\Co
 C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\CordovaStarter1.dll
 C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\CordovaStarter1.pdb
 C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\XapCacheFile.xml
+C:\projects\Partitions\partition1\projects\PhoneGap\CordovaStarter1\obj\Debug\CordovaStarter1.csprojResolveAssemblyReference.cache

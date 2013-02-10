@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/accounting.classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/accounting.classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
+  <xs:complexType name="Person">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstname" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="id" type="xs:int" />
+          <xs:element minOccurs="0" name="lastname" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AccountingLib.Models" minOccurs="0" name="cards" nillable="true" type="q1:ArrayOfcard" />
+      <xs:element minOccurs="0" name="entityTypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:complexType name="Service">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="issuerEntityID" type="xs:int" />
+      <xs:element minOccurs="0" name="receiverEntityID" type="xs:int" />
+      <xs:element minOccurs="0" name="serviceID" type="xs:int" />
+      <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Service" nillable="true" type="tns:Service" />
+  <xs:complexType name="Invoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="currencyID" type="xs:int" />
+      <xs:element minOccurs="0" name="invoiceID" type="xs:int" />
+      <xs:element minOccurs="0" name="issuerEntityID" type="xs:int" />
+      <xs:element minOccurs="0" name="receiverEntityID" type="xs:int" />
+      <xs:element minOccurs="0" name="test" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+</xs:schema>

@@ -26,16 +26,8 @@
     <EntitySetMapping Name="bank">
       <EntityTypeMapping TypeName="Models.bank">
         <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="entityID" ColumnName="entityID" />
           <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="bankCard">
-      <EntityTypeMapping TypeName="Models.bankCard">
-        <MappingFragment StoreEntitySet="bankCard">
-          <ScalarProperty Name="cardID" ColumnName="cardID" />
-          <ScalarProperty Name="bankID" ColumnName="bankID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

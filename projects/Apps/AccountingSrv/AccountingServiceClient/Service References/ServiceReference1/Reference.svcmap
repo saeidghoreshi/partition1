@@ -21,9 +21,14 @@
     <MetadataSource Address="http://localhost:555/srv.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="meta1.disco" MetadataType="Disco" ID="09585c3a-596e-4646-880f-9b322fc2c3a4" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?disco" />
-    <MetadataFile FileName="AccountingV11.wsdl" MetadataType="Wsdl" ID="cb802b10-e039-41cd-9c53-ba596d30625d" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?wsdl" />
-    <MetadataFile FileName="meta31.xsd" MetadataType="Schema" ID="fcd8bdcd-1139-4e7d-af22-b1a540bb5eb0" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd0" />
+    <MetadataFile FileName="meta.xsd" MetadataType="Schema" ID="c3c549ca-7f59-4af8-a004-07cce4e715bc" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd4" />
+    <MetadataFile FileName="meta1.xsd" MetadataType="Schema" ID="02352de3-3730-4bac-af6d-a634efbde82b" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd0" />
+    <MetadataFile FileName="meta2.xsd" MetadataType="Schema" ID="ce0aa732-f78e-40ae-b7ba-a24c506df740" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd3" />
+    <MetadataFile FileName="meta3.xsd" MetadataType="Schema" ID="1f0ce2cf-80ad-4810-8255-908cf58b7682" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd2" />
+    <MetadataFile FileName="meta4.xsd" MetadataType="Schema" ID="ac251254-701e-482d-ab38-d2557a513054" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd1" />
+    <MetadataFile FileName="meta1.disco" MetadataType="Disco" ID="5e9570e1-2283-4435-bb04-c34d027ad0c4" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?disco" />
+    <MetadataFile FileName="meta5.xsd" MetadataType="Schema" ID="db138e57-df54-445a-a26c-abf37ccf251c" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd5" />
+    <MetadataFile FileName="AccountingV11.wsdl" MetadataType="Wsdl" ID="bdf6df2c-1681-4460-8ff7-97cbb8e5d823" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

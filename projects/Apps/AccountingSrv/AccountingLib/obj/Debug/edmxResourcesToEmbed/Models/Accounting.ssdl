@@ -4,7 +4,6 @@
     <EntitySet Name="account" EntityType="DB_40114_codeclubModel.Store.account" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="address" EntityType="DB_40114_codeclubModel.Store.address" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="bank" EntityType="DB_40114_codeclubModel.Store.bank" store:Type="Tables" Schema="Accounting" />
-    <EntitySet Name="bankCard" EntityType="DB_40114_codeclubModel.Store.bankCard" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="card" EntityType="DB_40114_codeclubModel.Store.card" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="cardType" EntityType="DB_40114_codeclubModel.Store.cardType" store:Type="Tables" Schema="Accounting" />
     <EntitySet Name="categoryType" EntityType="DB_40114_codeclubModel.Store.categoryType" store:Type="Tables" Schema="Accounting" />
@@ -116,13 +115,9 @@
       <End Role="street" EntitySet="street" />
       <End Role="address" EntitySet="address" />
     </AssociationSet>
-    <AssociationSet Name="FK_bankCard_bank" Association="DB_40114_codeclubModel.Store.FK_bankCard_bank">
+    <AssociationSet Name="FK_bank_entity" Association="DB_40114_codeclubModel.Store.FK_bank_entity">
+      <End Role="entity" EntitySet="entity" />
       <End Role="bank" EntitySet="bank" />
-      <End Role="bankCard" EntitySet="bankCard" />
-    </AssociationSet>
-    <AssociationSet Name="FK_bankCard_card" Association="DB_40114_codeclubModel.Store.FK_bankCard_card">
-      <End Role="card" EntitySet="card" />
-      <End Role="bankCard" EntitySet="bankCard" />
     </AssociationSet>
     <AssociationSet Name="FK_card_cardType" Association="DB_40114_codeclubModel.Store.FK_card_cardType">
       <End Role="cardType" EntitySet="cardType" />
@@ -458,14 +453,7 @@
     </Key>
     <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="varchar" MaxLength="200" />
-  </EntityType>
-  <EntityType Name="bankCard">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="bankID" Type="int" />
-    <Property Name="cardID" Type="int" />
+    <Property Name="entityID" Type="int" />
   </EntityType>
   <EntityType Name="card">
     <Key>
@@ -1178,27 +1166,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_bankCard_bank">
-    <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="0..1" />
-    <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
+  <Association Name="FK_bank_entity">
+    <End Role="entity" Type="DB_40114_codeclubModel.Store.entity" Multiplicity="0..1" />
+    <End Role="bank" Type="DB_40114_codeclubModel.Store.bank" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="bank">
+      <Principal Role="entity">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="bankCard">
-        <PropertyRef Name="bankID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_bankCard_card">
-    <End Role="card" Type="DB_40114_codeclubModel.Store.card" Multiplicity="0..1" />
-    <End Role="bankCard" Type="DB_40114_codeclubModel.Store.bankCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="card">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="bankCard">
-        <PropertyRef Name="cardID" />
+      <Dependent Role="bank">
+        <PropertyRef Name="entityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

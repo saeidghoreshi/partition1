@@ -5,7 +5,6 @@
     <EntitySet Name="account" EntityType="Models.account" />
     <EntitySet Name="address" EntityType="Models.address" />
     <EntitySet Name="bank" EntityType="Models.bank" />
-    <EntitySet Name="bankCard" EntityType="Models.bankCard" />
     <EntitySet Name="card" EntityType="Models.card" />
     <EntitySet Name="cardType" EntityType="Models.cardType" />
     <EntitySet Name="categoryType" EntityType="Models.categoryType" />
@@ -110,10 +109,6 @@
       <End Role="street" EntitySet="street" />
       <End Role="address" EntitySet="address" />
     </AssociationSet>
-    <AssociationSet Name="FK_bankCard_bank" Association="Models.FK_bankCard_bank">
-      <End Role="bank" EntitySet="bank" />
-      <End Role="bankCard" EntitySet="bankCard" />
-    </AssociationSet>
     <AssociationSet Name="FK_ccFee_bank" Association="Models.FK_ccFee_bank">
       <End Role="bank" EntitySet="bank" />
       <End Role="ccFee" EntitySet="ccFee" />
@@ -121,10 +116,6 @@
     <AssociationSet Name="FK_fee_bank" Association="Models.FK_fee_bank">
       <End Role="bank" EntitySet="bank" />
       <End Role="fee" EntitySet="fee" />
-    </AssociationSet>
-    <AssociationSet Name="FK_bankCard_card" Association="Models.FK_bankCard_card">
-      <End Role="card" EntitySet="card" />
-      <End Role="bankCard" EntitySet="bankCard" />
     </AssociationSet>
     <AssociationSet Name="FK_card_cardType" Association="Models.FK_card_cardType">
       <End Role="cardType" EntitySet="cardType" />
@@ -422,6 +413,10 @@
       <End Role="resource" EntitySet="resource" />
       <End Role="resourceHighlight" EntitySet="resourceHighlight" />
     </AssociationSet>
+    <AssociationSet Name="FK_bank_entity" Association="Models.FK_bank_entity">
+      <End Role="entity" EntitySet="entity" />
+      <End Role="bank" EntitySet="bank" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="account">
     <Key>
@@ -455,19 +450,10 @@
     </Key>
     <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Type="String" Name="name" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="bankCard" Relationship="Models.FK_bankCard_bank" FromRole="bank" ToRole="bankCard" />
     <NavigationProperty Name="ccFee" Relationship="Models.FK_ccFee_bank" FromRole="bank" ToRole="ccFee" />
     <NavigationProperty Name="fee" Relationship="Models.FK_fee_bank" FromRole="bank" ToRole="fee" />
-  </EntityType>
-  <EntityType Name="bankCard">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="bankID" />
-    <Property Type="Int32" Name="cardID" />
-    <NavigationProperty Name="bank" Relationship="Models.FK_bankCard_bank" FromRole="bankCard" ToRole="bank" />
-    <NavigationProperty Name="card" Relationship="Models.FK_bankCard_card" FromRole="bankCard" ToRole="card" />
+    <Property Type="Int32" Name="entityID" />
+    <NavigationProperty Name="entity" Relationship="Models.FK_bank_entity" FromRole="bank" ToRole="entity" />
   </EntityType>
   <EntityType Name="card">
     <Key>
@@ -477,7 +463,6 @@
     <Property Type="String" Name="cardNumber" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="expiryDate" />
     <Property Type="Int32" Name="cardTypeID" />
-    <NavigationProperty Name="bankCard" Relationship="Models.FK_bankCard_card" FromRole="card" ToRole="bankCard" />
     <NavigationProperty Name="cardType" Relationship="Models.FK_card_cardType" FromRole="card" ToRole="cardType" />
     <NavigationProperty Name="ccCard" Relationship="Models.FK_ccCard_card" FromRole="card" ToRole="ccCard" />
     <NavigationProperty Name="dbCard" Relationship="Models.FK_dbCard_card" FromRole="card" ToRole="dbCard" />
@@ -621,6 +606,7 @@
     <NavigationProperty Name="person" Relationship="Models.FK_person_entity" FromRole="entity" ToRole="person" />
     <NavigationProperty Name="service" Relationship="Models.FK_service_entitygiver" FromRole="entity" ToRole="service" />
     <NavigationProperty Name="service1" Relationship="Models.FK_service_entityreceiver" FromRole="entity" ToRole="service" />
+    <NavigationProperty Name="bank" Relationship="Models.FK_bank_entity" FromRole="entity" ToRole="bank" />
   </EntityType>
   <EntityType Name="entityCard">
     <Key>
@@ -1347,18 +1333,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_bankCard_bank">
-    <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
-    <End Type="Models.bankCard" Role="bankCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="bank">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="bankCard">
-        <PropertyRef Name="bankID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ccFee_bank">
     <End Type="Models.bank" Role="bank" Multiplicity="0..1" />
     <End Type="Models.ccFee" Role="ccFee" Multiplicity="*" />
@@ -1380,18 +1354,6 @@
       </Principal>
       <Dependent Role="fee">
         <PropertyRef Name="bankID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_bankCard_card">
-    <End Type="Models.card" Role="card" Multiplicity="0..1" />
-    <End Type="Models.bankCard" Role="bankCard" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="card">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="bankCard">
-        <PropertyRef Name="cardID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2280,6 +2242,18 @@
       </Principal>
       <Dependent Role="resourceHighlight">
         <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bank_entity">
+    <End Type="Models.entity" Role="entity" Multiplicity="0..1" />
+    <End Type="Models.bank" Role="bank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="entity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="bank">
+        <PropertyRef Name="entityID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -208,7 +208,7 @@ namespace accounting.classes
 
                    
                     ccFee ccfee = new ccFee();
-                    ccfee.loadccFeeByBankCardTypeID((int)ccCardType, card.getBank().ID);
+                    ccfee.loadccFeeByBankCardTypeID((int)ccCardType, (card as Entity).getBankByCard(card.cardID).bankID);
                     
                     //Record related transctions [for invoice payment]
                     List <AccountingLib.Models.transaction> transactions = new List<transaction>();
@@ -266,7 +266,7 @@ namespace accounting.classes
 
                    
                     Fee fee = new Fee();
-                    fee.loadFeeByBankCardTypeID(card.cardTypeID, card.getBank().ID);
+                    fee.loadFeeByBankCardTypeID(card.cardTypeID, ((Entity)card).getBankByCard(cardID).bankID);
                     
                     //Record related transctions [for invoice payment]
                     List <AccountingLib.Models.transaction> transactions = new List<transaction>();

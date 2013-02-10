@@ -45,8 +45,6 @@ namespace accounting.classes
         {
             using (var ctx = new AccContexts())
             {
-                base.loadByPaymentID(paymentID);
-
                 var ccPaymentrecord = ctx.ccPayment
                     .Where(x => x.externalPayment.paymentID == paymentID)
                     .SingleOrDefault();
@@ -55,7 +53,14 @@ namespace accounting.classes
                     throw new Exception("no such a cc Payment Exists");
 
                 this.ccPaymentID = ccPaymentrecord.ID;
+                this.extPaymentID = (int)ccPaymentrecord.extPaymentID;
                 this.ccPaymentDescription = ccPaymentrecord.description;
+
+                /*base.paymentID = (int)ccPaymentrecord.externalPayment.paymentID;
+                base. = (int)ccPaymentrecord.externalPayment;
+                base. = (int)ccPaymentrecord.externalPayment;
+                */
+
             }
         }
     }

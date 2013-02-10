@@ -11,8 +11,8 @@ namespace accounting.classes
 {
     public abstract class Entity
     {
-        private int entityID;
-        public int ENTITYID { get { return entityID; } }
+
+        public int ENTITYID { get; set; }
 
         public int entityTypeID;
         public List<AccountingLib.Models.card> cards;
@@ -29,10 +29,24 @@ namespace accounting.classes
                 ctx.SaveChanges();
 
                 /*reload entity*/
-                this.entityID = newEntity.ID;
+                this.ENTITYID = newEntity.ID;
             }
         }
-        
+        public Bank getBankByCard(int cardID)
+        {
+            using (var ctx = new AccountingLib.Models.AccContexts())
+            {
+                var theBank = ctx.entityCard
+                    .Where(x => x.CardID == cardID)
+                    .Where(x=>x.entity.entityTypeID==(int)enums.entityType.bank)
+                    .SingleOrDefault();
+
+                Bank b = new Bank();
+                b.loadBankByEntityID((int)theBank.entityID);
+                return b;
+            }
+        }
+
         public void addCard(int cardID)
         {
             int entityID = (int)this.ENTITYID;
