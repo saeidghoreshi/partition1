@@ -741,6 +741,7 @@
     <Content Include="Components\index1\img\gmap_pin.png" />
     <Content Include="Components\index1\img\gmap_pin_grey.png" />
     <Content Include="Components\index1\img\gmap_pin_orange.png" />
+    <Content Include="Components\index1\img\sampleHome.png" />
     <Content Include="Components\index1\mapHandler.js" />
     <Content Include="Components\index1\page.css" />
     <Content Include="Components\index1\page.js" />
@@ -757,7 +758,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index1.cshtml" />
     <Content Include="Views\Home\Master.cshtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
@@ -778,6 +779,8 @@
     <Content Include="Views\Home\Index1\listings.cshtml" />
     <None Include="Properties\PublishProfiles\stage-realestate - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\stage-realestate - Web Deploy.pubxml" />
+    <Content Include="Views\Home\Index1\Panel.cshtml" />
+    <Content Include="Views\Home\Index1\South.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

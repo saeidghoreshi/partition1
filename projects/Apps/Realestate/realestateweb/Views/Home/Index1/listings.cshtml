@@ -1,20 +1,33 @@
-﻿<div id='scrollerContainer' style="width:242px;">
+﻿<div id='listingPanel'>
+<div id='scrollerContainer' style="width:230px;">
     <div id="scroll-pane">
 
     <div id="listings">
     <ul>
     @foreach (var item in ViewBag.data)
     {
-        <li data='{"lat":@item["lat"],"lng":@item["lng"]}'>
-        @item["address"], @item["postalcode"], @item["city"]<br/>
-        @item["status"]<br/>
+        <li data='{"lat":@item["lat"],"lng":@item["lng"]}' style="vertical-align:top">
+            <table cellpadding=2 cellspacing=0 border=0>
+            <tr>
+            <td>
+                <a href="#"><img src="../../../Components/index1/img/sampleHome.png" /></a>
+            </td>
+            <td>
+                @item["address"],@item["city"]<br/>
+                @item["postalcode"]<br/>
+                @item["status"]
+            </td>
+            </tr>
+            </table>
+            
         </li>
     }
     </ul>
     </div>
 
-</div></div>
-
+</div>
+</div>
+</div>
 
 <style>
 #scrollerContainer
@@ -24,7 +37,7 @@
 #scroll-pane
 {
 	width: 100%;
-	height: 760px;
+	height: 550px;
 	overflow: auto;
 }			
 </style>

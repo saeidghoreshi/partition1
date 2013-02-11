@@ -1,7 +1,8 @@
-﻿#listings ul li
+﻿
+#listings ul li
 {
-    height:50px;
-    width:230px;
+    height:80px;
+    width:210px;
     margin:1px;
     padding:1px;
     border:1px solid  lightgray;
@@ -14,7 +15,8 @@
 }
 #listings ul li:hover
 {
-    background:#ccc;
+    background:#555;
+    color:White;
 }
 .listings_selected
 {
@@ -30,4 +32,24 @@
 #mainLayout2 .layout-panel-center , #layout2-center
 {
     width:100% !important;
+}
+#listingPanel
+{
+    margin-top:10px;    
+    border-bottom:1px  dashed gray;
+    padding:5px;
+    margin:5px;
+}
+#priceRange
+{
+    margin-left:10px;    
+    margin-right:10px;    
+}
+.panel-body
+{
+    color:inherit  !important;
+}
+#settings-panel
+{
+    padding:5px;    
 }

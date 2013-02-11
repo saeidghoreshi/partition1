@@ -19,7 +19,7 @@ namespace realestateweb.Controllers
         public ActionResult Index()
         {
             
-            return View();
+            return View("index1");
         }
         public ActionResult getListings() 
         {
@@ -27,6 +27,14 @@ namespace realestateweb.Controllers
             var listings = db.fetch("exec realestate.getListings").Tables[0].AsEnumerable();
             ViewBag.data = listings;
             return PartialView("index1/listings");
+        }
+        public ActionResult getPanel()
+        {
+            return PartialView("index1/Panel");
+        }
+        public ActionResult getSouth()
+        {
+            return PartialView("index1/South");
         }
 
         

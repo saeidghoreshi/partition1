@@ -1,0 +1,122 @@
+﻿<div id="settings-panel">
+    
+
+  <div class="easyui-panel" title="Bed & Bathrooms" style="padding:10px;">  
+        <select id="bedrooms" style="width:90px"></select>  
+        <div id="spBedrooms" >  
+            <input type="radio" name="lang" value="01"><span>0 Bed</span><br/>  
+            <input type="radio" name="lang" value="02"><span>1+ Bed</span><br/>  
+            <input type="radio" name="lang" value="03"><span>2+ Bed</span><br/>  
+            <input type="radio" name="lang" value="04"><span>3+ Bed</span>
+        </div> 
+    
+        <select id="bathrooms" style="width:90px"></select>  
+        <div id="spBathrooms" >  
+            <input type="radio" name="lang" value="01"><span>0 Bed</span><br/>  
+            <input type="radio" name="lang" value="02"><span>1+ Bed</span><br/>  
+            <input type="radio" name="lang" value="03"><span>2+ Bed</span><br/>  
+            <input type="radio" name="lang" value="04"><span>3+ Bed</span>
+        </div>  
+  </div> 
+  <br/>
+    
+  
+
+  <div class="easyui-panel" title="Price Range" style="padding:10px;">  
+        <label for="amount"></label>
+        <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
+        <div id="priceRange"></div>
+  </div>
+  <br/>
+
+  <div class="easyui-panel" title="Property Type" style="padding:10px;">  
+        <input type="checkbox" name="ptype" checked><span>Condominium</span><br/>  
+        <input type="checkbox" name="ptype" ><span>House</span><br/>  
+        <input type="checkbox" name="ptype" ><span>Farm</span><br/>  
+        <input type="checkbox" name="ptype" ><span>Land</span><br/>  
+        <input type="checkbox" name="ptype" ><span>Other</span>
+
+  </div>
+  <br />
+
+  <div class="easyui-panel" title="Show" style="padding:10px;">  
+  <table style="font-size:10px">
+  <tr>
+  <td><input type="checkbox" name="show" checked><span>All</span></td>
+  <td></td>
+  </tr>
+
+  <tr>
+  <td><input type="checkbox" name="show" ><span>Open Houses</span></td>
+  <td><input type="checkbox" name="show" ><span>Price Changed</span></td>
+  </tr>
+
+
+  <tr>
+  <td><input type="checkbox" name="show" ><span>New Properties</span></td>
+  <td><input type="checkbox" name="show" ><span>New Construction</span></td>
+  </tr>
+
+
+  <tr>
+  <td><input type="checkbox" name="show" ><span>Luxury</span></td>
+  <td></td>
+  </tr>
+  </table>
+        
+        
+        
+        
+        
+        
+
+  </div>
+
+
+
+</div>
+
+
+
+<script>
+         (function ($) {
+             YAHOO.util.Get.script("/ClientSideLibraries/JQUI/jquery-ui-1.9.2.custom.js", { onSuccess: function () {
+                 $("#priceRange").slider({
+                     range: true,
+                     min: 0,
+                     max: 100,
+                     values: [50, 80],
+                     slide: function (event, ui) {
+                         $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                     }
+                 });
+                 $("#amount").val("$" + $("#priceRange").slider("values", 0) + " - $" + $("#priceRange").slider("values", 1));
+             }
+         });
+
+         //bedrool cpmbo
+         $('#bedrooms').combo({
+             required: false,
+             editable: false
+         });
+         $('#spBedrooms').appendTo($('#bedrooms').combo('panel'));
+         $('#spBedrooms input').click(function () {
+             var v = $(this).val();
+             var s = $(this).next('span').text();
+             $('#bedrooms').combo('setValue', v).combo('setText', s).combo('hidePanel');
+         });
+         $('#bathrooms').combo({
+             required: false,
+             editable: false
+         });
+         $('#spBathrooms').appendTo($('#bathrooms').combo('panel'));
+         $('#spBathrooms input').click(function () {
+             var v = $(this).val();
+             var s = $(this).next('span').text();
+             $('#bathrooms').combo('setValue', v).combo('setText', s).combo('hidePanel');
+         });
+
+
+         } (jQuery));
+         
+</script>
