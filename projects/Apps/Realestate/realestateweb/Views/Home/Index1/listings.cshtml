@@ -1,7 +1,6 @@
 ﻿<div id='listingPanel'>
 <div id='scrollerContainer' style="width:230px;">
     <div id="scroll-pane">
-
     <div id="listings">
     <ul>
     @foreach (var item in ViewBag.data)
@@ -24,10 +23,23 @@
     }
     </ul>
     </div>
+    </div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
+
+    <script>
+
+        (function ($) {
+
+            //scroller Pane
+            $('#scroll-pane').ready(function () {
+                $('#scroll-pane').jScrollPane();
+            });
+
+        } (jQuery));
+
+</script>
 
 <style>
 #scrollerContainer
@@ -42,16 +54,3 @@
 }			
 </style>
 
-
-<script>
-(function ($$) {
-    (function ($) {
-
-        //scroller Pane
-        $('#scroll-pane').ready(function () {
-            $('#scroll-pane').jScrollPane();
-        });
-
-    } (jQuery));
-} (Prototype));
-</script>

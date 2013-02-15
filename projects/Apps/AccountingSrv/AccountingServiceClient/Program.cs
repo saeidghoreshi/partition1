@@ -153,6 +153,7 @@ namespace AccountingServiceClient
         public static void request(string command,string xmlData)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://localhost:555/srv.svc/rest/" + command);
+            //http://accouning.azurewebsites.net
 
             string sXML = xmlData;
             request.Method = "POST";

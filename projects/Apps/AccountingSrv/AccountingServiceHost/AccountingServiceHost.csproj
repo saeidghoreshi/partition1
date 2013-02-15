@@ -85,6 +85,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\accouning - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\accouning - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ryanapp1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\ryanapp1 - Web Deploy.pubxml" />
   </ItemGroup>
