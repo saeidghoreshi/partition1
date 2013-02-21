@@ -1,97 +1,67 @@
-﻿<div id="settings-panel">
-    
+﻿<style>
+   
+#beds,#baths,#priceSlider,#transit-walk,#score-walk
+{
+    margin-bottom:10px;
+    margin-left:10px;
+}
+
+</style>
+
+
+<div id="settings-panel">
+  
+  <!--Price Range-->  
+  <h3>Price Range</h3>  
+  <hr />
 
   <div id='beds'></div>
   <div id='baths'></div>
-  
+  <div id='priceSlider'></div>
 
-  <div  title="Price Range" style="padding:10px;">  
-        <label for="amount"></label>
-        <input type="text" id="amount" style="border: 0; color: #f6931f; font-weight: bold;" />
-        <div id="priceRange"></div>
+  <!--Property types-->  
+  <h3>Property Type</h3>
+  <hr />
+
+  <div style='float: left; width: 200px;'>
+      <div id='pt-0' style='float: left;'>Condominium</div>
+      <div id='pt-1' style='float: left;'>House</div>
   </div>
-  <br/>
-
-  <div  title="Property Type" style="padding:10px;">  
-        <input type="checkbox" name="ptype" checked><span>Condominium</span><br/>  
-        <input type="checkbox" name="ptype" ><span>House</span><br/>  
-        <input type="checkbox" name="ptype" ><span>Farm</span><br/>  
-        <input type="checkbox" name="ptype" ><span>Land</span><br/>  
-        <input type="checkbox" name="ptype" ><span>Other</span>
-
+  <div style='float: left; width: 200px; margin-top: 10px;'>
+      <div id='pt-2' style='float: left;'>Farm</div>
+      <div id='pt-3' style='float: left;'>Land</div>
   </div>
-  <br />
-
-  <div  title="Show" style="padding:10px;">  
-  <table style="font-size:10px">
-  <tr>
-  <td><input type="checkbox" name="show" checked><span>All</span></td>
-  <td></td>
-  </tr>
-
-  <tr>
-  <td><input type="checkbox" name="show" ><span>Open Houses</span></td>
-  <td><input type="checkbox" name="show" ><span>Price Changed</span></td>
-  </tr>
-
-
-  <tr>
-  <td><input type="checkbox" name="show" ><span>New Properties</span></td>
-  <td><input type="checkbox" name="show" ><span>New Construction</span></td>
-  </tr>
-
-
-  <tr>
-  <td><input type="checkbox" name="show" ><span>Luxury</span></td>
-  <td></td>
-  </tr>
-  </table>
+  <div style='float: left; width: 200px; margin-top: 10px;'>
+      <div id='pt-4' style='float: left;'>Others</div>
+  </div>
         
+  <!--Show-->  
+  <h3>Show</h3> 
+  <hr />
 
-
+  <div style='float: left; width: 200px;'>
+      <div id='t-1' style='float: left;'>All</div>
+  </div>
+  <div style='float: left; width: 200px; margin-top: 10px;'>
+      <div id='t-2' style='float: left;'>Open Houses</div>
+      <div id='t-3' style='float: left;'>Price Changed</div>
+  </div>
+  <div style='float: left; width: 200px; margin-top: 10px;'>
+      <div id='t-4' style='float: left;'>New Properties</div>
+      <div id='t-5' style='float: left;'>New Constructions</div>
+  </div>
+  <div style='float: left; width: 200px; margin-top: 10px;'>
+      <div id='t-6' style='float: left;'>Luxury</div>
   </div>
 
-
+  <!--score-->
+  <h3>Walk Score</h3>
+  <hr />
+  <div id='score-walk'></div>
+  <h3>Transit Score</h3>
+  <hr />
+  <div id='transit-walk'></div>
 
 </div>
 
 
-
-<script>
-         (function ($) {
-             YAHOO.util.Get.script("/ClientSideLibraries/JQUI/jquery-ui-1.9.2.custom.js", { onSuccess: function () {
-                 $("#priceRange").slider({
-                     range: true,
-                     min: 0,
-                     max: 100,
-                     values: [50, 80],
-                     slide: function (event, ui) {
-                         $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                     }
-                 });
-                 $("#amount").val("$" + $("#priceRange").slider("values", 0) + " - $" + $("#priceRange").slider("values", 1));
-             }
-         });
-
-        
-         //Combo
-         var theme = getDemoTheme();
-         var source1 = [
-                    "0 Bedroom",
-                    "1+ Bedroom",
-                    "2+ Bedroom"
-		        ];
-         $("#beds").jqxDropDownList({ source: source1, selectedIndex: 1, width: '150', height: '25', theme: theme });
-         var source2 = [
-                    "0 Bathrooms ",
-                    "1+ Bathrooms",
-                    "2+ Bathrooms"
-		        ];
-         $("#baths").jqxDropDownList({ source: source2, selectedIndex: 1, width: '150', height: '25', theme: theme });
-        
-
-         } (jQuery));
-        
-
-
-</script>

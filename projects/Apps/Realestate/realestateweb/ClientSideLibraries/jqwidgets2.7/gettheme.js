@@ -12,7 +12,7 @@
     }
 
     var theme = window.location.toString().substring(1 + themestart);
-    var url = "../../jqwidgets/styles/jqx." + theme + '.css';
+    var url = "../../ClientSideLibraries/jqwidgets2.7/styles/jqx." + theme + '.css';
 
     if (document.createStyleSheet != undefined) {
         var hasStyle = false;
