@@ -38,3 +38,4 @@ C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\en\Themes.resour
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\bin\fr\Themes.resources.dll
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\en\Themes.resources.dll
 C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\fr\Themes.resources.dll
+C:\projects\Partitions\partition1\projects\FinalWork\Themes\obj\Debug\Themes.csprojResolveAssemblyReference.cache

@@ -594,7 +594,6 @@
     <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\images\close.png" />
     <Content Include="ClientSideLibraries\plugins\ckEditor\skins\moono\images\mini.png" />
     <Content Include="ClientSideLibraries\plugins\ckEditor\styles.js" />
-    <Content Include="ClientSideLibraries\plugins\Gmapv3\gmap3-depreciated.js" />
     <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\Images\Chevron.gif" />
     <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\Images\IconHome.gif" />
     <Content Include="ClientSideLibraries\plugins\jQBreadCrumb_11\js\jquery.easing.1.3.js" />
@@ -630,6 +629,7 @@
     <Content Include="db.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="sql\propertyType.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

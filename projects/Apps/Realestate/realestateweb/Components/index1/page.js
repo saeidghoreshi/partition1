@@ -1,17 +1,30 @@
-﻿(function ($) {
+﻿var page1;
+(function ($) {
 
-    $('#center-area').ready(function () {
+    page1=cls.define(
+    {
+        customMap:null,
+        loadMap:function()
+        {
+            var me=this;
 
-        var mygmap = new gmapClass({ parentID: "center-area", imageRoot: "/components/index1/img" });
-        mygmap.init();
-    });
+            $('#center-area').ready(function () {
+
+                me.customMap= new gmapClass({ parentID: "center-area", imageRoot: "/components/index1/img" });
+                me.customMap.init();
+            });    
+        },
+        loadScreen:function()
+        {
+            var me=this;
+
+            //load main customMap
+            me.loadMap();
 
 
 
-
-    $('#listings > ul').sortable({ axis: "y" });
-
-    $('#listings ul li').click(function () {
+            $('#listings > ul').sortable({ axis: "y" });
+            $('#listings ul li').click(function () {
         var data = jQuery(this).attr('data');
         data = jQuery.parseJSON(data);
 
@@ -41,59 +54,114 @@
     });
 
 
-    //other components
-    var theme = getDemoTheme();
+            //other components
+            var theme = getDemoTheme();
 
-    $('#settings-panel').ready(function () {
+            /*
+            lib.helper.jqWidgetWin(
+            {
+                header: "H",
+                content: "C",
+                theme: theme,
+                modal: true,
+                height: 100,
+                width: 400,
+                collapsible: false
+            });
+            */
 
-        var priceSlider = $('#priceSlider');
-        priceSlider.jqxSlider({ showButtons: true, theme: theme, height: 30, width: 150, min: 500, max: 4000, step: 350, ticksFrequency: 350, mode: 'fixed', values: [500, 4000], rangeSlider: true });
-        var resetFilters = function () {
-            priceSlider.jqxSlider('setValue', [priceSlider.jqxSlider('min'), priceSlider.jqxSlider('max')]);
-        };
-        resetFilters();
+            if (navigator.geolocation)
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+    
+                    var point={
+                            lat:position.coords.latitude,
+                            lng:position.coords.longitude
+                        };
+
+                    me.customMap.putMarker({coords:point});
+                    me.customMap.setCenter({coords:point});
+
+                    me.customMap.calculateDirection(
+                    {
+                        startPoint :{coords:point},
+                        endPoint :{coords:{lat:49.230378,lng:-122.960701}},
+                        callback:function()
+                        {
+                            setTimeout(function()
+                            {
+                                me.customMap.circling({coords:point});
+                                me.customMap.setZoom (11);
+                            },1000);
+                        }
+                    });
 
 
-        //scrores
-        var score_walk = $('#score-walk');
-        score_walk.jqxSlider({ showButtons: true, theme: theme, height: 30, width: 150, min: 500, max: 4000, step: 350, ticksFrequency: 350, mode: 'fixed', values: [500, 4000], rangeSlider: true });
-        var scoreWalkResetFilters = function () {
-            score_walk.jqxSlider('setValue', [score_walk.jqxSlider('min'), score_walk.jqxSlider('max')]);
-        };
-        scoreWalkResetFilters();
-
-        var transit_walk = $('#transit-walk');
-        transit_walk.jqxSlider({ showButtons: true, theme: theme, height: 30, width: 150, min: 500, max: 4000, step: 350, ticksFrequency: 350, mode: 'fixed', values: [500, 4000], rangeSlider: true });
-        var transitWalkResetFilters = function () {
-            transit_walk.jqxSlider('setValue', [transit_walk.jqxSlider('min'), transit_walk.jqxSlider('max')]);
-        };
-        transitWalkResetFilters();
+                    me.customMap.circling({coords:point});
+                    me.customMap.setZoom (1);
+            })
+            else { console.log("Geolocation is not supported by this browser."); }
 
 
-        for (var i = 0; i <= 4; i++)
-            $("#pt-" + i).jqxCheckBox({ width: 100, height: 25, theme: theme });
+            $('#settings-panel').ready(function () {
 
-        for (var i = 1; i <= 6; i++)
-            $("#t-" + i).jqxCheckBox({ width: 100, height: 25, theme: theme });
+                var priceSlider = $('#priceSlider');
+                priceSlider.jqxSlider({ showButtons: true, showTicks: false, rangeSlider: true, theme: theme, height: 30, width: 150, min: 500, max: 4000, step: 350, ticksFrequency: 350, mode: 'fixed', values: [500, 4000], rangeSlider: true });
+                var resetFilters = function () {
+                    priceSlider.jqxSlider('setValue', [priceSlider.jqxSlider('min'), priceSlider.jqxSlider('max')]);
+                };
+                resetFilters();
+                priceSlider.change();
+
+
+                //scrores
+                var score_walk = $('#score-walk');
+                score_walk.jqxSlider({ showButtons: true, showTicks: false, theme: theme, height: 30, width: 150, min: 500, max: 4000, step: 350, ticksFrequency: 350, mode: 'fixed', values: [500, 4000], rangeSlider: true });
+                var scoreWalkResetFilters = function () {
+                    score_walk.jqxSlider('setValue', [score_walk.jqxSlider('min'), score_walk.jqxSlider('max')]);
+                };
+                scoreWalkResetFilters();
+
+                var transit_walk = $('#transit-walk');
+                transit_walk.jqxSlider({ showButtons: true, showTicks: false, theme: theme, height: 30, width: 150, min: 500, max: 4000, step: 350, ticksFrequency: 350, mode: 'fixed', values: [500, 4000], rangeSlider: true });
+                var transitWalkResetFilters = function () {
+                    transit_walk.jqxSlider('setValue', [transit_walk.jqxSlider('min'), transit_walk.jqxSlider('max')]);
+                };
+                transitWalkResetFilters();
+
+
+                for (var i = 0; i <= 4; i++)
+                    $("#pt-" + i).jqxCheckBox({ width: 100, height: 25, theme: theme });
+
+                for (var i = 1; i <= 6; i++)
+                    $("#t-" + i).jqxCheckBox({ width: 100, height: 25, theme: theme });
 
 
 
 
-        //Combo
-        var source1 = [
-                    "0 Bedroom",
-                    "1+ Bedroom",
-                    "2+ Bedroom"
-		        ];
-        $("#beds").jqxDropDownList({ source: source1, selectedIndex: 0, width: '150px', height: '25px', dropDownHeight: '80px', theme: theme });
-        var source2 = [
-                    "0 Bathrooms ",
-                    "1+ Bathrooms",
-                    "2+ Bathrooms"
-		        ];
-        $("#baths").jqxDropDownList({ source: source2, selectedIndex: 0, width: '150px', height: '25px', dropDownHeight: '80px', theme: theme });
+                //Combo
+                var source1 = [
+                            "0 Bedroom",
+                            "1+ Bedroom",
+                            "2+ Bedroom"
+		                ];
+                $("#beds").jqxDropDownList({ source: source1, selectedIndex: 0, width: '150px', height: '25px', dropDownHeight: '80px', theme: theme });
+                var source2 = [
+                            "0 Bathrooms ",
+                            "1+ Bathrooms",
+                            "2+ Bathrooms"
+		                ];
+                $("#baths").jqxDropDownList({ source: source2, selectedIndex: 0, width: '150px', height: '25px', dropDownHeight: '80px', theme: theme });
 
+
+            });
+        }
 
     });
+
+
+    var p=new page1();
+    p.loadScreen();
+  
 
 } (jQuery));

@@ -643,7 +643,6 @@
     <Content Include="Components\NEW\testUI\css\testUICss.css" />
     <Content Include="Components\NEW\testUI\js\testUIController.js" />
     <Content Include="JSplugins\ajaxForm\jquery.form.js" />
-    <Content Include="JSplugins\Gmapv3\gmaps-old.js" />
     <Content Include="Views\Home\Index1\menu.cshtml" />
     <Content Include="Components\index3\page\page.css" />
     <Content Include="Components\index3\page\page.js" />
