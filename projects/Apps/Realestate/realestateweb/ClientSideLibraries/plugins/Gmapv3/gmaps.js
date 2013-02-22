@@ -1,41 +1,24 @@
-﻿(function ($) {
-Class('gmapsClass',
-{
-    has:
-        {
-            config:
-            {
-                is: 'rw',
-                init: {}
-            }
-        },
-    methods:
-        {
-            initialize: function (config) {
+﻿var gmapClass;
+(function ($) {
+
+    gmapClass = cls.define(
+    {
+        init: function (config) {
                 var me = this;
 
-                me.config = config;
-                me.config.id = app.idGenerator('placeholder');
-                $('#' + me.config.parentId).html('<div id=' + me.config.id + '></div>');
-
+                me.config.id = helperLib.idGenerator('placeholder');
+                $('#' + me.config.parentID).html('<div id=' + me.config.id + '></div>');
+                
                 $('#' + me.config.id).css(
                     {
-                        width: $('#' + me.config.parentId).width(),
-                        height: $('#' + me.config.parentId).height()
+                        width: "100%",
+                        height: "100%"
                     }
                 );
-                me.init();
-            },
-            getId: function () {
-                var me = this;
-                return me.config.id;
-            },
 
-            init: function () {
-                var me = this;
-
-                app.tagReady(me.config.id,function () {me.buildGUI();});
+                helperLib.tagReady(me.config.id,function () {me.buildGUI();});
             },
+            
             buildGUI: function () {
 
                 var me = this;
@@ -50,9 +33,11 @@ Class('gmapsClass',
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
                 me.maps = new google.maps.Map(document.getElementById(me.config.id), myOptions);
+                
 
+                
                 me.directionsDisplay.setMap(me.maps);
-
+                
 
                 //add Custom Control
                 me.points = {}
@@ -163,9 +148,6 @@ Class('gmapsClass',
                     }
                 });
 
-            },
-            reverseGeoCoding: function () { }
-
-        }
-});
-})(jQuery);
+            }
+    });
+}(jQuery));

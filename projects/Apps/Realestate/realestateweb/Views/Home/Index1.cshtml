@@ -9,8 +9,8 @@
       (function ($) {
           $(document).ready(function () {
               var theme = getDemoTheme();
-              $('#splitContainer').jqxSplitter({ height: "100%", width: "100%", orientation: 'horizontal', theme: theme, panels: [{ size: "5%" }, { size: '90%'}] });
-              $('#splitter').jqxSplitter({ width: '100%', theme: theme, panels: [{ size: 250 }, { size: '70%' }, { size: 200}] });
+
+              $('#splitter').jqxSplitter({ width: '100%', orientation: 'vertical', height: "800", theme: theme, panels: [{ size: 250 }, { size: '69%' }, { size: 250}] });
 
               $("#tabs1").jqxTabs({ theme: theme, height: '100%', width: '100%' });
 
@@ -20,10 +20,7 @@
     </script>
 
 <div class='default'>
-    <div id="splitContainer">
-        <div>
-            North
-        </div>
+
         <div id="splitter">
             <!--Left-->
             <div class="splitter-panel">
@@ -41,7 +38,7 @@
                     </ul>
                     <!--Tab1 Content-->
                     <div>
-                    <div id="center-area" ></div>        
+                    <div id="center-area" style="width:100%;height:100%"></div>        
                     </div>
                     
                     <!--Tab2 Content-->
@@ -59,9 +56,7 @@
             </div>
             
         </div>
-        
-        
-    </div>
+    
 </div>
 
 
