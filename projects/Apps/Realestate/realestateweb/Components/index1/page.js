@@ -8,11 +8,43 @@
         {
             var me=this;
 
-            $('#center-area').ready(function () {
+            me.customMap= new gmapClass({ parentID: "center-area", imageRoot: "/components/index1/img" });
+            me.customMap.init();
 
-                me.customMap= new gmapClass({ parentID: "center-area", imageRoot: "/components/index1/img" });
-                me.customMap.init();
-            });    
+            //current location test Navigation
+            if (navigator.geolocation)
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+    
+                    var point={
+                            lat:position.coords.latitude,
+                            lng:position.coords.longitude
+                        };
+
+                    me.customMap.putMarker({coords:point});
+                    me.customMap.setCenter({coords:point});
+
+                    me.customMap.calculateDirection(
+                    {
+                        startPoint :{coords:point},
+                        endPoint :{coords:{lat:49.230378,lng:-122.960701}},
+                        callback:function()
+                        {
+                            setTimeout(function()
+                            {
+                                me.customMap.circling({coords:point});
+                                me.customMap.setZoom (11);
+                            },1000);
+                        }
+                    });
+
+
+                    me.customMap.circling({coords:point});
+                    me.customMap.setZoom (1);
+            })
+            else { console.log("Geolocation is not supported by this browser."); }
+
+           
         },
         loadScreen:function()
         {
@@ -70,38 +102,7 @@
             });
             */
 
-            if (navigator.geolocation)
-            navigator.geolocation.getCurrentPosition(
-                function (position) {
-    
-                    var point={
-                            lat:position.coords.latitude,
-                            lng:position.coords.longitude
-                        };
-
-                    me.customMap.putMarker({coords:point});
-                    me.customMap.setCenter({coords:point});
-
-                    me.customMap.calculateDirection(
-                    {
-                        startPoint :{coords:point},
-                        endPoint :{coords:{lat:49.230378,lng:-122.960701}},
-                        callback:function()
-                        {
-                            setTimeout(function()
-                            {
-                                me.customMap.circling({coords:point});
-                                me.customMap.setZoom (11);
-                            },1000);
-                        }
-                    });
-
-
-                    me.customMap.circling({coords:point});
-                    me.customMap.setZoom (1);
-            })
-            else { console.log("Geolocation is not supported by this browser."); }
-
+            
 
             $('#settings-panel').ready(function () {
 
@@ -141,15 +142,37 @@
 
                 //Combo
                 var source1 = [
-                            "0 Bedroom",
-                            "1+ Bedroom",
-                            "2+ Bedroom"
+                            {value:1,label:"0 Bedroom"},
+                            {value:2,label:"1+ Bedrooms"},
+                            {value:3,label:"2+ Bedrooms"}
 		                ];
                 $("#beds").jqxDropDownList({ source: source1, selectedIndex: 0, width: '150px', height: '25px', dropDownHeight: '80px', theme: theme });
+                $('#beds').on('change', 
+                function (event) {     
+                    var args = event.args;
+                    if (args) {
+                        var index = args.index;
+                        var item = args.item;
+
+                        $.ajax(
+                        {
+                            url:"/home/getListingByFilter",
+                            type:"GET",
+                            data:
+                            {   
+                                "filter":"bdr",
+                                "value":item.value
+                            }
+                        });
+                        
+
+                    } });
+          
+
                 var source2 = [
-                            "0 Bathrooms ",
-                            "1+ Bathrooms",
-                            "2+ Bathrooms"
+                            {value:1,label:"0 Bathroom"},
+                            {value:2,label:"1+ Bathrooms"},
+                            {value:3,label:"2+ Bathrooms"}
 		                ];
                 $("#baths").jqxDropDownList({ source: source2, selectedIndex: 0, width: '150px', height: '25px', dropDownHeight: '80px', theme: theme });
 

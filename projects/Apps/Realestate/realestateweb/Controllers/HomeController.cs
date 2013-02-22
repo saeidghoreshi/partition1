@@ -28,6 +28,19 @@ namespace realestateweb.Controllers
             ViewBag.data = listings;
             return PartialView("index1/listings");
         }
+        public JsonResult getListingByFilter() 
+        {
+            var pars=Request.Params;
+            sqlServer db = new sqlServer(connString);
+            List<sqlServerPar> sppars=new List<sqlServerPar>();
+            sppars.Add(new sqlServerPar { name = "filter", value = pars["filter"],dbType=SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "value", value = pars["value"], dbType = SqlDbType.VarChar });
+            
+            var listings = db.runSP("realestate.getListingByFilter",sppars).Tables[0].AsEnumerable()
+                .Select(x=>x.ItemArray);
+            return Json(listings,JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult getPanel()
         {
             return PartialView("index1/Panel");
