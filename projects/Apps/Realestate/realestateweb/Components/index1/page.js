@@ -93,20 +93,22 @@
             //other components
             var theme = getDemoTheme();
 
-            /*
-            lib.helper.jqWidgetWin(
-            {
-                header: "H",
-                content: "C",
-                theme: theme,
-                modal: true,
-                height: 100,
-                width: 400,
-                collapsible: false
-            });
-            */
-
             
+            
+            $.get('home/test', function(content) {
+              
+                lib.helper.jqWidgetWin(
+                {
+                    header: "Final Result",
+                    content: content,
+                    theme: theme,
+                    modal: false,
+                    height: 450,
+                    width: 900,
+                    collapsible: false
+                });  
+            });
+
 
             $('#settings-panel').ready(function () {
 

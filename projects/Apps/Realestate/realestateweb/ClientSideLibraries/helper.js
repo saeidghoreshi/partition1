@@ -61,7 +61,7 @@ lib.helper = {};
         lib.helper.jqWidgetWin=function(config) {
 
             var ID = lib.helper.idGenerator('win');
-            var $el=$('<div id="' +ID +'" ><div>'+config.header+'</div><div>'+config.content+'</div></div>');
+            var $el=$('<div  id="' +ID +'" ><div>'+config.header+'</div><div >'+config.content+'</div></div>');
             $('body').append($el);
             $el.jqxWindow({
                 showCollapseButton: true, 

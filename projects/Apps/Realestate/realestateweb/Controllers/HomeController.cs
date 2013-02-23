@@ -28,6 +28,10 @@ namespace realestateweb.Controllers
             ViewBag.data = listings;
             return PartialView("index1/listings");
         }
+        public ActionResult test()
+        {
+            return PartialView("index1/test");
+        }
         public JsonResult getListingByFilter() 
         {
             var pars=Request.Params;
