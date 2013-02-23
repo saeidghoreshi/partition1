@@ -21,6 +21,13 @@ lib.helper = {};
                 YAHOO.util.Get.script(result[0], { onSuccess: (callback === null ? function () { } : callback) });
             });
         };
+        lib.helper.findItemInArray= function (input,array) {
+            for(var i=0;i<array.length;i++)
+                if(array[i]===input)
+                    return i;
+
+            return -1;
+        };
         lib.helper.dump = function (input) {
             return YAHOO.lang.dump(input);
         };

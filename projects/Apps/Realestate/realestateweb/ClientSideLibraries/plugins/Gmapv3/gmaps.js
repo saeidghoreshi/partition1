@@ -5,6 +5,7 @@
     {
         ID:null,
         maps:null,
+        markersArray:[],
 
         init: function (config) {
 
@@ -24,7 +25,16 @@
 
                 lib.helper.tagReady(me.ID,function () {me.buildGUI();});
             },
-            
+
+            clearOverlays:function() 
+            {
+                var me=this;
+
+                if (me.markersArray) 
+                    for (i in me.markersArray) 
+                        me.markersArray[i].setMap(null);
+            },
+
             buildGUI: function () {
 
                 var me = this;
@@ -72,6 +82,8 @@
                     animation: google.maps.Animation.DROP,
                     position: Latlng
                 });
+
+                me.markersArray.push(marker);
 
                 google.maps.event.addListener(marker, 'click', function () {
                     if (marker.getAnimation() != null) {

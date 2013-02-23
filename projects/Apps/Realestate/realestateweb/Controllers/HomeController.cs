@@ -33,11 +33,14 @@ namespace realestateweb.Controllers
             var pars=Request.Params;
             sqlServer db = new sqlServer(connString);
             List<sqlServerPar> sppars=new List<sqlServerPar>();
-            sppars.Add(new sqlServerPar { name = "filter", value = pars["filter"],dbType=SqlDbType.VarChar });
-            sppars.Add(new sqlServerPar { name = "value", value = pars["value"], dbType = SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "bdr", value = pars["bdr"],dbType=SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "bath", value = pars["bath"], dbType = SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "pricestart", value = pars["pricerange"].Split(new char[]{','})[0], dbType = SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "priceend", value = pars["pricerange"].Split(new char[] { ',' })[1], dbType = SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "ptypes", value = pars["ptypes"], dbType = SqlDbType.VarChar });
+            sppars.Add(new sqlServerPar { name = "showSelection", value = pars["showSelection"], dbType = SqlDbType.VarChar });
             
-            var listings = db.runSP("realestate.getListingByFilter",sppars).Tables[0].AsEnumerable()
-                .Select(x=>x.ItemArray);
+            var listings = db.runSP("realestate.getListingByFilter",sppars).Tables[0].AsEnumerable().Select(x=>x.ItemArray);
             return Json(listings,JsonRequestBehavior.AllowGet);
         }
 

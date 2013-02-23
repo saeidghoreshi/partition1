@@ -621,7 +621,6 @@
     <Content Include="Components\index1\img\gmap_pin_grey.png" />
     <Content Include="Components\index1\img\gmap_pin_orange.png" />
     <Content Include="Components\index1\img\sampleHome.png" />
-    <Content Include="Components\index1\mapHandler.js" />
     <Content Include="Components\index1\page.css" />
     <Content Include="Components\index1\page.js" />
     <Content Include="Components\master\page.css" />
