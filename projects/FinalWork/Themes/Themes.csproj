@@ -127,11 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\facebookController.cs" />
-    <Compile Include="Controllers\Home2Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NotebookController.cs" />
-    <Compile Include="Controllers\PermissionController.cs" />
     <Compile Include="Controllers\WorkflowController.cs" />
     <Compile Include="datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
@@ -571,14 +567,10 @@
     <Content Include="ClientSideLibraries\KendoUI\textures\glass.png" />
     <Content Include="ClientSideLibraries\KendoUI\textures\highlight.png" />
     <Content Include="ClientSideLibraries\less-1.3.1.js" />
-    <Content Include="ClientSideLibraries\moment.js" />
     <Content Include="ClientSideLibraries\prototype-1.7.7.0.js" />
     <Content Include="ClientSideLibraries\qunit.css" />
     <Content Include="ClientSideLibraries\qunit.js" />
-    <Content Include="ClientSideLibraries\sammy.js" />
     <Content Include="ClientSideLibraries\underscore-1.4.3.js" />
-    <Content Include="Components\dojo\page.css" />
-    <Content Include="Components\dojo\page.js" />
     <Content Include="Components\easyUI\partials\combogrid.cshtml" />
     <Content Include="Components\easyUI\partials\winLayout.cshtml" />
     <Content Include="Components\easyUI\partials\treegrid.cshtml" />
@@ -599,14 +591,9 @@
     <Content Include="Components\index1\page\img\m2.png" />
     <Content Include="Components\index1\page\img\m3.png" />
     <Content Include="Components\index1\page\img\save.png" />
-    <Content Include="Components\kendoGrid1\css\kendoGrid1Css.css" />
-    <Content Include="Components\kendoGrid1\js\kendoGrid1Controller.js" />
     <Content Include="Components\NEW\kendoGrid\css\kendogridCss.css" />
     <Content Include="Components\NEW\kendoGrid\js\kendoGridModule.js" />
     <Content Include="Components\NEW\moduleResources.js" />
-    <Content Include="Components\NEW\myTabs\css\mytabsCss.css" />
-    <Content Include="Components\NEW\myTabs\images\tabgradient_bg.gif" />
-    <Content Include="Components\NEW\myTabs\js\mytabsModule.js" />
     <Content Include="Components\NEW\rightTabsComponent\css\rightTabsCss.css" />
     <Content Include="Components\NEW\rightTabsComponent\images\arrow_skip_left.png" />
     <Content Include="Components\NEW\rightTabsComponent\images\doc1.png" />
@@ -629,8 +616,6 @@
     <Content Include="Components\NEW\slider\images\tip\arrow_left.png" />
     <Content Include="Components\NEW\slider\images\tip\bg.png" />
     <Content Include="Components\NEW\slider\dataViewSlider.js" />
-    <Content Include="Components\NEW\Tabs\css\tabsCss.css" />
-    <Content Include="Components\NEW\Tabs\js\tabsModule.js" />
     <Content Include="Components\NEW\testExtjs\images\female.png" />
     <Content Include="Components\NEW\testExtjs\js\form1Class.js" />
     <Content Include="Components\NEW\testExtjs\js\form2Class.js" />
@@ -640,8 +625,6 @@
     <Content Include="Components\NEW\testExtjs\js\gridPanel3Controller.js" />
     <Content Include="Components\NEW\testExtjs\js\gridPanelController.js" />
     <Content Include="Components\NEW\testExtjs\js\treePanelController.js" />
-    <Content Include="Components\NEW\testUI\css\testUICss.css" />
-    <Content Include="Components\NEW\testUI\js\testUIController.js" />
     <Content Include="JSplugins\ajaxForm\jquery.form.js" />
     <Content Include="Views\Home\Index1\menu.cshtml" />
     <Content Include="Components\index3\page\page.css" />
@@ -903,31 +886,18 @@
     <Content Include="Views\old\workflow\curUserTimeTrackerForm.cshtml" />
     <Content Include="Views\old\workflow\taskAssignment.cshtml" />
     <Content Include="Views\old\workflow\userCurrentTasksForm.cshtml" />
-    <Content Include="Views\old\permission\assignPermissionForm.cshtml" />
-    <Content Include="Views\old\permission\changeUserPasswordForm.cshtml" />
-    <Content Include="Views\old\permission\loginForm.cshtml" />
-    <Content Include="Views\old\Notebook\foldering\enterkeyword.cshtml" />
-    <Content Include="Views\old\Notebook\foldering\foldering.cshtml" />
-    <Content Include="Views\old\Notebook\foldering\folderingDetails.cshtml" />
-    <Content Include="Views\old\Notebook\index.cshtml" />
     <Content Include="Views\old\Home\Index.cshtml" />
     <Content Include="Views\old\Home\office\newOffice.cshtml" />
     <Content Include="Views\old\Home\user\newUser.cshtml" />
     <Content Include="Views\old\Home\viewport\viewport.cshtml" />
     <Content Include="Views\old\Home\viewport\viewport2.cshtml" />
-    <Content Include="Views\old\facebook\index.cshtml" />
-    <Content Include="Views\old\facebook\login.cshtml" />
-    <Content Include="Views\old\facebook\registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Components\facebook\images\" />
     <Folder Include="Components\index1\orgChartVertical\img\arrow\" />
-    <Folder Include="Components\kendoGrid1\images\" />
     <Folder Include="Components\NEW\kendoGrid\images\" />
-    <Folder Include="Components\NEW\Tabs\images\" />
     <Folder Include="Components\NEW\testExtjs\css\" />
-    <Folder Include="Components\NEW\testUI\images\" />
     <Folder Include="JSplugins\extjs\images\" />
     <Folder Include="uploads\" />
   </ItemGroup>
@@ -962,10 +932,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\old\permission\loginForm.en.resx" />
-    <EmbeddedResource Include="Views\old\permission\loginForm.fr.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

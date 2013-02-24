@@ -16,11 +16,12 @@ namespace realestateweb.Controllers
     public class HomeController : Controller
     {
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
+
         public ActionResult Index()
-        {
-            
+        {   
             return View("index1");
         }
+   
         public ActionResult getListings() 
         {
             sqlServer db = new sqlServer(connString);

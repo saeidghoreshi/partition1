@@ -163,6 +163,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\miscController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -616,7 +617,6 @@
     <Content Include="ClientSideLibraries\plugins\vchart\Note.txt" />
     <Content Include="ClientSideLibraries\plugins\vchart\lib_gg_orgchart_v04.js" />
     <Content Include="ClientSideLibraries\raphael-min.js" />
-    <Content Include="ClientSideLibraries\prototype-1.7.7.0.js" />
     <Content Include="ClientSideLibraries\plugins\Gmapv3\gmaps.js" />
     <Content Include="Components\index1\img\gmap_pin.png" />
     <Content Include="Components\index1\img\gmap_pin_grey.png" />
