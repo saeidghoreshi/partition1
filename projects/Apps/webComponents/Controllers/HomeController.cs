@@ -54,7 +54,7 @@ namespace webComponents.Controllers
 
 
         //sandBox
-        public ActionResult newbox() 
+        public ActionResult form_newheader() 
         {
             return PartialView("sandbox/box-new");
         }
@@ -70,19 +70,38 @@ namespace webComponents.Controllers
             return "";
         }
 
-        public ActionResult newcontent()
+        public ActionResult form_newcontent()
         {
             return PartialView("sandbox/content-new");
         }
         public ActionResult getHeaders() 
         {
-            List<dynamic> data = new List<dynamic>();
-            data.Add(new { id=1,name="data 1"});
-            data.Add(new { id = 2, name = "data 2" });
-            data.Add(new { id = 3, name = "data 3" });
-            data.Add(new { id = 4, name = "data 4" });
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            var source= db.fetch("select id,label from sandbox.header").Tables[0]
+                .AsEnumerable()
+                .Select(x => new 
+                {
+                    id=x.ItemArray[0],
+                    label = x.ItemArray[1]
+                });
 
-            return Json(data,JsonRequestBehavior.AllowGet);
+            return Json(source,JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public string newcontent()
+        {
+            var pars = Request.Params;
+            string headerid = pars["headerid"];
+            string url = pars["url"];
+            string content = pars["content"];
+
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            DataTable dt1=db.fetch(string.Format("insert into sandbox.content (content,url) values('{0}','{1}')",content,url)).Tables[0];
+            var contentid=dt1.Rows[0][0].ToString();
+
+            db.exec(string.Format("insert into sandbox.headercontent (headerId,contentid) values('{0}','{1}')", headerid,contentid));
+            return "";
         }
 
 

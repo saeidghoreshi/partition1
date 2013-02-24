@@ -44,8 +44,13 @@
                         <td><input type="text" id="txt-url" class="text-input" style="width:200px" /></td>
                     </tr>
                     <tr>
+                        <td>
+                            <div id="xxx" style="width:500px;height:200px;padding:10px;">  The window content.  </div> 
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2" style="text-align: left;">
-                            <input type="submit" value="Create" id="btn-newcontent" />
+                            <input type="submit" value="New" id="btn-newcontent" />
                             <input type="submit" value="Cancel" id="btn-cancelcontent" />
                         </td>
                     </tr>
@@ -70,13 +75,13 @@
                 ]
          });
          
-         //combo box
+         //Headers combobox
          var url = "/home/getHeaders";
          var source =
                 {
                     datatype: "json",
                     datafields: [
-                        { name: 'name' },
+                        { name: 'label' },
                         { name: 'id' }
                     ],
                     id: 'id',
@@ -84,19 +89,52 @@
                     async: false
                 };
          var dataAdapter = new $.jqx.dataAdapter(source);
-
-         $("#ddl-headers").jqxDropDownList({ selectedIndex: 0, source: dataAdapter, displayMember: "name"
-         , valueMember: "id", width: 200, height: 25, theme: theme });
-
+         $("#ddl-headers").jqxDropDownList({ 
+             selectedIndex: 0,
+             source: dataAdapter,
+             displayMember: "label",
+             valueMember: "id",
+             width: 200,
+             height: 25,
+             theme: theme 
+         });
          $("#ddl-headers").jqxDropDownList({ dropDownHeight: 50 });
 
 
 
+               
+        function createEditor() {
+        var editor, html = '';
+			    if ( editor )
+				    return;
+              
+			    // Create a new editor inside the <div id="editor">, setting its value to html
+			    var config = {};
+			    editor = CKEDITOR.appendTo( 'editor', config, html );
+		    }
+
+		    function removeEditor() {
+			    if ( !editor )
+				    return;
+
+			    // Retrieve the editor contents. In an Ajax application, this data would be
+			    // sent to the server or used in any other way.
+			    document.getElementById( 'editorcontents' ).innerHTML = html = editor.getData();
+			    document.getElementById( 'contents' ).style.display = '';
+
+			    // Destroy the editor.
+			    editor.destroy();
+			    editor = null;
+		    }﻿
+
+
+createEditor();
 
 
          //save form
          $('#btn-newcontent').on('click', function (event) {
 
+             
              var isValidated = $('#frm-newcontent').jqxValidator('validate');
              if (!isValidated) return false;
 
@@ -104,7 +142,10 @@
              {
                  url: "/home/newcontent",
                  type: "post",
-                 data: { header: $('#txt-header').val() }
+                 data: {
+                     url: $('#txt-url').val(),
+                     headerid: $("#jqxDropDownList").jqxDropDownList('getSelectedItem').id
+                 }
              })
              .done(function (data) {
 

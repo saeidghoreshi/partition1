@@ -11,7 +11,7 @@
 			
 			$('#createNewBox').click(function()
 			{
-				$.get('/home/newbox',function(content)
+				$.get('/home/form_newheader',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
@@ -31,7 +31,7 @@
 			
 			$('#createNewContent').click(function()
 			{
-				$.get('/home/newcontent',function(content)
+				$.get('/home/form_newcontent',function(content)
 				{
 					lib.helper.jqWidgetWin(
 						{
@@ -40,7 +40,7 @@
 							theme: me.theme,
 							modal: false,
 							width: 400,
-							height: 200,
+							height: 400,
 							collapsible: false
 						}); 
 					
