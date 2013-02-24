@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using realestateweb.Models;
 
 
 namespace webComponents.Controllers
@@ -48,6 +49,45 @@ namespace webComponents.Controllers
             var nameSections=file.FileName.Split(new char[]{'\\'});
             file.SaveAs(Server.MapPath("../uploads/") + nameSections[nameSections.Length-1]); 
         }
+
+
+
+
+        //sandBox
+        public ActionResult newbox() 
+        {
+            return PartialView("sandbox/box-new");
+        }
+
+        [HttpPost]
+        public string newheader()
+        {
+            var pars=Request.Params;
+            string header=pars["header"];
+
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            db.exec(string.Format("insert into sandbox.header (label) values('{0}')",header));
+            return "";
+        }
+
+        public ActionResult newcontent()
+        {
+            return PartialView("sandbox/content-new");
+        }
+        public ActionResult getHeaders() 
+        {
+            List<dynamic> data = new List<dynamic>();
+            data.Add(new { id=1,name="data 1"});
+            data.Add(new { id = 2, name = "data 2" });
+            data.Add(new { id = 3, name = "data 3" });
+            data.Add(new { id = 4, name = "data 4" });
+
+            return Json(data,JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
        
     }
     public class organization
@@ -97,94 +137,7 @@ namespace webComponents.Controllers
             return data;
         }
     }
-    //sqlserver Class
-    public class sqlServer
-    {
-        private SqlConnection conn;
-        private string connstring;
 
-        public sqlServer(string connStr)
-        {
-            this.connstring = connStr;
-        }
 
-        public SqlConnection sqlconnection
-        {
-            get { return this.conn; }
-            set { this.conn = value; }
-        }
-        public DataSet fetch(string query)
-        {
-            using (this.sqlconnection = new SqlConnection(this.connstring))
-            {
-                this.sqlconnection.Open();
-                //SqlTransaction trans = this.conn.BeginTransaction();
-                try
-                {
-                    SqlDataAdapter da = new SqlDataAdapter(query, this.conn);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-                    //trans.Commit();
-                    conn.Close();
-                    return ds;
-                }
-                catch (Exception ex)
-                {
-                    try
-                    {
-                        if (this.sqlconnection.State != ConnectionState.Open)
-                            throw new Exception("Connection Is Not Open" + ex.Message);
-                        //else
-                        //trans.Rollback();
-                    }
-                    catch (Exception ex1)
-                    {
-                        throw new Exception("Connection Is Not Open" + ex1.Message);
-                    }
-                    return (DataSet)null;
-                }
-                finally
-                {
-                    if (this.sqlconnection.State != ConnectionState.Open)
-                        this.conn.Close();
-                }
-            }
-        }
-
-        public void exec(string query)
-        {
-            using (this.sqlconnection = new SqlConnection(this.connstring))
-            {
-                this.sqlconnection.Open();
-                try
-                {
-                    SqlCommand comm = new SqlCommand(query, this.conn);
-                    comm.ExecuteNonQuery();
-                    conn.Close();
-
-                }
-                catch (Exception ex)
-                {
-                    try
-                    {
-                        if (this.sqlconnection.State != ConnectionState.Open)
-                            throw new Exception("Connection Is Not Open" + ex.Message);
-                        //else
-                        //trans.Rollback();
-                    }
-                    catch (Exception ex1)
-                    {
-                        throw new Exception("Connection Is Not Open" + ex1.Message);
-                    }
-
-                }
-                finally
-                {
-                    if (this.sqlconnection.State != ConnectionState.Open)
-                        this.conn.Close();
-                }
-            }
-        }
-
-    }
+   
 }

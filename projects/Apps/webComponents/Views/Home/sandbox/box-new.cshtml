@@ -1,0 +1,94 @@
+﻿     <!--css-->
+     <style type="text/css">
+        .text-input
+        {
+            height: 21px;
+            width: 150px;
+        }
+        .register-table
+        {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .register-table td, 
+        .register-table tr
+        {
+            margin: 0px;
+            padding: 2px;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+        h3 
+        {
+            display: inline-block;
+            margin: 0px;
+        }
+    </style>
+
+
+    <!--html-->
+    <div id="pnl-newheader">
+        <div><h3>Deatails</h3></div>
+        <div>
+            <form action='/' id="frm-newheader" >
+                <table class="register-table">
+                    <tr>
+                        <td>Header:</td>
+                        <td><input type="text" id="txt-header" class="text-input" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <input type="submit" value="New" id="btn-newheader" />
+                            <input type="submit" value="Cancel" id="btn-cancelheader" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <!--javascript-->
+     <script type="text/javascript">
+
+         var theme = getDemoTheme()
+
+         //build form 
+         $("#pnl-newheader").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
+         $('#btn-newheader').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#btn-cancelheader').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#frm-newheader').jqxValidator({
+             rules: [
+                    { input: '#txt-header', message: 'Header Name is required!', action: 'keyup, blur', rule: 'required' }
+                ]
+         });
+
+         //save form
+         $('#btn-newheader').click(function (event) {
+
+             var isValidated = $('#frm-newheader').jqxValidator('validate');
+             if (!isValidated) return false;
+
+             $.ajax(
+             {
+                 url: "/home/newheader",
+                 type:"post",
+                 data:{ header: $('#txt-header').val() }
+             })
+             .done(function (data) {
+
+                 lib.helper.jqWidgetWinClose($('#mywin').val());
+             })
+             .fail(function (data) { console.log('error happend in new header') })
+             .always(function (data) { });
+
+             return false;
+         });
+         $('#btn-cancelheader').on('click', function () {
+             lib.helper.jqWidgetWinClose($('#mywin').val());
+             return false;
+         });
+         
+            
+    </script>

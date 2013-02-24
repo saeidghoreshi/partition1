@@ -103,8 +103,8 @@
                     content: content,
                     theme: theme,
                     modal: true,
-                    height: 450,
-                    width: 900,
+					width: 700,
+                    height: 350,
                     collapsible: false
                 });  
             });

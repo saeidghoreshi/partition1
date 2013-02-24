@@ -32,7 +32,7 @@ lib.helper = {};
             return YAHOO.lang.dump(input);
         };
         lib.helper.idGenerator = function (prefix) {
-            return prefix + '-' + (new Number(1000000000000000 * Math.random())).toFixed(0).toString();
+            return prefix + '_' + (new Number(1000000000000000 * Math.random())).toFixed(0).toString();
         };
 
         lib.helper.tagReady = function (tagId, callback) {
@@ -58,33 +58,34 @@ lib.helper = {};
                 $('#theme1_maintable').css('height', me.window.height + padding + 'px');
             });
         };
+		lib.helper.jqWidgetWinClose=function(id) {
+			$("#" + id).jqxWindow('close');
+            $("#" + id).remove();
+		},
         lib.helper.jqWidgetWin=function(config) {
 
-            var ID = lib.helper.idGenerator('win');
-            var $el=$('<div id="'+ID+'" />');
+            var id =lib.helper.idGenerator('win');
+			
+            $('<div id='+id+'><div>'+config.header+'</div>'+'<div style="overflow: hidden;" id="'+id+'-Content"></div></div>')
+			.appendTo('body');
 
-            $el
-            .append('<div id="'+ID+'-Header"><span>'+config.header+'</span></div>')
-            .append('<div style="overflow: hidden;" id="'+ID+'-Content">'+config.content+'</div>')
-            .appendTo('body');
-
-            $el.jqxWindow({
-                showCollapseButton: true, 
-                maxHeight: 400, 
-                maxWidth: 700, 
-                minHeight: 200, 
-                minWidth: 200, 
+            $('#'+id.toString()).jqxWindow({
+                showCollapseButton: false, 
+				showCloseButton: false, 
                 height: config.height, 
                 width: config.width, 
                 isModal:config.modal,
                 showCollapseButton:config.collapsible,
                 theme: config.theme,
+				resizable:false,
                 initContent: function () {
-                    $('#'+ID+'-Content').html(config.content);
+                    $('#'+id+'-Content')
+					.html(config.content)
+					.append('<input type="hidden" id="mywin" value='+id+' />')
+					;
                 }
             });
-            
-            $('#' + ID).on('close', function (event) { $(this).remove(); });
+			//don't define  close event which bubbles up from inner controls events
         };
         /*
         makeExtJSStaticStore: function (fields, data) {
