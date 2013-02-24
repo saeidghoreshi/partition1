@@ -92,17 +92,17 @@
 
             //other components
             var theme = getDemoTheme();
-
             
             
             $.get('home/test', function(content) {
-              
+            
+                return;
                 lib.helper.jqWidgetWin(
                 {
                     header: "Final Result",
                     content: content,
                     theme: theme,
-                    modal: false,
+                    modal: true,
                     height: 450,
                     width: 900,
                     collapsible: false

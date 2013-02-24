@@ -209,6 +209,7 @@
     <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\jquery.ui.all.css" />
     <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\jquery.ui.base.css" />
     <Content Include="ClientSideLibraries\JQUI\themes\ui-vedar\jquery.ui.theme.css" />
+    <Content Include="ClientSideLibraries\jqwidgets2.7\generatedata.js" />
     <Content Include="ClientSideLibraries\jqwidgets2.7\gettheme.js" />
     <Content Include="ClientSideLibraries\jqwidgets2.7\globalization\globalize.js" />
     <Content Include="ClientSideLibraries\jqwidgets2.7\globalization\jquery.glob.cs-CZ.js" />
@@ -625,6 +626,7 @@
     <Content Include="Components\index1\page.js" />
     <Content Include="Components\master\page.css" />
     <Content Include="Components\master\page.js" />
+    <Content Include="datasource\ds.xml" />
     <Content Include="db.sql" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

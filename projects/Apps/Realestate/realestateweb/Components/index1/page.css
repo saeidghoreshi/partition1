@@ -53,3 +53,9 @@
 {
     padding:5px;    
 }
+
+
+.jqx-window-modal
+{
+    height:100% !important;
+}

@@ -61,8 +61,13 @@ lib.helper = {};
         lib.helper.jqWidgetWin=function(config) {
 
             var ID = lib.helper.idGenerator('win');
-            var $el=$('<div  id="' +ID +'" ><div>'+config.header+'</div><div >'+config.content+'</div></div>');
-            $('body').append($el);
+            var $el=$('<div id="'+ID+'" />');
+
+            $el
+            .append('<div id="'+ID+'-Header"><span>'+config.header+'</span></div>')
+            .append('<div style="overflow: hidden;" id="'+ID+'-Content">'+config.content+'</div>')
+            .appendTo('body');
+
             $el.jqxWindow({
                 showCollapseButton: true, 
                 maxHeight: 400, 
@@ -75,6 +80,7 @@ lib.helper = {};
                 showCollapseButton:config.collapsible,
                 theme: config.theme,
                 initContent: function () {
+                    $('#'+ID+'-Content').html(config.content);
                 }
             });
             
