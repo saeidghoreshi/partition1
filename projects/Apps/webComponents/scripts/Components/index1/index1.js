@@ -1,33 +1,15 @@
 ﻿var index2;
 (function ($) {
 
-    index2=cls.define(
+	index2=cls.define(
     {
-		loadLayout:function()
+		availableForms:
 		{
-			var me=this;
-			
-			me.theme = getDemoTheme();
-			
-			
-			
-			
-			//load main Tab
-			$('#maintab').jqxTabs(
-			{ 
-				width: "100%", 
-				height:"100%",
-				theme: me.theme, 
-				selectionTracker: true, 
-				animationType: 'fade' 
-			});
-  
-			
-			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
-			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
-	
-			$('#createNewBox').click(function()
-			{
+			newHeaderForm:function(config)
+			{	
+				var me=this;
+				me.theme = getDemoTheme();
+				
 				$.get('/home/form_newheader',function(content)
 				{
 					lib.helper.jqWidgetWin(
@@ -41,13 +23,36 @@
 						collapsible: false
 					});  
 				});
+			},
+			updateHeaderForm:function(config)
+			{	
+				var me=this;
+				me.theme = getDemoTheme();
 				
-			});
-			
-			
-			
-			$('#createNewContent').click(function()
+				$.get('/home/form_updateheader',function(content)
+				{
+					lib.helper.jqWidgetWin(
+					{
+						header: "Update Header",
+						content: content,
+						theme: me.theme,
+						modal: true,
+						width: 300,
+						height: 165,
+						collapsible: false
+					});  
+					
+					
+					headerUpdate_dataRequired=config.requiredData;
+					if(config.callback!==null)
+						config.callback();
+					
+					
+				});
+			},
+			newHeaderContentForm:function(config)
 			{
+				var me=this;
 				$.get('/home/form_newcontent',function(content)
 				{
 					lib.helper.jqWidgetWin(
@@ -62,17 +67,70 @@
 						}); 
 					
 				});
-				
+			},
+			editHeaderContentForm:function(config)
+			{
+				var me=this;
+				$.get('/home/form_editcontent',function(content)
+				{
+					lib.helper.jqWidgetWin(
+						{
+							header: "Edit Content",
+							content: content,
+							theme: me.theme,
+							modal: false,
+							width: 650,
+							height: 575,
+							collapsible: false
+						}); 
+					
+					if(config.callback!==null)
+						config.callback();	
+					
+				});
+			}
+		},
+		updateEditor:null,
+		loadLayout:function()
+		{
+			var me=this;
+			
+			me.theme = getDemoTheme();
+			
+			
+			//load main Tab
+			$('#maintab').jqxTabs(
+			{ 
+				width: "100%", 
+				height:800,
+				theme: me.theme, 
+				selectionTracker: true, 
+				animationType: 'fade' 
 			});
+  
+			
+			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
+			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
+	
+			$('#createNewBox').click(function(){me.availableForms.newHeaderForm();});
+			$('#createNewContent').click(function(){me.availableForms.newHeaderContentForm();});
+			
+			$('#editbtn').jqxButton({ width: 60, height: 25, theme: me.theme })
+			.on('click',function()
+			{
+				me.availableForms.editHeaderContentForm();
+			});
+			
 			
 			me.loadDataSources();
 			
-			
-			
 		},
 		loadDataSources:function(){
-		$('#panel').children().remove();
+		
 			var me=this;
+		
+			$('#panel').children().remove();
+			
 			var panels=[];
 			$.get("/home/getHeaderContents")
 			.done(function(data)
@@ -83,15 +141,20 @@
 				for(var i=0;i<headers.length;i++)
 				{
 					var id=lib.helper.idGenerator('panel');
-					$('<b><span style="border-bottom:0px; margin:5px 0px 0px 2px">'+headers[i].label+'</span></b>')
+					var $header=$('<div class="header">'+((headers[i].label==='')?'---':headers[i].label) +'</div>')
 					.appendTo('#panel');
 					
-					var $panel=$('<div id="'+id+'" />')
+					//ASSIGN DATA TO HEADER
+					$header.data('data',{headerID:headers[i].id})
+					
+					
+					var $panel=$('<div class="headercontent" id="'+id+'" />')
 					.appendTo('#panel');
 					
 					//keep track of panels
 					panels.push($panel);
 					
+					//build repo for each header
 					var repo=[];
 					for(var j=0;j<headerContents.length;j++)
 						if(headerContents[j].headerID === headers[i].id)
@@ -107,7 +170,6 @@
 					{ 
 						promptText	: repo.length+" items(s)",
 						dropDownHeight:70,
-						
 						theme: me.theme, 
 						source: dataAdapter, 
 						displayMember: "contentLabel", 
@@ -115,9 +177,12 @@
 						height: 25, 
 						width: 200
 					});
-					$panel.on('select', 
+					//events
+					$panel.on('change', 
 					function (event) {     
 						var args = event.args;
+						
+						me.updateEditor=null;
 						
 						if (args) {
 							// index represents the item's index.                      
@@ -129,10 +194,15 @@
 							var label = item.label;
 							var value = item.value;
 							
-							var $result=$('#result');
+							var $documentation=$('#documentation');
+							var $component=$('#component');
 									
 							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',headerContents);
-							$result.html(unescape(obj.content));
+							$documentation.html(unescape(obj.content));
+							$.get('/home/'+obj.viewurl).done(function(content){$component.html(content);});
+							
+							//SAVE SELECTED CONTENTID
+							contentUpdate_dataRequired={contentID:obj.contentID}
 							
 							//reset selected index for rest of them
 							for(var item in panels)
@@ -140,16 +210,36 @@
 									panels[item].jqxDropDownList('selectIndex', -1 ); 							
 							
 					} });
-						
 				
 				}
+				
+				//events
+				$('.header').on('click',function()
+				{
+					var $control=$(this);
+					
+					var config=
+					{	
+						requiredData:$control.data('data'),
+						callback:function()
+						{
+							var label=$control.html();
+							$('#txt-header').val(label);
+						}
+					}
+					me.availableForms.updateHeaderForm(config);
+					
+				});
+				
 				//panel Container
-			$("#panelcontainer").jqxPanel({ width: 250, height: 500, theme: me.theme });
+				$("#panelcontainer").jqxPanel({ width: 230, height: 720, theme: me.theme });
 				
 			});
 			
 			
 		},
+		
+		
 		
 		loadExtJSAccordion: function (PH) {
             var me = this;

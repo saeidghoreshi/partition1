@@ -21,10 +21,13 @@ namespace Themes
             if(type=="treegrid")
                 filename="treegrid.json";
 
+            if (type == "chart1")
+                filename = "jqw-chart.json";
+
 
             context.Response.ContentType = "text/plain";
             System.IO.StreamReader myFile =
-            new System.IO.StreamReader(@"C:\projects\Partitions\partition1\projects\FinalWork\Themes\datasource\"+filename);
+            new System.IO.StreamReader(@"C:\projects\Partitions\partition1\projects\Apps\webcomponents\datasource\"+filename);
             string myString = myFile.ReadToEnd();
             myFile.Close();
 

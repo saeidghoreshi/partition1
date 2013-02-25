@@ -1,0 +1,154 @@
+﻿     <!--css-->
+     <style type="text/css">
+        .text-input
+        {
+            height: 21px;
+            width: 150px;
+        }
+        .register-table
+        {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .register-table td, 
+        .register-table tr
+        {
+            margin: 0px;
+            padding: 2px;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+        h3 
+        {
+            display: inline-block;
+            margin: 0px;
+        }
+    </style>
+
+
+    <!--html-->
+    <div id="pnl-editcontent">
+        <div><h3>Details</h3></div>
+        <div>
+            <form id="frm-editcontent" >
+                <table class="register-table">
+                    
+                    <tr>
+                        <td>Headers</td>
+                        <td><div id="ddl-headers"></div></td>
+                    </tr>
+                    <tr>
+                        <td>view Url:</td>
+                        <td><input type="text" id="txt-url" class="text-input" style="width:200px" /></td>
+                    </tr>
+                    <tr>
+                        <td>Label:</td>
+                        <td><input type="text" id="txt-label" class="text-input" style="width:200px" /></td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top">Description:</td>
+                        <td>
+                            <div id="editor" style="width:540px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <input type="submit" value="Save" id="btn-editcontent" />
+                            <input type="submit" value="Cancel" id="btn-cancelcontent" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <!--javascript-->
+     <script type="text/javascript">
+
+         var contentUpdate_dataRequired = {}
+         var theme = getDemoTheme()
+
+         //build form 
+         $("#pnl-editcontent").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
+         $('#btn-editcontent').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#btn-cancelcontent').jqxButton({ width: 60, height: 25, theme: theme });
+
+         $('#frm-editcontent').jqxValidator({
+             rules: 
+             [
+                { input: '#txt-url', message: 'View Url is required!', action: 'keyup, blur', rule: 'required' },
+                { input: '#txt-label', message: 'Label is required!', action: 'keyup, blur', rule: 'required' }
+             ]
+         });
+         
+         //Headers combobox
+         var url = "/home/getHeaders";
+         var source =
+                {
+                    datatype    : "json",
+                    datafields  : 
+                    [
+                        { name: 'label'},
+                        { name: 'id'}
+                    ],
+                    id      : 'id',
+                    url     : url,
+                    async   : false
+                };
+         var dataAdapter = new $.jqx.dataAdapter(source);
+         $("#ddl-headers").jqxDropDownList({ 
+             selectedIndex: 0,
+             source: dataAdapter,
+             displayMember: "label",
+             valueMember: "id",
+             width: 200,
+             height: 25,
+             theme: theme 
+         });
+         $("#ddl-headers").jqxDropDownList({ dropDownHeight: 50 });
+
+         //load editor
+         var editor = CKEDITOR.appendTo( 'editor', {}, '' );
+	
+         //save form
+         $('#btn-editcontent').on('click', function (event) {
+
+             
+             var isValidated = $('#frm-editcontent').jqxValidator('validate');
+             if (!isValidated) return false;
+             
+             $.ajax(
+             {
+                 url: "/home/editcontent",
+                 type: "post",
+                 data: 
+                 {
+                     viewurl        : $('#txt-url').val(),
+                     label          : $('#txt-label').val(),
+                     headerid       : $("#ddl-headers").jqxDropDownList('getSelectedItem').value,
+                     description    : escape(editor.getData()),
+                     contentid      : contentUpdate_dataRequired.conyentID
+                 }
+             })
+             .done(function (data) {
+
+                 //close the window
+                 lib.helper.jqWidgetWinClose($('#mywin').val());
+
+                 //regenerate panel
+                 mainPanel.loadDataSources();
+             })
+             .fail(function (data) { console.log('error happend in new header') })
+             .always(function (data) { });
+
+             return false;
+         });
+         $('#btn-cancelcontent').on('click', function () {
+             lib.helper.jqWidgetWinClose($('#mywin').val());
+             return false;
+         });
+         
+            
+    </script>

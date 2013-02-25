@@ -7,12 +7,14 @@
 
 <div id="index1">
     
-    <table cellpadding=0 cellspacing=0 border=0 width="90%" height:"100%">
+    <table cellpadding=0 cellspacing=0 border=0 width="95%">
     <tr>
         <td style="vertical-align:top;">
             <input type="submit" value="Create New header box" id="createNewBox" />
             <br />
+            <br />
             <input type="submit" value="Create New Content for box" id="createNewContent" />    
+            <br />
             <br />
 
             
@@ -34,11 +36,17 @@
                     </li>
                  
                 </ul>
-                <div class="content-container" style="width:100%;height:100%">
-                    <div id="result" style="width:100%;height:750px;overflow:auto"></div>
+                <div class="content-container" style="width:100%;height:100%;padding:10px;">
+                    <table>
+                        <tr>
+                        <td><input type="button" value="Edit" id="editbtn" /></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <div id="documentation" style="width:100%;height:700px;overflow:auto"></div>
                 </div>
-                <div class="content-container">
-                    
+                <div class="content-container" style="width:100%;height:100%;padding:10px;">
+                    <div id="component" style="width:100%;height:700px;overflow:auto"></div>
                 </div>
              
             </div>

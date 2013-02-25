@@ -58,7 +58,7 @@ namespace webComponents.Controllers
         {
             return PartialView("sandbox/box-new");
         }
-
+        
         [HttpPost]
         public string newheader()
         {
@@ -67,6 +67,35 @@ namespace webComponents.Controllers
 
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
             db.exec(string.Format("insert into sandbox.header (label) values('{0}')",header));
+            return "";
+        }
+
+        public ActionResult form_updateheader()
+        {
+            return PartialView("sandbox/box-update");
+        }
+
+        [HttpPost]
+        public string updateheader()
+        {
+            var pars = Request.Params;
+            string header = pars["header"];
+            string headerid = pars["headerid"];
+
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            db.exec(string.Format("update sandbox.header set label='{0}' where id='{1}'", header,headerid));
+            return "";
+        }
+
+        public ActionResult form_editcontent()
+        {
+            return PartialView("sandbox/content-edit");
+        }
+        [HttpPost]
+        public string updatecontent()
+        {
+            var pars = Request.Params;
+           
             return "";
         }
 
@@ -138,6 +167,11 @@ namespace webComponents.Controllers
                 .OrderBy(x=>x.headerID);
 
             return Json(new { headers = headers, headerContents = headerContents }, JsonRequestBehavior.AllowGet);
+        }
+
+        public PartialViewResult test() 
+        {
+            return PartialView("test");
         }
             
 
