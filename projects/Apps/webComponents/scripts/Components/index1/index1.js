@@ -51,6 +51,50 @@
 				
 			});
 			
+			var a=[];
+			$.get("/home/getHeaderContents")
+			.done(function(data)
+			{
+				var headers=data.headers;
+				var headerContents=data.headerContents;
+				
+				for(var i=0;i<headers.length;i++)
+				{
+					var id=lib.helper.idGenerator('panel');
+					$('<b><span style="border-bottom:0px; margin:5px 0px 0px 2px">'+headers[i].label+'</span></b>')
+					.appendTo('#index1');
+					
+					var $panel=$('<div id="'+id+'" />')
+					.appendTo('#index1');
+					
+					var repo=[];
+					for(var j=0;j<headerContents.length;j++)
+						if(headerContents[j].headerID === headers[i].id)
+							repo.push(headerContents[j]);
+							
+					var source =
+					{
+						localdata: repo,
+						datatype: "array"
+					};
+					var dataAdapter = new $.jqx.dataAdapter(source);
+					$panel.jqxDropDownList(
+					{ 
+						dropDownHeight:70,
+						selectedIndex: 0, 
+						theme: me.theme, 
+						source: dataAdapter, 
+						displayMember: "label", 
+						valueMember: "headerContentID", 
+						height: 25, 
+						width: 200
+					});
+						
+				
+				}
+				
+				
+			});
 			
 			
 			

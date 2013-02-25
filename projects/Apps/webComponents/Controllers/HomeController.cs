@@ -103,14 +103,50 @@ namespace webComponents.Controllers
 
                 db.exec(string.Format("insert into sandbox.headercontent (headerId,contentid) values('{0}','{1}')", headerid, contentid));
                 return "";
-            
         }
 
+        public ActionResult getHeaderContents()
+        {
+            var query = 
+                "select id,label from sandbox.header;"
+                +"select hc.ID as headerContentID,h.id as headerID , contentID,c.label , content,viewurl from sandbox.header h "
+                +"inner join sandbox.headerContent hc on hc.headerID=h.ID "
+                +"inner join sandbox.Content c on hc.contentID=c.ID "
+                +" order by h.id"
+                ;
 
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            var ds = db.fetch(query);
+            var headers = ds.Tables[0]
+                .AsEnumerable()
+                .Select(x => new 
+                {
+                    id=x.ItemArray[0],
+                    label = x.ItemArray[1]
+                });
+            var headerContents = ds.Tables[1]
+                .AsEnumerable()
+                .Select(x => new
+                {
+                    headerContentID = x.ItemArray[0],
+                    headerID = x.ItemArray[1],
+                    contentID = x.ItemArray[2],
+                    contentLAbel = x.ItemArray[3],
+                    content = x.ItemArray[4],
+                    viewurl = x.ItemArray[5]
+                })
+                .OrderBy(x=>x.headerID);
+
+            return Json(new { headers = headers, headerContents = headerContents }, JsonRequestBehavior.AllowGet);
+        }
+            
+
+       
 
 
        
     }
+   
     public class organization
     {
         public string org_id { get; set; }
