@@ -9,6 +9,9 @@
 			
 			me.theme = getDemoTheme();
 			
+			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
+			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
+	
 			$('#createNewBox').click(function()
 			{
 				$.get('/home/form_newheader',function(content)
@@ -39,8 +42,8 @@
 							content: content,
 							theme: me.theme,
 							modal: false,
-							width: 400,
-							height: 400,
+							width: 650,
+							height: 575,
 							collapsible: false
 						}); 
 					

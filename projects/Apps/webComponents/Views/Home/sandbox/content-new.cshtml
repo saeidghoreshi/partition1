@@ -44,8 +44,13 @@
                         <td><input type="text" id="txt-url" class="text-input" style="width:200px" /></td>
                     </tr>
                     <tr>
+                        <td>Label:</td>
+                        <td><input type="text" id="txt-label" class="text-input" style="width:200px" /></td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align:top">Description:</td>
                         <td>
-                            <div id="xxx" style="width:500px;height:200px;padding:10px;">  The window content.  </div> 
+                            <div id="editor" style="width:540px;"></div>
                         </td>
                     </tr>
                     <tr>
@@ -70,23 +75,26 @@
          $('#btn-cancelcontent').jqxButton({ width: 60, height: 25, theme: theme });
 
          $('#frm-newcontent').jqxValidator({
-             rules: [
-                    { input: '#txt-url', message: 'View Url is required!', action: 'keyup, blur', rule: 'required' }
-                ]
+             rules: 
+             [
+                { input: '#txt-url', message: 'View Url is required!', action: 'keyup, blur', rule: 'required' },
+                { input: '#txt-label', message: 'Label is required!', action: 'keyup, blur', rule: 'required' }
+             ]
          });
          
          //Headers combobox
          var url = "/home/getHeaders";
          var source =
                 {
-                    datatype: "json",
-                    datafields: [
-                        { name: 'label' },
-                        { name: 'id' }
+                    datatype    : "json",
+                    datafields  : 
+                    [
+                        { name: 'label'},
+                        { name: 'id'}
                     ],
-                    id: 'id',
-                    url: url,
-                    async: false
+                    id      : 'id',
+                    url     : url,
+                    async   : false
                 };
          var dataAdapter = new $.jqx.dataAdapter(source);
          $("#ddl-headers").jqxDropDownList({ 
@@ -101,34 +109,10 @@
          $("#ddl-headers").jqxDropDownList({ dropDownHeight: 50 });
 
 
-
-               
-        function createEditor() {
-        var editor, html = '';
-			    if ( editor )
-				    return;
-              
-			    // Create a new editor inside the <div id="editor">, setting its value to html
-			    var config = {};
-			    editor = CKEDITOR.appendTo( 'editor', config, html );
-		    }
-
-		    function removeEditor() {
-			    if ( !editor )
-				    return;
-
-			    // Retrieve the editor contents. In an Ajax application, this data would be
-			    // sent to the server or used in any other way.
-			    document.getElementById( 'editorcontents' ).innerHTML = html = editor.getData();
-			    document.getElementById( 'contents' ).style.display = '';
-
-			    // Destroy the editor.
-			    editor.destroy();
-			    editor = null;
-		    }﻿
-
-
-createEditor();
+         var editor = CKEDITOR.appendTo( 'editor', {}, '' );
+		 //editor.getData();
+         //document.getElementById( 'editorcontents' ).innerHTML = html 
+		    ﻿
 
 
          //save form
@@ -137,14 +121,18 @@ createEditor();
              
              var isValidated = $('#frm-newcontent').jqxValidator('validate');
              if (!isValidated) return false;
-
+             
+             console.log($("#ddl-headers").jqxDropDownList('getSelectedItem'));
              $.ajax(
              {
                  url: "/home/newcontent",
                  type: "post",
-                 data: {
-                     url: $('#txt-url').val(),
-                     headerid: $("#jqxDropDownList").jqxDropDownList('getSelectedItem').id
+                 data: 
+                 {
+                     viewurl        : $('#txt-url').val(),
+                     label          : $('#txt-label').val(),
+                     headerid       : $("#ddl-headers").jqxDropDownList('getSelectedItem').value,
+                     description    :escape(editor.getData())
                  }
              })
              .done(function (data) {

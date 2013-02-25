@@ -91,17 +91,19 @@ namespace webComponents.Controllers
         [HttpPost]
         public string newcontent()
         {
-            var pars = Request.Params;
-            string headerid = pars["headerid"];
-            string url = pars["url"];
-            string content = pars["content"];
+                var pars = Request.Params;
+                string headerid = pars["headerid"];
+                string url = pars["viewurl"];
+                string content = pars["description"];
+                string label = pars["label"];
 
-            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
-            DataTable dt1=db.fetch(string.Format("insert into sandbox.content (content,url) values('{0}','{1}')",content,url)).Tables[0];
-            var contentid=dt1.Rows[0][0].ToString();
+                sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+                DataTable dt1 = db.fetch(string.Format("insert into sandbox.content (content,label,viewurl) values('{0}','{1}','{2}');select SCOPE_IDENTITY();", content, label, url)).Tables[0];
+                var contentid = dt1.Rows[0][0].ToString();
 
-            db.exec(string.Format("insert into sandbox.headercontent (headerId,contentid) values('{0}','{1}')", headerid,contentid));
-            return "";
+                db.exec(string.Format("insert into sandbox.headercontent (headerId,contentid) values('{0}','{1}')", headerid, contentid));
+                return "";
+            
         }
 
 

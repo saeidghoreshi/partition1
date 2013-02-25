@@ -81,8 +81,7 @@ lib.helper = {};
                 initContent: function () {
                     $('#'+id+'-Content')
 					.html(config.content)
-					.append('<input type="hidden" id="mywin" value='+id+' />')
-					;
+					.append('<input type="hidden" id="mywin" value='+id+' />');
                 }
             });
 			//don't define  close event which bubbles up from inner controls events
