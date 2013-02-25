@@ -21,12 +21,32 @@ lib.helper = {};
                 YAHOO.util.Get.script(result[0], { onSuccess: (callback === null ? function () { } : callback) });
             });
         };
+		//[]
         lib.helper.findItemInArray= function (input,array) {
             for(var i=0;i<array.length;i++)
                 if(array[i]===input)
                     return i;
 
             return -1;
+        };
+		//[[],[],[]]
+		lib.helper.findItemInArray2D= function (input,column,array) {
+            for(var i=0;i<array.length;i++)
+                if(array[i][column]===input)
+                    return i;
+
+            return -1;
+        };
+		//[{},{},{}]
+		lib.helper.findItemInObjectArray= function (input,column,array) {
+			
+			for(var item in array)
+			{
+				if(array[item][column].toString()===input.toString())
+                    return array[item];
+			}
+
+            return null;
         };
         lib.helper.dump = function (input) {
             return YAHOO.lang.dump(input);

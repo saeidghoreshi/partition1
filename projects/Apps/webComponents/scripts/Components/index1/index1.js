@@ -9,6 +9,20 @@
 			
 			me.theme = getDemoTheme();
 			
+			
+			
+			
+			//load main Tab
+			$('#maintab').jqxTabs(
+			{ 
+				width: "100%", 
+				height:"100%",
+				theme: me.theme, 
+				selectionTracker: true, 
+				animationType: 'fade' 
+			});
+  
+			
 			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
 			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
 	
@@ -51,7 +65,15 @@
 				
 			});
 			
-			var a=[];
+			me.loadDataSources();
+			
+			
+			
+		},
+		loadDataSources:function(){
+		$('#panel').children().remove();
+			var me=this;
+			var panels=[];
 			$.get("/home/getHeaderContents")
 			.done(function(data)
 			{
@@ -62,10 +84,13 @@
 				{
 					var id=lib.helper.idGenerator('panel');
 					$('<b><span style="border-bottom:0px; margin:5px 0px 0px 2px">'+headers[i].label+'</span></b>')
-					.appendTo('#index1');
+					.appendTo('#panel');
 					
 					var $panel=$('<div id="'+id+'" />')
-					.appendTo('#index1');
+					.appendTo('#panel');
+					
+					//keep track of panels
+					panels.push($panel);
 					
 					var repo=[];
 					for(var j=0;j<headerContents.length;j++)
@@ -80,41 +105,49 @@
 					var dataAdapter = new $.jqx.dataAdapter(source);
 					$panel.jqxDropDownList(
 					{ 
+						promptText	: repo.length+" items(s)",
 						dropDownHeight:70,
-						selectedIndex: 0, 
+						
 						theme: me.theme, 
 						source: dataAdapter, 
-						displayMember: "label", 
+						displayMember: "contentLabel", 
 						valueMember: "headerContentID", 
 						height: 25, 
 						width: 200
 					});
+					$panel.on('select', 
+					function (event) {     
+						var args = event.args;
+						
+						if (args) {
+							// index represents the item's index.                      
+							var index = args.index;
+							var item = args.item;
+							if(item ===undefined || item === null )return;
+								
+							// get item's label and value.
+							var label = item.label;
+							var value = item.value;
+							
+							var $result=$('#result');
+									
+							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',headerContents);
+							$result.html(unescape(obj.content));
+							
+							//reset selected index for rest of them
+							for(var item in panels)
+								if(panels[item].attr('id') !==$(this).attr('id'))
+									panels[item].jqxDropDownList('selectIndex', -1 ); 							
+							
+					} });
 						
 				
 				}
-				
+				//panel Container
+			$("#panelcontainer").jqxPanel({ width: 250, height: 500, theme: me.theme });
 				
 			});
 			
-			
-			
-			
-			return;
-			var $panel1=$('#jqxWidget');
-			var content=$('<ul />');
-			var text='test1';
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$('<li>' + text + '</li>').appendTo(content);
-			$panel1.jqxExpander({ width: 200,height:200, theme: me.theme,initContent: function (){} });
-			$panel1.jqxExpander('setContent', content);
-			$panel1.jqxExpander('setHeaderContent', 'test');
-			$panel1.jqxExpander('collapse');
 			
 		},
 		
@@ -192,8 +225,8 @@
     });
 
 
-    var p=new index2();
-	p.loadLayout();
+    mainPanel=new index2();
+	mainPanel.loadLayout();
     
 
 

@@ -131,7 +131,7 @@ namespace webComponents.Controllers
                     headerContentID = x.ItemArray[0],
                     headerID = x.ItemArray[1],
                     contentID = x.ItemArray[2],
-                    contentLAbel = x.ItemArray[3],
+                    contentLabel = x.ItemArray[3],
                     content = x.ItemArray[4],
                     viewurl = x.ItemArray[5]
                 })

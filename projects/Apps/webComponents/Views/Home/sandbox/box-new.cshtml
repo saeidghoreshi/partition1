@@ -79,7 +79,11 @@
              })
              .done(function (data) {
 
+                 //close the window
                  lib.helper.jqWidgetWinClose($('#mywin').val());
+
+                 //regenerate panel
+                 mainPanel.loadDataSources();
              })
              .fail(function (data) { console.log('error happend in new header') })
              .always(function (data) { });

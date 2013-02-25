@@ -108,13 +108,9 @@
          });
          $("#ddl-headers").jqxDropDownList({ dropDownHeight: 50 });
 
-
+         //load editor
          var editor = CKEDITOR.appendTo( 'editor', {}, '' );
-		 //editor.getData();
-         //document.getElementById( 'editorcontents' ).innerHTML = html 
-		    ﻿
-
-
+	
          //save form
          $('#btn-newcontent').on('click', function (event) {
 
@@ -122,7 +118,6 @@
              var isValidated = $('#frm-newcontent').jqxValidator('validate');
              if (!isValidated) return false;
              
-             console.log($("#ddl-headers").jqxDropDownList('getSelectedItem'));
              $.ajax(
              {
                  url: "/home/newcontent",
@@ -137,7 +132,11 @@
              })
              .done(function (data) {
 
+                 //close the window
                  lib.helper.jqWidgetWinClose($('#mywin').val());
+
+                 //regenerate panel
+                 mainPanel.loadDataSources();
              })
              .fail(function (data) { console.log('error happend in new header') })
              .always(function (data) { });
