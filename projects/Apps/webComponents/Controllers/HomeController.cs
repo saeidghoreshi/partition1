@@ -186,6 +186,10 @@ namespace webComponents.Controllers
                     return PartialView("misc/uimask");
                 case "scrollerpane":
                     return PartialView("misc/scrollerpane");
+                case "facebook":
+                    return PartialView("misc/facebook");
+                case "Projects":
+                    return PartialView("misc/projects");
                 
                 default:
                     return PartialView("404");

@@ -1,3 +1,0 @@
-﻿download jquery UI and in the package use the files > these files are base-ui
-
-then in theme roller download the themes and put them in themes folder

@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -163,6 +164,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\facebookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RealestateController.cs" />
     <Compile Include="datasource\datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
     </Compile>
@@ -175,6 +177,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="datasource\jqw-chart.json" />
+    <Content Include="datasource\ds.xml" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ClientSideLibraries\Encapsulation.js" />
@@ -520,6 +523,16 @@
     <Content Include="scripts\ClientSideLibraries\jqwidgets2.7\styles\jqx.ui-start.css" />
     <Content Include="scripts\ClientSideLibraries\jqwidgets2.7\styles\jqx.ui-sunny.css" />
     <Content Include="scripts\ClientSideLibraries\misc\less-1.3.1.js" />
+    <Content Include="scripts\Components\Realestate\index1\img\gmap_pin.png" />
+    <Content Include="scripts\Components\Realestate\index1\img\gmap_pin_grey.png" />
+    <Content Include="scripts\Components\Realestate\index1\img\gmap_pin_orange.png" />
+    <Content Include="scripts\Components\Realestate\index1\img\samplepic.jpg" />
+    <Content Include="scripts\Components\Realestate\index1\page.css" />
+    <Content Include="scripts\Components\Realestate\index1\page.js" />
+    <Content Include="scripts\Components\Realestate\master\page.css" />
+    <Content Include="scripts\Components\Realestate\master\page.js" />
+    <Content Include="scripts\Components\Realestate\sql\db.sql" />
+    <Content Include="scripts\Components\Realestate\sql\propertyType.txt" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebookCss.css" />
     <Content Include="scripts\Components\facebook\facebookController.js" />
@@ -700,6 +713,17 @@
     <Content Include="Views\Home\404.cshtml" />
     <Content Include="Views\Home\misc\uimask.cshtml" />
     <Content Include="Views\Home\misc\scrollerpane.cshtml" />
+    <Content Include="Views\Home\misc\projects.cshtml" />
+    <Content Include="Views\Realestate\_ViewStart.cshtml" />
+    <Content Include="Views\Realestate\Index1\center.cshtml" />
+    <Content Include="Views\Realestate\Index1\listings.cshtml" />
+    <Content Include="Views\Realestate\Index1\menu.cshtml" />
+    <Content Include="Views\Realestate\Index1\Panel.cshtml" />
+    <Content Include="Views\Realestate\Index1\South.cshtml" />
+    <Content Include="Views\Realestate\Index1\test.cshtml" />
+    <Content Include="Views\Realestate\Index1.cshtml" />
+    <Content Include="Views\Realestate\Master.cshtml" />
+    <Content Include="Views\Realestate\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -719,9 +743,9 @@
     <Content Include="Views\Home\Master.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <None Include="scripts\JSplugins\ckEditor\skins\moono\readme.md" />
-    <Content Include="Views\facebook\index.cshtml" />
-    <Content Include="Views\facebook\login.cshtml" />
-    <Content Include="Views\facebook\registration.cshtml" />
+    <Content Include="Views\Home\socialmedia\facebook\index.cshtml" />
+    <Content Include="Views\Home\socialmedia\facebook\login.cshtml" />
+    <Content Include="Views\Home\socialmedia\facebook\registration.cshtml" />
     <Content Include="Views\Home\sandbox\box-new.cshtml" />
     <Content Include="Views\Home\sandbox\content-new.cshtml" />
     <Content Include="Views\Home\chart\vchart.cshtml" />
