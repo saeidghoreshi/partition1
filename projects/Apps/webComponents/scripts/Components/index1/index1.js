@@ -10,7 +10,7 @@
 				var me=this;
 				me.theme = getDemoTheme();
 				
-				$.get('/home/form_newheader',function(content)
+				$.get('/sandbox/form_newheader',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
@@ -29,7 +29,7 @@
 				var me=this;
 				me.theme = getDemoTheme();
 				
-				$.get('/home/form_updateheader',function(content)
+				$.get('/sandbox/form_updateheader',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
@@ -53,7 +53,7 @@
 			newHeaderContentForm:function(config)
 			{
 				var me=this;
-				$.get('/home/form_newcontent',function(content)
+				$.get('/sandbox/form_newcontent',function(content)
 				{
 					lib.helper.jqWidgetWin(
 						{
@@ -71,7 +71,7 @@
 			editHeaderContentForm:function(config)
 			{
 				var me=this;
-				$.get('/home/form_editcontent',function(content)
+				$.get('/sandbox/form_editcontent',function(content)
 				{
 					lib.helper.jqWidgetWin(
 						{
@@ -132,7 +132,7 @@
 			$('#panel').children().remove();
 			
 			var panels=[];
-			$.get("/home/getHeaderContents")
+			$.get("/sandbox/getHeaderContents")
 			.done(function(data)
 			{
 				var headers=data.headers;
@@ -199,7 +199,7 @@
 									
 							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',headerContents);
 							$documentation.html(unescape(obj.content));
-							$.get('/home/sandbox?type='+obj.viewurl).done(function(content){$component.html(content);});
+							$.get('/sandbox/sandbox?type='+obj.viewurl).done(function(content){$component.html(content);});
 							
 							//SAVE SELECTED CONTENTID
 							contentUpdate_dataRequired={contentID:obj.contentID}
@@ -247,7 +247,7 @@
             app.tagReady(PH, function () {
                 $.ajax(
                 {
-                    url: "/home/json_getModuleFeatures",
+                    url: "/sandbox/json_getModuleFeatures",
                     type: "get"
                 }).done(function (data) {
 

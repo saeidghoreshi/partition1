@@ -50,3 +50,4 @@ C:\projects\Partitions\partition1\projects\Apps\webComponents\bin\DotNetOpenAuth
 C:\projects\Partitions\partition1\projects\Apps\webComponents\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 C:\projects\Partitions\partition1\projects\Apps\webComponents\obj\Debug\webComponents.dll
 C:\projects\Partitions\partition1\projects\Apps\webComponents\obj\Debug\webComponents.pdb
+C:\projects\Partitions\partition1\projects\Apps\webComponents\obj\Debug\webComponents.csprojResolveAssemblyReference.cache

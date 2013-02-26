@@ -7,11 +7,14 @@
         return theme;
     }
     var themestart = window.location.toString().indexOf('?');
-    if (themestart == -1) {
+    
+    /*if (themestart == -1) {
         return '';
     }
+    */
 
     var theme = window.location.toString().substring(1 + themestart);
+    theme = "metro";
     var url = "../../scripts/ClientSideLibraries/jqwidgets2.7/styles/jqx." + theme + '.css';
 
     if (document.createStyleSheet != undefined) {

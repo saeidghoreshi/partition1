@@ -163,7 +163,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\facebookController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MvcappController.cs" />
+    <Compile Include="Controllers\SandboxController.cs" />
     <Compile Include="Controllers\RealestateController.cs" />
     <Compile Include="datasource\datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
@@ -174,6 +175,9 @@
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\DB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scripts\Components\Mvcapp\longProcessingResource.ashx.cs">
+      <DependentUpon>longProcessingResource.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="datasource\jqw-chart.json" />
@@ -523,6 +527,49 @@
     <Content Include="scripts\ClientSideLibraries\jqwidgets2.7\styles\jqx.ui-start.css" />
     <Content Include="scripts\ClientSideLibraries\jqwidgets2.7\styles\jqx.ui-sunny.css" />
     <Content Include="scripts\ClientSideLibraries\misc\less-1.3.1.js" />
+    <Content Include="scripts\ClientSideLibraries\misc\qunit.css" />
+    <Content Include="scripts\ClientSideLibraries\misc\qunit.js" />
+    <Content Include="scripts\Components\Mvcapp\images\bg1.jpg" />
+    <Content Include="scripts\Components\Mvcapp\images\black.png" />
+    <Content Include="scripts\Components\Mvcapp\images\el-Right.png" />
+    <Content Include="scripts\Components\Mvcapp\images\el.png" />
+    <Content Include="scripts\Components\Mvcapp\images\environment.jpg" />
+    <Content Include="scripts\Components\Mvcapp\images\environment2.jpg" />
+    <Content Include="scripts\Components\Mvcapp\images\environment3.jpg" />
+    <Content Include="scripts\Components\Mvcapp\images\environment3.png" />
+    <Content Include="scripts\Components\Mvcapp\images\environment5.png" />
+    <Content Include="scripts\Components\Mvcapp\images\label.png" />
+    <Content Include="scripts\Components\Mvcapp\images\menu\nav.png" />
+    <Content Include="scripts\Components\Mvcapp\images\menu\navhov.png" />
+    <Content Include="scripts\Components\Mvcapp\images\menu\navline.png" />
+    <Content Include="scripts\Components\Mvcapp\images\strip-gray.png" />
+    <Content Include="scripts\Components\Mvcapp\images\Tabs-gradient_bg.gif" />
+    <Content Include="scripts\Components\Mvcapp\Note.txt" />
+    <Content Include="scripts\Components\Mvcapp\QUnitTests\endpointrs.test.htm" />
+    <Content Include="scripts\Components\Mvcapp\QUnitTests\Note.txt" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DesignPatterns\Async\async.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DesignPatterns\inheritance\basic.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DesignPatterns\inheritance\inheritance.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DesignPatterns\observer\observerCallee.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DesignPatterns\observer\observerCaller.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DesignPatterns\Promises\promise1.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DND\TestDND.css" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\DND\TestDND.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Positioning\positioning.css" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Positioning\positioning.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\start.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\startDND.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\startPositioning.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\startSample1.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\startThemes.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\structure\Application-not.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\structure\helper.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\structure\helper2.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Tests\jQueryNotations.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Tests\miscellaneous.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Tests\Test1.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Tests\Test2.js" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\Tests\Test3.js" />
     <Content Include="scripts\Components\Realestate\index1\img\gmap_pin.png" />
     <Content Include="scripts\Components\Realestate\index1\img\gmap_pin_grey.png" />
     <Content Include="scripts\Components\Realestate\index1\img\gmap_pin_orange.png" />
@@ -698,6 +745,7 @@
     <Content Include="scripts\JSplugins\UImask\loading.gif" />
     <Content Include="scripts\JSplugins\vchart\lib_gg_orgchart_v04.js" />
     <Content Include="scripts\JSplugins\vchart\raphael-min.js" />
+    <Content Include="Views\Mvcapp\customTheme1.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -706,15 +754,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Home\sandbox\box-update.cshtml" />
-    <Content Include="Views\Home\sandbox\content-edit.cshtml" />
-    <Content Include="Views\Home\misc\breadcrum.cshtml" />
-    <Content Include="Views\Home\misc\menu.cshtml" />
-    <Content Include="Views\Home\404.cshtml" />
-    <Content Include="Views\Home\misc\uimask.cshtml" />
-    <Content Include="Views\Home\misc\scrollerpane.cshtml" />
-    <Content Include="Views\Home\misc\projects.cshtml" />
-    <Content Include="Views\Realestate\_ViewStart.cshtml" />
+    <Content Include="Views\sandbox\sandbox\box-update.cshtml" />
+    <Content Include="Views\sandbox\sandbox\content-edit.cshtml" />
+    <Content Include="Views\sandbox\misc\breadcrum.cshtml" />
+    <Content Include="Views\sandbox\misc\menu.cshtml" />
+    <Content Include="Views\sandbox\404.cshtml" />
+    <Content Include="Views\sandbox\misc\uimask.cshtml" />
+    <Content Include="Views\sandbox\misc\scrollerpane.cshtml" />
+    <Content Include="Views\sandbox\misc\projects.cshtml" />
     <Content Include="Views\Realestate\Index1\center.cshtml" />
     <Content Include="Views\Realestate\Index1\listings.cshtml" />
     <Content Include="Views\Realestate\Index1\menu.cshtml" />
@@ -724,6 +771,24 @@
     <Content Include="Views\Realestate\Index1.cshtml" />
     <Content Include="Views\Realestate\Master.cshtml" />
     <Content Include="Views\Realestate\Web.config" />
+    <Content Include="Views\Mvcapp\_ViewStart.cshtml" />
+    <Content Include="Views\Mvcapp\Home\dnd.cshtml" />
+    <Content Include="Views\Mvcapp\Home\Index.cshtml" />
+    <Content Include="Views\Mvcapp\Home\sample1.cshtml" />
+    <Content Include="Views\Mvcapp\Home\themes.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-Dnd\positioning.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-Dnd\viewportDND.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-Index\viewport1.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-Index\viewport2.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-Index\viewport3.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-themes\el.cshtml" />
+    <Content Include="Views\Mvcapp\Home\viewport-themes\tabs.cshtml" />
+    <Content Include="Views\Mvcapp\Shared\Error.cshtml" />
+    <Content Include="Views\Mvcapp\Shared\Layout-DND.cshtml" />
+    <Content Include="Views\Mvcapp\Shared\Layout-Main.cshtml" />
+    <Content Include="Views\Mvcapp\Shared\Layout-sample1.cshtml" />
+    <Content Include="Views\Mvcapp\Shared\Layout-Themes.cshtml" />
+    <Content Include="Views\Mvcapp\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -739,16 +804,16 @@
     <Content Include="datasource\datasource.ashx" />
     <None Include="datasource\dojogrid.json" />
     <None Include="datasource\treegrid.json" />
-    <Content Include="Views\Home\Index1.cshtml" />
-    <Content Include="Views\Home\Master.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\sandbox\Index1.cshtml" />
+    <Content Include="Views\sandbox\Master.cshtml" />
+    <Content Include="scripts\Components\Mvcapp\longProcessingResource.ashx" />
     <None Include="scripts\JSplugins\ckEditor\skins\moono\readme.md" />
-    <Content Include="Views\Home\socialmedia\facebook\index.cshtml" />
-    <Content Include="Views\Home\socialmedia\facebook\login.cshtml" />
-    <Content Include="Views\Home\socialmedia\facebook\registration.cshtml" />
-    <Content Include="Views\Home\sandbox\box-new.cshtml" />
-    <Content Include="Views\Home\sandbox\content-new.cshtml" />
-    <Content Include="Views\Home\chart\vchart.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\facebook\index.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\facebook\login.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\facebook\registration.cshtml" />
+    <Content Include="Views\sandbox\sandbox\box-new.cshtml" />
+    <Content Include="Views\sandbox\sandbox\content-new.cshtml" />
+    <Content Include="Views\sandbox\chart\vchart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
