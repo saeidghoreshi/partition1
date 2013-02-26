@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCFTest", "WCFTest", "{576B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FinalWork", "FinalWork", "{5850F877-F9AA-43DD-A06C-CF3F645B424B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WTopology", "projects\Apps\WTopology\WTopology.csproj", "{768DA25A-1384-4D7D-9D78-C43704B7C922}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "projects\FinalWork\Console_App\ConsoleApp.csproj", "{B6A2440D-8380-478C-8221-79C738EDB886}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationTest", "projects\FinalWork\ConsoleApplicationTest\ConsoleApplicationTest.csproj", "{FE1C2559-4FE4-492A-8D85-70021E2F3A9E}"
@@ -22,8 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcfLibrary", "projects\WCFTEST\wcfLibrary\wcfLibrary.csproj", "{6188A44D-9BAE-4D75-8B4B-2FEB25513A8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winServiceHost", "projects\WCFTEST\winServiceHost\winServiceHost.csproj", "{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelsProject", "projects\ModelsProject\ModelsProject.csproj", "{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC-Mobile", "projects\FinalWork\MVC-Mobile\MVC-Mobile.csproj", "{B84CA9A9-614B-4B63-93FC-2571ED632F0D}"
 EndProject
@@ -56,16 +52,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Release|Any CPU.Build.0 = Release|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{768DA25A-1384-4D7D-9D78-C43704B7C922}.Release|x86.ActiveCfg = Release|Any CPU
 		{B6A2440D-8380-478C-8221-79C738EDB886}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{B6A2440D-8380-478C-8221-79C738EDB886}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{B6A2440D-8380-478C-8221-79C738EDB886}.Debug|Mixed Platforms.Build.0 = Debug|x86
@@ -136,16 +122,6 @@ Global
 		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|x86.ActiveCfg = Release|x86
 		{C903F5B2-74FA-4018-9A1A-1384DF44F4B8}.Release|x86.Build.0 = Release|x86
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B84CA9A9-614B-4B63-93FC-2571ED632F0D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -231,7 +207,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{768DA25A-1384-4D7D-9D78-C43704B7C922} = {FCC5C077-390C-47F1-8F90-844F58C3B6FA}
 		{F68C4B67-D5FD-45F0-8FAA-613F36CBBC6D} = {FCC5C077-390C-47F1-8F90-844F58C3B6FA}
 		{253BBAA0-D8C0-470D-89D6-726AC3B10E13} = {FCC5C077-390C-47F1-8F90-844F58C3B6FA}
 		{5ACAA4E9-E094-4E21-97C2-16494F32E43B} = {576B5666-C167-478B-99B5-53BF52136FBD}

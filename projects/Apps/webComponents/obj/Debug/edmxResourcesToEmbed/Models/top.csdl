@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_40114_codeclubModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="context" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="categories" EntityType="DB_40114_codeclubModel.category" />
+    <EntitySet Name="logins" EntityType="DB_40114_codeclubModel.login" />
+    <EntitySet Name="resources" EntityType="DB_40114_codeclubModel.resource" />
+    <EntitySet Name="resourceCategories" EntityType="DB_40114_codeclubModel.resourceCategory" />
+    <EntitySet Name="resourceHighlights" EntityType="DB_40114_codeclubModel.resourceHighlight" />
+    <AssociationSet Name="FK_resourceCategory_category" Association="DB_40114_codeclubModel.FK_resourceCategory_category">
+      <End Role="category" EntitySet="categories" />
+      <End Role="resourceCategory" EntitySet="resourceCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resource_resource" Association="DB_40114_codeclubModel.FK_resource_resource">
+      <End Role="resource" EntitySet="resources" />
+      <End Role="resource1" EntitySet="resources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_resource" Association="DB_40114_codeclubModel.FK_resourceCategory_resource">
+      <End Role="resource" EntitySet="resources" />
+      <End Role="resourceCategory" EntitySet="resourceCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceHighlight_resource" Association="DB_40114_codeclubModel.FK_resourceHighlight_resource">
+      <End Role="resource" EntitySet="resources" />
+      <End Role="resourceHighlight" EntitySet="resourceHighlights" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="resourceCategories" Relationship="DB_40114_codeclubModel.FK_resourceCategory_category" FromRole="category" ToRole="resourceCategory" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="resource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="parentID" Type="Int32" />
+    <Property Name="title" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="resource1" Relationship="DB_40114_codeclubModel.FK_resource_resource" FromRole="resource" ToRole="resource1" />
+    <NavigationProperty Name="resource2" Relationship="DB_40114_codeclubModel.FK_resource_resource" FromRole="resource1" ToRole="resource" />
+    <NavigationProperty Name="resourceCategories" Relationship="DB_40114_codeclubModel.FK_resourceCategory_resource" FromRole="resource" ToRole="resourceCategory" />
+    <NavigationProperty Name="resourceHighlights" Relationship="DB_40114_codeclubModel.FK_resourceHighlight_resource" FromRole="resource" ToRole="resourceHighlight" />
+  </EntityType>
+  <EntityType Name="resourceCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="resourceID" Type="Int32" />
+    <Property Name="categoryID" Type="Int32" />
+    <NavigationProperty Name="category" Relationship="DB_40114_codeclubModel.FK_resourceCategory_category" FromRole="resourceCategory" ToRole="category" />
+    <NavigationProperty Name="resource" Relationship="DB_40114_codeclubModel.FK_resourceCategory_resource" FromRole="resourceCategory" ToRole="resource" />
+  </EntityType>
+  <EntityType Name="resourceHighlight">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="resourceID" Type="Int32" />
+    <Property Name="colorCode" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="resource" Relationship="DB_40114_codeclubModel.FK_resourceHighlight_resource" FromRole="resourceHighlight" ToRole="resource" />
+  </EntityType>
+  <Association Name="FK_resourceCategory_category">
+    <End Role="category" Type="DB_40114_codeclubModel.category" Multiplicity="0..1" />
+    <End Role="resourceCategory" Type="DB_40114_codeclubModel.resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resource_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.resource" Multiplicity="0..1" />
+    <End Role="resource1" Type="DB_40114_codeclubModel.resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resource1">
+        <PropertyRef Name="parentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.resource" Multiplicity="0..1" />
+    <End Role="resourceCategory" Type="DB_40114_codeclubModel.resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceHighlight_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.resource" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="resourceHighlight" Type="DB_40114_codeclubModel.resourceHighlight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceHighlight">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

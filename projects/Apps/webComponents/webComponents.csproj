@@ -169,6 +169,7 @@
     <Compile Include="Controllers\SandboxController.cs" />
     <Compile Include="Controllers\RealestateController.cs" />
     <Compile Include="Controllers\ThemeController.cs" />
+    <Compile Include="Controllers\TopologyController.cs" />
     <Compile Include="Controllers\WorkflowController.cs" />
     <Compile Include="datasource\datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
@@ -178,12 +179,18 @@
     </Compile>
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\DB.cs" />
+    <Compile Include="Models\librarytopo.cs" />
     <Compile Include="Models\prjModel.Designer.cs">
       <DependentUpon>prjModel.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Models\themeClasses.cs" />
+    <Compile Include="Models\top.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>top.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="scripts\Components\Mvcapp\longProcessingResource.ashx.cs">
       <DependentUpon>longProcessingResource.ashx</DependentUpon>
@@ -673,6 +680,8 @@
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanel3Controller.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanelController.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\treePanelController.js" />
+    <Content Include="scripts\Components\Topology\home-main.js" />
+    <Content Include="scripts\Components\Topology\StyleSheet1.css" />
     <Content Include="scripts\Components\unread\1046071385.js" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebookCss.css" />
@@ -910,6 +919,12 @@
     <Content Include="Views\Theme\Workflow\taskAssignment.cshtml" />
     <Content Include="Views\Theme\Workflow\TasksList.cshtml" />
     <Content Include="Views\Theme\Workflow\userCurrentTasksForm.cshtml" />
+    <Content Include="Views\topo\Home\createCategory.cshtml" />
+    <Content Include="Views\topo\Home\createNew.cshtml" />
+    <Content Include="Views\topo\Home\index.cshtml" />
+    <Content Include="Views\topo\Home\login.cshtml" />
+    <Content Include="Views\topo\Shared\simpleLayout.cshtml" />
+    <Content Include="Views\topo\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -935,6 +950,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>prjModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Models\top.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>top.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="scripts\Components\Topology\Documentation\project-addressing-DB.vsd" />
+    <None Include="scripts\Components\Topology\Documentation\project-addressing.docx" />
     <None Include="scripts\JSplugins\ckEditor\skins\moono\readme.md" />
     <Content Include="Views\sandbox\socialmedia\facebook\index.cshtml" />
     <Content Include="Views\sandbox\socialmedia\facebook\login.cshtml" />

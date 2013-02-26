@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_40114_codeclubModelStoreContainer" CdmEntityContainer="context">
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resources">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.resource">
+        <MappingFragment StoreEntitySet="resource">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="parentID" ColumnName="parentID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resourceCategories">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.resourceCategory">
+        <MappingFragment StoreEntitySet="resourceCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="resourceID" ColumnName="resourceID" />
+          <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resourceHighlights">
+      <EntityTypeMapping TypeName="DB_40114_codeclubModel.resourceHighlight">
+        <MappingFragment StoreEntitySet="resourceHighlight">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="resourceID" ColumnName="resourceID" />
+          <ScalarProperty Name="colorCode" ColumnName="colorCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_40114_codeclubModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DB_40114_codeclubModelStoreContainer">
+    <EntitySet Name="category" EntityType="DB_40114_codeclubModel.Store.category" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="login" EntityType="DB_40114_codeclubModel.Store.login" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="resource" EntityType="DB_40114_codeclubModel.Store.resource" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="resourceCategory" EntityType="DB_40114_codeclubModel.Store.resourceCategory" store:Type="Tables" Schema="wtopology" />
+    <EntitySet Name="resourceHighlight" EntityType="DB_40114_codeclubModel.Store.resourceHighlight" store:Type="Tables" Schema="wtopology" />
+    <AssociationSet Name="FK_resource_resource" Association="DB_40114_codeclubModel.Store.FK_resource_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resource1" EntitySet="resource" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_category" Association="DB_40114_codeclubModel.Store.FK_resourceCategory_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="resourceCategory" EntitySet="resourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceCategory_resource" Association="DB_40114_codeclubModel.Store.FK_resourceCategory_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resourceCategory" EntitySet="resourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resourceHighlight_resource" Association="DB_40114_codeclubModel.Store.FK_resourceHighlight_resource">
+      <End Role="resource" EntitySet="resource" />
+      <End Role="resourceHighlight" EntitySet="resourceHighlight" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="varchar" MaxLength="200" />
+    <Property Name="password" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="resource">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="parentID" Type="int" />
+    <Property Name="title" Type="varchar" MaxLength="200" />
+    <Property Name="description" Type="text" />
+  </EntityType>
+  <EntityType Name="resourceCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="resourceID" Type="int" />
+    <Property Name="categoryID" Type="int" />
+  </EntityType>
+  <EntityType Name="resourceHighlight">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="resourceID" Type="int" />
+    <Property Name="colorCode" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK_resource_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="0..1" />
+    <End Role="resource1" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resource1">
+        <PropertyRef Name="parentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_category">
+    <End Role="category" Type="DB_40114_codeclubModel.Store.category" Multiplicity="0..1" />
+    <End Role="resourceCategory" Type="DB_40114_codeclubModel.Store.resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="categoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceCategory_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="0..1" />
+    <End Role="resourceCategory" Type="DB_40114_codeclubModel.Store.resourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceCategory">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resourceHighlight_resource">
+    <End Role="resource" Type="DB_40114_codeclubModel.Store.resource" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="resourceHighlight" Type="DB_40114_codeclubModel.Store.resourceHighlight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="resource">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="resourceHighlight">
+        <PropertyRef Name="resourceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="createCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="cat_title" Type="varchar" Mode="In" />
+    <Parameter Name="cat_description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="deleteResourceIDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceIDs" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="getAllParentResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology" />
+  <Function Name="getAllResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology" />
+  <Function Name="getResourcedetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="getSearchResources" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="criteria" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="highlightedResourceIDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceIDs" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="saveNewResource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="parentID" Type="int" Mode="In" />
+    <Parameter Name="title" Type="varchar" Mode="In" />
+    <Parameter Name="description" Type="text" Mode="In" />
+  </Function>
+  <Function Name="unhighlightedResourceIDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="wtopology">
+    <Parameter Name="resourceIDs" Type="varchar" Mode="In" />
+  </Function>
+</Schema>

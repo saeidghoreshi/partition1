@@ -95,7 +95,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="summit\Class1.cs" />
-    <Compile Include="others\testEF.cs" />
+    <None Include="others\testEF.csm" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,12 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ModelsProject\ModelsProject.csproj">
-      <Project>{B06C4D4B-DB5B-4B8E-BD49-46C0457819EB}</Project>
-      <Name>ModelsProject</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Encapsulation\Note.txt" />
