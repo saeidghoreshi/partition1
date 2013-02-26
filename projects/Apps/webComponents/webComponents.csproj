@@ -41,6 +41,8 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -166,6 +168,8 @@
     <Compile Include="Controllers\MvcappController.cs" />
     <Compile Include="Controllers\SandboxController.cs" />
     <Compile Include="Controllers\RealestateController.cs" />
+    <Compile Include="Controllers\ThemeController.cs" />
+    <Compile Include="Controllers\WorkflowController.cs" />
     <Compile Include="datasource\datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
     </Compile>
@@ -174,6 +178,12 @@
     </Compile>
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\DB.cs" />
+    <Compile Include="Models\prjModel.Designer.cs">
+      <DependentUpon>prjModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\themeClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="scripts\Components\Mvcapp\longProcessingResource.ashx.cs">
       <DependentUpon>longProcessingResource.ashx</DependentUpon>
@@ -576,6 +586,93 @@
     <Content Include="scripts\Components\Realestate\master\page.js" />
     <Content Include="scripts\Components\Realestate\sql\db.sql" />
     <Content Include="scripts\Components\Realestate\sql\propertyType.txt" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\arrow-point-right.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\arrowResize.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\1.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\10.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\11.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\12.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\13.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\14.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\15.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\2.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\3.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\4.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\5.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\6.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\7.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\8.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\9.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\roundIconsSequence\source.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\task-finished.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\task-not-started.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\img\task-processing.png" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\orgChartVerticalClass.css" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\orgChartVerticalClass.js" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\ref.txt" />
+    <Content Include="scripts\Components\theme\index1\orgChartVertical\TskCreateAssignment.js" />
+    <Content Include="scripts\Components\theme\index1\orgChart\chart.js" />
+    <Content Include="scripts\Components\theme\index1\page\img\gmap_pin.png" />
+    <Content Include="scripts\Components\theme\index1\page\img\gmap_pin_grey.png" />
+    <Content Include="scripts\Components\theme\index1\page\img\gmap_pin_orange.png" />
+    <Content Include="scripts\Components\theme\index1\page\img\m1.png" />
+    <Content Include="scripts\Components\theme\index1\page\img\m2.png" />
+    <Content Include="scripts\Components\theme\index1\page\img\m3.png" />
+    <Content Include="scripts\Components\theme\index1\page\img\save.png" />
+    <Content Include="scripts\Components\theme\index1\page\page.css" />
+    <Content Include="scripts\Components\theme\index1\page\page.js" />
+    <Content Include="scripts\Components\theme\index2\page\css\all.css" />
+    <Content Include="scripts\Components\theme\index2\page\css\ie.css" />
+    <Content Include="scripts\Components\theme\index2\page\images\bg-controls.png" />
+    <Content Include="scripts\Components\theme\index2\page\images\bg-shadow.png" />
+    <Content Include="scripts\Components\theme\index2\page\images\bg-wrapper.png" />
+    <Content Include="scripts\Components\theme\index2\page\images\img1.png" />
+    <Content Include="scripts\Components\theme\index2\page\images\sprite.png" />
+    <Content Include="scripts\Components\theme\index2\page\jquery.main.js" />
+    <Content Include="scripts\Components\theme\index2\page\page.js" />
+    <Content Include="scripts\Components\theme\index3\page\page.css" />
+    <Content Include="scripts\Components\theme\index3\page\page.js" />
+    <Content Include="scripts\Components\theme\Master\page.css" />
+    <Content Include="scripts\Components\theme\Master\page.js" />
+    <Content Include="scripts\Components\theme\Master\topMenu\arrow1.gif" />
+    <Content Include="scripts\Components\theme\Master\topMenu\bg-gray.png" />
+    <Content Include="scripts\Components\theme\Master\topMenu\ddmenu.css" />
+    <Content Include="scripts\Components\theme\Master\topMenu\ddmenu.js" />
+    <Content Include="scripts\Components\theme\Master\topMenu\img1.jpg" />
+    <Content Include="scripts\Components\theme\NEW\kendoGrid\css\kendogridCss.css" />
+    <Content Include="scripts\Components\theme\NEW\kendoGrid\js\kendoGridModule.js" />
+    <Content Include="scripts\Components\theme\NEW\moduleResources.js" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\css\rightTabsCss.css" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\arrow_skip_left.png" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\doc1.png" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\ExtJS4Grid.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\ExtJS4Tree.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\Gmaps.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\HTMLGoodiesTree.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\KendoUIGrid.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\slider.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\images\uploader.PNG" />
+    <Content Include="scripts\Components\theme\NEW\rightTabsComponent\js\rightTabsController.js" />
+    <Content Include="scripts\Components\theme\NEW\slider\dataViewSlider.js" />
+    <Content Include="scripts\Components\theme\NEW\slider\dataViewSliderCss.css" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\icon-2.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\icon-3.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\icon.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\slider-nav-img\slider-nav-bottom.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\slider-nav-img\slider-nav-left.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\slider-nav-img\slider-nav-right.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\slider-nav-img\slider-nav-top.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\tip\arrow_left.png" />
+    <Content Include="scripts\Components\theme\NEW\slider\images\tip\bg.png" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\images\female.png" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\form1Class.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\form2Class.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\form3Class.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\form4Class.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanel2Controller.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanel3Controller.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanelController.js" />
+    <Content Include="scripts\Components\theme\NEW\testExtjs\js\treePanelController.js" />
     <Content Include="scripts\Components\unread\1046071385.js" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebookCss.css" />
@@ -786,9 +883,39 @@
     <Content Include="Views\Mvcapp\Shared\Layout-sample1.cshtml" />
     <Content Include="Views\Mvcapp\Shared\Layout-Themes.cshtml" />
     <Content Include="Views\Mvcapp\Web.config" />
+    <Content Include="Views\Theme\_ViewStart.cshtml" />
+    <Content Include="Views\Theme\Home\accounting.cshtml" />
+    <Content Include="Views\Theme\Home\dojo.cshtml" />
+    <Content Include="Views\Theme\Home\easyUI.cshtml" />
+    <Content Include="Views\Theme\Home\Index1.cshtml" />
+    <Content Include="Views\Theme\Home\Index1\center.cshtml" />
+    <Content Include="Views\Theme\Home\Index1\menu.cshtml" />
+    <Content Include="Views\Theme\Home\Index1\orgList.cshtml" />
+    <Content Include="Views\Theme\Home\Index2.cshtml" />
+    <Content Include="Views\Theme\Home\Index3.cshtml" />
+    <Content Include="Views\Theme\Home\Master.cshtml" />
+    <Content Include="Views\Theme\old\Home\Index.cshtml" />
+    <Content Include="Views\Theme\old\Home\office\newOffice.cshtml" />
+    <Content Include="Views\Theme\old\Home\user\newUser.cshtml" />
+    <Content Include="Views\Theme\old\Home\viewport\viewport.cshtml" />
+    <Content Include="Views\Theme\old\Home\viewport\viewport2.cshtml" />
+    <Content Include="Views\Theme\old\workflow\createNewTask.cshtml" />
+    <Content Include="Views\Theme\old\workflow\curUserTimeTrackerForm.cshtml" />
+    <Content Include="Views\Theme\old\workflow\taskAssignment.cshtml" />
+    <Content Include="Views\Theme\old\workflow\userCurrentTasksForm.cshtml" />
+    <Content Include="Views\Theme\Web.config" />
+    <Content Include="Views\Theme\Workflow\createNewTask.cshtml" />
+    <Content Include="Views\Theme\Workflow\curUserTimeTrackerForm.cshtml" />
+    <Content Include="Views\Theme\Workflow\Form_createAssignTask.cshtml" />
+    <Content Include="Views\Theme\Workflow\taskAssignment.cshtml" />
+    <Content Include="Views\Theme\Workflow\TasksList.cshtml" />
+    <Content Include="Views\Theme\Workflow\userCurrentTasksForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="scripts\Components\theme\index1\orgChartVertical\img\arrow\" />
+    <Folder Include="scripts\Components\theme\NEW\kendoGrid\images\" />
+    <Folder Include="scripts\Components\theme\NEW\testExtjs\css\" />
     <Folder Include="scripts\Components\unread\ExtjsTest\css\" />
     <Folder Include="scripts\Components\unread\Extjs\images\" />
     <Folder Include="scripts\Components\unread\orgChartVertical\img\arrow\" />
@@ -804,6 +931,10 @@
     <Content Include="Views\sandbox\Index1.cshtml" />
     <Content Include="Views\sandbox\Master.cshtml" />
     <Content Include="scripts\Components\Mvcapp\longProcessingResource.ashx" />
+    <EntityDeploy Include="Models\prjModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>prjModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="scripts\JSplugins\ckEditor\skins\moono\readme.md" />
     <Content Include="Views\sandbox\socialmedia\facebook\index.cshtml" />
     <Content Include="Views\sandbox\socialmedia\facebook\login.cshtml" />
