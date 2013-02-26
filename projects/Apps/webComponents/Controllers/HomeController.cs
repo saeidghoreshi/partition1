@@ -169,14 +169,84 @@ namespace webComponents.Controllers
             return Json(new { headers = headers, headerContents = headerContents }, JsonRequestBehavior.AllowGet);
         }
 
-        public PartialViewResult test() 
+
+        //sandbox
+        public PartialViewResult sandbox() 
         {
-            return PartialView("test");
+            var type=Request.Params["type"];
+            switch(type)
+            {
+                case "vchart":
+                    return PartialView("chart/vchart");
+                case "breadcrum":
+                    return PartialView("misc/breadcrum");
+                case "simplemenuv1":
+                    return PartialView("misc/menu");
+                case "uimask":
+                    return PartialView("misc/uimask");
+                case "scrollerpane":
+                    return PartialView("misc/scrollerpane");
+                
+                default:
+                    return PartialView("404");
+            }
+            return PartialView("");
         }
-            
+
+        public JsonResult getUsers()
+        {
+            sqlServer db = new sqlServer(connString);
+            var dt = db.fetch("exec workflow.getUserOrg").Tables[0];
+
+            //build tree
+            List<dynamic> tree = new List<dynamic> { };
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i]["parentId"].ToString() == "")
+                {
+                    var node = new
+                    {
+                        id = dt.Rows[i][0].ToString(),
+                        parentId = dt.Rows[i][1].ToString(),
+                        text = dt.Rows[i][2].ToString(),
+                        title = dt.Rows[i][2].ToString(),
+                        state = "",//closed
+                        iconCls = "",
+                        children = new List<dynamic>()
+                    };
+                    tree.Add(node);
+                }
+            }
+
+            for (int j = 0; j < tree.Count; j++)
+                this.getUsersRec(tree[j], dt);
+
+            return Json(tree, JsonRequestBehavior.AllowGet);
+        }
+        public void getUsersRec(dynamic node, DataTable dt)
+        {
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+                if (dt.Rows[j]["parentId"].ToString() == node.id)
+                {
+                    var _node = new
+                    {
+                        id = dt.Rows[j][0].ToString(),
+                        parentId = dt.Rows[j][1].ToString(),
+                        text = dt.Rows[j][2].ToString(),
+                        title = dt.Rows[j][2].ToString(),
+                        state = "",
+                        iconCls = "",
+                        children = new List<dynamic>()
+                    };
+                    node.children.Add(_node);
+                }
+            }
+            for (int j = 0; j < node.children.Count; j++)
+                getUsersRec(node.children[j], dt);
+        }
 
        
-
 
        
     }

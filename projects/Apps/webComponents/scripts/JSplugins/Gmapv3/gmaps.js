@@ -1,108 +1,40 @@
-﻿var gmap;
+﻿var gmapClass;
+(function ($) {
 
-(function ($$) {
-    (function ($) {
+    gmapClass = cls.define(
+    {
+        ID:null,
+        maps:null,
+        markersArray:[],
 
-        gmap=Class.create({
-        initialize: function (config) {
+        init: function (config) {
 
                 var me = this;
-                me.config = config;
                 
-                me.init();
-              
+                me.ID = lib.helper.idGenerator('map');
+                var $el=$('<div id=' + me.ID + '></div>');
+                
+                $('#' + me.config.parentID).html($el);
+                
+                $el.css(
+                    {
+                        width: "100%",
+                        height: "100%"
+                    }
+                );
+
+                lib.helper.tagReady(me.ID,function () {me.buildGUI();});
             },
-            init: function () {
-                var me = this;
-      
-                            $("#"+me.config.parentID).gmap3(
-                                { 
-                                    map: {
-                                        options: {
-                                            mapTypeId: google.maps.MapTypeId.SATELLITE ,
-                                            center:
-                                            {
-                                                latLng:[48.764110, 2.346169], data:"", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}
-                                            },
-                                            zoom: 15
-                                        }
-                                    },
-                                    kmllayer: {
-                                            options: {
-                                                url: "http://gmap3.net/kml/rungis.kml",
-                                                preserveViewport: true
-                                            },
-                                            events: {
-                                                click: function (kml, event) {
-                                                    alert(event.featureData.description);
-                                                }
-                                            },
-                                            callback: function(map){
-                                            
-                                              console.log('callback Called');
-                                            }
-                                    },
 
-                                    marker:{
-                                        values: [
-                                          //first four for clustring
-                                          {
-                                                latLng:[49.28952958093682, 6.152559438984804], data:""
-                                          },
-                                          {
-                                                latLng:[44.28952958093682, 6.152559438984804], data:""
-                                          },
-                                          {
-                                                latLng:[49.28952958093682, -1.1501188139848408], data:""
-                                          },
-                                          {
-                                                latLng:[44.28952958093682, -1.1501188139848408], data:""
-                                          },
-                                          {
-                                                address:"66000 Perpignan, France", data:"", options:{icon: "http://maps.google.com/mapfiles/marker_green.png"}
-                                          },
+            clearOverlays:function() 
+            {
+                var me=this;
 
-                                          {
-                                                latLng:[48.764110, 2.346169], data:"", options:{icon: "../../Components/index1/page/img/gmap_pin.png"} 
-                                          }
-
-
-                                        ],
-                                        cluster:{
-                                          radius: 100,
-          		                            // This style will be used for clusters with more than 0 markers
-          		                            0: {
-          		                              content: '<div class="cluster cluster-1">CLUSTER_COUNT</div>',
-          			                            width: 53,
-          			                            height: 52
-          		                            },
-          		                            // This style will be used for clusters with more than 20 markers
-          		                            20: {
-          		                              content: '<div class="cluster cluster-2">CLUSTER_COUNT</div>',
-          			                            width: 56,
-          			                            height: 55
-          		                            },
-          		                            // This style will be used for clusters with more than 50 markers
-          		                            50: {
-          		                              content: '<div class="cluster cluster-3">CLUSTER_COUNT</div>',
-          			                            width: 66,
-          			                            height: 65
-          		                            }
-          	                            }
-                                     }//Markers
-
-                                });
-
-                            $("#chk").change(function () {
-                                var map = $("#"+me.config.parentID).gmap3("get"),
-                                kml = $("#"+me.config.parentID).gmap3({ get: "kmllayer" });
-                                kml.setMap(jQuery(this).is(':checked') ? map : null);
-                            });
-
-
-                
-                
+                if (me.markersArray) 
+                    for (i in me.markersArray) 
+                        me.markersArray[i].setMap(null);
             },
+
             buildGUI: function () {
 
                 var me = this;
@@ -114,22 +46,125 @@
                 var myOptions = {
                     center: new google.maps.LatLng(49.25593, -123.128242),
                     zoom: 5,
-                    mapTypeId: google.maps.MapTypeId.SATELLITE
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
-                me.maps = new google.maps.Map(document.getElementById(me.config.parentID), myOptions);
+
+                me.maps = new google.maps.Map(document.getElementById(me.ID), myOptions);
+                
 
                 me.directionsDisplay.setMap(me.maps);
+                
+                //addCustomControl();
+                
+            },
+            setZoom:function(input)
+            {
+                var me=this;
+
+                me.maps.setZoom(input);
+            },
+            setCenter:function(input)
+            {
+                var me=this;
+
+                var Latlng = new google.maps.LatLng(input.coords.lat,input.coords.lng);
+                me.maps.setCenter(Latlng);
+            },
+            putMarker: function (input) {
+                /* input >>> coords */
+                var me=this;
+
+                var Latlng = new google.maps.LatLng(input.coords.lat,input.coords.lng);
+
+                var marker = new google.maps.Marker({
+                    map: me.maps,
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    position: Latlng
+                });
+
+                me.markersArray.push(marker);
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    if (marker.getAnimation() != null) {
+                        marker.setAnimation(null);
+                    } else {
+                        marker.setAnimation(google.maps.Animation.BOUNCE);
+                    }
+                });
+
+            },
+            circling: function (input) {
+
+                /* input >> coords */
+                var me=this;
+
+                var Latlng = new google.maps.LatLng(input.coords.lat,input.coords.lng);
+
+                var Options = {
+                    strokeColor: "gray",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 1,
+                    fillColor: "#f2f2f2",
+                    fillOpacity: 0.5,
+                    map: me.maps,
+                    center: Latlng,
+                    radius: 10000
+                };
+                new google.maps.Circle(Options);
+            },
+            calculateDirection: function (input) {
+
+                /* input >> startPoint / endPoint / callback */
+                var me=this;
+
+                var SLatlng = new google.maps.LatLng(input.startPoint.coords.lat,input.startPoint.coords.lng);
+                var TLatlng = new google.maps.LatLng(input.endPoint.coords.lat,input.endPoint.coords.lng);
+
+                var request = {
+                    origin: SLatlng,
+                    destination: TLatlng,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+                me.directionsService.route(request, function (result, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        me.directionsDisplay.setDirections(result);
+                        if(input.callback !==undefined)
+                            input.callback();
+                    }
+                });
+            },
+            geoCoding: function (input) {
+
+                /* input >>> address / callback */
+                var me=this;
+                me.geocoder.geocode({ 'address': input.address }, function (results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        me.maps.setCenter(results[0].geometry.location);
+                        var marker = new google.maps.Marker({
+                            map: me.maps,
+                            position: results[0].geometry.location
+                        });
+                        if (input.callback != null)
+                            input.callback();
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            },
 
 
-                //add Custom Control
+
+            addCustomControl:function()
+            {
+                var me=this;
+
                 me.points = {}
                 me.points.vernon = new google.maps.LatLng(50.268716, -119.277191);
                 var homeControlDiv = document.createElement('div');
                 var homeControl = new me.HomeControl(homeControlDiv, { caller: me, map: me.maps, point: me.points.vernon });
                 homeControlDiv.index = 1;
                 me.maps.controls[google.maps.ControlPosition.LEFT_CENTER].push(homeControlDiv);
-
-
             },
             HomeControl: function (controlDiv, input) {
 
@@ -158,7 +193,7 @@
                 google.maps.event.addDomListener(controlUI, 'click', function () {
 
                     input.caller.geoCoding({ address: "tehran", caller: input.caller, callback: null });
-                    return;
+                    
                     input.map.setCenter(input.point);
                     input.caller.putMarker({ map: input.caller.maps, point: input.point });
                     input.caller.circling({ map: input.caller.maps, point: input.point });
@@ -170,15 +205,7 @@
 
                 });
             }
-            
-           });
-            
-    } (jQuery));
-} (Prototype));
+    });//Class Definition
 
 
-
-            
-            
-
-
+}(jQuery));

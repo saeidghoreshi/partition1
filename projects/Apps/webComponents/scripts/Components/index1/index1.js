@@ -199,7 +199,7 @@
 									
 							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',headerContents);
 							$documentation.html(unescape(obj.content));
-							$.get('/home/'+obj.viewurl).done(function(content){$component.html(content);});
+							$.get('/home/sandbox?type='+obj.viewurl).done(function(content){$component.html(content);});
 							
 							//SAVE SELECTED CONTENTID
 							contentUpdate_dataRequired={contentID:obj.contentID}
@@ -273,45 +273,8 @@
                     });
                 });
             });
-        },
-		loadUserOrgSlider: function (PH) {
-            var me = this;
-
-            app.tagReady(PH, function () {
-
-                //load DVS and then Slider Inorder
-
-                //load DVS 
-                var config =
-                    {
-                        parentId: PH,
-                        url: '/home/json_getSliderData',
-                        colCount: 3,
-                        cellWidth: "50",
-                        cellHeight: "50",
-                        bmpSum: "6",
-                        path: "",
-                        cascadingContainers: ["office", "employees"],
-                        width: 170
-                    }
-                var dvs1 = new dataViewSliderClass(config);
-                dvs1.setGrouping(true, null);
-                dvs1.setSelctionMode("single");
-                dvs1.init();
-
-                //load Slider
-                $('#' + dvs1.getId()).slimScroll({
-                    position: 'right',
-                    height: 320,
-                    color: '#2F4F4F', //#800000  #2F4F4F  gray
-                    size: '8px',
-                    railVisible: false,
-                    alwaysVisible: false
-                });
-
-
-            });
-        },
+        }
+		
     });
 
 

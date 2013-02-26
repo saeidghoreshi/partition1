@@ -1,0 +1,61 @@
+﻿<style>
+#test
+{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #f2f2f2;
+    
+ }
+</style>
+<div id="test" ></div>
+
+<script language="javascript">
+
+    var $test = $("#test");
+    $test.mask("Loading...",100);
+    setTimeout(function () {
+        $test.unmask();
+    }, 2000);
+
+    //tipsy
+
+    $test.tipsy({ fallback: "Where's my tooltip yo'?", gravity: 'nw' });
+    
+    
+</script>
+
+
+<link href="../../../scripts/JSplugins/tipsy/tipsy.css" rel="stylesheet" type="text/css" />
+<script src="../../../scripts/JSplugins/tipsy/jquery.tipsy.js" type="text/javascript"></script>
+
+
+<link href="../../../scripts/JSplugins/UImask/jquery.loadmask.css" rel="stylesheet"type="text/css" />
+<script src="../../../scripts/JSplugins/UImask/jquery.loadmask.min.js" type="text/javascript"></script>
+
+
+
+
+Notes:
+<p>
+
+Masking
+To put a mask over an element (or multiple elements) simply call mask(label, delay) method with two optional label and delay parameters:
+
+$("#mydiv").mask("Loading...");
+$(".grids").mask("Loading...", 500);
+If label parameter is provided, a little box with this label and a spinner will be placed on top of the mask, otherwise only a transparent gray mask is displayed.
+
+delay parameter sets a delay in milliseconds before element(s) is masked. If unmask() is called before the delay times out, no mask is displayed. This can be used to prevent unnecessary mask display for quick processes.
+
+Unmasking
+To remove a previously displayed mask from an element (or multiple elements) call unmask() without any parameters:
+
+$("#mydiv").unmask();
+Calling unmask() on a delayed mask prevents it from showing up.
+
+Checking if an element is masked
+You can use isMasked() method on a single element to check if it is currently masked. Please note that this method will return false while mask is delayed.
+
+if($("#mydiv").isMasked()) { ... }
+
+</p>
