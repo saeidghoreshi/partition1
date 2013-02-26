@@ -1,10 +1,10 @@
 ﻿
 var Test1;
-(function ($$) {
-    (function ($) {
+(function ($) {
 
-        Test1= Class.create({
-
+	Test1=cls.define(
+    	{ 
+        
             initialize: function () {
 
                 var me=this;
@@ -144,11 +144,9 @@ var Test1;
                     });//.section-header mouseup mouseleave
                     
             }
-            
-        });
+        });//class
 
-
-        $.fn.average = function () {
+         $.fn.average = function () {
             var sum = 0;
             var x = { f1: 1, f3: 2 }
             var y = { f1: 3, f3: 4 }
@@ -175,9 +173,12 @@ var Test1;
             this.css({background:"yellow"});
         };
         //call it like  $('#div').ColorChanger();
-      
-    } (jQuery));
-} (Prototype));
 
 
-var ins1=new Test1();
+
+} (jQuery));
+
+
+
+
+  new Test1().initialize();

@@ -5,9 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 
-
-
-namespace MvcApplication3.Controllers
+namespace MvcApplication.Controllers
 {
     public class MvcappController : Controller
     {
@@ -15,7 +13,7 @@ namespace MvcApplication3.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            return View();
+            return View("home/index");
         }
         [ActionName("dnd")]
         public ActionResult dnd()

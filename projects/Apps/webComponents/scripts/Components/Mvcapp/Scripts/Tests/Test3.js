@@ -1,11 +1,12 @@
 ﻿
 var Test3;
-(function ($$) {
-    (function ($) {
 
-        Test3= Class.create({
+(function ($) {
 
-            initialize: function () {
+    Test3 = cls.define(
+    	{ 
+        
+              initialize: function () {
 
                 var me=this;
                 me.buildUI();
@@ -93,13 +94,13 @@ var Test3;
                     });
 
             }
-
-            
-        });
         
-      
-    } (jQuery));
-} (Prototype));
+        });//class
 
 
-var ins1 = new Test3();
+
+} (jQuery));
+
+
+
+new Test3().initialize();

@@ -557,14 +557,10 @@
     <Content Include="scripts\Components\Mvcapp\Scripts\DND\TestDND.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\Positioning\positioning.css" />
     <Content Include="scripts\Components\Mvcapp\Scripts\Positioning\positioning.js" />
-    <Content Include="scripts\Components\Mvcapp\Scripts\start.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\startDND.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\startPositioning.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\startSample1.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\startThemes.js" />
-    <Content Include="scripts\Components\Mvcapp\Scripts\structure\Application-not.js" />
-    <Content Include="scripts\Components\Mvcapp\Scripts\structure\helper.js" />
-    <Content Include="scripts\Components\Mvcapp\Scripts\structure\helper2.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\Tests\jQueryNotations.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\Tests\miscellaneous.js" />
     <Content Include="scripts\Components\Mvcapp\Scripts\Tests\Test1.js" />
@@ -580,6 +576,7 @@
     <Content Include="scripts\Components\Realestate\master\page.js" />
     <Content Include="scripts\Components\Realestate\sql\db.sql" />
     <Content Include="scripts\Components\Realestate\sql\propertyType.txt" />
+    <Content Include="scripts\Components\unread\1046071385.js" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebookCss.css" />
     <Content Include="scripts\Components\facebook\facebookController.js" />
@@ -745,7 +742,7 @@
     <Content Include="scripts\JSplugins\UImask\loading.gif" />
     <Content Include="scripts\JSplugins\vchart\lib_gg_orgchart_v04.js" />
     <Content Include="scripts\JSplugins\vchart\raphael-min.js" />
-    <Content Include="Views\Mvcapp\customTheme1.css" />
+    <Content Include="scripts\Components\Mvcapp\Scripts\customTheme1.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

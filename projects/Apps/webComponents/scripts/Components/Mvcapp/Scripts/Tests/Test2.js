@@ -1,11 +1,12 @@
 ﻿
 var Test2;
-(function ($$) {
-    (function ($) {
 
-        Test2= Class.create({
 
-            initialize: function () {
+(function ($) {
+
+    Test2 = cls.define(
+    	{ 
+              initialize: function () {
 
                 var me=this;
                 me.buildGUI2();
@@ -87,7 +88,7 @@ var Test2;
 
 
                 
-                baseClass.tagReady('w1', function () {
+                lib.helper.tagReady('w1', function () {
                     var promise1 = $('#w1').fadeIn(2000).promise();
                     var promise2 = $('#w2').fadeIn(3000).promise();
                     var def = $.Deferred();
@@ -98,13 +99,12 @@ var Test2;
 
                     setTimeout(function () { def.resolve() }, 2000);
                 });
-            }
-            
+            }        
+        
         });
 
-      
-    } (jQuery));
-} (Prototype));
 
 
-var ins1=new Test2();
+} (jQuery));
+
+    new Test2().initialize();
