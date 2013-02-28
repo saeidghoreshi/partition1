@@ -14,52 +14,13 @@ namespace webComponents.Controllers
     public class SandboxController : Controller
     {
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
+
+        //FORMS
         public ActionResult Index()
-        {   
+        {
             return View("sandbox");
         }
-        public ActionResult Index2()
-        {
-            return View("index2");
-        }
-        public ActionResult Index3()
-        {   
-            return View("index3");
-        }
-        public ActionResult easyUI()
-        {
-            return View("easyUI");
-        }
-        public ActionResult dojo()
-        {
-            return View("dojo");
-        }
-        public ActionResult accounting()
-        {
-            return View("accounting");
-        }
-        
-        
-        
-        public void upload() 
-        {
-            var file = Request.Files["myfile"];
-            
-            //IE messup file.FileName then use your own >> [to cover all browser code like this]
-            var nameSections=file.FileName.Split(new char[]{'\\'});
-            file.SaveAs(Server.MapPath("../uploads/") + nameSections[nameSections.Length-1]); 
-        }
 
-
-
-
-
-
-
-
-        //SandBox
-
-        //Sandbox FORMS
         public ActionResult header_edit_form()
         {
             return PartialView("sandbox/header_edit_form");
@@ -80,7 +41,7 @@ namespace webComponents.Controllers
             return PartialView("sandbox/headerContent_new_form");
         }
 
-        //Sandbox Actions
+        //Actions
 
         [HttpPost]
         public string header_savenew()
@@ -165,8 +126,7 @@ namespace webComponents.Controllers
             return "";
         }
 
-
-        //Sandbox DS
+        //DS
         public ActionResult getHeaders()
         {
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
@@ -216,7 +176,7 @@ namespace webComponents.Controllers
             return Json(new { headers = headers, headerContents = headerContents }, JsonRequestBehavior.AllowGet);
         }
 
-        //Sandbox Routes
+        //Routes
         public PartialViewResult sandbox() 
         {
             var type=Request.Params["type"];
@@ -242,6 +202,10 @@ namespace webComponents.Controllers
             }
             return PartialView("");
         }
+
+
+
+        //Miscellanous
 
         public JsonResult getUsers()
         {
@@ -273,6 +237,7 @@ namespace webComponents.Controllers
 
             return Json(tree, JsonRequestBehavior.AllowGet);
         }
+
         public void getUsersRec(dynamic node, DataTable dt)
         {
             for (int j = 0; j < dt.Rows.Count; j++)
@@ -294,6 +259,15 @@ namespace webComponents.Controllers
             }
             for (int j = 0; j < node.children.Count; j++)
                 getUsersRec(node.children[j], dt);
+        }
+
+        public void upload()
+        {
+            var file = Request.Files["myfile"];
+
+            //IE messup file.FileName then use your own >> [to cover all browser code like this]
+            var nameSections = file.FileName.Split(new char[] { '\\' });
+            file.SaveAs(Server.MapPath("../uploads/") + nameSections[nameSections.Length - 1]);
         }
 
     }
