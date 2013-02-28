@@ -146,7 +146,9 @@
          });
 
          $('#headercontent_cancelbtn').on('click', function () {
+
              lib.helper.jqWidgetWinClose(headercontent_DATA.winid);
+             mainPanel.loadDataSources();
              return false;
          });
          

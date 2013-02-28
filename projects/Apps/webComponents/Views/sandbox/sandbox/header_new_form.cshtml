@@ -92,7 +92,9 @@
              return false;
          });
          $('#header_cancelbtn').on('click', function () {
+
              lib.helper.jqWidgetWinClose(header_DATA.winid);
+             mainPanel.loadDataSources();
              return false;
          });
          

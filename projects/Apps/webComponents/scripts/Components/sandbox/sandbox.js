@@ -20,7 +20,7 @@
 						header: "Define New Header",
 						content: content,
 						theme: me.theme,
-						modal: false,
+						modal: true,
 						width: 300,
 						height: 165,
 						collapsible: false
@@ -61,7 +61,7 @@
 							header: "Define New Content",
 							content: content,
 							theme: me.theme,
-							modal: false,
+							modal: true,
 							width: 650,
 							height: 575,
 							collapsible: false
@@ -91,7 +91,8 @@
 			}
 		},
 
-        loadDataSources:function(){
+        loadDataSources:function()
+        {
 		
 			var me=this;
 		
@@ -169,12 +170,13 @@
                             //SAVE SELECTED HEADERCONTENTID
                             
                             me.selected_HC=lib.helper.findItemInObjectArray(obj.headerContentID,'headerContentID',me.headerContentsDS);
-                            console.log(me.selected_HC);
-					        
+                            
 							//reset selected index for rest of them
 							for(var item in panels)
 								if(panels[item].attr('id') !==$(this).attr('id'))
 									panels[item].jqxDropDownList('selectIndex', -1 ); 							
+
+                            me.enableRightPanel(true);
 							
 					} });
 
@@ -187,9 +189,15 @@
 				
 			});//GET Ajax-----
 			
+
+            me.enableRightPanel(false);
 			
 		},
-
+        enableRightPanel:function(enable)
+        {
+            $('#sandbox_maintab').css("display",((enable==true)?"block":"none"));
+            
+        },
 		loadLayout:function()
 		{
 			var me=this;
@@ -197,7 +205,7 @@
 			me.theme = getDemoTheme();
 			
 			//Right Side Tabs
-			$('#maintab').jqxTabs(
+			$('#sandbox_maintab').jqxTabs(
 			{ 
 				width: "100%", 
 				height:800,
@@ -210,7 +218,7 @@
 			
             //create New Header button
 			$('#sandbox_newheaderbtn')
-            .jqxButton({ width: 200, height: 25, theme: me.theme })
+            .jqxButton({ width: 230, height: 25, theme: me.theme })
             .click(function()
             {
                 me.availableForms.header_new_form();
@@ -219,7 +227,7 @@
 
             //Create New Content button
 			$('#sandbox_newheadercontentbtn')
-            .jqxButton({ width: 200, height: 25, theme: me.theme })
+            .jqxButton({ width: 230, height: 25, theme: me.theme })
             .click(function()
             {
 
@@ -266,6 +274,7 @@
             .jqxButton({ width: 60, height: 25, theme: me.theme })
             .on('click',function()
 			{      
+                if (confirm("Sure to Delete")===false)return false;
                 $.ajax(
                 {
                     url:"/sandbox/headercontent_delete",
@@ -283,11 +292,11 @@
             //Delete Header Content Button button  ----------------------------------------
 			
 			me.loadDataSources();
+            
 		},
-
         assignHeaderEvent:function()
         {
-			var me=this;
+            var me=this;
             //HEADER CLICK ACTION
 			$('.header').on('click',function()
 			{

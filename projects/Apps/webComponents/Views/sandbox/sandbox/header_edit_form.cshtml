@@ -105,6 +105,8 @@
          });
          $('#header_deletebtn').on('click', function () {
 
+             if (confirm("Sure to Delete") === false) return false;
+
              $.ajax(
                 {
                     url: "/sandbox/header_delete",
@@ -118,8 +120,7 @@
                     mainPanel.loadDataSources();
                     lib.helper.jqWidgetWinClose(header_DATA.winid);
                 });
-                
-             
+
              return false;
          });
          
