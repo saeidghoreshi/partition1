@@ -685,8 +685,7 @@
     <Content Include="scripts\Components\unread\1046071385.js" />
     <Content Include="scripts\Components\unread\1141672867.js" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
-    <Content Include="scripts\Components\facebook\facebookCss.css" />
-    <Content Include="scripts\Components\facebook\facebookController.js" />
+    <Content Include="scripts\Components\facebook\facebook.js" />
     <Content Include="scripts\Components\unread\orgChartVertical\img\arrow-point-right.png" />
     <Content Include="scripts\Components\unread\orgChartVertical\img\arrowResize.png" />
     <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\1.png" />
@@ -730,8 +729,6 @@
     <Content Include="scripts\Components\unread\ExtjsTest\js\treePanelController.js" />
     <Content Include="scripts\Components\sandbox\sandbox.css" />
     <Content Include="scripts\Components\sandbox\sandbox.js" />
-    <Content Include="scripts\Components\master\page.css" />
-    <Content Include="scripts\Components\master\page.js" />
     <Content Include="scripts\JSplugins\ckEditor\ckeditor.js" />
     <Content Include="scripts\JSplugins\ckEditor\config.js" />
     <Content Include="scripts\JSplugins\ckEditor\contents.css" />
@@ -926,6 +923,14 @@
     <Content Include="Views\topo\Home\login.cshtml" />
     <Content Include="Views\topo\Shared\simpleLayout.cshtml" />
     <Content Include="Views\topo\Web.config" />
+    <Content Include="Views\facebook\auth.cshtml" />
+    <Content Include="Views\facebook\login.cshtml" />
+    <Content Include="Views\facebook\registration.cshtml" />
+    <Content Include="Views\facebook\index.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\auth.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\index.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\login.cshtml" />
+    <Content Include="Views\sandbox\socialmedia\registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -935,6 +940,7 @@
     <Folder Include="scripts\Components\unread\ExtjsTest\css\" />
     <Folder Include="scripts\Components\unread\Extjs\images\" />
     <Folder Include="scripts\Components\unread\orgChartVertical\img\arrow\" />
+    <Folder Include="Views\sandbox\socialmedia\facebook\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -958,9 +964,6 @@
     <None Include="scripts\Components\Topology\Documentation\project-addressing-DB.vsd" />
     <None Include="scripts\Components\Topology\Documentation\project-addressing.docx" />
     <None Include="scripts\JSplugins\ckEditor\skins\moono\readme.md" />
-    <Content Include="Views\sandbox\socialmedia\facebook\index.cshtml" />
-    <Content Include="Views\sandbox\socialmedia\facebook\login.cshtml" />
-    <Content Include="Views\sandbox\socialmedia\facebook\registration.cshtml" />
     <Content Include="Views\sandbox\sandbox\header_new_form.cshtml" />
     <Content Include="Views\sandbox\sandbox\headercontent_new_form.cshtml" />
     <Content Include="Views\sandbox\chart\vchart.cshtml" />
