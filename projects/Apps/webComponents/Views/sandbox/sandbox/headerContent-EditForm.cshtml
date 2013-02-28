@@ -1,81 +1,80 @@
-﻿     <!--css-->
-     <style type="text/css">
-        .text-input
-        {
-            height: 21px;
-            width: 150px;
-        }
-        .register-table
-        {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        .register-table td, 
-        .register-table tr
-        {
-            margin: 0px;
-            padding: 2px;
-            border-spacing: 0px;
-            border-collapse: collapse;
-            font-family: Verdana;
-            font-size: 12px;
-        }
-        h3 
-        {
-            display: inline-block;
-            margin: 0px;
-        }
-    </style>
+﻿<!--css-->
+<style type="text/css">
+    .text-input
+    {
+        height: 21px;
+        width: 150px;
+    }
+    .register-table
+    {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .register-table td, 
+    .register-table tr
+    {
+        margin: 0px;
+        padding: 2px;
+        border-spacing: 0px;
+        border-collapse: collapse;
+        font-family: Verdana;
+        font-size: 12px;
+    }
+    h3 
+    {
+        display: inline-block;
+        margin: 0px;
+    }
+</style>
 
 
-    <!--html-->
-    <div id="HC-panel">
-        <div><h3>Details</h3></div>
-        <div>
-            <form id="HC-frm" >
-                <table class="register-table">
-                    
-                    <tr>
-                        <td>Header</td>
-                        <td><div id="HC-headers"></div></td>
-                    </tr>
-                    <tr>
-                        <td>view Url:</td>
-                        <td><input type="text" id="HC-url" class="text-input" style="width:200px" /></td>
-                    </tr>
-                    <tr>
-                        <td>Label:</td>
-                        <td><input type="text" id="HC-label" class="text-input" style="width:200px" /></td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align:top">Description:</td>
-                        <td>
-                            <div id="HC-editor" style="width:540px;"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <input type="submit" value="Save" id="HC-savebtn" />
-                            <input type="submit" value="Cancel" id="HC-cancelbtn" />
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
+<!--html-->
+<div id="HC-panel">
+    <div><h3>Details</h3></div>
+    <div>
+        <form id="HC-frm" >
+            <table class="register-table">
+                
+                <tr>
+                    <td>Header</td>
+                    <td><div id="HC-headers"></div></td>
+                </tr>
+                <tr>
+                    <td>view Url:</td>
+                    <td><input type="text" id="HC-url" class="text-input" style="width:200px" /></td>
+                </tr>
+                <tr>
+                    <td>Label:</td>
+                    <td><input type="text" id="HC-label" class="text-input" style="width:200px" /></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align:top">Description:</td>
+                    <td>
+                        <div id="HC-editor" style="width:540px;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: left;">
+                        <input type="submit" value="Save" id="HC-savebtn" />
+                        <input type="submit" value="Cancel" id="HC-cancelbtn" />
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
+</div>
 
     <!--javascript-->
      <script type="text/javascript">
 
-         var E_HC_DATA = {}
-         
-         var theme = getDemoTheme()
+         var HC_DATA = {};
 
-         //build form 
+         var theme = getDemoTheme();
+
+         //BUILD FORM ------------------------------------------------------------------------------
          $("#HC-panel").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
          $('#HC-savebtn').jqxButton({ width: 60, height: 25, theme: theme });
          $('#HC-cancelbtn').jqxButton({ width: 60, height: 25, theme: theme });
-
          $('#HC-frm').jqxValidator({
              rules: 
              [
@@ -110,20 +109,19 @@
          });
          $("#HC-headers").jqxDropDownList({ dropDownHeight: 50 });
 
-         //load editor
+         //BUILD EDITOR
          HCeditor = CKEDITOR.appendTo('HC-editor', {}, '');
 	
-         //save form
+         //SAVE FORM -------------------------------------------------------------------------------------------------
          $('#HC-savebtn').on('click', function (event) {
-
 
              var isValidated = $('#HC-frm').jqxValidator('validate');
              if (!isValidated) return false;
 
-             console.log(E_HC_DATA);
+             console.log(HC_DATA);
              $.ajax(
              {
-                 url: "/sandbox/updatecontent",
+                 url: "/sandbox/headerContent_update",
                  type: "post",
                  data:
                  {
@@ -131,13 +129,13 @@
                      label: $('#HC-label').val(),
                      headerid: $("#HC-headers").jqxDropDownList('getSelectedItem').value,
                      description: escape(HCeditor.getData()),
-                     contentid: E_HC_DATA.contentID
+                     contentid: HC_DATA.contentID
                  }
              })
              .done(function (data) {
 
                  //close the window
-                 lib.helper.jqWidgetWinClose(E_HC_DATA.winid);
+                 lib.helper.jqWidgetWinClose(HC_DATA.winid);
 
                  //regenerate panel
                  mainPanel.loadDataSources();
@@ -150,8 +148,7 @@
          
          $('#HC-cancelbtn').on('click', function () {
              
-             
-             lib.helper.jqWidgetWinClose(E_HC_DATA.winid);
+             lib.helper.jqWidgetWinClose(HC_DATA.winid);
              return false;
          });
          

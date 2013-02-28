@@ -217,8 +217,7 @@
 			
 			me.theme = getDemoTheme();
 			
-			
-			//load main Tab
+			//Right Side Tabs
 			$('#maintab').jqxTabs(
 			{ 
 				width: "100%", 
@@ -227,26 +226,49 @@
 				selectionTracker: true, 
 				animationType: 'fade' 
 			});
+            //Right Side Tabs-----------------------------------------------------------
   
 			
-			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
-			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
-	
-			$('#createNewBox').click(function(){me.availableForms.header_NewForm();});
-			$('#createNewContent').click(function(){me.availableForms.headerContent_NewForm();});
-			
-			$('#editbtn').jqxButton({ width: 60, height: 25, theme: me.theme })
-			.on('click',function()
-			{
-                   
+            //create New Header button
+			$('#sandbox-new-header')
+            .jqxButton({ width: 200, height: 25, theme: me.theme })
+            .click(function()
+            {
+                me.availableForms.header_NewForm();
+            });
+            //create New Header button --------------------------------------------------
+
+            //Create New Content button
+			$('#sandbox-new-content')
+            .jqxButton({ width: 200, height: 25, theme: me.theme })
+            .click(function()
+            {
+
+                var winid=lib.helper.idGenerator('win');
+                var config=
+			    {	
+                    callback:function()
+					{   
+                        //FORM INTERFACE
+                        HC_DATA={winidxx:winid};
+				    }
+				}
+                me.availableForms.headerContent_NewForm();
+            });
+            //Create New Content button -------------------------------------------------
+
+            //Edit Header Content Button button
+			$('#sandbox-edit-headercontent')
+            .jqxButton({ width: 60, height: 25, theme: me.theme })
+            .on('click',function()
+			{      
+
                     var winid=lib.helper.idGenerator('win');
 					var config=
 					{	
                         callback:function()
-						{
-                            
-                            //FORM DATA
-                            E_HC_DATA=$.extend(me.selected_HC,{winidxx:winid});
+						{   
+                            HC_DATA=$.extend(me.selected_HC,{winidxx:winid});
 
                             //FORM DEFAULT VALUES
                             $('#HC-label').val(me.selected_HC.contentLabel);
@@ -259,6 +281,7 @@
 					}
 				    me.availableForms.headerContent_EditForm(config);
 			});
+            //Edit Header Content Button button  ----------------------------------------
 			
 			
 			me.loadDataSources();

@@ -67,6 +67,7 @@
     <!--javascript-->
      <script type="text/javascript">
 
+         var HC_DATA = {};
          var theme = getDemoTheme()
 
          //BUILD FORM ---------------------------------------------------------------------------------------------
@@ -119,7 +120,7 @@
              
              $.ajax(
              {
-                 url: "/sandbox/newcontent",
+                 url: "/sandbox/headerContent_SaveNew",
                  type: "post",
                  data: 
                  {
@@ -132,7 +133,7 @@
              .done(function (data) {
 
                  //CLOSE THE WINDOW
-                 lib.helper.jqWidgetWinClose($('#mywin').val());
+                 lib.helper.jqWidgetWinClose(HC_DATA.winid);
 
                  //REFERESH LEFT PANEL DATASOURCE
                  mainPanel.loadDataSources();
@@ -144,7 +145,7 @@
          });
 
          $('#HC-cancelbtn').on('click', function () {
-             lib.helper.jqWidgetWinClose($('#mywin').val());
+             lib.helper.jqWidgetWinClose(HC_DATA.winid);
              return false;
          });
          
