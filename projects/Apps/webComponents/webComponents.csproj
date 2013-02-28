@@ -168,8 +168,6 @@
     <Compile Include="Controllers\MvcappController.cs" />
     <Compile Include="Controllers\SandboxController.cs" />
     <Compile Include="Controllers\RealestateController.cs" />
-    <Compile Include="Controllers\ThemeController.cs" />
-    <Compile Include="Controllers\TopologyController.cs" />
     <Compile Include="Controllers\WorkflowController.cs" />
     <Compile Include="datasource\datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
@@ -179,18 +177,12 @@
     </Compile>
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\DB.cs" />
-    <Compile Include="Models\librarytopo.cs" />
     <Compile Include="Models\prjModel.Designer.cs">
       <DependentUpon>prjModel.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Models\themeClasses.cs" />
-    <Compile Include="Models\top.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>top.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="scripts\Components\Mvcapp\longProcessingResource.ashx.cs">
       <DependentUpon>longProcessingResource.ashx</DependentUpon>
@@ -890,47 +882,11 @@
     <Content Include="Views\Mvcapp\Shared\Layout-sample1.cshtml" />
     <Content Include="Views\Mvcapp\Shared\Layout-Themes.cshtml" />
     <Content Include="Views\Mvcapp\Web.config" />
-    <Content Include="Views\Theme\_ViewStart.cshtml" />
-    <Content Include="Views\Theme\Home\accounting.cshtml" />
-    <Content Include="Views\Theme\Home\dojo.cshtml" />
-    <Content Include="Views\Theme\Home\easyUI.cshtml" />
-    <Content Include="Views\Theme\Home\Index1.cshtml" />
-    <Content Include="Views\Theme\Home\Index1\center.cshtml" />
-    <Content Include="Views\Theme\Home\Index1\menu.cshtml" />
-    <Content Include="Views\Theme\Home\Index1\orgList.cshtml" />
-    <Content Include="Views\Theme\Home\Index2.cshtml" />
-    <Content Include="Views\Theme\Home\Index3.cshtml" />
-    <Content Include="Views\Theme\Home\Master.cshtml" />
-    <Content Include="Views\Theme\old\Home\Index.cshtml" />
-    <Content Include="Views\Theme\old\Home\office\newOffice.cshtml" />
-    <Content Include="Views\Theme\old\Home\user\newUser.cshtml" />
-    <Content Include="Views\Theme\old\Home\viewport\viewport.cshtml" />
-    <Content Include="Views\Theme\old\Home\viewport\viewport2.cshtml" />
-    <Content Include="Views\Theme\old\workflow\createNewTask.cshtml" />
-    <Content Include="Views\Theme\old\workflow\curUserTimeTrackerForm.cshtml" />
-    <Content Include="Views\Theme\old\workflow\taskAssignment.cshtml" />
-    <Content Include="Views\Theme\old\workflow\userCurrentTasksForm.cshtml" />
-    <Content Include="Views\Theme\Web.config" />
-    <Content Include="Views\Theme\Workflow\createNewTask.cshtml" />
-    <Content Include="Views\Theme\Workflow\curUserTimeTrackerForm.cshtml" />
-    <Content Include="Views\Theme\Workflow\Form_createAssignTask.cshtml" />
-    <Content Include="Views\Theme\Workflow\taskAssignment.cshtml" />
-    <Content Include="Views\Theme\Workflow\TasksList.cshtml" />
-    <Content Include="Views\Theme\Workflow\userCurrentTasksForm.cshtml" />
-    <Content Include="Views\topo\Home\createCategory.cshtml" />
-    <Content Include="Views\topo\Home\createNew.cshtml" />
-    <Content Include="Views\topo\Home\index.cshtml" />
-    <Content Include="Views\topo\Home\login.cshtml" />
-    <Content Include="Views\topo\Shared\simpleLayout.cshtml" />
-    <Content Include="Views\topo\Web.config" />
+    <Content Include="Views\sandbox\accounting.cshtml" />
     <Content Include="Views\facebook\auth.cshtml" />
     <Content Include="Views\facebook\login.cshtml" />
     <Content Include="Views\facebook\registration.cshtml" />
     <Content Include="Views\facebook\index.cshtml" />
-    <Content Include="Views\sandbox\socialmedia\auth.cshtml" />
-    <Content Include="Views\sandbox\socialmedia\index.cshtml" />
-    <Content Include="Views\sandbox\socialmedia\login.cshtml" />
-    <Content Include="Views\sandbox\socialmedia\registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -940,7 +896,6 @@
     <Folder Include="scripts\Components\unread\ExtjsTest\css\" />
     <Folder Include="scripts\Components\unread\Extjs\images\" />
     <Folder Include="scripts\Components\unread\orgChartVertical\img\arrow\" />
-    <Folder Include="Views\sandbox\socialmedia\facebook\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -956,10 +911,6 @@
     <EntityDeploy Include="Models\prjModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>prjModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <EntityDeploy Include="Models\top.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>top.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="scripts\Components\Topology\Documentation\project-addressing-DB.vsd" />
     <None Include="scripts\Components\Topology\Documentation\project-addressing.docx" />

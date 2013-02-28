@@ -269,7 +269,7 @@ namespace webComponents.Controllers
             var nameSections = file.FileName.Split(new char[] { '\\' });
             file.SaveAs(Server.MapPath("../uploads/") + nameSections[nameSections.Length - 1]);
         }
-
+      
     }
    
     public class organization
