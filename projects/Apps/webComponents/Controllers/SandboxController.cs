@@ -60,30 +60,30 @@ namespace webComponents.Controllers
         //SandBox
 
         //Sandbox FORMS
-        public ActionResult header_EditForm()
+        public ActionResult header_edit_form()
         {
-            return PartialView("sandbox/header-EditForm");
+            return PartialView("sandbox/header_edit_form");
         }
 
-        public ActionResult header_NewForm() 
+        public ActionResult header_new_form() 
         {
-            return PartialView("sandbox/header-NewForm");
+            return PartialView("sandbox/header_new_form");
         }
 
-        public ActionResult headerContent_EditForm()
+        public ActionResult headercontent_edit_form()
         {
-            return PartialView("sandbox/headerContent-EditForm");
+            return PartialView("sandbox/headercontent_edit_form");
         }
 
-        public ActionResult headerContent_NewForm()
+        public ActionResult headerContent_new_form()
         {
-            return PartialView("sandbox/headerContent-NewForm");
+            return PartialView("sandbox/headerContent_new_form");
         }
 
         //Sandbox Actions
 
         [HttpPost]
-        public string header_SaveNew()
+        public string header_savenew()
         {
             var pars=Request.Params;
             string header=pars["header"];
@@ -94,7 +94,7 @@ namespace webComponents.Controllers
         }
 
         [HttpPost]
-        public string header_Update()
+        public string header_update()
         {
             var pars = Request.Params;
             string header = pars["header"];
@@ -106,7 +106,18 @@ namespace webComponents.Controllers
         }
 
         [HttpPost]
-        public string headerContent_Update()
+        public string header_delete()
+        {
+            var pars = Request.Params;
+            string headerid = pars["headerid"];
+
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            db.exec(string.Format("delete from sandbox.header where ID='{0}'", headerid));
+            return "";
+        }
+
+        [HttpPost]
+        public string headercontent_update()
         {
             var pars = Request.Params;
             string headerid = pars["headerid"];
@@ -125,7 +136,7 @@ namespace webComponents.Controllers
         }
 
         [HttpPost]
-        public string headerContent_New()
+        public string headercontent_savenew()
         {
                 var pars = Request.Params;
                 string headerid = pars["headerid"];
@@ -139,6 +150,19 @@ namespace webComponents.Controllers
 
                 db.exec(string.Format("insert into sandbox.headercontent (headerId,contentid) values('{0}','{1}')", headerid, contentid));
                 return "";
+        }
+
+        [HttpPost]
+        public string headercontent_delete()
+        {
+            var pars = Request.Params;
+            string contentid = pars["contentid"];
+            
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            db.fetch(string.Format("delete from sandbox.headercontent where contentID='{0}' ;", contentid));
+            db.fetch(string.Format("delete from sandbox.content where contentID='{0}' ;", contentid));
+
+            return "";
         }
 
 

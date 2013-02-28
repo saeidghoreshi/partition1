@@ -858,8 +858,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\sandbox\sandbox\header-EditForm.cshtml" />
-    <Content Include="Views\sandbox\sandbox\headerContent-EditForm.cshtml" />
+    <Content Include="Views\sandbox\sandbox\header_edit_form.cshtml" />
+    <Content Include="Views\sandbox\sandbox\headercontent_edit_form.cshtml" />
     <Content Include="Views\sandbox\misc\breadcrum.cshtml" />
     <Content Include="Views\sandbox\misc\menu.cshtml" />
     <Content Include="Views\sandbox\404.cshtml" />
@@ -961,8 +961,8 @@
     <Content Include="Views\sandbox\socialmedia\facebook\index.cshtml" />
     <Content Include="Views\sandbox\socialmedia\facebook\login.cshtml" />
     <Content Include="Views\sandbox\socialmedia\facebook\registration.cshtml" />
-    <Content Include="Views\sandbox\sandbox\header-NewForm.cshtml" />
-    <Content Include="Views\sandbox\sandbox\headerContent-NewForm.cshtml" />
+    <Content Include="Views\sandbox\sandbox\header_new_form.cshtml" />
+    <Content Include="Views\sandbox\sandbox\headercontent_new_form.cshtml" />
     <Content Include="Views\sandbox\chart\vchart.cshtml" />
   </ItemGroup>
   <PropertyGroup>

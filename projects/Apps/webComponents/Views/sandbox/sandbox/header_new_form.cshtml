@@ -29,19 +29,19 @@
 
 
     <!--html-->
-    <div id="pnl-newheader">
+    <div id="header_panel">
         <div><h3>Deatails</h3></div>
         <div>
-            <form action='/' id="frm-newheader" >
+            <form action='/' id="header_frm" >
                 <table class="register-table">
                     <tr>
                         <td>Header:</td>
-                        <td><input type="text" id="txt-header" class="text-input" /></td>
+                        <td><input type="text" id="header_label" class="text-input" /></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <input type="submit" value="New" id="btn-newheader" />
-                            <input type="submit" value="Cancel" id="btn-cancelheader" />
+                            <input type="submit" value="Save" id="header_savebtn" />
+                            <input type="submit" value="Cancel" id="header_cancelbtn" />
                         </td>
                     </tr>
                 </table>
@@ -52,35 +52,36 @@
     <!--javascript-->
      <script type="text/javascript">
 
+         var header_DATA = {};
          var theme = getDemoTheme()
 
          //build form 
-         $("#pnl-newheader").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
-         $('#btn-newheader').jqxButton({ width: 60, height: 25, theme: theme });
-         $('#btn-cancelheader').jqxButton({ width: 60, height: 25, theme: theme });
-         $('#frm-newheader').jqxValidator({
+         $("#header_panel").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
+         $('#header_savebtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#header_cancelbtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#header_frm').jqxValidator({
              rules: [
-                    { input: '#txt-header', message: 'Header Name is required!', action: 'keyup, blur', rule: 'required' }
+                    { input: '#header_label', message: 'Header Name is required!', action: 'keyup, blur', rule: 'required' }
                     
                 ]
          });
 
          //save form
-         $('#btn-newheader').click(function (event) {
+         $('#header_savebtn').click(function (event) {
 
-             var isValidated = $('#frm-newheader').jqxValidator('validate');
+             var isValidated = $('#header_frm').jqxValidator('validate');
              if (!isValidated) return false;
 
              $.ajax(
              {
-                 url: "/sandbox/newheader",
+                 url: "/sandbox/header_savenew",
                  type:"post",
-                 data:{ header: $('#txt-header').val() }
+                 data: { header: $('#header_label').val() }
              })
              .done(function (data) {
 
                  //close the window
-                 lib.helper.jqWidgetWinClose($('#mywin').val());
+                 lib.helper.jqWidgetWinClose(header_DATA.winid);
 
                  //regenerate panel
                  mainPanel.loadDataSources();
@@ -90,8 +91,8 @@
 
              return false;
          });
-         $('#btn-cancelheader').on('click', function () {
-             lib.helper.jqWidgetWinClose($('#mywin').val());
+         $('#header_cancelbtn').on('click', function () {
+             lib.helper.jqWidgetWinClose(header_DATA.winid);
              return false;
          });
          

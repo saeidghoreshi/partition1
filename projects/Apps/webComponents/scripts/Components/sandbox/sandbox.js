@@ -3,16 +3,16 @@
 
 	index2=cls.define(
     {
-        updateEditor:null,
+        selected_HC:null,
 
-		availableForms:
+        availableForms:
 		{
-			header_NewForm:function(config)
+			header_new_form:function(config)
 			{	
 				var me=this;
 				me.theme = getDemoTheme();
 				
-				$.get('/sandbox/header_NewForm',function(content)
+				$.get('/sandbox/header_new_form',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
@@ -27,12 +27,12 @@
 				});
 			},
 
-			header_EditForm:function(config)
+			header_edit_form:function(config)
 			{	
 				var me=this;
 				me.theme = getDemoTheme();
 				
-				$.get('/sandbox/header_EditForm',function(content)
+				$.get('/sandbox/header_edit_form',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
@@ -50,10 +50,10 @@
                 
 			},
 
-			headerContent_NewForm:function(config)
+			headercontent_new_form:function(config)
 			{
 				var me=this;
-				$.get('/sandbox/headerContent_NewForm',function(content)
+				$.get('/sandbox/headercontent_new_form',function(content)
 				{
 					lib.helper.jqWidgetWin(
 						{
@@ -69,11 +69,11 @@
 				});
 			},
 
-			headerContent_EditForm:function(config)
+			headercontent_edit_form:function(config)
 			{
 				var me=this;
                 me.theme = getDemoTheme();
-				$.get('/sandbox/headerContent_EditForm',function(content)
+				$.get('/sandbox/headercontent_edit_form',function(content)
 				{
 					var $window=lib.helper.jqWidgetWin(
 						{
@@ -94,7 +94,7 @@
 		
 			var me=this;
 		
-			$('#panel').children().remove();
+			$('#sandbox_panel').children().remove();
 			
 			var panels=[];
 			$.get("/sandbox/getHeaderContents")
@@ -107,14 +107,14 @@
 				{
 					var id=lib.helper.idGenerator('panel');
 					var $header=$('<div class="header">'+((headers[i].label==='')?'---':headers[i].label) +'</div>')
-					.appendTo('#panel');
+					.appendTo('#sandbox_panel');
 					
 					//ASSIGN DATA TO HEADER
 					$header.data('data',{headerID:headers[i].id})
 					
 					
 					var $panel=$('<div class="headercontent" id="'+id+'" />')
-					.appendTo('#panel');
+					.appendTo('#sandbox_panel');
 					
 					//keep track of panels
 					panels.push($panel);
@@ -147,7 +147,7 @@
 					function (event) {     
 						var args = event.args;
 						
-						me.updateEditor=null;
+						
 						
 						if (args) {
 							// index represents the item's index.                      
@@ -160,15 +160,15 @@
 							var value = item.value;
 							
                             
-							var $documentation=$('#documentation');
-							var $component=$('#component');
+							var $documentation=$('#sandbox_documentation');
+							var $component=$('#sandbox_component');
 									
 							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',me.headerContents);
 							$documentation.html(unescape(obj.content));
 							$.get('/sandbox/sandbox?type='+obj.viewurl).done(function(content){$component.html(content);});
 							
                             //SAVE SELECTED HEADERCONTENTID
-                            console.log(obj.headerContentID);
+                            
                             me.selected_HC=lib.helper.findItemInObjectArray(obj.headerContentID,'headerContentID',me.headerContents);
                             console.log(me.selected_HC);
 					        
@@ -193,18 +193,18 @@
 						{
                             //FORM DEFAULT VALUES
 							var label=$control.html();
-							$('#HC-header').val(label);
+							$('#header_label').val(label);
 
                             //FORM DATA
-                            E_H_DATA=$.extend($control.data('data'),{winidxxx:winid});
+                            header_DATA=$.extend($control.data('data'),{winidxxx:winid});
 						}
 					}
                     
-					me.availableForms.updateHeaderForm(config);
+					me.availableForms.header_edit_form(config);
 				});
 				
 				//panel Container
-				$("#panelcontainer").jqxPanel({ width: 230, height: 720, theme: me.theme });
+				$("#sandbox_panelcontainer").jqxPanel({ width: 230, height: 720, theme: me.theme });
 				
 			});
 			
@@ -230,16 +230,16 @@
   
 			
             //create New Header button
-			$('#sandbox-new-header')
+			$('#sandbox_newheaderbtn')
             .jqxButton({ width: 200, height: 25, theme: me.theme })
             .click(function()
             {
-                me.availableForms.header_NewForm();
+                me.availableForms.header_new_form();
             });
             //create New Header button --------------------------------------------------
 
             //Create New Content button
-			$('#sandbox-new-content')
+			$('#sandbox_newheadercontentbtn')
             .jqxButton({ width: 200, height: 25, theme: me.theme })
             .click(function()
             {
@@ -253,12 +253,12 @@
                         HC_DATA={winidxx:winid};
 				    }
 				}
-                me.availableForms.headerContent_NewForm();
+                me.availableForms.headercontent_new_form();
             });
             //Create New Content button -------------------------------------------------
 
-            //Edit Header Content Button button
-			$('#sandbox-edit-headercontent')
+            //Edit Header Content Button 
+			$('#sandbox_editheadercontentbtn')
             .jqxButton({ width: 60, height: 25, theme: me.theme })
             .on('click',function()
 			{      
@@ -268,20 +268,40 @@
 					{	
                         callback:function()
 						{   
-                            HC_DATA=$.extend(me.selected_HC,{winidxx:winid});
+                            headercontent_DATA=$.extend(me.selected_HC,{winidxx:winid});
 
                             //FORM DEFAULT VALUES
-                            $('#HC-label').val(me.selected_HC.contentLabel);
-                            $('#HC-url').val(me.selected_HC.viewurl);
-                            HCeditor.setData(unescape(me.selected_HC.content));
+                            $('#headercontent_label').val(me.selected_HC.contentLabel);
+                            $('#headercontent_viewurl').val(me.selected_HC.viewurl);
+                            headercontent_editor.setData(unescape(me.selected_HC.content));
 
-                            var selectedItem = $('#HC-headers').jqxDropDownList('getItemByValue', me.selected_HC.headerID);
-                            $("#HC-headers").jqxDropDownList('selectItem', selectedItem); 
+                            var selectedItem = $('#headercontent_headers').jqxDropDownList('getItemByValue', me.selected_HC.headerID);
+                            $("#headercontent_headers").jqxDropDownList('selectItem', selectedItem); 
 						}
 					}
-				    me.availableForms.headerContent_EditForm(config);
+				    me.availableForms.headercontent_edit_form(config);
 			});
             //Edit Header Content Button button  ----------------------------------------
+            //Delete Header Content Button 
+			$('#sandbox_deleteheadercontentbtn')
+            .jqxButton({ width: 60, height: 25, theme: me.theme })
+            .on('click',function()
+			{      
+                $.ajax(
+                {
+                    url:"/sandbox/headercontent_delete",
+                    type:"POST",
+                    data:
+                    {
+                        contentid:me.selected_HC.contentID
+                    }
+                })
+                .done(function(data)
+                {
+                    me.loadDataSources();
+                });
+			});
+            //Delete Header Content Button button  ----------------------------------------
 			
 			
 			me.loadDataSources();
