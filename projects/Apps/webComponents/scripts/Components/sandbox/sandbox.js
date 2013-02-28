@@ -4,6 +4,7 @@
 	index2=cls.define(
     {
         selected_HC:null,
+        headerContentsDS:null,
 
         availableForms:
 		{
@@ -101,7 +102,7 @@
 			.done(function(data)
 			{
 				var headers=data.headers;
-				me.headerContents=data.headerContents;
+				me.headerContentsDS=data.headerContents;
 				
 				for(var i=0;i<headers.length;i++)
 				{
@@ -121,9 +122,9 @@
 					
 					//build repo for each header
 					var repo=[];
-					for(var j=0;j<me.headerContents.length;j++)
-						if(me.headerContents[j].headerID === headers[i].id)
-							repo.push(me.headerContents[j]);
+					for(var j=0;j<me.headerContentsDS.length;j++)
+						if(me.headerContentsDS[j].headerID === headers[i].id)
+							repo.push(me.headerContentsDS[j]);
 							
 					var source =
 					{
@@ -147,8 +148,6 @@
 					function (event) {     
 						var args = event.args;
 						
-						
-						
 						if (args) {
 							// index represents the item's index.                      
 							var index = args.index;
@@ -163,13 +162,13 @@
 							var $documentation=$('#sandbox_documentation');
 							var $component=$('#sandbox_component');
 									
-							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',me.headerContents);
+							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',me.headerContentsDS);
 							$documentation.html(unescape(obj.content));
 							$.get('/sandbox/sandbox?type='+obj.viewurl).done(function(content){$component.html(content);});
 							
                             //SAVE SELECTED HEADERCONTENTID
                             
-                            me.selected_HC=lib.helper.findItemInObjectArray(obj.headerContentID,'headerContentID',me.headerContents);
+                            me.selected_HC=lib.helper.findItemInObjectArray(obj.headerContentID,'headerContentID',me.headerContentsDS);
                             console.log(me.selected_HC);
 					        
 							//reset selected index for rest of them
@@ -178,35 +177,15 @@
 									panels[item].jqxDropDownList('selectIndex', -1 ); 							
 							
 					} });
-				
+
+                    
 				}
 				
-				//events
-				$('.header').on('click',function()
-				{
-					var $control=$(this);
-
-                    var winid=lib.helper.idGenerator('win');
-					var config=
-					{	
-                        callback:function()
-						{
-                            //FORM DEFAULT VALUES
-							var label=$control.html();
-							$('#header_label').val(label);
-
-                            //FORM DATA
-                            header_DATA=$.extend($control.data('data'),{winidxxx:winid});
-						}
-					}
-                    
-					me.availableForms.header_edit_form(config);
-				});
-				
+                me.assignHeaderEvent();
 				//panel Container
 				$("#sandbox_panelcontainer").jqxPanel({ width: 230, height: 720, theme: me.theme });
 				
-			});
+			});//GET Ajax-----
 			
 			
 		},
@@ -303,10 +282,35 @@
 			});
             //Delete Header Content Button button  ----------------------------------------
 			
-			
 			me.loadDataSources();
-			
-		}
+		},
+
+        assignHeaderEvent:function()
+        {
+			var me=this;
+            //HEADER CLICK ACTION
+			$('.header').on('click',function()
+			{
+				var $control=$(this);
+
+                var winid=lib.helper.idGenerator('win');
+				var config=
+				{	
+                    callback:function()
+					{
+                        //FORM DEFAULT VALUES
+						var label=$control.html();
+						$('#header_label').val(label);
+
+                        //FORM DATA
+                        header_DATA=$.extend($control.data('data'),{winidxxx:winid});
+					}
+				}
+                
+				me.availableForms.header_edit_form(config);
+			});
+			//HEADER CLICK ACTION-----------------------------------------------------------
+        }
 		
     });
 
