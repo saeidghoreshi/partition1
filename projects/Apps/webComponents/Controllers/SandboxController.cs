@@ -16,7 +16,7 @@ namespace webComponents.Controllers
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
         public ActionResult Index()
         {   
-            return View("index1");
+            return View("sandbox");
         }
         public ActionResult Index2()
         {
@@ -53,14 +53,37 @@ namespace webComponents.Controllers
 
 
 
-        //sandBox
-        public ActionResult form_newheader() 
+
+
+
+
+        //SandBox
+
+        //Sandbox FORMS
+        public ActionResult header_EditForm()
         {
-            return PartialView("sandbox/box-new");
+            return PartialView("sandbox/header-EditForm");
         }
-        
+
+        public ActionResult header_NewForm() 
+        {
+            return PartialView("sandbox/header-NewForm");
+        }
+
+        public ActionResult headerContent_EditForm()
+        {
+            return PartialView("sandbox/headerContent-EditForm");
+        }
+
+        public ActionResult headerContent_NewForm()
+        {
+            return PartialView("sandbox/headerContent-NewForm");
+        }
+
+        //Sandbox Actions
+
         [HttpPost]
-        public string newheader()
+        public string header_SaveNew()
         {
             var pars=Request.Params;
             string header=pars["header"];
@@ -70,13 +93,8 @@ namespace webComponents.Controllers
             return "";
         }
 
-        public ActionResult form_updateheader()
-        {
-            return PartialView("sandbox/box-update");
-        }
-
         [HttpPost]
-        public string updateheader()
+        public string header_Update()
         {
             var pars = Request.Params;
             string header = pars["header"];
@@ -87,38 +105,27 @@ namespace webComponents.Controllers
             return "";
         }
 
-        public ActionResult form_editcontent()
-        {
-            return PartialView("sandbox/content-edit");
-        }
         [HttpPost]
-        public string updatecontent()
+        public string headerContent_Update()
         {
             var pars = Request.Params;
-           
+            string headerid = pars["headerid"];
+            string url = pars["viewurl"];
+            string content = pars["description"];
+            string label = pars["label"];
+            string contentid = pars["contentid"];
+
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            db.exec(string.Format("update sandbox.content set content='{0}' ,label = '{1}', viewurl ='{2}'  where id='{3}';"
+                , content, label, url,contentid));
+            db.exec(string.Format("update sandbox.headercontent set headerID='{0}' where contentID='{1}'"
+                , headerid, contentid));
+            
             return "";
         }
 
-        public ActionResult form_newcontent()
-        {
-            return PartialView("sandbox/content-new");
-        }
-        public ActionResult getHeaders() 
-        {
-            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
-            var source= db.fetch("select id,label from sandbox.header").Tables[0]
-                .AsEnumerable()
-                .Select(x => new 
-                {
-                    id=x.ItemArray[0],
-                    label = x.ItemArray[1]
-                });
-
-            return Json(source,JsonRequestBehavior.AllowGet);
-        }
-
         [HttpPost]
-        public string newcontent()
+        public string headerContent_New()
         {
                 var pars = Request.Params;
                 string headerid = pars["headerid"];
@@ -134,23 +141,39 @@ namespace webComponents.Controllers
                 return "";
         }
 
+
+        //Sandbox DS
+        public ActionResult getHeaders()
+        {
+            sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
+            var source = db.fetch("select id,label from sandbox.header").Tables[0]
+                .AsEnumerable()
+                .Select(x => new
+                {
+                    id = x.ItemArray[0],
+                    label = x.ItemArray[1]
+                });
+
+            return Json(source, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult getHeaderContents()
         {
-            var query = 
+            var query =
                 "select id,label from sandbox.header;"
-                +"select hc.ID as headerContentID,h.id as headerID , contentID,c.label , content,viewurl from sandbox.header h "
-                +"inner join sandbox.headerContent hc on hc.headerID=h.ID "
-                +"inner join sandbox.Content c on hc.contentID=c.ID "
-                +" order by h.id"
+                + "select hc.ID as headerContentID,h.id as headerID , contentID,c.label , content,viewurl from sandbox.header h "
+                + "inner join sandbox.headerContent hc on hc.headerID=h.ID "
+                + "inner join sandbox.Content c on hc.contentID=c.ID "
+                + " order by h.id"
                 ;
 
             sqlServer db = new sqlServer(ConfigurationManager.ConnectionStrings["winhost"].ConnectionString);
             var ds = db.fetch(query);
             var headers = ds.Tables[0]
                 .AsEnumerable()
-                .Select(x => new 
+                .Select(x => new
                 {
-                    id=x.ItemArray[0],
+                    id = x.ItemArray[0],
                     label = x.ItemArray[1]
                 });
             var headerContents = ds.Tables[1]
@@ -164,13 +187,12 @@ namespace webComponents.Controllers
                     content = x.ItemArray[4],
                     viewurl = x.ItemArray[5]
                 })
-                .OrderBy(x=>x.headerID);
+                .OrderBy(x => x.headerID);
 
             return Json(new { headers = headers, headerContents = headerContents }, JsonRequestBehavior.AllowGet);
         }
 
-
-        //sandbox
+        //Sandbox Routes
         public PartialViewResult sandbox() 
         {
             var type=Request.Params["type"];
@@ -250,9 +272,6 @@ namespace webComponents.Controllers
                 getUsersRec(node.children[j], dt);
         }
 
-       
-
-       
     }
    
     public class organization

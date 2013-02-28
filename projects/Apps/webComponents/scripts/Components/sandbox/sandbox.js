@@ -3,14 +3,16 @@
 
 	index2=cls.define(
     {
+        updateEditor:null,
+
 		availableForms:
 		{
-			newHeaderForm:function(config)
+			header_NewForm:function(config)
 			{	
 				var me=this;
 				me.theme = getDemoTheme();
 				
-				$.get('/sandbox/form_newheader',function(content)
+				$.get('/sandbox/header_NewForm',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
@@ -24,36 +26,34 @@
 					});  
 				});
 			},
-			updateHeaderForm:function(config)
+
+			header_EditForm:function(config)
 			{	
 				var me=this;
 				me.theme = getDemoTheme();
 				
-				$.get('/sandbox/form_updateheader',function(content)
+				$.get('/sandbox/header_EditForm',function(content)
 				{
 					lib.helper.jqWidgetWin(
 					{
-						header: "Update Header",
-						content: content,
-						theme: me.theme,
-						modal: true,
-						width: 300,
-						height: 165,
-						collapsible: false
+                        header  : "Update Header",
+						content : content,
+						theme   : me.theme,
+						modal   : true,
+						width   : 300,
+						height  : 165,
+						collapsible : false,
+                        callback    :config.callback
 					});  
 					
-					
-					headerUpdate_dataRequired=config.requiredData;
-					if(config.callback!==null)
-						config.callback();
-					
-					
 				});
+                
 			},
-			newHeaderContentForm:function(config)
+
+			headerContent_NewForm:function(config)
 			{
 				var me=this;
-				$.get('/sandbox/form_newcontent',function(content)
+				$.get('/sandbox/headerContent_NewForm',function(content)
 				{
 					lib.helper.jqWidgetWin(
 						{
@@ -68,12 +68,14 @@
 					
 				});
 			},
-			editHeaderContentForm:function(config)
+
+			headerContent_EditForm:function(config)
 			{
 				var me=this;
-				$.get('/sandbox/form_editcontent',function(content)
+                me.theme = getDemoTheme();
+				$.get('/sandbox/headerContent_EditForm',function(content)
 				{
-					lib.helper.jqWidgetWin(
+					var $window=lib.helper.jqWidgetWin(
 						{
 							header: "Edit Content",
 							content: content,
@@ -81,51 +83,14 @@
 							modal: false,
 							width: 650,
 							height: 575,
-							collapsible: false
+							collapsible: false,
+                            callback:config.callback
 						}); 
-					
-					if(config.callback!==null)
-						config.callback();	
-					
 				});
 			}
 		},
-		updateEditor:null,
-		loadLayout:function()
-		{
-			var me=this;
-			
-			me.theme = getDemoTheme();
-			
-			
-			//load main Tab
-			$('#maintab').jqxTabs(
-			{ 
-				width: "100%", 
-				height:800,
-				theme: me.theme, 
-				selectionTracker: true, 
-				animationType: 'fade' 
-			});
-  
-			
-			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
-			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
-	
-			$('#createNewBox').click(function(){me.availableForms.newHeaderForm();});
-			$('#createNewContent').click(function(){me.availableForms.newHeaderContentForm();});
-			
-			$('#editbtn').jqxButton({ width: 60, height: 25, theme: me.theme })
-			.on('click',function()
-			{
-				me.availableForms.editHeaderContentForm();
-			});
-			
-			
-			me.loadDataSources();
-			
-		},
-		loadDataSources:function(){
+
+        loadDataSources:function(){
 		
 			var me=this;
 		
@@ -136,7 +101,7 @@
 			.done(function(data)
 			{
 				var headers=data.headers;
-				var headerContents=data.headerContents;
+				me.headerContents=data.headerContents;
 				
 				for(var i=0;i<headers.length;i++)
 				{
@@ -156,9 +121,9 @@
 					
 					//build repo for each header
 					var repo=[];
-					for(var j=0;j<headerContents.length;j++)
-						if(headerContents[j].headerID === headers[i].id)
-							repo.push(headerContents[j]);
+					for(var j=0;j<me.headerContents.length;j++)
+						if(me.headerContents[j].headerID === headers[i].id)
+							repo.push(me.headerContents[j]);
 							
 					var source =
 					{
@@ -194,16 +159,19 @@
 							var label = item.label;
 							var value = item.value;
 							
+                            
 							var $documentation=$('#documentation');
 							var $component=$('#component');
 									
-							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',headerContents);
+							var obj=lib.helper.findItemInObjectArray(value,'headerContentID',me.headerContents);
 							$documentation.html(unescape(obj.content));
 							$.get('/sandbox/sandbox?type='+obj.viewurl).done(function(content){$component.html(content);});
 							
-							//SAVE SELECTED CONTENTID
-							contentUpdate_dataRequired={contentID:obj.contentID}
-							
+                            //SAVE SELECTED HEADERCONTENTID
+                            console.log(obj.headerContentID);
+                            me.selected_HC=lib.helper.findItemInObjectArray(obj.headerContentID,'headerContentID',me.headerContents);
+                            console.log(me.selected_HC);
+					        
 							//reset selected index for rest of them
 							for(var item in panels)
 								if(panels[item].attr('id') !==$(this).attr('id'))
@@ -217,18 +185,22 @@
 				$('.header').on('click',function()
 				{
 					var $control=$(this);
-					
+
+                    var winid=lib.helper.idGenerator('win');
 					var config=
 					{	
-						requiredData:$control.data('data'),
-						callback:function()
+                        callback:function()
 						{
+                            //FORM DEFAULT VALUES
 							var label=$control.html();
-							$('#txt-header').val(label);
+							$('#HC-header').val(label);
+
+                            //FORM DATA
+                            E_H_DATA=$.extend($control.data('data'),{winidxxx:winid});
 						}
 					}
+                    
 					me.availableForms.updateHeaderForm(config);
-					
 				});
 				
 				//panel Container
@@ -238,42 +210,60 @@
 			
 			
 		},
-		
-		
-		
-		loadExtJSAccordion: function (PH) {
-            var me = this;
 
-            app.tagReady(PH, function () {
-                $.ajax(
-                {
-                    url: "/sandbox/json_getModuleFeatures",
-                    type: "get"
-                }).done(function (data) {
+		loadLayout:function()
+		{
+			var me=this;
+			
+			me.theme = getDemoTheme();
+			
+			
+			//load main Tab
+			$('#maintab').jqxTabs(
+			{ 
+				width: "100%", 
+				height:800,
+				theme: me.theme, 
+				selectionTracker: true, 
+				animationType: 'fade' 
+			});
+  
+			
+			$('#createNewBox').jqxButton({ width: 200, height: 25, theme: me.theme });
+			$('#createNewContent').jqxButton({ width: 200, height: 25, theme: me.theme });
+	
+			$('#createNewBox').click(function(){me.availableForms.header_NewForm();});
+			$('#createNewContent').click(function(){me.availableForms.headerContent_NewForm();});
+			
+			$('#editbtn').jqxButton({ width: 60, height: 25, theme: me.theme })
+			.on('click',function()
+			{
+                   
+                    var winid=lib.helper.idGenerator('win');
+					var config=
+					{	
+                        callback:function()
+						{
+                            
+                            //FORM DATA
+                            E_HC_DATA=$.extend(me.selected_HC,{winidxx:winid});
 
-                    var items = []
-                    for (var i = 0; i < data.length; i++) {
-                        items.push
-                        (
-                            Ext.create('Ext.Panel', {
-                                title: data[i].text,
-                                html: '<img src="/resources/components/rightTabsComponent/images/' + data[i].text + '.png" />'
-                            })
+                            //FORM DEFAULT VALUES
+                            $('#HC-label').val(me.selected_HC.contentLabel);
+                            $('#HC-url').val(me.selected_HC.viewurl);
+                            HCeditor.setData(unescape(me.selected_HC.content));
 
-                        );
-                        }
-
-                    
-                    var accordion = Ext.create('Ext.Panel', {
-                        renderTo: PH,
-                        height: 400,
-                        border: 0,
-                        layout: 'accordion',
-                        items: items
-                    });
-                });
-            });
-        }
+                            var selectedItem = $('#HC-headers').jqxDropDownList('getItemByValue', me.selected_HC.headerID);
+                            $("#HC-headers").jqxDropDownList('selectItem', selectedItem); 
+						}
+					}
+				    me.availableForms.headerContent_EditForm(config);
+			});
+			
+			
+			me.loadDataSources();
+			
+		}
 		
     });
 

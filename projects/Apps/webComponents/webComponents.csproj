@@ -683,6 +683,7 @@
     <Content Include="scripts\Components\Topology\home-main.js" />
     <Content Include="scripts\Components\Topology\StyleSheet1.css" />
     <Content Include="scripts\Components\unread\1046071385.js" />
+    <Content Include="scripts\Components\unread\1141672867.js" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebookCss.css" />
     <Content Include="scripts\Components\facebook\facebookController.js" />
@@ -711,13 +712,13 @@
     <Content Include="scripts\Components\unread\orgChartVertical\orgChartVerticalClass.js" />
     <Content Include="scripts\Components\unread\orgChartVertical\ref.txt" />
     <Content Include="scripts\Components\unread\orgChartVertical\TskCreateAssignment.js" />
-    <Content Include="scripts\Components\index1\img\gmap_pin.png" />
-    <Content Include="scripts\Components\index1\img\gmap_pin_grey.png" />
-    <Content Include="scripts\Components\index1\img\gmap_pin_orange.png" />
-    <Content Include="scripts\Components\index1\img\m1.png" />
-    <Content Include="scripts\Components\index1\img\m2.png" />
-    <Content Include="scripts\Components\index1\img\m3.png" />
-    <Content Include="scripts\Components\index1\img\save.png" />
+    <Content Include="scripts\Components\sandbox\img\gmap_pin.png" />
+    <Content Include="scripts\Components\sandbox\img\gmap_pin_grey.png" />
+    <Content Include="scripts\Components\sandbox\img\gmap_pin_orange.png" />
+    <Content Include="scripts\Components\sandbox\img\m1.png" />
+    <Content Include="scripts\Components\sandbox\img\m2.png" />
+    <Content Include="scripts\Components\sandbox\img\m3.png" />
+    <Content Include="scripts\Components\sandbox\img\save.png" />
     <Content Include="scripts\Components\unread\ExtjsTest\images\female.png" />
     <Content Include="scripts\Components\unread\ExtjsTest\js\form1Class.js" />
     <Content Include="scripts\Components\unread\ExtjsTest\js\form2Class.js" />
@@ -727,8 +728,8 @@
     <Content Include="scripts\Components\unread\ExtjsTest\js\gridPanel3Controller.js" />
     <Content Include="scripts\Components\unread\ExtjsTest\js\gridPanelController.js" />
     <Content Include="scripts\Components\unread\ExtjsTest\js\treePanelController.js" />
-    <Content Include="scripts\Components\index1\index1.css" />
-    <Content Include="scripts\Components\index1\index1.js" />
+    <Content Include="scripts\Components\sandbox\sandbox.css" />
+    <Content Include="scripts\Components\sandbox\sandbox.js" />
     <Content Include="scripts\Components\master\page.css" />
     <Content Include="scripts\Components\master\page.js" />
     <Content Include="scripts\JSplugins\ckEditor\ckeditor.js" />
@@ -857,8 +858,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\sandbox\sandbox\box-update.cshtml" />
-    <Content Include="Views\sandbox\sandbox\content-edit.cshtml" />
+    <Content Include="Views\sandbox\sandbox\header-EditForm.cshtml" />
+    <Content Include="Views\sandbox\sandbox\headerContent-EditForm.cshtml" />
     <Content Include="Views\sandbox\misc\breadcrum.cshtml" />
     <Content Include="Views\sandbox\misc\menu.cshtml" />
     <Content Include="Views\sandbox\404.cshtml" />
@@ -943,7 +944,7 @@
     <Content Include="datasource\datasource.ashx" />
     <None Include="datasource\dojogrid.json" />
     <None Include="datasource\treegrid.json" />
-    <Content Include="Views\sandbox\Index1.cshtml" />
+    <Content Include="Views\sandbox\sandbox.cshtml" />
     <Content Include="Views\sandbox\Master.cshtml" />
     <Content Include="scripts\Components\Mvcapp\longProcessingResource.ashx" />
     <EntityDeploy Include="Models\prjModel.edmx">
@@ -960,8 +961,8 @@
     <Content Include="Views\sandbox\socialmedia\facebook\index.cshtml" />
     <Content Include="Views\sandbox\socialmedia\facebook\login.cshtml" />
     <Content Include="Views\sandbox\socialmedia\facebook\registration.cshtml" />
-    <Content Include="Views\sandbox\sandbox\box-new.cshtml" />
-    <Content Include="Views\sandbox\sandbox\content-new.cshtml" />
+    <Content Include="Views\sandbox\sandbox\header-NewForm.cshtml" />
+    <Content Include="Views\sandbox\sandbox\headerContent-NewForm.cshtml" />
     <Content Include="Views\sandbox\chart\vchart.cshtml" />
   </ItemGroup>
   <PropertyGroup>

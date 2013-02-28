@@ -51,8 +51,7 @@
 
     <!--javascript-->
      <script type="text/javascript">
-
-         var headerUpdate_dataRequired = {}
+         var E_H_DATA = {};
          var theme = getDemoTheme()
 
          //build form 
@@ -66,36 +65,40 @@
                 ]
          });
 
-         //save form
-         $('#btn-updateheader').click(function (event) {
 
+         //SAVE FORM
+
+         $('#btn-updateheader').click(function (event) {
              var isValidated = $('#frm-updateheader').jqxValidator('validate');
              if (!isValidated) return false;
 
+             
              $.ajax(
-             {
-                 url: "/sandbox/updateheader",
-                 type:"post",
-                 data: {
-                     headerID: headerUpdate_dataRequired.headerID,
-                    header: $('#txt-header').val() 
-                 }
-             })
-             .done(function (data) {
+                 {
+                     url: "/sandbox/updateheader",
+                     type: "post",
+                     data: {
 
-                 //close the window
-                 lib.helper.jqWidgetWinClose($('#mywin').val());
+                         headerID: E_H_DATA.headerID,
+                         header: $('#txt-header').val()
+                     }
+                 })
+                 .done(function (data) {
 
-                 //regenerate panel
-                 mainPanel.loadDataSources();
-             })
-             .fail(function (data) { console.log('error happend in new header') })
-             .always(function (data) { });
+                     //close the window
+                     lib.helper.jqWidgetWinClose(E_H_DATA.winid);
+
+                     //regenerate panel
+                     mainPanel.loadDataSources();
+                 })
+                 .fail(function (data) { console.log('error happend in new header') })
+                 .always(function (data) { });
 
              return false;
          });
          $('#btn-cancelheader').on('click', function () {
-             lib.helper.jqWidgetWinClose($('#mywin').val());
+             
+             lib.helper.jqWidgetWinClose(E_H_DATA.winid);
              return false;
          });
          

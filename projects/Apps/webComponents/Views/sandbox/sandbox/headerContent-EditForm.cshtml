@@ -29,34 +29,34 @@
 
 
     <!--html-->
-    <div id="pnl-editcontent">
+    <div id="HC-panel">
         <div><h3>Details</h3></div>
         <div>
-            <form id="frm-editcontent" >
+            <form id="HC-frm" >
                 <table class="register-table">
                     
                     <tr>
-                        <td>Headers</td>
-                        <td><div id="ddl-headers"></div></td>
+                        <td>Header</td>
+                        <td><div id="HC-headers"></div></td>
                     </tr>
                     <tr>
                         <td>view Url:</td>
-                        <td><input type="text" id="txt-url" class="text-input" style="width:200px" /></td>
+                        <td><input type="text" id="HC-url" class="text-input" style="width:200px" /></td>
                     </tr>
                     <tr>
                         <td>Label:</td>
-                        <td><input type="text" id="txt-label" class="text-input" style="width:200px" /></td>
+                        <td><input type="text" id="HC-label" class="text-input" style="width:200px" /></td>
                     </tr>
                     <tr>
                         <td style="vertical-align:top">Description:</td>
                         <td>
-                            <div id="editor" style="width:540px;"></div>
+                            <div id="HC-editor" style="width:540px;"></div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <input type="submit" value="Save" id="btn-editcontent" />
-                            <input type="submit" value="Cancel" id="btn-cancelcontent" />
+                            <input type="submit" value="Save" id="HC-savebtn" />
+                            <input type="submit" value="Cancel" id="HC-cancelbtn" />
                         </td>
                     </tr>
                 </table>
@@ -67,19 +67,20 @@
     <!--javascript-->
      <script type="text/javascript">
 
-         var contentUpdate_dataRequired = {}
+         var E_HC_DATA = {}
+         
          var theme = getDemoTheme()
 
          //build form 
-         $("#pnl-editcontent").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
-         $('#btn-editcontent').jqxButton({ width: 60, height: 25, theme: theme });
-         $('#btn-cancelcontent').jqxButton({ width: 60, height: 25, theme: theme });
+         $("#HC-panel").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
+         $('#HC-savebtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#HC-cancelbtn').jqxButton({ width: 60, height: 25, theme: theme });
 
-         $('#frm-editcontent').jqxValidator({
+         $('#HC-frm').jqxValidator({
              rules: 
              [
-                { input: '#txt-url', message: 'View Url is required!', action: 'keyup, blur', rule: 'required' },
-                { input: '#txt-label', message: 'Label is required!', action: 'keyup, blur', rule: 'required' }
+                { input: '#HC-url', message: 'View Url is required!', action: 'keyup, blur', rule: 'required' },
+                { input: '#HC-label', message: 'Label is required!', action: 'keyup, blur', rule: 'required' }
              ]
          });
          
@@ -98,7 +99,7 @@
                     async   : false
                 };
          var dataAdapter = new $.jqx.dataAdapter(source);
-         $("#ddl-headers").jqxDropDownList({ 
+         $("#HC-headers").jqxDropDownList({ 
              selectedIndex: 0,
              source: dataAdapter,
              displayMember: "label",
@@ -107,35 +108,36 @@
              height: 25,
              theme: theme 
          });
-         $("#ddl-headers").jqxDropDownList({ dropDownHeight: 50 });
+         $("#HC-headers").jqxDropDownList({ dropDownHeight: 50 });
 
          //load editor
-         var editor = CKEDITOR.appendTo( 'editor', {}, '' );
+         HCeditor = CKEDITOR.appendTo('HC-editor', {}, '');
 	
          //save form
-         $('#btn-editcontent').on('click', function (event) {
+         $('#HC-savebtn').on('click', function (event) {
 
-             
-             var isValidated = $('#frm-editcontent').jqxValidator('validate');
+
+             var isValidated = $('#HC-frm').jqxValidator('validate');
              if (!isValidated) return false;
-             
+
+             console.log(E_HC_DATA);
              $.ajax(
              {
-                 url: "/sandbox/editcontent",
+                 url: "/sandbox/updatecontent",
                  type: "post",
-                 data: 
+                 data:
                  {
-                     viewurl        : $('#txt-url').val(),
-                     label          : $('#txt-label').val(),
-                     headerid       : $("#ddl-headers").jqxDropDownList('getSelectedItem').value,
-                     description    : escape(editor.getData()),
-                     contentid      : contentUpdate_dataRequired.conyentID
+                     viewurl: $('#HC-url').val(),
+                     label: $('#HC-label').val(),
+                     headerid: $("#HC-headers").jqxDropDownList('getSelectedItem').value,
+                     description: escape(HCeditor.getData()),
+                     contentid: E_HC_DATA.contentID
                  }
              })
              .done(function (data) {
 
                  //close the window
-                 lib.helper.jqWidgetWinClose($('#mywin').val());
+                 lib.helper.jqWidgetWinClose(E_HC_DATA.winid);
 
                  //regenerate panel
                  mainPanel.loadDataSources();
@@ -145,8 +147,11 @@
 
              return false;
          });
-         $('#btn-cancelcontent').on('click', function () {
-             lib.helper.jqWidgetWinClose($('#mywin').val());
+         
+         $('#HC-cancelbtn').on('click', function () {
+             
+             
+             lib.helper.jqWidgetWinClose(E_HC_DATA.winid);
              return false;
          });
          

@@ -1,13 +1,8 @@
 ﻿var lib = {};
 lib.helper = {};
 
-    (function ($) {
-
-        lib.helper = function (field1) {
-
-            this.initialize = function () { }
-
-        }
+(function ($) {
+    
 
         lib.helper.interfaceReader = function (jsCssFilePath, callback) {
             $.ajax(
@@ -21,6 +16,42 @@ lib.helper = {};
                 YAHOO.util.Get.script(result[0], { onSuccess: (callback === null ? function () { } : callback) });
             });
         };
+
+        lib.helper.jqWidgetWinClose=function(id) {
+            
+            $("#" + id).jqxWindow('close');
+            $("#" + id).remove();
+		};
+
+        lib.helper.jqWidgetWin=function(config) {
+    
+            var $win=$('<div id='+config.id+'><div>'+config.header+'</div>'+'<div style="overflow: hidden;" id="'+config.id+'-Content"></div></div>')
+			.appendTo('body');
+
+            $win.jqxWindow({
+                showCollapseButton: false, 
+				showCloseButton: false, 
+                height: config.height, 
+                width: config.width, 
+                isModal:config.modal,
+                showCollapseButton:config.collapsible,
+                theme: config.theme,
+				resizable:false,
+                initContent: function () {
+                    $('#'+config.id+'-Content')
+					.html(config.content)
+					;
+                }
+            });
+
+            if(config.callback!==null && config.callback!==undefined)
+			    config.callback();	
+            
+
+			//don't define close event which bubbles up from inner controls events
+            
+        };
+
 		//[]
         lib.helper.findItemInArray= function (input,array) {
             for(var i=0;i<array.length;i++)
@@ -53,6 +84,7 @@ lib.helper = {};
         };
         lib.helper.idGenerator = function (prefix) {
             return prefix + '_' + (new Number(1000000000000000 * Math.random())).toFixed(0).toString();
+            
         };
 
         lib.helper.tagReady = function (tagId, callback) {
@@ -78,34 +110,11 @@ lib.helper = {};
                 $('#theme1_maintable').css('height', me.window.height + padding + 'px');
             });
         };
-		lib.helper.jqWidgetWinClose=function(id) {
-			$("#" + id).jqxWindow('close');
-            $("#" + id).remove();
-		},
-        lib.helper.jqWidgetWin=function(config) {
+		
 
-            var id =lib.helper.idGenerator('win');
-			
-            $('<div id='+id+'><div>'+config.header+'</div>'+'<div style="overflow: hidden;" id="'+id+'-Content"></div></div>')
-			.appendTo('body');
 
-            $('#'+id.toString()).jqxWindow({
-                showCollapseButton: false, 
-				showCloseButton: false, 
-                height: config.height, 
-                width: config.width, 
-                isModal:config.modal,
-                showCollapseButton:config.collapsible,
-                theme: config.theme,
-				resizable:false,
-                initContent: function () {
-                    $('#'+id+'-Content')
-					.html(config.content)
-					.append('<input type="hidden" id="mywin" value='+id+' />');
-                }
-            });
-			//don't define  close event which bubbles up from inner controls events
-        };
+
+
         /*
         makeExtJSStaticStore: function (fields, data) {
         return Ext.create('Ext.data.Store', { fields: fields, data: data });
@@ -1032,7 +1041,7 @@ lib.helper = {};
         }
         */
 
-    } (jQuery));
+ } (jQuery));
 
 
 
