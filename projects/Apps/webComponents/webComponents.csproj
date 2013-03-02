@@ -164,6 +164,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Extjs4Controller.cs" />
     <Compile Include="Controllers\facebookController.cs" />
     <Compile Include="Controllers\MvcappController.cs" />
     <Compile Include="Controllers\SandboxController.cs" />
@@ -194,7 +195,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ClientSideLibraries\Encapsulation.js" />
-    <Content Include="scripts\ClientSideLibraries\extjs\ext-4.0.2-ext-all.js" />
+    <Content Include="scripts\ClientSideLibraries\extjs\ext-all-gray.css" />
+    <Content Include="scripts\ClientSideLibraries\extjs\ext-all.js" />
     <Content Include="scripts\ClientSideLibraries\helper.js" />
     <Content Include="scripts\ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="scripts\ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -887,6 +889,8 @@
     <Content Include="Views\facebook\login.cshtml" />
     <Content Include="Views\facebook\registration.cshtml" />
     <Content Include="Views\facebook\index.cshtml" />
+    <Content Include="Views\ExtJS4\sampleExtjs.cshtml" />
+    <Content Include="Views\ExtJS4\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

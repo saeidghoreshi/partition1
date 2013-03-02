@@ -1,5 +1,5 @@
 [PHPEdProject]
-RelativeRootDir=..\phpSample
+RelativeRootDir=..\classes
 URL=
 MappingRemoteDir=
 MappingPublishingRoot=
@@ -11,7 +11,7 @@ HideFiles=
 HideDirs=CVS;.svn
 EncoderEnabled=0
 MappingRemote0=
-MappingLocal0=C:\projects\Partitions\phpSample
+MappingLocal0=C:\projects\Partitions\partition1\projects\classes
 MappingURL0=
 MappingPublishing0=
 MappingCount=1
@@ -26,7 +26,7 @@ CvsHost=
 CvsRoot=
 CvsModule=
 CvsUser=
-CvsPassw=2rPeikMk+LRGgPRmIqSM+KKISHtzQEFGX9xNgou4mf731CW6ozDxto/M/fK7qEluJ8TVKtMgoSa/vK1i65j53g==
+CvsPassw=eT290F6jXWdz7/mlbwNJqzf3NRjO+NtKdUx/fnlg43LCy/jZPjcUZfrjcDH2zww9Mvvoia5nBBVqE2DhZv/87Q==
 CvsUseUtf8=0
 CvsCVSROOT=:pserver:@
 IncPath_count=0

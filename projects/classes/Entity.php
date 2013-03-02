@@ -1,16 +1,22 @@
 <?php
 namespace Accounting;
          
-abstract class Entity
+class Entity
 {          
     public $ENTITYID ;
     public $entityTypeID;
     public $cards=array();
     
-
-    protected function createNew($entityTypeID)
+    public function  __constructor()
+    {  
+    }
+    public function createNew($entityTypeID)
     {
-        //create new entity with entityType and assign it back to this.ENTITYID
+       mysql_connect("localhost","root","admin");
+       mysql_select_db('accounting');
+       mysql_query("INSERT INTO entity (entityTypeID)VALUES (".$entityTypeID.")");
+                                        
+       $this->ENTITYID=mysql_insert_id();                             
     }
     public function getBankByCard($cardID)
     {

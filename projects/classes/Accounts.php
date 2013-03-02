@@ -1,7 +1,5 @@
 <?php
-namespace Accounting;
-include 'accountType.php';
-
+namespace Accounting;                                     
 
 abstract class Account{}
 

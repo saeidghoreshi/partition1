@@ -10,6 +10,7 @@ class Bank extends \Accounting\Entity
     function __construct() 
     {
         parent::__construct();
+        
         echo "Bank initiated";
     }
     function  __construct($bankId)
