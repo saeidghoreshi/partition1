@@ -204,6 +204,101 @@
 
 
                 });
+            },
+            extraFunctionality:function()
+            {
+                this.map.geocoder = new GClientGeocoder();     
+                this.map.removeControl(new GScaleControl());
+                this.map.addControl(new GOverviewMapControl());
+                this.map.addControl(new GLargeMapControl3D());
+                //this.map.addControl(new GSmallZoomControl3D());small pce of zoom  ctrl 2 ply
+                
+                
+                //google search bar
+                this.map.enableGoogleBar();
+                //Hybrid view with labels ON
+                this.map.addMapType(G_HYBRID_MAP);
+                var mapControl = new GHierarchicalMapTypeControl();
+                mapControl.clearRelationships();
+                mapControl.addRelationship(G_HYBRID_MAP, "Labels", true);
+                this.map.addControl(mapControl);
+                this.map.setMapType(G_HYBRID_MAP);
+                //this.map.setUIToDefault();
+                var point=new GLatLng(this.config.latitude,this.config.longitude);
+                this.map_make_point(point.x,point.y,this.config.icon_char,true);
+                this.CenterPosition(point, 17);          
+                if(this.config.enable_click==true) GEvent.addListener(this.map, "dblclick",function(overlay,latlng){me.map_click(overlay,latlng)});
+                
+                //Part 2
+
+                var point=new GLatLng(lat,lng);
+                this.map.geocoder.getLocations(point,function(response)
+                {   
+                    try
+                        {                                        
+                            if(response.Placemark == undefined){me.map.clearOverlays();return;}
+                            var addr= response.Placemark[0].address;
+                            var addr_splitted=addr.split(",");
+                
+                            //me.create_info(point,me.info_tempelate_maker("",addr_splitted[0],"",addr_splitted[1]+', '+addr_splitted[2]+', '+addr_splitted[3]));
+                            marker = new GMarker(point);
+                            me.map.addOverlay(marker);  
+                            me.CenterPosition(point,17);
+                    
+                            //Totally customized usage                  
+                    
+                            var street='',city='',region='',country='',postalcode='';
+                            var Address=response.Placemark[0].AddressDetails.Country;
+                         
+                            street      =Address.AdministrativeArea.Locality.Thoroughfare.ThoroughfareName ;
+                            city        =Address.AdministrativeArea.Locality.LocalityName;
+                            postalcode  =Address.AdministrativeArea.Locality.PostalCode.PostalCodeNumber;     
+                            region      =Address.AdministrativeArea.AdministrativeAreaName;
+                            country     =Address.CountryNameCode;
+                        
+                            me.selected_lat=response.Placemark[0].Point.coordinates[1];
+                            me.selected_lng=response.Placemark[0].Point.coordinates[0];                   
+                    }
+                    catch(error){/*alert(error);*/}
+                });   
+
+                //Part 3
+                create_marker=function (point,icon_char) 
+                {                                                 
+                      var baseIcon = new GIcon(G_DEFAULT_ICON);
+                      var letteredIcon = new GIcon(baseIcon);
+                      letteredIcon.image = "http://www.google.com/mapfiles/marker" + icon_char + ".png";
+                      var marker = new GMarker(point,{icon:letteredIcon});
+                      return marker;
+                },
+                create_info=function(point,msg){this.map.openInfoWindowHtml(point,msg);},
+                find_location=function(address,zoom) 
+                {
+                    try
+                    {
+                        var me=this;                
+                        this.map.geocoder.getLocations(address,function(response){me.find_location_response(response,me,zoom);} );
+                    }
+                    catch(error){}      
+                },
+        
+                find_location_response=function(response,me,zoom)
+                {                                                          
+                   me.map.clearOverlays();
+                   if (!response || response.Status.code != 200) alert("Sorry, we were unable to geocode that address");
+                   else 
+                   {
+                     place = response.Placemark[0];
+                     point = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
+                     marker = new GMarker(point);
+                     me.map.addOverlay(marker);  
+                     me.CenterPosition(point,zoom);
+                     //me.create_info(point,place.address + '<br>' +'<b>Country code:</b> ' + place.AddressDetails.Country.CountryNameCode);
+                     me.selected_lat=place.Point.coordinates[1];
+                     me.selected_lng=place.Point.coordinates[0];
+                   }
+                }               
+
             }
     });//Class Definition
 

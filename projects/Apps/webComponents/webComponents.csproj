@@ -195,8 +195,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ClientSideLibraries\Encapsulation.js" />
-    <Content Include="scripts\ClientSideLibraries\extjs\ext-all-gray.css" />
-    <Content Include="scripts\ClientSideLibraries\extjs\ext-all.js" />
     <Content Include="scripts\ClientSideLibraries\helper.js" />
     <Content Include="scripts\ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="scripts\ClientSideLibraries\JQUI\base-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -540,6 +538,7 @@
     <Content Include="scripts\ClientSideLibraries\misc\less-1.3.1.js" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.css" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.js" />
+    <Content Include="scripts\Components\ExtJS\library.js" />
     <Content Include="scripts\Components\Mvcapp\images\bg1.jpg" />
     <Content Include="scripts\Components\Mvcapp\images\black.png" />
     <Content Include="scripts\Components\Mvcapp\images\el-Right.png" />
@@ -674,10 +673,6 @@
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanel3Controller.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanelController.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\treePanelController.js" />
-    <Content Include="scripts\Components\Topology\home-main.js" />
-    <Content Include="scripts\Components\Topology\StyleSheet1.css" />
-    <Content Include="scripts\Components\unread\1046071385.js" />
-    <Content Include="scripts\Components\unread\1141672867.js" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebook.js" />
     <Content Include="scripts\Components\unread\orgChartVertical\img\arrow-point-right.png" />
@@ -712,15 +707,14 @@
     <Content Include="scripts\Components\sandbox\img\m2.png" />
     <Content Include="scripts\Components\sandbox\img\m3.png" />
     <Content Include="scripts\Components\sandbox\img\save.png" />
-    <Content Include="scripts\Components\unread\ExtjsTest\images\female.png" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\form1Class.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\form2Class.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\form3Class.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\form4Class.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\gridPanel2Controller.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\gridPanel3Controller.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\gridPanelController.js" />
-    <Content Include="scripts\Components\unread\ExtjsTest\js\treePanelController.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\form1Class.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\form2Class.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\form3Class.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\form4Class.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanel2Controller.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanel3Controller.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanelController.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\treePanelController.js" />
     <Content Include="scripts\Components\sandbox\sandbox.css" />
     <Content Include="scripts\Components\sandbox\sandbox.js" />
     <Content Include="scripts\JSplugins\ckEditor\ckeditor.js" />
@@ -805,20 +799,19 @@
     <Content Include="scripts\JSplugins\ckEditor\skins\moono\images\close.png" />
     <Content Include="scripts\JSplugins\ckEditor\skins\moono\images\mini.png" />
     <Content Include="scripts\JSplugins\ckEditor\styles.js" />
-    <Content Include="scripts\Components\unread\Extjs\css\extjscss.css" />
-    <Content Include="scripts\Components\unread\Extjs\js\abstractClasses\Ext.form.js" />
-    <Content Include="scripts\Components\unread\Ext.googlemaps-2.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\abstractClasses\Ext.gridPanel.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\abstractClasses\Ext.Store.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\abstractClasses\Ext.treePanel.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\abstractClasses\Ext.viewPort1.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\abstractClasses\Ext.viewPort2.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\plugin\PreviewPlugin.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\plugin\ProgressBarPager.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\plugin\RowExpander.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\plugin\SearchField.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\plugin\SlidingPager.js" />
-    <Content Include="scripts\Components\unread\Extjs\js\plugin\treeViewCellEdit.js" />
+    <Content Include="scripts\Components\unread\Extjs\extjscss.css" />
+    <Content Include="scripts\Components\unread\Extjs\abstractClasses\Ext.form.js" />
+    <Content Include="scripts\Components\unread\Extjs\abstractClasses\Ext.gridPanel.js" />
+    <Content Include="scripts\Components\unread\Extjs\abstractClasses\Ext.Store.js" />
+    <Content Include="scripts\Components\unread\Extjs\abstractClasses\Ext.treePanel.js" />
+    <Content Include="scripts\Components\unread\Extjs\abstractClasses\Ext.viewPort1.js" />
+    <Content Include="scripts\Components\unread\Extjs\abstractClasses\Ext.viewPort2.js" />
+    <Content Include="scripts\Components\unread\Extjs\plugin\PreviewPlugin.js" />
+    <Content Include="scripts\Components\unread\Extjs\plugin\ProgressBarPager.js" />
+    <Content Include="scripts\Components\unread\Extjs\plugin\RowExpander.js" />
+    <Content Include="scripts\Components\unread\Extjs\plugin\SearchField.js" />
+    <Content Include="scripts\Components\unread\Extjs\plugin\SlidingPager.js" />
+    <Content Include="scripts\Components\unread\Extjs\plugin\treeViewCellEdit.js" />
     <Content Include="scripts\JSplugins\jQBreadCrumb_11\Images\Chevron.gif" />
     <Content Include="scripts\JSplugins\jQBreadCrumb_11\Images\IconHome.gif" />
     <Content Include="scripts\JSplugins\jQBreadCrumb_11\js\jquery.easing.1.3.js" />
@@ -889,7 +882,6 @@
     <Content Include="Views\facebook\login.cshtml" />
     <Content Include="Views\facebook\registration.cshtml" />
     <Content Include="Views\facebook\index.cshtml" />
-    <Content Include="Views\ExtJS4\sampleExtjs.cshtml" />
     <Content Include="Views\ExtJS4\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -897,8 +889,6 @@
     <Folder Include="scripts\Components\theme\index1\orgChartVertical\img\arrow\" />
     <Folder Include="scripts\Components\theme\NEW\kendoGrid\images\" />
     <Folder Include="scripts\Components\theme\NEW\testExtjs\css\" />
-    <Folder Include="scripts\Components\unread\ExtjsTest\css\" />
-    <Folder Include="scripts\Components\unread\Extjs\images\" />
     <Folder Include="scripts\Components\unread\orgChartVertical\img\arrow\" />
   </ItemGroup>
   <ItemGroup>
@@ -916,8 +906,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>prjModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="scripts\Components\Topology\Documentation\project-addressing-DB.vsd" />
-    <None Include="scripts\Components\Topology\Documentation\project-addressing.docx" />
     <None Include="scripts\JSplugins\ckEditor\skins\moono\readme.md" />
     <Content Include="Views\sandbox\sandbox\header_new_form.cshtml" />
     <Content Include="Views\sandbox\sandbox\headercontent_new_form.cshtml" />
