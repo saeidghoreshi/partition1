@@ -538,6 +538,8 @@
     <Content Include="scripts\ClientSideLibraries\misc\less-1.3.1.js" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.css" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.js" />
+    <Content Include="scripts\Components\ExtJS\test1.js" />
+    <Content Include="scripts\Components\ExtJS\usage.js" />
     <Content Include="scripts\Components\ExtJS\library.js" />
     <Content Include="scripts\Components\Mvcapp\images\bg1.jpg" />
     <Content Include="scripts\Components\Mvcapp\images\black.png" />
@@ -927,7 +929,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>8890</DevelopmentServerPort>
+          <DevelopmentServerPort>6012</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -4,30 +4,24 @@
 	extjsGrid=cls.define(
     {
 			id:null,
-			initialize: function () {
 			
-                var me = this;
-
+            init: function () 
+            {
+				var me = this;
+                
                 me.id = lib.helper.idGenerator('ctrl');
-                $('#' + me.config.parentID).html('<div id=' + me.id + ' />');
+                $('<div id=' + me.id + ' />').appendTo('#' + me.config.parentID);
                 $('#' + me.id).css({ height: $('#' + me.config.parentID).height() });
-				
-				me.init();
-            },
-            
-            init: function () {
-
-                var me = this;
 				
                 //buid store 
                 var store1Config =
                 {
-                    url: "/home/json_test",
-                    fields: ["fname", "fname"]
+                    url: "/extjs4/json_test",
+                    fields: ["fname", "id"]
                 }
                 me.store1 = new ExtStoreClass(store1Config).init();
-				
 
+                
                 //Menu Items
                 var menu_list = [];
                 menu_list.push({ value: 1, text: 'Item 1', handler: function (o, e) { me.itemClick(o, e) }, iconCls: 'tick' })
@@ -39,9 +33,9 @@
                 var config =
                     {
                         id: lib.helper.idGenerator('grid'),
-                        url: "/home/json_test",
+                        url: "/extjs4/json_test",
                         renderTo: me.id,
-                        title: '',
+                        title: 'Transactions',
 
                         //customized Components
                         rowEditable: true,
@@ -643,13 +637,9 @@
 
                 //lib.helper.maskUI(me.config.parentID, "Loading ...");
                 me.grid = new Ext.gridPanelClass(config);
-                //me.grid.doLayout();
-                //me.grid.doComponentLayout();
+                me.grid.doLayout();
+                me.grid.doComponentLayout();
 				
-                //lib.helper.tagReady(me.grid.id, function () { lib.helper.unmaskUI(me.config.parentID); });
-
-				
-
 
                 //**********************************************
                 //one time store loading   [happens once]
@@ -860,9 +850,6 @@
         
 	});
 	
-	var config={parentID:'component'}
-	var o=new extjsGrid(config);
-	o.initialize();
-
+	
 } (jQuery));
 
