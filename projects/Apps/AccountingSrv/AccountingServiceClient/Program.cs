@@ -6,6 +6,7 @@ using System.Net;
 using System.IO;
 using Newtonsoft;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace AccountingServiceClient
 {
@@ -13,6 +14,7 @@ namespace AccountingServiceClient
     {
         static void Main(string[] args)
         {
+            
             try
             {
                 AccountingTest.request("reset", "");
@@ -23,7 +25,7 @@ namespace AccountingServiceClient
                 Console.WriteLine("customer new done");
 
                 AccountingTest.request("customer/new",
-                    "<A_customer  xmlns=\"accounting\" ><firstname>Cust Fname2</firstname><lastname>Cust Lname2</lastname><curId>1</curId></A_customer>");
+                    "{firstname:'Cust Fname2',lastname:'Cust Lname2',curId:1}");
                 Console.WriteLine("custoner new done");
 
                 AccountingTest.request("Service/new",
@@ -173,8 +175,6 @@ namespace AccountingServiceClient
                 dynamic x = Newtonsoft.Json.JsonConvert.DeserializeObject(responseFromServer);
                 if (x != null) Console.WriteLine(x);
             }
-            
-
 
         }
     }

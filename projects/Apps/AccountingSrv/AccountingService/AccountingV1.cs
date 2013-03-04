@@ -196,7 +196,7 @@ namespace RyanGoreshi
         [OperationContract]
         void reset();
 
-        [WebInvoke(Method = "POST", UriTemplate = "Customer/new", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Xml)]
+        [WebInvoke(Method = "POST", UriTemplate = "Customer/new", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
         [OperationContract]
         Person newCustomer(A_customer I);
 
@@ -285,9 +285,16 @@ namespace RyanGoreshi
         [WebInvoke(Method = "POST", UriTemplate = "Invoice/Cancel", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Xml)]
         [OperationContract]
         void cancelInvoice(A_cancelInvoice I);
+
+        //Invoice Cancellation
+        
+        //[WebGet(UriTemplate = "test", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        [OperationContract]
+        [WebInvoke(Method = "POST", UriTemplate = "test", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
+        A_customer test(A_customer x);
     }
 
-    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Required)]
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class AccountingV1: IAccountingV1
     {
         public void reset()
@@ -300,12 +307,15 @@ namespace RyanGoreshi
 
         public Person newCustomer(A_customer I)
         {
+            /*
             var person = new accounting.classes.Person();
             person.New(I.firstname, I.lastname);
             
             //setup account
             person.createAccounts(I.curId);
             return person;
+            */
+            return new Person();
         }
         
         public Service createService(A_service I)
@@ -468,6 +478,13 @@ namespace RyanGoreshi
             Invoice Inv = new Invoice(I.invoiceId);
             Inv.cancelInvoice();
         }
-        
+
+
+
+        public A_customer test(A_customer x)
+        {
+
+            return x;
+        }
     }
 }

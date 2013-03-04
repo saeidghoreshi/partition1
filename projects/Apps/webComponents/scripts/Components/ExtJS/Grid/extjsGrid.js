@@ -14,7 +14,24 @@
                 .appendTo('#' + me.config.parentID)
                 .css({ height: $('#' + me.config.parentID).height() });
 				
-
+				
+				$.ajax(
+				{
+					url:"http://localhost:555/srv.svc/rest/test",
+					type:"POST",
+					contentType: "application/json; charset=utf-8",
+					dataType:"json",
+					data:JSON.stringify({x:{"firstname":"SAEID","lastname":"GHOR","curId":1}})
+					
+				})
+				.done(function(data)
+				{
+					for(var i in data)
+						for(var j in data[i])
+						console.log(data[i][j])}
+				)
+				.fail(function(data){console.log('Fail')})
+				;
                 //BUILD THE GRID
                 var config =
                     {

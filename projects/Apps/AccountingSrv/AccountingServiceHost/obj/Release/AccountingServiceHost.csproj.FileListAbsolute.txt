@@ -1,9 +1,0 @@
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingServiceHost.dll
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingServiceHost.pdb
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingService.dll
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingLib.dll
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingService.pdb
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\bin\AccountingLib.pdb
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\obj\Release\AccountingServiceHost.csprojResolveAssemblyReference.cache
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\obj\Release\AccountingServiceHost.dll
-C:\projects\Partitions\partition1\projects\Apps\AccountingSrv\AccountingServiceHost\obj\Release\AccountingServiceHost.pdb
