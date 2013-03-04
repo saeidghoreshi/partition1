@@ -57,17 +57,17 @@
 {
 	background: lightgray;
 	position: relative;
-	border-radius:3px;
+	/*border-radius:3px;*/
 }
 
 .jspDrag
 {
-	background: #666;
+	background: #1faeff;
 	position: relative;
 	top: 0;
 	left: 0;
 	cursor: pointer;
-	border-radius:3px;
+	/*border-radius:3px;*/
 }
 
 .jspHorizontalBar .jspTrack,

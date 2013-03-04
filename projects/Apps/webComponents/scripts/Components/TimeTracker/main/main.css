@@ -1,0 +1,20 @@
+﻿#tt_main_skeleton
+{
+    height:800px;
+    width:100%;
+}
+#tt_main_menu_td{width:200px;}
+#tt_main_component_td{width:100%;}
+
+#tt_main_menu
+{
+    width:200px;
+    border-right:1px solid black;
+    height:100%;
+}
+#tt_main_skeleton td
+{
+    vertical-align:top;
+    text-align: left;
+    padding: 5px;
+}

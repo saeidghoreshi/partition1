@@ -169,7 +169,7 @@
     <Compile Include="Controllers\MvcappController.cs" />
     <Compile Include="Controllers\SandboxController.cs" />
     <Compile Include="Controllers\RealestateController.cs" />
-    <Compile Include="Controllers\WorkflowController.cs" />
+    <Compile Include="Controllers\TimeTrackerController.cs" />
     <Compile Include="datasource\datasource.ashx.cs">
       <DependentUpon>datasource.ashx</DependentUpon>
     </Compile>
@@ -538,8 +538,9 @@
     <Content Include="scripts\ClientSideLibraries\misc\less-1.3.1.js" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.css" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.js" />
+    <Content Include="scripts\Components\ExtJS\Grid\grid1.js" />
     <Content Include="scripts\Components\ExtJS\test1.js" />
-    <Content Include="scripts\Components\ExtJS\usage.js" />
+    <Content Include="scripts\Components\ExtJS\all.js" />
     <Content Include="scripts\Components\ExtJS\library.js" />
     <Content Include="scripts\Components\Mvcapp\images\bg1.jpg" />
     <Content Include="scripts\Components\Mvcapp\images\black.png" />
@@ -675,6 +676,11 @@
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanel3Controller.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanelController.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\treePanelController.js" />
+    <Content Include="scripts\Components\TimeTracker\img\add_group.png" />
+    <Content Include="scripts\Components\TimeTracker\img\remove.png" />
+    <Content Include="scripts\Components\TimeTracker\img\user_red.png" />
+    <Content Include="scripts\Components\TimeTracker\main\main.js" />
+    <Content Include="scripts\Components\TimeTracker\main\main.css" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebook.js" />
     <Content Include="scripts\Components\unread\orgChartVertical\img\arrow-point-right.png" />
@@ -715,7 +721,7 @@
     <Content Include="scripts\Components\unread\Extjs\jsTest\form4Class.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanel2Controller.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanel3Controller.js" />
-    <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanelController.js" />
+    <Content Include="scripts\Components\ExtJS\Grid\gridPanelController.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\treePanelController.js" />
     <Content Include="scripts\Components\sandbox\sandbox.css" />
     <Content Include="scripts\Components\sandbox\sandbox.js" />
@@ -885,6 +891,10 @@
     <Content Include="Views\facebook\registration.cshtml" />
     <Content Include="Views\facebook\index.cshtml" />
     <Content Include="Views\ExtJS4\Index.cshtml" />
+    <Content Include="Views\Timetracker\index.cshtml" />
+    <Content Include="Views\Timetracker\task_new_form.cshtml" />
+    <Content Include="Views\Timetracker\task_assignment_form.cshtml" />
+    <Content Include="Views\Timetracker\task_history_form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

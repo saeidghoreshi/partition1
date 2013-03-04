@@ -12,7 +12,7 @@ using Classes;
 using realestateweb.Models;
 namespace MvcApplication1.Controllers
 {
-    public class workflowController : Controller
+    public class TimeTrackerController : Controller
     {
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
 
@@ -298,30 +298,27 @@ namespace MvcApplication1.Controllers
         //***********************************************************************************************
         //***************************************Forms***************************************************
         //***********************************************************************************************
-        public JsonResult json_getAssignmentform()
+        public PartialViewResult json_getAssignmentform()
         {
             ViewBag.existingOffices = this.getExistingOffices();
 
-            var html = this.getPureView("taskAssignment");
-            return Json(new { result = html }, JsonRequestBehavior.AllowGet);
+            return PartialView("taskAssignment");
         }
 
-        public JsonResult json_getCreateNewTaskForm()
+        public PartialViewResult json_getCreateNewTaskForm()
         {
-            var html = this.getPureView("createNewTask");
-            return Json(new { result = html }, JsonRequestBehavior.AllowGet);
+            return PartialView("createNewTask");
         }
 
-        public JsonResult json_getUserCurrentTasksForm()
+        public PartialViewResult json_getUserCurrentTasksForm()
         {
             ViewBag.getUserCurrentTasks = this.getUserCurrentTasks(1);
-            var html = this.getPureView("userCurrentTasksForm");
-            return Json(new { result = html }, JsonRequestBehavior.AllowGet);
+            return PartialView("userCurrentTasksForm");
         }
-        public JsonResult json_getCurUserTimeTrackerForm() 
+        public PartialViewResult json_getCurUserTimeTrackerForm() 
         {
             if (Session["user"] == null)
-                return Json(new { result = "Login Required to access your Tracker" }, JsonRequestBehavior.AllowGet);
+                return PartialView("");
 
             var pars = Request.Params;
             int task_id = Convert.ToInt32(pars["task_id"]);
@@ -335,7 +332,7 @@ namespace MvcApplication1.Controllers
 
             if (this.getCurTaskPerson(task_id, person_id).Count() == 0)
             {
-                return Json(new { result = "No task defined for you at this moment"}, JsonRequestBehavior.AllowGet);
+                return PartialView("");
             }
 
             //Fill in view bag
@@ -344,8 +341,7 @@ namespace MvcApplication1.Controllers
             //get Played/pauses ststus
             ViewBag.getTaskPersontimerStat = this.getTaskPersontimerStat(task_id, person_id);
 
-            html = this.getPureView("curUserTimeTrackerForm").ToString();
-            return Json(new { result = html }, JsonRequestBehavior.AllowGet);
+            return PartialView("curUserTimeTrackerForm");
         }
         
         
@@ -508,10 +504,10 @@ namespace MvcApplication1.Controllers
             return db.fetch("exec [workflow].[getUserCurrentTasks]  @personID=" + person_id).Tables[0].AsEnumerable();
             
         }
-        public string buildUserTasksList()
+        public PartialViewResult buildUserTasksList()
         {
             ViewBag.tasks = this.getUserCurrentTasks(22);
-            return this.getPureView("TasksList").ToString();
+            return PartialView("TasksList");
         }
 
         public JsonResult getUsers() 
@@ -568,9 +564,9 @@ namespace MvcApplication1.Controllers
         }
 
 
-        public string Form_createAssignTask() 
+        public PartialViewResult Form_createAssignTask() 
         {
-            return this.getPureView("Form_createAssignTask").ToString();
+            return PartialView("Form_createAssignTask");
         }
         public JsonResult getOrgUsers() 
         {
@@ -588,16 +584,40 @@ namespace MvcApplication1.Controllers
                 });
             return Json(result,JsonRequestBehavior.AllowGet);
         }
-        //GET PURE VIEW
-        public object getPureView(string viewName)
-        {
-            var sw = new System.IO.StringWriter();
-            var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
-            var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
-            viewResult.View.Render(viewContext, sw);
-            viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
 
-            return sw.GetStringBuilder().ToString();
+        public PartialViewResult tt_task_new_form() 
+        {
+            return PartialView("task_new_form");
         }
+        public PartialViewResult tt_task_assignment_form()
+        {
+            return PartialView("task_assignment_form");
+        }
+        public PartialViewResult tt_task_history_form()
+        {
+            return PartialView("task_history_form");
+        }
+        public JsonResult tt_userList()
+        {
+            var pars = Request.Params;
+            var officeID = pars["officeID"];
+            var max = 0;
+            List<dynamic> userList = new List<dynamic>();
+
+            if (officeID == "1")
+                max = 50;
+            else
+                max = 100;
+            for(var i=0;i<max;i++)
+            {
+                userList.Add(new {
+                    personID=i,
+                    userID=i,
+                    name="name-"+i
+                });
+            }
+            return Json(userList,JsonRequestBehavior.AllowGet);
+        }
+        
     }
 }

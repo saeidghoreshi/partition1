@@ -1,0 +1,277 @@
+﻿<style>
+.SIDEBYSIDE
+{
+        float:left;
+    }
+</style>
+<!--html-->
+<div id='tt_ta_panel'>
+<div>Task Assignment</div>
+<div>       
+    <form id="tt_ta_frm" >
+        <table cellpadding=0 cellspacing=0 border=0 width=100%>
+        
+            <tr>
+                <td width="320px">
+                    Offices : <div id="tt_ta_offices"></div>
+                    User List :
+                    
+                    <div id='scrollerContainer' >
+                        <div id="scroll-pane">
+                        <div id="tt_ta_userListContainer" ></div>
+                        </div>
+                    </div>
+
+
+
+
+                </td>
+                <td width="2px">
+                    
+                        <div style="border-left:1px solid gray;height:300px;float:left;"></div>
+                        <div style="border-left:1px solid #f2f2f2;height:300px;float:left;"></div>
+                    
+                </td>
+                <td> <div id="trash" style="width:300px;height:300px"></div></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;">
+                    <input type="submit" value="Save" id="tt_ta_savebta" />
+                    <input type="submit" value="Cancel" id="tt_ta_cancelbta" />
+                </td>
+            </tr>
+        </table>
+
+
+        
+    </form>
+</div>
+</div>
+
+    <!--javascript-->
+<script type="text/javascript">
+
+    var theme = "metro";
+    var me = this;
+
+
+
+    //BUILD FORM ------------------------------------------------------------------------------
+    $('#tt_ta_savebta').jqxButton({ width: 60, height: 25, theme: theme });
+    $('#tt_ta_cancelbta').jqxButton({ width: 60, height: 25, theme: theme });
+    $('#tt_ta_frm').jqxValidator({
+        rules:
+        [
+           
+        ]
+    });
+    
+    //Define Source
+    me.mainMenuDS =
+    [
+        { id: "1", label: "Office1" },
+        { id: "2", label: "Office2" }
+    ];
+
+    //Define Adapter
+    var dataAdapter = new $.jqx.dataAdapter({ localdata: me.mainMenuDS });
+
+    //Define Component
+    var $officesList = $('#tt_ta_offices');
+    $officesList.jqxDropDownList(
+	{
+        dropDownHeight:100,
+	    promptText: "----",
+	    theme: me.theme,
+	    source: dataAdapter,
+	    displayMember: "label",
+	    valueMember: "id",
+	    height: 25,
+	    width: 190
+	});
+	$officesList.on('change',
+	function (event) {
+	    var args = event.args;
+
+	    if (!args) return;
+	    // index represents the item's index.                      
+	    var index = args.index;
+	    var item = args.item;
+	    if (item === undefined || item === null) return;
+
+	    // get item's label and value.
+	    var label = item.label;
+	    var value = item.value;
+
+
+	    var $component = $('#tt_main_component');
+
+	    var obj = lib.helper.findItemInObjectArray(value, 'id', me.mainMenuDS);
+	    var mm_id = obj.id;
+
+	    $.get('/timetracker/tt_userlist', { officeID: mm_id })
+                .done(function (data) {
+
+                    //CREATE FRESH ELEMENT
+                    var $tt_ta_userListcontainer = $('#tt_ta_userListContainer');
+                    $tt_ta_userListcontainer.children().remove();
+                    $tt_ta_userListcontainer.append('<div style="width:280px;height:100px;" id="tt_ta_userlist"></div>');
+                    var $userListPanel = $("#tt_ta_userlist");
+
+                    //CHECH IF IS EMPTY
+                    if (data.length == 0) {
+                        $userListPanel.html("No Data Availaible");
+                        return false;
+                    }
+
+                    //PUSH DATA IF NOT EMPTY
+
+                    for (var item in data) {
+
+                        var $item=$("<div class='item' style='position:relative;width:50px;height:50px;float:left;border:1px solid red;margin:1px;padding:1px;background:url(../../scripts/Components/TimeTracker/img/user_red.png) no-repeat;background-position:center'>"
+                        + data[item].name
+                        + "</div>")
+                        .data("data", { id: data[item].personID });
+                        $userListPanel.append($item);
+                        
+                    }
+                    //MAKE THEM SORTABLE
+
+                    $('#trash')
+                    .sortable({
+                        revert: true
+                    }).disableSelection();
+
+                    //BUILD SCROLLER
+                    $('#scroll-pane').jScrollPane();
+
+
+                    //EVENT ON MOUSE HOVER HOVER
+                    var $helper;
+                    $('.item')
+                    
+                    .mouseenter(function () {
+
+                        var ItemMe = this;
+                        $helper = $("<div class='tooltip' id='" + lib.helper.idGenerator('tooltip') + "'></div>")
+                        .appendTo($(ItemMe))
+                        .css(
+                        {
+                            position: "absolute",
+                            left: 15,
+                            top: 15,
+                            width: 22,
+                            height: 22,
+                            background: "url('../../scripts/Components/TimeTracker/img/add_group.png') no-repeat",
+                            cursor: "pointer",
+                            display: "none"
+                        })
+                        .animate(
+                        {
+                            opacity: 0.8,
+                            display: "block"
+                        }, 100, function () {
+                            $(this).fadeIn(200);
+                        })
+                        //CLICK ON ADD GROUP ICON
+                        .click(function () {
+
+                            var $addedUserMe =
+                            $(ItemMe).clone()
+                            .data("data", $(ItemMe).data("data"))
+                            
+                            .find(".tooltip").remove().end()
+                            .css(
+                            {
+                                position: "relative",
+                                display: 'none',
+                                float: "left"
+                            })
+                            .appendTo("#trash")
+                            .fadeIn(100, function () {
+
+                                //ADDED USER DELET ACTION
+                                $("<div class='tooltip' id='" + lib.helper.idGenerator('tooltip-del') + "'></div>")
+                                .appendTo($(this))
+                                .css(
+                                {
+                                    position: "absolute",
+                                    left: 0,
+                                    top: 45,
+                                    width: 22,
+                                    height: 5,
+                                    background: "url('../../scripts/Components/TimeTracker/img/remove.png') no-repeat",
+                                    cursor: "pointer",
+                                    display: "block"
+                                }).click(function () {
+
+                                    $addedUserMe.fadeOut(100, function () { this.remove(); });
+                                });
+                            })
+                            ;
+
+
+                        }); //click Event
+
+                    })
+                    .mouseleave(function () {
+                        $helper.remove();
+                    })
+                    ;
+
+                })
+                .fail(function () { console.log('get Function failed'); });
+
+
+	});        //event End
+
+
+    
+
+            
+
+    //SAVE FORM -------------------------------------------------------------------------------------------------
+	$('#tt_ta_savebta').on('click', function (event) {
+
+	    var isValidated = $('#tt_ta_frm').jqxValidator('validate');
+	    if (!isValidated) return false;
+
+	    $('#trash > div').each(function (key, val) {
+	        console.log($(this).data("data"));
+	        
+	    });
+	    return false;
+	});
+
+    $('#tt_ta_cancelbta').on('click', function () {
+    
+        return false;
+    });
+
+
+    $("#tt_ta_panel").jqxExpander({ width: 700, theme: "metro",toggleMode: "none",showArrow:false }); 
+
+</script>
+
+
+
+
+
+
+
+
+<!--
+<div id='scrollerContainer' >
+                        <div id="scroll-pane">
+                        <div id="tt_ta_userListContainer"></div>
+                        </div>
+                    </div>
+                    $('#scroll-pane').jScrollPane();
+-->
+<style>
+#scroll-pane{height: 225px;}			
+</style>
+
+<link href="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+<script src="../../../scripts/JSplugins/jScrollPane/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.min.js" type="text/javascript"></script>
