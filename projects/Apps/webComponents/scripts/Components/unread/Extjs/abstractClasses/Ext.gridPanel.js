@@ -15,7 +15,6 @@ Ext.define('Ext.gridPanelClass',
 
         var me = this;
 
-
         //Load Tooltip
         Ext.QuickTips.init();
 
@@ -64,9 +63,6 @@ Ext.define('Ext.gridPanelClass',
         config.columnLines = ((config.columnLines == null) ? false : config.columnLines);
 
 
-
-
-
         if (config.topItems == null) config.topItems = [];
         if (config.bottomLItems == null) config.bottomLItems = [];
         if (config.bottomRItems == null) config.bottomRItems = [];
@@ -102,43 +98,9 @@ Ext.define('Ext.gridPanelClass',
         //*******************************************************************************
         //*****************************plugins*******************************************
         //*******************************************************************************
-		/*
+
         config.plugins = [];
 
-        if (config.rowNumber) {
-            //Row Numberer
-            var oldColumnsOrder = config.columns;
-            config.columns = [];
-            config.columns.push(Ext.create('Ext.grid.RowNumberer'));
-            config.columns.push(oldColumnsOrder);
-
-        }
-        if (config.rowExpand) {
-            //row Expander
-            config.plugins.push(
-            {
-                ptype: 'rowexpander',
-                rowBodyTpl: [
-                //'<p><b>Company:</b> {firstname}</p><br>',
-                //'<p><b>Summary:</b> {lastname}</p>'    
-                '<p style="padding-left:70px"><b>Summary:</b></p>'
-            ]
-            });
-        }
-
-        //Search
-        if (config.searchBar) {
-            config.dockedItems[0].items.push('->');
-            config.dockedItems[0].items.push(
-                {
-                    width: 200,
-                    fieldLabel: '',
-                    labelWidth: 50,
-                    xtype: 'searchfield',
-                    store: config.store,
-                    emptyText: 'Search'
-                });
-        }
         //paginator
         if (config.bottomPaginator) {
 
@@ -163,40 +125,54 @@ Ext.define('Ext.gridPanelClass',
 
             config.dockedItems.push(tempDockedItems);
 
+        } //paginator
+        //Search
+        if (config.searchBar) {
+            config.dockedItems[0].items.push('->');
+            config.dockedItems[0].items.push(
+            {
+                width: 200,
+                fieldLabel: '',
+                labelWidth: 50,
+                xtype: 'searchfield',
+                store: config.store,
+                emptyText: 'Search'
+            });
+        }
+
+        if (config.rowNumber) {
+            //Row Numberer
+            var oldColumnsOrder = config.columns;
+
+            config.columns = [];
+            config.columns.push(Ext.create('Ext.grid.RowNumberer'));
+            for (var item in oldColumnsOrder)
+                config.columns.push(oldColumnsOrder[item]);
+
         }
 
         config.features = [];
-
-
-
-        if (config.groupable) {
-        //at the same time only one of them can be active
-
-//            config.features.push(
-//            {
-//                id:"groupingsummaryID",
-//                ftype: 'groupingsummary',
-//                groupHeaderTpl: '{name}',//{rows.length}
-//                startCollapsed: false
-//            });
-            
+        if (config.groupable1) {
             config.features.push(
             {
                 id: "groupingID",
                 ftype: 'grouping',
-                groupHeaderTpl: '{name}',//{rows.length}
+                groupHeaderTpl: '{name}', //{rows.length}
                 startCollapsed: true
             });
-            
+
+        }
+        if (config.groupable2) {
+            config.features.push(
+            {
+                id: "groupingsummaryID",
+                ftype: 'groupingsummary',
+                groupHeaderTpl: '{name}', //{rows.length}
+                startCollapsed: false
+            });
         }
 
 
-        //Enable cellEditing
-        if (config.cellEditable) {
-            //dont combine w/ checkbox model
-            me.cellEditing = Ext.create('Ext.grid.plugin.CellEditing', { clicksToEdit: 1 });
-            config.plugins.push(me.cellEditing)
-        }
 
         //Enable RowEditing
         if (config.rowEditable) {
@@ -204,8 +180,13 @@ Ext.define('Ext.gridPanelClass',
             config.plugins.push(me.rowEditing);
         }
 
-		*/
-		
+        //Enable cellEditing
+        if (config.cellEditable) {
+            //dont combine w/ checkbox model
+            me.cellEditing = Ext.create('Ext.grid.plugin.CellEditing', { clicksToEdit: 1 });
+            config.plugins.push(me.cellEditing)
+        }
+        
         me.config = config;
         this.callParent(arguments);
     },

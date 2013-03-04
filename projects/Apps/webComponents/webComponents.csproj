@@ -538,7 +538,8 @@
     <Content Include="scripts\ClientSideLibraries\misc\less-1.3.1.js" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.css" />
     <Content Include="scripts\ClientSideLibraries\misc\qunit.js" />
-    <Content Include="scripts\Components\ExtJS\Grid\grid1.js" />
+    <Content Include="scripts\Components\ExtJS\Grid\extjsGridExtra.js" />
+    <Content Include="scripts\Components\ExtJS\Grid\extjsGrid1.js" />
     <Content Include="scripts\Components\ExtJS\test1.js" />
     <Content Include="scripts\Components\ExtJS\all.js" />
     <Content Include="scripts\Components\ExtJS\library.js" />
@@ -719,9 +720,9 @@
     <Content Include="scripts\Components\unread\Extjs\jsTest\form2Class.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\form3Class.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\form4Class.js" />
-    <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanel2Controller.js" />
+    <Content Include="scripts\Components\unread\Extjs\jsTest\gridGroupController.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\gridPanel3Controller.js" />
-    <Content Include="scripts\Components\ExtJS\Grid\gridPanelController.js" />
+    <Content Include="scripts\Components\ExtJS\Grid\extjsGrid.js" />
     <Content Include="scripts\Components\unread\Extjs\jsTest\treePanelController.js" />
     <Content Include="scripts\Components\sandbox\sandbox.css" />
     <Content Include="scripts\Components\sandbox\sandbox.js" />

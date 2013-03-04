@@ -10,8 +10,9 @@
 				var me = this;
                 
                 me.id = lib.helper.idGenerator('ctrl');
-                $('<div id=' + me.id + ' />').appendTo('#' + me.config.parentID);
-                $('#' + me.id).css({ height: $('#' + me.config.parentID).height() });
+                $('<div id=' + me.id + ' />')
+                .appendTo('#' + me.config.parentID)
+                .css({ height: $('#' + me.config.parentID).height() });
 				
                 
                 //build Grid
@@ -22,22 +23,14 @@
                         renderTo: me.id,
                         title: 'Transactions',
 
-                        //customized Components
-                        rowEditable: true,
-                        groupable: false,
-                        bottomPaginator: true,
-                        searchBar: true,
-                        rowExpand: false,
-                        rowNumber: false,
-
-                        //properties
+                        //PROPERTIES
                         fields: ['fname', 'lname', "value", "bandwidth"],
                         pageSize: 5,
                         extraParams: { start: 0, limit: 5 },
                         height: '100%',
                         width: '100%',
 
-                        // multiSelect: true,
+                        multiSelect: true,
 
                         //plugins
                         selModel: Ext.create('Ext.selection.CheckboxModel',
