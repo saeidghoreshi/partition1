@@ -695,31 +695,6 @@
     <Content Include="scripts\Components\TimeTracker\main\main.css" />
     <Content Include="scripts\JSplugins\Gmapv3\gmaps.js" />
     <Content Include="scripts\Components\facebook\facebook.js" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\arrow-point-right.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\arrowResize.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\1.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\10.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\11.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\12.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\13.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\14.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\15.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\2.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\3.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\4.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\5.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\6.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\7.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\8.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\9.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\roundIconsSequence\source.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\task-finished.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\task-not-started.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\img\task-processing.png" />
-    <Content Include="scripts\Components\unread\orgChartVertical\orgChartVerticalClass.css" />
-    <Content Include="scripts\Components\unread\orgChartVertical\orgChartVerticalClass.js" />
-    <Content Include="scripts\Components\unread\orgChartVertical\ref.txt" />
-    <Content Include="scripts\Components\unread\orgChartVertical\TskCreateAssignment.js" />
     <Content Include="scripts\Components\sandbox\img\gmap_pin.png" />
     <Content Include="scripts\Components\sandbox\img\gmap_pin_grey.png" />
     <Content Include="scripts\Components\sandbox\img\gmap_pin_orange.png" />
@@ -904,7 +879,6 @@
     <Folder Include="scripts\Components\theme\index1\orgChartVertical\img\arrow\" />
     <Folder Include="scripts\Components\theme\NEW\kendoGrid\images\" />
     <Folder Include="scripts\Components\theme\NEW\testExtjs\css\" />
-    <Folder Include="scripts\Components\unread\orgChartVertical\img\arrow\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -942,7 +916,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6012</DevelopmentServerPort>
+          <DevelopmentServerPort>5097</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
