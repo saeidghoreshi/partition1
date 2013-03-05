@@ -23,7 +23,7 @@ Ext.define('Ext.treePanelClass',
             Ext.getDom(config.renderTo).innerHTML = '';
 
         //set Generator
-        config.generator = app.idGenerator("Model");
+        config.generator = lib.helper.idGenerator("Model");
 
         //Define Model
         Ext.define(config.generator, { extend: 'Ext.data.Model', fields: config.fields });

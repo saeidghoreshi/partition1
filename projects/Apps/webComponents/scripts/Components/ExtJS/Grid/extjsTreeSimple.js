@@ -1,45 +1,32 @@
-﻿Class('treePanelControllerClass',
-{
-    has:
-        {
-            config:
-            {
-                is: 'rw',
-                init: {}
-            }
-        },
-    methods:
-        {
-            initialize: function (config) {
-                var me = this;
+﻿var extjs4SampleTree;
+(function ($) {
 
-                me.config = config;
-                me.config.id = app.idGenerator('placeholder');
-                $('#' + me.config.parentId).html('<div id=' + me.config.id + '></div>');
-
-                $('#' + me.config.id).css({ height: $('#' + me.config.parentId).height() });
-            },
-            getId: function () {
-                var me = this;
-                return me.config.id;
-            },
+	extjs4SampleTree=cls.define(
+    { 
+			id:null,
+			
 
             init: function () {
 
                 var me = this;
 
-
-                var tvConfig =
+				me.id = lib.helper.idGenerator('ctrl');
+                $('<div id=' + me.id + ' />')
+                .appendTo('#' + me.config.parentID)
+                .css({ height: $('#' + me.config.parentID).height() });
+				
+				
+                var config =
                 {
-                    id: app.idGenerator('tree'),
-                    renderTo: me.getId(),
+                    id: lib.helper.idGenerator('grid'),
+                    renderTo: me.id,
                     width: "100%",
-                    height: "100%",
+                    height: 500,
                     collapsible: false,
 
                     fields: ['id', 'firstCol', 'secondCol'],
                     sorters: false,
-                    url: "/home/json_test_treeview",
+                    url: "/extjs4/json_test_treeview",
                     extraParams: {},
 
                     //properties
@@ -84,9 +71,9 @@
                             for (var i = 0; i < me.ids.length; i++) {
 
                                 //for nodes who are disabled from top parents
-                                if (me.tree.getStore().getNodeById(me.ids[i].id) == undefined) continue;
+                                if (me.tree.getStore().getNodeById(me.ids[i].ID) == undefined) continue;
 
-                                var record = me.tree.getStore().getNodeById(me.ids[i].id).data;
+                                var record = me.tree.getStore().getNodeById(me.ids[i].ID).data;
 
 
                                 idparentCollection += record.parentId + '-' + record.id + ',';
@@ -119,22 +106,20 @@
                                     click: function () {
 
                                         var records = me.tree.getView().getChecked();
-                                        alert(app.dump(records));
+                                        console.log(records);
 
                                     }
                                 }
                             }
                         ]
-
-
                 }//tv Config
 
 
-                app.maskUI(me.config.parentId, "Loading ...");
-                me.tree = new Ext.treePanelClass(tvConfig);
+                
+                me.tree = new Ext.treePanelClass(config);
                 me.tree.doLayout();
                 me.tree.doComponentLayout();
-                app.tagReady(me.tree.getId(), function () { app.unmaskUI(me.config.parentId); });
+                
 
 
                 me.tree.on("itemclick", function (a, b, c) {
@@ -168,7 +153,7 @@
 
                     $.ajax(
                         {
-                            url: "/home/json_test_treeview_extra",
+                            url: "/extjs4/json_test_treeview_extra",
                             type: "get"
                         }).done(function (data) {
 
@@ -177,11 +162,11 @@
                             for (var i = 0; i < me.ids.length; i++) {
 
                                 //for nodes who are disabled from top parents
-                                if (me.tree.getStore().getNodeById(me.ids[i].id) == undefined) continue;
+                                if (me.tree.getStore().getNodeById(me.ids[i].ID) == undefined) continue;
 
 
-                                var description = me.tree.getStore().getNodeById(me.ids[i].id).data.secondCol;
-                                me.tree.getStore().getNodeById(me.ids[i].id).data.secondCol = unescape(description);
+                                var description = me.tree.getStore().getNodeById(me.ids[i].ID).data.secondCol;
+                                me.tree.getStore().getNodeById(me.ids[i].ID).data.secondCol = unescape(description);
                             }
 
                             me.tree.getView().refresh()
@@ -191,7 +176,6 @@
 
 
             }
-        }
-
-});
-      
+        
+	});
+} (jQuery));

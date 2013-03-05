@@ -83,6 +83,77 @@ namespace webComponents.Controllers
         {
             return obj.AsEnumerable().Where((o, index) => index >= pars.start && index <= pars.start + pars.limit - 1);
         }
+        public JsonResult json_test_treeview_extra()
+        {
+            List<dynamic> repo = new List<dynamic>();
+            repo.Add(new { ID = 1, parentID = -1, name = "ID1", name2 = "ID1" });
+            repo.Add(new { ID = 2, parentID = -1, name = "ID2", name2 = "ID2" });
+            repo.Add(new { ID = 3, parentID = 1, name = "ID3", name2 = "ID3" });
+            repo.Add(new { ID = 4, parentID = 1, name = "ID4", name2 = "ID4" });
+
+
+            return Json(new { ids = repo }, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult json_test_treeview()
+        {
+            
+            List<dynamic> repo = new List<dynamic>();
+            repo.Add(new {ID=1,parentID=-1,name="ID1",name2 = "ID1"});
+            repo.Add(new { ID = 2, parentID = -1, name = "ID2", name2 = "ID2"});
+            repo.Add(new { ID = 3, parentID = 1, name = "ID3", name2 = "ID3"});
+            repo.Add(new { ID = 4, parentID = 1, name = "ID4", name2 = "ID4"});
+
+            List<dynamic> tree = new List<dynamic> { };
+            for (int i = 0; i < repo.Count; i++)
+            {
+                if (Convert.ToInt32(repo[i].parentID) == -1)
+                {
+                    var node = new 
+                    {
+                        id = repo[i].ID.ToString(),
+                        firstCol = repo[i].name.ToString(),
+                        secondCol = repo[i].name2.ToString(),
+                        leaf = false,
+                        @checked = false,
+                        //cls = "testClass"
+                        children = new List<dynamic>()
+                    };
+                    tree.Add(node);
+                }
+            }
+
+            for (int j = 0; j < tree.Count; j++)
+                Rec(tree[j], repo);
+
+
+            return Json(new { root = "", children = tree }, JsonRequestBehavior.AllowGet);
+
+        }
+        public void Rec(dynamic node, List<dynamic> repo)
+        {
+            
+            for (int j = 0; j < repo.Count; j++)
+            {
+                if (repo[j].parentID.ToString() == node.id)
+                {
+                    var _node = new 
+                    {
+                        id = repo[j].ID.ToString(),
+                        firstCol = repo[j].name.ToString(),
+                        secondCol = repo[j].name2.ToString(),
+                        leaf = false,
+                        @checked = false,
+                        cls = "testClass",
+                        children = new List<dynamic>()
+                    };
+
+                    node.children.Add(_node);
+                }
+            }
+            for (int j = 0; j < node.children.Count; j++)
+                Rec(node.children[j], repo);
+        }
+       
 
         public ActionResult Index()
         {
@@ -99,6 +170,10 @@ namespace webComponents.Controllers
         public PartialViewResult grid_roundTrim()
         {
             return PartialView("grid/roundTrim");
+        }
+        public PartialViewResult tree_simple()
+        {
+            return PartialView("tree/simple");
         }
         
         

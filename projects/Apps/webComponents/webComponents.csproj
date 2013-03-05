@@ -732,7 +732,7 @@
     <Content Include="scripts\Components\ExtJS\Forms\form3Class.js" />
     <Content Include="scripts\Components\ExtJS\Forms\form4Class.js" />
     <Content Include="scripts\Components\ExtJS\Grid\extjsGridFeatures.js" />
-    <Content Include="scripts\Components\ExtJS\Grid\treePanelController.js" />
+    <Content Include="scripts\Components\ExtJS\Grid\extjsTreeSimple.js" />
     <Content Include="scripts\Components\sandbox\sandbox.css" />
     <Content Include="scripts\Components\sandbox\sandbox.js" />
     <Content Include="scripts\JSplugins\ckEditor\ckeditor.js" />
@@ -897,6 +897,7 @@
     <Content Include="Views\ExtJS4\Master.cshtml" />
     <Content Include="Views\ExtJS4\grid\features.cshtml" />
     <Content Include="Views\ExtJS4\grid\roundtrim.cshtml" />
+    <Content Include="Views\ExtJS4\tree\simple.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
