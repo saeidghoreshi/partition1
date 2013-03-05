@@ -175,16 +175,21 @@ Ext.define('Ext.gridPanelClass',
 
 
         //Enable RowEditing
-        if (config.rowEditable) {
+        if (config.rowEditable===true) {
             me.rowEditing = Ext.create('Ext.grid.plugin.RowEditing', { clicksToMoveEditor: 1, autoCancel: true });
             config.plugins.push(me.rowEditing);
         }
 
         //Enable cellEditing
-        if (config.cellEditable) {
+        if (config.cellEditable===true) {
             //dont combine w/ checkbox model
             me.cellEditing = Ext.create('Ext.grid.plugin.CellEditing', { clicksToEdit: 1 });
-            config.plugins.push(me.cellEditing)
+            config.plugins.push(me.cellEditing);
+			
+			config.selModel= 
+			{
+				selType: 'cellmodel'
+			}
         }
         
         me.config = config;

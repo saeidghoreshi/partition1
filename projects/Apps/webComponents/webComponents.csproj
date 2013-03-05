@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\DB.cs" />
+    <Compile Include="Models\timeTracker.cs" />
     <Compile Include="Models\prjModel.Designer.cs">
       <DependentUpon>prjModel.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -191,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="datasource\jqw-chart.json" />
+    <Content Include="datasource\extgrid.xml" />
     <Content Include="datasource\ds.xml" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -873,6 +875,7 @@
     <Content Include="Views\ExtJS4\grid\features.cshtml" />
     <Content Include="Views\ExtJS4\grid\roundtrim.cshtml" />
     <Content Include="Views\ExtJS4\tree\simple.cshtml" />
+    <Content Include="Views\Timetracker\task_history.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

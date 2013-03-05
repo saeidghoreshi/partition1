@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using Themes.Models;
 using Classes;
 using realestateweb.Models;
+using Models;
 namespace MvcApplication1.Controllers
 {
     public class TimeTrackerController : Controller
@@ -618,6 +619,25 @@ namespace MvcApplication1.Controllers
             }
             return Json(userList,JsonRequestBehavior.AllowGet);
         }
+        public PartialViewResult tt_task_history() 
+        {
+            sqlServer db = new sqlServer(connString);
+            DataTable dt = db.fetch("select * from dbo.organization").Tables[0];
+
+            List<dynamic> repo = new List<dynamic>();
+            for (var i = 0; i < 100;i++ )
+                repo.Add(new tt_history()
+                {
+
+                    ID   = i,
+                    label="name-"+i
+                });
+
+            ViewBag.data = repo;
+            return PartialView("task_history");
+
+        }
         
     }
+    
 }

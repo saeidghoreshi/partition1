@@ -1,20 +1,21 @@
 ﻿
 <div id='scrollerContainer' >
     <div id="scroll-pane">
-    <div id="" style="width:200px;height:500px">
-    
-    <p>
-
-    </p>
-
-    </div>
+        
+        <div id="result"></div>
+        
     </div>
 </div>
                     
 
 
 <script>
-    $('#scroll-pane').jScrollPane();
+    
+    $.get("/TimeTracker/tt_task_history")
+    .done(function (data) {
+        $('#result').html(data);
+        $('#scroll-pane').jScrollPane();
+    });
 </script>
 <style>
 #scroll-pane{height: 225px;}			

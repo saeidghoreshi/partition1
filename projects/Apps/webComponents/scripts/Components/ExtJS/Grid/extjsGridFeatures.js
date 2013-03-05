@@ -32,8 +32,8 @@
                         //OPTIONS
 						
 						//XOR
-                        rowEditable: false,
-						cellEditable:true,
+                        rowEditable: true,
+						cellEditable:false,
 						
 						//XOR
                         groupping: false,
@@ -168,7 +168,7 @@
                                           ]
                                 }
                             },
-                            {
+							{
                                     text: 'Bandwidth (bps)',
                                     dataIndex: 'bandwidth',
                                     flex: 1,
