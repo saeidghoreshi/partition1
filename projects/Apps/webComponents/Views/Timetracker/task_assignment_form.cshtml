@@ -99,6 +99,9 @@
 </style>
 
 <!--javascript-->
+<link href="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+<script src="../../../scripts/JSplugins/jScrollPane/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
     var theme = "metro";
@@ -215,35 +218,34 @@
                         })
                         //CLICK ON asmt_user_orginal item
                         .click(function () {
-                            console.log($asmt_user_orginal.data("data"));
+
                             //BUILD SHADOW ITEM
                             var $addedUserMe =
-                                $('<div/>')
-                                .data("data", $asmt_user_orginal.data("data"))
-                                .addClass("asmt_user_shadow")
-                                .html($asmt_user_orginal.data("data").name)
-                                .appendTo("#asmt-queue");
+                            $('<div/>')
+                            .data("data", $asmt_user_orginal.data("data"))
+                            .addClass("asmt_user_shadow")
+                            .html($asmt_user_orginal.data("data").name)
+                            .appendTo("#asmt-queue");
 
                             //ADD ARROW DOWN
                             $("<div class='arrowdown' />")
-                                .appendTo('#asmt-queue');
+                            .appendTo('#asmt-queue');
 
                             //ADDED USER DELET ACTION
                             $("<div class='tooltip' />")
-                                .appendTo($addedUserMe)
-                                .addClass("delbtn")
-                                .css({ left: 60, top: 10 })
-                                .click(function () {
+                            .appendTo($addedUserMe)
+                            .addClass("delbtn")
+                            .css({ left: 60, top: 10 })
+                            .click(function () {
 
-                                    $addedUserMe.fadeOut(100, function () {
-                                        $(this).next().remove();
-                                        this.remove();
-                                        $('#scroll-pane-asmt-queue').jScrollPane();
-                                    });
+                                $addedUserMe.fadeOut(100, function () {
+                                    $(this).next().remove();
+                                    this.remove();
+                                    $('#scroll-pane-asmt-queue').jScrollPane();
                                 });
+                            });
 
                             $('#scroll-pane-asmt-queue').jScrollPane();
-
 
                         }); //click Event
 
@@ -287,15 +289,3 @@
 
 </script>
 
-
-
-
-
-
-
-
-
-
-<link href="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
-<script src="../../../scripts/JSplugins/jScrollPane/jquery.mousewheel.js" type="text/javascript"></script>
-<script src="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.min.js" type="text/javascript"></script>

@@ -1,0 +1,93 @@
+﻿
+<script type="text/javascript" src="demo/js/primitives.min.js"></script>
+<link href="demo/css/primitives.latest.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script type='text/javascript'>
+        
+        var options = new primitives.orgdiagram.Config();
+
+        var rootItem = new primitives.orgdiagram.ItemConfig();
+        rootItem.title = "Scott Aasrud";
+        rootItem.description = "VP, Public Sector";
+        rootItem.image = "http://www.basicprimitives.com/demo/images/photos/a.png";
+        
+
+        var itemB = new primitives.orgdiagram.ItemConfig();
+        itemB.title = "Ted Lucas";
+        itemB.description = "VP, Human Resources";
+        itemB.image = "http://www.basicprimitives.com/demo/images/photos/b.png";
+        rootItem.items.push(itemB);
+
+        var itemC = new primitives.orgdiagram.ItemConfig();
+        itemC.title = "Joao Stuger";
+        itemC.description = "Business Solutions, US";
+        itemC.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
+        rootItem.items.push(itemC);
+
+        var itemD = new primitives.orgdiagram.ItemConfig();
+        itemD.title = "Joao Stuger";
+        itemD.description = "Business Solutions, US";
+        itemC.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
+        itemB.items.push(itemD);
+
+        var itemE = new primitives.orgdiagram.ItemConfig();
+        itemE.title = "Joao Stuger";
+        itemE.description = "Business Solutions, US";
+        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
+        itemB.items.push(itemE);
+
+        var itemE = new primitives.orgdiagram.ItemConfig();
+        itemE.title = "Joao Stuger";
+        itemE.description = "Business Solutions, US";
+        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
+        itemB.items.push(itemE);
+
+        var itemE = new primitives.orgdiagram.ItemConfig();
+        itemE.title = "Joao Stuger";
+        itemE.description = "Business Solutions, US";
+        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
+        itemB.items.push(itemE);
+
+        var itemE = new primitives.orgdiagram.ItemConfig();
+        itemE.title = "Joao Stuger";
+        itemE.description = "Business Solutions, US";
+        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
+        itemB.items.push(itemE);
+
+        options.rootItem = rootItem;
+        options.hasSelectorCheckbox = primitives.common.Enabled.False;
+
+        var buttons = [];
+        buttons.push(new primitives.orgdiagram.ButtonConfig("delete", "ui-icon-close", "Delete"));
+        buttons.push(new primitives.orgdiagram.ButtonConfig("properties", "ui-icon-gear", "Info"));
+        buttons.push(new primitives.orgdiagram.ButtonConfig("add", "ui-icon-person", "Add"));
+
+        options.rootItem = rootItem;
+        options.cursorItem = rootItem;
+        options.buttons = buttons;
+        options.hasButtons = primitives.common.Enabled.True;
+        options.hasSelectorCheckbox = primitives.common.Enabled.True;
+        options.onButtonClick = function (e, data) {
+            var message = "User clicked '" + data.name + "' button for item '" + data.context.title + "'.";
+            alert(message);
+        };
+
+        jQuery(".basicdiagram2").orgDiagram(options);
+
+        jQuery(".basicdiagram").orgDiagram(options);
+
+        console.log(jQuery(".basicdiagram"));
+    
+
+</script>
+
+
+  <div class="basicdiagram" style="width:100%; height:480px; " />
+
+
+
+
+
+
+
+        

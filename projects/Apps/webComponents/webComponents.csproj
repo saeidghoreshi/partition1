@@ -691,6 +691,8 @@
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\gridPanelController.js" />
     <Content Include="scripts\Components\theme\NEW\testExtjs\js\treePanelController.js" />
     <Content Include="scripts\Components\TimeTracker\img\add_group.png" />
+    <Content Include="scripts\Components\TimeTracker\img\arrow_down.png" />
+    <Content Include="scripts\Components\TimeTracker\img\delete.png" />
     <Content Include="scripts\Components\TimeTracker\img\remove.png" />
     <Content Include="scripts\Components\TimeTracker\img\user_red.png" />
     <Content Include="scripts\Components\TimeTracker\main\main.js" />
@@ -876,6 +878,7 @@
     <Content Include="Views\ExtJS4\grid\roundtrim.cshtml" />
     <Content Include="Views\ExtJS4\tree\simple.cshtml" />
     <Content Include="Views\Timetracker\task_history.cshtml" />
+    <Content Include="Views\Timetracker\task_chart_form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

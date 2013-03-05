@@ -498,7 +498,7 @@ function oc_draw_obj (node, parent, xoffset, yoffset) {
 	);
 	if (oc_style.box_click_handler !== null)
 		box.click( function (event) { oc_style.box_click_handler(event, box); } );
-
+	
 	// draw node title and subtitle
 	var title_ypos = y0 + oc_style.inner_padding
 					 + node.title_lines * oc_style.title_char_size[1] / 2

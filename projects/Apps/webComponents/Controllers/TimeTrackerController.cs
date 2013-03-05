@@ -637,6 +637,10 @@ namespace MvcApplication1.Controllers
             return PartialView("task_history");
 
         }
+        public PartialViewResult tt_task_chart_form()
+        {
+            return PartialView("task_chart_form");
+        }
         
     }
     

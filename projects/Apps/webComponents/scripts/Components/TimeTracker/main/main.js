@@ -23,7 +23,8 @@
                 [
                     {id:"1",label:"create New Task"},
                     {id:"2",label:"create New Task Assignment"},
-                    {id:"3",label:"Task History"}
+                    {id:"3",label:"Task History"},
+					{id:"4",label:"Chart"}
                 ];
 
                 //Define Adapter
@@ -80,6 +81,14 @@
                         if(mm_id==3)
                         {
                             $.get('/timetracker/tt_task_history_form')
+                            .done(function(content){
+                                $('#tt_main_component').html(content);
+                            })
+                            .fail(function(){console.log('get Function failed');});
+                        }
+						if(mm_id==4)
+                        {
+                            $.get('/timetracker/tt_task_chart_form')
                             .done(function(content){
                                 $('#tt_main_component').html(content);
                             })

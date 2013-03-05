@@ -209,21 +209,26 @@ namespace webComponents.Controllers
 
         public JsonResult getUsers()
         {
-            sqlServer db = new sqlServer(connString);
-            var dt = db.fetch("exec workflow.getUserOrg").Tables[0];
+            List<dynamic> repo = new List<dynamic>();
+            repo.Add(new {id = 1,parentId = "",text = "name1",title = "title1",});
+            repo.Add(new { id = 2, parentId = 1, text = "name2", title = "title2", });
+            repo.Add(new { id = 3, parentId = 1, text = "name3", title = "title3", });
+            repo.Add(new { id = 4, parentId = 2, text = "name4", title = "title3", });
+            repo.Add(new { id = 5, parentId = 2, text = "name6", title = "title3", });
+            repo.Add(new { id = 6, parentId = 2, text = "name6", title = "title3", });
 
             //build tree
             List<dynamic> tree = new List<dynamic> { };
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < repo.Count; i++)
             {
-                if (dt.Rows[i]["parentId"].ToString() == "")
+                if (repo[i].parentId.ToString() == "")
                 {
                     var node = new
                     {
-                        id = dt.Rows[i][0].ToString(),
-                        parentId = dt.Rows[i][1].ToString(),
-                        text = dt.Rows[i][2].ToString(),
-                        title = dt.Rows[i][2].ToString(),
+                        id = repo[i].id.ToString(),
+                        parentId = repo[i].parentId.ToString(),
+                        text = repo[i].text,
+                        title = repo[i].title.ToString(),
                         state = "",//closed
                         iconCls = "",
                         children = new List<dynamic>()
@@ -233,23 +238,23 @@ namespace webComponents.Controllers
             }
 
             for (int j = 0; j < tree.Count; j++)
-                this.getUsersRec(tree[j], dt);
+                this.getUsersRec(tree[j], repo);
 
             return Json(tree, JsonRequestBehavior.AllowGet);
         }
 
-        public void getUsersRec(dynamic node, DataTable dt)
+        public void getUsersRec(dynamic node, List<dynamic> repo)
         {
-            for (int j = 0; j < dt.Rows.Count; j++)
+            for (int j = 0; j < repo.Count; j++)
             {
-                if (dt.Rows[j]["parentId"].ToString() == node.id)
+                if (repo[j].parentId.ToString() == node.id)
                 {
                     var _node = new
                     {
-                        id = dt.Rows[j][0].ToString(),
-                        parentId = dt.Rows[j][1].ToString(),
-                        text = dt.Rows[j][2].ToString(),
-                        title = dt.Rows[j][2].ToString(),
+                        id = repo[j].id.ToString(),
+                        parentId = repo[j].parentId.ToString(),
+                        text = repo[j].text,
+                        title = repo[j].title.ToString(),
                         state = "",
                         iconCls = "",
                         children = new List<dynamic>()
@@ -258,7 +263,7 @@ namespace webComponents.Controllers
                 }
             }
             for (int j = 0; j < node.children.Count; j++)
-                getUsersRec(node.children[j], dt);
+                getUsersRec(node.children[j], repo);
         }
 
         public void upload()
