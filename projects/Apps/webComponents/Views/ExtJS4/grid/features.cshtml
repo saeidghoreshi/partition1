@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Extjs4/Master.cshtml";
+}
+
+<!--html-->
+<div id="extcomponent" style="width:100%;height:500px"></div>
+
+<!--Component-->
+<script src="../../../scripts/Components/ExtJS/Grid/extjsGridFeatures.js" type="text/javascript"></script>
+
+<!--script-->
+<script language="javascript">
+
+    Ext.onReady(function () {
+
+        var grid = new extjsGridFeatures({ parentID: "extcomponent" });
+        grid.init();
+    });
+
+</script>
+
+
+<br />
+<br /><br />
+<br />
+<div style="text-align:center">
+<h5>Features</h5>
+<br />
+<br />
+Row Editable<br />
+groupable<br />
+groupable Summary<br />
+bottomPaginator<br />
+searchBar<br />
+rowNumber<br />
+</div>

@@ -1,0 +1,9 @@
+﻿$.ajax(
+				{
+					url:"http://localhost:555/srv.svc/rest/test",
+					type:"POST",
+					contentType: "application/json; charset=utf-8",
+					dataType:"json",
+					data:JSON.stringify({x:{"firstname":"SAEID","lastname":"GHOR","curId":1}})
+					
+				})

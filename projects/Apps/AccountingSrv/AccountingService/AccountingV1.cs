@@ -12,7 +12,12 @@ using System.ServiceModel;
 using AccountingLib.Models;
 using accounting.classes;
 using System.ServiceModel.Activation;
+using Models;
 
+
+using System.Data;
+using System.Data.Linq;
+using System.Collections;
 
 namespace RyanGoreshi
 {
@@ -286,12 +291,17 @@ namespace RyanGoreshi
         [OperationContract]
         void cancelInvoice(A_cancelInvoice I);
 
-        //Invoice Cancellation
-        
-        //[WebGet(UriTemplate = "test", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        //TEST
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "test", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped)]
         A_customer test(A_customer x);
+        /*
+            ALSO NEEDS
+            <add name="Access-Control-Allow-Headers" value="Content-Type"/>
+            <add name="Access-Control-Allow-Methods" value="POST, GET, OPTIONS"/>
+         */
+
+        
     }
 
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
@@ -479,12 +489,13 @@ namespace RyanGoreshi
             Inv.cancelInvoice();
         }
 
-
-
         public A_customer test(A_customer x)
         {
-
             return x;
         }
+
+
+        
+        
     }
 }

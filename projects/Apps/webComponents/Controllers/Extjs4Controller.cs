@@ -12,10 +12,7 @@ namespace webComponents.Controllers
     {
         readonly string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
 
         List<dynamic> repo = new List<dynamic>();
         public JsonResult json_test()
@@ -47,6 +44,26 @@ namespace webComponents.Controllers
             JsonRequestBehavior.AllowGet);
 
         }
+
+        public object getTransactions()
+        {
+            string connString = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
+            sqlServer db = new sqlServer(connString);
+            var data = db.fetch("select * from accounting.categoryType ct " +
+                        "inner join accounting.gltype t on t.id=ct.glTypeID " +
+                        "inner join Accounting.account a on a.catTypeID=ct.ID " +
+                        "full join Accounting.[transaction] trans on trans.accountid=a.ID")
+                .Tables[0]
+                .AsEnumerable()
+                .Select(r => new
+                {
+                    catTypeID = r.ItemArray[0],
+                    name = r.ItemArray[1]
+                });
+
+            return data;
+        }
+
         public JsonResult transactionTypes()
         {
             sqlServer db = new sqlServer(connString);
@@ -64,9 +81,27 @@ namespace webComponents.Controllers
         }
         public IEnumerable<dynamic> filterJson(IEnumerable<dynamic> obj, dynamic pars)
         {
-
             return obj.AsEnumerable().Where((o, index) => index >= pars.start && index <= pars.start + pars.limit - 1);
         }
+
+        public ActionResult Index()
+        {
+            return View("guide");
+        }
+        public PartialViewResult grid_simple() 
+        {
+            return PartialView("grid/simple");
+        }
+        public PartialViewResult grid_features()
+        {
+            return PartialView("grid/features");
+        }
+        public PartialViewResult grid_roundTrim()
+        {
+            return PartialView("grid/roundTrim");
+        }
+        
+        
 
     }
 }

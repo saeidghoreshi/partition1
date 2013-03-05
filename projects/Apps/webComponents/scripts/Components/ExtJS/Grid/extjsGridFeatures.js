@@ -1,7 +1,7 @@
-﻿var extjsGrid;
+﻿var extjsGridFeatures;
 (function ($) {
 
-	extjsGrid=cls.define(
+	extjsGridFeatures=cls.define(
     {
 			id:null,
 			
@@ -15,23 +15,7 @@
                 .css({ height: $('#' + me.config.parentID).height() });
 				
 				
-				$.ajax(
-				{
-					url:"http://localhost:555/srv.svc/rest/test",
-					type:"POST",
-					contentType: "application/json; charset=utf-8",
-					dataType:"json",
-					data:JSON.stringify({x:{"firstname":"SAEID","lastname":"GHOR","curId":1}})
-					
-				})
-				.done(function(data)
-				{
-					for(var i in data)
-						for(var j in data[i])
-						console.log(data[i][j])}
-				)
-				.fail(function(data){console.log('Fail')})
-				;
+				
                 //BUILD THE GRID
                 var config =
                     {
@@ -47,13 +31,17 @@
 
                         //OPTIONS
 						
+						//XOR
                         rowEditable: false,
-                        groupable1: false,
-						groupable2: false,
+						cellEditable:true,
+						
+						//XOR
+                        groupping: false,
+						grouppingSummary: true,
+						
                         bottomPaginator: true,
                         searchBar: true,
                         rowNumber: true,
-
                         
                         columns:
                         [
@@ -99,28 +87,22 @@
                                     }
                                 },
                                 //Grouping Summary
-                                summaryType: 'count', //sum,max,average
-                                /*summaryType: function (records) {
-                                var i = 0, length = records.length, total = 0, record;
+                                //summaryType: 'count', //sum,max,average
+                                summaryType: function (records) {
+									var length = records.length;
+									var total = 0;
+									var record;
 
-                                for (; i < length; ++i) {
-                                record = records[i];
-                                total += record.get('estimate') * record.get('rate');
-                                }
-                                return total;
+									for (var i=0; i < length; ++i) {
+										record = records[i];
+										total += record.get('value') ;
+									}
+									return total;
                                 },
-                                */
+                                
                                 summaryRenderer: function (value, summaryData, dataIndex) {
                                     return Ext.String.format('<b><small>{0} Record{1}</small></b>', value, value !== 1 ? 's' : '');
                                 }
-
-                                //renderer OR summaryRenderer: Ext.util.Format.dateRenderer('Y/m/d'),Ext.util.Format.usMoney
-
-
-                                //xtype: 'datefield',
-                                //renderer: Ext.util.Format.dateRenderer('Y/m/d'),
-                                //disabledDays: [0, 6],
-                                //disabledDaysText: 'not available on the weekends'
 
                             },
                             {
@@ -186,8 +168,7 @@
                                           ]
                                 }
                             },
-                                
-                                {
+                            {
                                     text: 'Bandwidth (bps)',
                                     dataIndex: 'bandwidth',
                                     flex: 1,
@@ -250,31 +231,105 @@
                                     }
                                 }
                              
-                        ]
+                        ],
+						
+						topItems:
+						[
+							{
+                                xtype: 'button',
+                                id: 'id_grouping',
+                                text: "Clear Grouping ",
+                                pressed: true,
+                                listeners:
+                                {
+                                    click: function () 
+									{
+										if(me.grid.getView().getFeature('groupingID')===undefined)
+										{
+											alert("Grouping Not Activated");
+											return false;
+										}
+                                        me.grid.getView().getFeature('groupingID').disable();
+                                    }
+                                }
+
+                            },
+							{
+                                xtype: 'button',
+                                id: 'id_groupingsummary',
+                                text: "Clear group summery ",
+                                pressed: true,
+                                listeners:
+                                {
+                                    click: function () 
+									{
+									
+										if(me.grid.getView().getFeature('groupingsummaryID')===undefined)
+										{
+											alert("Grouping Summary Not Activated");
+											return false;
+										}
+									
+                                        var view = me.grid.getView();
+                                        view.getFeature('groupingsummaryID').toggleSummaryRow(false);
+                                        view.refresh();
+                                    }
+                                }
+                            }
+						],
+						bottomLItems:
+						[
+							{
+								text: "Start Row Edit",
+								pressed:true,
+								listeners:
+								{
+									click: function () {
+
+										me.grid.rowEditing.startEdit(2, 0);
+									}
+								}
+							},
+							{
+								text: "Start Cell Edit",
+								pressed:true,
+								listeners:
+								{
+									click: function () {
+
+										me.grid.cellEditing.startEditByPosition({row: 0, column: 0});        
+									}
+								}
+							}
+						]
                     };
 
                 me.grid = new Ext.gridPanelClass(config);
                 me.grid.doLayout();
                 me.grid.doComponentLayout();
 
-               
-
+                          
                 
                 me.grid.on("beforeedit", function (editor, e) {
 
+					/*
+					Set Defaults
+					
                     var record = (parseInt(Ext.versions.extjs.shortVersion) >= 410) ? e.record : editor.record;
                     var lteValUnit = me.convertValue(record.data.value);
                     var gtValUnit = me.convertBandwidth(record.data.bandwidth);
 
 
-                    Ext.getCmp('value_numberField').setValue(lteValUnit[0]);
+                    
+					Ext.getCmp('value_numberField').setValue(lteValUnit[0]);
                     Ext.getCmp('value_combo').setValue(lteValUnit[1]);
                     Ext.getCmp('bandwidth_numberField').setValue(gtValUnit[0]);
                     Ext.getCmp('bandwidth_combo').setValue(gtValUnit[1]);
+					*/
 
                 });
                 me.grid.on("edit", function (e) {
-
+					
                     var record = e.record.data;
                     //e.record.data[e.field]; for cellediting plugin
 
@@ -321,47 +376,30 @@
                     }
                     record.bandwidth = Ext.getCmp('bandwidth_numberField').getValue() * factor;
 
-                    e.record.commit();
+					
+                    //for comparison operation
+                    //var bdate = new Date(record.dateField);
+                    //newDate = new Date(bdate.getFullYear(), bdate.getMonth(), bdate.getDate());
+                    //var now = new Date();
+                    //No Compare them
+
+
+                    //e.record.commit();
                     //e.record.reject();
+                    
                 });
+                
                 
                 /*
-                me.grid.on('itemmouseenter', function (view, record, HTMLElement, index, e, Object) {
-                view.tip = Ext.create('Ext.tip.ToolTip',
-                {
-                target: view.getEl(),
-                delegate: view.itemSelector,
-                trackMouse: true,
-                anchor: 'right',
-                listeners:
-                {
-                beforeshow: function (tip) {
-                                
-                var record = view.getRecord(tip.triggerElement).data;
-                tip.update('Customized Tooltip');
-                //or return false;
-                }
-                }
-                });
-                });
-                */
-                
-                /*var contextMenu = new Ext.menu.Menu({
-                items: [{
-                text: 'Edit',
-                iconCls: 'edit',
-                handler: function(){}
-                }]
-                });
-
-                me.grid.getEl().on('contextmenu', function(e)
-                {
-                e.preventDefault();
-                contextMenu.show(Ext.getCmp or view .getEl());
-                });
-                */
-
-
+				Select Grid Row
+				
+				
+                    //var rec=store.getAt(1);
+                    //me.grid.getSelectionModel().select(rec,true,false)    
+                    //OR
+                    //me.grid.getSelectionModel().selectRange(1, 1, true);
+				
+				*/
 
 
             }, //init end

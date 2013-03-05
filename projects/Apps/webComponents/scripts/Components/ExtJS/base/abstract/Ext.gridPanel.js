@@ -152,7 +152,7 @@ Ext.define('Ext.gridPanelClass',
         }
 
         config.features = [];
-        if (config.groupable1) {
+        if (config.groupping) {
             config.features.push(
             {
                 id: "groupingID",
@@ -162,7 +162,7 @@ Ext.define('Ext.gridPanelClass',
             });
 
         }
-        if (config.groupable2) {
+        if (config.grouppingSummary) {
             config.features.push(
             {
                 id: "groupingsummaryID",

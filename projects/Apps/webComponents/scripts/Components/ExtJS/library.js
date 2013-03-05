@@ -44,6 +44,10 @@
 		dialog.win.destroy();
 	};
 	
+	extjs4Lib.makeExtJSStaticStore=function(fields, data) {
+			return Ext.create('Ext.data.Store', { fields: fields, data: data });
+	};
+
 	extjs4Lib.showWin= function (finalPanel, title, winHandlers, topItems, bottomItems) 
 	{
 		if (bottomItems == null)

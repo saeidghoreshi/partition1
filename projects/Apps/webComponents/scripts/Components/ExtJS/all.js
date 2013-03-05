@@ -1,8 +1,4 @@
 ﻿
-    makeExtJSStaticStore: function (fields, data) {
-        return Ext.create('Ext.data.Store', { fields: fields, data: data });
-    },
-
     loadExtJSFunction: function () {
 
 
@@ -21,58 +17,7 @@
 
     //app.loadKenoGrid(me.getLeft());
 
-    //Splitter
-    //                    $("#vertical").kendoSplitter({
-    //                        orientation: "vertical",
-    //                        panes: 
-    //                        [
-    //                            { collapsible: true },
-    //                            { collapsible: true, size: "100px" },
-    //                            { collapsible: true, resizable: true, size: "100px" }
-    //                        ]
-    //                    });
-
-    //                    $("#horizontal").kendoSplitter({
-    //                        panes: 
-    //                        [
-    //                            { collapsible: true, size: "220px" },
-    //                            { collapsible: true },
-    //                            { collapsible: true, size: "220px" }
-    //                        ]
-    //                    });
-
-    //Dropdownlist
-    //                $("#titles").kendoDropDownList({
-    //                    dataTextField: "Name",
-    //                    dataValueField: "Id",
-    //                    // define custom template
-    //                    template: '<img src="${ data.BoxArt.SmallUrl }" alt="${ data.Name }" />' +
-    //                                  '<dl>' +
-    //                                      '<dt>Title:</dt><dd>${ data.Name }</dd>' +
-    //                                      '<dt>Year:</dt><dd>${ data.ReleaseYear }</dd>' +
-    //                                  '</dl>',
-    //                    dataSource: {
-    //                        type: "odata",
-    //                        serverFiltering: true,
-    //                        filter: [{
-    //                            field: "Name",
-    //                            operator: "contains",
-    //                            value: "Star Wars"
-    //                        }, {
-    //                            field: "BoxArt.SmallUrl",
-    //                            operator: "neq",
-    //                            value: null
-    //                        }],
-    //                        transport: {
-    //                            read: "http://odata.netflix.com/Catalog/Titles"
-    //                        }
-    //                    }
-    //                });
-
-    //                var dropdownlist = $("#titles").data("kendoDropDownList");
-
-    //                // set width of the drop-down list
-    //                dropdownlist.list.width(400);
+    
 
     }, //F
 
