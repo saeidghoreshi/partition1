@@ -5,84 +5,143 @@
 <script type='text/javascript'>
         
         var options = new primitives.orgdiagram.Config();
-
-        var rootItem = new primitives.orgdiagram.ItemConfig();
-        rootItem.title = "Scott Aasrud";
-        rootItem.description = "VP, Public Sector";
-        rootItem.image = "http://www.basicprimitives.com/demo/images/photos/a.png";
         
+        var repo =
+        [
+            { ID: 0, parentID: null, title: "title0", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 1, parentID: null, title: "title1", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 2, parentID: 1, title: "title2", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 3, parentID: 1, title: "title3", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 4, parentID: 2, title: "title4", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 5, parentID: 2, title: "title5", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 6, parentID: 2, title: "title6", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" },
+            { ID: 7, parentID: 3, title: "title7", description: "Description", img: "http://www.basicprimitives.com/demo/images/photos/a.png" }
+        ]
 
-        var itemB = new primitives.orgdiagram.ItemConfig();
-        itemB.title = "Ted Lucas";
-        itemB.description = "VP, Human Resources";
-        itemB.image = "http://www.basicprimitives.com/demo/images/photos/b.png";
-        rootItem.items.push(itemB);
+        function rec(parentNode) {
+            var localRepository = [];
+            for (var i = 0; i < repo.length; i++) {
+                if (repo[i].parentID === parentNode.data.ID) {
 
-        var itemC = new primitives.orgdiagram.ItemConfig();
-        itemC.title = "Joao Stuger";
-        itemC.description = "Business Solutions, US";
-        itemC.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
-        rootItem.items.push(itemC);
+                    var rootItem = new primitives.orgdiagram.ItemConfig();
+                    rootItem.title = repo[i].title;
+                    rootItem.description = repo[i].description;
+                    rootItem.image = repo[i].img;
+                    rootItem.templateName = "contactTemplate";
+                    rootItem.id = i;
 
-        var itemD = new primitives.orgdiagram.ItemConfig();
-        itemD.title = "Joao Stuger";
-        itemD.description = "Business Solutions, US";
-        itemC.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
-        itemB.items.push(itemD);
+                    parentNode.item.items.push(rootItem);
 
-        var itemE = new primitives.orgdiagram.ItemConfig();
-        itemE.title = "Joao Stuger";
-        itemE.description = "Business Solutions, US";
-        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
-        itemB.items.push(itemE);
+                    localRepository.push({ item: rootItem, data: repo[i] });
+                }
+            }
+            for (var i = 0; i < localRepository.length; i++)
+                rec(localRepository[i]);
+        }
 
-        var itemE = new primitives.orgdiagram.ItemConfig();
-        itemE.title = "Joao Stuger";
-        itemE.description = "Business Solutions, US";
-        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
-        itemB.items.push(itemE);
+        var localRepoRoot = [];
+        for(var i=0;i<repo.length;i++) {
+            
+            if(repo[i].parentID===null) {
+                
+                var rootItem = new primitives.orgdiagram.ItemConfig();
+                rootItem.title = repo[i].title;
+                rootItem.description = repo[i].description;
+                rootItem.image = repo[i].img;
+                rootItem.templateName = "contactTemplate";
+                rootItem.id = i;
 
-        var itemE = new primitives.orgdiagram.ItemConfig();
-        itemE.title = "Joao Stuger";
-        itemE.description = "Business Solutions, US";
-        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
-        itemB.items.push(itemE);
+                localRepoRoot.push({ item: rootItem, data: repo[i] });
+                options.rootItem = rootItem;
+            }
+        }
 
-        var itemE = new primitives.orgdiagram.ItemConfig();
-        itemE.title = "Joao Stuger";
-        itemE.description = "Business Solutions, US";
-        itemE.image = "http://www.basicprimitives.com/demo/images/photos/c.png";
-        itemB.items.push(itemE);
+        for (var i = 0; i < localRepoRoot.length; i++)
+            rec(localRepoRoot[i]);
 
-        options.rootItem = rootItem;
-        options.hasSelectorCheckbox = primitives.common.Enabled.False;
-
+       
         var buttons = [];
         buttons.push(new primitives.orgdiagram.ButtonConfig("delete", "ui-icon-close", "Delete"));
         buttons.push(new primitives.orgdiagram.ButtonConfig("properties", "ui-icon-gear", "Info"));
         buttons.push(new primitives.orgdiagram.ButtonConfig("add", "ui-icon-person", "Add"));
 
-        options.rootItem = rootItem;
         options.cursorItem = rootItem;
         options.buttons = buttons;
+
+        //options.templates = [getContactTemplate()];
+        //options.onItemRender = onTemplateRender;
+
         options.hasButtons = primitives.common.Enabled.True;
-        options.hasSelectorCheckbox = primitives.common.Enabled.True;
+        options.hasSelectorCheckbox = primitives.common.Enabled.False;
         options.onButtonClick = function (e, data) {
             var message = "User clicked '" + data.name + "' button for item '" + data.context.title + "'.";
             alert(message);
+            console.log(data.context.id);
         };
 
-        jQuery(".basicdiagram2").orgDiagram(options);
+        
 
-        jQuery(".basicdiagram").orgDiagram(options);
+        function onTemplateRender(event, data) 
+        {
+            var hrefElement = data.element.find("[name=readmore]");
+            
 
-        console.log(jQuery(".basicdiagram"));
-    
+            var itemConfig = data.context;
+
+            if (data.templateName == "contactTemplate") {
+                data.element.find("[name=photo]").attr({ "src": itemConfig.image });
+                hrefElement.attr({ "href": itemConfig.href });
+
+                var fields = ["title", "description", "phone", "email"];
+                for (var index = 0; index < fields.length; index++) {
+                    var field = fields[index];
+
+                    var element = data.element.find("[name=" + field + "]");
+                    if (element.text() != itemConfig[field]) {
+                        element.text(itemConfig[field]);
+                    }
+                }
+            }
+        }
+
+        function getContactTemplate() {
+            var result = new primitives.orgdiagram.TemplateConfig();
+            result.name = "contactTemplate";
+
+            result.itemSize = new primitives.common.Size(220, 120);
+            result.minimizedItemSize = new primitives.common.Size(3, 3);
+            result.highlightPadding = new primitives.common.Thickness(2, 2, 2, 2);
+
+
+            var itemTemplate = jQuery(
+                  '<div class="bp-item bp-corner-all bt-item-frame">'
+                    + '<div class="bp-item bp-corner-all bp-title-frame" style="top: 2px; left: 2px; width: 216px; height: 20px;">'
+                        + '<div name="title" class="bp-item bp-title" style="top: 3px; left: 6px; width: 208px; height: 18px;">'
+                        + '</div>'
+                    + '</div>'
+                    + '<div class="bp-item bp-photo-frame" style="top: 26px; left: 2px; width: 50px; height: 60px;">'
+                        + '<img name="photo" style="height=60px; width=50px;" />'
+                    + '</div>'
+                    + '<div name="phone" class="bp-item" style="top: 26px; left: 56px; width: 162px; height: 18px; font-size: 12px;"></div>'
+                    + '<div name="email" class="bp-item" style="top: 44px; left: 56px; width: 162px; height: 18px; font-size: 12px;"></div>'
+                    + '<div name="description" class="bp-item" style="top: 62px; left: 56px; width: 162px; height: 36px; font-size: 10px;"></div>'
+                    
+                + '</div>'
+                ).css({
+                    width: result.itemSize.width + "px",
+                    height: result.itemSize.height + "px"
+                }).addClass("bp-item bp-corner-all bt-item-frame");
+
+            result.itemTemplate = itemTemplate.wrap('<div>').parent().html();
+
+            return result;
+        }
+        $("#basicdiagram").orgDiagram(options);
 
 </script>
 
 
-  <div class="basicdiagram" style="width:100%; height:480px; " />
+  <div id="basicdiagram" style="width:100%; height:480px; " />
 
 
 
@@ -90,4 +149,6 @@
 
 
 
-        
+
+
+          

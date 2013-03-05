@@ -6,6 +6,7 @@
         ID:null,
         maps:null,
         markersArray:[],
+		drawingManager:null,
 
         init: function (config) {
 
@@ -51,6 +52,27 @@
 
                 me.maps = new google.maps.Map(document.getElementById(me.ID), myOptions);
                 
+				
+				//Drawing Feature
+				me.drawingManager = new google.maps.drawing.DrawingManager({
+					drawingMode: google.maps.drawing.OverlayType.CIRCLE,
+					drawingControl: true,
+					drawingControlOptions: {
+						position: google.maps.ControlPosition.TOP_CENTER,
+						drawingModes: [google.maps.drawing.OverlayType.CIRCLE]
+					},
+					circleOptions: {
+						editable: false,
+						strokeColor: "#1faeff",
+						strokeOpacity: 0.8,
+						strokeWeight: 1,
+						fillColor: "#f2f2f2",
+						fillOpacity: 0.5,
+					}
+				});
+				me.drawingManager.setMap(me.maps);
+				me.circling();
+				//Drawing Feature End ----
 
                 me.directionsDisplay.setMap(me.maps);
                 
@@ -68,6 +90,7 @@
                 var me=this;
 
                 var Latlng = new google.maps.LatLng(input.coords.lat,input.coords.lng);
+				
                 me.maps.setCenter(Latlng);
             },
             putMarker: function (input) {
@@ -98,7 +121,7 @@
 
                 /* input >> coords */
                 var me=this;
-
+				/*
                 var Latlng = new google.maps.LatLng(input.coords.lat,input.coords.lng);
 
                 var Options = {
@@ -112,6 +135,47 @@
                     radius: 10000
                 };
                 new google.maps.Circle(Options);
+				*/
+				////
+					
+					var circles = [];
+					
+					google.maps.event.addDomListener(me.drawingManager, 'circlecomplete', function (circle) {
+						if(circles.length==1)
+						{
+							for (var i in circles) 
+								circles[i].setMap(null);
+							circles=[];
+						}	
+						circles.push(circle);
+						
+						//for (var i = 0; i < circles.length; i++) {
+						
+							var circleCenter = circle.getCenter();
+							var circleRadius = circle.getRadius();
+							var lat=circleCenter.lat().toFixed(3);
+							var lng=circleCenter.lng().toFixed(3);
+							
+							console.log("circle(("+  lat+ "," + lng+"), "+ circleRadius + ")");
+						//}
+						
+						var bounds = circle.getBounds();
+						if (bounds != null) {
+							var groupList = []; 
+							var center = circle.getCenter(); 
+							var r = circle.getRadius(); 
+							
+							var pos =new google.maps.LatLng(49.244276, -123.117943);
+							if (bounds.contains(pos) &&google.maps.geometry.spherical.computeDistanceBetween(pos, center) <= r)
+								 console.log("YES");
+							else
+								console.log("NO");
+						}
+						
+						
+					});//Event End
+				
+				////
             },
             calculateDirection: function (input) {
 
@@ -196,7 +260,7 @@
                     
                     input.map.setCenter(input.point);
                     input.caller.putMarker({ map: input.caller.maps, point: input.point });
-                    input.caller.circling({ map: input.caller.maps, point: input.point });
+                    
 
                     var endPoint = new google.maps.LatLng(49.254137, -123.107986);
                     input.caller.calDirection({ caller: input.caller, startPoint: input.point, endPoint: endPoint });

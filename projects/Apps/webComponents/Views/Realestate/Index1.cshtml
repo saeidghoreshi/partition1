@@ -3,7 +3,12 @@
     Layout = "~/Views/realestate/Master.cshtml";
 }
        
-
+<style>
+input[type="button"]
+{
+    margin:5px;
+}
+</style>
 
 <!--main screen-->
   <script type="text/javascript">
@@ -14,11 +19,19 @@
               $('#splitter').jqxSplitter({ width: '100%', orientation: 'vertical', height: "800", theme: theme, panels: [{ size: "15%" }, { size: '68%' }, { size: "20%"}] });
 
               $("#tabs1").jqxTabs({ theme: theme, height: '100%', width: '100%' });
+              $('input:button').jqxButton({  theme: theme });
 
           });
       } (jQuery));
         
     </script>
+
+    
+
+
+
+
+
 
 <div class='default'>
 
@@ -32,8 +45,9 @@
 
             <!--Center-->
             <div class="splitter-panel">
-            <br />
-            <br />
+
+            <input type="button" value="Draw Circle" id="sendButton" />
+
             <div id="tabs1">
                     <ul>
                         <li style="margin-left: 20px;">Map</li>
