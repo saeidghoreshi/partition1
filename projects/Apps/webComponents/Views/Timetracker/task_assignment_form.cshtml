@@ -1,10 +1,4 @@
-﻿<style>
-.SIDEBYSIDE
-{
-        float:left;
-    }
-</style>
-<!--html-->
+﻿<!--html-->
 <div id='tt_ta_panel'>
 <div>Task Assignment</div>
 <div>       
@@ -13,16 +7,15 @@
         
             <tr>
                 <td width="320px">
+
                     Offices : <div id="tt_ta_offices"></div>
                     User List :
                     
-                    <div id='scrollerContainer' >
-                        <div id="scroll-pane">
+                    
+                    <div id="scroll-pane">
                         <div id="tt_ta_userListContainer" ></div>
-                        </div>
                     </div>
-
-
+                    
 
 
                 </td>
@@ -32,7 +25,15 @@
                         <div style="border-left:1px solid #f2f2f2;height:300px;float:left;"></div>
                     
                 </td>
-                <td> <div id="trash" style="width:300px;height:300px"></div></td>
+                <td> 
+                    <div style="width:130px">
+                        <div id="scroll-pane-asmt-queue">
+                            <div id="asmt-queue"></div>
+                        </div>
+                    </div>
+                    
+                    
+                </td>
             </tr>
             <tr>
                 <td colspan="3" style="text-align: center;">
@@ -48,13 +49,60 @@
 </div>
 </div>
 
-    <!--javascript-->
+
+<!--css-->
+<style>
+#scroll-pane{height: 225px;}			
+#scroll-pane-asmt-queue{height: 270px;}			
+
+.asmt_user_orginal
+{
+    position:relative;
+    width:50px;
+    height:50px;
+    float:left;
+    border:1px solid #1faeff;
+    margin:1px;
+    padding:1px;
+    background:url(../../scripts/Components/TimeTracker/img/user_red.png) no-repeat;
+    background-position:center    
+}
+
+.asmt_user_shadow
+{
+    border:1px solid #f2f2f2;
+    width:50px;
+    height:50px;
+    position:relative;
+    background:url(../../scripts/Components/TimeTracker/img/user_red.png) no-repeat;
+    background-position:center;
+    margin:2px;
+    padding:2px;
+}
+.delbtn
+{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: url('../../scripts/Components/TimeTracker/img/delete.png') no-repeat;
+    cursor: pointer;
+    display: block;
+}
+.arrowdown
+{
+    background: url('../../scripts/Components/TimeTracker/img/arrow_down.png') no-repeat;
+    width: 32px;
+    height: 32px;
+    margin-left:20px;
+}
+
+</style>
+
+<!--javascript-->
 <script type="text/javascript">
 
     var theme = "metro";
     var me = this;
-
-
 
     //BUILD FORM ------------------------------------------------------------------------------
     $('#tt_ta_savebta').jqxButton({ width: 60, height: 25, theme: theme });
@@ -109,6 +157,7 @@
 	    var obj = lib.helper.findItemInObjectArray(value, 'id', me.mainMenuDS);
 	    var mm_id = obj.id;
 
+	    //GET USER LIST BY OFFICEID 
 	    $.get('/timetracker/tt_userlist', { officeID: mm_id })
                 .done(function (data) {
 
@@ -118,43 +167,34 @@
                     $tt_ta_userListcontainer.append('<div style="width:280px;height:100px;" id="tt_ta_userlist"></div>');
                     var $userListPanel = $("#tt_ta_userlist");
 
-                    //CHECH IF IS EMPTY
+                    //CHECK IF IS EMPTY
                     if (data.length == 0) {
                         $userListPanel.html("No Data Availaible");
                         return false;
                     }
 
                     //PUSH DATA IF NOT EMPTY
-
                     for (var item in data) {
 
-                        var $item=$("<div class='item' style='position:relative;width:50px;height:50px;float:left;border:1px solid red;margin:1px;padding:1px;background:url(../../scripts/Components/TimeTracker/img/user_red.png) no-repeat;background-position:center'>"
+                        var $item = $("<div class='asmt_user_orginal' >"
                         + data[item].name
                         + "</div>")
-                        .data("data", { id: data[item].personID });
+                        .data("data", data[item]);
                         $userListPanel.append($item);
-                        
                     }
-                    //MAKE THEM SORTABLE
-
-                    $('#trash')
-                    .sortable({
-                        revert: true
-                    }).disableSelection();
 
                     //BUILD SCROLLER
                     $('#scroll-pane').jScrollPane();
 
 
-                    //EVENT ON MOUSE HOVER HOVER
+                    //EVENT ON MOUSEHOVER ON USERLIST
                     var $helper;
-                    $('.item')
-                    
+                    $('.asmt_user_orginal')
                     .mouseenter(function () {
 
-                        var ItemMe = this;
-                        $helper = $("<div class='tooltip' id='" + lib.helper.idGenerator('tooltip') + "'></div>")
-                        .appendTo($(ItemMe))
+                        var $asmt_user_orginal = $(this);
+                        $helper = $("<div class='tooltip' />")
+                        .appendTo($asmt_user_orginal)
                         .css(
                         {
                             position: "absolute",
@@ -173,42 +213,36 @@
                         }, 100, function () {
                             $(this).fadeIn(200);
                         })
-                        //CLICK ON ADD GROUP ICON
+                        //CLICK ON asmt_user_orginal item
                         .click(function () {
-
+                            console.log($asmt_user_orginal.data("data"));
+                            //BUILD SHADOW ITEM
                             var $addedUserMe =
-                            $(ItemMe).clone()
-                            .data("data", $(ItemMe).data("data"))
-                            
-                            .find(".tooltip").remove().end()
-                            .css(
-                            {
-                                position: "relative",
-                                display: 'none',
-                                float: "left"
-                            })
-                            .appendTo("#trash")
-                            .fadeIn(100, function () {
+                                $('<div/>')
+                                .data("data", $asmt_user_orginal.data("data"))
+                                .addClass("asmt_user_shadow")
+                                .html($asmt_user_orginal.data("data").name)
+                                .appendTo("#asmt-queue");
 
-                                //ADDED USER DELET ACTION
-                                $("<div class='tooltip' id='" + lib.helper.idGenerator('tooltip-del') + "'></div>")
-                                .appendTo($(this))
-                                .css(
-                                {
-                                    position: "absolute",
-                                    left: 0,
-                                    top: 45,
-                                    width: 22,
-                                    height: 5,
-                                    background: "url('../../scripts/Components/TimeTracker/img/remove.png') no-repeat",
-                                    cursor: "pointer",
-                                    display: "block"
-                                }).click(function () {
+                            //ADD ARROW DOWN
+                            $("<div class='arrowdown' />")
+                                .appendTo('#asmt-queue');
 
-                                    $addedUserMe.fadeOut(100, function () { this.remove(); });
+                            //ADDED USER DELET ACTION
+                            $("<div class='tooltip' />")
+                                .appendTo($addedUserMe)
+                                .addClass("delbtn")
+                                .css({ left: 60, top: 10 })
+                                .click(function () {
+
+                                    $addedUserMe.fadeOut(100, function () {
+                                        $(this).next().remove();
+                                        this.remove();
+                                        $('#scroll-pane-asmt-queue').jScrollPane();
+                                    });
                                 });
-                            })
-                            ;
+
+                            $('#scroll-pane-asmt-queue').jScrollPane();
 
 
                         }); //click Event
@@ -223,7 +257,7 @@
                 .fail(function () { console.log('get Function failed'); });
 
 
-	});        //event End
+	});  //event End
 
 
     
@@ -236,7 +270,7 @@
 	    var isValidated = $('#tt_ta_frm').jqxValidator('validate');
 	    if (!isValidated) return false;
 
-	    $('#trash > div').each(function (key, val) {
+	    $('#asmt-queue > .asmt_user_shadow').each(function (key, val) {
 	        console.log($(this).data("data"));
 	        
 	    });
@@ -249,7 +283,7 @@
     });
 
 
-    $("#tt_ta_panel").jqxExpander({ width: 700, theme: "metro",toggleMode: "none",showArrow:false }); 
+    $("#tt_ta_panel").jqxExpander({ width: 500, theme: "metro",toggleMode: "none",showArrow:false }); 
 
 </script>
 
@@ -260,17 +294,7 @@
 
 
 
-<!--
-<div id='scrollerContainer' >
-                        <div id="scroll-pane">
-                        <div id="tt_ta_userListContainer"></div>
-                        </div>
-                    </div>
-                    $('#scroll-pane').jScrollPane();
--->
-<style>
-#scroll-pane{height: 225px;}			
-</style>
+
 
 <link href="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
 <script src="../../../scripts/JSplugins/jScrollPane/jquery.mousewheel.js" type="text/javascript"></script>
