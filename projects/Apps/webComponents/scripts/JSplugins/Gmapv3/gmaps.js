@@ -76,7 +76,7 @@
 
                 me.directionsDisplay.setMap(me.maps);
                 
-                //addCustomControl();
+                me.addCustomControl();
                 
             },
             setZoom:function(input)
@@ -229,7 +229,39 @@
                 var homeControl = new me.HomeControl(homeControlDiv, { caller: me, map: me.maps, point: me.points.vernon });
                 homeControlDiv.index = 1;
                 me.maps.controls[google.maps.ControlPosition.LEFT_CENTER].push(homeControlDiv);
+				
+				var simplePanelDiv = document.createElement('div');
+                var simplePanelControl = new me.simplePanel(simplePanelDiv);
+                simplePanelDiv.index = 1;
+                me.maps.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(simplePanelDiv);
             },
+			simplePanel:function(controlDiv)
+			{
+				var me = this;
+                
+                var controlUI = document.createElement('div');
+                controlUI.style.backgroundColor = '#f2f2f2';
+				controlUI.style.borderColor = '#1faeff';
+				controlUI.style.opacity = '0.4';
+                controlUI.style.borderStyle = 'solid';
+                controlUI.style.borderWidth = '1px';
+                controlUI.style.cursor = 'pointer';
+                controlUI.style.textAlign = 'center';
+                controlUI.title = 'Click to set the map to Home';
+				controlUI.style.width = '900px';
+				controlUI.style.height = '80px';
+                controlDiv.appendChild(controlUI);
+
+                // Set CSS for the control interior.
+                var controlText = document.createElement('div');
+                controlText.style.fontFamily = 'Arial,sans-serif';
+                controlText.style.fontSize = '10px';
+                controlText.style.paddingLeft = '4px';
+                controlText.style.paddingRight = '4px';
+                controlText.innerHTML = 'sample Content';
+                controlUI.appendChild(controlText);
+
+			},
             HomeControl: function (controlDiv, input) {
 
                 var me = this;

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+  <name>New Westminster, BC</name>
+  <description><![CDATA[Enjoy a stroll along the 2-mile waterfront boardwalk and nearby Paddlewheeler Riverboat Tours.]]></description>
+  <Style id="style3">
+    <IconStyle>
+      <Icon>
+        <href>http://www.atlific.com/img/map_quay.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style4">
+    <IconStyle>
+      <Icon>
+        <href>http://www.innatwestminsterquay.com/images/casino.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style2">
+    <IconStyle>
+      <Icon>
+        <href>http://www.innatwestminsterquay.com/images/casino.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style1">
+    <IconStyle>
+      <Icon>
+        <href>http://www.holidayinnvancouverairport.com/img/mapicon_casino.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Placemark>
+    <name>Inn at Westminster Quay</name>
+    <description><![CDATA[<table width="250" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="180">
+      <p><strong><font color="#275A99" size="2" face="Arial, Helvetica, sans-serif">Inn at Westminster Quay</font></strong><br>
+        <font size="1" face="Arial, Helvetica, sans-serif">900 Quayside Drive <br>
+        New Westminster, BC V3M 6G1 <br>
+        Tel: 604-520-1776 <br>
+        Reservations: 1-800-663-2001<BR>
+        Website: <A href="http://www.innatthequay.com/" target="_blank">www.innatthequay.com</A> <BR>
+      Email: <A href="mailto:info@innatthequay.com" target="_blank">info@innatthequay.com</A></font></p></p>
+    </td></td>
+    <td width="70" valign="top"><img src="http://www.atlific.com/img/map_quaylogo.jpg" width="70" height="93" vspace="5" align="right">	</td></td>
+  </tr></tr>
+  <tr>
+    <td colspan="2"><font color="#6F68B6" size="1" face="Arial, Helvetica, sans-serif">Located in the heart of historic New Westminster, BC, The Inn at   Westminster Quay features 126 guestrooms all boasting majestic waterviews and   most offering private balconies.</font></td></td>
+  </tr></tr>
+</table>]]></description>
+    <styleUrl>#style3</styleUrl>
+    <Point>
+      <coordinates>-122.913155,49.199711,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Starlight Casino</name>
+    <description><![CDATA[<DIV dir="ltr"><STRONG>Starlight Casino <BR></STRONG>350 Gifford Street <BR>New Westminster, <BR>BC V3M 7A3 <BR>(604) 777-2WIN</DIV>
+<DIV dir="ltr"><A href="http://www.innatwestminsterquay.com/casino.html" target="_blank">Casino Info</A></DIV>]]></description>
+    <styleUrl>#style4</styleUrl>
+    <Point>
+      <coordinates>-122.953430,49.186150,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Boulevard Casino</name>
+    <description><![CDATA[<DIV><STRONG>Boulevard&nbsp;Casino&nbsp;<BR></STRONG>2080&nbsp;United Boulevard&nbsp;<BR>Coquitlam BC V3K 6W3</DIV>
+<DIV>
+<DIV dir="ltr"><A href="http://www.innatwestminsterquay.com/casino.html" target="_blank">Casino Info</A></DIV></DIV>]]></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-122.836418,49.228809,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>River Rock Casino</name>
+    <description><![CDATA[<DIV><STRONG>River Rock Casino<BR></STRONG>8811 River Road <BR>Richmond BC V6X 3P8</DIV>
+<DIV>
+<DIV dir="ltr"><A href="http://www.innatwestminsterquay.com/casino.html" target="_blank">Casino Info</A></DIV></DIV>]]></description>
+    <styleUrl>#style1</styleUrl>
+    <Point>
+      <coordinates>-123.127258,49.195839,0.000000</coordinates>
+    </Point>
+  </Placemark>
+</Document>
+</kml>

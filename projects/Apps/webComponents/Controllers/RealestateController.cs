@@ -58,6 +58,11 @@ namespace realestateweb.Controllers
             return PartialView("index1/South");
         }
 
+        public ActionResult kml()
+        {
+            return PartialView("kml");
+        }
+
         
     }
 }

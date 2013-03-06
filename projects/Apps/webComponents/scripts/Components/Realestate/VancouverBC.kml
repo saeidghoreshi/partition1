@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+  <name>Vancouver, BC</name>
+  <description><![CDATA[]]></description>
+  <Style id="style3">
+    <IconStyle>
+      <Icon>
+        <href></href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style2">
+    <IconStyle>
+      <Icon>
+        
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style1">
+    <LineStyle>
+      <color>f2f2f2</color>
+      <width>3</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>f2f2f2</color>
+      <fill>1</fill>
+      <outline>1</outline>
+    </PolyStyle>
+  </Style>
+  <Placemark>
+    <name>Vancouver, BC</name>
+    <description></description>
+    <styleUrl>#style3</styleUrl>
+    <Point>
+      <coordinates>-123.113930,49.261227,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Vancouver, BC</name>
+    <description></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-123.113930,49.261227,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Dance In School Locations</name>
+    <description><![CDATA[<div dir="ltr"></div>]]></description>
+    <styleUrl>#style3</styleUrl>
+    <Polygon>
+      <outerBoundaryIs>
+        <LinearRing>
+          <tessellate>1</tessellate>
+          <coordinates>
+            -123.170700,49.266899,0.000000
+            -123.167725,49.145782,0.000000
+            -123.101807,49.106243,0.000000
+            -122.858963,49.073860,0.000000
+            -122.663948,49.093651,0.000000
+            -122.641983,49.128712,0.000000
+            -122.603531,49.211311,0.000000
+            -122.672188,49.242699,0.000000
+            -122.816162,49.303635,0.000000
+            -122.997437,49.410973,0.000000
+            -123.255615,49.414547,0.000000
+            -123.170700,49.266899,0.000000
+          </coordinates>
+        </LinearRing>
+      </outerBoundaryIs>
+    </Polygon>
+  </Placemark>
+</Document>
+</kml>
