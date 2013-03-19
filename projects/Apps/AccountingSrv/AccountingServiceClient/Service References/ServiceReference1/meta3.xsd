@@ -1,42 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/accounting.classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/accounting.classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-  <xs:complexType name="Person">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:Entity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="firstname" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="id" type="xs:int" />
-          <xs:element minOccurs="0" name="lastname" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Person" nillable="true" type="tns:Person" />
-  <xs:complexType name="Entity">
+<xs:schema xmlns:tns="accounting" elementFormDefault="qualified" targetNamespace="accounting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="A_customer">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AccountingLib.Models" minOccurs="0" name="cards" nillable="true" type="q1:ArrayOfcard" />
-      <xs:element minOccurs="0" name="entityTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="firstname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lastname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="curId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Entity" nillable="true" type="tns:Entity" />
-  <xs:complexType name="Service">
+  <xs:element name="A_customer" nillable="true" type="tns:A_customer" />
+  <xs:complexType name="A_service">
     <xs:sequence>
-      <xs:element minOccurs="0" name="issuerEntityID" type="xs:int" />
-      <xs:element minOccurs="0" name="receiverEntityID" type="xs:int" />
-      <xs:element minOccurs="0" name="serviceID" type="xs:int" />
-      <xs:element minOccurs="0" name="serviceName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="servicename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="issuerEntityId" type="xs:int" />
+      <xs:element minOccurs="0" name="receiverEntityId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Service" nillable="true" type="tns:Service" />
-  <xs:complexType name="Invoice">
+  <xs:element name="A_service" nillable="true" type="tns:A_service" />
+  <xs:complexType name="A_invoice">
     <xs:sequence>
-      <xs:element minOccurs="0" name="currencyID" type="xs:int" />
-      <xs:element minOccurs="0" name="invoiceID" type="xs:int" />
-      <xs:element minOccurs="0" name="issuerEntityID" type="xs:int" />
-      <xs:element minOccurs="0" name="receiverEntityID" type="xs:int" />
-      <xs:element minOccurs="0" name="test" type="xs:int" />
+      <xs:element minOccurs="0" name="issuerEntityId" type="xs:int" />
+      <xs:element minOccurs="0" name="receiverEntityId" type="xs:int" />
+      <xs:element minOccurs="0" name="curId" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Invoice" nillable="true" type="tns:Invoice" />
+  <xs:element name="A_invoice" nillable="true" type="tns:A_invoice" />
+  <xs:complexType name="A_InvoiceService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="serviceId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_InvoiceService" nillable="true" type="tns:A_InvoiceService" />
+  <xs:complexType name="A_finalizeInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_finalizeInvoice" nillable="true" type="tns:A_finalizeInvoice" />
+  <xs:complexType name="A_newbank">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bankname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_newbank" nillable="true" type="tns:A_newbank" />
+  <xs:complexType name="A_setBankInteracFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bankId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_setBankInteracFee" nillable="true" type="tns:A_setBankInteracFee" />
+  <xs:complexType name="A_setBankCreditcardFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bankId" type="xs:int" />
+      <xs:element minOccurs="0" name="ccCardTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_setBankCreditcardFee" nillable="true" type="tns:A_setBankCreditcardFee" />
+  <xs:complexType name="A_newCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cardNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="expirydate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_newCard" nillable="true" type="tns:A_newCard" />
+  <xs:complexType name="A_assignCardToBank">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cardId" type="xs:int" />
+      <xs:element minOccurs="0" name="bankId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_assignCardToBank" nillable="true" type="tns:A_assignCardToBank" />
+  <xs:complexType name="A_assignCardToPerson">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cardId" type="xs:int" />
+      <xs:element minOccurs="0" name="personEntityId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_assignCardToPerson" nillable="true" type="tns:A_assignCardToPerson" />
+  <xs:complexType name="A_addWallet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="personEntityId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="curId" type="xs:int" />
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_addWallet" nillable="true" type="tns:A_addWallet" />
+  <xs:complexType name="A_invoiceSum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_invoiceSum" nillable="true" type="tns:A_invoiceSum" />
+  <xs:complexType name="A_payInvoiceCredit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="cardId" type="xs:int" />
+      <xs:element minOccurs="0" name="ccCardTypeId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_payInvoiceCredit" nillable="true" type="tns:A_payInvoiceCredit" />
+  <xs:complexType name="A_payInvoiceInterac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="cardId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_payInvoiceInterac" nillable="true" type="tns:A_payInvoiceInterac" />
+  <xs:complexType name="A_payInvoiceInternal">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_payInvoiceInternal" nillable="true" type="tns:A_payInvoiceInternal" />
+  <xs:complexType name="A_cancelInvoicePayExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_cancelInvoicePayExt" nillable="true" type="tns:A_cancelInvoicePayExt" />
+  <xs:complexType name="A_cancelInvoicePayInt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+      <xs:element minOccurs="0" name="paymentId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_cancelInvoicePayInt" nillable="true" type="tns:A_cancelInvoicePayInt" />
+  <xs:complexType name="A_cancelInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="invoiceId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="A_cancelInvoice" nillable="true" type="tns:A_cancelInvoice" />
 </xs:schema>

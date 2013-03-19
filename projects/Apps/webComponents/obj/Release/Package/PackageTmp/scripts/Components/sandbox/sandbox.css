@@ -1,0 +1,15 @@
+﻿.jqx-window-modal
+{
+    height:100% !important;
+}
+
+.header
+{   
+    margin:5px;
+	color:blue;
+	cursor: pointer;
+}
+.headercontent
+{   
+    margin:5px;
+}

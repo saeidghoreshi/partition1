@@ -1,0 +1,74 @@
+﻿@background2:url(../images/environment.jpg);
+@background:url(../images/environment2.jpg);
+.shadow(@percent:0.50)
+{
+    /*Box Shadow*/
+    -moz-box-shadow: 0 1px 20px rgba(0, 0, 0, @percent);
+    -webkit-box-shadow: 0 1px 20px rgba(0, 0, 0, @percent);
+    -goog-ms-box-shadow: 0 1px 20px rgba(0, 0, 0, @percent);
+    box-shadow: 0 1px 20px rgba(0, 0, 0, @percent);
+}
+.borderRadious(@size:5px)
+{
+    /*Border Radious*/
+    -moz-border-radius: @size @size @size @size;
+    -webkit-border-top-left-radius: @size;
+    -webkit-border-top-right-radius: @size;
+    -webkit-border-bottom-left-radius: @size;
+    -webkit-border-bottom-right-radius: @size;
+    -goog-ms-border-radius: @size @size @size @size;
+    border-radius: @size @size @size @size;
+}
+
+@media only screen and (min-width:1580px)
+{
+
+body
+{
+    background:@background repeat fixed  center;
+    font:verdana;
+    padding: 10px;
+    /*display: none;*/
+}
+.myBoxStyle
+{   
+    margin:5px;
+    color:#ccc;
+    background: transparent url(../images/black.png) repeat scroll top left;
+    .borderRadious();
+    .shadow();
+    
+}
+.myBoxVerFull
+{
+    width:100%;
+    height:800px;
+    padding: 20px;
+}
+
+.myBoxVer1
+{
+    margin-top:20;
+    width:400px;
+    height:400px;
+    padding: 20px;
+}
+.myBoxVer2
+{
+    margin-top:20px;
+    width:600px;
+    height:750px;
+    padding: 20px;
+}
+.myBoxHor
+{
+    margin-top:0px;
+    height:300px;
+}
+ table
+ {
+     width:100%;
+ }
+ 
+ 
+}

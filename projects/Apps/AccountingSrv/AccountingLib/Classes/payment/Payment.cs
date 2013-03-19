@@ -42,7 +42,7 @@ namespace accounting.classes
             }
         }
 
-        public List<AccountingLib.Models.transaction> cancelPayment(enums.paymentAction _paymentAction)
+        public List<int> cancelPayment(enums.paymentAction _paymentAction)
         {   
             //First check this payment is able to be cancelled  ************
 
@@ -77,7 +77,7 @@ namespace accounting.classes
                     .ToList();
 
                 //enter and save revered Transactions
-                List<AccountingLib.Models.transaction> reveresedTransactions = new List<transaction>();
+                List<int> reveresedTransactions = new List<int>();
                 foreach (var txn in paymentTransactions)
                     reveresedTransactions.Add(Transaction.createNew((int)txn.ownerEntityID, (int)txn.catTypeID, -1 * (decimal)txn.amount, (int)txn.currencyID));
 

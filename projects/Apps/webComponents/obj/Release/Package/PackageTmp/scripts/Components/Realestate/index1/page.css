@@ -1,0 +1,61 @@
+﻿
+#listings ul li
+{
+    height:80px;
+    width:210px;
+    margin:1px;
+    padding:1px;
+    border:1px solid  lightgray;
+    background:#f2f2f2;
+    list-style-type:none;
+    color:#666;
+    border-radius:3px;
+    font-family:Arial;
+    font-size: 10px;
+}
+#listings ul li:hover
+{
+    background:#555;
+    color:White;
+}
+.listings_selected
+{
+    background:#C6C6C6 !important;
+}
+#listings ul
+{   
+    padding: 0px !important;
+    cursor:pointer;
+    margin: 0px;
+}
+
+#mainLayout2 .layout-panel-center , #layout2-center
+{
+    width:100% !important;
+}
+#listingPanel
+{
+    margin-top:10px;    
+    border-bottom:1px  dashed gray;
+    padding:5px;
+    margin:5px;
+}
+#priceRange
+{
+    margin-left:10px;    
+    margin-right:10px;    
+}
+.panel-body
+{
+    color:inherit  !important;
+}
+#settings-panel
+{
+    padding:5px;    
+}
+
+
+.jqx-window-modal
+{
+    height:100% !important;
+}

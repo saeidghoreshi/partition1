@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="739ce4cf-95b7-4f60-bd1a-f5224e46ff2d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d2d6d36-151b-4d86-aed4-52f0f0489217" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,14 +21,15 @@
     <MetadataSource Address="http://localhost:555/srv.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="meta.xsd" MetadataType="Schema" ID="c3c549ca-7f59-4af8-a004-07cce4e715bc" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd4" />
-    <MetadataFile FileName="meta1.xsd" MetadataType="Schema" ID="02352de3-3730-4bac-af6d-a634efbde82b" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd0" />
-    <MetadataFile FileName="meta2.xsd" MetadataType="Schema" ID="ce0aa732-f78e-40ae-b7ba-a24c506df740" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd3" />
-    <MetadataFile FileName="meta3.xsd" MetadataType="Schema" ID="1f0ce2cf-80ad-4810-8255-908cf58b7682" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd2" />
-    <MetadataFile FileName="meta4.xsd" MetadataType="Schema" ID="ac251254-701e-482d-ab38-d2557a513054" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd1" />
-    <MetadataFile FileName="meta1.disco" MetadataType="Disco" ID="5e9570e1-2283-4435-bb04-c34d027ad0c4" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?disco" />
-    <MetadataFile FileName="meta5.xsd" MetadataType="Schema" ID="db138e57-df54-445a-a26c-abf37ccf251c" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd5" />
-    <MetadataFile FileName="AccountingV11.wsdl" MetadataType="Wsdl" ID="bdf6df2c-1681-4460-8ff7-97cbb8e5d823" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?wsdl" />
+    <MetadataFile FileName="meta.xsd" MetadataType="Schema" ID="91b5faf8-35cc-4967-985d-7a285e9f77ca" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd4" />
+    <MetadataFile FileName="meta1.xsd" MetadataType="Schema" ID="d7592161-f1e9-48e0-9001-c90da6fccad0" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd0" />
+    <MetadataFile FileName="meta2.xsd" MetadataType="Schema" ID="4ee5e19a-baa7-4bd5-b473-59f5e9dace42" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd3" />
+    <MetadataFile FileName="meta3.xsd" MetadataType="Schema" ID="a273d3ab-2ad3-4078-8e74-e62e48de980b" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd2" />
+    <MetadataFile FileName="meta4.xsd" MetadataType="Schema" ID="dc655361-2f9a-4398-a807-002dc623209e" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd1" />
+    <MetadataFile FileName="meta.disco" MetadataType="Disco" ID="afe5b7df-9e0c-41b2-9805-9ee4e9b22860" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?disco" />
+    <MetadataFile FileName="meta5.xsd" MetadataType="Schema" ID="563566d9-1927-420f-b70f-20b78c8fd808" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd5" />
+    <MetadataFile FileName="AccountingV1.wsdl" MetadataType="Wsdl" ID="086d4902-627d-45e8-b2ef-4eb1f65c1f83" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?wsdl" />
+    <MetadataFile FileName="meta6.xsd" MetadataType="Schema" ID="2910f35c-c1db-49e4-9899-b791666f8746" SourceId="1" SourceUrl="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd6" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

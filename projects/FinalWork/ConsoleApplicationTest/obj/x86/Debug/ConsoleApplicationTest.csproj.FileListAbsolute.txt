@@ -47,8 +47,8 @@ C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ConsoleApplicationTest.exe
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\ConsoleApplicationTest.pdb
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\bin\Debug\Interop.ADOX.dll
-C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\Interop.ADOX.dll
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.csproj.ResolveComReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.exe
 C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\ConsoleApplicationTest\obj\x86\Debug\ConsoleApplicationTest.csprojResolveAssemblyReference.cache

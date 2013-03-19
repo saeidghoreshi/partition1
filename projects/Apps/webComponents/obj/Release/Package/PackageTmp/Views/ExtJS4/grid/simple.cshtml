@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Index1";
+    Layout = "~/Views/Extjs4/Master.cshtml";
+}
+
+
+<!--Component-->
+<script src="../../../scripts/Components/ExtJS/Grid/extjsGridSimple.js" type="text/javascript"></script>
+
+<!--script-->
+<script language="javascript">
+
+    Ext.onReady(function () 
+    {
+        var grid1;
+        grid1 = new extjsGridSimple({parentID: "extcomponent"});
+        grid1.init();
+    });
+
+</script>
+
+
+
+<!--html-->
+<div id="extcomponent" style="width:100%;height:300px"></div>
+
+<br />
+<br />
+<br />
+<div style="text-align:center">
+<p>
+<h4>Features</h4>
+<br />
+MultiSelect plugin<br />
+templete Column<br />
+column Renderer<br />
+Action Column<br />
+class column<br />
+dnd on grid<br />
+
+<br /><br />
+Events: ON<br />
+select <br />
+render<br />
+itemclick<br />
+collapse<br />
+expand<br />
+viewtip<br />
+on mouse enter<br />
+contextmenu<br />
+
+
+
+</p>
+
+</div>

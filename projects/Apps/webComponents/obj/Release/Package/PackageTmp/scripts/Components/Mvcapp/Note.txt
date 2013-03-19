@@ -1,0 +1,12 @@
+﻿::ClientSide::
+
+1-in Javascript objects pass by reference
+2-
+String OPS: replace, slice, split, search
+Array OPS : sort, reverse, push, pop, join, splice
+3-x=jsonParse(jsArray.stringify)
+
+
+
+::ServerSide:: 
+iFrame canbe allowed by server to be loaded adn can get params by client

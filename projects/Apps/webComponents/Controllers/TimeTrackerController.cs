@@ -586,18 +586,7 @@ namespace MvcApplication1.Controllers
             return Json(result,JsonRequestBehavior.AllowGet);
         }
 
-        public PartialViewResult tt_task_new_form() 
-        {
-            return PartialView("task_new_form");
-        }
-        public PartialViewResult tt_task_assignment_form()
-        {
-            return PartialView("task_assignment_form");
-        }
-        public PartialViewResult tt_task_history_form()
-        {
-            return PartialView("task_history_form");
-        }
+        
         public JsonResult tt_userList()
         {
             var pars = Request.Params;
@@ -637,6 +626,32 @@ namespace MvcApplication1.Controllers
             return PartialView("task_history");
 
         }
+        public PartialViewResult tt_task_new_form()
+        {
+            return PartialView("task_new_form");
+        }
+        public PartialViewResult tt_task_assignment_form()
+        {
+            return PartialView("task_assignment_form");
+        }
+        public PartialViewResult tt_task_history_form()
+        {
+            return PartialView("task_history_form");
+        }
+        public PartialViewResult tt_officeUsers_form()
+        {
+            List<tt_user> users = new List<tt_user>();
+            users.Add(new tt_user() {ID=1,name="saeid"});
+            users.Add(new tt_user() { ID = 1, name = "saeid" });
+            users.Add(new tt_user() { ID = 1, name = "saeid2" });
+            users.Add(new tt_user() { ID = 1, name = "saeid3" });
+            users.Add(new tt_user() { ID = 1, name = "saeid3" });
+            users.Add(new tt_user() { ID = 1, name = "saeid3" });
+            users.Add(new tt_user() { ID = 1, name = "saeid3" });
+            ViewBag.users = users;
+            return PartialView("task_officeUser_form");
+        }
+
         public PartialViewResult tt_task_chart_form()
         {
             return PartialView("task_chart_form");

@@ -1,0 +1,132 @@
+﻿<style>
+    #tt_officeUsers_scroll_pane{height: 200px;}	
+    .tt_officeUsers_items
+    {
+        border:1px solid #f2f2f2;
+        padding:2px;
+        margin:2px;
+        vertical-align:top;
+    }
+    
+</style>
+
+   <div id='jqxTabs'>
+            <ul>
+                <li style="margin-left: 30px;">Users</li>
+                <li>Create New</li>
+                
+            </ul>
+            <div>
+                <div style="width:350px">
+                    <div id="tt_officeUsers_scroll_pane">
+                        @foreach(var item in ViewBag.users)
+                        {
+                            <div class="tt_officeUsers_items">
+                                <table>
+                                <tr>
+                                <td><div><img src="" width="50px" height="50px" /></div></td>
+                                <td><div style="margin-right:5px">@item.name</div></td>
+                                </tr>
+                                </table>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div>
+            <!--Create User-->
+            <table>
+            <tr>
+                <td>User Type</td>
+                <td><div id="tt_userTypes"></div></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td></td>
+            </tr>
+            </table>
+            </div>
+
+
+            
+        </div>
+
+        <input type="button"  id="tt_officeUsers_cancelbtn" value="Close"/>
+
+
+
+
+
+<script>
+    var userForm;
+(function ($) {
+
+	userForm=cls.define(
+    	{ 
+        
+            init:function()
+            {
+                var theme = getDemoTheme()
+                var me=this;
+                $('#tt_officeUsers_cancelbtn').jqxButton({ theme: theme })
+                .on('click', function () {
+
+                    lib.helper.jqWidgetWinClose();
+                    return false;
+                });
+                            $('#tt_officeUsers_scroll_pane').jScrollPane();
+                            $('#jqxTabs').jqxTabs({ width: '100%', height: "250", position: 'top', theme: theme });
+
+                            //UserTypeList -------------------------------
+                            //Define Source
+                            me.mainMenuDS =
+                [
+                    { id: "1", name: "Office1" },
+                    { id: "2", name: "Office2" }
+                ];
+                            //Define Adapter
+                            var dataAdapter = new $.jqx.dataAdapter({ localdata: me.mainMenuDS });
+
+                            //Define Component
+                            var $userTypeList = $('#tt_userTypes');
+                            $userTypeList.jqxDropDownList(
+	            {
+	                dropDownHeight: 100,
+	                promptText: "----",
+	                theme: me.theme,
+	                source: dataAdapter,
+	                displayMember: "label",
+	                valueMember: "id",
+	                height: 25,
+	                width: 190
+	            });
+                            $userTypeList.on('change',
+	            function (event) {
+	                var args = event.args;
+
+	                if (!args) return;
+	                // index represents the item's index.                      
+	                var index = args.index;
+	                var item = args.item;
+	                if (item === undefined || item === null) return;
+
+	                // get item's label and value.
+	                var label = item.label;
+	                var value = item.value;
+	            });
+            }
+        
+        });
+
+var userForm=new userForm();
+userForm.init();
+
+
+} (jQuery));
+   
+</script>

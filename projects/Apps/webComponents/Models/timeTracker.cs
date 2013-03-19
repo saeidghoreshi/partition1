@@ -10,4 +10,9 @@ namespace Models
         public int ID;
         public string label;
     }
+    public class tt_user
+    {
+        public int ID;
+        public string name;
+    }
 }

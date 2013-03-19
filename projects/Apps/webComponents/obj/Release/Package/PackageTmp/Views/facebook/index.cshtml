@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index1";
+   Layout = "~/Views/sandbox/Master.cshtml";
+}
+
+
+<script src="../../scripts/Components/facebook/facebook.js" type="text/javascript"></script>
+
+<input type=button value="login" id="loginByFB" />
+
+<script>
+    $('#loginByFB').click(function () {
+
+        var fb = new facebookCtrl();
+        
+        fb.login();
+
+        return false;
+    });
+</script>

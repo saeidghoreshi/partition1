@@ -1,0 +1,56 @@
+﻿<div id='listingPanel'>
+<div id='scrollerContainer' style="width:230px;">
+    <div id="scroll-pane">
+    <div id="listings">
+    <ul>
+    @foreach (var item in ViewBag.data)
+    {
+        <li data='{"lat":@item["lat"],"lng":@item["lng"]}' style="vertical-align:top">
+            <table cellpadding=2 cellspacing=0 border=0>
+            <tr>
+            <td>
+                <img width="70px" height="70px"  src="../../../scripts/Components/Realestate/index1/img/samplepic.jpg" />
+            </td>
+            <td>
+                @item["address"],@item["city"]<br/>
+                @item["postalcode"]<br/>
+                @item["status"]
+            </td>
+            </tr>
+            </table>
+            
+        </li>
+    }
+    </ul>
+    </div>
+    </div>
+</div>
+</div>
+
+
+    <script>
+
+        (function ($) {
+
+            //scroller Pane
+            $('#scroll-pane').ready(function () {
+                $('#scroll-pane').jScrollPane();
+            });
+
+        } (jQuery));
+
+</script>
+
+<style>
+#scrollerContainer
+{
+    margin-right: 2px;
+}
+#scroll-pane
+{
+	width: 100%;
+	height: 550px;
+	overflow: auto;
+}			
+</style>
+

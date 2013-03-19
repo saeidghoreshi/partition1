@@ -1,0 +1,81 @@
+﻿<!--html-->
+<div id='jqxExpander'>
+<div>Title</div>
+<div>
+            
+            
+<form id="tt_tn_frm" >
+    <table cellpadding=0 cellspacing=0 border=0 width=100%>
+        
+        <tr>
+            <td>Task Name :</td>
+            <td><input type="text" id="tt_tn_name" /></td>
+        </tr>
+        <tr>
+            <td>DeadLine : </td>
+            <td><div id="tt_tn_deadline"></div></td>
+        </tr>
+        <tr>
+            <td style="vertical-align:top">Description:</td>
+            <td>
+                <div id="tt_tn_description" style="width:540px;"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <input type="submit" value="Save" id="tt_tn_savebtn" />
+                <input type="submit" value="Cancel" id="tt_tn_cancelbtn" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+</div>
+</div>
+    <!--javascript-->
+     <script type="text/javascript">
+
+         var theme = "metro";
+
+         //BUILD FORM ------------------------------------------------------------------------------
+         $('#tt_tn_savebtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#tt_tn_cancelbtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#tt_tn_frm').jqxValidator({
+             rules:
+             [
+                { input: '#tt_tn_name', message: 'Task Name is required!', action: 'keyup, blur', rule: 'required' }
+             ]
+         });
+
+
+         $("#tt_tn_deadline").jqxDateTimeInput({ width: '250px', height: '25px', theme: theme });
+
+         //BUILD EDITOR
+         
+         var tt_tn_editor=CKEDITOR.replace('tt_tn_description', {
+             toolbarGroups: [
+		        { name: 'document', groups: ['mode', 'document'] },
+ 		        { name: 'clipboard', groups: ['clipboard', 'undo'] },
+                {name: 'basicstyles', groups: ['basicstyles', 'cleanup'] }
+	        ]
+            ,height:100});
+
+         //SAVE FORM -------------------------------------------------------------------------------------------------
+         $('#tt_tn_savebtn').on('click', function (event) {
+
+             var isValidated = $('#tt_tn_frm').jqxValidator('validate');
+             if (!isValidated) return false;
+
+             return false;
+         });
+
+         $('#tt_tn_cancelbtn').on('click', function () {
+
+             
+             return false;
+         });
+
+         $("#jqxExpander").jqxExpander({ width: 700, theme: "metro",toggleMode: "none",showArrow:false }); 
+
+        
+    </script>

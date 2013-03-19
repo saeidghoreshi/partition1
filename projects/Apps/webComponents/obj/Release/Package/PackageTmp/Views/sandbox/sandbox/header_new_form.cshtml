@@ -1,0 +1,102 @@
+﻿     <!--css-->
+     <style type="text/css">
+        .text-input
+        {
+            height: 21px;
+            width: 150px;
+        }
+        .register-table
+        {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .register-table td, 
+        .register-table tr
+        {
+            margin: 0px;
+            padding: 2px;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+        h3 
+        {
+            display: inline-block;
+            margin: 0px;
+        }
+    </style>
+
+
+    <!--html-->
+    <div id="header_panel">
+        <div><h3>Deatails</h3></div>
+        <div>
+            <form action='/' id="header_frm" >
+                <table class="register-table">
+                    <tr>
+                        <td>Header:</td>
+                        <td><input type="text" id="header_label" class="text-input" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <input type="submit" value="Save" id="header_savebtn" />
+                            <input type="submit" value="Cancel" id="header_cancelbtn" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <!--javascript-->
+     <script type="text/javascript">
+
+         var header_DATA = {};
+         var theme = getDemoTheme()
+
+         //build form 
+         $("#header_panel").jqxExpander({ toggleMode: 'none', showArrow: false, theme: theme });
+         $('#header_savebtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#header_cancelbtn').jqxButton({ width: 60, height: 25, theme: theme });
+         $('#header_frm').jqxValidator({
+             rules: [
+                    { input: '#header_label', message: 'Header Name is required!', action: 'keyup, blur', rule: 'required' }
+                    
+                ]
+         });
+
+         //save form
+         $('#header_savebtn').click(function (event) {
+
+             var isValidated = $('#header_frm').jqxValidator('validate');
+             if (!isValidated) return false;
+
+             $.ajax(
+             {
+                 url: "/sandbox/header_savenew",
+                 type:"post",
+                 data: { header: $('#header_label').val() }
+             })
+             .done(function (data) {
+
+                 //close the window
+                 lib.helper.jqWidgetWinClose(header_DATA.winid);
+
+                 //regenerate panel
+                 mainPanel.loadDataSources();
+             })
+             .fail(function (data) { console.log('error happend in new header') })
+             .always(function (data) { });
+
+             return false;
+         });
+         $('#header_cancelbtn').on('click', function () {
+
+             lib.helper.jqWidgetWinClose(header_DATA.winid);
+             mainPanel.loadDataSources();
+             return false;
+         });
+         
+            
+    </script>

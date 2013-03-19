@@ -85,7 +85,7 @@ namespace accounting.classes
             using(var ctx=new AccountingLib.Models.AccContexts())
             {
                 //Record related transctions
-                List<AccountingLib.Models.transaction> transactions = new List<transaction>();
+                List<int> transactions = new List<int>();
                 var trans1 = Transaction.createNew(this.ENTITYID, (int)AssetCategories.W, +1 * (decimal)amount, currencyID);
                 transactions.Add(trans1);
                 var trans2 = Transaction.createNew(this.ENTITYID, (int)AssetCategories.CCCASH, -1 * (decimal)amount, currencyID);
@@ -107,7 +107,7 @@ namespace accounting.classes
                     var entityWalletTxn = new AccountingLib.Models.entityWalletTransaction()
                     {
                         entityWalletID = entityWallet.ID,
-                        transactionID = txn.ID
+                        transactionID = txn
                     };
                     ctx.entityWalletTransaction.AddObject(entityWalletTxn);
                     ctx.SaveChanges();

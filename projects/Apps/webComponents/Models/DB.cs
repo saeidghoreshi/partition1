@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 
 namespace realestateweb.Models
-{
+{   
     public class sqlServerPar
     {
         public string name;
@@ -16,6 +16,7 @@ namespace realestateweb.Models
     //sqlserver Class
     public class sqlServer
     {
+        public static string connString1 = "server=s06.winhost.com;uid=DB_40114_codeclub_user;pwd=p0$31d0n;database=DB_40114_codeclub";
         private SqlConnection conn;
         private string connstring;
 

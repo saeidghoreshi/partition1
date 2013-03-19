@@ -18,10 +18,10 @@ C:\projects\Partitions\partition1\projects\Apps\RDP\obj\x86\Debug\RDP.pdb
 C:\projects\Partitions\partition1\projects\Apps\RDP\obj\x86\Debug\RDP.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\bin\Debug\RDP.exe
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\bin\Debug\RDP.pdb
-C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RDP.csprojResolveAssemblyReference.cache
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RdpProject.Form1.resources
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RdpProject.NewRdp.resources
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RDP.Properties.Resources.resources
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RDP.csproj.GenerateResource.Cache
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RDP.exe
 C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RDP.pdb
+C:\projects\Partitions\partition1\projects\FinalWork\RDP\obj\x86\Debug\RDP.csprojResolveAssemblyReference.cache

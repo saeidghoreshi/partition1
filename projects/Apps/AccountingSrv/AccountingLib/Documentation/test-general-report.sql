@@ -1,84 +1,191 @@
-select * 
-from Accounting.invoiceAction ia
-inner join Accounting.invoiceStat iis on iis.ID=ia.invoiceStatID
-;
-select SUM(balance) as 'tootal accounts balance' from Accounting.account ;
+USE [DB_40114_codeclub]
+GO
+/****** Object:  StoredProcedure [Accounting].[resetSeeds]    Script Date: 03/06/2013 16:34:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER   proc [Accounting].[resetSeeds]
+as
 
-select 'Union for Entities' as ' '; 
-select p.entityID,p.firstName+'-'+p.lastName from Accounting.person p
-union
-select o.entityID,convert(varchar(200),o.ID) from Accounting.organization o
+BEGIN transaction T1;
 
+delete from accounting.bank
 
-select 'Invoice Action Transactions' as '-';
-select i.ID as invoiceID,i.receiverEntityID,i.issuerEntityID,
-_is.name stat,
-ta.transactionID ,ta.amount,
-
-ta.accountID,ta.ownerEntityID,
-ta.GL,ta.Category,
-ta.balance,
-ta.currency
-
-from Accounting.invoice i 
-LEFT join Accounting.invoiceAction ia on i.ID=ia.invoiceID
-LEFT join Accounting.invoiceStat _is on _is.ID=ia.invoiceStatID
-left join Accounting.invoiceActionTransaction iat on iat.invoiceActionID=ia.ID
-left join accounting.transactionAccount as ta on  ta.transactionID=iat.transactionID
-;
-
-select 'Invoice Payments' as '-';
-select ip.invoiceID,p.ID paymentid,p.payerEntityID,p.payeeEntityID,p.amount 
-from Accounting.invoicePayment ip
-inner join Accounting.payment p on p.ID=ip.paymentID;
+delete from accounting.ccfee
+delete from accounting.fee
 
 
-select 'entityWalletTxn' as ' '
-select ew.title as 'EW-Title',ew.amount 'EW-Amount',ew.entityID 'EW-entityID',
-ta.*
 
-from Accounting.entityWallet ew 
-inner join Accounting.entityWalletTransaction ewt on ewt.entityWalletID=ew.id
-inner join accounting.transactionAccount as ta on  ta.transactionID=ewt.transactionID
+delete from Accounting.invoiceService;
+delete from Accounting.invoicePayment;
+delete from Accounting.externalPayment
+delete from Accounting.internalPayment;
+delete from Accounting.invoiceAction;
+delete from Accounting.invoiceActionTransaction;
+delete from Accounting.entitywallettransaction;
+delete from Accounting.entitywallet;
 
+delete from Accounting.paymentActionTransaction;
+delete from Accounting.paymentAction;
 
-select 'payment action ' as  ' ';
-select 
-p.ID as paymentID,p.amount,
-ps.name,
+delete from Accounting.ccfee;
+delete from Accounting.fee;
+delete from Accounting.account;
+delete from Accounting.card;
+delete from Accounting.ccCard;
+delete from Accounting.dbCard;
+delete from Accounting.cardType;
+delete from Accounting.mcCard;
+delete from Accounting.visaCard;
+delete from Accounting.payment;
+delete from Accounting.paymentType;
+delete from Accounting.ccPayment;
+delete from Accounting.dbPayment;
+delete from Accounting.extPaymentType;
 
-pt.name as paymentType,
-case when ept.name is null then '-' else ept.name end  as extPaymentType
-
-from Accounting.payment p
-
-inner join Accounting.paymentAction pa on p.ID=pa.paymentID
-inner join Accounting.paymentstat ps on ps.ID=pa.paymentStatID
-
-left join Accounting.externalPayment ep on ep.paymentID=p.ID
-left join Accounting.internalPayment ip on ip.paymentID=p.ID
-left join Accounting.paymentType pt on pt.ID=p.paymentTypeID 
-
-left join Accounting.ccPayment cc on cc.extPaymentID=ep.ID
-left join Accounting.dbPayment db on db.extPaymentID=ep.ID
-left join Accounting.extPaymentType ept on ept.ID=ep.extPaymentTypeID 
-;
-
-
-select 'payment action Txns' as  ' ';
-select 
-ps.name,
-ta.*
-from Accounting.paymentAction pa
-inner join Accounting.paymentActionTransaction pat on pa.ID=pat.paymentActionID
-inner join Accounting.transactionaccount ta on ta.transactionID=pat.transactionID
-inner join Accounting.paymentStat ps on pa.paymentStatID=ps.ID;
+delete from Accounting.glType;
+delete from Accounting.categoryType;
 
 
-select * from Accounting.currency;
-select * from Accounting.currencyType;
-select 'Services' as '-';
-select * from Accounting.service;
+delete from Accounting.currencyType;
+delete from Accounting.currency;
 
-select * from Accounting.fee
-select * from Accounting.ccfee
+delete from Accounting.[transaction];
+delete from Accounting.invoiceStat;
+delete from Accounting.invoice;
+delete from Accounting.service;
+delete from Accounting.entityCard;
+delete from Accounting.entity;
+
+delete from Accounting.person;
+
+
+DBCC CHECKIDENT ( 'Accounting.card',reseed, 0);
+DBCC CHECKIDENT ( 'Accounting.ccCard',reseed, 0);
+DBCC CHECKIDENT ( 'Accounting.dbCard',reseed, 0);
+ 
+ DBCC CHECKIDENT ( 'Accounting.mcCard',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.visaCard',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.payment',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.externalPayment',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.internalPayment',reseed, 0);
+ 
+ DBCC CHECKIDENT ( 'Accounting.ccPayment',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.dbPayment',reseed, 0);
+ 
+
+
+ DBCC CHECKIDENT ( 'Accounting.invoicePayment',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.currency',reseed, 0);
+
+ DBCC CHECKIDENT ( 'Accounting.account',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.[transaction]',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.entity',reseed, 0);
+ 
+ DBCC CHECKIDENT ( 'Accounting.invoice',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.invoiceAction',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.invoiceActionTransaction',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.service',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.invoiceService',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.entityCard',reseed, 0);
+ 
+ DBCC CHECKIDENT ( 'Accounting.entitywallettransaction',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.entitywallet',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.paymentAction',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.paymentActionTransaction',reseed, 0);
+ 
+ 
+ 
+ DBCC CHECKIDENT ( 'Accounting.bank',reseed, 0);
+
+ DBCC CHECKIDENT ( 'Accounting.ccfee',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.ccfee',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.fee',reseed, 0);
+ DBCC CHECKIDENT ( 'Accounting.card',reseed, 0);
+ 
+ DBCC CHECKIDENT ( 'Accounting.person',reseed, 0);
+
+ delete from Accounting.person --where entityID is null;
+ 
+ 
+ 
+ --GLTYPE
+ delete from Accounting.glType
+ insert into Accounting.glType (id,name)values(1,'ASSET');
+ insert into Accounting.glType (id,name)values(2,'OE');
+ insert into Accounting.glType (id,name)values(3,'LIB');
+  --CATEGORYTYPE
+ delete from Accounting.categoryType
+ insert into Accounting.categoryType (id,name,glTypeID)values(1,'AR',1);
+ insert into Accounting.categoryType (id,name,glTypeID)values(2,'W',1);
+ insert into Accounting.categoryType (id,name,glTypeID)values(3,'DBCASH',1);
+ insert into Accounting.categoryType (id,name,glTypeID)values(4,'CCCASH',1);
+ insert into Accounting.categoryType (id,name,glTypeID)values(8,'INC',2);
+ insert into Accounting.categoryType (id,name,glTypeID)values(9,'EXP',2);
+ insert into Accounting.categoryType (id,name,glTypeID)values(10,'AP',3);
+ --CardType
+ delete from cardType
+ insert into Accounting.cardType (id,name)values(1,'DEBITCARD');
+ insert into Accounting.cardType (id,name)values(2,'CREDITCARD');
+ --ccCardType
+ delete from ccCardType
+ insert into Accounting.ccCardType (id,name)values(1,'MASTERCARD');
+ insert into Accounting.cardType (id,name)values(2,'VISACARD');
+ --CurrencyType
+ delete from Accounting.currencyType
+ insert into Accounting.currencyType (id,name)values(1,'REAL');
+ insert into Accounting.currencyType (id,name)values(2,'UNREAL');
+ --entityType
+ delete from entityType
+ insert into Accounting.entityType (id,name)values(1,'Organization');
+ insert into Accounting.entityType (id,name)values(2,'Office');
+ insert into Accounting.entityType (id,name)values(3,'Person');
+ insert into Accounting.entityType (id,name)values(4,'Bank');
+ --invoiceStat
+ delete from invoiceStat
+ insert into Accounting.invoiceStat (id,name)values(1,'Generated');
+ insert into Accounting.invoiceStat (id,name)values(2,'Finalized');
+ insert into Accounting.invoiceStat (id,name)values(3,'Deleted');
+ insert into Accounting.invoiceStat (id,name)values(4,'Cancelled');
+ insert into Accounting.invoiceStat (id,name)values(5,'internalPaymant');
+ insert into Accounting.invoiceStat (id,name)values(6,'interacPaymant');
+ insert into Accounting.invoiceStat (id,name)values(7,'visaCardPaymant');
+ insert into Accounting.invoiceStat (id,name)values(8,'masterCardPaymant');
+ insert into Accounting.invoiceStat (id,name)values(9,'partialInternalPaymantCancelled');
+ insert into Accounting.invoiceStat (id,name)values(10,'partialInteracPaymantCancelled');
+ insert into Accounting.invoiceStat (id,name)values(11,'partialCreditCardPaymantCancelled');
+ --external Payment Type
+ delete from extPaymentType
+ insert into Accounting.extPaymentType(id,name)values(1,'CreditPayment');
+ insert into Accounting.extPaymentType(id,name)values(2,'InteracPayment');
+ --Payment Type
+ delete from paymentType
+ insert into Accounting.PaymentType(id,name)values(1,'External');
+ insert into Accounting.PaymentType(id,name)values(2,'Internal');
+ --office Type
+ delete from Accounting.officeType
+ insert into Accounting.officeType(id,name)values(1,'TemporaryOffice');
+ insert into Accounting.officeType(id,name)values(2,'HeadOffice');
+ insert into Accounting.officeType(id,name)values(3,'BankBranch');
+ --userType
+ delete from userType
+ insert into Accounting.userType(id,name)values(1,'AppUser');
+ insert into Accounting.userType(id,name)values(2,'SysUser');
+ --sysUserType
+ delete from sysUserType
+ insert into Accounting.sysUserType(id,name)values(1,'NormalsysUser');
+ insert into Accounting.sysUserType(id,name)values(2,'AdminSysUser');
+ --paymentStat
+ delete from paymentstat
+ insert into Accounting.paymentStat(id,name)values(1,'PaidApproved');
+ insert into Accounting.paymentStat(id,name)values(2,'VoidApproved');
+ insert into Accounting.paymentStat(id,name)values(3,'RefundApproved');
+ insert into Accounting.paymentStat(id,name)values(4,'NotApprovedPaid');
+ insert into Accounting.paymentStat(id,name)values(5,'NotApprovedVoid');
+ insert into Accounting.paymentStat(id,name)values(6,'NotApprovedRefund');
+ 
+
+commit transaction T1;
+
+

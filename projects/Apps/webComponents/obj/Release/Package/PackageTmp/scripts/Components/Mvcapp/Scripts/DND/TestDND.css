@@ -1,0 +1,51 @@
+﻿.devider
+{   
+    margin:10px;
+    padding:10px;
+    background: transparent url('../../images/black.png') repeat scroll top left;
+    float:left;
+}
+
+#draggables li
+{   
+    height:50px;
+    background:#f2f2f2;
+    padding:3px;
+    margin:3px;
+    border:1px solid gray;
+}
+.sortables li
+{
+    margin: 0 5px 5px 5px; 
+    padding: 5px; 
+    width:90px;
+    
+}
+
+
+.sortables .placeholder
+{
+    height:26px;
+    background-color:gray;
+    border:1px solid red;
+    
+}
+
+
+.sortables{cursor:move;}
+.SIDEBYSIDE{float:left;}
+
+    
+
+
+
+
+
+.trash
+{
+    width:100%;
+    height:200px;
+    padding:5px;
+    border:1px dashed red;
+}
+

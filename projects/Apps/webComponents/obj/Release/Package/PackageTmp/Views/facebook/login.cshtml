@@ -1,0 +1,25 @@
+﻿<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+ 
+<script language="javascript">
+    
+    var x = (window.location.toString().split('#'))[1];
+    var z = (x.split('&'))[1];
+    var access_token = (z.split('='))[1];
+
+
+    $.ajax(
+    {
+        url: "/facebook",
+        //url: "/facebook/auth",
+        type: "post",
+        data:
+        {
+            access_token: access_token
+        }
+    }).done(function (data) {
+        document.write(data);
+        alert('successfull facebook Login');
+        window.close();
+    });
+    
+</script>

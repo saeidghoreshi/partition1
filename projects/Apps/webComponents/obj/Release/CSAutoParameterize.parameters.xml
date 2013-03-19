@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="winhost-Web.config Connection String" description="winhost Connection String used in web.config by the application to access the database." defaultValue="Data Source=s06.winhost.com;Initial Catalog=DB_40114_codeclub;Persist Security Info=True;User ID=DB_40114_codeclub_user;Password=p0$31d0n" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\Apps\\webComponents\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='winhost']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\Apps\\webComponents\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='winhost']/@connectionString" />
+  </parameter>
+  <parameter name="context-Web.config Connection String" description="context Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.top.csdl|res://*/Models.top.ssdl|res://*/Models.top.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=s06.winhost.com;initial catalog=DB_40114_codeclub;persist security info=True;user id=DB_40114_codeclub_user;password=p0$31d0n;multipleactiveresultsets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\projects\\Partitions\\partition1\\projects\\Apps\\webComponents\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='context']/@connectionString" />
+  </parameter>
+</parameters>

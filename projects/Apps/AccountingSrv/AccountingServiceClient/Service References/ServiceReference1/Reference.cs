@@ -15,6 +15,83 @@ namespace AccountingServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_customer", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string firstnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string lastnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int curIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string firstname {
+            get {
+                return this.firstnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.firstnameField, value) != true)) {
+                    this.firstnameField = value;
+                    this.RaisePropertyChanged("firstname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string lastname {
+            get {
+                return this.lastnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.lastnameField, value) != true)) {
+                    this.lastnameField = value;
+                    this.RaisePropertyChanged("lastname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int curId {
+            get {
+                return this.curIdField;
+            }
+            set {
+                if ((this.curIdField.Equals(value) != true)) {
+                    this.curIdField = value;
+                    this.RaisePropertyChanged("curId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Entity", Namespace="http://schemas.datacontract.org/2004/07/accounting.classes")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.Person))]
@@ -22,6 +99,9 @@ namespace AccountingServiceClient.ServiceReference1 {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ENTITYIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccountingServiceClient.ServiceReference1.card[] cardsField;
@@ -36,6 +116,19 @@ namespace AccountingServiceClient.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ENTITYID {
+            get {
+                return this.ENTITYIDField;
+            }
+            set {
+                if ((this.ENTITYIDField.Equals(value) != true)) {
+                    this.ENTITYIDField = value;
+                    this.RaisePropertyChanged("ENTITYID");
+                }
             }
         }
         
@@ -140,9 +233,6 @@ namespace AccountingServiceClient.ServiceReference1 {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.bankCard[] bankCardField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string cardNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -178,19 +268,6 @@ namespace AccountingServiceClient.ServiceReference1 {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.bankCard[] bankCard {
-            get {
-                return this.bankCardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.bankCardField, value) != true)) {
-                    this.bankCardField = value;
-                    this.RaisePropertyChanged("bankCard");
                 }
             }
         }
@@ -318,17 +395,15 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.Runtime.Serialization.DataContractAttribute(Name="StructuralObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityObject))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.bankCard))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.cardType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.dbCard))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.fee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.bank))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.ccFee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.ccCardType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.ccCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.mcCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.visaCard))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.fee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.cardType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.dbCard))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entityCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entity1))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.account))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.categoryType))]
@@ -355,6 +430,7 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.invoiceService))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.service))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.invoiceStat))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entityCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entityType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.organization))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.orgOffice))]
@@ -393,17 +469,15 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityObject", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses", IsReference=true)]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.bankCard))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.cardType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.dbCard))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.fee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.bank))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.ccFee))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.ccCardType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.ccCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.mcCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.visaCard))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.fee))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.cardType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.dbCard))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entityCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entity1))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.account))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.categoryType))]
@@ -430,6 +504,7 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.invoiceService))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.service))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.invoiceStat))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entityCard))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.entityType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.organization))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.orgOffice))]
@@ -460,12 +535,221 @@ namespace AccountingServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="bankCard", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="cardType", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
     [System.SerializableAttribute()]
-    public partial class bankCard : AccountingServiceClient.ServiceReference1.EntityObject {
+    public partial class cardType : AccountingServiceClient.ServiceReference1.EntityObject {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.card[] cardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.dbCard[] dbCardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.fee[] feeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.card[] card {
+            get {
+                return this.cardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardField, value) != true)) {
+                    this.cardField = value;
+                    this.RaisePropertyChanged("card");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.dbCard[] dbCard {
+            get {
+                return this.dbCardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.dbCardField, value) != true)) {
+                    this.dbCardField = value;
+                    this.RaisePropertyChanged("dbCard");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.fee[] fee {
+            get {
+                return this.feeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.feeField, value) != true)) {
+                    this.feeField = value;
+                    this.RaisePropertyChanged("fee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="dbCard", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class dbCard : AccountingServiceClient.ServiceReference1.EntityObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.card cardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> cardIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.cardType cardTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> cardTypeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.card card {
+            get {
+                return this.cardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardField, value) != true)) {
+                    this.cardField = value;
+                    this.RaisePropertyChanged("card");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> cardID {
+            get {
+                return this.cardIDField;
+            }
+            set {
+                if ((this.cardIDField.Equals(value) != true)) {
+                    this.cardIDField = value;
+                    this.RaisePropertyChanged("cardID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReference {
+            get {
+                return this.cardReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardReferenceField, value) != true)) {
+                    this.cardReferenceField = value;
+                    this.RaisePropertyChanged("cardReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.cardType cardType {
+            get {
+                return this.cardTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardTypeField, value) != true)) {
+                    this.cardTypeField = value;
+                    this.RaisePropertyChanged("cardType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> cardTypeID {
+            get {
+                return this.cardTypeIDField;
+            }
+            set {
+                if ((this.cardTypeIDField.Equals(value) != true)) {
+                    this.cardTypeIDField = value;
+                    this.RaisePropertyChanged("cardTypeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReference {
+            get {
+                return this.cardTypeReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardTypeReferenceField, value) != true)) {
+                    this.cardTypeReferenceField = value;
+                    this.RaisePropertyChanged("cardTypeReference");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="fee", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class fee : AccountingServiceClient.ServiceReference1.EntityObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> amountField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccountingServiceClient.ServiceReference1.bank bankField;
@@ -477,13 +761,16 @@ namespace AccountingServiceClient.ServiceReference1 {
         private AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7 bankReferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.card cardField;
+        private AccountingServiceClient.ServiceReference1.cardType cardTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> cardIDField;
+        private System.Nullable<int> cardTypeIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReferenceField;
+        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ID {
@@ -494,6 +781,19 @@ namespace AccountingServiceClient.ServiceReference1 {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
                 }
             }
         }
@@ -538,40 +838,53 @@ namespace AccountingServiceClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.card card {
+        public AccountingServiceClient.ServiceReference1.cardType cardType {
             get {
-                return this.cardField;
+                return this.cardTypeField;
             }
             set {
-                if ((object.ReferenceEquals(this.cardField, value) != true)) {
-                    this.cardField = value;
-                    this.RaisePropertyChanged("card");
+                if ((object.ReferenceEquals(this.cardTypeField, value) != true)) {
+                    this.cardTypeField = value;
+                    this.RaisePropertyChanged("cardType");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> cardID {
+        public System.Nullable<int> cardTypeID {
             get {
-                return this.cardIDField;
+                return this.cardTypeIDField;
             }
             set {
-                if ((this.cardIDField.Equals(value) != true)) {
-                    this.cardIDField = value;
-                    this.RaisePropertyChanged("cardID");
+                if ((this.cardTypeIDField.Equals(value) != true)) {
+                    this.cardTypeIDField = value;
+                    this.RaisePropertyChanged("cardTypeID");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReference {
+        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReference {
             get {
-                return this.cardReferenceField;
+                return this.cardTypeReferenceField;
             }
             set {
-                if ((object.ReferenceEquals(this.cardReferenceField, value) != true)) {
-                    this.cardReferenceField = value;
-                    this.RaisePropertyChanged("cardReference");
+                if ((object.ReferenceEquals(this.cardTypeReferenceField, value) != true)) {
+                    this.cardTypeReferenceField = value;
+                    this.RaisePropertyChanged("cardTypeReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
                 }
             }
         }
@@ -587,10 +900,16 @@ namespace AccountingServiceClient.ServiceReference1 {
         private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.bankCard[] bankCardField;
+        private AccountingServiceClient.ServiceReference1.ccFee[] ccFeeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.ccFee[] ccFeeField;
+        private AccountingServiceClient.ServiceReference1.entity1 entityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> entityIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.EntityReferenceOfentitypYp2H8J7 entityReferenceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccountingServiceClient.ServiceReference1.fee[] feeField;
@@ -612,19 +931,6 @@ namespace AccountingServiceClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.bankCard[] bankCard {
-            get {
-                return this.bankCardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.bankCardField, value) != true)) {
-                    this.bankCardField = value;
-                    this.RaisePropertyChanged("bankCard");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public AccountingServiceClient.ServiceReference1.ccFee[] ccFee {
             get {
                 return this.ccFeeField;
@@ -633,6 +939,45 @@ namespace AccountingServiceClient.ServiceReference1 {
                 if ((object.ReferenceEquals(this.ccFeeField, value) != true)) {
                     this.ccFeeField = value;
                     this.RaisePropertyChanged("ccFee");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.entity1 entity {
+            get {
+                return this.entityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.entityField, value) != true)) {
+                    this.entityField = value;
+                    this.RaisePropertyChanged("entity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> entityID {
+            get {
+                return this.entityIDField;
+            }
+            set {
+                if ((this.entityIDField.Equals(value) != true)) {
+                    this.entityIDField = value;
+                    this.RaisePropertyChanged("entityID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.EntityReferenceOfentitypYp2H8J7 entityReference {
+            get {
+                return this.entityReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.entityReferenceField, value) != true)) {
+                    this.entityReferenceField = value;
+                    this.RaisePropertyChanged("entityReference");
                 }
             }
         }
@@ -1181,482 +1526,6 @@ namespace AccountingServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="fee", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class fee : AccountingServiceClient.ServiceReference1.EntityObject {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<decimal> amountField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.bank bankField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> bankIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7 bankReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.cardType cardTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> cardTypeIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string descriptionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<decimal> amount {
-            get {
-                return this.amountField;
-            }
-            set {
-                if ((this.amountField.Equals(value) != true)) {
-                    this.amountField = value;
-                    this.RaisePropertyChanged("amount");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.bank bank {
-            get {
-                return this.bankField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.bankField, value) != true)) {
-                    this.bankField = value;
-                    this.RaisePropertyChanged("bank");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> bankID {
-            get {
-                return this.bankIDField;
-            }
-            set {
-                if ((this.bankIDField.Equals(value) != true)) {
-                    this.bankIDField = value;
-                    this.RaisePropertyChanged("bankID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7 bankReference {
-            get {
-                return this.bankReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.bankReferenceField, value) != true)) {
-                    this.bankReferenceField = value;
-                    this.RaisePropertyChanged("bankReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.cardType cardType {
-            get {
-                return this.cardTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardTypeField, value) != true)) {
-                    this.cardTypeField = value;
-                    this.RaisePropertyChanged("cardType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> cardTypeID {
-            get {
-                return this.cardTypeIDField;
-            }
-            set {
-                if ((this.cardTypeIDField.Equals(value) != true)) {
-                    this.cardTypeIDField = value;
-                    this.RaisePropertyChanged("cardTypeID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReference {
-            get {
-                return this.cardTypeReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardTypeReferenceField, value) != true)) {
-                    this.cardTypeReferenceField = value;
-                    this.RaisePropertyChanged("cardTypeReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string description {
-            get {
-                return this.descriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("description");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="cardType", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class cardType : AccountingServiceClient.ServiceReference1.EntityObject {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.card[] cardField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.dbCard[] dbCardField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.fee[] feeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.card[] card {
-            get {
-                return this.cardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardField, value) != true)) {
-                    this.cardField = value;
-                    this.RaisePropertyChanged("card");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.dbCard[] dbCard {
-            get {
-                return this.dbCardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.dbCardField, value) != true)) {
-                    this.dbCardField = value;
-                    this.RaisePropertyChanged("dbCard");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.fee[] fee {
-            get {
-                return this.feeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.feeField, value) != true)) {
-                    this.feeField = value;
-                    this.RaisePropertyChanged("fee");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="dbCard", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class dbCard : AccountingServiceClient.ServiceReference1.EntityObject {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.card cardField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> cardIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.cardType cardTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> cardTypeIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.card card {
-            get {
-                return this.cardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardField, value) != true)) {
-                    this.cardField = value;
-                    this.RaisePropertyChanged("card");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> cardID {
-            get {
-                return this.cardIDField;
-            }
-            set {
-                if ((this.cardIDField.Equals(value) != true)) {
-                    this.cardIDField = value;
-                    this.RaisePropertyChanged("cardID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReference {
-            get {
-                return this.cardReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardReferenceField, value) != true)) {
-                    this.cardReferenceField = value;
-                    this.RaisePropertyChanged("cardReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.cardType cardType {
-            get {
-                return this.cardTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardTypeField, value) != true)) {
-                    this.cardTypeField = value;
-                    this.RaisePropertyChanged("cardType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> cardTypeID {
-            get {
-                return this.cardTypeIDField;
-            }
-            set {
-                if ((this.cardTypeIDField.Equals(value) != true)) {
-                    this.cardTypeIDField = value;
-                    this.RaisePropertyChanged("cardTypeID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7 cardTypeReference {
-            get {
-                return this.cardTypeReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardTypeReferenceField, value) != true)) {
-                    this.cardTypeReferenceField = value;
-                    this.RaisePropertyChanged("cardTypeReference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="entityCard", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
-    [System.SerializableAttribute()]
-    public partial class entityCard : AccountingServiceClient.ServiceReference1.EntityObject {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> CardIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.card cardField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReferenceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.entity1 entityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> entityIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AccountingServiceClient.ServiceReference1.EntityReferenceOfentitypYp2H8J7 entityReferenceField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> CardID {
-            get {
-                return this.CardIDField;
-            }
-            set {
-                if ((this.CardIDField.Equals(value) != true)) {
-                    this.CardIDField = value;
-                    this.RaisePropertyChanged("CardID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.card card {
-            get {
-                return this.cardField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardField, value) != true)) {
-                    this.cardField = value;
-                    this.RaisePropertyChanged("card");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReference {
-            get {
-                return this.cardReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.cardReferenceField, value) != true)) {
-                    this.cardReferenceField = value;
-                    this.RaisePropertyChanged("cardReference");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.entity1 entity {
-            get {
-                return this.entityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.entityField, value) != true)) {
-                    this.entityField = value;
-                    this.RaisePropertyChanged("entity");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> entityID {
-            get {
-                return this.entityIDField;
-            }
-            set {
-                if ((this.entityIDField.Equals(value) != true)) {
-                    this.entityIDField = value;
-                    this.RaisePropertyChanged("entityID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AccountingServiceClient.ServiceReference1.EntityReferenceOfentitypYp2H8J7 entityReference {
-            get {
-                return this.entityReferenceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.entityReferenceField, value) != true)) {
-                    this.entityReferenceField = value;
-                    this.RaisePropertyChanged("entityReference");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="entity", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class entity1 : AccountingServiceClient.ServiceReference1.EntityObject {
@@ -1666,6 +1535,9 @@ namespace AccountingServiceClient.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccountingServiceClient.ServiceReference1.account[] accountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.bank[] bankField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AccountingServiceClient.ServiceReference1.entityCard[] entityCardField;
@@ -1728,6 +1600,19 @@ namespace AccountingServiceClient.ServiceReference1 {
                 if ((object.ReferenceEquals(this.accountField, value) != true)) {
                     this.accountField = value;
                     this.RaisePropertyChanged("account");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.bank[] bank {
+            get {
+                return this.bankField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bankField, value) != true)) {
+                    this.bankField = value;
+                    this.RaisePropertyChanged("bank");
                 }
             }
         }
@@ -5071,6 +4956,125 @@ namespace AccountingServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="entityCard", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class entityCard : AccountingServiceClient.ServiceReference1.EntityObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CardIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.card cardField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReferenceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.entity1 entityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> entityIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AccountingServiceClient.ServiceReference1.EntityReferenceOfentitypYp2H8J7 entityReferenceField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CardID {
+            get {
+                return this.CardIDField;
+            }
+            set {
+                if ((this.CardIDField.Equals(value) != true)) {
+                    this.CardIDField = value;
+                    this.RaisePropertyChanged("CardID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.card card {
+            get {
+                return this.cardField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardField, value) != true)) {
+                    this.cardField = value;
+                    this.RaisePropertyChanged("card");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7 cardReference {
+            get {
+                return this.cardReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardReferenceField, value) != true)) {
+                    this.cardReferenceField = value;
+                    this.RaisePropertyChanged("cardReference");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.entity1 entity {
+            get {
+                return this.entityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.entityField, value) != true)) {
+                    this.entityField = value;
+                    this.RaisePropertyChanged("entity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> entityID {
+            get {
+                return this.entityIDField;
+            }
+            set {
+                if ((this.entityIDField.Equals(value) != true)) {
+                    this.entityIDField = value;
+                    this.RaisePropertyChanged("entityID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AccountingServiceClient.ServiceReference1.EntityReferenceOfentitypYp2H8J7 entityReference {
+            get {
+                return this.entityReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.entityReferenceField, value) != true)) {
+                    this.entityReferenceField = value;
+                    this.RaisePropertyChanged("entityReference");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="entityType", Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class entityType : AccountingServiceClient.ServiceReference1.EntityObject {
@@ -5851,13 +5855,6 @@ namespace AccountingServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfbankpYp2H8J7", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.SerializableAttribute()]
-    public partial class EntityReferenceOfbankpYp2H8J7 : AccountingServiceClient.ServiceReference1.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfcardpYp2H8J7", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.SerializableAttribute()]
     public partial class EntityReferenceOfcardpYp2H8J7 : AccountingServiceClient.ServiceReference1.EntityReference {
@@ -5865,20 +5862,13 @@ namespace AccountingServiceClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfccCardTypepYp2H8J7", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
-    [System.SerializableAttribute()]
-    public partial class EntityReferenceOfccCardTypepYp2H8J7 : AccountingServiceClient.ServiceReference1.EntityReference {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RelatedEnd", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReference))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfccCardTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfccCardpYp2H8J7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfglTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcategoryTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcurrencyTypepYp2H8J7))]
@@ -5903,7 +5893,7 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOforganizationpYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfpersonpYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfuserTypepYp2H8J7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7))]
     public partial class RelatedEnd : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -5933,10 +5923,10 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EntityReference", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfccCardTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfccCardpYp2H8J7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfglTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcategoryTypepYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcurrencyTypepYp2H8J7))]
@@ -5961,7 +5951,7 @@ namespace AccountingServiceClient.ServiceReference1 {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOforganizationpYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfpersonpYp2H8J7))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfuserTypepYp2H8J7))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfbankpYp2H8J7))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AccountingServiceClient.ServiceReference1.EntityReferenceOfcardpYp2H8J7))]
     public partial class EntityReference : AccountingServiceClient.ServiceReference1.RelatedEnd {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -5979,6 +5969,20 @@ namespace AccountingServiceClient.ServiceReference1 {
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfbankpYp2H8J7", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.SerializableAttribute()]
+    public partial class EntityReferenceOfbankpYp2H8J7 : AccountingServiceClient.ServiceReference1.EntityReference {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityReferenceOfccCardTypepYp2H8J7", Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses")]
+    [System.SerializableAttribute()]
+    public partial class EntityReferenceOfccCardTypepYp2H8J7 : AccountingServiceClient.ServiceReference1.EntityReference {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6419,6 +6423,1216 @@ namespace AccountingServiceClient.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_service", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_service : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string servicenameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int issuerEntityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int receiverEntityIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string servicename {
+            get {
+                return this.servicenameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.servicenameField, value) != true)) {
+                    this.servicenameField = value;
+                    this.RaisePropertyChanged("servicename");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int issuerEntityId {
+            get {
+                return this.issuerEntityIdField;
+            }
+            set {
+                if ((this.issuerEntityIdField.Equals(value) != true)) {
+                    this.issuerEntityIdField = value;
+                    this.RaisePropertyChanged("issuerEntityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int receiverEntityId {
+            get {
+                return this.receiverEntityIdField;
+            }
+            set {
+                if ((this.receiverEntityIdField.Equals(value) != true)) {
+                    this.receiverEntityIdField = value;
+                    this.RaisePropertyChanged("receiverEntityId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_invoice", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_invoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int issuerEntityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int receiverEntityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int curIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int issuerEntityId {
+            get {
+                return this.issuerEntityIdField;
+            }
+            set {
+                if ((this.issuerEntityIdField.Equals(value) != true)) {
+                    this.issuerEntityIdField = value;
+                    this.RaisePropertyChanged("issuerEntityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int receiverEntityId {
+            get {
+                return this.receiverEntityIdField;
+            }
+            set {
+                if ((this.receiverEntityIdField.Equals(value) != true)) {
+                    this.receiverEntityIdField = value;
+                    this.RaisePropertyChanged("receiverEntityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int curId {
+            get {
+                return this.curIdField;
+            }
+            set {
+                if ((this.curIdField.Equals(value) != true)) {
+                    this.curIdField = value;
+                    this.RaisePropertyChanged("curId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_InvoiceService", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_InvoiceService : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int serviceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int serviceId {
+            get {
+                return this.serviceIdField;
+            }
+            set {
+                if ((this.serviceIdField.Equals(value) != true)) {
+                    this.serviceIdField = value;
+                    this.RaisePropertyChanged("serviceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_finalizeInvoice", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_finalizeInvoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_newbank", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_newbank : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string banknameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string bankname {
+            get {
+                return this.banknameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.banknameField, value) != true)) {
+                    this.banknameField = value;
+                    this.RaisePropertyChanged("bankname");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_setBankInteracFee", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_setBankInteracFee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bankIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int bankId {
+            get {
+                return this.bankIdField;
+            }
+            set {
+                if ((this.bankIdField.Equals(value) != true)) {
+                    this.bankIdField = value;
+                    this.RaisePropertyChanged("bankId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_setBankCreditcardFee", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_setBankCreditcardFee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bankIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ccCardTypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int bankId {
+            get {
+                return this.bankIdField;
+            }
+            set {
+                if ((this.bankIdField.Equals(value) != true)) {
+                    this.bankIdField = value;
+                    this.RaisePropertyChanged("bankId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ccCardTypeId {
+            get {
+                return this.ccCardTypeIdField;
+            }
+            set {
+                if ((this.ccCardTypeIdField.Equals(value) != true)) {
+                    this.ccCardTypeIdField = value;
+                    this.RaisePropertyChanged("ccCardTypeId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_newCard", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_newCard : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string cardNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string expirydateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string cardNumber {
+            get {
+                return this.cardNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cardNumberField, value) != true)) {
+                    this.cardNumberField = value;
+                    this.RaisePropertyChanged("cardNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string expirydate {
+            get {
+                return this.expirydateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.expirydateField, value) != true)) {
+                    this.expirydateField = value;
+                    this.RaisePropertyChanged("expirydate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_assignCardToBank", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_assignCardToBank : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cardIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bankIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cardId {
+            get {
+                return this.cardIdField;
+            }
+            set {
+                if ((this.cardIdField.Equals(value) != true)) {
+                    this.cardIdField = value;
+                    this.RaisePropertyChanged("cardId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public int bankId {
+            get {
+                return this.bankIdField;
+            }
+            set {
+                if ((this.bankIdField.Equals(value) != true)) {
+                    this.bankIdField = value;
+                    this.RaisePropertyChanged("bankId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_assignCardToPerson", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_assignCardToPerson : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cardIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int personEntityIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int cardId {
+            get {
+                return this.cardIdField;
+            }
+            set {
+                if ((this.cardIdField.Equals(value) != true)) {
+                    this.cardIdField = value;
+                    this.RaisePropertyChanged("cardId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int personEntityId {
+            get {
+                return this.personEntityIdField;
+            }
+            set {
+                if ((this.personEntityIdField.Equals(value) != true)) {
+                    this.personEntityIdField = value;
+                    this.RaisePropertyChanged("personEntityId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_addWallet", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_addWallet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int personEntityIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int curIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int personEntityId {
+            get {
+                return this.personEntityIdField;
+            }
+            set {
+                if ((this.personEntityIdField.Equals(value) != true)) {
+                    this.personEntityIdField = value;
+                    this.RaisePropertyChanged("personEntityId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int curId {
+            get {
+                return this.curIdField;
+            }
+            set {
+                if ((this.curIdField.Equals(value) != true)) {
+                    this.curIdField = value;
+                    this.RaisePropertyChanged("curId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_invoiceSum", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_invoiceSum : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_payInvoiceCredit", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_payInvoiceCredit : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cardIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ccCardTypeIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int cardId {
+            get {
+                return this.cardIdField;
+            }
+            set {
+                if ((this.cardIdField.Equals(value) != true)) {
+                    this.cardIdField = value;
+                    this.RaisePropertyChanged("cardId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public int ccCardTypeId {
+            get {
+                return this.ccCardTypeIdField;
+            }
+            set {
+                if ((this.ccCardTypeIdField.Equals(value) != true)) {
+                    this.ccCardTypeIdField = value;
+                    this.RaisePropertyChanged("ccCardTypeId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_payInvoiceInterac", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_payInvoiceInterac : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int cardIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public int cardId {
+            get {
+                return this.cardIdField;
+            }
+            set {
+                if ((this.cardIdField.Equals(value) != true)) {
+                    this.cardIdField = value;
+                    this.RaisePropertyChanged("cardId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_payInvoiceInternal", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_payInvoiceInternal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal amountField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public decimal amount {
+            get {
+                return this.amountField;
+            }
+            set {
+                if ((this.amountField.Equals(value) != true)) {
+                    this.amountField = value;
+                    this.RaisePropertyChanged("amount");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_cancelInvoicePayExt", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_cancelInvoicePayExt : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int paymentIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int paymentId {
+            get {
+                return this.paymentIdField;
+            }
+            set {
+                if ((this.paymentIdField.Equals(value) != true)) {
+                    this.paymentIdField = value;
+                    this.RaisePropertyChanged("paymentId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_cancelInvoicePayInt", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_cancelInvoicePayInt : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int paymentIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int paymentId {
+            get {
+                return this.paymentIdField;
+            }
+            set {
+                if ((this.paymentIdField.Equals(value) != true)) {
+                    this.paymentIdField = value;
+                    this.RaisePropertyChanged("paymentId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="A_cancelInvoice", Namespace="accounting")]
+    [System.SerializableAttribute()]
+    public partial class A_cancelInvoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invoiceIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invoiceId {
+            get {
+                return this.invoiceIdField;
+            }
+            set {
+                if ((this.invoiceIdField.Equals(value) != true)) {
+                    this.invoiceIdField = value;
+                    this.RaisePropertyChanged("invoiceId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IAccountingV1")]
     public interface IAccountingV1 {
@@ -6427,67 +7641,70 @@ namespace AccountingServiceClient.ServiceReference1 {
         void reset();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/newCustomer", ReplyAction="http://tempuri.org/IAccountingV1/newCustomerResponse")]
-        AccountingServiceClient.ServiceReference1.Person newCustomer(string firstname, string lastname, string curID);
+        AccountingServiceClient.ServiceReference1.Person newCustomer(AccountingServiceClient.ServiceReference1.A_customer I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createService", ReplyAction="http://tempuri.org/IAccountingV1/createServiceResponse")]
-        AccountingServiceClient.ServiceReference1.Service1 createService(string servicename, string issuerEntityId, string receiverEntityId);
+        AccountingServiceClient.ServiceReference1.Service1 createService(AccountingServiceClient.ServiceReference1.A_service I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createinvoice", ReplyAction="http://tempuri.org/IAccountingV1/createinvoiceResponse")]
-        AccountingServiceClient.ServiceReference1.Invoice1 createinvoice(string issuerEid, string receiverEid, string curId);
+        AccountingServiceClient.ServiceReference1.Invoice1 createinvoice(AccountingServiceClient.ServiceReference1.A_invoice I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createInvoiceService", ReplyAction="http://tempuri.org/IAccountingV1/createInvoiceServiceResponse")]
-        void createInvoiceService(string invoiceId, string serviceId, string amount);
+        void createInvoiceService(AccountingServiceClient.ServiceReference1.A_InvoiceService I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/finalizeInvoice", ReplyAction="http://tempuri.org/IAccountingV1/finalizeInvoiceResponse")]
-        void finalizeInvoice(string invoiceId);
+        void finalizeInvoice(AccountingServiceClient.ServiceReference1.A_finalizeInvoice I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createBank", ReplyAction="http://tempuri.org/IAccountingV1/createBankResponse")]
-        void createBank(string bankname);
+        void createBank(AccountingServiceClient.ServiceReference1.A_newbank I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/setFeeForIntracCardType", ReplyAction="http://tempuri.org/IAccountingV1/setFeeForIntracCardTypeResponse")]
-        void setFeeForIntracCardType(string bankId, string amount, string description);
+        void setFeeForIntracCardType(AccountingServiceClient.ServiceReference1.A_setBankInteracFee I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/setFeeForCreditCardType", ReplyAction="http://tempuri.org/IAccountingV1/setFeeForCreditCardTypeResponse")]
-        void setFeeForCreditCardType(string bankId, string ccCardTypeID, string amount, string description);
+        void setFeeForCreditCardType(AccountingServiceClient.ServiceReference1.A_setBankCreditcardFee I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createMasterCard", ReplyAction="http://tempuri.org/IAccountingV1/createMasterCardResponse")]
-        void createMasterCard(string cardNumber, string expirydate);
+        void createMasterCard(AccountingServiceClient.ServiceReference1.A_newCard I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createVisaCard", ReplyAction="http://tempuri.org/IAccountingV1/createVisaCardResponse")]
-        void createVisaCard(string cardNumber, string expirydate);
+        void createVisaCard(AccountingServiceClient.ServiceReference1.A_newCard I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/createDebitCard", ReplyAction="http://tempuri.org/IAccountingV1/createDebitCardResponse")]
-        void createDebitCard(string cardNumber, string expirydate);
+        void createDebitCard(AccountingServiceClient.ServiceReference1.A_newCard I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/assignCardToBank", ReplyAction="http://tempuri.org/IAccountingV1/assignCardToBankResponse")]
-        void assignCardToBank(string cardId, string bankId);
+        void assignCardToBank(AccountingServiceClient.ServiceReference1.A_assignCardToBank I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/assignCardToPerson", ReplyAction="http://tempuri.org/IAccountingV1/assignCardToPersonResponse")]
-        void assignCardToPerson(string cardId, string personId);
+        void assignCardToPerson(AccountingServiceClient.ServiceReference1.A_assignCardToPerson I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/addWalletMoney", ReplyAction="http://tempuri.org/IAccountingV1/addWalletMoneyResponse")]
-        void addWalletMoney(string personID, string amount, string curID, string description);
+        void addWalletMoney(AccountingServiceClient.ServiceReference1.A_addWallet I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/getInvoiceServicesSumAmt", ReplyAction="http://tempuri.org/IAccountingV1/getInvoiceServicesSumAmtResponse")]
-        decimal getInvoiceServicesSumAmt(string invoiceID);
+        decimal getInvoiceServicesSumAmt(AccountingServiceClient.ServiceReference1.A_invoiceSum I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/payInvoiceByCC", ReplyAction="http://tempuri.org/IAccountingV1/payInvoiceByCCResponse")]
-        void payInvoiceByCC(string invoiceID, string amount, string cardId, string ccCardTypeID);
+        void payInvoiceByCC(AccountingServiceClient.ServiceReference1.A_payInvoiceCredit I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/payInvoiceByInterac", ReplyAction="http://tempuri.org/IAccountingV1/payInvoiceByInteracResponse")]
-        void payInvoiceByInterac(string invoiceID, string amount, string cardId);
+        void payInvoiceByInterac(AccountingServiceClient.ServiceReference1.A_payInvoiceInterac I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/payInvoiceByInternal", ReplyAction="http://tempuri.org/IAccountingV1/payInvoiceByInternalResponse")]
-        void payInvoiceByInternal(string invoiceID, string amount);
+        void payInvoiceByInternal(AccountingServiceClient.ServiceReference1.A_payInvoiceInternal I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/cancelInvoicePaymentEXT", ReplyAction="http://tempuri.org/IAccountingV1/cancelInvoicePaymentEXTResponse")]
-        void cancelInvoicePaymentEXT(string invoiceID, string paymentID);
+        void cancelInvoicePaymentEXT(AccountingServiceClient.ServiceReference1.A_cancelInvoicePayExt I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/cancelInvoicePaymentINTERNAL", ReplyAction="http://tempuri.org/IAccountingV1/cancelInvoicePaymentINTERNALResponse")]
-        void cancelInvoicePaymentINTERNAL(string invoiceID, string paymentID);
+        void cancelInvoicePaymentINTERNAL(AccountingServiceClient.ServiceReference1.A_cancelInvoicePayInt I);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/cancelInvoice", ReplyAction="http://tempuri.org/IAccountingV1/cancelInvoiceResponse")]
-        void cancelInvoice(string invoiceID);
+        void cancelInvoice(AccountingServiceClient.ServiceReference1.A_cancelInvoice I);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountingV1/test", ReplyAction="http://tempuri.org/IAccountingV1/testResponse")]
+        AccountingServiceClient.ServiceReference1.A_customer test(AccountingServiceClient.ServiceReference1.A_customer x);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -6521,88 +7738,92 @@ namespace AccountingServiceClient.ServiceReference1 {
             base.Channel.reset();
         }
         
-        public AccountingServiceClient.ServiceReference1.Person newCustomer(string firstname, string lastname, string curID) {
-            return base.Channel.newCustomer(firstname, lastname, curID);
+        public AccountingServiceClient.ServiceReference1.Person newCustomer(AccountingServiceClient.ServiceReference1.A_customer I) {
+            return base.Channel.newCustomer(I);
         }
         
-        public AccountingServiceClient.ServiceReference1.Service1 createService(string servicename, string issuerEntityId, string receiverEntityId) {
-            return base.Channel.createService(servicename, issuerEntityId, receiverEntityId);
+        public AccountingServiceClient.ServiceReference1.Service1 createService(AccountingServiceClient.ServiceReference1.A_service I) {
+            return base.Channel.createService(I);
         }
         
-        public AccountingServiceClient.ServiceReference1.Invoice1 createinvoice(string issuerEid, string receiverEid, string curId) {
-            return base.Channel.createinvoice(issuerEid, receiverEid, curId);
+        public AccountingServiceClient.ServiceReference1.Invoice1 createinvoice(AccountingServiceClient.ServiceReference1.A_invoice I) {
+            return base.Channel.createinvoice(I);
         }
         
-        public void createInvoiceService(string invoiceId, string serviceId, string amount) {
-            base.Channel.createInvoiceService(invoiceId, serviceId, amount);
+        public void createInvoiceService(AccountingServiceClient.ServiceReference1.A_InvoiceService I) {
+            base.Channel.createInvoiceService(I);
         }
         
-        public void finalizeInvoice(string invoiceId) {
-            base.Channel.finalizeInvoice(invoiceId);
+        public void finalizeInvoice(AccountingServiceClient.ServiceReference1.A_finalizeInvoice I) {
+            base.Channel.finalizeInvoice(I);
         }
         
-        public void createBank(string bankname) {
-            base.Channel.createBank(bankname);
+        public void createBank(AccountingServiceClient.ServiceReference1.A_newbank I) {
+            base.Channel.createBank(I);
         }
         
-        public void setFeeForIntracCardType(string bankId, string amount, string description) {
-            base.Channel.setFeeForIntracCardType(bankId, amount, description);
+        public void setFeeForIntracCardType(AccountingServiceClient.ServiceReference1.A_setBankInteracFee I) {
+            base.Channel.setFeeForIntracCardType(I);
         }
         
-        public void setFeeForCreditCardType(string bankId, string ccCardTypeID, string amount, string description) {
-            base.Channel.setFeeForCreditCardType(bankId, ccCardTypeID, amount, description);
+        public void setFeeForCreditCardType(AccountingServiceClient.ServiceReference1.A_setBankCreditcardFee I) {
+            base.Channel.setFeeForCreditCardType(I);
         }
         
-        public void createMasterCard(string cardNumber, string expirydate) {
-            base.Channel.createMasterCard(cardNumber, expirydate);
+        public void createMasterCard(AccountingServiceClient.ServiceReference1.A_newCard I) {
+            base.Channel.createMasterCard(I);
         }
         
-        public void createVisaCard(string cardNumber, string expirydate) {
-            base.Channel.createVisaCard(cardNumber, expirydate);
+        public void createVisaCard(AccountingServiceClient.ServiceReference1.A_newCard I) {
+            base.Channel.createVisaCard(I);
         }
         
-        public void createDebitCard(string cardNumber, string expirydate) {
-            base.Channel.createDebitCard(cardNumber, expirydate);
+        public void createDebitCard(AccountingServiceClient.ServiceReference1.A_newCard I) {
+            base.Channel.createDebitCard(I);
         }
         
-        public void assignCardToBank(string cardId, string bankId) {
-            base.Channel.assignCardToBank(cardId, bankId);
+        public void assignCardToBank(AccountingServiceClient.ServiceReference1.A_assignCardToBank I) {
+            base.Channel.assignCardToBank(I);
         }
         
-        public void assignCardToPerson(string cardId, string personId) {
-            base.Channel.assignCardToPerson(cardId, personId);
+        public void assignCardToPerson(AccountingServiceClient.ServiceReference1.A_assignCardToPerson I) {
+            base.Channel.assignCardToPerson(I);
         }
         
-        public void addWalletMoney(string personID, string amount, string curID, string description) {
-            base.Channel.addWalletMoney(personID, amount, curID, description);
+        public void addWalletMoney(AccountingServiceClient.ServiceReference1.A_addWallet I) {
+            base.Channel.addWalletMoney(I);
         }
         
-        public decimal getInvoiceServicesSumAmt(string invoiceID) {
-            return base.Channel.getInvoiceServicesSumAmt(invoiceID);
+        public decimal getInvoiceServicesSumAmt(AccountingServiceClient.ServiceReference1.A_invoiceSum I) {
+            return base.Channel.getInvoiceServicesSumAmt(I);
         }
         
-        public void payInvoiceByCC(string invoiceID, string amount, string cardId, string ccCardTypeID) {
-            base.Channel.payInvoiceByCC(invoiceID, amount, cardId, ccCardTypeID);
+        public void payInvoiceByCC(AccountingServiceClient.ServiceReference1.A_payInvoiceCredit I) {
+            base.Channel.payInvoiceByCC(I);
         }
         
-        public void payInvoiceByInterac(string invoiceID, string amount, string cardId) {
-            base.Channel.payInvoiceByInterac(invoiceID, amount, cardId);
+        public void payInvoiceByInterac(AccountingServiceClient.ServiceReference1.A_payInvoiceInterac I) {
+            base.Channel.payInvoiceByInterac(I);
         }
         
-        public void payInvoiceByInternal(string invoiceID, string amount) {
-            base.Channel.payInvoiceByInternal(invoiceID, amount);
+        public void payInvoiceByInternal(AccountingServiceClient.ServiceReference1.A_payInvoiceInternal I) {
+            base.Channel.payInvoiceByInternal(I);
         }
         
-        public void cancelInvoicePaymentEXT(string invoiceID, string paymentID) {
-            base.Channel.cancelInvoicePaymentEXT(invoiceID, paymentID);
+        public void cancelInvoicePaymentEXT(AccountingServiceClient.ServiceReference1.A_cancelInvoicePayExt I) {
+            base.Channel.cancelInvoicePaymentEXT(I);
         }
         
-        public void cancelInvoicePaymentINTERNAL(string invoiceID, string paymentID) {
-            base.Channel.cancelInvoicePaymentINTERNAL(invoiceID, paymentID);
+        public void cancelInvoicePaymentINTERNAL(AccountingServiceClient.ServiceReference1.A_cancelInvoicePayInt I) {
+            base.Channel.cancelInvoicePaymentINTERNAL(I);
         }
         
-        public void cancelInvoice(string invoiceID) {
-            base.Channel.cancelInvoice(invoiceID);
+        public void cancelInvoice(AccountingServiceClient.ServiceReference1.A_cancelInvoice I) {
+            base.Channel.cancelInvoice(I);
+        }
+        
+        public AccountingServiceClient.ServiceReference1.A_customer test(AccountingServiceClient.ServiceReference1.A_customer x) {
+            return base.Channel.test(x);
         }
     }
 }

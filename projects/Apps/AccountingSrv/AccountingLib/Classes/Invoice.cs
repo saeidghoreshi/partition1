@@ -101,7 +101,7 @@ namespace accounting.classes
                 decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt();
                 
                 //Record related transctions
-                List <AccountingLib.Models.transaction> transactions = new List<transaction>();
+                List <int> transactions = new List<int>();
                 var trans1 = Transaction.createNew((int)this.receiverEntityID, (int)LibCategories.AP, -1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
                 transactions.Add(trans1);
                 var trans2 = Transaction.createNew((int)this.issuerEntityID, (int)AssetCategories.AR, +1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
@@ -161,7 +161,7 @@ namespace accounting.classes
                     ctx.SaveChanges();
 
                     //Record related transctions [for invoice payment]
-                    List <AccountingLib.Models.transaction> transactions = new List<transaction>();
+                    List <int> transactions = new List<int>();
                     transactions.Add(Transaction.createNew(issuerEntityID, (int)AssetCategories.W, -1 * amount, this.currencyID));
                     transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount, this.currencyID));
                     transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.W, +1 * amount, this.currencyID));
@@ -211,7 +211,7 @@ namespace accounting.classes
                     ccfee.loadccFeeByBankCardTypeID((int)ccCardType, (card as Entity).getBankByCard(card.cardID).bankID);
                     
                     //Record related transctions [for invoice payment]
-                    List <AccountingLib.Models.transaction> transactions = new List<transaction>();
+                    List <int> transactions = new List<int>();
 
                     transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.CCCASH, -1 * amount, this.currencyID));
                     transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount, this.currencyID));
@@ -269,7 +269,7 @@ namespace accounting.classes
                     fee.loadFeeByBankCardTypeID(card.cardTypeID, ((Entity)card).getBankByCard(cardID).bankID);
                     
                     //Record related transctions [for invoice payment]
-                    List <AccountingLib.Models.transaction> transactions = new List<transaction>();
+                    List <int> transactions = new List<int>();
                     transactions.Add(Transaction.createNew(receiverEntityID, (int)AssetCategories.DBCASH, -1 * amount, this.currencyID));
                     transactions.Add(Transaction.createNew(receiverEntityID, (int)LibCategories.AP, +1 * amount, this.currencyID));
 
@@ -299,7 +299,7 @@ namespace accounting.classes
                 accounting.classes.externalPayment payment = new accounting.classes.externalPayment();
                 payment.loadByPaymentID(paymentID);
 
-                List<AccountingLib.Models.transaction> transactions = payment.cancelPayment(enums.paymentAction.Void);
+                List<int> transactions = payment.cancelPayment(enums.paymentAction.Void);
 
                 /*Record Invoice Payment transactions*/
                 this.RecordInvoicePaymentTransactions(transactions, paymentID, enums.paymentStat.VoidApproved);
@@ -322,7 +322,7 @@ namespace accounting.classes
                 accounting.classes.internalPayment payment = new accounting.classes.internalPayment();
                 payment.loadByPaymentID(paymentID);
 
-                List<AccountingLib.Models.transaction> transactions = payment.cancelPayment(enums.paymentAction.Void);
+                List<int> transactions = payment.cancelPayment(enums.paymentAction.Void);
                 /*Record Invoice Payment transactions*/
                 this.RecordInvoicePaymentTransactions(transactions, paymentID, enums.paymentStat.VoidApproved);
 
@@ -358,7 +358,7 @@ namespace accounting.classes
                     decimal invoiceServicesAmt = this.getInvoiceServicesSumAmt();
 
                     //Record related transctions
-                    List<AccountingLib.Models.transaction> transactions = new List<transaction>();
+                    List<int> transactions = new List<int>();
                     var trans1 = Transaction.createNew((int)this.receiverEntityID, (int)LibCategories.AP, +1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
                     transactions.Add(trans1);
                     var trans2 = Transaction.createNew((int)this.issuerEntityID, (int)AssetCategories.AR, -1 * (decimal)invoiceServicesAmt, (int)this.currencyID);
@@ -386,7 +386,7 @@ namespace accounting.classes
             }
         }
 
-        private void RecordInvoiceTransaction(List<AccountingLib.Models.transaction> transactions, enums.invoiceStat invoiceStat)
+        private void RecordInvoiceTransaction(List<int> transactions, enums.invoiceStat invoiceStat)
         {
             using (var ctx = new AccContexts())
             using (var ts = new TransactionScope())
@@ -407,7 +407,7 @@ namespace accounting.classes
                     var invActionTrans = new AccountingLib.Models.invoiceActionTransaction()
                     {
                         invoiceActionID = invAction.ID,
-                        transactionID = item.ID
+                        transactionID = item
                     };
                     ctx.invoiceActionTransaction.AddObject(invActionTrans);
 
@@ -419,7 +419,7 @@ namespace accounting.classes
             }
         }
 
-        private void RecordInvoicePaymentTransactions(List<AccountingLib.Models.transaction> txns, int paymentID , enums.paymentStat payStat)
+        private void RecordInvoicePaymentTransactions(List<int> txns, int paymentID , enums.paymentStat payStat)
         {
             using (var ctx = new AccountingLib.Models.AccContexts())
             {
@@ -438,7 +438,7 @@ namespace accounting.classes
                     var newPayActionTxn = new paymentActionTransaction()
                     {
                         paymentActionID = payAction.ID,
-                        transactionID = txn.ID
+                        transactionID = txn
                     };
                     ctx.paymentActionTransaction.AddObject(newPayActionTxn);
                     ctx.SaveChanges();

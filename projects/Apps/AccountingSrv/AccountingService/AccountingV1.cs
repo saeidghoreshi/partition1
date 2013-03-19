@@ -201,7 +201,7 @@ namespace RyanGoreshi
         [OperationContract]
         void reset();
 
-        [WebInvoke(Method = "POST", UriTemplate = "Customer/new", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "POST", UriTemplate = "Customer/new", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Xml)]
         [OperationContract]
         Person newCustomer(A_customer I);
 
@@ -309,7 +309,9 @@ namespace RyanGoreshi
     {
         public void reset()
         {
-            Controller.resetAll();
+            
+            sqlServer db = new sqlServer("server=s06.winhost.com;database=DB_40114_codeclub;uid=DB_40114_codeclub_user;pwd=p0$31d0n;");
+            db.exec("[Accounting].[resetSeeds]");
 
             var cur_ca = new accounting.classes.Currency();
             cur_ca.create("CAD", (int)accounting.classes.enums.currencyType.Real);
@@ -317,15 +319,13 @@ namespace RyanGoreshi
 
         public Person newCustomer(A_customer I)
         {
-            /*
             var person = new accounting.classes.Person();
             person.New(I.firstname, I.lastname);
             
             //setup account
             person.createAccounts(I.curId);
             return person;
-            */
-            return new Person();
+            
         }
         
         public Service createService(A_service I)

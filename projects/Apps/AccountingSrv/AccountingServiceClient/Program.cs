@@ -14,9 +14,10 @@ namespace AccountingServiceClient
     {
         static void Main(string[] args)
         {
-            
+
             try
-            {
+            {   
+                /*
                 AccountingTest.request("reset", "");
                 Console.WriteLine("reset Done");
 
@@ -25,8 +26,18 @@ namespace AccountingServiceClient
                 Console.WriteLine("customer new done");
 
                 AccountingTest.request("customer/new",
-                    "{firstname:'Cust Fname2',lastname:'Cust Lname2',curId:1}");
-                Console.WriteLine("custoner new done");
+                    "<A_customer  xmlns=\"accounting\" ><firstname>Cust Fname2</firstname><lastname>Cust Lname2</lastname><curId>1</curId></A_customer>");
+                Console.WriteLine("customer new done");
+
+                AccountingTest.request("customer/new",
+                    "<A_customer  xmlns=\"accounting\" ><firstname>Cust Fname3</firstname><lastname>Cust Lname3</lastname><curId>1</curId></A_customer>");
+                Console.WriteLine("customer new done");
+
+                AccountingTest.request("customer/new",
+                    "<A_customer  xmlns=\"accounting\" ><firstname>Cust Fname4</firstname><lastname>Cust Lname4</lastname><curId>1</curId></A_customer>");
+                Console.WriteLine("customer new done");
+
+
 
                 AccountingTest.request("Service/new",
                     "<A_service xmlns=\"accounting\" ><servicename>SRV1</servicename><issuerEntityId>1</issuerEntityId><receiverEntityId>2</receiverEntityId></A_service>");
@@ -119,6 +130,9 @@ namespace AccountingServiceClient
                     "<A_payInvoiceInternal xmlns=\"accounting\" ><invoiceId>1</invoiceId><amount>11.58</amount></A_payInvoiceInternal>");
                 Console.WriteLine("invoice pay internal done");
 
+                //*/
+
+
                 //payment Cancellation  XOR w/  cancel invoice  [????]
                 /*
                 AccountingTest.request("Invoice/Payment/Cancel/Ext",
@@ -134,14 +148,19 @@ namespace AccountingServiceClient
                 Console.WriteLine("invoice pay cancel int done");
                 */
 
+                ServiceReference1.AccountingV1Client x = new ServiceReference1.AccountingV1Client();
+                x.cancelInvoice(new ServiceReference1.A_cancelInvoice() { invoiceId = 1 });
+
+                /*
                 //cancel Invoice
                 AccountingTest.request("Invoice/Cancel",
                     "<A_cancelInvoice xmlns=\"accounting\" ><invoiceId>1</invoiceId></A_cancelInvoice>");
+                */
                 Console.WriteLine("invoice cancel done");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
             }
             
 

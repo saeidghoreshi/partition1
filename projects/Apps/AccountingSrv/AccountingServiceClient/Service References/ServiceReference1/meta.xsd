@@ -1,470 +1,931 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-  <xs:import schemaLocation="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="EntityObject">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AccountingLib.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:555/srv.svc/Accounting/meta?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="ArrayOfcard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="card" nillable="true" type="tns:card" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcard" nillable="true" type="tns:ArrayOfcard" />
+  <xs:complexType name="card">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:StructuralObject">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
         <xs:sequence>
-          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q1:EntityKey" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="cardNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="cardType" nillable="true" type="tns:cardType" />
+          <xs:element minOccurs="0" name="cardTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cardTypeReference" nillable="true" type="q1:EntityReferenceOfcardTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="ccCard" nillable="true" type="tns:ArrayOfccCard" />
+          <xs:element minOccurs="0" name="dbCard" nillable="true" type="tns:ArrayOfdbCard" />
+          <xs:element minOccurs="0" name="entityCard" nillable="true" type="tns:ArrayOfentityCard" />
+          <xs:element minOccurs="0" name="expiryDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="externalPayment" nillable="true" type="tns:ArrayOfexternalPayment" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityObject" nillable="true" type="tns:EntityObject" />
-  <xs:complexType name="StructuralObject">
-    <xs:sequence />
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
-  </xs:complexType>
-  <xs:element name="StructuralObject" nillable="true" type="tns:StructuralObject" />
-  <xs:complexType name="EntityReferenceOfbankpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="bank" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="card" nillable="true" type="tns:card" />
+  <xs:complexType name="cardType">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="EntityReferenceOfbankpYp2H8J7" nillable="true" type="tns:EntityReferenceOfbankpYp2H8J7" />
-  <xs:complexType name="EntityReference">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:RelatedEnd">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
         <xs:sequence>
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q2:EntityKey" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="card" nillable="true" type="tns:ArrayOfcard" />
+          <xs:element minOccurs="0" name="dbCard" nillable="true" type="tns:ArrayOfdbCard" />
+          <xs:element minOccurs="0" name="fee" nillable="true" type="tns:ArrayOffee" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReference" nillable="true" type="tns:EntityReference" />
-  <xs:complexType name="RelatedEnd">
-    <xs:sequence />
+  <xs:element name="cardType" nillable="true" type="tns:cardType" />
+  <xs:complexType name="ArrayOfdbCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dbCard" nillable="true" type="tns:dbCard" />
+    </xs:sequence>
   </xs:complexType>
-  <xs:element name="RelatedEnd" nillable="true" type="tns:RelatedEnd" />
-  <xs:complexType name="EntityReferenceOfcardpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="card" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="ArrayOfdbCard" nillable="true" type="tns:ArrayOfdbCard" />
+  <xs:complexType name="dbCard">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="card" nillable="true" type="tns:card" />
+          <xs:element minOccurs="0" name="cardID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cardReference" nillable="true" type="q3:EntityReferenceOfcardpYp2H8J7" />
+          <xs:element minOccurs="0" name="cardType" nillable="true" type="tns:cardType" />
+          <xs:element minOccurs="0" name="cardTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cardTypeReference" nillable="true" type="q3:EntityReferenceOfcardTypepYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfcardpYp2H8J7" nillable="true" type="tns:EntityReferenceOfcardpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfccCardTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ccCardType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="dbCard" nillable="true" type="tns:dbCard" />
+  <xs:complexType name="ArrayOffee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="fee" nillable="true" type="tns:fee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOffee" nillable="true" type="tns:ArrayOffee" />
+  <xs:complexType name="fee">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bank" nillable="true" type="tns:bank" />
+          <xs:element minOccurs="0" name="bankID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="bankReference" nillable="true" type="q4:EntityReferenceOfbankpYp2H8J7" />
+          <xs:element minOccurs="0" name="cardType" nillable="true" type="tns:cardType" />
+          <xs:element minOccurs="0" name="cardTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cardTypeReference" nillable="true" type="q4:EntityReferenceOfcardTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfccCardTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfccCardTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfccCardpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ccCard" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="fee" nillable="true" type="tns:fee" />
+  <xs:complexType name="bank">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ccFee" nillable="true" type="tns:ArrayOfccFee" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q5:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="fee" nillable="true" type="tns:ArrayOffee" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfccCardpYp2H8J7" nillable="true" type="tns:EntityReferenceOfccCardpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfcardTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="cardType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="bank" nillable="true" type="tns:bank" />
+  <xs:complexType name="ArrayOfccFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ccFee" nillable="true" type="tns:ccFee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfccFee" nillable="true" type="tns:ArrayOfccFee" />
+  <xs:complexType name="ccFee">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="bank" nillable="true" type="tns:bank" />
+          <xs:element minOccurs="0" name="bankID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="bankReference" nillable="true" type="q6:EntityReferenceOfbankpYp2H8J7" />
+          <xs:element minOccurs="0" name="ccCardType" nillable="true" type="tns:ccCardType" />
+          <xs:element minOccurs="0" name="ccCardTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCardTypeReference" nillable="true" type="q6:EntityReferenceOfccCardTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfcardTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfcardTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfglTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="glType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="ccFee" nillable="true" type="tns:ccFee" />
+  <xs:complexType name="ccCardType">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCard" nillable="true" type="tns:ArrayOfccCard" />
+          <xs:element minOccurs="0" name="ccFee" nillable="true" type="tns:ArrayOfccFee" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfglTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfglTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfcategoryTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="categoryType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="ccCardType" nillable="true" type="tns:ccCardType" />
+  <xs:complexType name="ArrayOfccCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ccCard" nillable="true" type="tns:ccCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfccCard" nillable="true" type="tns:ArrayOfccCard" />
+  <xs:complexType name="ccCard">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="card" nillable="true" type="tns:card" />
+          <xs:element minOccurs="0" name="cardID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cardReference" nillable="true" type="q8:EntityReferenceOfcardpYp2H8J7" />
+          <xs:element minOccurs="0" name="ccCardType" nillable="true" type="tns:ccCardType" />
+          <xs:element minOccurs="0" name="ccCardTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCardTypeReference" nillable="true" type="q8:EntityReferenceOfccCardTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="mcCard" nillable="true" type="tns:ArrayOfmcCard" />
+          <xs:element minOccurs="0" name="visaCard" nillable="true" type="tns:ArrayOfvisaCard" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfcategoryTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfcategoryTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfcurrencyTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="currencyType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="ccCard" nillable="true" type="tns:ccCard" />
+  <xs:complexType name="ArrayOfmcCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="mcCard" nillable="true" type="tns:mcCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfmcCard" nillable="true" type="tns:ArrayOfmcCard" />
+  <xs:complexType name="mcCard">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCard" nillable="true" type="tns:ccCard" />
+          <xs:element minOccurs="0" name="ccCardID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCardReference" nillable="true" type="q9:EntityReferenceOfccCardpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfcurrencyTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfcurrencyTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfcurrencypYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="currency" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="mcCard" nillable="true" type="tns:mcCard" />
+  <xs:complexType name="ArrayOfvisaCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="visaCard" nillable="true" type="tns:visaCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfvisaCard" nillable="true" type="tns:ArrayOfvisaCard" />
+  <xs:complexType name="visaCard">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCard" nillable="true" type="tns:ccCard" />
+          <xs:element minOccurs="0" name="ccCardID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ccCardReference" nillable="true" type="q10:EntityReferenceOfccCardpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfcurrencypYp2H8J7" nillable="true" type="tns:EntityReferenceOfcurrencypYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfentitypYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="entity" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="visaCard" nillable="true" type="tns:visaCard" />
+  <xs:complexType name="entity">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="account" nillable="true" type="tns:ArrayOfaccount" />
+          <xs:element minOccurs="0" name="bank" nillable="true" type="tns:ArrayOfbank" />
+          <xs:element minOccurs="0" name="entityCard" nillable="true" type="tns:ArrayOfentityCard" />
+          <xs:element minOccurs="0" name="entityType" nillable="true" type="tns:entityType" />
+          <xs:element minOccurs="0" name="entityTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityTypeReference" nillable="true" type="q11:EntityReferenceOfentityTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="entityWallet" nillable="true" type="tns:ArrayOfentityWallet" />
+          <xs:element minOccurs="0" name="invoice" nillable="true" type="tns:ArrayOfinvoice" />
+          <xs:element minOccurs="0" name="invoice1" nillable="true" type="tns:ArrayOfinvoice" />
+          <xs:element minOccurs="0" name="organization" nillable="true" type="tns:ArrayOforganization" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:ArrayOfpayment" />
+          <xs:element minOccurs="0" name="payment1" nillable="true" type="tns:ArrayOfpayment" />
+          <xs:element minOccurs="0" name="person" nillable="true" type="tns:ArrayOfperson" />
+          <xs:element minOccurs="0" name="service" nillable="true" type="tns:ArrayOfservice" />
+          <xs:element minOccurs="0" name="service1" nillable="true" type="tns:ArrayOfservice" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfentitypYp2H8J7" nillable="true" type="tns:EntityReferenceOfentitypYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfentityWalletpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="entityWallet" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="entity" nillable="true" type="tns:entity" />
+  <xs:complexType name="ArrayOfaccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="account" nillable="true" type="tns:account" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfaccount" nillable="true" type="tns:ArrayOfaccount" />
+  <xs:complexType name="account">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q12:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="balance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="catTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="categoryType" nillable="true" type="tns:categoryType" />
+          <xs:element minOccurs="0" name="categoryTypeReference" nillable="true" type="q12:EntityReferenceOfcategoryTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="currency" nillable="true" type="tns:currency" />
+          <xs:element minOccurs="0" name="currencyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyReference" nillable="true" type="q12:EntityReferenceOfcurrencypYp2H8J7" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q12:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="ownerEntityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:ArrayOftransaction" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfentityWalletpYp2H8J7" nillable="true" type="tns:EntityReferenceOfentityWalletpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfaccountpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="account" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="account" nillable="true" type="tns:account" />
+  <xs:complexType name="categoryType">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q13:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="account" nillable="true" type="tns:ArrayOfaccount" />
+          <xs:element minOccurs="0" name="glType" nillable="true" type="tns:glType" />
+          <xs:element minOccurs="0" name="glTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="glTypeReference" nillable="true" type="q13:EntityReferenceOfglTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfaccountpYp2H8J7" nillable="true" type="tns:EntityReferenceOfaccountpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfinvoicepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="invoice" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="categoryType" nillable="true" type="tns:categoryType" />
+  <xs:complexType name="glType">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q14:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="categoryType" nillable="true" type="tns:ArrayOfcategoryType" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfinvoicepYp2H8J7" nillable="true" type="tns:EntityReferenceOfinvoicepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfexternalPaymentpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="externalPayment" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="glType" nillable="true" type="tns:glType" />
+  <xs:complexType name="ArrayOfcategoryType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="categoryType" nillable="true" type="tns:categoryType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcategoryType" nillable="true" type="tns:ArrayOfcategoryType" />
+  <xs:complexType name="currency">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q15:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="account" nillable="true" type="tns:ArrayOfaccount" />
+          <xs:element minOccurs="0" name="currencyType" nillable="true" type="tns:currencyType" />
+          <xs:element minOccurs="0" name="currencyTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyTypeReference" nillable="true" type="q15:EntityReferenceOfcurrencyTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="entityWallet" nillable="true" type="tns:ArrayOfentityWallet" />
+          <xs:element minOccurs="0" name="invoice" nillable="true" type="tns:ArrayOfinvoice" />
+          <xs:element minOccurs="0" name="invoiceService" nillable="true" type="tns:ArrayOfinvoiceService" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:ArrayOfpayment" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfexternalPaymentpYp2H8J7" nillable="true" type="tns:EntityReferenceOfexternalPaymentpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfextPaymentTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="extPaymentType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="currency" nillable="true" type="tns:currency" />
+  <xs:complexType name="currencyType">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q16:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="currency" nillable="true" type="tns:ArrayOfcurrency" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfextPaymentTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfextPaymentTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfpaymentpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="payment" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="currencyType" nillable="true" type="tns:currencyType" />
+  <xs:complexType name="ArrayOfcurrency">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="currency" nillable="true" type="tns:currency" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfcurrency" nillable="true" type="tns:ArrayOfcurrency" />
+  <xs:complexType name="ArrayOfentityWallet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entityWallet" nillable="true" type="tns:entityWallet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfentityWallet" nillable="true" type="tns:ArrayOfentityWallet" />
+  <xs:complexType name="entityWallet">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q17:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="currency" nillable="true" type="tns:currency" />
+          <xs:element minOccurs="0" name="currencyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyReference" nillable="true" type="q17:EntityReferenceOfcurrencypYp2H8J7" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q17:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="entityWalletTransaction" nillable="true" type="tns:ArrayOfentityWalletTransaction" />
+          <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfpaymentpYp2H8J7" nillable="true" type="tns:EntityReferenceOfpaymentpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfpaymentActionpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="paymentAction" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="entityWallet" nillable="true" type="tns:entityWallet" />
+  <xs:complexType name="ArrayOfentityWalletTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entityWalletTransaction" nillable="true" type="tns:entityWalletTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfentityWalletTransaction" nillable="true" type="tns:ArrayOfentityWalletTransaction" />
+  <xs:complexType name="entityWalletTransaction">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q18:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="entityWallet" nillable="true" type="tns:entityWallet" />
+          <xs:element minOccurs="0" name="entityWalletID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityWalletReference" nillable="true" type="q18:EntityReferenceOfentityWalletpYp2H8J7" />
+          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:transaction" />
+          <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="transactionReference" nillable="true" type="q18:EntityReferenceOftransactionpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfpaymentActionpYp2H8J7" nillable="true" type="tns:EntityReferenceOfpaymentActionpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOftransactionpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="transaction" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="entityWalletTransaction" nillable="true" type="tns:entityWalletTransaction" />
+  <xs:complexType name="transaction">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q19:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="account" nillable="true" type="tns:account" />
+          <xs:element minOccurs="0" name="accountID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="accountReference" nillable="true" type="q19:EntityReferenceOfaccountpYp2H8J7" />
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="entityWalletTransaction" nillable="true" type="tns:ArrayOfentityWalletTransaction" />
+          <xs:element minOccurs="0" name="invoiceActionTransaction" nillable="true" type="tns:ArrayOfinvoiceActionTransaction" />
+          <xs:element minOccurs="0" name="paymentActionTransaction" nillable="true" type="tns:ArrayOfpaymentActionTransaction" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOftransactionpYp2H8J7" nillable="true" type="tns:EntityReferenceOftransactionpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfpaymentStatpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="paymentStat" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="transaction" nillable="true" type="tns:transaction" />
+  <xs:complexType name="ArrayOfinvoiceActionTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="invoiceActionTransaction" nillable="true" type="tns:invoiceActionTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinvoiceActionTransaction" nillable="true" type="tns:ArrayOfinvoiceActionTransaction" />
+  <xs:complexType name="invoiceActionTransaction">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q20:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceAction" nillable="true" type="tns:invoiceAction" />
+          <xs:element minOccurs="0" name="invoiceActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceActionReference" nillable="true" type="q20:EntityReferenceOfinvoiceActionpYp2H8J7" />
+          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:transaction" />
+          <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="transactionReference" nillable="true" type="q20:EntityReferenceOftransactionpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfpaymentStatpYp2H8J7" nillable="true" type="tns:EntityReferenceOfpaymentStatpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfpaymentTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="paymentType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="invoiceActionTransaction" nillable="true" type="tns:invoiceActionTransaction" />
+  <xs:complexType name="invoiceAction">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q21:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="invoice" nillable="true" type="tns:invoice" />
+          <xs:element minOccurs="0" name="invoiceActionTransaction" nillable="true" type="tns:ArrayOfinvoiceActionTransaction" />
+          <xs:element minOccurs="0" name="invoiceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceReference" nillable="true" type="q21:EntityReferenceOfinvoicepYp2H8J7" />
+          <xs:element minOccurs="0" name="invoiceStat" nillable="true" type="tns:invoiceStat" />
+          <xs:element minOccurs="0" name="invoiceStatID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceStatReference" nillable="true" type="q21:EntityReferenceOfinvoiceStatpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfpaymentTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfpaymentTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfservicepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="service" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="invoiceAction" nillable="true" type="tns:invoiceAction" />
+  <xs:complexType name="invoice">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q22="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q22:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="currency" nillable="true" type="tns:currency" />
+          <xs:element minOccurs="0" name="currencyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyReference" nillable="true" type="q22:EntityReferenceOfcurrencypYp2H8J7" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entity1" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entity1Reference" nillable="true" type="q22:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q22:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="invoiceAction" nillable="true" type="tns:ArrayOfinvoiceAction" />
+          <xs:element minOccurs="0" name="invoicePayment" nillable="true" type="tns:ArrayOfinvoicePayment" />
+          <xs:element minOccurs="0" name="invoiceService" nillable="true" type="tns:ArrayOfinvoiceService" />
+          <xs:element minOccurs="0" name="issuerEntityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="receiverEntityID" nillable="true" type="xs:int" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfservicepYp2H8J7" nillable="true" type="tns:EntityReferenceOfservicepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfinvoiceStatpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="invoiceStat" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="invoice" nillable="true" type="tns:invoice" />
+  <xs:complexType name="ArrayOfinvoiceAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="invoiceAction" nillable="true" type="tns:invoiceAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinvoiceAction" nillable="true" type="tns:ArrayOfinvoiceAction" />
+  <xs:complexType name="ArrayOfinvoicePayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="invoicePayment" nillable="true" type="tns:invoicePayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinvoicePayment" nillable="true" type="tns:ArrayOfinvoicePayment" />
+  <xs:complexType name="invoicePayment">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q23:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="invoice" nillable="true" type="tns:invoice" />
+          <xs:element minOccurs="0" name="invoiceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceReference" nillable="true" type="q23:EntityReferenceOfinvoicepYp2H8J7" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:payment" />
+          <xs:element minOccurs="0" name="paymentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentReference" nillable="true" type="q23:EntityReferenceOfpaymentpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfinvoiceStatpYp2H8J7" nillable="true" type="tns:EntityReferenceOfinvoiceStatpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfinvoiceActionpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="invoiceAction" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="invoicePayment" nillable="true" type="tns:invoicePayment" />
+  <xs:complexType name="payment">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q24:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="currency" nillable="true" type="tns:currency" />
+          <xs:element minOccurs="0" name="currencyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyReference" nillable="true" type="q24:EntityReferenceOfcurrencypYp2H8J7" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entity1" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entity1Reference" nillable="true" type="q24:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q24:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="externalPayment" nillable="true" type="tns:ArrayOfexternalPayment" />
+          <xs:element minOccurs="0" name="internalPayment" nillable="true" type="tns:ArrayOfinternalPayment" />
+          <xs:element minOccurs="0" name="invoicePayment" nillable="true" type="tns:ArrayOfinvoicePayment" />
+          <xs:element minOccurs="0" name="payeeEntityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="payerEntityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentAction" nillable="true" type="tns:ArrayOfpaymentAction" />
+          <xs:element minOccurs="0" name="paymentType" nillable="true" type="tns:paymentType" />
+          <xs:element minOccurs="0" name="paymentTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentTypeReference" nillable="true" type="q24:EntityReferenceOfpaymentTypepYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfinvoiceActionpYp2H8J7" nillable="true" type="tns:EntityReferenceOfinvoiceActionpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfentityTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="entityType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="payment" nillable="true" type="tns:payment" />
+  <xs:complexType name="ArrayOfexternalPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="externalPayment" nillable="true" type="tns:externalPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfexternalPayment" nillable="true" type="tns:ArrayOfexternalPayment" />
+  <xs:complexType name="externalPayment">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q25:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="card" nillable="true" type="tns:card" />
+          <xs:element minOccurs="0" name="cardID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="cardReference" nillable="true" type="q25:EntityReferenceOfcardpYp2H8J7" />
+          <xs:element minOccurs="0" name="ccPayment" nillable="true" type="tns:ArrayOfccPayment" />
+          <xs:element minOccurs="0" name="dbPayment" nillable="true" type="tns:ArrayOfdbPayment" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="extPaymentType" nillable="true" type="tns:extPaymentType" />
+          <xs:element minOccurs="0" name="extPaymentTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="extPaymentTypeReference" nillable="true" type="q25:EntityReferenceOfextPaymentTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:payment" />
+          <xs:element minOccurs="0" name="paymentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentReference" nillable="true" type="q25:EntityReferenceOfpaymentpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfentityTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfentityTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfofficeTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="officeType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="externalPayment" nillable="true" type="tns:externalPayment" />
+  <xs:complexType name="ArrayOfccPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ccPayment" nillable="true" type="tns:ccPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfccPayment" nillable="true" type="tns:ArrayOfccPayment" />
+  <xs:complexType name="ccPayment">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q26="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q26:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="extPaymentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="externalPayment" nillable="true" type="tns:externalPayment" />
+          <xs:element minOccurs="0" name="externalPaymentReference" nillable="true" type="q26:EntityReferenceOfexternalPaymentpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfofficeTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfofficeTypepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfofficepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="office" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="ccPayment" nillable="true" type="tns:ccPayment" />
+  <xs:complexType name="ArrayOfdbPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="dbPayment" nillable="true" type="tns:dbPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfdbPayment" nillable="true" type="tns:ArrayOfdbPayment" />
+  <xs:complexType name="dbPayment">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q27:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="extPaymentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="externalPayment" nillable="true" type="tns:externalPayment" />
+          <xs:element minOccurs="0" name="externalPaymentReference" nillable="true" type="q27:EntityReferenceOfexternalPaymentpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfofficepYp2H8J7" nillable="true" type="tns:EntityReferenceOfofficepYp2H8J7" />
-  <xs:complexType name="EntityReferenceOforganizationpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="organization" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="dbPayment" nillable="true" type="tns:dbPayment" />
+  <xs:complexType name="extPaymentType">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q28="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q28:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="externalPayment" nillable="true" type="tns:ArrayOfexternalPayment" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOforganizationpYp2H8J7" nillable="true" type="tns:EntityReferenceOforganizationpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfpersonpYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="person" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="extPaymentType" nillable="true" type="tns:extPaymentType" />
+  <xs:complexType name="ArrayOfinternalPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="internalPayment" nillable="true" type="tns:internalPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinternalPayment" nillable="true" type="tns:ArrayOfinternalPayment" />
+  <xs:complexType name="internalPayment">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q29:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:payment" />
+          <xs:element minOccurs="0" name="paymentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentReference" nillable="true" type="q29:EntityReferenceOfpaymentpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfpersonpYp2H8J7" nillable="true" type="tns:EntityReferenceOfpersonpYp2H8J7" />
-  <xs:complexType name="EntityReferenceOfuserTypepYp2H8J7">
-    <xs:annotation>
-      <xs:appinfo>
-        <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="userType" Namespace="http://schemas.datacontract.org/2004/07/AccountingLib.Models" />
-        </GenericType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="internalPayment" nillable="true" type="tns:internalPayment" />
+  <xs:complexType name="ArrayOfpaymentAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="paymentAction" nillable="true" type="tns:paymentAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfpaymentAction" nillable="true" type="tns:ArrayOfpaymentAction" />
+  <xs:complexType name="paymentAction">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:EntityReference">
-        <xs:sequence />
+      <xs:extension xmlns:q30="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q30:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:payment" />
+          <xs:element minOccurs="0" name="paymentActionTransaction" nillable="true" type="tns:ArrayOfpaymentActionTransaction" />
+          <xs:element minOccurs="0" name="paymentID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentReference" nillable="true" type="q30:EntityReferenceOfpaymentpYp2H8J7" />
+          <xs:element minOccurs="0" name="paymentStat" nillable="true" type="tns:paymentStat" />
+          <xs:element minOccurs="0" name="paymentStatID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentStatReference" nillable="true" type="q30:EntityReferenceOfpaymentStatpYp2H8J7" />
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="EntityReferenceOfuserTypepYp2H8J7" nillable="true" type="tns:EntityReferenceOfuserTypepYp2H8J7" />
+  <xs:element name="paymentAction" nillable="true" type="tns:paymentAction" />
+  <xs:complexType name="ArrayOfpaymentActionTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="paymentActionTransaction" nillable="true" type="tns:paymentActionTransaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfpaymentActionTransaction" nillable="true" type="tns:ArrayOfpaymentActionTransaction" />
+  <xs:complexType name="paymentActionTransaction">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q31:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentAction" nillable="true" type="tns:paymentAction" />
+          <xs:element minOccurs="0" name="paymentActionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="paymentActionReference" nillable="true" type="q31:EntityReferenceOfpaymentActionpYp2H8J7" />
+          <xs:element minOccurs="0" name="transaction" nillable="true" type="tns:transaction" />
+          <xs:element minOccurs="0" name="transactionID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="transactionReference" nillable="true" type="q31:EntityReferenceOftransactionpYp2H8J7" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="paymentActionTransaction" nillable="true" type="tns:paymentActionTransaction" />
+  <xs:complexType name="paymentStat">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q32="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q32:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentAction" nillable="true" type="tns:ArrayOfpaymentAction" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="paymentStat" nillable="true" type="tns:paymentStat" />
+  <xs:complexType name="paymentType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q33:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="payment" nillable="true" type="tns:ArrayOfpayment" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="paymentType" nillable="true" type="tns:paymentType" />
+  <xs:complexType name="ArrayOfpayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="payment" nillable="true" type="tns:payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfpayment" nillable="true" type="tns:ArrayOfpayment" />
+  <xs:complexType name="ArrayOfinvoiceService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="invoiceService" nillable="true" type="tns:invoiceService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinvoiceService" nillable="true" type="tns:ArrayOfinvoiceService" />
+  <xs:complexType name="invoiceService">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q34="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q34:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="amount" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="currency" nillable="true" type="tns:currency" />
+          <xs:element minOccurs="0" name="currencyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyReference" nillable="true" type="q34:EntityReferenceOfcurrencypYp2H8J7" />
+          <xs:element minOccurs="0" name="invoice" nillable="true" type="tns:invoice" />
+          <xs:element minOccurs="0" name="invoiceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceReference" nillable="true" type="q34:EntityReferenceOfinvoicepYp2H8J7" />
+          <xs:element minOccurs="0" name="service" nillable="true" type="tns:service" />
+          <xs:element minOccurs="0" name="serviceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="serviceReference" nillable="true" type="q34:EntityReferenceOfservicepYp2H8J7" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="invoiceService" nillable="true" type="tns:invoiceService" />
+  <xs:complexType name="service">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q35="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q35:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entity1" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entity1Reference" nillable="true" type="q35:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q35:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="invoiceService" nillable="true" type="tns:ArrayOfinvoiceService" />
+          <xs:element minOccurs="0" name="issuerEntityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="receiverEntityID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="service" nillable="true" type="tns:service" />
+  <xs:complexType name="invoiceStat">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q36:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="invoiceAction" nillable="true" type="tns:ArrayOfinvoiceAction" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="invoiceStat" nillable="true" type="tns:invoiceStat" />
+  <xs:complexType name="ArrayOfinvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="invoice" nillable="true" type="tns:invoice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfinvoice" nillable="true" type="tns:ArrayOfinvoice" />
+  <xs:complexType name="ArrayOftransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="transaction" nillable="true" type="tns:transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOftransaction" nillable="true" type="tns:ArrayOftransaction" />
+  <xs:complexType name="ArrayOfbank">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="bank" nillable="true" type="tns:bank" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfbank" nillable="true" type="tns:ArrayOfbank" />
+  <xs:complexType name="ArrayOfentityCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entityCard" nillable="true" type="tns:entityCard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfentityCard" nillable="true" type="tns:ArrayOfentityCard" />
+  <xs:complexType name="entityCard">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q37="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q37:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="card" nillable="true" type="tns:card" />
+          <xs:element minOccurs="0" name="cardReference" nillable="true" type="q37:EntityReferenceOfcardpYp2H8J7" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q37:EntityReferenceOfentitypYp2H8J7" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="entityCard" nillable="true" type="tns:entityCard" />
+  <xs:complexType name="entityType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q38="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q38:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:ArrayOfentity" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="entityType" nillable="true" type="tns:entityType" />
+  <xs:complexType name="ArrayOfentity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="entity" nillable="true" type="tns:entity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfentity" nillable="true" type="tns:ArrayOfentity" />
+  <xs:complexType name="ArrayOforganization">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="organization" nillable="true" type="tns:organization" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOforganization" nillable="true" type="tns:ArrayOforganization" />
+  <xs:complexType name="organization">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q39="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q39:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q39:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="orgOffice" nillable="true" type="tns:ArrayOforgOffice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="organization" nillable="true" type="tns:organization" />
+  <xs:complexType name="ArrayOforgOffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="orgOffice" nillable="true" type="tns:orgOffice" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOforgOffice" nillable="true" type="tns:ArrayOforgOffice" />
+  <xs:complexType name="orgOffice">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q40="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q40:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="office" nillable="true" type="tns:office" />
+          <xs:element minOccurs="0" name="officeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="officeReference" nillable="true" type="q40:EntityReferenceOfofficepYp2H8J7" />
+          <xs:element minOccurs="0" name="orgID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="organization" nillable="true" type="tns:organization" />
+          <xs:element minOccurs="0" name="organizationReference" nillable="true" type="q40:EntityReferenceOforganizationpYp2H8J7" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="orgOffice" nillable="true" type="tns:orgOffice" />
+  <xs:complexType name="office">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q41="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q41:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="officeType" nillable="true" type="tns:officeType" />
+          <xs:element minOccurs="0" name="officeTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="officeTypeReference" nillable="true" type="q41:EntityReferenceOfofficeTypepYp2H8J7" />
+          <xs:element minOccurs="0" name="orgOffice" nillable="true" type="tns:ArrayOforgOffice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="office" nillable="true" type="tns:office" />
+  <xs:complexType name="officeType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q42="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q42:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="office" nillable="true" type="tns:ArrayOfoffice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="officeType" nillable="true" type="tns:officeType" />
+  <xs:complexType name="ArrayOfoffice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="office" nillable="true" type="tns:office" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfoffice" nillable="true" type="tns:ArrayOfoffice" />
+  <xs:complexType name="ArrayOfperson">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="person" nillable="true" type="tns:person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfperson" nillable="true" type="tns:ArrayOfperson" />
+  <xs:complexType name="person">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q43="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q43:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="entity" nillable="true" type="tns:entity" />
+          <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="entityReference" nillable="true" type="q43:EntityReferenceOfentitypYp2H8J7" />
+          <xs:element minOccurs="0" name="firstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user" nillable="true" type="tns:ArrayOfuser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="person" nillable="true" type="tns:person" />
+  <xs:complexType name="ArrayOfuser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="user" nillable="true" type="tns:user" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfuser" nillable="true" type="tns:ArrayOfuser" />
+  <xs:complexType name="user">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q44="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q44:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="person" nillable="true" type="tns:person" />
+          <xs:element minOccurs="0" name="personID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="personReference" nillable="true" type="q44:EntityReferenceOfpersonpYp2H8J7" />
+          <xs:element minOccurs="0" name="userType" nillable="true" type="tns:userType" />
+          <xs:element minOccurs="0" name="userTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="userTypeReference" nillable="true" type="q44:EntityReferenceOfuserTypepYp2H8J7" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="user" nillable="true" type="tns:user" />
+  <xs:complexType name="userType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q45="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q45:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" type="xs:int" />
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="user" nillable="true" type="tns:ArrayOfuser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="userType" nillable="true" type="tns:userType" />
+  <xs:complexType name="ArrayOfservice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="service" nillable="true" type="tns:service" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfservice" nillable="true" type="tns:ArrayOfservice" />
 </xs:schema>

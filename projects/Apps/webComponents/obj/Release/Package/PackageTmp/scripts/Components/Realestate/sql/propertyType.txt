@@ -1,0 +1,5 @@
+﻿insert into realestate.propertyType (ID,name) values(1,'Condominium')
+insert into realestate.propertyType (ID,name) values(2,'House')
+insert into realestate.propertyType (ID,name) values(3,'Farm')
+insert into realestate.propertyType (ID,name) values(4,'Land')
+insert into realestate.propertyType (ID,name) values(5,'Others')

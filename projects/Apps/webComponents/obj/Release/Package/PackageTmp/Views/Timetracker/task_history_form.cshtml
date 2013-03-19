@@ -1,0 +1,26 @@
+﻿
+<div id='scrollerContainer' >
+    <div id="scroll-pane">
+        
+        <div id="result"></div>
+        
+    </div>
+</div>
+                    
+
+
+<script>
+    
+    $.get("/TimeTracker/tt_task_history")
+    .done(function (data) {
+        $('#result').html(data);
+        $('#scroll-pane').jScrollPane();
+    });
+</script>
+<style>
+#scroll-pane{height: 225px;}			
+</style>
+
+<link href="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.css" rel="stylesheet" type="text/css" />
+<script src="../../../scripts/JSplugins/jScrollPane/jquery.mousewheel.js" type="text/javascript"></script>
+<script src="../../../scripts/JSplugins/jScrollPane/jquery.jscrollpane.min.js" type="text/javascript"></script>
